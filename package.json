@@ -1,0 +1,20 @@
+{
+  "name": "junkato.jp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pug src --out dest"
+  },
+  "author": "Jun Kato",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "gulp-csso": "^3.0.0",
+    "gulp-less": "^3.3.2",
+    "gulp-pug": "^3.3.0",
+    "semantic-ui": "^2.2.13"
+  }
+}
