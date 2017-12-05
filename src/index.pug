@@ -1,4 +1,27 @@
-html
+html(lang='ja')
   head
-    title test
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title 加藤 淳のポートフォリオ | junkato.jp
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(rel='stylesheet', href='/semantic/semantic.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
   body
+    .ui.top.fixed.menu
+      a.active.item(href='/') 加藤 淳
+      a.item(href='/#about') 自己紹介
+      a.item(href='/#projects') プロジェクト
+      a.item(href='/publications') 受賞歴と発表文献
+      a.item(href='/#contact') 連絡先
+      .right.menu
+        a.item(href='/ja/blog') ブログ
+        a.item(href='/') English
+    .ui.container#main
+      h1.ui.header 自己紹介
+    .ui.divider
+    footer.ui.center.aligned.container &copy; Jun Kato 2017
+    script(type='text/javascript', href='/semantic/semantic.min.js')
