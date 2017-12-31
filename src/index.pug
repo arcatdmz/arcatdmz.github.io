@@ -1,5 +1,18 @@
 extends _layout
 
+mixin history()
+  h2.ui.header#history
+    i.history.icon
+    .content #{en ? 'History' : '更新履歴'}
+  .ui.list
+    - for (const entry of history) {
+    .item
+      i.right.triangle.icon
+      .content
+        .header #{entry.text}
+        .description #{entry.getDateString(en)}
+    - }
+
 mixin projects()
   h2.ui.header#projects
     i.lab.icon
@@ -80,6 +93,8 @@ block main
     .item
       i.github.icon
       .content: a(href='https://github.com/arcatdmz') arcatdmz
+  .ui.divider
+  +history()
   .ui.divider
   +projects()
   .ui.divider

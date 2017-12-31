@@ -13,6 +13,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 
 const tsProject = ts.createProject('tsconfig.json');
+const tsNodeProject = ts.createProject('tsconfig-node.json');
 const webpackConfig = require('./webpack.config');
 
 gulp.task('semantic', require('./semantic/tasks/build'));
@@ -33,6 +34,13 @@ gulp.task('ts', ['del:js'], function(){
     .pipe(gulp.dest('src'))
 });
 
+gulp.task('ts:pug', function(){
+  return gulp.src('src/javascripts/history.ts')
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(tsNodeProject())
+    .pipe(gulp.dest('.'))
+});
+
 gulp.task('js', ['ts'], function(){
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -40,10 +48,13 @@ gulp.task('js', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', function(){
+gulp.task('html', ['ts:pug'], function(){
+  const history = require('./history');
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(pug())
+    .pipe(pug({ locals: {
+      history: history.default
+    } }))
     .pipe(gulp.dest('dist/'))
 });
 

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "rootDir": "src/javascripts",
+    "outDir": ".",
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/javascripts/history.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
