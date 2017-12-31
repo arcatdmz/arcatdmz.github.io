@@ -1,4 +1,4 @@
-mixin head(title='加藤 淳のポートフォリオ')
+mixin head()
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(name='description', content='')
@@ -66,7 +66,7 @@ html(lang='ja')
   - var author = en ? 'Jun Kato' : '加藤 淳';
   block vars
   head
-    +head(title)
+    +head()
   body
     block header
       +header()
