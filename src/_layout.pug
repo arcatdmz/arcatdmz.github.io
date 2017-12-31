@@ -12,25 +12,47 @@ mixin head(title='加藤 淳のポートフォリオ')
   link(rel='stylesheet', href='/stylesheets/main.css')
 
 mixin header(id)
-  .ui.top.fixed.menu(id=id)
+  .ui.top.fixed.stackable.menu(id=id)
     a.active.item(href=en ? '/' : '/ja') #{author}
     - if (en) {
-    a.item(href='/#about') About
-    a.item(href='/#projects') Projects
-    a.item(href='/publications') Awards &amp; Publications
-    a.item(href='/#contact') Contact
+    a.item(href='/#about')
+      i.user.circle.icon
+      | About
+    a.item(href='/#projects')
+      i.lab.icon
+      | Projects
+    a.item(href='/publications')
+      i.text.file.icon
+      | Awards &amp; Publications
+    a.item(href='/#contact')
+      i.address.card.icon
+      | Contact
     - } else {
-    a.item(href='/ja/#about') 自己紹介
-    a.item(href='/ja/#projects') プロジェクト
-    a.item(href='/ja/publications') 受賞歴と発表文献
-    a.item(href='/ja/#contact') 連絡先
+    a.item(href='/ja/#about')
+      i.user.circle.icon
+      | 自己紹介
+    a.item(href='/ja/#projects')
+      i.lab.icon
+      | プロジェクト
+    a.item(href='/ja/publications')
+      i.text.file.icon
+      | 受賞歴と発表文献
+    a.item(href='/ja/#contact')
+      i.address.card.icon
+      | 連絡先
     - }
     .right.menu
       - if (en) {
-      a.item(href='/ja') 日本語
+      a.item(href='/ja')
+        i.translate.icon
+        | 日本語
       - } else {
-      a.item(href='/ja/blog') #{blog}
-      a.item(href='/') English
+      a.item(href='/ja/blog')
+        i.wordpress.icon
+        | ブログ
+      a.item(href='/')
+        i.translate.icon
+        | English
       - }
 
 mixin footer()
@@ -52,3 +74,4 @@ html(lang='ja')
       .ui.container#main
         block main
     +footer()
+    block scripts

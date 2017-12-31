@@ -10,14 +10,21 @@
   "author": "Jun Kato",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
     "gulp-copy": "^1.0.1",
     "gulp-csso": "^3.0.0",
     "gulp-less": "^3.3.2",
     "gulp-notify": "^3.0.0",
-    "gulp-pug": "^3.3.0"
+    "gulp-pug": "^3.3.0",
+    "gulp-typescript": "^3.2.3",
+    "gulp-uglify": "^3.0.0",
+    "typescript": "^2.6.2"
   },
   "dependencies": {
     "semantic-ui": "^2.2.13"
