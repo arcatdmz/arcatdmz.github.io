@@ -2,13 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: [
-    './src/javascripts/index.js'
-  ],
+  entry: {
+    index: './src/javascripts/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'javascripts/index.js',
-    chunkFilename: 'javascripts/[hash].js'
+    filename: 'javascripts/[name].js',
+    chunkFilename: 'javascripts/[name].js'
   },
 
   devtool: 'source-map',
