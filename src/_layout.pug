@@ -31,9 +31,14 @@ mixin header(id)
     a.item(href='/ja/#about')
       i.user.circle.icon
       | 自己紹介
-    a.item(href='/ja/#projects')
+    a.ui.dropdown.item(href='/ja/#projects')
       i.lab.icon
       | プロジェクト
+      i.dropdown.icon
+      .menu
+        .item a
+        .item b
+        .item c
     a.item(href='/ja/publications')
       i.text.file.icon
       | 受賞歴と発表文献
