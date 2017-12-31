@@ -9,6 +9,7 @@ const ts = require('gulp-typescript');
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
 const browserSync = require('browser-sync');
+const del = require('del');
 
 const tsProject = ts.createProject('tsconfig.json');
 const webpackConfig = require('./webpack.config');
@@ -16,7 +17,15 @@ const webpackConfig = require('./webpack.config');
 gulp.task('semantic', require('./semantic/tasks/build'));
 gulp.task('semantic-watch', require('./semantic/tasks/watch'));
 
-gulp.task('ts', function(){
+gulp.task('del', function(){
+  return del(['dist/**/*', '!dist/semantic/**/*']);
+});
+
+gulp.task('del:js', function(){
+  return del(['src/javascripts/**/*.js', 'dist/javascripts/**/*']);
+});
+
+gulp.task('ts', ['del:js'], function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsProject())
