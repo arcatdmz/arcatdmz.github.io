@@ -23,13 +23,19 @@ gulp.task('css', function(){
     .pipe(gulp.dest('dist/stylesheets'))
 });
 
-gulp.task('browser-sync', () => {
+gulp.task('copy', function(){
+  return gulp.src('src/**/*.{pdf,png,jpg}', { base: 'src'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('dist'));
+})
+
+gulp.task('browser-sync', function(){
   browserSync({
     server: {
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.html', ['reload']);
+  gulp.watch('dist/**/*.{html,pdf,png,jpg}', ['reload']);
   gulp.watch('dist/stylesheets/**/*.css', ['reload']);
 });
 
@@ -37,10 +43,11 @@ gulp.task('reload', () => {
   browserSync.reload();
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function(){
   gulp.watch(['src/**/*.pug', '!src/**/_*.pug'], ['html']);
   gulp.watch('src/stylesheets/**/*.less', ['css']);
+  gulp.watch('src/**/*.{pdf,png,jpg}', ['copy']);
 });
 
-gulp.task('default', [ 'html', 'css' ]);
-gulp.task('sync', [ 'default', 'browser-sync', 'watch' ]);
+gulp.task('default', ['html', 'css', 'copy']);
+gulp.task('sync', ['default', 'browser-sync', 'watch']);

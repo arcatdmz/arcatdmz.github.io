@@ -1,27 +1,83 @@
-html(lang='ja')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='description', content='')
-    meta(name='author', content='加藤 淳')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title 加藤 淳のポートフォリオ | junkato.jp
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(rel='stylesheet', href='/semantic/semantic.min.css')
-    link(rel='stylesheet', href='/stylesheets/main.css')
-  body
-    .ui.top.fixed.menu
-      a.active.item(href='/') 加藤 淳
-      a.item(href='/#about') 自己紹介
-      a.item(href='/#projects') プロジェクト
-      a.item(href='/publications') 受賞歴と発表文献
-      a.item(href='/#contact') 連絡先
-      .right.menu
-        a.item(href='/ja/blog') ブログ
-        a.item(href='/') English
-    .ui.container#main
-      h1.ui.header 自己紹介
-    .ui.divider
-    footer.ui.center.aligned.container &copy; Jun Kato 2017
-    script(type='text/javascript', href='/semantic/semantic.min.js')
+extends _layout
+
+mixin projects()
+  h2.ui.header#projects
+    i.lab.icon
+    .content #{en ? 'Projects' : 'プロジェクト'}
+  .ui.floating.icon.warning.message
+    i.info.circle.icon
+    .content
+      .header #{en ? 'Under construction' : '作成中'}
+      p #{en ? 'This section will be added soon.' : 'このセクションは近日中に追加される予定です。'}
+
+mixin contact()
+  h2.ui.header#contact
+    i.address.card.icon
+    .content #{en ? 'Contact' : '連絡先'}
+  block contact
+  .ui.list
+    .item
+      i.building.icon
+      .content
+        - if (en) {
+        a(href='https://staff.aist.go.jp/m.goto/MIG/') Media Interaction Group
+        | , 
+        a(href='https://www.itri.aist.go.jp/en/') Information Technology Research Institute (ITRI)
+        | , 
+        a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
+        - } else {
+        a(href='https://staff.aist.go.jp/m.goto/MIG/') メディアインタラクション研究グループ
+        | ，
+        a(href='https://www.itri.aist.go.jp/') 情報技術研究部門 (<abbr title='Information Technology Research Institute'>ITRI</abbr>)
+        | ，
+        a(href='https://www.aist.go.jp/index_en.html') 国立研究開発法人 産業技術総合研究所 (<abbr title='National Institute of Advanced Industrial Science and Technology'>AIST</abbr>)
+        - }
+    .item
+      i.marker.icon
+      .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '茨城県つくば市梅園1-1-1 中央第2'}
+  .ui.horizontal.list
+    .item
+      i.mail.icon
+      .content: a(href='mailto:i@junkato.jp') i@junkato.jp
+    .item
+      i.phone.icon
+      .content #{en ? '+81' : '0'}29-862-6622
+    .item
+      i.fax.icon
+      .content #{en ? '+81' : '0'}29-861-3313
+
+block header
+  +header('about')
+
+block main
+  h1.ui.header
+    img.ui.circular.image(src='/images/junkato.jpg')
+    .content #{author}
+      .sub.header
+        - if (en) {
+        | Human-Computer Interaction researcher, Ph.D (Computer Science)
+        - } else {
+        | Human-Computer Interaction 研究者，博士（情報理工学）
+        - }
+  block about
+    p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
+  .ui.horizontal.list
+    .item
+      i.file.icon
+      .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
+    .item
+      i.google.icon
+      .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
+    .item
+      i.facebook.icon
+      .content: a(href='https://facebook.com/jun.kato') jun.kato
+    .item
+      i.twitter.icon
+      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz')) #{en ? 'junkato' : 'arcatdmz'}
+    .item
+      i.github.icon
+      .content: a(href='https://github.com/arcatdmz') arcatdmz
+  .ui.divider
+  +projects()
+  .ui.divider
+  +contact()
