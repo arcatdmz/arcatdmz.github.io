@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
-    "webpack": "webpack --colors --config webpack.config.js",
     "start": "gulp sync"
   },
   "author": "Jun Kato",

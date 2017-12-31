@@ -13,6 +13,9 @@ const browserSync = require('browser-sync');
 const tsProject = ts.createProject('tsconfig.json');
 const webpackConfig = require('./webpack.config');
 
+gulp.task('semantic', require('./semantic/tasks/build'));
+gulp.task('semantic-watch', require('./semantic/tasks/watch'));
+
 gulp.task('ts', function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -22,6 +25,7 @@ gulp.task('ts', function(){
 
 gulp.task('js', ['ts'], function(){
   return webpackStream(webpackConfig, webpack)
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
@@ -53,9 +57,7 @@ gulp.task('browser-sync', function(){
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,pdf,png,jpg}', ['reload']);
-  gulp.watch('dist/javascripts/**/*.js', ['reload']);
-  gulp.watch('dist/stylesheets/**/*.css', ['reload']);
+  gulp.watch('dist/**/*.{html,pdf,png,jpg,js,css}', ['reload']);
 });
 
 gulp.task('reload', () => {
@@ -69,5 +71,7 @@ gulp.task('watch', function(){
   gulp.watch('src/**/*.{pdf,png,jpg}', ['copy']);
 });
 
-gulp.task('default', ['html', 'css', 'js', 'copy']);
-gulp.task('sync', ['default', 'browser-sync', 'watch']);
+gulp.task('watch-all', ['semantic-watch', 'watch']);
+
+gulp.task('default', ['semantic', 'html', 'css', 'js', 'copy']);
+gulp.task('sync', ['watch-all', 'browser-sync']);
