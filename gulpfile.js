@@ -8,6 +8,7 @@ const minifyCSS = require('gulp-csso');
 const ts = require('gulp-typescript');
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
+const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync');
 const del = require('del');
 
@@ -35,6 +36,7 @@ gulp.task('ts', ['del:js'], function(){
 gulp.task('js', ['ts'], function(){
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
