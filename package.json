@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
+    "webpack": "webpack --colors --config webpack.config.js",
     "start": "gulp sync"
   },
   "author": "Jun Kato",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.36",
+    "@babel/polyfill": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "babel-loader": "^8.0.0-beta.0",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -24,7 +27,9 @@
     "gulp-pug": "^3.3.0",
     "gulp-typescript": "^3.2.3",
     "gulp-uglify": "^3.0.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-stream": "^4.0.0"
   },
   "dependencies": {
     "semantic-ui": "^2.2.13"

@@ -1,22 +1,28 @@
-var gulp = require('gulp');
-var notify = require('gulp-notify');
-var plumber = require('gulp-plumber');
-var pug = require('gulp-pug');
-var less = require('gulp-less');
-var autoprefixer = require('gulp-autoprefixer');
-var minifyCSS = require('gulp-csso');
-var babel = require('gulp-babel');
-var ts = require('gulp-typescript');
-var browserSync = require('browser-sync');
+const gulp = require('gulp');
+const notify = require('gulp-notify');
+const plumber = require('gulp-plumber');
+const pug = require('gulp-pug');
+const less = require('gulp-less');
+const autoprefixer = require('gulp-autoprefixer');
+const minifyCSS = require('gulp-csso');
+const ts = require('gulp-typescript');
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
+const browserSync = require('browser-sync');
 
-tsProject = ts.createProject('tsconfig.json');
+const tsProject = ts.createProject('tsconfig.json');
+const webpackConfig = require('./webpack.config');
 
-gulp.task('ts', function() {
+gulp.task('ts', function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsProject())
-    //.pipe(babel())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('src'))
+});
+
+gulp.task('js', ['ts'], function(){
+  return webpackStream(webpackConfig, webpack)
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('html', function(){
@@ -59,9 +65,9 @@ gulp.task('reload', () => {
 gulp.task('watch', function(){
   gulp.watch(['src/**/*.pug', '!src/**/_*.pug'], ['html']);
   gulp.watch('src/stylesheets/**/*.less', ['css']);
-  gulp.watch('src/**/*.ts', ['ts']);
+  gulp.watch('src/**/*.ts', ['js']);
   gulp.watch('src/**/*.{pdf,png,jpg}', ['copy']);
 });
 
-gulp.task('default', ['html', 'css', 'ts', 'copy']);
+gulp.task('default', ['html', 'css', 'js', 'copy']);
 gulp.task('sync', ['default', 'browser-sync', 'watch']);
