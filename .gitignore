@@ -1,7 +1,9 @@
 # Project-specific config
 dist
 src/javascripts/**/*.js
-history.js
+*.js
+!gulpfile.js
+!webpack.config.js
 
 # Logs
 logs

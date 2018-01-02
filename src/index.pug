@@ -3,14 +3,16 @@ extends _layout
 mixin history()
   h2.ui.header#history
     i.history.icon
-    .content #{en ? 'History' : '更新履歴'}
+    .content #{en ? 'Recent updates' : '近況'}
   .ui.list
-    - for (const entry of history) {
+    - var i = 0;
+    - for (const entry of histories[lang]) {
+    - if (++i > 5) break;
     .item
       i.right.triangle.icon
       .content
-        .header #{entry.text}
-        .description #{entry.getDateString(en)}
+        .header !{entry.text}
+        .description #{entry.getDateString(lang)}
     - }
 
 mixin projects()

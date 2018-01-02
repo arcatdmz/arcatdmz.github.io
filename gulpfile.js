@@ -24,21 +24,27 @@ gulp.task('del', function(){
 });
 
 gulp.task('del:js', function(){
-  return del(['src/javascripts/**/*.js', 'dist/javascripts/**/*']);
+  return del([
+      'src/javascripts/**/*.js'
+    , 'dist/javascripts/**/*'
+    , '*.js'
+    , '!gulpfile.js'
+    , '!webpack.config.js'
+  ]);
 });
 
 gulp.task('ts', ['del:js'], function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsProject())
-    .pipe(gulp.dest('src'))
+    .pipe(gulp.dest('src'));
 });
 
 gulp.task('ts:pug', function(){
-  return gulp.src('src/javascripts/history.ts')
+  return gulp.src('src/javascripts/history*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('js', ['ts'], function(){
@@ -49,13 +55,15 @@ gulp.task('js', ['ts'], function(){
 });
 
 gulp.task('html', ['ts:pug'], function(){
-  const history = require('./history');
-  return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(pug({ locals: {
-      history: history.default
-    } }))
-    .pipe(gulp.dest('dist/'))
+  const historyLoader = new (require('./history').default)();
+  historyLoader.onLoad((histories) => {
+    return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
+      .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+      .pipe(pug({ locals: {
+        histories: histories
+      } }))
+      .pipe(gulp.dest('dist/'));
+  });
 });
 
 gulp.task('css', function(){
@@ -64,11 +72,11 @@ gulp.task('css', function(){
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/stylesheets'))
+    .pipe(gulp.dest('dist/stylesheets'));
 });
 
 gulp.task('copy', function(){
-  return gulp.src('src/**/*.{pdf,png,jpg}', { base: 'src'})
+  return gulp.src('src/**/*.{pdf,png,jpg,bibtex,json}', { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 })
@@ -79,7 +87,7 @@ gulp.task('browser-sync', function(){
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,pdf,png,jpg,js,css}', ['reload']);
+  gulp.watch('dist/**/*.{html,pdf,png,jpg,bibtex,json,js,css}', ['reload']);
 });
 
 gulp.task('reload', () => {
