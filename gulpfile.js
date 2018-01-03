@@ -102,7 +102,7 @@ gulp.task('reload', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(['src/**/*.pug', '!src/**/_*.pug'], ['html']);
+  gulp.watch(['src/**/*.pug'], ['html']);
   gulp.watch('src/stylesheets/**/*.less', ['css']);
   gulp.watch('src/**/*.ts', ['js']);
   gulp.watch('src/**/*.{pdf,png,jpg}', ['copy']);
