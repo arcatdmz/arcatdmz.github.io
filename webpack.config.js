@@ -1,16 +1,21 @@
 const path = require('path');
+const glob = require('glob');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
+const files = glob.sync('./src/javascripts/views/!(library).js');
+
+const filesMap = {};
+for (const file of files) {
+  filesMap[path.basename(file, '.js')] = file;
+}
+
 module.exports = {
-  entry: {
-    index: ['core-js/fn/promise', './src/javascripts/views/index.js'],
-    default: ['core-js/fn/promise', './src/javascripts/views/default.js']
-  },
+  entry: filesMap,
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'javascripts/[name].js',
-    chunkFilename: 'javascripts/[name].[hash].js',
+    filename: 'javascripts/views/[name].js',
+    chunkFilename: 'javascripts/views/[name].[hash].js',
     publicPath: '/',
   },
 
