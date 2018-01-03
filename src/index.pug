@@ -1,5 +1,25 @@
 extends _layout
 
+mixin about()
+  block about
+    p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
+  .ui.horizontal.sns.list
+    .item
+      i.file.icon
+      .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
+    .item
+      i.google.icon
+      .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
+    .item
+      i.facebook.icon
+      .content: a(href='https://facebook.com/jun.kato') jun.kato
+    .item
+      i.twitter.icon
+      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz')) #{en ? 'junkato' : 'arcatdmz'}
+    .item
+      i.github.icon
+      .content: a(href='https://github.com/arcatdmz') arcatdmz
+
 mixin history()
   h2.ui.header#history
     i.history.icon
@@ -14,6 +34,15 @@ mixin history()
         .header !{entry.text}
         .description #{entry.getDateString(lang)}
     - }
+  - if (histories[lang].length > 5) {
+  .ui.basic.right.aligned.segment
+    a.ui.left.attached.more.disabled.button
+      i.zoom.icon
+      | #{en ? 'More' : 'もっと見る'}
+    a.ui.right.attached.all.button(href=`${basePath}updates.html`)
+      i.maximize.icon
+      | #{en ? 'Show all' : '全部見る'}
+  - }
 
 mixin projects()
   h2.ui.header#projects
@@ -30,6 +59,7 @@ mixin contact()
     i.address.card.icon
     .content #{en ? 'Contact' : '連絡先'}
   block contact
+    p Please reach me via email or <a href="#about" class="sns">social networking services</a> rather than telephone and facsimile when possible. I rarely check these conventional machines.
   .ui.list
     .item
       i.building.icon
@@ -77,31 +107,17 @@ block main
         - } else {
         | Human-Computer Interaction 研究者，博士（情報理工学）
         - }
-  block about
-    p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
-  .ui.horizontal.list
-    .item
-      i.file.icon
-      .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
-    .item
-      i.google.icon
-      .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
-    .item
-      i.facebook.icon
-      .content: a(href='https://facebook.com/jun.kato') jun.kato
-    .item
-      i.twitter.icon
-      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz')) #{en ? 'junkato' : 'arcatdmz'}
-    .item
-      i.github.icon
-      .content: a(href='https://github.com/arcatdmz') arcatdmz
+  .ui.basic.segment.about
+    +about()
   .ui.divider
-  +history()
+  .ui.basic.segment.history
+    +history()
   .ui.divider
-  +projects()
+  .ui.basic.segment.projects
+    +projects()
   .ui.divider
-  +contact()
+  .ui.basic.segment.contact
+    +contact()
 
 block scripts
-  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
   script(type='text/javascript', src='/javascripts/index.js')

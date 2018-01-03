@@ -22,7 +22,7 @@ export default class HistoryLoader {
   private promise: Promise<Histories>;
   constructor() {
     this.promise = new Promise((resolve, reject) => {
-      import('./historyEntries').then((historyEntries) => {
+      import(/* webpackChunkName: "historyEntries" */ './historyEntries').then((historyEntries) => {
         const results: Histories = {};
         for (const lang in historyEntries.default) {
           const entries = historyEntries.default[lang];

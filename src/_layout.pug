@@ -67,8 +67,7 @@ mixin footer()
 
 html(lang='ja')
   block lang
-    - var en = true;
-    - var lang = 'en';
+    - var en = true, lang = 'en', basePath = '/';
   - var author = en ? 'Jun Kato' : '加藤 淳';
   block vars
   head
@@ -80,4 +79,6 @@ html(lang='ja')
       .ui.container#main
         block main
     +footer()
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
+    script(type='text/javascript') var en=#{en};lang="#{lang}";
     block scripts
