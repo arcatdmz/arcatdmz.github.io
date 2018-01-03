@@ -42,14 +42,17 @@ mixin about()
       i.google.icon
       .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
     .item
+      i.linkedin.icon
+      .content: a(href='https://jp.linkedin.com/in/jkato', title='LinkedIn') jkato
+    .item
       i.facebook.icon
-      .content: a(href='https://facebook.com/jun.kato') jun.kato
+      .content: a(href='https://facebook.com/jun.kato', title='Facebook') jun.kato
     .item
       i.twitter.icon
-      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz')) #{en ? 'junkato' : 'arcatdmz'}
+      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz'), title='Twitter') #{en ? 'junkato' : 'arcatdmz'}
     .item
       i.github.icon
-      .content: a(href='https://github.com/arcatdmz') arcatdmz
+      .content: a(href='https://github.com/arcatdmz', title='GitHub') arcatdmz
 
 mixin history()
   h2.ui.header#history

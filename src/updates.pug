@@ -1,12 +1,12 @@
 extends _layout
 
 block vars
-  - var title = 'Recent updates';
+  - var title = en ? 'Update history' : '更新履歴';
 
 block main
   h1.ui.header
     i.history.icon
-    .content #{en ? 'Recent updates' : '近況'}
+    .content #{title}
   - var i = 0, year = histories[lang][0].date.getYear() + 1;
   - while (i < histories[lang].length) {
   - const y = year + 1900;
