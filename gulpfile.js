@@ -41,7 +41,7 @@ gulp.task('ts', ['del:js'], function(){
 });
 
 gulp.task('ts:node', function(){
-  return gulp.src('src/javascripts/{histories,awards}.ts')
+  return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
     .pipe(gulp.dest('.'));
@@ -77,7 +77,7 @@ gulp.task('css', function(){
 });
 
 gulp.task('copy', function(){
-  return gulp.src('src/**/*.{pdf,png,jpg,bibtex,json}', { base: 'src'})
+  return gulp.src('src/**/*.{pdf,png,jpg,bib,json}', { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 })
@@ -105,7 +105,7 @@ gulp.task('watch', function(){
   gulp.watch(['src/**/*.pug'], ['html']);
   gulp.watch('src/stylesheets/**/*.less', ['css']);
   gulp.watch('src/**/*.ts', ['js']);
-  gulp.watch('src/**/*.{pdf,png,jpg}', ['copy']);
+  gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', ['copy']);
 });
 
 gulp.task('watch-all', ['semantic-watch', 'watch']);

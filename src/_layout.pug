@@ -14,6 +14,14 @@ mixin head()
   link(rel='stylesheet', href='/semantic/semantic.min.css')
   link(rel='stylesheet', href='/stylesheets/main.css')
 
+mixin header-projects-menu()
+  block projects-menu
+    i.dropdown.icon
+    .menu
+      .item a
+      .item b
+      .item c
+
 mixin header(id)
   .ui.top.fixed.menu(id=id)
     a.active.item(href=en ? '/' : '/ja') #{author}
@@ -21,9 +29,10 @@ mixin header(id)
     a.item(href='/#about')
       i.user.circle.icon
       span.mobile.hidden About
-    a.item(href='/#projects')
+    a.ui.dropdown.item(href='/#projects')
       i.lab.icon
       span.mobile.hidden Projects
+      +header-projects-menu()
     a.item(href='/publications')
       i.text.file.icon
       span.mobile.hidden Awards &amp; Publications
@@ -37,12 +46,7 @@ mixin header(id)
     a.ui.dropdown.item(href='/ja/#projects')
       i.lab.icon
       span.mobile.hidden プロジェクト
-      block projects-menu
-        i.dropdown.icon
-        .menu
-          .item a
-          .item b
-          .item c
+      +header-projects-menu()
     a.item(href='/ja/publications')
       i.text.file.icon
       span.mobile.hidden 受賞歴と発表文献
@@ -88,3 +92,5 @@ html(lang='ja')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en};lang="#{lang}";
     block scripts
+      script(type='text/javascript', src='/javascripts/default.js')
+
