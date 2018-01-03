@@ -8,6 +8,14 @@ block main
   h1.ui.header#awards
     i.trophy.icon
     .content #{en ? 'Awards' : '受賞歴'}
+  .ui.divided.list
+    - for (const entry of awards) {
+    .item
+      i.right.triangle.icon
+      .content
+        .header !{entry.getText(lang)}
+        .description #{entry.getDateString(lang)}
+    - }
   h1.ui.header#publications
     i.book.icon
     .content #{en ? 'Publications' : '発表文献'}
