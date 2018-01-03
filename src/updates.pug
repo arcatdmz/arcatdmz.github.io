@@ -1,0 +1,31 @@
+extends _layout
+
+block vars
+  - var title = 'Recent updates';
+
+block main
+  h1.ui.header
+    i.history.icon
+    .content #{en ? 'Recent updates' : '近況'}
+  - var i = 0, year = histories[lang][0].date.getYear() + 1;
+  - while (i < histories[lang].length) {
+  - const y = year + 1900;
+  h2.ui.header(id=y) #{y}
+  .ui.list
+    - while (i < histories[lang].length) {
+    - const entry = histories[lang][i];
+    - if (entry.date.getYear() !== year) {
+    - year = entry.date.getYear();
+    - break;
+    - }
+    .item
+      i.right.triangle.icon
+      .content
+        .header !{entry.text}
+        .description #{entry.getDateString(lang)}
+    - i ++;
+    - }
+  - }
+
+block scripts
+  script(type='text/javascript', src='/javascripts/updates.js')
