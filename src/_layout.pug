@@ -11,7 +11,6 @@ mixin head()
   - if (!en) {
   link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/notosansjapanese.css')
   - }
-  link(rel='stylesheet', href='/semantic/semantic.min.css')
   link(rel='stylesheet', href='/stylesheets/main.css')
 
 mixin header-projects-menu()
@@ -56,14 +55,14 @@ mixin header(id)
     - }
     .right.menu
       - if (en) {
-      a.item(href='/ja/' + me)
+      a.item(href=`/ja/${me}`)
         i.translate.icon
         span.mobile.hidden 日本語
       - } else {
       a.item(href='/ja/blog')
         i.wordpress.icon
         span.mobile.hidden ブログ
-      a.item(href='/' + me)
+      a.item(href=`/${me}`)
         i.translate.icon
         span.mobile.hidden English
       - }
@@ -88,9 +87,8 @@ html(lang='ja')
       .ui.container#main
         block main
     +footer()
-    //- script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en};lang="#{lang}";
     block scripts
-      script(type='text/javascript', src='/javascripts/default.js')
-
+      script(type='text/javascript', src='/javascripts/views/default.js')
