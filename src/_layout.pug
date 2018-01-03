@@ -37,11 +37,12 @@ mixin header(id)
     a.ui.dropdown.item(href='/ja/#projects')
       i.lab.icon
       span.mobile.hidden プロジェクト
-      i.dropdown.icon
-      .menu
-        .item a
-        .item b
-        .item c
+      block projects-menu
+        i.dropdown.icon
+        .menu
+          .item a
+          .item b
+          .item c
     a.item(href='/ja/publications')
       i.text.file.icon
       span.mobile.hidden 受賞歴と発表文献
@@ -82,6 +83,7 @@ html(lang='ja')
       .ui.container#main
         block main
     +footer()
-    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
+    //- script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en};lang="#{lang}";
     block scripts
