@@ -11,7 +11,7 @@ const entries: Entries = {
   "en": [
     {
       "date": "11/08/2017",
-      "text": "Provided a keynote talk at <a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>. I\"m writing a follow-up article about the talk, but for now, please refer to <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">the talk abstract</a> and <a href=\"https://junkato.jp/publications/live2017-kato-keynote-slides.pdf\">slide deck</a>."
+      "text": "Provided a keynote talk at <a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>. I'm writing a follow-up article about the talk, but for now, please refer to <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">the talk abstract</a> and <a href=\"https://junkato.jp/publications/live2017-kato-keynote-slides.pdf\">slide deck</a>."
     },
     {
       "date": "09/23/2017",
@@ -27,7 +27,7 @@ const entries: Entries = {
     },
     {
       "date": "04/04/2017",
-      "text": "Presented <a href=\"/ugv\">User-Generated Variables</a> at &lt;Programming&gt; <a href=\"http://programming-experience.org/px17/\"><abbr title=\"Programming Experience\">PX</abbr> workshop</a>. It\"s always good to get to know new people!"
+      "text": "Presented <a href=\"/ugv\">User-Generated Variables</a> at &lt;Programming&gt; <a href=\"http://programming-experience.org/px17/\"><abbr title=\"Programming Experience\">PX</abbr> workshop</a>. It's always good to get to know new people!"
     },
     {
       "date": "03/27/2017",
@@ -71,7 +71,7 @@ const entries: Entries = {
     },
     {
       "date": "09/23/2015",
-      "text": "My Ph.D dissertation finally got online on the university\"s repository. <a href=\"http://hdl.handle.net/2261/58372?locale=en\"><u>Jun Kato</u>, <b>&quot;Integrated Graphical Representations for Development of Programs with Real-world Input and Output&quot;</b>, Mar. 2014</a>."
+      "text": "My Ph.D dissertation finally got online on the university's repository. <a href=\"http://hdl.handle.net/2261/58372?locale=en\"><u>Jun Kato</u>, <b>&quot;Integrated Graphical Representations for Development of Programs with Real-world Input and Output&quot;</b>, Mar. 2014</a>."
     },
     {
       "date": "07/29/2015",
@@ -107,15 +107,15 @@ const entries: Entries = {
     },
     {
       "date": "06/19/2014",
-      "text": "Visited <a href=\"http://www.dgp.toronto.edu/\">the University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> and gave a talk. I\"m also visiting <a href=\"http://hci.cs.umanitoba.ca/\">the University of Manitoba <abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a> in a few days and will give another talk. Both of these talks are about &quot;Live Programming&quot; in the real world, which is based on my Ph.D dissertation and discusses the direction of future work in my current position."
+      "text": "Visited <a href=\"http://www.dgp.toronto.edu/\">the University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> and gave a talk. I'm also visiting <a href=\"http://hci.cs.umanitoba.ca/\">the University of Manitoba <abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a> in a few days and will give another talk. Both of these talks are about &quot;Live Programming&quot; in the real world, which is based on my Ph.D dissertation and discusses the direction of future work in my current position."
     },
     {
       "date": "04/25/2014",
-      "text": "Serving as a program committee member for <a href=\"http://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a> is exciting but difficult. Apart from it, I\"m getting settled in the new environment and have just started to prepare for attending <a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>. I\"m going to present <a href=\"/visionsketch/\">VisionSketch</a> in the &quot;<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>&quot; session on 5/8."
+      "text": "Serving as a program committee member for <a href=\"http://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a> is exciting but difficult. Apart from it, I'm getting settled in the new environment and have just started to prepare for attending <a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>. I'm going to present <a href=\"/visionsketch/\">VisionSketch</a> in the &quot;<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>&quot; session on 5/8."
     },
     {
       "date": "04/01/2014",
-      "text": "Received a Ph.D degree in Computer Science and started to work as a researcher in <a href=\"http://www.aist.go.jp/aist_e/about_aist/\">AIST</a>, a research organization funded by the Japanese government in which over 2000 researchers work hard to contribute to both industry and science. My primary task won\"t change - to conduct interesting research, write good paper, and do some other stuff to make world better place with help of information technology :)"
+      "text": "Received a Ph.D degree in Computer Science and started to work as a researcher in <a href=\"http://www.aist.go.jp/aist_e/about_aist/\">AIST</a>, a research organization funded by the Japanese government in which over 2000 researchers work hard to contribute to both industry and science. My primary task won't change - to conduct interesting research, write good paper, and do some other stuff to make world better place with help of information technology :)"
     },
     {
       "date": "02/25/2014",
@@ -127,7 +127,7 @@ const entries: Entries = {
     },
     {
       "date": "11/19/2013",
-      "text": "Visited St. Andrews to for <a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>, gave a talk at <a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>, met friends of the Microsoft campus, and finished the Adobe internship... I\"m back in Japan!"
+      "text": "Visited St. Andrews to for <a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>, gave a talk at <a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>, met friends of the Microsoft campus, and finished the Adobe internship... I'm back in Japan!"
     },
     {
       "date": "08/12/2013",
@@ -147,11 +147,11 @@ const entries: Entries = {
     },
     {
       "date": "03/05/2013",
-      "text": "My colleagues are going to present <a href=\"/openpool/\">OpenPool</a> at <a href=\"http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>. I\"ve worked on the project as one of the main programmers. Stay tuned for its open-source distribution!"
+      "text": "My colleagues are going to present <a href=\"/openpool/\">OpenPool</a> at <a href=\"http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>. I've worked on the project as one of the main programmers. Stay tuned for its open-source distribution!"
     },
     {
       "date": "03/02/2013",
-      "text": "Collaboration with <abbr title=\"Programming Language\">PL</abbr> people turned out to be a full paper at <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI 2013</a>. It\"s about live programming on <a href=\"https://www.touchdevelop.com/app/\">TouchDevelop Web App</a>!"
+      "text": "Collaboration with <abbr title=\"Programming Language\">PL</abbr> people turned out to be a full paper at <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI 2013</a>. It's about live programming on <a href=\"https://www.touchdevelop.com/app/\">TouchDevelop Web App</a>!"
     },
     {
       "date": "12/13/2012",
@@ -159,7 +159,7 @@ const entries: Entries = {
     },
     {
       "date": "10/28/2012",
-      "text": "Attended <a href=\"http://www.msra.cn/21CCC/xsjs_en.html\" title=\"Computing in the 21st Century Conference\">21 CCC</a> in Tianjin, China and received this year\"s <a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>."
+      "text": "Attended <a href=\"http://www.msra.cn/21CCC/xsjs_en.html\" title=\"Computing in the 21st Century Conference\">21 CCC</a> in Tianjin, China and received this year's <a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>."
     },
     {
       "date": "10/15/2012",
