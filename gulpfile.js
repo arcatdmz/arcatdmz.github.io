@@ -11,10 +11,13 @@ const webpack = require('webpack');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync');
 const del = require('del');
+const fs = require('fs');
+const bibtexParse = require('bibtex-parse-js');
 
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
 const webpackConfig = require('./webpack.config');
+const bibtex = fs.readFileSync('src/junkato.bib', { encoding: 'UTF-8' });
 
 gulp.task('semantic-js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic-assets', require('./semantic/tasks/build/assets'));
@@ -65,9 +68,11 @@ gulp.task('html', ['ts:node'], function(){
     .pipe(pug({
       locals: {
         histories: require('./histories').default,
-        awards: require('./awards').default
+        awards: require('./awards').default,
+        publications: bibtexParse.toJSON(bibtex)
       },
-      verbose: true
+      verbose: true,
+      pretty: true
     }))
     .pipe(gulp.dest('dist/'));
 });
