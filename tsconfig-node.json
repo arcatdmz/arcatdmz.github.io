@@ -8,7 +8,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/javascripts/history*.ts"
+    "src/javascripts/histories.ts",
   ],
   "exclude": [
     "node_modules"

@@ -55,15 +55,13 @@ gulp.task('js', ['ts'], function(){
 });
 
 gulp.task('html', ['ts:node'], function(){
-  const historyLoader = new (require('./history').default)();
-  historyLoader.onLoad((histories) => {
-    return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
-      .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-      .pipe(pug({ locals: {
-        histories: histories
-      } }))
-      .pipe(gulp.dest('dist/'));
-  });
+  const histories = require('./histories').default;
+  return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(pug({ locals: {
+      histories: histories
+    } }))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('css', function(){
