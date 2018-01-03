@@ -1,0 +1,13 @@
+extends ../_layout
+
+block vars
+  - var title = en ? 'Awards and Publications' : '受賞歴と発表文献';
+  - var me = 'publications/';
+
+block main
+  h1.ui.header#awards
+    i.trophy.icon
+    .content #{en ? 'Awards' : '受賞歴'}
+  h1.ui.header#publications
+    i.book.icon
+    .content #{en ? 'Publications' : '発表文献'}

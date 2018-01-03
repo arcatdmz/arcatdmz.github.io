@@ -52,14 +52,14 @@ mixin header(id)
     - }
     .right.menu
       - if (en) {
-      a.item(href='/ja')
+      a.item(href='/ja/' + me)
         i.translate.icon
         span.mobile.hidden 日本語
       - } else {
       a.item(href='/ja/blog')
         i.wordpress.icon
         span.mobile.hidden ブログ
-      a.item(href='/')
+      a.item(href='/' + me)
         i.translate.icon
         span.mobile.hidden English
       - }
@@ -74,6 +74,7 @@ html(lang='ja')
     - var en = true, lang = 'en', basePath = '/';
   - var author = en ? 'Jun Kato' : '加藤 淳';
   block vars
+    - var me = '';
   head
     +head()
   body
