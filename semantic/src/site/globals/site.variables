@@ -1,3 +1,25 @@
 /*******************************
      User Global Variables
 *******************************/
+
+/*
+  Abel
+  Ropa Sans
+  News Cycle
+  Gudea
+*/
+
+@headerFont: 'Fira Sans','Noto Sans Japanese','Hiragino Kaku Gothic Pro',Meiryo,Helvetica,Arial,sans-serif;
+@pageFont: @headerFont;
+@fontSmoothing: antialiased;
+
+@emSize: 15px;
+@fontSize: 15px;
+@lineHeight: 1.5;
+
+@green: #269eab;
+@primaryColor: #0e3f47;
+
+@linkColor: @green;
+@linkUnderline: underline;
+@linkHoverColor: #18646c;

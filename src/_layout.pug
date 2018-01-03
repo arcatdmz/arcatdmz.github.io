@@ -7,7 +7,10 @@ mixin head()
     meta(name='author', content=author)
     title #{title} | junkato.jp
   link(rev='made', href='mailto:i@junkato.jp')
-  link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+  link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Fira+Sans')
+  - if (!en) {
+  link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/notosansjapanese.css')
+  - }
   link(rel='stylesheet', href='/semantic/semantic.min.css')
   link(rel='stylesheet', href='/stylesheets/main.css')
 
