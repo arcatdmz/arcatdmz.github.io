@@ -20,7 +20,7 @@ import(/* webpackChunkName: "history" */ './history').then(history => {
       .removeClass('disabled')
       .on('click touch', () => {
         const es = entries.slice(cursor, cursor + num)
-          , $historyList = $('.ui.segment.history .ui.list')
+          , $historyList = $('.ui.segment#history .ui.list')
         var $added = null;
         for (const e of es) {
           const $item = $('<div class="item"><i class="right triangle icon"></i><div class="content"><div class="header"></div><div class="description"></div></div></div>');
