@@ -40,7 +40,7 @@ gulp.task('ts', ['del:js'], function(){
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('ts:pug', function(){
+gulp.task('ts:node', function(){
   return gulp.src('src/javascripts/history*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
@@ -54,7 +54,7 @@ gulp.task('js', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', ['ts:pug'], function(){
+gulp.task('html', ['ts:node'], function(){
   const historyLoader = new (require('./history').default)();
   historyLoader.onLoad((histories) => {
     return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
@@ -72,7 +72,8 @@ gulp.task('css', function(){
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/stylesheets'));
+    .pipe(gulp.dest('dist/stylesheets'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('copy', function(){
@@ -81,16 +82,22 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('dist'));
 })
 
+gulp.task('site', ['semantic'], function(){
+  for (const name of ['html', 'css', 'js', 'copy']) {
+    gulp.start(name);
+  }
+});
+
 gulp.task('browser-sync', function(){
   browserSync({
     server: {
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,pdf,png,jpg,bibtex,json,js,css}', ['reload']);
+  gulp.watch('dist/**/*.{html,js}', ['reload']);
 });
 
-gulp.task('reload', () => {
+gulp.task('reload', function(){
   browserSync.reload();
 });
 
@@ -103,5 +110,5 @@ gulp.task('watch', function(){
 
 gulp.task('watch-all', ['semantic-watch', 'watch']);
 
-gulp.task('default', ['semantic', 'html', 'css', 'js', 'copy']);
+gulp.task('default', ['site']);
 gulp.task('sync', ['watch-all', 'browser-sync']);
