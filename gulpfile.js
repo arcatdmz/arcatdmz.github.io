@@ -41,7 +41,7 @@ gulp.task('ts', ['del:js'], function(){
 });
 
 gulp.task('ts:node', function(){
-  return gulp.src('src/javascripts/history*.ts')
+  return gulp.src('src/javascripts/{histories,awards}.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
     .pipe(gulp.dest('.'));
@@ -56,10 +56,12 @@ gulp.task('js', ['ts'], function(){
 
 gulp.task('html', ['ts:node'], function(){
   const histories = require('./histories').default;
+  const awards = require('./awards').default;
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({ locals: {
-      histories: histories
+      histories: histories,
+      awards: awards
     } }))
     .pipe(gulp.dest('dist/'));
 });
