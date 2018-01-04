@@ -29,4 +29,17 @@ block main
   h1.ui.header#publications
     i.book.icon
     .content #{en ? 'Publications' : '発表文献'}
-  pre #{JSON.stringify(publications, null, 2)}
+  .ui.segments
+    .ui.secondary.segment
+      .ui.horizontal.list
+        .item
+          i.circle.icon
+          .content #{en ? 'Domestic publications' : '国内'}
+        .item
+          i.world.icon
+          .content #{en ? 'International publications' : '国際'}
+    .ui.segment
+      .ui.divided.list
+        - for (const entry of publications) {
+        +render-publication(entry)
+        - }

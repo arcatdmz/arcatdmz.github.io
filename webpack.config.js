@@ -45,5 +45,11 @@ module.exports = {
 
   plugins: [
     new UglifyJsPlugin()
-  ]
+  ],
+
+  resolve: {
+    alias: {
+      clipboard$: path.resolve(__dirname, 'node_modules/clipboard/dist/clipboard.min.js')
+    }
+  }
 };

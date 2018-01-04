@@ -33,5 +33,7 @@
     "webpack": "^3.10.0",
     "webpack-stream": "^4.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "clipboard": "^1.7.1"
+  }
 }

@@ -1,5 +1,7 @@
 /// <reference types='semantic-ui' />
+/// <reference path='./clipboard.d.ts' />
 
+import Clipboard from 'clipboard';
 import '../../../dist/semantic/semantic.min';
 
 // initialize dropdown menus
@@ -27,6 +29,9 @@ $('a[href*=\\#]').on('click touch', function(ev){
   }
   return true;
 });
+
+// clipboard
+new Clipboard('a.bibtex.button');
 
 export default class TestLib {
   constructor() {

@@ -72,6 +72,29 @@ mixin footer()
   footer.ui.center.aligned.container &copy; Jun Kato 2017
   script(type='text/javascript', href='/semantic/semantic.min.js')
 
+mixin render-publication(entry)
+  - if (!entry.entryTags) return;
+  .item(class=entry.entryType, id=entry.citationKey)
+    .right.floated.content
+      //a.ui.circular.icon.tiny.button(href='')
+        i.film.icon
+      a.ui.circular.icon.tiny.button(href=entry.entryTags.pdf)
+        i.file.icon
+      a.ui.circular.icon.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
+        i.book.icon
+    i.icon(class=entry.getIcon())
+    .content
+      .header #{entry.entryTags.title}
+      .description
+        //.ui.horizontal.divided.list
+          - for (const author of entry.getAuthorsTags()) {
+          .item
+            i.user.circle.icon
+            .content !{author}
+          - }
+        p !{entry.getAuthorsTags().join(', ')}
+        //pre #{JSON.stringify(entry.entryTags)}
+
 html(lang='ja')
   block lang
     - var en = true, lang = 'en', basePath = '/';

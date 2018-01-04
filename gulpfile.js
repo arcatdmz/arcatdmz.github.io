@@ -69,7 +69,7 @@ gulp.task('html', ['ts:node'], function(){
       locals: {
         histories: require('./histories').default,
         awards: require('./awards').default,
-        publications: bibtexParse.toJSON(bibtex)
+        publications: require('./publications').parse(bibtexParse.toJSON(bibtex))
       },
       verbose: true,
       pretty: true
