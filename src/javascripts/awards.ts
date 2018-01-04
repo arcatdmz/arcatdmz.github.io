@@ -132,7 +132,7 @@ const rawEntries: RawEntry[] =
     {
       "date": "6/1/2013",
       "text":
-        "ACM <a href=\"http://www.cs.wm.edu/~idillig/pldi13-src/\">PLDI '13 Student Research Competition</a> Finalist"
+        "ACM <a href=\"http://www.cs.utexas.edu/~isil/pldi13-src/\">PLDI '13 Student Research Competition</a> Finalist"
     },
     {
       "date": "4/1/2013",
@@ -169,7 +169,7 @@ const rawEntries: RawEntry[] =
     },
     {
       "date": "2010", "text":
-        "ACM <a href=\"http://src.acm.org/candidates2010.html\">Student Research Competition Grand Finals</a> Finalist"
+        "ACM <a href=\"https://src.acm.org/candidates/2010\">Student Research Competition Grand Finals</a> Finalist"
     },
     {
       "date": "8/1/2009", "text":
@@ -177,7 +177,7 @@ const rawEntries: RawEntry[] =
     },
     {
       "date": "4/1/2009", "text":
-        "ACM <a href=\"http://src.acm.org/previouswinners.html\">CHI '09 Student Research Competition</a> 1st Place"
+        "ACM <a href=\"https://src.acm.org/winners/2010\">CHI '09 Student Research Competition</a> 1st Place"
     },
     {
       "date": "12/1/2008-8/1/2009", "text": {
