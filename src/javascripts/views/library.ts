@@ -3,6 +3,7 @@
 
 import Clipboard from 'clipboard';
 import '../../../dist/semantic/semantic.min';
+const lang: 'en'|'ja' = (<any>self)["lang"];
 
 // initialize dropdown menus
 $('a.dropdown.item')
@@ -31,6 +32,43 @@ $('a[href*=\\#]').on('click touch', function(ev){
 });
 
 // clipboard
+const clipText = lang === 'en'
+  ? 'Click to copy the BibTeX entry to your clipboard'
+  : 'クリックでBibTeXをクリップボードにコピーします';
+const copyText = lang === 'en'
+  ? 'Copied!'
+  : 'コピーしました！';
+$('a.bibtex.button')
+  .on('click touch', (ev) => {
+    const $a = $(ev.currentTarget);
+    var closable = false;
+    $a
+      .popup('destroy')
+      .popup(<any>{
+        content: copyText,
+        position: 'left center',
+        onHide: () => closable,
+        onHidden: () => {
+          $a
+            .popup('destroy')
+            .popup({
+              content: clipText,
+              position: 'left center',
+              addTouchEvents: true
+            });
+        }
+      })
+      .popup('show');
+    setTimeout(() => {
+      closable = true;
+      $a.popup('hide');
+    }, 1000);
+  })
+  .popup({
+    content: clipText,
+    position: 'left center',
+    addTouchEvents: true
+  });
 new Clipboard('a.bibtex.button');
 
 export default class TestLib {

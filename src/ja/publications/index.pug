@@ -4,17 +4,17 @@ block lang
   - var en = false, lang = 'ja', basePath = '/ja/';
 
 block publications
-  .ui.segments
-    .ui.secondary.segment
-      .ui.horizontal.list
-        .item
-          i.circle.icon
-          .content #{en ? 'Domestic publications' : '国内'}
-        .item
-          i.world.icon
-          .content #{en ? 'International publications' : '国際'}
-    .ui.segment
-      .ui.divided.list
-        - for (const entry of publications) {
-        +render-publication(entry)
-        - }
+  h2.ui.header#international-publications 国際会議・ジャーナル
+  .ui.segment
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.entryTags && entry.entryTags.language === 'japanese') continue;
+      +render-publication(entry)
+      - }
+  h2.ui.header#international-publications 国内会議・ジャーナル
+  .ui.segment
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (!entry.entryTags || entry.entryTags.language !== 'japanese') continue;
+      +render-publication(entry)
+      - }
