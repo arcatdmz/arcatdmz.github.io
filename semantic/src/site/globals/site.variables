@@ -11,6 +11,7 @@
 
 @headerFont: 'Fira Sans','Noto Sans Japanese','Hiragino Kaku Gothic Pro',Meiryo,Helvetica,Arial,sans-serif;
 @pageFont: @headerFont;
+@importGoogleFonts: false;
 @fontSmoothing: antialiased;
 
 @emSize: 15px;
