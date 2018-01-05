@@ -67,6 +67,33 @@ class Entry implements BibTexEntry {
     out += '\n}';
     return out;
   }
+  public getBook() {
+    var book: string;
+    if (this.entryTags.booktitle) {
+      book = this.entryTags.booktitle;
+    } else if (this.entryTags.journal) {
+      if (this.entryTags.volume && this.entryTags.number) {
+        book = `${this.entryTags.journal} ${this.entryTags.volume}(${this.entryTags.number})`;
+      } else {
+        book = this.entryTags.journal;
+      }
+    } else {
+      book = '';
+    }
+    return book;
+  }
+  public getBookWithPages() {
+    var book = this.getBook(), pages = this.entryTags.pages;
+    if (pages) {
+      if (pages.indexOf('-') >= 0) {
+        pages = pages.replace(/-+/, '-');
+        book = `${book}, pp.${pages}`;
+      } else {
+        book = `${book}, p.${pages}`;
+      }
+    }
+    return book;
+  }
 }
 
 export function parse(bibtex: any): Entry[] {

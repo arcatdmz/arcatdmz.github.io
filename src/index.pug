@@ -61,7 +61,7 @@ mixin history()
     .content #{en ? 'Recent updates' : '近況'}
   .ui.segments
     .ui.segment
-      .ui.list
+      .ui.list.timeline
         - var i = 0;
         - for (const entry of histories[lang]) {
         - if (++i > 5) break;

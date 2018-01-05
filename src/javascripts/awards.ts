@@ -81,7 +81,7 @@ const rawEntries: RawEntry[] =
     {
       "date": "7/1/2015",
       "text": {
-        "en": "<a href=\"http://www.maynoothuniversity.ie/smc15/\"><abbr title=\"Sound and Music Conference\">SMC</abbr> 2015 Best Paper</a> (for the co-authored <a href=\"https://staff.aist.go.jp/jun.kato/CrossSong/\">CrossSong</a> paper)",
+        "en": "<a href=\"http://www.maynoothuniversity.ie/smc15/\"><abbr title=\"Sound and Music Conference\">SMC</abbr> 2015 Best Paper</a> for the co-authored <a href=\"https://staff.aist.go.jp/jun.kato/CrossSong/\">CrossSong</a> paper",
         "ja": "<a href=\"http://www.maynoothuniversity.ie/smc15/\"><abbr title=\"Sound and Music Conference\">SMC</abbr> 2015 Best Paper</a> 受賞 (<a href=\"https://staff.aist.go.jp/jun.kato/CrossSong/\">CrossSong</a>の共著論文に対して)"
       }
     },
@@ -125,7 +125,7 @@ const rawEntries: RawEntry[] =
       "date": "10/1/2013",
       "text": {
         "en": "<a href=\"http://www.jidp.or.jp/en/\"><abbr title=\"Japan Institute of Design Promotion\">JDP</abbr></a> <a href=\"http://www.g-mark.org/award/describe/40508\">Good Design Award</a> for <a href=\"/openpool/\">OpenPool</a> Project",
-        "ja": "<a href=\"http://www.g-mark.org/award/describe/40508?locale=ja\">グッドデザイン賞</a> 受賞 (<a href=\"/ja/openpool/\">OpenPool プロジェクト</a>)"
+        "ja": "<a href=\"http://www.g-mark.org/award/describe/40508?locale=ja\">グッドデザイン賞</a> 受賞 (<a href=\"/ja/openpool/\">OpenPool プロジェクト</a>に対して)"
       },
       "type": "domestic"
     },

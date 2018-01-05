@@ -74,26 +74,43 @@ mixin footer()
 
 mixin render-publication(entry)
   - if (!entry.entryTags) return;
-  .item(class=entry.entryType, id=entry.citationKey)
+  .item.publication(class=entry.entryType, id=entry.citationKey)
     .right.floated.content
       //a.ui.circular.icon.tiny.button(href='')
         i.film.icon
-      a.ui.circular.icon.tiny.button(href=entry.entryTags.pdf)
+      - if (entry.entryTags.pdf || entry.entryTags.doi || entry.entryTags.url) {
+      a.ui.circular.icon.tiny.button(href=entry.entryTags.pdf || entry.entryTags.doi || entry.entryTags.url)
         i.file.icon
+      - }
       a.ui.circular.icon.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
         i.book.icon
     i.icon(class=entry.getIcon())
     .content
       .header #{entry.entryTags.title}
       .description
-        //.ui.horizontal.divided.list
-          - for (const author of entry.getAuthorsTags()) {
+        .ui.list
           .item
-            i.user.circle.icon
-            .content !{author}
-          - }
-        p !{entry.getAuthorsTags().join(', ')}
-        //pre #{JSON.stringify(entry.entryTags)}
+            i.right.triangle.icon
+            .content 
+              span.ui.tiny.label
+                i.calendar.icon
+                | #{entry.entryTags.year}
+              - if (entry.entryTags.series) {
+              span.ui.tiny.blue.label
+                i.student.icon
+                | #{entry.entryTags.series}
+              - }
+              - if (entry.entryTags.addition) {
+              span.ui.tiny.orange.label
+                i.trophy.icon
+                | #{entry.entryTags.addition}
+              - }
+          .item.authors
+            i.users.icon
+            .content !{entry.getAuthorsTags().join(', ')}
+          .item.book
+            i.book.icon
+            .content #{entry.getBookWithPages()}
 
 html(lang='ja')
   block lang

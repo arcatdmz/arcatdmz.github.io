@@ -12,7 +12,7 @@ block main
   - while (i < histories[lang].length) {
   - const y = year + 1900;
   h2.ui.header(id=y) #{y}
-  .ui.divided.list
+  .ui.divided.list.timeline
     - while (i < histories[lang].length) {
     - const entry = histories[lang][i];
     - if (entry.date.getYear() !== year) {
