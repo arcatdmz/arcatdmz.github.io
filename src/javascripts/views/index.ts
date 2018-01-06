@@ -1,6 +1,6 @@
 
 $('a.sns').on('click touch', (ev) => {
-  setTimeout(() => $('.sns.list').transition('jiggle'), 700);
+  setTimeout(() => $('#sns').transition('jiggle'), 700);
   return true;
 });
 
@@ -18,7 +18,7 @@ import(/* webpackChunkName: "histories" */ '../histories').then(histories => {
     .removeClass('disabled')
     .on('click touch', () => {
       const es = entries.slice(cursor, cursor + num)
-        , $historyList = $('.ui.segment#history .ui.list')
+        , $historyList = $('#history .ui.segment .ui.list')
       var $added = null;
       for (const e of es) {
         const $item = $('<div class="item"><i class="right triangle icon"></i><div class="content"><div class="header"></div><div class="description"></div></div></div>');

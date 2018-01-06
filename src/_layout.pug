@@ -25,7 +25,7 @@ mixin header(id)
   .ui.top.fixed.menu(id=id)
     a.active.item(href=en ? '/' : '/ja') #{author}
     - if (en) {
-    a.item(href='/#about')
+    //a.item(href='/#about')
       i.user.circle.icon
       span.mobile.hidden About
     a.ui.dropdown.item(href='/#projects')
@@ -39,7 +39,7 @@ mixin header(id)
       i.address.card.icon
       span.mobile.hidden Contact
     - } else {
-    a.item(href='/ja/#about')
+    //a.item(href='/ja/#about')
       i.user.circle.icon
       span.mobile.hidden 自己紹介
     a.ui.dropdown.item(href='/ja/#projects')
@@ -52,24 +52,27 @@ mixin header(id)
     a.item(href='/ja/#contact')
       i.address.card.icon
       span.mobile.hidden 連絡先
+    a.item(href='/ja/blog')
+      i.wordpress.icon
+      span.mobile.hidden ブログ
     - }
-    .right.menu
-      - if (en) {
-      a.item(href=`/ja/${me}`)
-        i.translate.icon
-        span.mobile.hidden 日本語
-      - } else {
-      a.item(href='/ja/blog')
-        i.wordpress.icon
-        span.mobile.hidden ブログ
-      a.item(href=`/${me}`)
-        i.translate.icon
-        span.mobile.hidden English
-      - }
+    - if (en) {
+    a.right.item(href=`/ja/${me}`)
+      i.translate.icon
+      span.mobile.hidden 日本語
+    - } else {
+    a.right.item(href=`/${me}`)
+      i.translate.icon
+      span.mobile.hidden English
+    - }
 
 mixin footer()
-  .ui.divider
-  footer.ui.center.aligned.container &copy; Jun Kato 2017
+  footer.ui.center.aligned.basic.segment
+    .ui.container
+      .ui.divider
+      p &copy; 
+        a(href=`${basePath}#contact`) Jun Kato
+        |  2018
   script(type='text/javascript', href='/semantic/semantic.min.js')
 
 mixin render-publication(entry)

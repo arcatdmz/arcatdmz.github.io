@@ -13,76 +13,85 @@ block main
     .content #{author}
       .sub.header
         - if (en) {
-        | Human-Computer Interaction researcher, Ph.D (Computer Science)
+        | Human-Computer Interaction researcher, Ph.D. (Computer Science)
         - } else {
         | Human-Computer Interaction 研究者，博士（情報理工学）
         - }
-  .ui.basic.segment#about
-    +about()
-  .ui.divider
-  .ui.basic.segment#history
-    +history()
-  .ui.divider
-  .ui.basic.segment#projects
-    +projects()
-  .ui.divider
-  .ui.basic.segment#contact
-    +contact()
+  +about()
+  #history: +history()
+  .ui.hidden.divider
+  #projects: +projects()
+  .ui.hidden.divider
+  #contact: +contact()
 
 block scripts
   script(type='text/javascript', src='/javascripts/views/index.js')
 
 mixin about()
-  block about
-    p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
-  .ui.horizontal.sns.list
-    .item
-      i.file.icon
-      .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
-    .item
-      i.google.icon
-      .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
-    .item
-      i.linkedin.icon
-      .content: a(href='https://jp.linkedin.com/in/jkato', title='LinkedIn') jkato
-    .item
-      i.facebook.icon
-      .content: a(href='https://facebook.com/jun.kato', title='Facebook') jun.kato
-    .item
-      i.twitter.icon
-      .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz'), title='Twitter') #{en ? 'junkato' : 'arcatdmz'}
-    .item
-      i.github.icon
-      .content: a(href='https://github.com/arcatdmz', title='GitHub') arcatdmz
+  .ui.basic.segment#about
+    block about
+      .ui.stackable.grid
+        .eight.wide.column
+          h5.ui.header Research area
+          p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
+        .eight.wide.column
+          h5.ui.header Bio
+          p Jun Kato is a <abbr title='Human-Computer Interaction'>HCI</abbr> researcher at 
+            a(href='https://www.aist.go.jp/index_en.html'): abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
+            | , Japan. He worked for Microsoft and Adobe and received a Ph.D. from The University of Tokyo supervised by Prof. 
+            a(href='http://www-ui.is.s.u-tokyo.ac.jp/~takeo/') Takeo Igarashi
+            |  in 2014.
+            | He has focused on <abbr title='Programming Experience'>PX</abbr> research, founded 
+            a(href='https://sigpx.org/en') SIGPX
+            | , and regularly gained academic recognition such as ACM <abbr title="The SIGCHI conference on Human Factors in Computing Systems">CHI</abbr> 2013/2015 Best Paper Honorable Mention.
+    .ui.basic.segment#sns
+      .ui.horizontal.list
+        .item
+          i.file.icon
+          .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
+        .item
+          i.google.icon
+          .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
+        .item
+          i.linkedin.icon
+          .content: a(href='https://jp.linkedin.com/in/jkato', title='LinkedIn') jkato
+        .item
+          i.facebook.icon
+          .content: a(href='https://facebook.com/jun.kato', title='Facebook') jun.kato
+        .item
+          i.twitter.icon
+          .content: a(href='https://twitter.com/' + (en ? 'junkato' : 'arcatdmz'), title='Twitter') #{en ? 'junkato' : 'arcatdmz'}
+        .item
+          i.github.icon
+          .content: a(href='https://github.com/arcatdmz', title='GitHub') arcatdmz
 
 mixin history()
-  h2.ui.header#history
+  h2.ui.header
     i.history.icon
     .content #{en ? 'Recent updates' : '近況'}
-  .ui.segments
-    .ui.segment
-      .ui.divided.list.timeline
-        - var i = 0;
-        - for (const entry of histories[lang]) {
-        - if (++i > 5) break;
-        .item
-          i.right.triangle.icon
-          .content
-            .header !{entry.text}
-            .description #{entry.getDateString(lang)}
-        - }
-    - if (histories[lang].length > 5) {
-    .ui.right.aligned.secondary.segment
-      a.ui.left.attached.more.disabled.button
-        i.zoom.icon
-        | #{en ? 'More' : 'もっと見る'}
-      a.ui.right.attached.all.button(href=`${basePath}timeline/`)
-        i.maximize.icon
-        | #{en ? 'Show all' : '全部見る'}
-    - }
+  .ui.basic.segment
+    .ui.divided.list.timeline
+      - var i = 0;
+      - for (const entry of histories[lang]) {
+      - if (++i > 5) break;
+      .item
+        i.right.triangle.icon
+        .content
+          .header !{entry.text}
+          .description #{entry.getDateString(lang)}
+      - }
+  - if (histories[lang].length > 5) {
+  .ui.right.aligned.basic.segment
+    a.ui.left.attached.more.disabled.button
+      i.zoom.icon
+      | #{en ? 'More' : 'もっと見る'}
+    a.ui.right.attached.all.button(href=`${basePath}timeline/`)
+      i.maximize.icon
+      | #{en ? 'Show all' : '全部見る'}
+  - }
 
 mixin projects()
-  h2.ui.header#projects
+  h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
   .ui.floating.icon.warning.message
@@ -92,38 +101,39 @@ mixin projects()
       p #{en ? 'This section will be added soon.' : 'このセクションは近日中に追加される予定です。'}
 
 mixin contact()
-  h2.ui.header#contact
+  h2.ui.header
     i.address.card.icon
     .content #{en ? 'Contact' : '連絡先'}
   block contact
-    p Please reach me via email or <a href="#about" class="sns">social networking services</a> rather than telephone and facsimile when possible. I rarely check these conventional machines.
-  .ui.list
-    .item
-      i.building.icon
-      .content
-        - if (en) {
-        a(href='https://staff.aist.go.jp/m.goto/MIG/') Media Interaction Group
-        | , 
-        a(href='https://www.itri.aist.go.jp/en/') Information Technology Research Institute (ITRI)
-        | , 
-        a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
-        - } else {
-        a(href='https://staff.aist.go.jp/m.goto/MIG/') メディアインタラクション研究グループ
-        | ，
-        a(href='https://www.itri.aist.go.jp/') 情報技術研究部門 (<abbr title='Information Technology Research Institute'>ITRI</abbr>)
-        | ，
-        a(href='https://www.aist.go.jp/index_en.html') 国立研究開発法人 産業技術総合研究所 (<abbr title='National Institute of Advanced Industrial Science and Technology'>AIST</abbr>)
-        - }
-    .item
-      i.marker.icon
-      .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '茨城県つくば市梅園1-1-1 中央第2'}
-  .ui.horizontal.list
-    .item
-      i.mail.icon
-      .content: a(href='mailto:i@junkato.jp') i@junkato.jp
-    .item
-      i.phone.icon
-      .content #{en ? '+81' : '0'}29-862-6622
-    .item
-      i.fax.icon
-      .content #{en ? '+81' : '0'}29-861-3313
+    p Please reach me via email or <a href="#sns" class="sns">social networking services</a> rather than telephone and facsimile when possible. I rarely check these conventional machines.
+  .ui.segment
+    .ui.list
+      .item
+        i.building.icon
+        .content
+          - if (en) {
+          a(href='https://staff.aist.go.jp/m.goto/MIG/') Media Interaction Group
+          | , 
+          a(href='https://www.itri.aist.go.jp/en/') Information Technology Research Institute (ITRI)
+          | , 
+          a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
+          - } else {
+          a(href='https://www.aist.go.jp/') 国立研究開発法人 産業技術総合研究所 (<abbr title='National Institute of Advanced Industrial Science and Technology'>AIST</abbr>)
+          | ，
+          a(href='https://www.itri.aist.go.jp/') 情報技術研究部門 (<abbr title='Information Technology Research Institute'>ITRI</abbr>)
+          | ，
+          a(href='https://staff.aist.go.jp/m.goto/MIG/') メディアインタラクション研究グループ
+          - }
+      .item
+        i.marker.icon
+        .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '茨城県つくば市梅園1-1-1 中央第2'}
+    .ui.horizontal.list
+      .item
+        i.mail.icon
+        .content: a(href='mailto:i@junkato.jp') i@junkato.jp
+      .item
+        i.phone.icon
+        .content #{en ? '+81' : '0'}29-862-6622
+      .item
+        i.fax.icon
+        .content #{en ? '+81' : '0'}29-861-3313

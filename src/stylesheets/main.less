@@ -20,21 +20,34 @@
 
 #main.with-rail>.left-rail,
 #main.with-rail>.left-rail>.ui.list {
-  width: 80px;
+  width: 96px;
   position: fixed;
 }
 
-#main.with-rail>.left-rail>.ui.list>a.item {
+#main.with-rail>.left-rail .ui.list>a.item {
   padding: .4em 0;
   text-decoration: none;
 }
 
-#main.with-rail>.left-rail>.ui.list>a.item>.content {
+#main.with-rail>.left-rail .ui.list .ui.list>a.item {
+  padding: .2em 0;
+}
+
+#main.with-rail>.left-rail .ui.list>a.item>.content {
   text-decoration: underline;
 }
 
 #main.with-rail>.right-content {
-  margin-left: 100px;
+  margin-left: 120px;
+}
+
+#main #history .ui.segment {
+  margin-bottom: 0;
+}
+
+#main #history .ui.right.aligned.segment {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 h1.ui.header {
@@ -42,7 +55,7 @@ h1.ui.header {
 }
 
 .ui.horizontal.list>.item>i.icon {
-  margin-top: -0.3em;
+  margin-top: -0.3em !important;
 }
 
 .ui.list.timeline>.item>.content>.header {

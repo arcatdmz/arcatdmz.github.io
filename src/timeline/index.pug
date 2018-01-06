@@ -3,12 +3,13 @@ extends ../_layout
 block vars
   - var title = en ? 'Timeline' : '活動履歴';
   - var me = 'timeline/';
-  - var containerClass = 'with-rail timeline';
+  - var containerClass = 'with-rail';
 
 block main
   .left-rail
     .ui.divided.list
-      - for (var year = 2018; year > 2010; year --) {
+      - const oldestYear = en ? 2011 : 2010;
+      - for (var year = 2018; year >= oldestYear; year --) {
       a.item(href=`#${year}`)
         i.right.triangle.icon
         .content #{year}

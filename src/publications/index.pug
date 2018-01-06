@@ -3,16 +3,27 @@ extends ../_layout
 block vars
   - var title = en ? 'Awards and Publications' : '受賞歴と発表文献';
   - var me = 'publications/';
+  - var containerClass = 'with-rail';
 
 block main
-  h1.ui.header#awards
-    i.trophy.icon
-    .content #{en ? 'Awards' : '受賞歴'}
-  +awards()
-  h1.ui.header#publications
-    i.book.icon
-    .content #{en ? 'Publications' : '発表文献'}
-  +publications()
+  .left-rail
+    .ui.divided.list
+      a.item(href='#awards')
+        i.trophy.icon
+        .content #{en ? 'Awards' : '受賞歴'}
+      a.item(href='#publications')
+        i.book.icon
+        .content #{en ? 'Publications' : '発表文献'}
+      block left-rail-list
+  .right-content
+    h1.ui.header#awards
+      i.trophy.icon
+      .content #{en ? 'Awards' : '受賞歴'}
+    +awards()
+    h1.ui.header#publications
+      i.book.icon
+      .content #{en ? 'Publications' : '発表文献'}
+    +publications()
 
 mixin awards()
   .ui.segments
