@@ -61,7 +61,7 @@ mixin history()
     .content #{en ? 'Recent updates' : '近況'}
   .ui.segments
     .ui.segment
-      .ui.list.timeline
+      .ui.divided.list.timeline
         - var i = 0;
         - for (const entry of histories[lang]) {
         - if (++i > 5) break;
@@ -76,7 +76,7 @@ mixin history()
       a.ui.left.attached.more.disabled.button
         i.zoom.icon
         | #{en ? 'More' : 'もっと見る'}
-      a.ui.right.attached.all.button(href=`${basePath}updates.html`)
+      a.ui.right.attached.all.button(href=`${basePath}timeline/`)
         i.maximize.icon
         | #{en ? 'Show all' : '全部見る'}
     - }
