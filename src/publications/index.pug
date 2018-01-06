@@ -33,6 +33,9 @@ mixin publications-menu()
       i.book.icon
       .content #{en ? 'Publications' : '発表文献'}
     block left-rail-list
+    a.item(href=`${basePath}timeline/`)
+      i.history.icon
+      .content #{en ? 'Timeline' : '活動履歴'}
 
 mixin awards()
   .ui.segments

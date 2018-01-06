@@ -19,6 +19,9 @@ block post-footer
 
 mixin timeline-menu()
   .ui.divided.list
+    a.item(href='#body')
+      i.chevron.circle.up.icon
+      .content #{title}
     - const oldestYear = en ? 2011 : 2010;
     - for (var year = 2018; year >= oldestYear; year --) {
     a.item(href=`#${year}`)
@@ -30,6 +33,8 @@ mixin timeline()
   h1.ui.header
     i.history.icon
     .content #{title}
+  block description
+    p Hoge.
   - var i = 0, year = histories[lang][0].date.getYear() + 1;
   - while (i < histories[lang].length) {
   - const y = year + 1900;

@@ -2,3 +2,10 @@ extends ../../timeline/index
 
 block lang
   - var en = false, lang = 'ja', basePath = '/ja/';
+
+block description
+  p このページではWebサイトの更新情報と
+    a(href='/ja/publications')
+      i.book.icon
+      | 発表文献
+    | を時系列で見ることができます。
