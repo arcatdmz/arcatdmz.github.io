@@ -99,6 +99,53 @@ mixin projects()
     .content
       .header #{en ? 'Under construction' : '作成中'}
       p #{en ? 'This section will be added soon.' : 'このセクションは近日中に追加される予定です。'}
+  .ui.grid
+    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+      a.image(href=`${basePath}f3js`): img(src='/thumbnails/f3js.png')
+      .content
+        .header f3.js
+        .meta
+          a(title='Physical Computing') Physical
+          a(title='Creativity Support') Creativity
+          a: abbr(title='Integrated Development Environment') IDE
+        .description A parametric design tool for physical computing devices for both interaction designers and end-users
+      .extra.content
+        .right.floated
+          i.calendar.icon
+          | 2015-
+        span
+          i.student.icon
+          | DIS '17
+    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+      a.image(href=`${basePath}textalive`): img(src='/thumbnails/textalive.png')
+      .content
+        .header TextAlive
+        .meta
+          a(title='Creativity Support') Creativity
+          a(title='Human-Music Interaction') Music
+          a: abbr(title='Integrated Development Environment') IDE
+        .description An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015
+      .extra.content
+        span.right.floated
+          i.calendar.icon
+          | 2014-
+        span
+          i.student.icon
+          | CHI '15
+    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+      a.image(href=`${basePath}crosssong`): img(src='/thumbnails/crosssong.png')
+      .content
+        .header CrossSong
+        .meta
+          a(title='Human-Music Interaction') Music
+        .description A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle
+      .extra.content
+        span.right.floated
+          i.calendar.icon
+          | 2015-2017
+        span
+          i.student.icon
+          | SMC '15
 
 mixin contact()
   h2.ui.header
