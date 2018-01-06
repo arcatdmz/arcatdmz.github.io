@@ -7,15 +7,24 @@ block vars
 
 block main
   .left-rail
-    .ui.divided.list
-      - const oldestYear = en ? 2011 : 2010;
-      - for (var year = 2018; year >= oldestYear; year --) {
-      a.item(href=`#${year}`)
-        i.right.triangle.icon
-        .content #{year}
-      - }
+    +timeline-menu()
   .right-content
     +timeline()
+
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup
+    +timeline-menu()
+
+mixin timeline-menu()
+  .ui.divided.list
+    - const oldestYear = en ? 2011 : 2010;
+    - for (var year = 2018; year >= oldestYear; year --) {
+    a.item(href=`#${year}`)
+      i.right.triangle.icon
+      .content #{year}
+    - }
 
 mixin timeline()
   h1.ui.header

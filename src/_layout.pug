@@ -73,7 +73,6 @@ mixin footer()
       p &copy; 
         a(href=`${basePath}#contact`) Jun Kato
         |  2018
-  script(type='text/javascript', href='/semantic/semantic.min.js')
 
 mixin render-publication(entry)
   - if (!entry.entryTags) return;
@@ -132,6 +131,7 @@ html(lang='ja')
         .ui.container#main(class=containerClass)
           block main
       +footer()
+    block post-footer
     script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en};lang="#{lang}";

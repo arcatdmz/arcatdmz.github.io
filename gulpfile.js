@@ -16,8 +16,8 @@ const bibtexParse = require('bibtex-parse-js');
 
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
-const webpackConfig = require('./webpack.config');
-const bibtex = fs.readFileSync('src/junkato.bib', { encoding: 'UTF-8' });
+const webpackConfigFile = './webpack.config';
+const bibtexFile = 'src/junkato.bib';
 
 gulp.task('semantic-js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic-assets', require('./semantic/tasks/build/assets'));
@@ -56,6 +56,7 @@ gulp.task('ts:node', function(){
 });
 
 gulp.task('js', ['ts'], function(){
+  const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(uglify())
@@ -63,13 +64,17 @@ gulp.task('js', ['ts'], function(){
 });
 
 gulp.task('html', ['ts:node'], function(){
+  const bibtexJSON = bibtexParse.toJSON(
+    fs.readFileSync(
+        bibtexFile
+      , { encoding: 'UTF-8' }));
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: {
         histories: require('./histories').default,
         awards: require('./awards').default,
-        publications: require('./publications').parse(bibtexParse.toJSON(bibtex))
+        publications: require('./publications').parse(bibtexJSON)
       },
       verbose: true,
       pretty: true

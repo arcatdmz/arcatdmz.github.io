@@ -1,6 +1,7 @@
 
 /* Semantic UI */
 @import "../../semantic/src/semantic";
+@import "../../semantic/src/themes/default/globals/site.variables";
 
 /*!
  * # junkato.jp
@@ -14,31 +15,64 @@
   right: 0;
 }
 
-#main.with-rail {
-  position: relative;
+/* rail (large screen) or popup (small screen) */
+
+@railWidth: 120px;
+@railMargin: 20px;
+
+.ui.popup-menu.button {
+  display: block;
 }
 
-#main.with-rail>.left-rail,
-#main.with-rail>.left-rail>.ui.list {
-  width: 96px;
+.ui.popup-menu.button {
   position: fixed;
+  right: 7px;
+  bottom: 7px;
 }
 
+.ui.popup-menu.popup {
+  position: fixed !important;
+}
+
+#main.with-rail>.left-rail {
+  display: none;
+}
+
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.popup-menu.button {
+    display: none;
+  }
+
+  #main.with-rail {
+    position: relative;
+  }
+  
+  #main.with-rail>.left-rail,
+  #main.with-rail>.left-rail>.ui.list {
+    width: @railWidth;
+    position: fixed;
+    display: block;
+  }
+  
+  #main.with-rail>.right-content {
+    margin-left: @railWidth + @railMargin;
+  }
+}
+
+.popup-menu.popup .ui.list>a.item,
 #main.with-rail>.left-rail .ui.list>a.item {
   padding: .4em 0;
   text-decoration: none;
 }
 
+.popup-menu.popup .ui.list .ui.list>a.item,
 #main.with-rail>.left-rail .ui.list .ui.list>a.item {
   padding: .2em 0;
 }
 
+.popup-menu.popup .ui.list>a.item>.content,
 #main.with-rail>.left-rail .ui.list>a.item>.content {
   text-decoration: underline;
-}
-
-#main.with-rail>.right-content {
-  margin-left: 120px;
 }
 
 #main #history .ui.segment {

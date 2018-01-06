@@ -13,13 +13,20 @@ $('a.dropdown.item')
     return false;
   });
 
-// // initialize sticky rail if exists
-// const $container = $('.ui.container.with-rail');
-// if ($container.length > 0) {
-//   $container.find('.ui.sticky').sticky({
-//     context: $('#')
-//   });
-// }
+// initialize popup menu if exists
+const $popupButton = $('a.popup-menu.button');
+$popupButton
+  .removeClass('hidden')
+  .popup({
+    position: 'top right',
+    lastResort: 'top right',
+    hoverable: true,
+    addTouchEvents: true
+  });
+
+if ($popupButton.is(':visible')) {
+  $popupButton.transition('bounce');
+}
 
 // smooth scroll when possible
 $('a[href*=\\#]').on('click touch', function(ev){
