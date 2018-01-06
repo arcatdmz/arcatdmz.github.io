@@ -8,13 +8,46 @@
  * # junkato.jp
  */
 
- #body {
+#body {
   position: absolute;
   top: 4.4rem;
   left: 0;
   bottom: 0;
   right: 0;
 }
+
+/* /index */
+
+#main #projects {
+  padding-bottom: 1em;
+}
+
+#main #history .ui.segment {
+  margin-bottom: 0;
+}
+
+#main #history .ui.right.aligned.segment {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* timeline and publications */
+
+.ui.list.timeline>.item>.content>.header {
+  font-weight: normal;
+}
+
+.ui.list.timeline>.item>.content>.description {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: rgba(0,0,0,.6);
+}
+
+.item.publication>.content>.description>.authors {
+  margin-bottom: 0.1em;
+}
+
+/* overriding default styles */
 
 a:link>i.icon {
   text-decoration: none;
@@ -24,27 +57,31 @@ a:link>i.icon {
   text-align: left !important;
 }
 
+h1.ui.header {
+  margin-top: 0;
+}
+
+.ui.horizontal.list>.item>i.icon {
+  margin-top: -0.3em !important;
+}
+
+/* card size adjustment */
+
 // @import "../../semantic/src/themes/default/views/card.variables";
-// @cardHorizontalSpacing: 1em;
-// @cardRowSpacing: 1.75em;
-// @cardGroupMargin: -(@cardRowSpacing / 2) -(@cardHorizontalSpacing / 2);
 @cardWidth: 290px;
+@cardHorizontalSpacing: @fontSize;
 .ui.cards>.card {
-  width: calc(~"33.3333% - " @fontSize);
+  width: calc(~"33.3333% - " @cardHorizontalSpacing);
 }
 @media only screen and (max-width : @computerBreakpoint) {
   .ui.cards>.card {
-    width: calc(~"50% - " @fontSize);
+    width: calc(~"50% - " @cardHorizontalSpacing);
   }
 }
-@media only screen and (max-width : (@fontSize * 3 + @cardWidth * 2)) {
+@media only screen and (max-width : (@cardHorizontalSpacing * 3 + @cardWidth * 2)) {
   .ui.cards>.card {
     width: 100%;
   }
-}
-
-#projects {
-  padding-bottom: 1em;
 }
 
 /* rail (large screen) or popup (small screen) */
@@ -105,37 +142,6 @@ a:link>i.icon {
 .popup-menu.popup .ui.list>a.item>.content,
 #main.with-rail>.left-rail .ui.list>a.item>.content {
   text-decoration: underline;
-}
-
-#main #history .ui.segment {
-  margin-bottom: 0;
-}
-
-#main #history .ui.right.aligned.segment {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-h1.ui.header {
-  margin-top: 0;
-}
-
-.ui.horizontal.list>.item>i.icon {
-  margin-top: -0.3em !important;
-}
-
-.ui.list.timeline>.item>.content>.header {
-  font-weight: normal;
-}
-
-.ui.list.timeline>.item>.content>.description {
-  font-weight: bold;
-  font-size: 0.9em;
-  color: rgba(0,0,0,.6);
-}
-
-.item.publication>.content>.description>.authors {
-  margin-bottom: 0.1em;
 }
 
 /*!
