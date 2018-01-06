@@ -34,7 +34,11 @@ mixin timeline()
     i.history.icon
     .content #{title}
   block description
-    p Hoge.
+    p This page shows updates to the website as well as 
+      a(href='/publications')
+        i.book.icon
+        | publication records
+      |  in their chronological order.
   - var i = 0, year = histories[lang][0].date.getYear() + 1;
   - while (i < histories[lang].length) {
   - const y = year + 1900;
