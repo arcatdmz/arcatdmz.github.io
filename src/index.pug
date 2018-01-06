@@ -94,13 +94,13 @@ mixin projects()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
-  .ui.floating.icon.warning.message
+  //.ui.floating.icon.warning.message
     i.info.circle.icon
     .content
       .header #{en ? 'Under construction' : '作成中'}
       p #{en ? 'This section will be added soon.' : 'このセクションは近日中に追加される予定です。'}
-  .ui.grid
-    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+  .ui.cards
+    .card
       a.image(href=`${basePath}f3js`): img(src='/thumbnails/f3js.png')
       .content
         .header f3.js
@@ -116,7 +116,7 @@ mixin projects()
         span
           i.student.icon
           | DIS '17
-    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+    .card
       a.image(href=`${basePath}textalive`): img(src='/thumbnails/textalive.png')
       .content
         .header TextAlive
@@ -132,7 +132,7 @@ mixin projects()
         span
           i.student.icon
           | CHI '15
-    .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column: .ui.fluid.card
+    .card
       a.image(href=`${basePath}crosssong`): img(src='/thumbnails/crosssong.png')
       .content
         .header CrossSong

@@ -2,6 +2,7 @@
 /* Semantic UI */
 @import "../../semantic/src/semantic";
 @import "../../semantic/src/themes/default/globals/site.variables";
+@import "../../semantic/src/site/globals/site.variables";
 
 /*!
  * # junkato.jp
@@ -21,6 +22,29 @@ a:link>i.icon {
 
 .ui.popup {
   text-align: left !important;
+}
+
+// @import "../../semantic/src/themes/default/views/card.variables";
+// @cardHorizontalSpacing: 1em;
+// @cardRowSpacing: 1.75em;
+// @cardGroupMargin: -(@cardRowSpacing / 2) -(@cardHorizontalSpacing / 2);
+@cardWidth: 290px;
+.ui.cards>.card {
+  width: calc(~"33.3333% - " @fontSize);
+}
+@media only screen and (max-width : @computerBreakpoint) {
+  .ui.cards>.card {
+    width: calc(~"50% - " @fontSize);
+  }
+}
+@media only screen and (max-width : (@fontSize * 3 + @cardWidth * 2)) {
+  .ui.cards>.card {
+    width: 100%;
+  }
+}
+
+#projects {
+  padding-bottom: 1em;
 }
 
 /* rail (large screen) or popup (small screen) */
