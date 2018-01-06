@@ -14,6 +14,10 @@ $('a.dropdown.item')
   });
 
 // initialize popup menu if exists
+$('.with-popup').popup({
+  addTouchEvents: true
+});
+
 const $popupButton = $('a.popup-menu.button');
 $popupButton
   .removeClass('hidden')

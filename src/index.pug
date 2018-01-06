@@ -85,7 +85,7 @@ mixin history()
     a.ui.left.attached.more.disabled.button
       i.zoom.icon
       | #{en ? 'More' : 'もっと見る'}
-    a.ui.right.attached.all.button(href=`${basePath}timeline/`)
+    a.ui.right.attached.all.with-popup.button(href=`${basePath}timeline/`, data-content=en ? 'Show the timeline of updates and publications' : '時系列で全ての更新履歴と発表文献を見ることができます', data-position='top right')
       i.maximize.icon
       | #{en ? 'Show all' : '全部見る'}
   - }
@@ -106,34 +106,45 @@ mixin contact()
     .content #{en ? 'Contact' : '連絡先'}
   block contact
     p Please reach me via email or <a href="#sns" class="sns">social networking services</a> rather than telephone and facsimile when possible. I rarely check these conventional machines.
-  .ui.segment
-    .ui.list
-      .item
-        i.building.icon
-        .content
-          - if (en) {
-          a(href='https://staff.aist.go.jp/m.goto/MIG/') Media Interaction Group
-          | , 
-          a(href='https://www.itri.aist.go.jp/en/') Information Technology Research Institute (ITRI)
-          | , 
-          a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
-          - } else {
-          a(href='https://www.aist.go.jp/') 国立研究開発法人 産業技術総合研究所 (<abbr title='National Institute of Advanced Industrial Science and Technology'>AIST</abbr>)
-          | ，
-          a(href='https://www.itri.aist.go.jp/') 情報技術研究部門 (<abbr title='Information Technology Research Institute'>ITRI</abbr>)
-          | ，
-          a(href='https://staff.aist.go.jp/m.goto/MIG/') メディアインタラクション研究グループ
-          - }
-      .item
-        i.marker.icon
-        .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '茨城県つくば市梅園1-1-1 中央第2'}
-    .ui.horizontal.list
-      .item
-        i.mail.icon
-        .content: a(href='mailto:i@junkato.jp') i@junkato.jp
-      .item
-        i.phone.icon
-        .content #{en ? '+81' : '0'}29-862-6622
-      .item
-        i.fax.icon
-        .content #{en ? '+81' : '0'}29-861-3313
+  .ui.segments
+    .ui.segment
+      .ui.list
+        .item
+          i.building.icon
+          .content
+            - if (en) {
+            a(href='https://staff.aist.go.jp/m.goto/MIG/') Media Interaction Group
+            | , 
+            a(href='https://www.itri.aist.go.jp/en/') Information Technology Research Institute (ITRI)
+            | , 
+            a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
+            - } else {
+            a(href='https://www.aist.go.jp/') 国立研究開発法人 産業技術総合研究所 (<abbr title='National Institute of Advanced Industrial Science and Technology'>AIST</abbr>)
+            | ，
+            a(href='https://www.itri.aist.go.jp/') 情報技術研究部門 (<abbr title='Information Technology Research Institute'>ITRI</abbr>)
+            | ，
+            a(href='https://staff.aist.go.jp/m.goto/MIG/') メディアインタラクション研究グループ
+            - }
+        .item
+          i.marker.icon
+          .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '茨城県つくば市梅園1-1-1 中央第2'}
+      .ui.horizontal.list
+        .item
+          i.mail.icon
+          .content: a(href='mailto:i@junkato.jp') i@junkato.jp
+        .item
+          i.phone.icon
+          .content #{en ? '+81' : '0'}29-862-6622
+        .item
+          i.fax.icon
+          .content #{en ? '+81' : '0'}29-861-3313
+    .ui.secondary.right.aligned.segment
+      a.ui.primary.large.with-popup.button(href=`${basePath}collaborations`, data-position='top right')
+        i.handshake.icon
+        | #{en ? 'Interested in collaborations?' : '共同研究しませんか？'}
+      .ui.popup
+        .header
+          i.handshake.icon
+          |  #{en ? 'Collaborations' : '共同研究'}
+        .content #{en ? 'I am actively looking for collaborators in both academia and industry. Click to show more details.' : '学生の受け入れや技術提供などを行っています。クリックして詳細をご確認ください。'}
+
