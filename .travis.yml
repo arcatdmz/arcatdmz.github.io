@@ -14,7 +14,7 @@ addons:
   ssh_known_hosts: junkato.jp
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_f709bde90b47_key -iv $encrypted_f709bde90b47_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh_add /tmp/deploy_rsa
