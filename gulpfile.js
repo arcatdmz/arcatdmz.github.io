@@ -93,7 +93,7 @@ gulp.task('css', function(){
 });
 
 gulp.task('copy', function(){
-  return gulp.src('src/**/*.{pdf,png,jpg,bib,json}', { base: 'src'})
+  return gulp.src(['src/**/*.{pdf,png,jpg,bib,json}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 })
