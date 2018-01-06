@@ -118,15 +118,17 @@ html(lang='ja')
   - var author = en ? 'Jun Kato' : '加藤 淳';
   block vars
     - var me = '';
+    - var containerClass = undefined;
   head
     +head()
   body
     block header
       +header()
-    block main-container
-      .ui.container#main
-        block main
-    +footer()
+    #body
+      block main-container
+        .ui.container#main(class=containerClass)
+          block main
+      +footer()
     script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en};lang="#{lang}";

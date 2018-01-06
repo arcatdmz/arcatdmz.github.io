@@ -3,8 +3,15 @@ extends ../_layout
 block vars
   - var title = en ? 'Timeline' : '活動履歴';
   - var me = 'timeline/';
+  - var containerClass = 'with-rail timeline';
 
 block main
+  .ui.left.rail
+    .ui.sticky
+      .ui.secondary.pointing.vertical.menu
+        - for (var year = 2018; year > 2010; year --) {
+        a.item(href=`#${year}`) #{year}
+        - }
   h1.ui.header
     i.history.icon
     .content #{title}

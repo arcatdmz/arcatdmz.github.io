@@ -4,8 +4,29 @@
 
 /* junkato.jp */
 
-#main {
-  margin-top: 4.4rem;
+#body {
+  position: absolute;
+  top: 4.4rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#main.with-rail {
+  position: relative;
+}
+
+#main.with-rail.timeline>.rail,
+#main.with-rail.timeline>.rail>.ui.sticky>.ui.vertical.menu {
+  width: 80px;
+}
+
+#main.with-rail.timeline>.rail>.sticky {
+  position: fixed;
+}
+
+h1.ui.header {
+  margin-top: 0;
 }
 
 .ui.horizontal.list>.item>i.icon {

@@ -13,6 +13,14 @@ $('a.dropdown.item')
     return false;
   });
 
+// // initialize sticky rail if exists
+// const $container = $('.ui.container.with-rail');
+// if ($container.length > 0) {
+//   $container.find('.ui.sticky').sticky({
+//     context: $('#')
+//   });
+// }
+
 // smooth scroll when possible
 $('a[href*=\\#]').on('click touch', function(ev){
   const a = <HTMLAnchorElement>this;
