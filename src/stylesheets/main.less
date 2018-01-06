@@ -16,13 +16,23 @@
   position: relative;
 }
 
-#main.with-rail.timeline>.rail,
-#main.with-rail.timeline>.rail>.ui.sticky>.ui.vertical.menu {
+#main.with-rail>.left-rail,
+#main.with-rail>.left-rail>.ui.list {
   width: 80px;
+  position: fixed;
 }
 
-#main.with-rail.timeline>.rail>.sticky {
-  position: fixed;
+#main.with-rail>.left-rail>.ui.list>a.item {
+  padding: .4em 0;
+  text-decoration: none;
+}
+
+#main.with-rail>.left-rail>.ui.list>a.item>.content {
+  text-decoration: underline;
+}
+
+#main.with-rail>.right-content {
+  margin-left: 100px;
 }
 
 h1.ui.header {
