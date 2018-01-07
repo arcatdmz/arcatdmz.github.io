@@ -1,0 +1,103 @@
+{
+  "tags": {
+    "creativity": {
+      "title": "Creativity Support",
+      "label": "Creativity"
+    },
+    "music": {
+      "title": "Human-Music Interaction",
+      "label": "Music"
+    },
+    "ide": {
+      "label": "<abbr title=\"Integrated Development Environment\">IDE</abbr>"
+    },
+    "physical": {
+      "title": "Physical Computing",
+      "label": "Physical"
+    },
+    "robot": {
+      "title": "Human-Robot Interaction",
+      "label": "Robot"
+    }
+  },
+  "projects": [
+    {
+      "project": "songle-sync",
+      "thumbnail": "coming-soon.png",
+      "tags": [
+        "creativity",
+        "music",
+        "ide"
+      ],
+      "year": {
+        "from": 2017
+      },
+      "title": "Songle Sync Tutorial",
+      "description": "An interactive tutorial for the Songle Sync <abbr title=\"Application Programming Interface\">API</abbr> that allows controlling numerous devices in synchrony with the songs.",
+      "ja": {
+        "description": "多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title=\"Application Programming Interface\">API</abbr>のためのインタラクティブなチュートリアルです。"
+      }
+    },
+    {
+      "project": "f3js",
+      "tags": [
+        "physical",
+        "creativity",
+        "ide"
+      ],
+      "year": {
+        "from": 2015
+      },
+      "publication": "DIS '17",
+      "title": "f3.js",
+      "description": "A parametric design tool for physical computing devices for both interaction designers and end-users.",
+      "ja": {
+        "description": "<abbr title=\"Internet of Things\">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。"
+      }
+    },
+    {
+      "project": "textalive",
+      "tags": [
+        "creativity",
+        "music",
+        "ide"
+      ],
+      "year": {
+        "from": 2014
+      },
+      "publication": "CHI '17",
+      "title": "TextAlive",
+      "description": "An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.",
+      "ja": {
+        "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。"
+      }
+    },
+    {
+      "project": "crosssong",
+      "tags": [
+        "music"
+      ],
+      "year": {
+        "from": 2015,
+        "to": 2017
+      },
+      "publication": "SMC '15",
+      "title": "CrossSong",
+      "description": "A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle."
+    },
+    {
+      "project": "sharedo",
+      "thumbnail": "sharedo.jpg",
+      "tags": [
+        "robot"
+      ],
+      "year": {
+        "from": 2011,
+        "to": 2014
+      },
+      "publication": "HAI '14",
+      "title": "Sharedo",
+      "description": "A to-do list interface for sharing tasks between human and agents including robots and software personal assistants."
+    }
+  ]
+}

@@ -99,6 +99,7 @@ gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
       locals: {
         histories: require('./build/javascripts/histories').default,
         awards: require('./build/javascripts/awards').default,
+        projects: require('./build/javascripts/projects').default,
         publications: require('./build/javascripts/publications').parse(require('./build/data/publications.json'))
       },
       verbose: true,

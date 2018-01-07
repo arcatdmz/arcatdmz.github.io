@@ -91,91 +91,56 @@ mixin history()
   - }
 
 mixin projects()
+  - const recentProjects = ['songle-sync', 'f3js', 'textalive'];
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
   h3.ui.header #{en ? 'Recent projects' : '最近のプロジェクト'}
   .ui.cards#recent-projects
+    - for (const p of projects) {
+    - if (recentProjects.indexOf(p.project) < 0) continue;
     .card
-      a.image(href=`${basePath}songle-sync`): img(src='/thumbnails/coming-soon.png')
+      a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
       .content
-        a.header(href=`${basePath}songle-sync`) Songle Sync Tutorial
-        .meta
-          a(title='Creativity Support') Creativity
-          a(title='Human-Music Interaction') Music
-          a: abbr(title='Integrated Development Environment') IDE
-        .description !{en ? 'An interactive tutorial for the Songle Sync <abbr title="Application Programming Interface">API</abbr> that allows controlling numerous devices in synchrony with the songs.' : '多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title="Application Programming Interface">API</abbr>のためのインタラクティブなチュートリアルです。'}
+        a.header(href=basePath + p.project) #{p.getTitle(lang)}
+        .meta !{p.getTags(lang).join('')}
+        .description !{p.getDescription(lang)}
       .extra.content
         span.right.floated
           i.calendar.icon
-          | 2017-2018
-        span (Work in progress)
-    .card
-      a.image(href=`${basePath}f3js`): img(src='/thumbnails/f3js.png')
-      .content
-        a.header(href=`${basePath}f3js`) f3.js
-        .meta
-          a(title='Physical Computing') Physical
-          a(title='Creativity Support') Creativity
-          a: abbr(title='Integrated Development Environment') IDE
-        .description !{en ? 'A parametric design tool for physical computing devices for both interaction designers and end-users.' : '<abbr title="Internet of Things">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。'}
-      .extra.content
-        .right.floated
-          i.calendar.icon
-          | 2015-2018
+          | #{p.getYearString(lang)}
+        - if (p.publication) {
+        span #{p.getPublication(lang)}
+        - } else {
         span
           i.student.icon
-          | DIS '17
-    .card
-      a.image(href=`${basePath}textalive`): img(src='/thumbnails/textalive.png')
-      .content
-        a.header(href=`${basePath}textalive`) TextAlive
-        .meta
-          a(title='Creativity Support') Creativity
-          a(title='Human-Music Interaction') Music
-          a: abbr(title='Integrated Development Environment') IDE
-        .description !{en ? 'An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.' : '音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。'}
-      .extra.content
-        span.right.floated
-          i.calendar.icon
-          | 2014-2018
-        span
-          i.student.icon
-          | CHI '15
+          | #{p.getPublication(lang)}
+        - }
+    - }
   h3.ui.header #{en ? 'Previous projects' : '以前のプロジェクト'}
   .ui.segment#previous-projects: .ui.divided.items
+    - for (const p of projects) {
+    - if (recentProjects.indexOf(p.project) >= 0) continue;
     .item
-      a.mobile.hidden.image(href=`${basePath}crosssong`): img(src='/thumbnails/crosssong.png')
+      a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
       .content
-        a.header(href=`${basePath}crosssong`)
-          img.ui.avatar.image.mobile.only(src='/thumbnails/crosssong.png')
-          | CrossSong
-        .description A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle.
+        a.header(href=basePath + p.project)
+          img.ui.avatar.image.mobile.only(src=`/thumbnails/${p.thumbnail}`)
+          | #{p.getTitle(lang)}
+        .description !{p.getDescription(lang)}
         .extra
           span.right.floated
             i.calendar.icon
-            | 2015-2017
+            | #{p.getYearString(lang)}
+          - if (p.publication) {
+          span #{p.getPublication(lang)}
+          - } else {
           span
             i.student.icon
-            | SMC '15
-          span.meta
-            a(title='Human-Music Interaction') Music
-    .item
-      a.mobile.hidden.image(href=`${basePath}sharedo`): img(src='/thumbnails/sharedo.jpg')
-      .content
-        a.header(href=`${basePath}sharedo`)
-          img.ui.avatar.image.mobile.only(src='/thumbnails/sharedo.jpg')
-          | Sharedo
-        .description A to-do list interface for sharing tasks between human and agents including robots and software personal assistants.
-        .extra
-          span.right.floated
-            i.calendar.icon
-            | 2011-2014
-          span
-            i.student.icon
-            | HAI '14
-          span.meta
-            a(title='Human-Robot Interaction') Robot
+            | #{p.getPublication(lang)}
+          - }
+          span.meta !{p.getTags(lang).join(' ')}
+    - }
 
 mixin contact()
   h2.ui.header
