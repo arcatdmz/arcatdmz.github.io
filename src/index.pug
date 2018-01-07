@@ -7,9 +7,6 @@ block vars
 block projects-menu
   //
 
-block post-footer
-  .ui.hidden.popup.project.tag
-
 block main
   h1.ui.header
     img.ui.circular.image(src='/images/junkato.jpg')
@@ -98,11 +95,11 @@ mixin projects()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
-  h3.ui.header #{en ? 'Recent projects' : '最近のプロジェクト'}
-  .ui.cards#recent-projects
+  h3.ui.header#recent-projects #{en ? 'Recent projects' : '最近のプロジェクト'}
+  .ui.cards#recent-projects-list
     - for (const p of projects) {
     - if (recentProjects.indexOf(p.project) < 0) continue;
-    .card(id=`projects-${p.project}`)
+    .card(id=`projects-${p.project}`, data-project=p.project)
       a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
       .content
         a.header(href=basePath + p.project) #{p.getTitle(lang)}
@@ -121,10 +118,10 @@ mixin projects()
         - }
     - }
   h3.ui.header #{en ? 'Previous projects' : '以前のプロジェクト'}
-  .ui.segment#previous-projects: .ui.divided.items
+  .ui.segment: .ui.divided.items#previous-projects-list
     - for (const p of projects) {
     - if (recentProjects.indexOf(p.project) >= 0) continue;
-    .item(id=`projects-${p.project}`)
+    .item(id=`projects-${p.project}`, data-project=p.project)
       a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
       .content
         a.header(href=basePath + p.project)

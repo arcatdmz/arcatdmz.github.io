@@ -25,6 +25,7 @@ $popupButton
   .popup({
     position: 'top left',
     lastResort: 'top left',
+    hoverable: true,
     addTouchEvents: true
   });
 
@@ -34,7 +35,6 @@ if ($popupButton.is(':visible')) {
 
 // initialize tag popup
 const $tagLink = $('a.project.tag');
-const $tagPopup = $('.ui.popup.project.tag');
 if ($tagLink.length > 0) {
   var $currentTarget: JQuery | null = null
     , loading = false;
@@ -52,7 +52,7 @@ if ($tagLink.length > 0) {
         return false;
       }
       // immediately remove the previous popup
-      $currentTarget.popup('destroy');
+      $currentTarget.popup('hide');
     }
 
     // load project data
@@ -61,37 +61,52 @@ if ($tagLink.length > 0) {
 
       // setup popup menu
       const $ct = $(ev.currentTarget);
-      listProjectsByTag(projects, $ct.data('tag'));
-      $currentTarget = $ct;
-      $currentTarget.popup({
-        popup: $tagPopup,
-        onHidden: () => { $currentTarget = null; },
-        onShow: () => { $currentTarget = $ct; },
-        addTouchEvents: true
-      });
+      if (!$ct.data('initialized')) {
+        var $content = listProjectsByTag(projects
+            , $ct.data('tag')
+            , $ct.parents('[data-project]').data('project'));
+        $('body').append($content);
+        $ct.popup({
+          popup: $content,
+          on: 'click',
+          hoverable: true,
+          addTouchEvents: true
+        });
+        $ct.data('initialized', true);
+      }
 
       // show popup menu
-      $currentTarget.popup('show');
+      $ct.popup('show');
+      $currentTarget = $ct;
       loading = false;
     });
     return false;
   });
 }
 
-function listProjectsByTag(projects: any, tag: string) {
+function listProjectsByTag(projects: any, tag: string, currentProject: string) {
   const entries = projects.default;
   const tags = projects.tags;
-  $tagPopup.empty();
-  $tagPopup.append('<div class="header"></div><div class="content"><div class="ui divided list"></div></div>');
-  $tagPopup.find('.header').html(tags[tag].title ? tags[tag].title : tags[tag].label);
-  const $list = $tagPopup.find('.ui.list');
+  var $popupContent = $('<div class="ui hidden popup project tag"><div class="header"></div><div class="content"><p></p><div class="ui divided list"></div></div></div>');
+  $popupContent.find('.header').html(tags[tag].title ? tags[tag].title : tags[tag].label);
+  const $list = $popupContent.find('.ui.list');
+  var count = 0;
   for (const p of entries) {
     if (p.tags.indexOf(tag) < 0) {
       continue;
     }
-    $list.append(`<a class="item" href="${basePath}#projects-${p.project}">${p.getTitle(lang)}</div>`);
+    if (p.project === currentProject) {
+      // $list.append(`<div class="item">${p.getTitle(lang)}</div>`);
+      continue;
+    }
+    $list.append(`<a class="item" href="${basePath}#projects-${p.project}">${p.getTitle(lang)}</a>`);
+    count ++;
   }
+  $popupContent.find('p').html(lang === 'ja'
+      ? (count > 0 ? `以下のプロジェクトも<strong>${tags[tag].label}</strong>に関するものです。` : `他に<strong>${tags[tag].label}</strong>に関するプロジェクトはありません。`)
+      : (count > 0 ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.` : `No other project is tagged with <strong>${tags[tag].label}</strong>.`))
   setSmoothScroll($list.find('a'));
+  return $popupContent;
 }
 
 var projects: any;

@@ -81,7 +81,7 @@ class Entry {
     if (this.publication) {
       return this.publication;
     }
-    return lang === 'ja' ? '文献未発表' : '(Work in progress)';
+    return lang === 'ja' ? '(文献未発表)' : '(Work in progress)';
   }
   getTitle(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.title) {
