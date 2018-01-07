@@ -35,6 +35,11 @@ gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
     , 'dist/javascripts/**/*'
+  ]);
+});
+
+gulp.task('del:node', function(){
+  return del([
     , 'build/**/*'
   ]);
 });
@@ -46,7 +51,7 @@ gulp.task('ts', ['del:js'], function(){
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('ts:node', function(){
+gulp.task('ts:node', ['del:node'], function(){
   return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
