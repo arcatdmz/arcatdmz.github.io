@@ -7,12 +7,7 @@ const lang: 'en'|'ja' = (<any>self)["lang"];
 const basePath: string = (<any>self)["basePath"];
 
 // initialize dropdown menus
-$('a.dropdown.item')
-  .dropdown()
-  .on('click touch', (ev) => {
-    ev.preventDefault();
-    return false;
-  });
+$('.dropdown.item').dropdown();
 
 // initialize popup menu if exists
 $('.with-popup').popup({

@@ -156,7 +156,7 @@ gulp.task('reload', function(){
 gulp.task('watch', function(){
   gulp.watch(['src/**/*.pug'], ['html']);
   gulp.watch(['semantic/**/*.{less,overrides,variables}','src/stylesheets/**/*.less'], ['css']);
-  gulp.watch('src/**/*.ts', ['js']);
+  gulp.watch('src/**/*.ts', ['js:debug']);
   gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', ['copy']);
   gulp.watch('semantic/**/*.js', ['semantic']);
 });

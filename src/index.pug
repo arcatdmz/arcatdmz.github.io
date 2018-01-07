@@ -5,7 +5,9 @@ block vars
   - var me = '';
 
 block projects-menu
-  //
+  a.ui.dropdown.item(href=`${basePath}#projects`)
+    i.lab.icon
+    span.mobile.hidden #{en ? 'Projects' : 'プロジェクト'}
 
 block main
   h1.ui.header
@@ -33,7 +35,7 @@ mixin about()
       .ui.stackable.grid
         .eight.wide.column
           h5.ui.header Research area
-          p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is a subgoal to support the creativity of people with diverse technical backgrounds.
+          p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is an important subgoal to support the creativity of people with diverse technical backgrounds.
         .eight.wide.column
           h5.ui.header Bio
           p Jun Kato is a <abbr title='Human-Computer Interaction'>HCI</abbr> researcher at 
