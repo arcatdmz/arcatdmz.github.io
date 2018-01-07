@@ -35,7 +35,7 @@ gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
     , 'dist/javascripts/**/*'
-    , 'build/**/*.js'
+    , 'build/**/*'
   ]);
 });
 
@@ -50,13 +50,13 @@ gulp.task('ts:node', function(){
   return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('build/javascripts'));
 });
 
 gulp.task('copy:node', function(){
-  return gulp.src('src/javascripts/*.json', { base: 'src/javascripts'})
+  return gulp.src('src/data/*.json', { base: 'src/data'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('build/data'));
 })
 
 gulp.task('js', ['ts'], function(){
@@ -74,18 +74,23 @@ gulp.task('js:debug', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', ['ts:node', 'copy:node'], function(){
+gulp.task('bibtex', function(callback) {
   const bibtexJSON = bibtexParse.toJSON(
     fs.readFileSync(
         bibtexFile
       , { encoding: 'UTF-8' }));
+  fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
+  callback();
+});
+
+gulp.task('html', ['ts:node', 'copy:node', 'bibtex'], function(){
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: {
-        histories: require('./build/histories').default,
-        awards: require('./build/awards').default,
-        publications: require('./build/publications').parse(bibtexJSON)
+        histories: require('./build/javascripts/histories').default,
+        awards: require('./build/javascripts/awards').default,
+        publications: require('./build/javascripts/publications').parse(require('./dist/data/publications.json'))
       },
       verbose: true,
       pretty: true

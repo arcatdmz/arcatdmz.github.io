@@ -4,7 +4,7 @@
     "module": "commonjs",
     "strict": true,
     "rootDir": "src/javascripts",
-    "outDir": "build",
+    "outDir": "build/javascripts",
     "skipLibCheck": true
   },
   "include": [

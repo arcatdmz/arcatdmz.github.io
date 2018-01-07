@@ -1,5 +1,5 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "./histories.json";
+import * as json from "../data/histories.json";
 const histories: RawEntries = json.default ? json.default : json;
 
 class Entry {
