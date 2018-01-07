@@ -38,3 +38,10 @@ $ npm install
 $ gulp debug
 ```
 
+## Browser-sync
+
+Run the following command after `gulp` build will launch a new browser window.
+
+```sh
+$ gulp sync
+```
