@@ -31,6 +31,16 @@ if ($popupButton.is(':visible')) {
   $popupButton.transition('bounce');
 }
 
+// initialize tag popup
+const $tagLink = $('a.project.tag');
+if ($tagLink.length > 0) {
+  $('a.project.tag').popup({
+    exclusive: true,
+    popup: $('.ui.popup.project.tag'),
+    addTouchEvents: true
+  });
+}
+
 // smooth scroll when possible
 $('a[href*=\\#]').on('click touch', function(ev){
   const a = <HTMLAnchorElement>this;
