@@ -17,6 +17,7 @@ const bibtexParse = require('bibtex-parse-js');
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
 const webpackConfigFile = './webpack.config';
+const webpackDebugConfigFile = './webpack-debug.config';
 const bibtexFile = 'src/junkato.bib';
 
 gulp.task('semantic-js', require('./semantic/tasks/build/javascript'));
@@ -26,8 +27,7 @@ gulp.task('semantic', ['semantic-js', 'semantic-assets']);
 gulp.task('del', function(){
   return del([
       'dist/**/*'
-    , '!dist/semantic'
-    , '!dist/semantic/**/*'
+    , 'build/**/*'
   ]);
 });
 
@@ -35,9 +35,7 @@ gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
     , 'dist/javascripts/**/*'
-    , '*.js'
-    , '!gulpfile.js'
-    , '!webpack.config.js'
+    , 'build/**/*.js'
   ]);
 });
 
@@ -52,8 +50,14 @@ gulp.task('ts:node', function(){
   return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('build'));
 });
+
+gulp.task('copy:node', function(){
+  return gulp.src('src/javascripts/*.json', { base: 'src/javascripts'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('build'));
+})
 
 gulp.task('js', ['ts'], function(){
   const webpackConfig = require(webpackConfigFile);
@@ -63,7 +67,14 @@ gulp.task('js', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', ['ts:node'], function(){
+gulp.task('js:debug', ['ts'], function(){
+  const webpackConfig = require(webpackDebugConfigFile);
+  return webpackStream(webpackConfig, webpack)
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('html', ['ts:node', 'copy:node'], function(){
   const bibtexJSON = bibtexParse.toJSON(
     fs.readFileSync(
         bibtexFile
@@ -72,9 +83,9 @@ gulp.task('html', ['ts:node'], function(){
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: {
-        histories: require('./histories').default,
-        awards: require('./awards').default,
-        publications: require('./publications').parse(bibtexJSON)
+        histories: require('./build/histories').default,
+        awards: require('./build/awards').default,
+        publications: require('./build/publications').parse(bibtexJSON)
       },
       verbose: true,
       pretty: true
@@ -104,6 +115,12 @@ gulp.task('site', ['semantic'], function(){
   }
 });
 
+gulp.task('site:debug', ['semantic'], function(){
+  for (const name of ['html', 'css', 'js:debug', 'copy']) {
+    gulp.start(name);
+  }
+});
+
 gulp.task('browser-sync', function(){
   browserSync({
     server: {
@@ -126,4 +143,5 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', ['site']);
+gulp.task('debug', ['site:debug']);
 gulp.task('sync', ['watch', 'browser-sync']);

@@ -4,12 +4,11 @@
     "module": "commonjs",
     "strict": true,
     "rootDir": "src/javascripts",
-    "outDir": ".",
+    "outDir": "build",
     "skipLibCheck": true
   },
   "include": [
-    "src/javascripts/histories.ts",
-    "src/javascripts/awards.ts"
+    "src/javascripts/*.ts"
   ],
   "exclude": [
     "node_modules"
