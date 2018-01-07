@@ -23,8 +23,8 @@ const $popupButton = $('a.popup-menu.button');
 $popupButton
   .removeClass('hidden')
   .popup({
-    position: 'top right',
-    lastResort: 'top right',
+    position: 'top left',
+    lastResort: 'top left',
     addTouchEvents: true
   });
 
