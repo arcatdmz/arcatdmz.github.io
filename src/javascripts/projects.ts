@@ -73,11 +73,7 @@ class Entry {
     for (const tag of tags) {
       const t = dict[tag];
       if (!t) continue;
-      if (t.title) {
-        results.push(`<a class="project tag ${tag}" title="${t.title}">${t.label}</a>`);
-      } else {
-        results.push(`<a class="project tag ${tag}">${t.label}</a>`);
-      }
+      results.push(`<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`);
     }
     return results;
   }
@@ -106,4 +102,5 @@ for (const project of data.projects) {
   entries.push(new Entry(project));
 }
 
+export var tags = data.tags;
 export default entries;

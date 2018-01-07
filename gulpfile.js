@@ -86,7 +86,6 @@ gulp.task('js', ['ts'], function(){
   const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
