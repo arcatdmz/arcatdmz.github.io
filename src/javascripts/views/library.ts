@@ -24,7 +24,6 @@ $popupButton
   .popup({
     position: 'top right',
     lastResort: 'top right',
-    hoverable: true,
     addTouchEvents: true
   });
 
