@@ -1,5 +1,7 @@
 # junkato.jp
 
+[![Build Status](https://travis-ci.org/arcatdmz/junkato.jp.svg?branch=master)](https://travis-ci.org/arcatdmz/junkato.jp)
+
 ## Dependencies
 
 - `Gulp v3.9.1`
