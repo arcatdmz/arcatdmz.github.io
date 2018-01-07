@@ -31,6 +31,20 @@
   padding-top: 0;
 }
 
+#main #previous-projects .ui.items>.item>.content>div {
+  margin-top: .3em;
+}
+#main #previous-projects .ui.items>.item>.content>.header {
+  margin-top: 0;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
+  #main #previous-projects .ui.items>.item>.content {
+    padding-top: 0;
+  }
+}
+
 /* timeline and publications */
 
 .ui.list.timeline>.item>.content>.header {
@@ -63,6 +77,11 @@ h1.ui.header {
 
 .ui.horizontal.list>.item>i.icon {
   margin-top: -0.3em !important;
+}
+
+.ui.items .ui.horizontal.list>.item>i.icon {
+  margin-top: 0 !important;
+  margin-right: .2em;
 }
 
 /* card size adjustment */
@@ -150,7 +169,7 @@ h1.ui.header {
  */
 /* Mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   [class*="mobile hidden"],
   [class*="tablet only"]:not(.mobile),
   [class*="computer only"]:not(.mobile),
@@ -163,7 +182,7 @@ h1.ui.header {
 
 /* Tablet / iPad Portrait */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: (@computerBreakpoint - 1px)) {
   [class*="mobile only"]:not(.tablet),
   [class*="tablet hidden"],
   [class*="computer only"]:not(.tablet),
@@ -176,7 +195,7 @@ h1.ui.header {
 
 /* Computer / Desktop / iPad Landscape */
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: @computerBreakpoint) and (max-width: (@largeMonitorBreakpoint - 1px)) {
   [class*="mobile only"]:not(.computer),
   [class*="tablet only"]:not(.computer),
   [class*="computer hidden"],
@@ -189,7 +208,7 @@ h1.ui.header {
 
 /* Large Monitor */
 
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+@media only screen and (min-width: @largeMonitorBreakpoint) and (max-width: (@widescreenMonitorBreakpoint - 1px)) {
   [class*="mobile only"]:not([class*="large monitor"]),
   [class*="tablet only"]:not([class*="large monitor"]),
   [class*="computer only"]:not([class*="large monitor"]),
@@ -202,7 +221,7 @@ h1.ui.header {
 
 /* Widescreen Monitor */
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
   [class*="mobile only"]:not([class*="widescreen monitor"]),
   [class*="tablet only"]:not([class*="widescreen monitor"]),
   [class*="computer only"]:not([class*="widescreen monitor"]),

@@ -94,12 +94,23 @@ mixin projects()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
-  //.ui.floating.icon.warning.message
-    i.info.circle.icon
-    .content
-      .header #{en ? 'Under construction' : '作成中'}
-      p #{en ? 'This section will be added soon.' : 'このセクションは近日中に追加される予定です。'}
-  .ui.cards
+  h3.ui.header #{en ? 'Recent projects' : '最近のプロジェクト'}
+  .ui.cards#recent-projects
+    .card
+      a.image(href=`${basePath}songle-sync`): img(src='/thumbnails/coming-soon.png')
+      .content
+        .header Songle Sync Tutorial
+        .meta
+          a(title='Creativity Support') Creativity
+          a(title='Human-Music Interaction') Music
+          a: abbr(title='Integrated Development Environment') IDE
+        .description !{en ? 'An interactive tutorial for the Songle Sync <abbr title="Application Programming Interface">API</abbr> that allows controlling numerous devices in synchrony with the songs.' : '多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title="Application Programming Interface">API</abbr>のためのインタラクティブなチュートリアルです。'}
+      .extra.content
+        span.right.floated
+          i.calendar.icon
+          | 2017-2018
+        span (Work in progress)
+          //i.student.icon
     .card
       a.image(href=`${basePath}f3js`): img(src='/thumbnails/f3js.png')
       .content
@@ -108,11 +119,11 @@ mixin projects()
           a(title='Physical Computing') Physical
           a(title='Creativity Support') Creativity
           a: abbr(title='Integrated Development Environment') IDE
-        .description A parametric design tool for physical computing devices for both interaction designers and end-users
+        .description !{en ? 'A parametric design tool for physical computing devices for both interaction designers and end-users.' : '<abbr title="Internet of Things">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。'}
       .extra.content
         .right.floated
           i.calendar.icon
-          | 2015-
+          | 2015-2018
         span
           i.student.icon
           | DIS '17
@@ -124,28 +135,48 @@ mixin projects()
           a(title='Creativity Support') Creativity
           a(title='Human-Music Interaction') Music
           a: abbr(title='Integrated Development Environment') IDE
-        .description An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015
+        .description !{en ? 'An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.' : '音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。'}
       .extra.content
         span.right.floated
           i.calendar.icon
-          | 2014-
+          | 2014-2018
         span
           i.student.icon
           | CHI '15
-    .card
-      a.image(href=`${basePath}crosssong`): img(src='/thumbnails/crosssong.png')
+  h3.ui.header #{en ? 'Previous projects' : '以前のプロジェクト'}
+  .ui.segment#previous-projects: .ui.divided.items
+    .item
+      a.mobile.hidden.image(href=`${basePath}crosssong`): img(src='/thumbnails/crosssong.png')
       .content
-        .header CrossSong
-        .meta
-          a(title='Human-Music Interaction') Music
-        .description A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle
-      .extra.content
-        span.right.floated
-          i.calendar.icon
-          | 2015-2017
-        span
-          i.student.icon
-          | SMC '15
+        a.header(href=`${basePath}crosssong`)
+          img.ui.avatar.image.mobile.only(src='/thumbnails/crosssong.png')
+          | CrossSong
+        .description A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle.
+        .extra
+          span.right.floated
+            i.calendar.icon
+            | 2015-2017
+          span
+            i.student.icon
+            | SMC '15
+          span
+            a(title='Human-Music Interaction') Music
+    .item
+      a.mobile.hidden.image(href=`${basePath}sharedo`): img(src='/thumbnails/sharedo.jpg')
+      .content
+        a.header(href=`${basePath}sharedo`)
+          img.ui.avatar.image.mobile.only(src='/thumbnails/sharedo.jpg')
+          | Sharedo
+        .description A to-do list interface for sharing tasks between human and agents including robots and software personal assistants.
+        .extra
+          span.right.floated
+            i.calendar.icon
+            | 2011-2014
+          span
+            i.student.icon
+            | HAI '14
+          span
+            a(title='Human-Robot Interaction') Robot
 
 mixin contact()
   h2.ui.header
