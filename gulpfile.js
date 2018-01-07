@@ -53,11 +53,29 @@ gulp.task('ts:node', function(){
     .pipe(gulp.dest('build/javascripts'));
 });
 
-gulp.task('copy:node', function(){
-  return gulp.src('src/data/*.json', { base: 'src/data'})
+gulp.task('bibtex', function(callback) {
+  const bibtexJSON = bibtexParse.toJSON(
+    fs.readFileSync(
+        bibtexFile
+      , { encoding: 'UTF-8' }));
+  if (!fs.existsSync('dist/data')) {
+    fs.mkdirSync('dist/data');
+  }
+  fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
+  callback();
+});
+
+gulp.task('copy:bibtex', ['bibtex'], function(){
+  return gulp.src('dist/data/publications.json', { base: 'dist' })
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('build/data'));
+    .pipe(gulp.dest('build'));
 })
+
+gulp.task('copy:node', function(){
+  return gulp.src('src/**/*.json', { base: 'src'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('build'));
+});
 
 gulp.task('js', ['ts'], function(){
   const webpackConfig = require(webpackConfigFile);
@@ -74,23 +92,14 @@ gulp.task('js:debug', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('bibtex', function(callback) {
-  const bibtexJSON = bibtexParse.toJSON(
-    fs.readFileSync(
-        bibtexFile
-      , { encoding: 'UTF-8' }));
-  fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
-  callback();
-});
-
-gulp.task('html', ['ts:node', 'copy:node', 'bibtex'], function(){
+gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: {
         histories: require('./build/javascripts/histories').default,
         awards: require('./build/javascripts/awards').default,
-        publications: require('./build/javascripts/publications').parse(require('./dist/data/publications.json'))
+        publications: require('./build/javascripts/publications').parse(require('./build/data/publications.json'))
       },
       verbose: true,
       pretty: true
