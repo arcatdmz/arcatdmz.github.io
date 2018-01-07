@@ -99,7 +99,7 @@ mixin projects()
     .card
       a.image(href=`${basePath}songle-sync`): img(src='/thumbnails/coming-soon.png')
       .content
-        .header Songle Sync Tutorial
+        a.header(href=`${basePath}songle-sync`) Songle Sync Tutorial
         .meta
           a(title='Creativity Support') Creativity
           a(title='Human-Music Interaction') Music
@@ -110,11 +110,10 @@ mixin projects()
           i.calendar.icon
           | 2017-2018
         span (Work in progress)
-          //i.student.icon
     .card
       a.image(href=`${basePath}f3js`): img(src='/thumbnails/f3js.png')
       .content
-        .header f3.js
+        a.header(href=`${basePath}f3js`) f3.js
         .meta
           a(title='Physical Computing') Physical
           a(title='Creativity Support') Creativity
@@ -130,7 +129,7 @@ mixin projects()
     .card
       a.image(href=`${basePath}textalive`): img(src='/thumbnails/textalive.png')
       .content
-        .header TextAlive
+        a.header(href=`${basePath}textalive`) TextAlive
         .meta
           a(title='Creativity Support') Creativity
           a(title='Human-Music Interaction') Music
@@ -159,7 +158,7 @@ mixin projects()
           span
             i.student.icon
             | SMC '15
-          span
+          span.meta
             a(title='Human-Music Interaction') Music
     .item
       a.mobile.hidden.image(href=`${basePath}sharedo`): img(src='/thumbnails/sharedo.jpg')
@@ -175,7 +174,7 @@ mixin projects()
           span
             i.student.icon
             | HAI '14
-          span
+          span.meta
             a(title='Human-Robot Interaction') Robot
 
 mixin contact()

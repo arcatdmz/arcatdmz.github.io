@@ -16,11 +16,7 @@
   right: 0;
 }
 
-/* /index */
-
-#main #projects {
-  padding-bottom: 1em;
-}
+/* /index history */
 
 #main #history .ui.segment {
   margin-bottom: 0;
@@ -31,9 +27,22 @@
   padding-top: 0;
 }
 
+/* /index projects */
+
+#main #projects {
+  padding-bottom: 1em;
+}
+
+#main #projects .ui.cards>.card>.content>.meta {
+  margin-top: .3em;
+}
+
+/* /index previous-projects */
+
 #main #previous-projects .ui.items>.item>.content>div {
   margin-top: .3em;
 }
+
 #main #previous-projects .ui.items>.item>.content>.header {
   margin-top: 0;
   font-size: 1em;
@@ -101,6 +110,18 @@ h1.ui.header {
   .ui.cards>.card {
     width: 100%;
   }
+}
+
+/* items color adjustment */
+
+// @import "../../semantic/src/themes/default/views/item.variables";
+@metaLinkColor: @lightTextColor;
+@metaLinkHoverColor: @textColor;
+.ui.items>.item>.content>.extra>.meta>a {
+  color: @metaLinkColor;
+}
+.ui.items>.item>.content>.extra>.meta>a:hover {
+  color: @metaLinkHoverColor;
 }
 
 /* rail (large screen) or popup (small screen) */
