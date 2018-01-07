@@ -110,11 +110,11 @@ mixin projects()
           i.calendar.icon
           | #{p.getYearString(lang)}
         - if (p.publication) {
-        span #{p.getPublication(lang)}
-        - } else {
         span
           i.student.icon
           | #{p.getPublication(lang)}
+        - } else {
+        span #{p.getPublication(lang)}
         - }
     - }
   h3.ui.header #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -133,11 +133,11 @@ mixin projects()
             i.calendar.icon
             | #{p.getYearString(lang)}
           - if (p.publication) {
-          span #{p.getPublication(lang)}
-          - } else {
           span
             i.student.icon
             | #{p.getPublication(lang)}
+          - } else {
+          span #{p.getPublication(lang)}
           - }
           span.meta !{p.getTags(lang).join(' ')}
     - }

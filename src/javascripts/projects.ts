@@ -55,10 +55,16 @@ class Entry {
     return this.data.ja;
   }
   getYearString(lang?: 'en'|'ja') {
+    var to: number;
     if (typeof this.data.year.to === 'number') {
-      return `${this.data.year.from}-${this.data.year.to}`;
+      if (this.data.year.from === this.data.year.to) {
+        return this.data.year.from.toString();
+      }
+      to = this.data.year.to;
+    } else {
+      to = new Date().getFullYear();
     }
-    return `${this.data.year.from}`;
+    return `${this.data.year.from}-${to}`;
   }
   getTags(lang?: 'en'|'ja') {
     const results = [];
@@ -68,9 +74,9 @@ class Entry {
       const t = dict[tag];
       if (!t) continue;
       if (t.title) {
-        results.push(`<a class="${tag}" title="${t.title}">${t.label}</a>`);
+        results.push(`<a class="project tag ${tag}" title="${t.title}">${t.label}</a>`);
       } else {
-        results.push(`<a class="${tag}">${t.label}</a>`);
+        results.push(`<a class="project tag ${tag}">${t.label}</a>`);
       }
     }
     return results;
