@@ -34,13 +34,13 @@ gulp.task('del', function(){
 gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
-    , 'dist/javascripts/**/*'
+    , 'dist/javascripts/**/*.js'
   ]);
 });
 
 gulp.task('del:node', function(){
   return del([
-    , 'build/**/*'
+    , 'build/**/*.js'
   ]);
 });
 
@@ -71,9 +71,9 @@ gulp.task('bibtex', function(callback) {
 });
 
 gulp.task('copy:bibtex', ['bibtex'], function(){
-  return gulp.src('dist/data/publications.json', { base: 'dist' })
+  return gulp.src('dist/data/publications.json')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('build/data'));
 })
 
 gulp.task('copy:node', function(){
