@@ -87,7 +87,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
   const $list = $popupContent.find('.ui.list');
   var count = 0;
   for (const p of entries) {
-    if (p.tags.indexOf(tag) < 0) {
+    if (!Array.isArray(p.tags) || p.tags.indexOf(tag) < 0) {
       continue;
     }
     if (p.project === currentProject) {

@@ -8,7 +8,7 @@ const data: {
 interface RawEntry {
   project: string;
   thumbnail?: string;
-  tags: string[];
+  tags?: string[];
   year: {
     from: number;
     to?: number;
@@ -68,8 +68,8 @@ class Entry {
   }
   getTags(lang?: 'en'|'ja') {
     const results = [];
-    const tags = this.data.tags;
-    const dict = data.tags;
+    const tags = this.data.tags ? this.data.tags : [];
+   const dict = data.tags;
     for (const tag of tags) {
       const t = dict[tag];
       if (!t) continue;

@@ -18,6 +18,13 @@
     "robot": {
       "title": "Human-Robot Interaction",
       "label": "Robot"
+    },
+    "nui": {
+      "label": "<abbr title=\"Natural User Interface\">NUI</abbr>"
+    },
+    "toolkit": {
+      "title": "User Interface Toolkit",
+      "label": "Toolkit"
     }
   },
   "projects": [
@@ -98,6 +105,247 @@
       "publication": "HAI '14",
       "title": "Sharedo",
       "description": "A to-do list interface for sharing tasks between human and agents including robots and software personal assistants."
+    },
+    {
+      "project": "visionsketch",
+      "title": "VisionSketch",
+      "year": {
+        "from": 2013,
+        "to": 2014
+      },
+      "tags": [
+        "ide",
+        "nui"
+      ],
+      "thumbnail": "visionsketch.jpg",
+      "description": "VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications"
+    },
+    {
+      "project": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html",
+      "title": "CapStudio",
+      "year": {
+        "from": 2012,
+        "to": 2014
+      },
+      "tags": [
+        "ide"
+      ],
+      "thumbnail": "capstudio.jpg",
+      "description": "CapStudio: An Interactive Screencast for Visual Application Development",
+      "ja": {
+        "project": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio.html",
+        "description": "CapStudio: プログラムの実行画面の録画映像を利用した統合開発環境"
+      }
+    },
+    {
+      "project": "touchdevelop",
+      "title": "It's alive! (TouchDevelop)",
+      "year": {
+        "from": 2012,
+        "to": 2013
+      },
+      "tags": [
+        "ide"
+      ],
+      "thumbnail": "touchdevelop.jpg",
+      "description": "It's Alive! Continuous Feedback in UI Programming"
+    },
+    {
+      "project": "picode",
+      "title": "Picode",
+      "year": {
+        "from": 2011,
+        "to": 2013
+      },
+      "tags": [
+        "ide",
+        "robot"
+      ],
+      "thumbnail": "picode.jpg",
+      "description": "Picode: Inline Photos Representing Posture Data in Source Code"
+    },
+    {
+      "project": "dejavu",
+      "title": "DejaVu",
+      "year": {
+        "from": 2012,
+        "to": 2012
+      },
+      "tags": [
+        "ide",
+        "nui"
+      ],
+      "thumbnail": "dejavu.png",
+      "description": "DejaVu: Integrated Support for Developing Interactive Camera-Based Programs"
+    },
+    {
+      "project": "phybots",
+      "title": "Phybots",
+      "year": {
+        "from": 2009,
+        "to": 2012
+      },
+      "tags": [
+        "toolkit",
+        "robot"
+      ],
+      "thumbnail": "phybots.jpg",
+      "description": "Phybots: A Toolkit for Prototyping Robotic Things"
+    },
+    {
+      "project": "surfboard",
+      "title": "Surfboard",
+      "year": {
+        "from": 2010,
+        "to": 2010
+      },
+      "tags": [
+        "nui"
+      ],
+      "thumbnail": "surfboard.jpg",
+      "description": "Surfboard: Keyboard with Microphone as a Low-cost Interactive Surface"
+    },
+    {
+      "project": "pressing",
+      "title": "Pressing",
+      "year": {
+        "from": 2009,
+        "to": 2009
+      },
+      "tags": [
+        "ide",
+        "nui"
+      ],
+      "thumbnail": "pressing.jpg",
+      "description": "Pressing: A Pressure-sensitive Interpreter with Visual Feedbacks"
+    },
+    {
+      "project": "cristal",
+      "url": "http://www.jst.go.jp/erato/igarashi/en/projects/CRISTAL",
+      "title": "CRISTAL",
+      "year": {
+        "from": 2009,
+        "to": 2009
+      },
+      "tags": [
+        "robot",
+        "nui"
+      ],
+      "thumbnail": "cristal.jpg",
+      "description": "CRISTAL: Control of Remotely Interfaced Systems Using Touch-Based Actions in Living Spaces",
+      "ja": {
+        "url": "http://www.jst.go.jp/erato/igarashi/projects/CRISTAL"
+      }
+    },
+    {
+      "project": "multirobot",
+      "title": "Multi-touch Multi-robot",
+      "year": {
+        "from": 2008,
+        "to": 2009
+      },
+      "tags": [
+        "robot",
+        "nui"
+      ],
+      "thumbnail": "multirobot.jpg",
+      "description": "Multi-touch Interface for Controlling Multiple Mobile Robots"
+    },
+    {
+      "project": "teaparty",
+      "title": "Nameless Teaparty",
+      "year": {
+        "from": 2012,
+        "to": 2016
+      },
+      "thumbnail": "teaparty.jpg",
+      "ja": {
+        "title": "名状しがたいお茶会"
+      }
+    },
+    {
+      "project": "openpool",
+      "title": "OpenPool",
+      "year": {
+        "from": 2012,
+        "to": 2013
+      },
+      "tags": [
+        "toolkit",
+        "nui"
+      ],
+      "thumbnail": "openpool.jpg",
+      "description": "OpenPool: Open-source Billiard Table as an Interactive Surface"
+    },
+    {
+      "project": "homehack",
+      "title": "Home hacking",
+      "year": {
+        "from": 2011
+      },
+      "tags": [
+        "nui"
+      ],
+      "thumbnail": "homehack.jpg",
+      "description": "Home hacking",
+      "ja": {
+        "title": "家ハック"
+      }
+    },
+    {
+      "url": "http://digitalmuseum.jp/software/rtunes/",
+      "title": "RemotiTunes",
+      "year": {
+        "from": 2011,
+        "to": 2011
+      },
+      "thumbnail": "remotitunes.jpg",
+      "description": "RemotiTunes: Listen to Your Home iTunes Library from Anywhere"
+    },
+    {
+      "project": "intelliviewer",
+      "title": "IntelliViewer",
+      "year": {
+        "from": 2010,
+        "to": 2010
+      },
+      "tags": [
+        "ide",
+        "nui"
+      ],
+      "thumbnail": "intelliviewer.jpg",
+      "description": "IntelliViewer: Hierarchical Source Code Viewer on Adaptive Keyboard"
+    },
+    {
+      "url": "http://digitalmuseum.jp/software/chippie/",
+      "title": "Chippie",
+      "year": {
+        "from": 2006,
+        "to": 2008
+      },
+      "tags": [
+        "toolkit"
+      ],
+      "thumbnail": "chippie.png",
+      "description": "Chippie: CMS as Hybrid-system with Pluggable Pieces"
+    },
+    {
+      "url": "http://digitalmuseum.jp/software/arxmp/",
+      "title": "arX MusicPlayer",
+      "year": {
+        "from": 2002,
+        "to": 2007
+      },
+      "thumbnail": "arxmusicplayer.jpg"
+    },
+    {
+      "url": "http://digitalmuseum.jp/software/arxlc/",
+      "title": "arX Launcher",
+      "year": {
+        "from": 2004,
+        "to": 2004
+      },
+      "thumbnail": "arxlauncher.png"
     }
   ]
 }
