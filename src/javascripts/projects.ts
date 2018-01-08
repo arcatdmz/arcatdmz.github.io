@@ -13,10 +13,12 @@ interface RawEntry {
     from: number;
     to?: number;
   },
+  category?: 'collaboration' | 'private';
   publication?: string;
   title: string;
   description: string;
   ja: {
+    publication?: string;
     title?: string;
     description?: string;
   }
@@ -41,6 +43,9 @@ class Entry {
   }
   get year() {
     return this.data.year;
+  }
+  get category() {
+    return this.data.category;
   }
   get publication() {
     return this.data.publication;
@@ -78,6 +83,9 @@ class Entry {
     return results;
   }
   getPublication(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja.publication) {
+      return this.data.ja.publication;
+    }
     if (this.publication) {
       return this.publication;
     }

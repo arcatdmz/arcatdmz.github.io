@@ -1,3 +1,5 @@
+- const recentProjects = ['songle-sync', 'f3js', 'textalive'];
+
 mixin head()
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -25,8 +27,14 @@ mixin header(id)
           a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
           .ui.divider
           - for (const p of projects) {
+          - if (recentProjects.indexOf(p.project) < 0) continue;
+          //- - if (p.category === 'private') continue;
+          //- - if ((p.year.to || p.year.from) < 2012) continue;
           a.item(href=basePath + p.project) #{p.getTitle(lang)}
           - }
+          .ui.divider
+          a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+          a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
     - if (en) {
     a.item(href='/#contact')
       i.address.card.icon
@@ -108,6 +116,55 @@ mixin render-publication(entry)
           .item.book
             i.book.icon
             .content #{entry.getBookWithPages()}
+
+mixin render-project-card(p)
+  .card(id=`projects-${p.project}`, data-project=p.project)
+    a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+    .content
+      a.header(href=basePath + p.project) #{p.getTitle(lang)}
+      .meta !{p.getTags(lang).join('')}
+      .description !{p.getDescription(lang)}
+    .extra.content
+      span.right.floated
+        i.calendar.icon
+        | #{p.getYearString(lang)}
+      - if (p.category !== 'private') {
+      - if (p.publication) {
+      span
+        i.student.icon
+        | !{p.getPublication(lang)}
+      - } else {
+      span !{p.getPublication(lang)}
+      - }
+      - }
+
+mixin render-project-item(p)
+  .item(id=`projects-${p.project}`, data-project=p.project)
+    a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+    .content
+      a.header(href=basePath + p.project)
+        img.ui.avatar.image.mobile.only(src=`/thumbnails/${p.thumbnail}`)
+        | #{p.getTitle(lang)}
+      .description !{p.getDescription(lang)}
+      .extra
+        span.right.floated
+          i.calendar.icon
+          | #{p.getYearString(lang)}
+        - if (p.category !== 'private') {
+        - if (p.publication) {
+        span.ui.green.tiny.basic.label
+          i.student.icon
+          | !{p.getPublication(lang)}
+        - } else {
+        span !{p.getPublication(lang)}
+        - }
+        - }
+        - if (p.category === 'collaboration') {
+        span.ui.tiny.basic.label
+          i.handshake.icon
+          | #{en ? 'Co-authored' : '共著'}
+        - }
+        span.meta !{p.getTags(lang).join(' ')}
 
 html(lang='ja')
   block lang

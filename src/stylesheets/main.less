@@ -35,23 +35,28 @@
 
 /* /index recent-projects */
 
-#main #recent-projects-list .ui.cards>.card>.content>.meta {
+.ui.cards.projects>.card>.content>.meta {
   margin-top: .3em;
 }
 
 /* /index previous-projects */
 
-#main #previous-projects-list .ui.items>.item>.content>div {
+.ui.items.projects>.item>.content>div {
   margin-top: .3em;
 }
 
-#main #previous-projects-list .ui.items>.item>.content>.header {
+.ui.items.projects>.item>.content>.header {
   margin-top: 0;
   font-size: 1em;
 }
 
+.ui.items.projects>.item>.content>.extra>span {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
-  #main #previous-projects-list .ui.items>.item>.content {
+  .ui.items.projects>.item>.image+.content {
     padding-top: 0;
   }
 }

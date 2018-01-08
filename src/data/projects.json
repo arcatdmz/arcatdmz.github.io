@@ -88,6 +88,7 @@
         "from": 2015,
         "to": 2017
       },
+      "category": "collaboration",
       "publication": "SMC '15",
       "title": "CrossSong",
       "description": "A logic puzzle for &quot;musical thinking,&quot; deepening your understanding on music while enjoying the puzzle."
@@ -117,6 +118,7 @@
         "ide",
         "nui"
       ],
+      "publication": "GI '14",
       "thumbnail": "visionsketch.jpg",
       "description": "VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications"
     },
@@ -130,6 +132,8 @@
       "tags": [
         "ide"
       ],
+      "category": "collaboration",
+      "publication": "CHI '14 <abbr title=\"Extended Abstract\">EA</abbr>",
       "thumbnail": "capstudio.jpg",
       "description": "CapStudio: An Interactive Screencast for Visual Application Development",
       "ja": {
@@ -147,6 +151,7 @@
       "tags": [
         "ide"
       ],
+      "publication": "PLDI '13",
       "thumbnail": "touchdevelop.jpg",
       "description": "It's Alive! Continuous Feedback in UI Programming"
     },
@@ -161,8 +166,27 @@
         "ide",
         "robot"
       ],
+      "publication": "CHI '13",
       "thumbnail": "picode.jpg",
       "description": "Picode: Inline Photos Representing Posture Data in Source Code"
+    },
+    {
+      "project": "openpool",
+      "title": "OpenPool",
+      "year": {
+        "from": 2012,
+        "to": 2013
+      },
+      "tags": [
+        "toolkit",
+        "nui"
+      ],
+      "publication": "IEEE GCCE '13",
+      "thumbnail": "openpool.jpg",
+      "description": "OpenPool: Open-source Billiard Table as an Interactive Surface",
+      "ja": {
+        "publication": "グッドデザイン賞 '13"
+      }
     },
     {
       "project": "dejavu",
@@ -175,6 +199,7 @@
         "ide",
         "nui"
       ],
+      "publication": "UIST '12",
       "thumbnail": "dejavu.png",
       "description": "DejaVu: Integrated Support for Developing Interactive Camera-Based Programs"
     },
@@ -189,6 +214,7 @@
         "toolkit",
         "robot"
       ],
+      "publication": "DIS '12",
       "thumbnail": "phybots.jpg",
       "description": "Phybots: A Toolkit for Prototyping Robotic Things"
     },
@@ -202,6 +228,7 @@
       "tags": [
         "nui"
       ],
+      "publication": "UIST '10 Demo",
       "thumbnail": "surfboard.jpg",
       "description": "Surfboard: Keyboard with Microphone as a Low-cost Interactive Surface"
     },
@@ -216,6 +243,7 @@
         "ide",
         "nui"
       ],
+      "publication": "UIST '09 <abbr title=\"Student Innovation Competition\">SIC</abbr>",
       "thumbnail": "pressing.jpg",
       "description": "Pressing: A Pressure-sensitive Interpreter with Visual Feedbacks"
     },
@@ -231,6 +259,8 @@
         "robot",
         "nui"
       ],
+      "category": "collaboration",
+      "publication": "SIGGRAPH '09 E-Tech",
       "thumbnail": "cristal.jpg",
       "description": "CRISTAL: Control of Remotely Interfaced Systems Using Touch-Based Actions in Living Spaces",
       "ja": {
@@ -248,6 +278,7 @@
         "robot",
         "nui"
       ],
+      "publication": "CHI '09 <abbr title=\"Student Research Competition\">SRC</abbr>",
       "thumbnail": "multirobot.jpg",
       "description": "Multi-touch Interface for Controlling Multiple Mobile Robots"
     },
@@ -258,24 +289,11 @@
         "from": 2012,
         "to": 2016
       },
+      "category": "private",
       "thumbnail": "teaparty.jpg",
       "ja": {
         "title": "名状しがたいお茶会"
       }
-    },
-    {
-      "project": "openpool",
-      "title": "OpenPool",
-      "year": {
-        "from": 2012,
-        "to": 2013
-      },
-      "tags": [
-        "toolkit",
-        "nui"
-      ],
-      "thumbnail": "openpool.jpg",
-      "description": "OpenPool: Open-source Billiard Table as an Interactive Surface"
     },
     {
       "project": "homehack",
@@ -286,6 +304,7 @@
       "tags": [
         "nui"
       ],
+      "category": "private",
       "thumbnail": "homehack.jpg",
       "description": "Home hacking",
       "ja": {
@@ -299,6 +318,7 @@
         "from": 2011,
         "to": 2011
       },
+      "category": "private",
       "thumbnail": "remotitunes.jpg",
       "description": "RemotiTunes: Listen to Your Home iTunes Library from Anywhere"
     },
@@ -313,6 +333,7 @@
         "ide",
         "nui"
       ],
+      "category": "private",
       "thumbnail": "intelliviewer.jpg",
       "description": "IntelliViewer: Hierarchical Source Code Viewer on Adaptive Keyboard"
     },
@@ -326,6 +347,7 @@
       "tags": [
         "toolkit"
       ],
+      "category": "private",
       "thumbnail": "chippie.png",
       "description": "Chippie: CMS as Hybrid-system with Pluggable Pieces"
     },
@@ -336,6 +358,7 @@
         "from": 2002,
         "to": 2007
       },
+      "category": "private",
       "thumbnail": "arxmusicplayer.jpg"
     },
     {
@@ -345,6 +368,7 @@
         "from": 2004,
         "to": 2004
       },
+      "category": "private",
       "thumbnail": "arxlauncher.png"
     }
   ]

@@ -93,55 +93,27 @@ mixin history()
   - }
 
 mixin projects()
-  - const recentProjects = ['songle-sync', 'f3js', 'textalive'];
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
-  h3.ui.header#recent-projects #{en ? 'Recent projects' : '最近のプロジェクト'}
-  .ui.cards#recent-projects-list
+  h3.ui.header#recent-projects #{en ? 'Recent research projects' : '最近の研究プロジェクト'}
+  .ui.cards.projects#recent-projects-list
     - for (const p of projects) {
     - if (recentProjects.indexOf(p.project) < 0) continue;
-    .card(id=`projects-${p.project}`, data-project=p.project)
-      a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
-      .content
-        a.header(href=basePath + p.project) #{p.getTitle(lang)}
-        .meta !{p.getTags(lang).join('')}
-        .description !{p.getDescription(lang)}
-      .extra.content
-        span.right.floated
-          i.calendar.icon
-          | #{p.getYearString(lang)}
-        - if (p.publication) {
-        span
-          i.student.icon
-          | #{p.getPublication(lang)}
-        - } else {
-        span #{p.getPublication(lang)}
-        - }
+    +render-project-card(p)
     - }
-  h3.ui.header #{en ? 'Previous projects' : '以前のプロジェクト'}
-  .ui.segment: .ui.divided.items#previous-projects-list
+  h3.ui.header#previous-projects #{en ? 'Previous research projects' : '以前の研究プロジェクト'}
+  .ui.segment: .ui.divided.items.projects#previous-projects-list
     - for (const p of projects) {
-    - if (recentProjects.indexOf(p.project) >= 0) continue;
-    .item(id=`projects-${p.project}`, data-project=p.project)
-      a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
-      .content
-        a.header(href=basePath + p.project)
-          img.ui.avatar.image.mobile.only(src=`/thumbnails/${p.thumbnail}`)
-          | #{p.getTitle(lang)}
-        .description !{p.getDescription(lang)}
-        .extra
-          span.right.floated
-            i.calendar.icon
-            | #{p.getYearString(lang)}
-          - if (p.publication) {
-          span
-            i.student.icon
-            | #{p.getPublication(lang)}
-          - } else {
-          span #{p.getPublication(lang)}
-          - }
-          span.meta !{p.getTags(lang).join(' ')}
+    - if (recentProjects.indexOf(p.project) >= 0) continue; // skip recent projects
+    - if (p.category === 'private') continue; // skip private projects
+    +render-project-item(p)
+    - }
+  h3.ui.header#private-projects #{en ? 'Private projects' : '趣味プロジェクト'}
+  .ui.segment: .ui.divided.items.projects#private-projects-list
+    - for (const p of projects) {
+    - if (p.category !== 'private') continue; // skip research projects
+    +render-project-item(p)
     - }
 
 mixin contact()
