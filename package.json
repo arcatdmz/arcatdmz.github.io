@@ -27,7 +27,6 @@
     "gulp-notify": "^3.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-typescript": "^3.2.3",
-    "pinkie-promise": "git+https://github.com/floatdrop/pinkie-promise.git",
     "semantic-ui": "^2.2.13",
     "typescript": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.1.5",
@@ -35,6 +34,7 @@
     "webpack-stream": "^4.0.0"
   },
   "dependencies": {
-    "clipboard": "^1.7.1"
+    "clipboard": "^1.7.1",
+    "pinkie-promise": "git+https://github.com/floatdrop/pinkie-promise.git"
   }
 }
