@@ -28,7 +28,7 @@ mixin header(id)
           .ui.divider
           - for (const p of projects) {
           - if (recentProjects.indexOf(p.project) < 0) continue;
-          //- - if (p.category === 'private') continue;
+          //- - if (p.category === 'committee' || p.category === 'private') continue;
           //- - if ((p.year.to || p.year.from) < 2012) continue;
           a.item(href=basePath + p.project) #{p.getTitle(lang)}
           - }

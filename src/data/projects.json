@@ -29,6 +29,27 @@
   },
   "projects": [
     {
+      "project": "teaparty",
+      "title": "Nameless Teaparty",
+      "year": {
+        "from": 2012,
+        "to": 2016
+      },
+      "category": "committee",
+      "thumbnail": "teaparty.jpg",
+      "ja": {
+        "title": "名状しがたいお茶会"
+      }
+    },
+    {
+      "project": "sigpx",
+      "title": "SIGPX",
+      "year": {
+        "from": 2016
+      },
+      "category": "committee"
+    },
+    {
       "project": "songle-sync",
       "thumbnail": "coming-soon.png",
       "tags": [
@@ -281,19 +302,6 @@
       "publication": "CHI '09 <abbr title=\"Student Research Competition\">SRC</abbr>",
       "thumbnail": "multirobot.jpg",
       "description": "Multi-touch Interface for Controlling Multiple Mobile Robots"
-    },
-    {
-      "project": "teaparty",
-      "title": "Nameless Teaparty",
-      "year": {
-        "from": 2012,
-        "to": 2016
-      },
-      "category": "private",
-      "thumbnail": "teaparty.jpg",
-      "ja": {
-        "title": "名状しがたいお茶会"
-      }
     },
     {
       "project": "homehack",

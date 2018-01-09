@@ -106,7 +106,7 @@ mixin projects()
   .ui.segment: .ui.divided.items.projects#previous-projects-list
     - for (const p of projects) {
     - if (recentProjects.indexOf(p.project) >= 0) continue; // skip recent projects
-    - if (p.category === 'private') continue; // skip private projects
+    - if (p.category === 'committee' || p.category === 'private') continue; // skip committee and private projects
     +render-project-item(p)
     - }
   h3.ui.header#private-projects #{en ? 'Private projects' : '趣味プロジェクト'}

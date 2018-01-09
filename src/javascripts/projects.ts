@@ -13,7 +13,7 @@ interface RawEntry {
     from: number;
     to?: number;
   },
-  category?: 'collaboration' | 'private';
+  category?: 'collaboration' | 'committee' | 'private';
   publication?: string;
   title: string;
   description: string;
