@@ -8,18 +8,24 @@ block main
   h1.ui.header
     i.student.icon
     | #{title}
-  h2.ui.header#meetups Meetups
-  p I have founded and regularly held several meetups for researchers and creators.
+  h2.ui.header#meetups
+    i.users.icon
+    | Meetups
+  p I have founded and regularly held meetups for researchers and creators.
   .ui.cards.projects#meetups-list
     - for (const p of projects) {
     - if (p.category !== 'committee') continue;
     +render-project-card(p)
     - }
-  h2.ui.header#conferences Academic conferences and journals
+  .ui.hidden.divider
+  h2.ui.header#conferences
+    i.book.icon
+    | Academic conferences and journals
+  h3.ui.header Organizing committee
   p I have served as committee members for academic conferences and journals.
   .ui.stackable.three.columns.grid
     .column
-      h3.ui.header Human-Computer Interaction
+      h4.ui.header Human-Computer Interaction
       .ui.list
         .ui.item
           .header <a href="https://uist.acm.org/uist2017/#program-committee" title="The 30th annual ACM symposium on User Interface Software and Technology">ACM UIST 2017</a>
@@ -37,8 +43,11 @@ block main
           .header <a href="http://www.acm.org/uist/uist2013/organizers.php" title="The 26th annual ACM symposium on User Interface Software and Technology">ACM UIST 2013</a>
           .meta Publicity Co-chair
     .column
-      h3.ui.header Programming Experience
+      h4.ui.header Programming Experience
       .ui.list
+        .ui.item
+          .header <a href="http://2018.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2018</a> <a href="http://2018.programming-conference.org/track/px-2018/" title="The forth edition of the Programming Experience workshop">PX/18</a> workshop
+          .meta Program Committee
         .ui.item
           .header <a href="https://2018.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2018</a> conference
           .meta Program Committee
@@ -46,13 +55,13 @@ block main
           .header <a href="http://2017.splashcon.org/home" title="The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity">ACM SPLASH 2017</a> <a href="http://2017.splashcon.org/track/px-17-2">PX/17.2</a> and <a href="https://2017.splashcon.org/track/live-2017">LIVE</a> workshops
           .meta Program Committee
         .ui.item
-          .header <a href="http://2016.ecoop.org/home" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2017</a> <a href="http://2017.programming-conference.org/track/px-2017/" title="The second edition of the Programming Experience workshop">PX/17.1</a> workshop
+          .header <a href="http://2017.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2017</a> <a href="http://2017.programming-conference.org/track/px-2017/" title="The second edition of the Programming Experience workshop">PX/17.1</a> workshop
           .meta Program Committee
         .ui.item
           .header <a href="http://2016.ecoop.org/home" title="The 30th European Conference on Object-Oriented Programming">ECOOP 2016</a> <a href="http://2016.ecoop.org/track/PX-2016" title="The first edition of the Programming Experience workshop">PX</a> and <a href="http://2016.ecoop.org/track/LIVE-2016" title="The second workshop on Live Programming systems">LIVE</a> workshops
           .meta Program Committee
     .column
-      h3.ui.header Human-Robot Interaction and others
+      h4.ui.header Human-Robot Interaction etc.
       .ui.list
         .ui.item
           .header <a href="http://humanrobotinteraction.org/2017/" title="The 2017 Conference on Human-Robot Interaction">IEEE/ACM HRI 2017</a>
@@ -73,30 +82,44 @@ block main
             | )
           .meta Organizing Committee
   h3.ui.header Reviewer
-  ul
-    li 36th ACM Conference on Human Factors in Computing Systems (ACM CHI 2018)
-    li 35th ACM Conference on Human Factors in Computing Systems (ACM CHI 2017)
-    li The 2017 ACM SIGCHI Conference on Designing Interactive Systems (ACM DIS 2017)
-    li The 12th ACM/IEEE International Conference on Human-Robot Interaction (ACM/IEEE HRI 2017)
-    li The 11th ACM/IEEE International Conference on Human-Robot Interaction (ACM/IEEE HRI 2016)
-    li 34th ACM Conference on Human Factors in Computing Systems (ACM CHI 2016)
-    li The 28th annual ACM symposium on User Interface Software and Technology (ACM UIST 2015)
-    li The 24th International Symposium on Robot and Human Interactive Communication (IEEE RO-MAN 2015)
-    li The 42nd International Conference and Exhibition on Computer Graphics and Interactive Techniques (ACM SIGGRAPH 2015)
-    li 33rd ACM Conference on Human Factors in Computing Systems (ACM CHI 2015)
-    li 2nd International Conference on Human-Agent Interaction (HAI 2014)
-    li The 27th annual ACM symposium on User Interface Software and Technology (ACM UIST 2014)
-    li 3rd IEEE Global Conference on Consumer Electronics (IEEE GCCE 2014)
-    li 2nd IEEE Global Conference on Consumer Electronics (IEEE GCCE 2013)
-    li 20th ACM Multimedia Conference (ACM MM 2012)
-    li 8th International Conference on Advances in Computer Entertainment Technology (ACE 2011)
-    li 10th IPSJ Forum on Information Technology (FIT 2011)
-    li 7th International Conference on Advances in Computer Entertainment Technology (ACE 2010)
-    li 28th ACM Conference on Human Factors in Computing Systems (ACM CHI 2010)
+  p I have served as regular reviewers for academic conferences and journals.
+  .ui.horizontal.divided.list.reviewers-list
+    .item
+      .header: abbr(title='The SIGCHI Conference on Human Factors in Computing Systems') CHI
+      .meta 2010, 2015-2018
+    .item
+      .header: abbr(title='The Annual ACM symposium on User Interface Software and Technology') UIST
+      .meta 2014-2015
+    .item
+      .header: abbr(title='ACM SIGCHI Conference on Designing Interactive Systems') DIS
+      .meta 2017
+    .item
+      .header: abbr(title='ACM/IEEE International Conference on Human-Robot Interaction') HRI
+      .meta 2016-2017
+    .item
+      .header: abbr(title='The International Symposium on Robot and Human Interactive Communication') RO-MAN
+      .meta 2015
+    .item
+      .header: abbr(title='The International Conference and Exhibition on Computer Graphics and Interactive Techniques') SIGGRAPH
+      .meta 2015
+    .item
+      .header: abbr(title='The International Conference on Human-Agent Interaction') HAI
+      .meta 2014
+    .item
+      .header: abbr(title='IEEE Global Conference on Consumer Electronics') GCCE
+      .meta 2013-2014
+    .item
+      .header: abbr(title='ACM Multimedia Conference') MM
+      .meta 2012
+    .item
+      .header: abbr(title='International Conference on Advances in Computer Entertainment Technology') ACE
+      .meta 2010-2011
+    .item
+      .header: abbr(title='IPSJ Forum on Information Technology') FIT
+      .meta 2011
   h3.ui.header Miscellaneous
   ul
     li Organized 12nd Joint Seminar on <a href="http://sigchi.jp/seminar/chi2017/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 25, 2017.
-    li Founded <a href="http://sigpx.org/en/" title="Special Interest Group on Programming Experience">SIGPX</a>, 2016.
     li Served as a teaching assistant of the &quot;Media Informatics&quot; course for graduate students at The University of Tokyo, Summer 2016.
     li Organized 11th Joint Seminar on <a href="http://hci.tokyo/seminar/chi2016/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 26, 2016.
     li Organized 10th Joint Seminar on <a href="http://hci.tokyo/seminar/chi2015/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 27, 2015.
