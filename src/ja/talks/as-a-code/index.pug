@@ -19,47 +19,48 @@ html(lang='ja')
     meta(property='og:url', content='http://junkato.jp/ja/talks/as-a-code/?p=1')
     meta(property='fb:admins', content='503220390')
     meta(property='fb:app_id', content='488785607828009')
-    style .fb-share-button>span {
-  vertical-align: top !important;
-}
-.nav.nav-tabs .active {
-  font-weight: bold;
-}
-div.code {
-  margin: 0 0 12.5px 0;
-}
-div.canvas {
-  border: 1px solid #ccc;
-  margin: 0 0 12.5px 0;
-}
-div.canvas>canvas {
-  width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
-div.console>pre {
-  width: 100%;
-  height: 200px;
-  overflow-y: scroll;
-}
-div.tweets {
-  margin-top: 12.5px;
-}
-@font-face {
-  font-family: "Emoji";
-  src: local("Apple Color Emoji"),
-    local("Gecko Emoji"),
-    local("Noto Sans Emoji"),
-    local("Segoe UI Emoji"),
-    local("Segoe UI Symbol"),
-    local("Noto Sans Symbols");
-}
-span.cool {
-  font-family: Emoji;
-  font-size: 3em;
-  display: inline-block;
-  margin: 0 4px;
-}
+    style.
+      .fb-share-button>span {
+        vertical-align: top !important;
+      }
+      .nav.nav-tabs .active {
+        font-weight: bold;
+      }
+      div.code {
+        margin: 0 0 12.5px 0;
+      }
+      div.canvas {
+        border: 1px solid #ccc;
+        margin: 0 0 12.5px 0;
+      }
+      div.canvas>canvas {
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+      }
+      div.console>pre {
+        width: 100%;
+        height: 200px;
+        overflow-y: scroll;
+      }
+      div.tweets {
+        margin-top: 12.5px;
+      }
+      @font-face {
+        font-family: "Emoji";
+        src: local("Apple Color Emoji"),
+          local("Gecko Emoji"),
+          local("Noto Sans Emoji"),
+          local("Segoe UI Emoji"),
+          local("Segoe UI Symbol"),
+          local("Noto Sans Symbols");
+      }
+      span.cool {
+        font-family: Emoji;
+        font-size: 3em;
+        display: inline-block;
+        margin: 0 4px;
+      }
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -107,30 +108,32 @@ span.cool {
             img(src='https://b.st-hatena.com/images/entry-button/button-only@2x.png', alt='このエントリーをはてなブックマークに追加', width='20', height='20', style='border: none;')
           script(type='text/javascript', src='https://b.st-hatena.com/js/bookmark_button.js', charset='utf-8', async='')
           a.twitter-share-button(href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fjunkato.jp%2Fja%2Ftalks%2Fas-a-code%2F%3Fp%3D1', data-text='* as a Code | コンテンツをプログラミングする方法', data-count='horizontal', data-counturl='http://junkato.jp/ja/talks/as-a-code/?p=1') Tweet
-          script window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
- 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
- 
-  return t;
-}(document, "script", "twitter-wjs"));
+          script.
+            window.twttr = (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            
+              t._e = [];
+              t.ready = function(f) {
+                t._e.push(f);
+              };
+            
+              return t;
+            }(document, "script", "twitter-wjs"));
           .fb-share-button(style='vertical-align: top', data-href='http://junkato.jp/ja/talks/as-a-code/?p=1', data-layout='button_count')
           #fb-root
-          script (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=488785607828009";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+          script.
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=488785607828009";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         span.label.label-default
           i.glyphicon.glyphicon-calendar
           | 12/9/2015
@@ -148,7 +151,7 @@ span.cool {
             a(href='?p=2') 2. コンテンツを作る
           li
             a(href='?p=3') 3. プログラミング環境を作る
-      a##content(style='margin-top: 50px; position: absolute')
+      a#content(style='margin-top: 50px; position: absolute')
       //        
         <div class="row">
         <div class="col-md-9">

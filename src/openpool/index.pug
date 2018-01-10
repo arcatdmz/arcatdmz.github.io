@@ -88,30 +88,32 @@ html(lang='en')
             p OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac.
             p Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail.
             h3 OpenPool core library
-            pre.prettyprint.linenums OpenPool op = new OpenPool(this);
+            pre.prettyprint.linenums.
+              OpenPool op = new OpenPool(this);
 
-op.updateBalls();
-for (int i = 0; i < op.balls; i ++) {
-  Ball ball = op.balls[i];
-  ellipse(ball.x, ball.y, 10, 10);
-  if (ball.prev != null) {
-    line(ball.x, ball.y, ball.prev.x, ball.prev.y);
-  }
-}
+              op.updateBalls();
+              for (int i = 0; i < op.balls; i ++) {
+                Ball ball = op.balls[i];
+                ellipse(ball.x, ball.y, 10, 10);
+                if (ball.prev != null) {
+                  line(ball.x, ball.y, ball.prev.x, ball.prev.y);
+                }
+              }
             p Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.
             p The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.
             h3 OpenPool pocket detection library
-            pre.prettyprint.linenums OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");
-p.start();
+            pre.prettyprint.linenums.
+              OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");
+              p.start();
 
-int[] pockets = p.getPockets();
-for (int i = 0; i < pockets.length; i++) {
-  if (pockets[i] > 0) {
-    print(pockets[i]);
-    print(" balls fell in the pocket no.");
-    println(i + 1);
-  }
-}
+              int[] pockets = p.getPockets();
+              for (int i = 0; i < pockets.length; i++) {
+                if (pockets[i] > 0) {
+                  print(pockets[i]);
+                  print(" balls fell in the pocket no.");
+                  println(i + 1);
+                }
+              }
             p With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket.
             p To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.
           .col-md-6
