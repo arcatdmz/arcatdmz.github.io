@@ -8,7 +8,6 @@
     "start": "gulp sync"
   },
   "author": "Jun Kato",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.36",

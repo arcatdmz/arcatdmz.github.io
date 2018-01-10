@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/arcatdmz/junkato.jp.svg?branch=master)](https://travis-ci.org/arcatdmz/junkato.jp)
 
+All rights on image, video, text, and related resources (e.g., including paper PDF files) reserved.
+
 ## Dependencies
 
 - `Gulp v3.9.1`

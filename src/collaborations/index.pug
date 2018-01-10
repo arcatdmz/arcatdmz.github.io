@@ -8,27 +8,24 @@ block main
   h1.ui.header#collaborations
     i.handshake.icon
     .content #{title}
-  .ui.segment
-    img.ui.mini.circular.spaced.image(src='/images/junkato.jpg')
-    block message
-      | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
-      a(href='/#contact') email or social networking services
-      | .
+  .ui.segment: .ui.items
+    .item
+      .ui.tiny.image: img(src='/images/junkato.jpg')
+      .middle.aligned.content
+        block message
+          | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
+          a(href='/#contact') email or social networking services
+          | .
   .ui.hidden.divider
   block collaborations
     .ui.stackable.grid
       .eight.wide.column
         h2.ui.header
           i.gift.icon
-          | Interested in using my technologies?
-        p My recent projects have been published as web services. If you want to try using the technologies, please visit their websites, preferably with modern web browsers.
-        .ui.fluid.stackable.three.column.grid
-          .column
-            a(href='http://tutorial.songle.jp/sync') Songle Sync Tutorial
-          .column
-            a(href='http://f3js.org') f3.js
-          .column
-            a(href='http://textalive.jp') TextAlive
+          | Interested in technologies?
+        p My recent projects have been published as web services 
+          a(href='#services') as shown below
+          | . If you want to try using the technologies, please visit their websites, preferably with modern web browsers.
         h3.ui.header Commercial use
         p My past projects of creativity support tools/environments have been used in university lectures and in commercial events. If you are interested in using them for commercial purpose, contact me.
         h3.ui.header Open source projects
@@ -39,6 +36,15 @@ block main
           | . Did you know that even this website is 
           a(href='https://github.com/arcatdmz/junkato.jp') open-sourced
           | ?
+        .ui.divider#services
+        - for (const p of projects) {
+        - if (recentProjects.indexOf(p.project) < 0) continue;
+        .ui.fluid.card(id=`projects-${p.project}`)
+          a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+          .content
+            a.header(href=basePath + p.project) #{p.getTitle(lang)}
+            .content !{p.getDescription(lang)}
+        - }
       .eight.wide.column
         h2.ui.header
           i.student.icon
