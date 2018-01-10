@@ -1,0 +1,27 @@
+extends ../../collaborations/index
+
+block lang
+  - var en = false, lang = 'ja', basePath = '/ja/';
+
+block message
+  | 外部連携や技術研修生のお問合せは
+  a(href='/ja/#contact') メールやソーシャルネットワークサービス
+  | で受け付けています。
+
+block collaborations
+    .ui.stackable.grid
+      .eight.wide.column
+        h2.ui.header
+          i.gift.icon
+          | 外部連携
+        .ui.fluid.stackable.three.column.grid
+          .column
+            a(href='http://tutorial.songle.jp/sync') Songle Sync Tutorial
+          .column
+            a(href='http://f3js.org') f3.js
+          .column
+            a(href='http://textalive.jp') TextAlive
+      .eight.wide.column
+        h2.ui.header
+          i.student.icon
+          | 技術研修生

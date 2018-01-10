@@ -1,0 +1,71 @@
+extends ../_layout
+
+block vars
+  - var title = en ? 'Call for collaborations' : '共同研究';
+  - var me = 'collaborations/';
+
+block main
+  h1.ui.header#collaborations
+    i.handshake.icon
+    .content #{title}
+  .ui.segment
+    img.ui.mini.circular.spaced.image(src='/images/junkato.jpg')
+    block message
+      | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
+      a(href='/#contact') email or social networking services
+      | .
+  .ui.hidden.divider
+  block collaborations
+    .ui.stackable.grid
+      .eight.wide.column
+        h2.ui.header
+          i.gift.icon
+          | Interested in using my technologies?
+        p My recent projects have been published as web services. If you want to try using the technologies, please visit their websites, preferably with modern web browsers.
+        .ui.fluid.stackable.three.column.grid
+          .column
+            a(href='http://tutorial.songle.jp/sync') Songle Sync Tutorial
+          .column
+            a(href='http://f3js.org') f3.js
+          .column
+            a(href='http://textalive.jp') TextAlive
+        h3.ui.header Commercial use
+        p My past projects of creativity support tools/environments have been used in university lectures and in commercial events. If you are interested in using them for commercial purpose, contact me.
+        h3.ui.header Open source projects
+        p Some of my technologies have been published as open-source projects at 
+          a(href='https://github.com/arcatdmz')
+            i.github.icon
+            | GitHub
+          | . Did you know that even this website is 
+          a(href='https://github.com/arcatdmz/junkato.jp') open-sourced
+          | ?
+      .eight.wide.column
+        h2.ui.header
+          i.student.icon
+          | Students?
+        p I regularly work with graduate students who are interested in Human-Computer Interaction (HCI) and/or Programming Experience (PX) research.
+        p Please contact me if you want to work with me. Keep in mind that, generally speaking, the first step toward working with professional researchers is often meeting them at academic conferences and get them know who you are and what you are doing.
+        h3.ui.header Potential ways for collaborations
+        p If you are living outside Japan, remote collaborations would be the easiest. If you have an appropriate visa, it would be possible for me to invite you to Tsukuba and work with you for a short term (e.g. regular internship programs for domestic students last for a month or so).
+        p Otherwise, if you are still interested in face-to-face collaborations, we could together find visa and funding support. My affiliation currently has a funding from the 
+          a(href='https://www.jst.go.jp/kisoken/accel/en/about/index.html') JST ACCEL
+          |  program and there are also public funding support such as  
+          a(href='http://www.jsps.go.jp/english/e-summer/')
+            abbr(title='Japan Society for the Promotion of Science') JSPS
+            |  Summer Program
+          | .
+        h3.ui.header Interested in staying in Japan?
+        p Please note that there are currently multiple funding programs that could potentially support graduate students in the HCI research field to come to Japan and work with Japanese top researchers. Please refer to the following websites for more details.
+        .ui.list
+          .item
+            a.header(href='http://www-ui.is.s.u-tokyo.ac.jp/~takeo/recruit.html') JST CREST &quot;HCI for Machine Learning&quot; Program
+            .content Prof. Takeo Igarashi, The University of Tokyo
+          .item
+            a.header(href='https://docs.google.com/forms/d/e/1FAIpQLSeXHuP0Qv2cCdcWJSsQ82oGkJEnm1GPAmudpYMfHsPfwKd63g/viewform') JST CREST &quot;JIZAI Body&quot; Project
+            .content Prof. Masahiko Inami, The University of Tokyo
+          .item
+            a.header(href='http://www.jst.go.jp/erato/kawahara/member/') JST ERATO &quot;Kawahara Universal Information Network&quot; Project
+            .content Prof. Yoshihiro Kawahara, The University of Tokyo
+          //.item
+            a.header(href='https://sites.google.com/site/jstcrestproject/home') JST CREST &quot;技能獲得メカニズムの原理解明および獲得支援システムへの展開&quot;
+            .content Prof. Hideki Koike, Tokyo Institute of Technology
