@@ -1,0 +1,152 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Pressing | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li.active
+              a(href='/#projects') Projects
+            li
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/pressing/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1 Pressing: A Pressure-sensitive Interpreter with Visual Feedbacks
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '10
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM UIST '09 Student Innovation Contest
+      section
+        h2 Abstract
+        .row
+          .col-sm-8.col-md-9
+            p
+              | Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with
+              a(href='http://www.youtube.com/watch?v=1zo0kJ_wi80') a practical pressure-sensitive keyboard
+              | developed by
+              a(href='http://www.microsoft.com/appliedsciences/') Microsoft Applied Science Group
+              | .
+            p
+              | This work was presented at UIST 2009
+              a(href='http://www.acm.org/uist/uist2009/call/contest.htmll') Student Innovation Contest
+              | with
+              a(href='/publications/uist2009-kato-pressing-flyer.pdf')
+                i.icon-file
+                | a flyer
+              | .
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/pressing.jpg', alt='Pressing')
+      section
+        .row
+          .col-sm-12.col-md-9
+            h2 Programming Experience
+            p When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct.
+            p
+              | For example, when he types
+              code new Ball()
+              | and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name
+              i Ball
+              | is typed.
+            p
+              | There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable
+              i b
+              | and its track will be painted with a red brush. The brush width is defined by how strong
+              i Brush
+              | is typed.
+            pre b = new Ball(); b.pen(new Brush(255,0,0));
+            p The programmer can interact with the instantiated ball objects not only by writing code,
+            pre World.setGravity(0, 0.98); b.setSpeed(100);
+            p but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience.
+            h2 Implementation
+            p
+              | This integrated development environment (IDE) has its original interpreter named
+              i Kotosaka
+              | which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects.
+            p
+              | The IDE contains a two-dimensional virtual world equipped with a
+              a(href='http://box2d.org/') Box2D
+              | -based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure.
+            .thumbnail
+              img(src='http://digitalmuseum.jp/en/software/pressing/images/usage.png')
+          .col-xs-6.col-sm-6.col-md-3
+            .thumbnail
+              a(href='/pressing/pressing.png')
+                img(src='/pressing/pressing.png', width='260', alt='Pressing screen shot')
+          .col-xs-6.col-sm-6.col-md-3
+            .thumbnail
+              a(href='http://www.flickr.com/photos/zhiquan/3989241000/')
+                img(src='/pressing/3989241000_35cb13136a_o.jpg', alt='Demonstration at UIST '09')
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/pressing/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

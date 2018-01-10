@@ -1,0 +1,181 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Pressing | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/pressing/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 Pressing: 打鍵の強さで出力が変わるビジュアルインタプリタ
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '10
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM UIST '09 Student Innovation Contest
+      section
+        h2 概要
+        .row
+          .col-sm-8.col-md-9
+            p 我々は、テキストが表す精確な情報に打鍵力というファジィな情報を加えることによって新しいインタラクションを実現できると考え、統合開発環境“Pressing”を開発した。Pressingは、物理シミュレーションによる視覚的フィードバックがあり、打鍵の強さが出力に影響を与えるインタプリタを内蔵した統合開発環境である。
+            p
+              | 本研究は
+              a(href='http://www.microsoft.com/appliedsciences/') Microsoft Applied Science Group
+              | の
+              a(href='http://www.youtube.com/watch?v=1zo0kJ_wi80') 打鍵圧を検出できるキーボードのプロトタイプ
+              | を用いて開発された。UIST 2009
+              a(href='http://www.acm.org/uist/uist2009/call/contest.htmll') Student Innovation Contest
+              | で
+              a(href='/publications/uist2009-kato-pressing-flyer.pdf')
+                i.icon-file
+                | フライヤー
+              | を配りながら発表したのが初出である。
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/pressing.jpg', alt='Pressing')
+      section
+        .row
+          .col-sm-12.col-md-9
+            h2 プログラミング体験
+            p Pressingを起動すると、仮想環境“Hakoniwa”とインタプリタ“Kotosaka”の入力欄が表れる。Kotosakaにスクリプトを入力すると、各文字を打鍵した強さの情報が保持され、スクリプトの実行時にHakoniwaで打鍵力に応じた出力が得られる。スクリプトの入力と実行は対話的に行われ、コンパイルによりプログラムの状態がリセットされることもない。Pressingは、いわゆるライブプログラミング環境である。
+            p
+              | 例えば
+              code new Ball()
+              | と打ち込んでEnterキーを押すと、スクリーン上に円が現れる。このとき
+              i Ball
+              | の打鍵が強ければ大きな円が、弱ければ小さな物体が現れる。
+            p
+              | 他にもいくつか面白いプリセットクラスが用意されている。例えば、次の2文は円インスタンスを変数
+              i b
+              | に代入し、円が通った軌跡が赤いブラシで塗られる。ブラシの幅は
+              i Brush
+              | がどれだけ強く打鍵されたかによって決まる。
+            pre b = new Ball(); b.pen(new Brush(255,0,0));
+            p プログラマは、インスタンス化した円オブジェクトとコードを書くことによってインタラクションできる。
+            pre World.setGravity(0, 0.98); b.setSpeed(100);
+            p しかし、単にマウスカーソルでスクリーン上のオブジェクトに触るだけでもインタラクションできる。本環境は2次元物理シミュレーションのエンジンを内蔵しているため、インスタンス化された物体との自然なインタラクションが可能である。
+            h2 実装
+            p
+              | Hakoniwaは
+              a(href='http://box2d.org/') Box2D
+              | ベースの物理シミュレータであり、以下の図に示すようなインタラクションを可能にしている。
+            p Kotosakaは、JavaScriptに影響を受けた簡易言語を解釈する。この言語には、クラス（メソッド、フィールド）、関数、変数といったオブジェクト指向の基本的な概念が備わっている。変数は宣言不要で動的な型付けができ、プリミティブ型（真偽値、数値と文字列）の値、クラスのインスタンスと関数を代入できる。
+            .thumbnail
+              img(src='http://digitalmuseum.jp/en/software/pressing/images/usage.png')
+          .col-xs-6.col-sm-6.col-md-3
+            .thumbnail
+              a(href='/pressing/pressing.png')
+                img(src='/pressing/pressing.png', width='260', alt='Pressing スクリーンショット')
+          .col-xs-6.col-sm-6.col-md-3
+            .thumbnail
+              a(href='http://www.flickr.com/photos/zhiquan/3989241000/')
+                img(src='/pressing/3989241000_35cb13136a_o.jpg', alt='Demonstration at UIST '09')
+      section
+        h2 発表文献
+        ul
+          li#i2010-kato-pressing
+            u 加藤 淳
+            | , 五十嵐 健夫,
+            b "Pressing: 打鍵の強さで出力が変わるビジュアルインタプリタ"
+            | ,
+            i インタラクション2010
+            | . pp.191-192, 2010年3月.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/interaction2010-kato-pressing.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/interaction2010-kato-pressing-poster.pdf')
+                i.glyphicon.glyphicon-file
+                | ポスター
+              a(href='http://junkato.jp/ja/pressing/')
+                i.glyphicon.glyphicon-info-sign
+                | プロジェクトページ
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{i2010-kato-pressing,
+  title={Pressing: 打鍵の強さで出力が変わるビジュアルインタプリタ},
+  author={ 加藤 淳 and  五十嵐 健夫}
+  booktitle={インタラクション2010},
+  pages={191-192},
+  year={2010}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/pressing/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

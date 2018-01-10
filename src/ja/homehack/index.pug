@@ -1,0 +1,163 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title 家ハック | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/homehack/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 家ハック
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '11-
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          // <span class="label label-important" rel="tooltip"><i class=" icon-folder-open icon-white"></i> CHI '13</span> 
+      section
+        p 研究とは別に、自分の身の回りを便利に面白くするサイドプロジェクトを継続的に進めてきました。このページではその一部を紹介します。
+        ul.nav.nav-tabs
+          li.active
+            a(href='/ja/homehack/') 概要
+          li
+            a(href='/ja/homehack/fungus-camera/')
+              | なめこカメラ
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '12-13
+          li
+            a(href='/ja/homehack/rhythm-kaden/')
+              | リズム家電
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '12
+          li
+            a(href='/ja/homehack/realmote/')
+              | Realmote
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '11-12
+      section
+        .tab-content
+          .tab-pane.active
+            h3 概要
+            .row
+              .col-md-5
+                iframe(src='//www.slideshare.net/slideshow/embed_code/38527331', width='427', height='356', frameborder='0', marginwidth='0', marginheight='0', scrolling='no', style='border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;', allowfullscreen='')
+              .col-md-7
+                p
+                  | Sony CSL大和田さんとPhysVis湯村さん主催のイベント「
+                  a(href='http://kadecot.net/ouch-hack/') おうちハック発表会
+                  | 」でキーノートスピーカーを拝命し、「
+                  a(href='https://www.slideshare.net/arcatdmz/home-hack', title='もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─', target='_blank') もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─
+                  | 」と題してこれまでの家ハック事例をまとめてご紹介しました。
+                p
+                  | ご紹介したプロジェクトはほとんど
+                  a(href='https://github.com/arcatdmz') GitHub
+                  | 上でソースコードが公開されています。みんなでHappy home hacking!
+            h3 なめこカメラ
+            .row
+              .col-md-3
+                a.thumbnail(href='/ja/homehack/fungus-camera/')
+                  img(src='/homehack/thumbnails/fungus-box.jpg')
+              .col-md-9
+                p なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。
+                p ついでに、玄関の明かりのスイッチがドアから遠い問題（明かりをつけようとしている間にドアが閉まって真っ暗になる）を解決するため、このデバイスに近づくと明かりをONにして、遠ざかってしばらくするとOFFにする機能もつけた。
+                p
+                  a.btn.btn-default(href='/ja/homehack/fungus-camera/', role='button') 詳細を読む »
+            h3 リズム家電
+            .row
+              .col-md-3
+                a.thumbnail(href='/ja/homehack/rhythm-kaden/')
+                  img(src='/homehack/rhythmkaden.jpg')
+              .col-md-9
+                p
+                  | ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム
+                  a(href='http://otoge.net/') otoge.net
+                  | ）の進行を家電製品が盛り上げてくれるアプリケーションを、お茶の水女子大学 西村、神奈川工科大学 藤崎とともに提案、開発した。
+                p
+                  | 本アプリケーションは、Sony CSLとお茶の水女子大学の共催ワークショップ「Home Hacker’s Workshop」の半日のセッションで制作された。また、Sony CSL、大和ハウス、ヤフーの共催イベント「
+                  a(href='https://www.sonycsl.co.jp/events/CustomizeYourHouse/') 住宅をカスタマイズするためのシンポジウム
+                  | 」で発表され、学生賞を受賞した。
+                p
+                  a.btn.btn-default(href='/ja/homehack/rhythm-kaden/', role='button') 詳細を読む »
+            h3 Realmote
+            .row
+              .col-md-3
+                a.thumbnail(href='/ja/homehack/realmote/')
+                  img(src='/homehack/thumbnails/realmote.jpg')
+              .col-md-9
+                p スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。
+                p
+                  a.btn.btn-default(href='/ja/homehack/realmote/', role='button') 詳細を読む »
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/homehack/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+    // /container 

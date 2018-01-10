@@ -1,0 +1,226 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Phybots | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li.active
+              a(href='/#projects') Projects
+            li
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/phybots/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1 Phybots: A Toolkit for Prototyping Robotic Things
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '09-12
+          span.label.label-info(rel='tooltip', data-original-title='Prototyping Toolkit')
+            i.glyphicon.glyphicon-tag
+            | Toolkit
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM DIS '12
+        .alert.alert-info
+          | Phybots is open-source and available at
+          a(href='http://phybots.com/') http://phybots.com/
+          | .
+      section
+        h2 Abstract
+        .row
+          .col-md-8
+            p There are many toolkits for physical UIs, but most physical UI applications are not locomotive. When the programmer wants to make things move around in the environment, he faces difficulty related to robotics. Toolkits for robot programming, unfortunately, are usually not as accessible as those for building physical UIs.
+            p
+              | To address this interdisciplinary issue, we propose Phybots, a toolkit that allows researchers and interaction designers to rapidly prototype applications with locomotive robotic things. The contributions of this research are the combination of a hardware setup, software API, its underlying architecture and a graphical runtime debug tool that supports the whole prototyping activity.
+              a(href='http://junkato.jp/publications/dis2012-kato-phybots.pdf') The paper
+              | introduces the toolkit, applications and lessons learned from three user studies.
+          .col-md-4
+            a.thumbnail(href='/phybots/fig1-overview.jpg')
+              img(src='/phybots/fig1-overview.jpg', alt='Overview of hardware setup for Phybots')
+      section
+        .row
+          .col-md-6
+            h2 APIs for 2D Locomotion
+            p Phybots assumes a simple and inexpensive hardware setup of a camera looking down on the floor and visual markers attached to the top of physical objects. This hardware setup can easily be deployed to everyday spaces such as a working desk, a dining table or in a kitchen or living room. Given the hardware setup, Phybots provides APIs for two-dimensional localization and locomotion of floor-based robotic things. These APIs are similar to those for graphical applications in which object positions are defined by screen coordinates, and support moving to a goal, pushing an object toward a goal, tracing a path, and other custom behavior by specifying a vector field.
+            h2 Centralized and Extensible Architecture
+            p
+              | Phybots APIs are built on top of a centralized and extensible software architecture that runs on one personal computer and manages all physical objects of interest including cameras, robotic things, and entities with visual markers. The programmer has direct access to these objects as instances of the
+              i Camera
+              | ,
+              i Robot
+              | and
+              i Entity
+              | interfaces, respectively. Time-consuming tasks including locomotion APIs are represented by Task interface. The toolkit can be easily extended on top of these software stacks to support other types of sensors, roobts, and tasks. In addition, a
+              i Workflow
+              | class represents a directed graph consisting of a set of
+              i Robot
+              | and
+              i Task
+              | instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel.
+            h2 Runtime Debug Tool
+            p
+              | Phybots provides a
+              i runtime debug tool
+              | that supports a test phase, beyond the programming phase, as an essential part of the prototyping process. In the robot application test phase, when the robot fails to accomplish its task, the user usually has to order the same task to be performed again. Because it is too costly to restart a test run for each error, the programmer often wants to fix the error right away without restarting. To support this workflow, a graphical
+              i runtime debug tool
+              | enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.
+            .thumbnail
+              .caption
+                h4 Runtime debug tools
+              img(src='/phybots/debug-tools.png')
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/iFrNOQiw0Go', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><div class="caption"><h4>Selected applications from the user studies</h4></div><a href="/phybots/robotic-things.jpg"><img src="/phybots/robotic-things.jpg" width="570" alt="Robotic Things"></a><br><iframe width="100%" height="360" src="//www.youtube.com/embed/cMyOY4FJuDc?list=PL5EC9CECDDBEA183A&amp;hl=en_US" frameborder="0" allowfullscreen>
+            .thumbnail
+              .caption
+                h4 Comparison between toolkits
+              table.table.table-bordered
+                thead
+                  tr
+                    th Toolkits for:
+                    th Physical UIs
+                    th Phybots
+                    th Robots
+                tbody
+                  tr
+                    th Target users:
+                    td(colspan='2') HCI researchers & interaction designers
+                    td Robotics people
+                  tr
+                    th Focus:
+                    td(colspan='2') Prototyping
+                    td Reliability
+                  tr
+                    th Software APIs:
+                    td Low-level and static
+                    td(colspan='2') High-level and extensible
+                  tr
+                    th Hardware size & cost:
+                    td(colspan='2')
+                      | Small & cheap (Phidget Kit $200,
+                      a(href='http://www.inmojo.com/store/inmojo-market/item/ikimo-robot-platform/') Ikimo Robot
+                      | $160)
+                    td Medium to large & expensive ($700-)
+      section
+        h2 Publications
+        ul
+          li#dis2012-kato-phybots(data-numpages='10')
+            u Jun Kato
+            | , Daisuke Sakamoto, Takeo Igarashi,
+            b "Phybots: A Toolkit for Making Robotic Things"
+            | , In
+            i DIS '12: Proceedings of the 9th conference on Designing Interactive Systems
+            | . pp.248-257, Jun. 2012.
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2317956.2317996')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/dis2012-kato-phybots.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/dis2012-kato-phybots-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://phybots.com/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{dis2012-kato-phybots,
+  title={Phybots: A Toolkit for Making Robotic Things},
+  author={Jun Kato and Daisuke Sakamoto and Takeo Igarashi}
+  booktitle={DIS '12: Proceedings of the 9th conference on Designing Interactive Systems},
+  pages={248--257},
+  year={2012}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#uist2009-kato-andy
+            | Daisuke Sakamoto,
+            u Jun Kato
+            | , Masahiko Inami, Takeo Igarashi,
+            b "A Toolkit for Easy Development of Mobile Robot Applications with Visual Markers and a Ceiling Camera"
+            | , In
+            i UIST '09: 22nd symposium on User Interface Software and Technology
+            | . Oct. 2009.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/uist2009-sakamoto-andy.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://phybots.com/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{uist2009-kato-andy,
+  title={A Toolkit for Easy Development of Mobile Robot Applications with Visual Markers and a Ceiling Camera},
+  author={Daisuke Sakamoto and Jun Kato and Masahiko Inami and Takeo Igarashi}
+  booktitle={UIST '09: 22nd symposium on User Interface Software and Technology},
+  year={2009}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/phybots/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

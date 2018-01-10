@@ -1,0 +1,162 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title お楽しみ | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li.active
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/fun/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 お楽しみ
+        h2 地図
+        .row
+          .col-md-6
+            p 住んだり訪問したりした場所をピン留めしました。以下は参加した学会と開催場所の備忘録です。
+            dl
+              dt ACM CHI
+              dd
+                a(href='http://www.chi2009.org/') 2009
+                | (Boston, MA),
+                a(href='http://chi2013.acm.org/') 2013
+                | (Paris, France),
+                a(href='http://chi2015.acm.org/') 2015
+                | (Seoul, Korea),
+                a(href='http://chi2016.acm.org/') 2016
+                | (San Jose, CA)
+              dt ACM UIST
+              dd
+                a(href='http://www.acm.org/uist/uist2009/') 2009
+                | (Victoria, Canada),
+                a(href='http://www.acm.org/uist/uist2010/') 2010
+                | (New York, NY),
+                a(href='http://www.acm.org/uist/uist2012/') 2012
+                | (Boston, MA),
+                a(href='http://www.acm.org/uist/uist2013/') 2013
+                | (St. Andrews, UK),
+                a(href='http://www.acm.org/uist/uist2015/') 2015
+                | (Charlotte, NC)
+              dt ACM DIS
+              dd
+                a(href='http://www.dis2012.org/') 2012
+                | (Newcastle upon Tyne, UK)
+              dt WISS
+              dd
+                a(href='http://www.wiss.org/WISS2009/') 2009
+                | (静岡 熱海),
+                a(href='http://www.wiss.org/WISS2010/') 2010
+                | (福島 裏磐梯),
+                a(href='http://www.wiss.org/WISS2011/') 2011
+                | (京都 天橋立),
+                a(href='http://www.wiss.org/WISS2012/') 2012
+                | (青森 古牧温泉),
+                a(href='http://www.wiss.org/WISS2014/') 2014
+                | (静岡 浜名湖),
+                a(href='http://www.wiss.org/WISS2015/') 2015
+                | (大分 別府)
+              dt その他
+              dd
+                a(href='http://www.interaction-ipsj.org/2009/') インタラクション2009
+                | (2009年3月/東京),
+                a(href='http://www.siggraph.org/asia2009/') SIGGRAPH Asia 2009
+                | (2009年12月/横浜),
+                a(href='http://www.ipsj.or.jp/prosym/51/51program.html') 第51回 プログラミング・シンポジウム
+                | (2010年1月/箱根),
+                a(href='http://www.ieice.org/ken/program/index.php?tgs_regid=5b2aa0a18db7b1e9f6a813e5286dbfad37882fd3fe9b0d74c9c3087ae91ed2a9&tgid=IEICE-CNR') 第2回 クラウドネットワークロボット研究会
+                | (2011年7月/札幌),
+                a(href='http://rit.rakuten.co.jp/conf/rrds4/') 第4回 楽天研究開発シンポジウム
+                | (2011年11月/東京),
+                a(href='http://pldi2013.ucombinator.org/') ACM PLDI 2013
+                | (Seattle, WA),
+                a(href='http://www.ieee-gcce.org/2013/') IEEE GCCE 2013
+                | (2013年10月/東京),
+                a(href='http://www.cs.mcgill.ca/~kry/gi2014/') GI 2014
+                | (2014年5月/Montreal, QC, Canada),
+                a(href='http://iclc.livecodenetwork.org') ICLC 2015
+                | (Leeds, UK),
+                a(href='http://2016.ecoop.org/home') ECOOP 2016
+                | (Rome, Italy)
+          .col-md-6
+            iframe(width='100%', height='380', frameborder='0', scrolling='no', marginheight='0', marginwidth='0', src='https://maps.google.com/maps/ms?msa=0&z=1&msid=202355631755907723425.0004f33a9094485a8238f&ie=UTF8&t=m&ll=41.662301,177.143007&spn=12.023374,121.470962&output=embed')
+      section
+        h2 写真アルバム
+        p いろいろな場所に行って写真を撮るのが好きです。
+        .gallery
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script(src='/js/jqpgallery/jquery.picasagallery.js')
+      script $(function(){
+
+  $('div.gallery').picasagallery({
+    username: 'digitalmuseum.lab',
+    hide_albums: ['いろいろ', 'Profile Photos', 'プロフィール写真', 'Scrapbook Photos', 'スクラップブック写真', 'Instant Upload', 'Photos from posts', '2010-01 箱根'],
+    onload: function(){ $('div.gallery h5').tooltip(); }
+  });
+
+});
+    // /container 

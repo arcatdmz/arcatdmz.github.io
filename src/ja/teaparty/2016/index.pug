@@ -1,0 +1,160 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title 第5回 名状しがたいお茶会 | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    style #map-canvas { height: 224px; margin: 10px 0 }
+    .twitter-timeline { margin-top: 20px; width: 100% !important; }
+    .togetter>div { margin-top: 20px !important; }
+    .togetter>div .reco_item_box { display: none; }
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/teaparty/2016/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 第5回 名状しがたいお茶会
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '16
+        ol.breadcrumb
+          li
+            a(href='/ja/teaparty/') 名状しがたいお茶会
+          li 2016
+      section
+        p
+          | 名状しがたいお茶会へようこそ！一年に一度のお茶会も、早いものでもう5回目です。今年から複数名で運営タスクにあたっています。お茶会らしく温かい飲み物も出ます。会場は
+          a(href='https://www.wantedly.com/') Wantedly
+          | さんにご提供いただき、
+          a(href='https://m.wantedly.com/') Wantedlyチャット
+          | を使ってお茶会関連の議論を深める試みも始めました。濃ゆい一日をぜひ楽しんでいただければと思います。
+      section
+        .row
+          .col-md-6
+            h2 タイムテーブル
+            iframe(src='https://docs.google.com/spreadsheets/d/1We0tN3pxXJ1Wbh30mpEPgec5GD8fDA5WC-De8OsAsqU/pubhtml?gid=1669616252&single=true&widget=true&headers=false', style='width: 100%; height: 640px;')
+          .col-md-6
+            h2 当日の様子
+            .row
+              .col-xs-6.col-sm-6.col-md-6
+                .thumbnail
+                  img(src='DSC09983.jpg')
+                  .caption
+                    h5 開場前
+              .col-xs-6.col-sm-6.col-md-6
+                .thumbnail
+                  img(src='DSC09990.jpg')
+                  .caption
+                    h5 質疑
+              .col-xs-6.col-sm-6.col-md-6
+                .thumbnail
+                  img(src='73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg')
+                  .caption
+                    h5 名札
+              .col-xs-6.col-sm-6.col-md-6
+                .thumbnail
+                  img(src='DSC09993.jpg')
+                  .caption
+                    h5 突発ゲーム会
+              //                
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="thumbnail">
+                            <img src="8577bc68-4b7e-41b2-8f3f-8819a487bd16.png" />
+                            <div class="caption"><h5>会場までの地図</h5></div>
+                          </div>
+                        </div>
+                        
+      section
+        .row
+          .col-md-6
+            h2 時と場所
+            p 2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。
+            p
+              | Wantedlyオフィスは休日のため、通常の入り口が閉まっています。開場時間近辺はスタッフがいますが、もし遅れる場合は
+              a(href='https://twitter.com/arcatdmz') @arcatdmz
+              | 宛てにツイートするなどして中の人にご連絡ください。
+          .col-md-6
+            h2 参加費
+            p
+              | 学生
+              b 1000
+              | 円、社会人
+              b 2500
+              | 円を予定しています。17時半までお菓子とお茶が出るほか、18-19時半まで夕飯とアルコールを含む飲み物が手配されています。
+        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.5143207781284!2d139.71998831621383!3d35.63969798020414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35441d89d7421c9f%3A0xd7cd585ac9104934!2z44Km44Kp44Oz44OG44OD44OJ44Oq44O85qCq5byP5Lya56S-!5e0!3m2!1sen!2sjp!4v1482565394883', width='100%', height='450', frameborder='0', style='border:0', allowfullscreen='')
+        h2 その他
+        p 電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。
+        p プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。
+      section
+        ol.breadcrumb
+          li
+            a(href='/ja/teaparty/') 名状しがたいお茶会
+          li 2016
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/teaparty/2016/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+    // /container 

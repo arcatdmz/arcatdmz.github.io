@@ -1,0 +1,169 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title DejaVu | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/dejavu/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 DejaVu: Integrated Support for Developing Interactive Camera-Based Programs
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '12
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          span.label.label-danger(rel='tooltip')
+            i.icon-folder-open.icon-white
+            | ACM UIST '12
+        p.alert.alert-info 本研究の成果物である統合開発環境は、現在のところ公開される予定はありません。
+      section
+        h2 概要
+        .row
+          .col-md-6
+            p カメラ入力を用いたインタラクティブなアプリケーション開発が一般的になるにつれ、その特徴的な開発フローが既存の統合開発環境に馴染まないことが明らかになってきた。そこで本研究では、統合開発環境の拡張機能DejaVuを提案する。我々は、カメラからの入力が与えられるたびに画像処理のパイプラインが走るプログラムの構造に着目して、既存の統合開発環境に2つのインタフェースCanvasとTimelineを追加した。Canvasインタフェースは、カメラからの入力とプログラム内の処理結果およびウィンドウ出力をリアルタイムかつ継続的に可視化し続ける。Timelineインタフェースは、同データを容易に記録、再生できる。また、ソースコードに変更があった際、記録したカメラ入力を用いて、プログラム内の処理結果とウィンドウ出力を更新できる。DejaVuは、3名のベテランターゲットユーザーによる予備的な試用の結果、好意的に受け入れられた。
+            p
+              | 本研究は、Microsoft Research Asia
+              a(href='http://research.microsoft.com/hci') HCI Group
+              | における3か月強のインターンの成果物である。
+              a(href='http://research.microsoft.com/en-us/people/xiangc/') Xiang Cao
+              | および
+              a(href='http://research.microsoft.com/people/smcdirm/') Sean McDirmid
+              | がメンターであった。
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/k5USoB7ZPPk', frameborder='0', allowfullscreen='')
+        h2 DejaVu IDE
+        p
+          | 我々は以下の2つのインタフェースを、一般的な統合開発環境に追加した。実装のベースには
+          a(href='http://www.icsharpcode.net/') SharpDevelop
+          | を用いたが、VisualStudioやEclipse、Xcodeに同様の機能拡張を施すこともできるだろう。
+        .row
+          .col-md-6
+            h3 Canvas
+            ul
+              li 変数のドラッグ＆ドロップによる可視化
+              li カメラ入力、変数の中身、ウィンドウ出力のリアルタイム更新
+              li スケッチによるアノテーション
+            a.thumbnail(href='/dejavu/fig4-canvas.png')
+              img(src='/dejavu/fig4-canvas.png', alt='Canvas', width='570')
+          .col-md-6
+            h3 Timeline
+            ul
+              li Canvasインタフェースに可視化されている項目が自動的に表示される
+              li カメラ入力、変数の中身、ウィンドウ出力の自動録画と再生
+              li ソースコードに変更があった場合に、カメラ入力の録画を用いて変数の中身とウィンドウ出力を自動更新
+            a.thumbnail(href='/dejavu/fig6-timeline.png')
+              img(src='/dejavu/fig6-timeline.png', alt='Timeline', width='570')
+      section
+        h2 発表文献
+        ul
+          li#uist2012-kato-dejavu(data-numpages='8')
+            u Jun Kato
+            | , Sean McDirmid, Xiang Cao,
+            b "DejaVu: Integrated Support for Developing Interactive Camera-Based Programs"
+            | , In
+            i UIST '12: Proceedings of the 25th annual ACM symposium on User Interface Software and Technology
+            | . pp.189-196, Oct. 2012.
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2380116.2380142')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/uist2012-kato-dejavu.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/uist2012-kato-dejavu-poster.pdf')
+                i.glyphicon.glyphicon-file
+                | Poster
+              a(href='http://junkato.jp/publications/uist2012-kato-dejavu-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://junkato.jp/dejavu/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{uist2012-kato-dejavu,
+  title={DejaVu: Integrated Support for Developing Interactive Camera-Based Programs},
+  author={Jun Kato and Sean McDirmid and Xiang Cao}
+  booktitle={UIST '12: Proceedings of the 25th annual ACM symposium on User Interface Software and Technology},
+  pages={189--196},
+  year={2012}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/dejavu/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

@@ -1,0 +1,229 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Picode | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/picode/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 Picode: ソースコードに写真を貼り込める統合開発環境
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '11-13
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM CHI '13
+        .alert.alert-info
+          | Picodeは
+          a(href='http://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx') Microsoft Research CORE 7 プログラム
+          | の支援を受けて始まり、現在は
+          a(href='http://github.com/arcatdmz/picode') GitHub
+          | で開発が進められているオープンソースプロジェクトです。
+      section
+        h2 概要
+        .row
+          .col-sm-8.col-md-9
+            p プログラムのソースコードは、大抵の場合、文字や記号表現を用いて記述するものである。このような表現は、論理的な処理の精確な記述に適している一方で、画像や多関節ロボットの姿勢情報など、具体的なデータセットを分かりやすく見せることができない。この問題は、実世界の人やロボットの姿勢情報を扱うプログラミングで顕著である。
+            p そこで我々は、人やロボットの姿勢データを写真と紐づけ、ソースコード中に写真を貼り込める開発環境Picode (旧名Roboko)を試作した。まず、写真と紐づけられた姿勢データを第一級オブジェクトとして扱う拡張を既存の文字言語に施した。次に、姿勢データを引数に取るAPIライブラリを提供した。そして、エディタに写真を貼り付けられるような開発環境を実装した。
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/picode.jpg', alt='Picode editor')
+      section
+        h2 Picode IDE
+        .row
+          .col-md-6
+            p 本研究では、姿勢情報を用いるプログラミングのワークフローを支援するため、写真を貼りこめるよう拡張したエディタを含む文字ベースの統合開発環境(IDE)に、姿勢情報と写真の記録および紐づけを自然に行える例示インタフェースと、記録した写真を閲覧できる"Pose library"を追加した。このIDEを用いたプログラミングは、人やロボットの姿勢情報を写真とともにキャプチャする例示から始まる。そして、写真をエディタにドラッグ＆ドロップしたり文字を入力したりすることでソースコードを書き上げ、プログラムを実行する。ソースコードはキャプチャした写真と姿勢情報のデータセットと共に再配布できる。
+            h3 Picode API
+            p
+              | 現在、以下のようなAPIがサポートされている。(
+              a(href='/picode/docs/?com/phybots/picode/api/package-summary.html') Javadoc
+              | )
+            dl
+              dt Pose Robot.getPose()
+              dd 現在の姿勢を返す
+              dt float Pose.distance(Pose pose)
+              dd 二つの姿勢間の差異を返す [0.0-1.0]
+              dt boolean Pose.eq(Pose pose, float threshold)
+              dd 二つの姿勢が同じとみなせるかどうか返す (二つの姿勢間の差異がthresholdより小さいかどうか返す)
+              dt boolean Robot.setPose(Pose pose)
+              dd ロボットの姿勢を指定する
+              dt Action Robot.action()
+              dd ロボットの姿勢の推移を表すActionオブジェクトを返す
+              dt Action Action.pose(Pose pose)
+              dd このActionの最後に指定した姿勢への推移を追加する
+              dt Action Action.stay(int ms)
+              dd このActionの最後に指定した時間のまま静止するようにする
+              dt ActionResult Action.play()
+              dd Actionを再生する
+            h3 サンプルコード
+            dl
+              dt
+                a(href='/picode/xylophone/') 鉄琴演奏ロボ
+              dd かえるの歌を演奏する。
+              dt
+                a(href='/picode/hello/') 挙手でスライド送り
+              dd 右手を挙げるとスライドを次に送り、左手を挙げると一つ前に戻す。
+              dt
+                a(href='/picode/flag/') 旗揚げゲーム
+              dd 画面に出てくるキャラクターと同じほうの手を素早く挙げると高得点。
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/cQv0-4f8LEA', frameborder='0', allowfullscreen='')
+          .col-md-6
+            .thumbnail
+              img(src='/picode/picode-ide.jpg', width='570', alt='Overview of the Picode IDE')
+      section
+        h2 未来ビジョン
+        p "Programmers are people, too."という言葉がある。この、プログラマだって人である、という言葉には、プログラマがいかに分かりづらい言語を理解し、使いづらい開発環境と格闘してきたか、プログラマと一般人の溝がいかに深いか、という現状認識が現れているように思われる。
+        p
+          | しかし私は、プログラマと一般人の溝が近年急速に埋まりつつあるように感じている。まず、開発環境を整えるのが簡単になった。以前なら必要なファイルを揃えてパスを通して、と大変な手間だったものが、今はブラウザを開くだけでよい。プログラミングの学習も
+          a(href='http://www.khanacademy.org/cs') Kahn Academy
+          | などでインタラクティブに進められる。また、プログラミングできる対象が身近になってきた。
+          a(href='http://www.legoeducation.jp/mindstorms/') LEGO Mindstorms NXT
+          | のように実世界で動くものはもちろん、例えばスマートフォン上でスマートフォン用のプログラムを書いたり(
+          a(href='http://www.touchdevelop.com/') TouchDevelop
+          | )、Webサービス同士をif-thenルールで連携させたり(
+          a(href='http://ifttt.com/') IFTTT
+          | )できる。家電製品がネットワークに繋がるようになってきたから、これらを遠隔制御する実用的なプログラムも簡単に書けるようになるだろう。
+        p また、プログラミング言語の研究者コミュニティでは、言語だけでなく開発環境まで含めたプログラマの体験を重視する研究が増えてきている。我々のコミュニティで道具としてのUIから体験としてのHCIに研究の主流がシフトしたように、言語、ライブラリ、開発環境を個々に評価するのではなく、全体のワークフローを重視する流れが生まれている。
+        p 我々は、このような追い風を受けながら、"People are programmers."の世界を実現していきたいと考えている。
+      section
+        h2 発表文献
+        ul
+          li#chi2013-kato-picode(data-numpages='4')
+            u Jun Kato
+            | , Daisuke Sakamoto, Takeo Igarashi,
+            b "Picode: Inline Photos Representing Posture Data in Source Code"
+            | , In
+            i CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
+            | . pp.3097-3100, Apr. 2013.
+            b.addition ACM CHI 2013 Best Paper Honorable Mention Award
+            | .
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2470654.2466422')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/chi2013-kato-picode.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/chi2013-kato-picode-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://junkato.jp/picode/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{chi2013-kato-picode,
+  title={Picode: Inline Photos Representing Posture Data in Source Code},
+  author={Jun Kato and Daisuke Sakamoto and Takeo Igarashi}
+  booktitle={CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems},
+  pages={3097--3100},
+  year={2013}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#wiss2012-kato-roboko
+            u 加藤 淳
+            | , 坂本 大介, 五十嵐 健夫,
+            b "Roboko: ソースコードに写真を貼り込める統合開発環境"
+            | ,
+            i WISS '12: 第20回インタラクティブシステムとソフトウェアに関するワークショップ
+            | . pp.115-120, 2012年12月.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/wiss2012-kato-roboko.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/wiss2012-kato-roboko-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | 発表スライド
+              a(href='http://junkato.jp/ja/roboko/')
+                i.glyphicon.glyphicon-info-sign
+                | プロジェクトページ
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{wiss2012-kato-roboko,
+  title={Roboko: ソースコードに写真を貼り込める統合開発環境},
+  author={ 加藤 淳 and  坂本 大介 and  五十嵐 健夫}
+  booktitle={WISS '12: 第20回インタラクティブシステムとソフトウェアに関するワークショップ},
+  pages={115--120},
+  year={2012}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/picode/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

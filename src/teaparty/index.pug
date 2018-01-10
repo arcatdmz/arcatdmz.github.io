@@ -1,0 +1,120 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Indescribable Tea Party | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li.active
+              a(href='/#projects') Projects
+            li
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/teaparty/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1 Indescribable Tea Party
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '12-17
+      section
+        h2 Summary
+        .row
+          .col-sm-8.col-md-9
+            p
+              strong "Indescribable tea party" is an annual gathering event for those who { create media content, do research on creativity support tools, love such content and want to support its creators }.
+              | The media content includes but is not limited to: animations, games, illustrations, music, novels, etc.
+            p Attendees are expected to provide presentations of varying durations (from 1 min lightning talk to 30 min long presentation) to get to know each other and learn the cutting edge of creating/delivering/enjoying media content.
+            p
+              | The party welcomes people who have full of curiosity in wide range of topics relevant to the future of media content, science, and technology.
+              strong (NOTE: This event has nothing to do with the Tea Party movement!)
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/teaparty.jpg', alt='Indescribable tea party')
+      section
+        .row
+          .col-md-5
+            h2 Past Events
+            h3 6th Party: 2/12/2017 @ Wantedly, Inc.
+            p
+              | 36 people from industry and academia gathered and presented their work in the following sessions: AI & IA, Media Content and Society, Startups, Design, Interaction, etc. There was also a panel session in which Prof. Inami (
+              a(href='http://inamilab.org/') The University of Tokyo
+              | ), Mr. Hirasawa (
+              a(href='http://uspi.jp/') USP
+              | ), and Kato discussed the future of creativity support.
+            h3 5th Party: 2/13/2016 @ Wantedly, Inc.
+            p >30 people attended the event. A variety of presentations relevant to science, technology, and media content were provided, forming the following sessions: Music, Video, Food, Game, Ethnography, Business, 2D/3D/Fabrication, and lightning talks.
+            h3 4th Party: 1/24/2015 @ DMM.make AKIBA BASE
+            p Lots of attendees! Organized sessions for the first time: Creators' Showcase #1/#2, Science and Education, Human/Computer/Intelligence, Game, Oversea, Media Content for the Five Senses, Understanding and Creating Content, and the Shotgun Session.
+            h3 1st - 3rd Parties: 2012-2014 @ Lab-Cafe
+            p Researchers, engineers, artists, producers, and fans of media content gathered at a cozy Lab-Cafe and provided presentations, getting to know each other and learn the cutting edge of creating media content.
+          .col-md-7
+            .thumbnail
+              img(src='/ja/teaparty/20160213-5th-teaparty.jpg', title='第5回')
+            .thumbnail
+              img(src='/ja/teaparty/20140301-3rd-teaparty.jpg', title='第3回')
+            .thumbnail
+              img(src='/ja/teaparty/20130105-2nd-teaparty.jpg', title='第2回')
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/teaparty/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

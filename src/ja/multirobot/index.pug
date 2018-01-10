@@ -1,0 +1,121 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Multi-touch Multi-robot | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/multirobot/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1#about 複数台の移動型ロボットを操作するためのマルチタッチインタフェース
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '08-09
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM CHI '09 Student Research Competition
+      section
+        h2 概要
+        .row
+          .col-sm-8.col-md-9
+            // <p>Human Robot Interaction (HRI)についての研究は、ハードウェアとしてのロボットが研究用途に扱いやすくなるにつれ、頻繁に行われるようになってきた。ただし、その中心となっているのは、人とロボットが直接対面した際の心理的な評価研究である。必ずしも実用に耐えるロボットの開発には結びついていない。一方で、複数台のロボットを遠隔操作して実用的な役割を持たせようとする研究が行われてきている。しかし、Human Computer Interaction (HCI)分野で提案されているような操作インタフェースの豊かさには未だ欠ける。そこで我々は、複数台の小型ロボットを操作するインタフェースに注目し、マルチタッチディスプレイを用いたシステムを作成した。</p> 
+            p ロボットに複雑なタスクをさせる場合、ユーザはまずロボットにすべきことを指示する。自律動作してタスクをこなすロボットでも、初めに指示を出すことが求められる。このため、ロボットの操作および教示インタフェースが必要とされている。この目的には、一般的に自然言語、ジョイスティックやその他のポインティングデバイスが用いられている。しかし、これらのインタフェースでは特に複数台のロボットを同時に操作することが困難である。
+            p この不便を解消するため、我々は、複数台の移動型ロボットを操作するマルチタッチインタフェースを開発した。本インタフェースでは、ユーザが手でグローバルなベクトル場を編集すると、全てのロボットがそのベクトル場に従って動く。
+            p
+              | 本研究は卒業研究の一環として遂行され、CHI 2009
+              a(href='http://src.acm.org/previouswinners.html') Student Research Competition
+              | において一位を獲得した。
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/multirobot.jpg', alt='Multi-touch Multi-robot')
+      section
+        .row
+          .col-md-6
+            h2 ベクトル場を用いた複数ロボットの同時操作
+            p 天井から見た俯瞰ビュー上で、マルチタッチディスプレイに触れている手の面の動きがベクトル場を生成する。画面内にあるすべてのロボットが、生成されたベクトル場に沿って動く。ユーザは以下の3つの操作モードでロボットの動きを制御できる。これらの操作モードを切り替えるための特別な操作が必要ないことに注意されたい。
+            dl
+              dt Drag
+              dd ユーザがディスプレイに手を触れて動かすと、ベクトル場上に仮想的な流れができ、ロボットがその流れに沿って動く。
+              dt Mix
+              dd ユーザが既存の流れ場の上で手を動かすと、その手の動きによって生成されるベクトルと既存のベクトルが合計され、新しい流れ場ができる。
+              dt Hold
+              dd ユーザがディスプレイに手を触れて制止させたままにすると、手の下のベクトル場がリセットされる。これにより、ロボットを停止させることができる。
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/zGioJvhsoIY', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><img src="/multirobot/operations.png" width="570" alt="3つの操作モード"></div></div></div></section><section><h2>発表文献</h2><ul><li id="chi2009-kato-multirobot" data-numpages="6"><u>Jun Kato</u>, Daisuke Sakamoto, Masahiko Inami, Takeo Igarashi,<b>&quot;Multi-touch Interface for Controlling Multiple Mobile Robots&quot;</b>, In<i>CHI '09 EA: Extended Abstracts on Human Factors in Computing Systems</i>. pp.3443-3448, Apr. 2009.<b class="addition">ACM CHI 2009 Student Research Competition 1st Place</b>.<div class="btn-group biblinks"><a href="http://doi.acm.org/10.1145/1520340.1520500"><i class="glyphicon glyphicon-barcode"></i><abbr title="Digital Object Identifier">DOI</abbr></a><a href="http://junkato.jp/publications/chi2009-kato-multirobot.pdf"><i class="glyphicon glyphicon-file"></i>PDF</a><a href="http://junkato.jp/publications/chi2009-kato-multirobot-poster.pdf"><i class="glyphicon glyphicon-file"></i>Poster</a><a href="http://junkato.jp/publications/chi2009-kato-multirobot-slides.pdf"><i class="glyphicon glyphicon-play-circle"></i>Slides</a><a href="http://src.acm.org/2010/JunKato/srcgf10-jun/"><i class="glyphicon glyphicon-info-sign"></i>Website</a></div><a href="#" class="bibtex" data-title="&lt;textarea onclick=&quot;this.focus();this.select();return false;&quot; readonly=&quot;readonly&quot;&gt;@inproceedings{chi2009-kato-multirobot,
+  title={Multi-touch Interface for Controlling Multiple Mobile Robots},
+  author={Jun Kato and Daisuke Sakamoto and Masahiko Inami and Takeo Igarashi}
+  booktitle={CHI '09 EA: Extended Abstracts on Human Factors in Computing Systems},
+  pages={3443--3448},
+  year={2009}
+}&lt;/textarea&gt;"><i class="glyphicon glyphicon-book"></i>BibTeX</a></li><li id="i2009-kato-multirobot"><u>加藤 淳</u>, 坂本 大介, 稲見 昌彦, 五十嵐 健夫,<b>&quot;複数台ロボットのマルチタッチディスプレイによる操作インタフェース&quot;</b>,<i>インタラクション2009</i>. pp.127-128, 2009年3月.<div class="btn-group biblinks"><a href="http://junkato.jp/publications/interaction2009-kato-multirobot.pdf"><i class="glyphicon glyphicon-file"></i>PDF</a><a href="http://junkato.jp/ja/multirobot/"><i class="glyphicon glyphicon-info-sign"></i>プロジェクトページ</a></div><a href="#" class="bibtex" data-title="&lt;textarea onclick=&quot;this.focus();this.select();return false;&quot; readonly=&quot;readonly&quot;&gt;@inproceedings{i2009-kato-multirobot,
+  title={複数台ロボットのマルチタッチディスプレイによる操作インタフェース},
+  author={ 加藤 淳 and  坂本 大介 and  稲見 昌彦 and  五十嵐 健夫}
+  booktitle={インタラクション2009},
+  pages={127-128},
+  year={2009}
+}&lt;/textarea&gt;"><i class="glyphicon glyphicon-book"></i>BibTeX</a></li></ul></section><footer><hr><p>&copy;<a href="mailto:i@junkato.jp">加藤 淳</a>2012-2017 |<a href="/multirobot/">English<i class="translation glyphicon glyphicon-text-background"></i></a></p></footer><!-- Scripts --><script src="//code.jquery.com/jquery-1.11.3.min.js"></script><script src="/js/bootstrap.min.js"></script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });</script><script>$(function(){
+  $('h1 p span.label').tooltip();
+});</script></div><!-- /container --></body></html>

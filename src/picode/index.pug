@@ -1,0 +1,172 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Picode | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li.active
+              a(href='/#projects') Projects
+            li
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/picode/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1 Picode: Inline Photos Representing Posture Data in Source Code
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '11-13
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM CHI '13
+        .alert.alert-info
+          | Picode is an open-source project developed at
+          a(href='http://github.com/arcatdmz/picode') GitHub
+          | . This project was supported by
+          a(href='http://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx') Microsoft Research CORE 7 program (Japanese page)
+          | .
+      section
+        h2 Abstract
+        .row
+          .col-sm-8.col-md-9
+            p Current programming environments use textual or symbolic representations. While these representations are good at describing logical processes, they are not appropriate for representing human and robot posture data which is necessary for handing gesture input and controlling robots.
+            p To address this issue, we propose a text-based development environment integrated with visual representations: photos of human and robots. With our development environment, the user first takes a photo to bind it to a posture data. Then, s/he drag-and-drops the photo to the code editor, where it is shown as an inline image.
+          .col-sm-4.col-md-3
+            .thumbnail
+              img(src='/thumbnails/picode.jpg', alt='Picode editor')
+      section
+        h2 Picode IDE
+        .row
+          .col-md-6
+            p Our prototype implementation consists of three main components: the code editor, the pose library, and the preview window. First, the user takes a photo of a human or robot in the preview window. At the same time, posture data is captured and the dataset is stored in the pose library. Next, s/he drag-and-drops the photo from the pose library into the code editor, where the photo is shown inline. Then, s/he can run the application. S/he can also distribute the source code bundled with the referenced datasets so that others can run the same application on our development environment.
+            p
+              | During the coding phase, the programmer can benefit from a software library tightly coupled with the IDE. The library provides a set of API that enables easy control of robots. The main functions are shown below. Other APIs are listed in
+              a(href='/picode/docs/?com/phybots/picode/api/package-summary.html') Javadoc
+              | .
+            dl
+              dt Pose Robot.getPose()
+              dd returns the current pose data.
+              dt float Pose.distance(Pose pose)
+              dd calculates the distance between the two poses. [0.0-1.0]
+              dt boolean Pose.eq(Pose pose, float threshold)
+              dd returns whether the two poses can be thought of as identical or not. (returns whether the distance between the two poses is less than the threshold or not.)
+              dt boolean Robot.setPose(Pose pose)
+              dd set the current pose to the specified data.
+              dt Action Robot.action()
+              dd start building an action for the robot.
+              dt Action Action.pose(Pose pose)
+              dd add this pose to the end of this action.
+              dt Action Action.stay(int ms)
+              dd wait for the specified time at the end of this action.
+              dt ActionResult Action.play()
+              dd play this action.
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/cQv0-4f8LEA', frameborder='0', allowfullscreen='')
+          .col-md-6
+            .thumbnail
+              img(src='/picode/picode-ide.jpg', width='570', alt='Overview of the Picode IDE')
+      section
+        h2 Publication
+        ul
+          li#chi2013-kato-picode(data-numpages='4')
+            u Jun Kato
+            | , Daisuke Sakamoto, Takeo Igarashi,
+            b "Picode: Inline Photos Representing Posture Data in Source Code"
+            | , In
+            i CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
+            | . pp.3097-3100, Apr. 2013.
+            b.addition ACM CHI 2013 Best Paper Honorable Mention Award
+            | .
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2470654.2466422')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/chi2013-kato-picode.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/chi2013-kato-picode-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://junkato.jp/picode/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{chi2013-kato-picode,
+  title={Picode: Inline Photos Representing Posture Data in Source Code},
+  author={Jun Kato and Daisuke Sakamoto and Takeo Igarashi}
+  booktitle={CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems},
+  pages={3097--3100},
+  year={2013}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/picode/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

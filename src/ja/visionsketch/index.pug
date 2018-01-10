@@ -1,0 +1,191 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title VisionSketch | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/visionsketch/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '13-14
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM PLDI '13 Student Research Competition
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | Graphics Interface '14
+        .alert.alert-info
+          | ソースコードが
+          a(href='https://github.com/arcatdmz/visionsketch/') GitHub
+          | で公開されています。WindowsとMac両用です。
+      section
+        h2 概要
+        .row
+          .col-md-6
+            p プログラムの手順を表すのに文字が最善手とは限らない。とくに画像処理のパイプライン処理では、入力と出力は画像および動画であり、アルゴリズムに渡すパラメタは二次元座標系上の領域など画像や動画上で何らかの意味を持っていることが多い。我々は画像処理のプログラミングが持つこれらのビジュアルな特徴に着目し、画像処理のパイプラインを素早く構築して実行できるプロトタイピング目的の言語および開発環境"VisionSketch"を提案する。
+            p VisionSketchのユーザは、まず操作対象となる画像または動画のソースを開き、その上で図形を描いて着目する領域(ROI, region of interest)を指定する。次に、VisionSketchの開発環境がROIに対して適用できる操作を一覧表示する。ユーザがその中から一つを選ぶと、操作の適用結果がインタラクティブに表示される。ユーザは、このようにして望みの操作を探すことができる。さらに、必要であれば、出力として得られた画像または動画を入力として用い、ROIの指定と画像処理の適用を繰り返すことができる。
+            p VisionSketchでは、従来の文字列ベースの言語ではメソッド呼び出しの繰り返しとしてタイピングにより記述していた処理が、図形の描画と必要な操作の選択をGUIの直接操作で繰り返すことにより指示可能となっている。
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/I6FTOVygHxc', frameborder='0', allowfullscreen='')
+      section
+        h2 VisionSketch IDE
+        .row
+          .col-md-6
+            .thumbnail
+              .caption
+                h4 VisionSketch IDEの概観
+              a(href='/visionsketch/fig1-overview.jpg')
+                img(src='/visionsketch/fig1-overview.jpg', alt='Overview')
+            .thumbnail
+              .caption
+                h4 PLDI '13発表時の初版の概観
+              a(href='/visionsketch/visionsketch-overview.jpg')
+                img(src='/visionsketch/visionsketch-overview.jpg', alt='Overview (original version)')
+          .col-md-6
+            .thumbnail
+              .caption
+                h4 構築した画像処理パイプラインの例
+              a(href='/visionsketch/visionsketch-example.jpg')
+                img(src='/visionsketch/visionsketch-example.jpg', alt='Example use case #1: counting grinds', width='560')
+      section
+        h2 発表文献
+        ul
+          li#gi2014-kato-visionsketch(data-numpages='8')
+            u Jun Kato
+            | , Takeo Igarashi,
+            b "VisionSketch: Integrated Support for Example-centric Programming of Image Processing Applications"
+            | , In
+            i Proceedings of the 2014 Graphics Interface Conference
+            | . pp.115-122, 2014.
+            .btn-group.biblinks
+              a(href='http://dl.acm.org/citation.cfm?id=2619648.2619668')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/gi2014-kato-visionsketch.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/gi2014-kato-visionsketch-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{gi2014-kato-visionsketch,
+  title={VisionSketch: Integrated Support for Example-centric Programming of Image Processing Applications},
+  author={Jun Kato and Takeo Igarashi}
+  booktitle={Proceedings of the 2014 Graphics Interface Conference},
+  pages={115--122},
+  year={2014}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#pldi2013-kato-visionsketch
+            u Jun Kato
+            | ,
+            b "Visionsketch: Gesture-based Language for End-user Computer Vision Programming"
+            | , In
+            i Student Research Competition at PLDI '13: The 34th ACM SIGPLAN conference on Programming Language Design and Implementation
+            | . Jun. 2013.
+            b.addition ACM PLDI 2013 Student Research Competition Finalist
+            | .
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/pldi2013-kato-visionsketch.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/pldi2013-kato-visionsketch-poster.pdf')
+                i.glyphicon.glyphicon-file
+                | Poster
+              a(href='http://junkato.jp/publications/pldi2013-kato-visionsketch-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://junkato.jp/visionsketch/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{pldi2013-kato-visionsketch,
+  title={Visionsketch: Gesture-based Language for End-user Computer Vision Programming},
+  author={Jun Kato}
+  booktitle={Student Research Competition at PLDI '13: The 34th ACM SIGPLAN conference on Programming Language Design and Implementation},
+  year={2013}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/visionsketch/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

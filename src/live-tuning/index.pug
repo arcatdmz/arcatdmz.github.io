@@ -1,0 +1,318 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Live Tuning | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    link(rel='stylesheet', href='/talks/people-are-programmers/rangeslider.css')
+    meta(property='og:title', content='Live Tuning: Expanding Live Programming Benefits to Non-Programmers | junkato.jp')
+    meta(property='og:description', content='Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time. In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.')
+    meta(property='og:type', content='article')
+    meta(property='og:image', content='http://junkato.jp/live-tuning/live-tuning-environment.png')
+    meta(property='og:url', content='http://junkato.jp/live-tuning')
+    meta(property='fb:admins', content='503220390')
+    meta(property='fb:app_id', content='488785607828009')
+    style .fb-share-button>span {
+  vertical-align: top !important;
+}
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li
+              a(href='/#projects') Projects
+            li.active
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/live-tuning/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1#about Live Tuning: Expanding Live Programming Benefits to Non-Programmers
+        .meta
+          .pull-right(style='padding-top: 4px')
+            a.hatena-bookmark-button(href='http://junkato.jp/live-tuning', data-hatena-bookmark-url='http://junkato.jp/live-tuning', data-hatena-bookmark-layout='standard-balloon', data-hatena-bookmark-lang='ja', title='このエントリーをはてなブックマークに追加')
+              img(src='https://b.st-hatena.com/images/entry-button/button-only@2x.png', alt='このエントリーをはてなブックマークに追加', width='20', height='20', style='border: none;')
+            script(type='text/javascript', src='https://b.st-hatena.com/js/bookmark_button.js', charset='utf-8', async='')
+            a.twitter-share-button(href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fjunkato.jp%2Flive-tuning', data-text='Live Tuning: Expanding Live Programming Benefits to Non-Programmers | junkato.jp', data-count='horizontal', data-counturl='http://junkato.jp/live-tuning') Tweet
+            script window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));
+            .fb-share-button(style='vertical-align: top', data-href='http://junkato.jp/live-tuning', data-layout='button_count')
+            #fb-root
+            script (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=488785607828009";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+          p
+            span.label.label-default
+              i.glyphicon.glyphicon-calendar
+              | 7/15/2016
+            span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+              i.glyphicon.glyphicon-tag
+              | IDE
+            span.label.label-info(rel='tooltip', data-original-title='Programming Experience')
+              i.glyphicon.glyphicon-tag
+              | PX
+            span.label.label-danger(rel='tooltip')
+              i.glyphicon.glyphicon-folder-open
+              | ECOOP '16 LIVE
+        .alert.alert-info
+          | This page provides summary and some graphical materials of the workshop paper that is presented at
+          a(href='http://2016.ecoop.org/track/LIVE-2016') ECOOP 2016 LIVE
+          | .
+      section
+        .row
+          .col-md-4
+            h2 Paper
+            p
+              a(href='/publications/live2016-kato-livetuning.pdf')
+                img.img-responsive(src='live2016-kato-livetuning.jpg', style='border: 1px solid #000')
+            p
+              a.btn.btn-primary.btn-lg(href='/publications/live2016-kato-livetuning.pdf')
+                i.glyphicon.glyphicon-download
+                | Download PDF
+          .col-md-8
+            h2 Abstract
+            p Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time. In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.
+            hr
+            ul
+              li#live2016-kato-livetuning(data-numpages='6')
+                u Jun Kato
+                | , Masataka Goto,
+                b "Live Tuning: Expanding Live Programming Benefits to Non-Programmers"
+                | , In
+                i Proceedings of the Second Workshop on Live Programming Systems
+                | . 2016.
+                .btn-group.biblinks
+                  a(href='http://junkato.jp/publications/live2016-kato-livetuning.pdf')
+                    i.glyphicon.glyphicon-file
+                    | PDF
+                  a(href='http://junkato.jp/publications/live2016-kato-livetuning-poster.pdf')
+                    i.glyphicon.glyphicon-file
+                    | Poster
+                  a(href='http://junkato.jp/live-tuning/')
+                    i.glyphicon.glyphicon-info-sign
+                    | Website
+                a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{live2016-kato-livetuning,
+  title={Live Tuning: Expanding Live Programming Benefits to Non-Programmers},
+  author={ Jun Kato and  Masataka Goto}
+  booktitle={Proceedings of the Second Workshop on Live Programming Systems},
+  year={2016}
+}</textarea>')
+                  i.glyphicon.glyphicon-book
+                  | BibTeX
+        hr
+      section#motivation
+        h2 Motivation
+        .row
+          .col-md-6
+            h3 Because programmers are tired
+            ul
+              li
+                | There are more and more
+                a(href='/programming-with-examples', title='Programming with Examples to Develop Data-Intensive User Interfaces') data-intensive programs
+                | such as animation design,
+                abbr(title='Internet of Things') IoT
+                | application development, machine learning, etc.
+              li The amount and variations of data far surpass what programmers alone can manage and edit. Intensive parameter tunings might be needed per user.
+          .col-md-6
+            h3 Because users are demanding
+            ul
+              li Live Programming (changing program behaviors without losing context) can benefit end-users. In particular, they can comprehend parameter tuning interfaces and customize programs to match their needs.
+              li They typically do not have access to development environments since they lack prior knowledge of programming.
+        hr
+      section#live-tuning-comparison
+        .row
+          .col-md-6
+            h2 Live Programming
+            p(style='position: relative')
+              a#live-programming
+                img.img-responsive.hover(src='live-programming-environment.png', style='position: absolute; display: none')
+                img.img-responsive(src='live-programming-environment-shadow.png')
+            ul
+              li
+                | Interaction design for
+                strong programmers
+                | , typically built in development environments
+              li Prior knowledge of programming is required.
+              li The entire programs are always live and editable.
+              li The programmer has full control and is responsible for every aspect of program details.
+          .col-md-6
+            h2 Live Tuning
+            p(style='position: relative')
+              a#live-tuning
+                img.img-responsive.hover(src='live-tuning-environment.png', style='position: absolute; display: none')
+                img.img-responsive(src='live-tuning-environment-shadow.png')
+            ul
+              li
+                | Interaction design for
+                strong end-users
+                | , built in ordinary runtime environments
+              li
+                | Prior knowledge of programming is
+                strong not
+                | required.
+              li Only a certain number of variables are editable.
+              li The programmer and end-user are separating their roles of specifying program details.
+        hr
+      section#example-ides
+        h2
+          | Example "Live Tuning"
+          abbr(title='Integrated Development Environments') IDEs
+        h3 TextAlive
+        p
+          a(href='http://textalive.jp')
+            strong TextAlive
+            | <http://textalive.jp>
+          | is an Integrated Design Environment for authoring Kinetic Typography videos.
+        .row
+          .col-md-6
+            p
+              img.img-responsive(src='/live-tuning/textalive-code.png', style='border: 1px solid #ccc')
+            p
+              strong For programmers:
+              | it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time.
+          .col-md-6
+            p
+              img.img-responsive(src='/live-tuning/textalive-tuning.png', style='border: 1px solid #ccc')
+            p
+              strong For end-users:
+              | it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size.
+        h3 f3.js: Form Follows Function()
+        p
+          a(href='http://f3js.org')
+            strong f3.js
+            | <http://f3js.org>
+          | is an Integrated Development Environment for developing
+          abbr(title='Internet of Things') IoT
+          | applications.
+        .row
+          .col-md-6
+            p
+              img.img-responsive(src='/live-tuning/f3js-code.png', style='border: 1px solid #ccc')
+            p
+              strong For programmers:
+              | It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience.
+          .col-md-6
+            p
+              img.img-responsive(src='/live-tuning/f3js-tuning.png', style='border: 1px solid #ccc')
+            p
+              strong For end-users:
+              | it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera.
+        hr
+      section#examples
+        h2 Discussion
+        p
+          | Please refer to
+          a(href='/publications/live2016-kato-livetuning.pdf#page=4') the paper (p.4-6)
+          | for the detailed discussion.
+          u Underlined
+          | options are those we consider the most interesting and promising.
+        ul
+          li
+            strong Programming environments (for programmers) are getting close to runtime environments (for end-users).
+            | Live Tuning is such a proposal to connect them through the tuning interfaces.
+          li
+            strong Multiple levels of user interfaces allow varied flexibility to edit programs.
+            | Live Programming aims at the maximum flexibility and Live Tuning is somewhat in the middle between no and maximum flexibility.
+          li
+            strong How can we resolve or avoid conflicts between edits by multiple users?
+            | 1) seriously implement conflict resolution mechanisms 2) discard old edits as typical Live Programming systems do 3) separate namespaces and resulting application instances
+            u 4) aggregate parameter values from different users
+            | .
+          li
+            strong How can we achieve liveness when it takes time to apply edits?
+            | For instance, updating the 3D models is an instant process, but printing them takes time. 1) significantly progress the research of programmable matter
+            u 2) hack humans' feeling of liveness
+            | .
+        hr
+      section#revision
+        h2 Revision history
+        dl
+          dt 7/16/2016
+          dd Upload the initial revision.
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/live-tuning/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+  $('#live-programming').hover(function (){
+    $('#live-programming>img.hover').fadeIn('fast');
+  }, function (){
+    $('#live-programming>img.hover').fadeOut('fast');
+  });
+  $('#live-tuning').hover(function (){
+    $('#live-tuning>img.hover').fadeIn('fast');
+  }, function (){
+    $('#live-tuning>img.hover').fadeOut('fast');
+  });
+});
+    // /container 

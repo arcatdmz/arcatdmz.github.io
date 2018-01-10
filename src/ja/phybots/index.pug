@@ -1,0 +1,290 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Phybots | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/phybots/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 Phybots: 日用品にモビリティを付与するプロトタイピング用ツールキット
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '09-12
+          span.label.label-info(rel='tooltip', data-original-title='Prototyping Toolkit')
+            i.glyphicon.glyphicon-tag
+            | Toolkit
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM DIS '12
+        .alert.alert-info
+          | Phybotsは
+          a(href='http://phybots.com/ja/') http://phybots.com/ja/
+          | にてオープンソースで公開中です。
+      section
+        h2 概要
+        .row
+          .col-md-8
+            p ユーザの指示に従って料理や服畳みといった実世界におけるタスクを実行するインタラクティブなロボットアプリケーションが実現しつつある。また、このような高度なアプリケーションの効果的な開発には、プロトタイピングが重要である。しかし、HCI分野で利用されてきた既存のプロトタイピング用ツールキットは、空間内の特定の場所に置かれて使われるアプリケーションを想定している。そのため、プログラマがモビリティを備えたアプリケーションを開発しようとすると、ロボット工学的な困難に直面する。一方で、ロボット工学向けのツールキットは、利用に際し、ある程度の前提知識を必要とするものがほとんどである。
+            p 我々は、この学際的な問題を解決するためにツールキットPhybotsを提案した。Phybotsを用いると、HCI研究者やインタラクションデザイナーが、生活空間を動き回れる"Robotic Things"─ロボット的なるもの─をプロトタイピングできる。
+          .col-md-4
+            a.thumbnail(href='/phybots/fig1-overview.jpg')
+              img(src='/phybots/fig1-overview.jpg', alt='Overview of hardware setup for Phybots')
+      section
+        .row
+          .col-md-6
+            h2 APIs for 2D Locomotion
+            p Phybots assumes a simple and inexpensive hardware setup of a camera looking down on the floor and visual markers attached to the top of physical objects. This hardware setup can easily be deployed to everyday spaces such as a working desk, a dining table or in a kitchen or living room. Given the hardware setup, Phybots provides APIs for two-dimensional localization and locomotion of floor-based robotic things. These APIs are similar to those for graphical applications in which object positions are defined by screen coordinates, and support moving to a goal, pushing an object toward a goal, tracing a path, and other custom behavior by specifying a vector field.
+            h2 Centralized and Extensible Architecture
+            p
+              | Phybots APIs are built on top of a centralized and extensible software architecture that runs on one personal computer and manages all physical objects of interest including cameras, robotic things, and entities with visual markers. The programmer has direct access to these objects as instances of the
+              i Camera
+              | ,
+              i Robot
+              | and
+              i Entity
+              | interfaces, respectively. Time-consuming tasks including locomotion APIs are represented by Task interface. The toolkit can be easily extended on top of these software stacks to support other types of sensors, roobts, and tasks. In addition, a
+              i Workflow
+              | class represents a directed graph consisting of a set of
+              i Robot
+              | and
+              i Task
+              | instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel.
+            h2 Runtime Debug Tool
+            p
+              | Phybots provides a
+              i runtime debug tool
+              | that supports a test phase, beyond the programming phase, as an essential part of the prototyping process. In the robot application test phase, when the robot fails to accomplish its task, the user usually has to order the same task to be performed again. Because it is too costly to restart a test run for each error, the programmer often wants to fix the error right away without restarting. To support this workflow, a graphical
+              i runtime debug tool
+              | enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.
+            .thumbnail
+              .caption
+                h4 Runtime debug tools
+              a(href='/phybots/debug-tools.png')
+                img(src='/phybots/debug-tools.png')
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/iFrNOQiw0Go', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><div class="caption"><h4>ユーザスタディの作例（抜粋）</h4></div><a href="/phybots/robotic-things.jpg"><img src="/phybots/robotic-things.jpg" width="570" alt="Robotic Things"></a><br><iframe width="100%" height="360" src="//www.youtube.com/embed/cMyOY4FJuDc?list=PL5EC9CECDDBEA183A&amp;hl=en_US" frameborder="0" allowfullscreen>
+            .thumbnail
+              .caption
+                h4 ツールキットの比較
+              table.table.table-bordered
+                thead
+                  tr
+                    th 目的:
+                    th
+                      | フィジカル
+                      br
+                      | コンピューティング
+                    th Phybots
+                    th ロボット
+                tbody
+                  tr
+                    th ターゲット ユーザー:
+                    td(colspan='2')
+                      | HCI研究者 &
+                      br
+                      | インタラクション デザイナー
+                    td ロボット工学の研究者
+                  tr
+                    th 重視すること:
+                    td(colspan='2') プロトタイピング
+                    td 信頼性
+                  tr
+                    th ソフトウェアAPI:
+                    td 低レベルで拡張性に乏しい
+                    td(colspan='2') 高レベルで拡張性に富む
+                  tr
+                    th ハードウェアの大きさ & 価格:
+                    td(colspan='2')
+                      | 小さい & 安い (Phidget Kit $200,
+                      br
+                      a(href='http://www.inmojo.com/store/inmojo-market/item/ikimo-robot-platform/') Ikimo Robot
+                      | $160)
+                    td 大きい & 高価 ($700-)
+      section
+        h2 未来ビジョン
+        .alert.alert-info
+          | 本研究には以下の原稿とは別に未来ビジョン（裏）が存在する。詳細は
+          a(href='http://junkato.jp/publications/wiss2010-kato-matereal-slides.pdf') 発表スライド
+          | 後半に書いてあり、これが翌年の
+          a(href='/ja/sharedo/') Sharedo
+          | に繋がっている。
+        p 我々はロボットが何であるかを知らない。自分たちで作った言葉であるにも拘らず、言葉が独り歩きし、各々が勝手なイメージを持っている。日本においては、とくに大型で人型の印象が強いようである。しかしながら、既存のロボット研究において一般的に用いられてきた大型のロボットは、ロバストに動作させるためにハードウェアおよび制御用ソフトウェアに高度な作りこみが求められ、かつ高価なため、そもそも多くのソフトウェアプログラマが満足にアプリケーション開発できるだけの環境を用意するのが困難である。また、空間知能化などのキーワードを考えたとき、大型ロボットは動作空間を用意すること自体に手間がかかる。
+        p 一方、小型のロボットであればArduino等のPhysical Computing用ツールキットを利用して比較的安価に自作することが容易であり、さまざまな種類のロボットを試作できることが見込まれる。小型であれば机上など多くの場所で動作させることができるだろう。アプリケーションが確立すれば、小型ロボットなら大量生産もしやすく一層安価になることが期待できる。そもそも人間の生活環境における小型ロボットの存在は既存の家電製品との境界が曖昧であり、とくに家電製品をネットワーク越しに操作できるようになったとき境界はほぼ消失すると考えている。このように我々は、ネットワーク家電を含む小型ロボットが複数台・複数種人間の生活環境に溶け込んでいる未来ビジョンを念頭においてツールキットを開発してきたため、本文中のサンプルアプリケーションでも多くの小型ロボットや遠隔操作できるようハックした家電製品を登場させた。
+        p 我々が描く未来は、多くの人々、最初は研究者や科学・技術に強い興味のあるプログラマなどに、まずはロボットに触れてもらうところから始まると考えている。触れるということは、そのプログラムやアプリケーションを開発することであり、それによってロボットで何が出来るのか、どうしたら良くなるのかを、広く議論して行きたいということである。そこで我々は、手軽にプロトタイピングを行える共通のスタートラインとしてのツールキットが必要であると考え、Matereal(旧名、現Phybots)の研究開発を行ってきた。現時点ではJava用ライブラリとして提供しているが、Processingや他の言語の開発環境でも利用できるようにして、さらに幅広い層のプログラマにとって魅力的な環境構築を目指していきたい。
+      section
+        h2 発表文献
+        ul
+          li#dis2012-kato-phybots(data-numpages='10')
+            u Jun Kato
+            | , Daisuke Sakamoto, Takeo Igarashi,
+            b "Phybots: A Toolkit for Making Robotic Things"
+            | , In
+            i DIS '12: Proceedings of the 9th conference on Designing Interactive Systems
+            | . pp.248-257, Jun. 2012.
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2317956.2317996')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/dis2012-kato-phybots.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/dis2012-kato-phybots-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://phybots.com/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{dis2012-kato-phybots,
+  title={Phybots: A Toolkit for Making Robotic Things},
+  author={Jun Kato and Daisuke Sakamoto and Takeo Igarashi}
+  booktitle={DIS '12: Proceedings of the 9th conference on Designing Interactive Systems},
+  pages={248--257},
+  year={2012}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#uist2009-kato-andy
+            | Daisuke Sakamoto,
+            u Jun Kato
+            | , Masahiko Inami, Takeo Igarashi,
+            b "A Toolkit for Easy Development of Mobile Robot Applications with Visual Markers and a Ceiling Camera"
+            | , In
+            i UIST '09: 22nd symposium on User Interface Software and Technology
+            | . Oct. 2009.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/uist2009-sakamoto-andy.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://phybots.com/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{uist2009-kato-andy,
+  title={A Toolkit for Easy Development of Mobile Robot Applications with Visual Markers and a Ceiling Camera},
+  author={Daisuke Sakamoto and Jun Kato and Masahiko Inami and Takeo Igarashi}
+  booktitle={UIST '09: 22nd symposium on User Interface Software and Technology},
+  year={2009}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#wiss2010-kato-matereal
+            | 加藤 淳, 坂本 大介, 五十嵐 健夫,
+            b "matereal: インタラクティブなロボットアプリケーションのプロトタイピング用ツールキット"
+            | , In
+            i WISS '10: 第18回インタラクティブシステムとソフトウェアに関するワークショップ
+            | . pp.83-88, Dec. 2010.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/wiss2010-kato-matereal.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/wiss2010-kato-matereal-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://phybots.com/jp/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{wiss2010-kato-matereal,
+  title={matereal: インタラクティブなロボットアプリケーションのプロトタイピング用ツールキット},
+  author={ 加藤 淳 and  坂本 大介 and  五十嵐 健夫}
+  booktitle={WISS '10: 第18回インタラクティブシステムとソフトウェアに関するワークショップ},
+  pages={83--88},
+  year={2010}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#ipsj52-kato-andy
+            | 加藤 淳, 坂本 大介, 稲見 昌彦, 五十嵐 健夫,
+            b "Andy: 俯瞰カメラとマーカを用いた移動ロボットアプリケーション開発用ツールキット"
+            | , In
+            i 情報処理学会論文誌 52(4)
+            | . pp.1425-1437, Apr. 2011.
+            .btn-group.biblinks
+              a(href='http://ci.nii.ac.jp/naid/110008507978/')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@article{ipsj52-kato-andy,
+  title={Andy: 俯瞰カメラとマーカを用いた移動ロボットアプリケーション開発用ツールキット},
+  author={ 加藤 淳 and  坂本 大介 and  稲見 昌彦 and  五十嵐 健夫}
+  booktitle={情報処理学会論文誌 52(4)},
+  pages={1425-1437},
+  year={2011}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/phybots/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

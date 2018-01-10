@@ -1,0 +1,199 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title TextAlive | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/jun.kato/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/jun.kato/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='http://junkato.jp/ja/#', style='height: auto;') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='http://junkato.jp/ja/#about') 自己紹介
+            li.active
+              a(href='http://junkato.jp/ja/#projects') 研究プロジェクト
+            li
+              a(href='http://junkato.jp/ja/#side-projects') サイドプロジェクト
+            li
+              a(href='http://junkato.jp/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='http://junkato.jp/ja/fun/') お楽しみ
+            li
+              a(href='http://junkato.jp/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='http://junkato.jp/ja/blog/')
+                | ブログ
+                i.glyphicon.glyphicon-pencil
+            li
+              a(href='http://junkato.jp/textalive/')
+                | English
+                i.icon-en
+    // container 
+    .container
+      section#firstsection
+        h1 TextAlive: ウェブ上の楽曲と歌詞を用いたKinetic Typography制作環境
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '14-
+          span.label.label-info(rel='tooltip', data-original-title='Creativity Support')
+            i.glyphicon.glyphicon-tag
+            | Creativity Support
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | CHI 2015
+        p
+          b 加藤 淳, 中野 倫靖, 後藤 真孝
+          | - 産業技術総合研究所
+      p.alert.alert-info
+        | 本研究は
+        a(href='http://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html') プレスリリース
+        | と同時に
+        a(href='http://textalive.jp') textalive.jp
+        | で一般公開を始めました。ぜひお試しください。
+      section
+        .row
+          .col-md-6
+            h2 TextAlive
+            p
+              a(href='http://textalive.jp')
+                img.img-responsive(src='textalive-online-toppage.png')
+            p
+              a(href='http://textalive.jp')
+                img.img-responsive(src='textalive-online-release.png')
+            p
+              a.btn.btn-lg.btn-primary(href='http://textalive.jp')
+                i.glyphicon.glyphicon-play-circle
+                | TextAliveを使ってみる
+            p TextAliveは2015年9月8日よりブラウザ上で試せるウェブサービスとして一般公開しています。Google Chrome, Microsoft Edgeなど最新のブラウザでアクセスしてみてください。
+          .col-md-6
+            h2 作例集
+            .embed-responsive.embed-responsive-16by9(style='margin-bottom: 5px')
+              iframe.embed-responsive-item(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
+            .embed-responsive.embed-responsive-16by9
+              iframe.embed-responsive-item(src='https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe', frameborder='0', allowfullscreen='')
+            p
+              a(href='sigmus104-kato-textalive-example-1.mp4') 古い作例（MP4; 2,777KB）
+            h2 インタラクティブ論文
+            p
+              a.btn.btn-lg.btn-default(href='http://textalive.jp/paper')
+                i.glyphicon.glyphicon-file
+                | 論文を読む
+            p TextAliveで制作された動画を見ながら内容を理解できる論文を公開しています。（英語です。日本語の文献は当ページ最下部をご覧ください。）
+          //            
+                <div class="col-md-12">
+              <h2>概要</h2>
+              <h3>WISS 2014</h3>
+              <p>本稿では、歌詞を歌声と同期してアニメーションさせるKinetic Typographyと呼ばれる動画表現の制作環境TextAliveを提案する。既存の制作ツールでは、歌詞と歌声の同期を手作業で取り、文字や単語、複数単語から成るフレーズに対して個別に望みの動きを設計する必要があった。その際は、動きを規定するアルゴリズムのパラメタを、スライダーなどの汎用GUI で調整して試行錯誤を重ねていた。</p>
+              <p>一方、本制作環境では、歌詞と音楽の時間的対応付けを自動で推定し、動きのアルゴリズムに対する初期パラメタを自動生成する。さらに、動きのアルゴリズムを編集できるコードエディタを備え、プログラマがパラメタ調整に適した専用GUI を容易に提供できるフレームワークを提供する。これにより、TextAliveのユーザはKinetic Typographyを一から作る必要がなくなり、初めに時間合わせなどを行う手間をかけずに済む。また、歌詞の動きをインタラクティブかつグラフィカルに設計できるようになる。</p>
+              <h3>SIGMUS 104</h3>
+              <p>歌詞を歌声と同期してアニメーションさせるKinetic Typographyと呼ばれる動画表現の制作環境TextAliveを提案する．既存の制作ツールでは，歌詞と歌声の同期を手作業で取り，文字に対して一から動きを設計するか既定のテンプレートの範囲内で動きを選ぶ必要があった．本環境では，楽曲と歌詞から自動生成した初期アニメーションを，歌詞に特化したインタフェースでインタラクティブに編集できる．また，動きのテンプレートを編集でき，そのパラメタ調整用に制作環境のGUIを拡張できる．</p>
+                </div>
+              <h3>デモ動画</h3>
+              <div class="col-md-6"><div class="thumbnail"><iframe width="100%" height="315" src="https://www.youtube.com/embed/mAKkNO8S8Wo" frameborder="0" allowfullscreen></iframe><p style="margin-bottom: 0;"><b><a href="www.wiss.org/WISS2014/Program.html">WISS 2014</a> デモ動画</b> (2014年11月)</p></div></div>
+              <div class="col-md-6"><div class="thumbnail"><iframe width="100%" height="315" src="https://www.youtube.com/embed/qhf0C-SGtx0" frameborder="0" allowfullscreen></iframe><p style="margin-bottom: 0;"><b><a href="http://www.sigmus.jp/?page_id=2780" title="第104回情報処理学会音楽情報科学研究会(夏のシンポジウム)">SIGMUS 104</a> デモ動画</b> (2014年8月)</p></div></div>
+            
+        h2 研究の概要
+        p Kinetic Typographyは、文字を動かして見せることで意味をより深く伝えられる手法として、楽曲のプロモーションなどの動画で頻繁に利用されている。しかし、歌詞を楽曲と同期してアニメーションさせる動画を制作するためには、まず、動画制作ツールの使い方に慣れる必要があった。さらに、歌詞を文字ごとに時刻同期させて動きを手付けするため、多くの手間がかかっていた。
+        p TextAliveは、ウェブ上に公開されている楽曲と歌詞の時間的対応付けを自動で推定し、Kinetic Typographyを用いた動画を自動生成する。したがって、事前にツールの使い方を学ばなくても、好みの楽曲のKinetic Typography動画を楽しむことができる。また、生成された動画をウェブ上のグラフィカルなインタフェースで編集でき、一から動画を作るより大幅に少ない手間で動画を制作できる。さらに、文字の動きを定めているアルゴリズムをその場でプログラミングでき、プリセットのテンプレートに縛られない自由な表現が可能である。
+      section
+        h2 発表文献
+        ul
+          li#iclc2015-kato-textalive(data-numpages='6')
+            u Jun Kato
+            | , Tomoyasu Nakano, Masataka Goto,
+            b "TextAlive Online: Live Programming of Kinetic Typography Videos with Online Music"
+            | , In
+            i ICLC '15: Proceedings of the First International Conference on Live Coding
+            | . pp.199-205, Jul. 2015.
+            a(href='http://dx.doi.org/10.5281/zenodo.19355')
+              i.glyphicon.glyphicon-barcode
+              abbr(title='Digital Object Identifier') DOI
+            a(href='http://textalive.jp/paper')
+              i.glyphicon.glyphicon-play-circle
+              | 論文兼発表用ウェブページ
+          li#chi2015-kato-textalive(data-numpages='10')
+            u Jun Kato
+            | , Tomoyasu Nakano, Masataka Goto,
+            b "TextAlive: Integrated Design Environment for Kinetic Typography"
+            | , In
+            i Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems
+            | . pp.3403-3412, 2015.
+            b.addition ACM CHI 2015 Best Paper Honorable Mention Award
+            | .
+            a(href='http://doi.acm.org/10.1145/2702123.2702140')
+              i.glyphicon.glyphicon-barcode
+              abbr(title='Digital Object Identifier') DOI
+            a(href='http://junkato.jp/publications/chi2015-kato-textalive.pdf')
+              i.glyphicon.glyphicon-file
+              | PDF
+            a(href='http://junkato.jp/publications/chi2015-kato-textalive-slides.pdf')
+              i.glyphicon.glyphicon-play-circle
+              | 発表スライド
+          li#wiss2014-kato-textalive
+            u 加藤 淳
+            | , 中野 倫靖, 後藤 真孝,
+            b "TextAlive: インタラクティブでプログラマブルなKinetic Typography制作環境"
+            | ,
+            i WISS '14: 第22回インタラクティブシステムとソフトウェアに関するワークショップ
+            | . pp.39-44, 2014年11月.
+            b.addition 最優秀論文賞
+            | .
+            a(href='http://junkato.jp/publications/wiss2014-kato-textalive.pdf')
+              i.glyphicon.glyphicon-file
+              | PDF
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/wiss2014-kato-textalive-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | 発表スライド
+          li#sigmus104-kato-textalive
+            u 加藤 淳
+            | , 中野 倫靖, 後藤 真孝,
+            b "TextAlive: 音楽に同期した歌詞アニメーションのKinetic Typography制作環境"
+            | , 情報処理学会 音楽情報科学研究会 研究報告, Vol.2014-MUS-104, No.15, pp.1-7, August 2014.
+            b.addition ベストプレゼンテーション賞
+            | .
+            a(href='http://junkato.jp/publications/sigmus104-kato-textalive.pdf')
+              i.glyphicon.glyphicon-file
+              | PDF
+            a(href='http://junkato.jp/publications/sigmus104-kato-textalive-slides.pdf')
+              i.glyphicon.glyphicon-play-circle
+              | 発表スライド
+            // <a href="http://www.ustream.tv/recorded/51869488"><i class="glyphicon glyphicon-facetime-video"></i>講演動画(Ustream, 59分56秒-)</a> 
+      footer
+        hr
+        p
+          | ©
+          a(href='http://junkato.jp/ja/') 加藤 淳
+          | 2014-2015 |
+          a(href='http://junkato.jp/textalive/')
+            | English
+            i.icon-en
+      // Scripts 
+      script(src='https://code.jquery.com/jquery-1.7.1.min.js')
+      script(src='/jun.kato/js/bootstrap.min.js')
+    // /container 

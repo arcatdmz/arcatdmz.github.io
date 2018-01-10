@@ -1,0 +1,137 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='Jun Kato')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title It's alive! (TouchDevelop) | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Jun Kato
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#about') Profile
+            li.active
+              a(href='/#projects') Projects
+            li
+              a(href='/publications/') Awards & Publications
+            li
+              a(href='/fun/') Fun
+            li
+              a(href='/#contact') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/touchdevelop/')
+                | 日本語
+                i.translation.icon-ja
+    // container 
+    .container
+      section
+        h1 It's Alive! Continuous Feedback in UI Programming
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '12
+          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+            i.glyphicon.glyphicon-tag
+            | IDE
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | ACM PLDI '13
+      section
+        .row
+          .col-md-6
+            p Live programming allows programmers to edit the code of a running program and immediately see the effect of the code changes. This tightening of the traditional edit-compile-run cycle reduces the cognitive gap between program code and behavior, improving the learning experience of beginning programmers while boosting the productivity of seasoned ones. Unfortunately, live programming is difficult to realize in practice as imperative languages lack well-defined abstraction boundaries that make live programming responsive or its feedback comprehensible.
+            p This paper enables live programming for user interface programming by cleanly separating the rendering and non-rendering aspects of a UI program, allowing the display to be refreshed on a code change without restarting the program. A type and effect system formalizes this separation and provides an evaluation model that incorporates the code update step. By putting live programming on a more formal footing, we hope to enable critical and technical discussion of live programming systems.
+            p
+              | This work was done during my internship at Microsoft Research Redmond
+              a(href='http://research.microsoft.com/touchdevelop/') TouchDevelop team
+              | of
+              a(href='http://research.microsoft.com/rise/', title='Research in Software Engineering Group') RiSE Group
+              | .
+          .col-md-6
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/GaVbYx-NN0o', frameborder='0', allowfullscreen='')
+            .thumbnail
+              iframe(width='100%', height='315', src='//www.youtube.com/embed/D1UB73y4GGo', frameborder='0', allowfullscreen='')
+      section
+        h2 Publication
+        ul
+          li#pldi2013-kato-alive(data-numpages='10')
+            | Sebastian Burckhardt, Manuel Fahndrich, Peli Halleux, Sean McDirmid, Michal Moskal, Nikolai Tillmann,
+            u Jun Kato
+            | ,
+            b "It's Alive! Continuous Feedback in UI Programming"
+            | , In
+            i PLDI '13: Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation
+            | . pp.95-104, 2013.
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2491956.2462170')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://research.microsoft.com/apps/pubs/default.aspx?id=189242')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://research.microsoft.com/apps/pubs/default.aspx?id=189242')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+              a(href='http://touchdevelop.com/app/')
+                i.glyphicon.glyphicon-info-sign
+                | Website
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{pldi2013-kato-alive,
+  title={It's Alive! Continuous Feedback in UI Programming},
+  author={Sebastian Burckhardt and Manuel Fahndrich and Peli Halleux and Sean McDirmid and Michal Moskal and Nikolai Tillmann and Jun Kato}
+  booktitle={PLDI '13: Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  pages={95--104},
+  year={2013}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') Jun Kato
+          | 2012-2017 |
+          a(href='/ja/touchdevelop/')
+            | 日本語
+            i.translation.icon-ja
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 

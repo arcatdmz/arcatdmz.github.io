@@ -1,0 +1,278 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title ぼくらのプログラミングから、みんなのプログラミングへ | 情報科学若手の会 若手特別講演 | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    link(rel='stylesheet', href='/talks/people-are-programmers/rangeslider.css')
+    meta(property='og:title', content='ぼくらのプログラミングから、みんなのプログラミングへ | 情報科学若手の会 若手特別講演')
+    meta(property='og:type', content='article')
+    meta(property='og:image', content='http://junkato.jp/talks/people-are-programmers/P9206331-trim.jpg')
+    meta(property='og:url', content='http://junkato.jp/ja/talks/people-are-programmers/?p=1')
+    meta(property='fb:admins', content='503220390')
+    meta(property='fb:app_id', content='488785607828009')
+    style .fb-share-button>span {
+  vertical-align: top !important;
+}
+.nav.nav-tabs .active {
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Emoji";
+  src: local("Apple Color Emoji"),
+    local("Gecko Emoji"),
+    local("Noto Sans Emoji"),
+    local("Segoe UI Emoji"),
+    local("Segoe UI Symbol"),
+    local("Noto Sans Symbols");
+}
+span.cool {
+  font-family: Emoji;
+  font-size: 3em;
+  display: inline-block;
+  margin: 0 4px;
+}
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li.active
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/talks/people-are-programmers/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 ぼくらのプログラミングから、みんなのプログラミングへ
+        h2(style='margin-top: 0')
+          small From "programmers are people, too" to "people are programmers."
+        p
+        .pull-right
+          a.hatena-bookmark-button(href='http://junkato.jp/ja/talks/people-are-programmers/?p=1', data-hatena-bookmark-url='http://junkato.jp/ja/talks/people-are-programmers/?p=1', data-hatena-bookmark-layout='standard-balloon', data-hatena-bookmark-lang='ja', title='このエントリーをはてなブックマークに追加')
+            img(src='https://b.st-hatena.com/images/entry-button/button-only@2x.png', alt='このエントリーをはてなブックマークに追加', width='20', height='20', style='border: none;')
+          script(type='text/javascript', src='https://b.st-hatena.com/js/bookmark_button.js', charset='utf-8', async='')
+          a.twitter-share-button(href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fjunkato.jp%2Fja%2Ftalks%2Fpeople-are-programmers%2F%3Fp%3D1', data-text='ぼくらのプログラミングから、みんなのプログラミングへ | 情報科学若手の会 若手特別講演', data-count='horizontal', data-counturl='http://junkato.jp/ja/talks/people-are-programmers/?p=1') Tweet
+          script window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));
+          .fb-share-button(style='vertical-align: top', data-href='http://junkato.jp/ja/talks/people-are-programmers/?p=1', data-layout='button_count')
+          #fb-root
+          script (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=488785607828009";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+        span.label.label-default
+          i.glyphicon.glyphicon-calendar
+          | 9/20/2015
+        span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
+          i.glyphicon.glyphicon-tag
+          | IDE
+        span.label.label-danger(rel='tooltip')
+          i.glyphicon.glyphicon-folder-open
+          | 第48回 情報科学若手の会 若手特別講演
+        p
+        h2 概要
+        p プログラマは一番長くコンピュータと付き合ってきた人たちだ。だから、プログラマはコンピュータを使った創作活動の未来について知っている。プログラミングの方法論を他のコンテンツ制作に応用できれば、より自由で協力的な世界がやってくるだろう。 一方で、プログラマは過去を引きずっているとも言える。プログラミングを今より分かりやすくできれば、さらに多くの人が使える道具になるだろう。 本講演では、プログラミングのメリットをみんなが享受できる世界に向けた試みについて、過去・未来2つの観点から論じる。
+        p.alert.alert-info
+          | このページでは、
+          a(href='http://junkato.jp/ja/blog/2015/09/24/ipsj-prosym-wakate-2015/') 第48回 情報科学若手の会
+          | で若手特別講演にご招待いただいたときのプレゼンテーションの内容を紹介しています。
+          a(href='/publications/wakate2015-kato-slides.pdf')
+            span.glyphicon.glyphicon-play-circle
+            | スライドのPDFファイル
+          | や
+          a(href='http://togetter.com/li/875960') 反響をまとめたTogetter
+          | もあります。これまでの活動を手短にまとめるとてもいい機会になりました。ご招待くださった幹事団のみなさま、当日会場で活発に議論いただいたみなさまに、この場を借りて御礼申し上げます。
+        ul.nav.nav-tabs.nav-justified
+          li.active
+            a(href='?p=1') 1. 自己紹介・はじめに
+          li
+            a(href='?p=2') 2. ぼくらのプログラミング
+          li
+            a(href='?p=3') 3. みんなのプログラミング
+      a##content(style='margin-top: 50px; position: absolute')
+      section
+        h2#intro 自己紹介・はじめに
+        p 講演タイトルの「ぼくらのプログラミング」は過去の話、「みんなのプログラミング」はこれからの話です。
+        p 前者は英語では "programmers are people, too" になりますが、これは直訳すれば「プログラマだって人である」という意味です。プログラマってエンドユーザが使いやすいものを作るためには頑張りますが、自分で使う道具は意外なほど無頓着だったりすることがあって、これは「いや人間なんだし」って強調して、もうちょっと人間的なファクターを考慮に入れてこうっていう標語です。
+        p 後者は英語では "people are programmers" で、僕が勝手に作った標語です。プログラマが使いやすい道具を使うだけでなく、その恩恵にみんなが与れるような未来を夢想して作ったものです。
+        p.text-muted
+          | ※ "programmers are people, too" 初出はおそらく
+          a(href='https://queue.acm.org/detail.cfm?id=1071731') 2005年の国際学会ACM学会誌
+          | で、
+          a(href='http://www.cs.cmu.edu/~NatProg/papers/Myers2012ICSE_Talk.pdf') 2012年の業界著名人による国際会議での招待講演
+          | でもほぼ同じ言葉が使われています。 "people are programmers" は
+          a(href='/ja/blog') 僕のブログ
+          | のタイトルになっています。
+        p
+          img.img-responsive(src='/talks/people-are-programmers/P9206331-trim.jpg')
+        p 未成年の方もいるということで、高校の頃から何をしてきたか簡単にご紹介します。
+        p.text-muted ※詳細は略しますが、どのスライド画像も関連するウェブサイトへのリンクになっています。
+        .row
+          .col-md-3.col-sm-6
+            a.thumbnail(href='http://digitalmuseum.jp')
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-01.jpg', alt='digitalmuseum 電網美術館')
+          .col-md-3.col-sm-6
+            a.thumbnail(href='http://sci.digitalmuseum.jp')
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-02.jpg', alt='立花隆ゼミ（SCI/サイ）')
+          .col-md-3.col-sm-6
+            a.thumbnail(href='/ja/homehack')
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-03.jpg', alt='おうちハック')
+          .col-md-3.col-sm-6
+            a.thumbnail(href='/ja/openpool')
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-04.jpg', alt='OpenPool')
+        hr
+        .row
+          .col-md-6
+            .thumbnail
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-05.jpg')
+          .col-md-6
+            p
+              | 今は何をやっているかというと、
+              a(href='http://www.aist.go.jp/') 産業技術総合研究所
+              a(href='http://itri.aist-go.jp/') 情報技術研究部門
+              a(href='https://staff.aist.go.jp/m.goto/MIG/index-j.html') メディアインタラクション研究グループ
+              | 研究員として、Human-Computer Interactionの研究をしています。
+            p
+              | Human-Computer Interaction (HCI)は
+              b 人とコンピュータの関係改善
+              | を目指す学問ですが、なかでも僕は、統合開発環境（Integrated Development Environment, IDE）の研究開発を通して
+              b プログラミング体験の改善
+              | に取り組んできました。これは、HCIとプログラミング言語（PL）の境界領域にある学際研究です。
+            p
+              | 一番根っこにあるのは、人々が快適に楽しく過ごすための
+              b 仕組み
+              | 作りをしたいという気持ちです。
+            p.text-muted
+              | ※統合開発環境の研究についてご興味のある方はブログ記事
+              a(href='http://junkato.jp/ja/blog/2012/11/21/devenv-research-hci/') “開発環境の研究”とは？ / HCI編
+              | と
+              a(href='http://junkato.jp/ja/blog/2013/09/16/devenv-research-hci-retreat/') 補遺
+              | を読んでみてください。さらに深追いしたい場合は
+              a(href='http://junkato.jp/ja/blog/2013/09/27/devenv-research-labs/') 開発環境研究をしているラボ一覧
+              | や、
+              a(href='http://ide.digitalmuseum.jp/Integrated_development_environment/ja') 開発環境これくしょん（環これ）の統合開発環境の歴史に関する記事
+              | も参考になると思います。
+        hr
+        .row
+          .col-md-3.col-sm-6
+            .thumbnail
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-06.jpg')
+          .col-md-3.col-sm-6
+            .thumbnail
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-07.jpg')
+          .col-md-6
+            p
+              | 突然ですが、僕
+              b 仕組み
+              | 萌えなんですよ。例えばこの写真は取っ手一つが眼筋一つに対応していて、それぞれを引っ張ることで目の動きが分かる模型です。次の写真は計算尺の一種です。
+            p 一度作ったらずっと機能するのって、素敵じゃないですか。とくに、美しい仕組みを見ると本当に胸が震えます。
+        hr
+        .row
+          .col-md-3
+            .thumbnail
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-08.jpg')
+          .col-md-3
+            .thumbnail
+              img.img-responsive(src='/talks/people-are-programmers/slides/wakate2015-kato-slides-09.jpg')
+          .col-md-6
+            p
+              | これまでやってきたことの共通点を考えてみると、僕はずっと、
+              b 仕組み
+              | を作ってきたんだと思うんです。それも、今すでにある仕組みを疑って、自分なりにどうすればよくなるか考えて、作ってきました。
+            //              
+                    <p><a href="http://digitalmuseum.jp">digitalmuseum</a>の取り組みは産学交流で何かが起きることを期待して<a href="http://junkato.jp/ja/teaparty">名状しがたいお茶会</a>という仕組み（場）作りに至りました。立花隆ゼミでは、ゼミ生が記事を書いたらウェブにすぐ掲載できるコンテンツ管理システム（CMS）<a href="http://digitalmuseum.jp/software/chippie/">Chippie</a>を作りました。</p>
+                    <p><a href="/ja/openpool">OpenPool</a>では、誰でもビリヤード台を豪華に演出できるツールキットのAPIを設計し、<a href="/ja/homehack">おうちハック</a>関連ではあとで紹介するVisionSketchという統合開発環境を作りました。</p>
+                    <p>そんなわけで、人々が快適に楽しく過ごすための<b>仕組み</b>作りを目指してきました。</p>
+                    
+            p
+              | 今日の講演の目標は、みなさんにも今現在プログラミングのために使っている
+              b 仕組み
+              | を疑ってもらい、歴史を知って、この先どうなるか考えていただくことです。さらに、プログラミングに限らず社会がどうなっていくのか、考えてみてほしいです！
+            p.text-muted
+              | ※僕がこれまでに作ってきた仕組みの一覧は
+              a(href='/ja') トップページ
+              | にあります。
+      hr
+      .row
+        .col-md-6.text-left(style='margin-bottom: 10px')
+          a.btn.btn-default.btn-lg.btn-block(disabled='') «
+        .col-md-6.text-right(style='margin-bottom: 10px')
+          a.btn.btn-default.btn-lg.btn-block(href='?p=2') »
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/talks/people-are-programmers/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-20', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+    // /container 

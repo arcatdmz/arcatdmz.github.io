@@ -1,0 +1,178 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title 第4回 名状しがたいお茶会 | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    style #map-canvas { height: 224px; margin: 10px 0 }
+        .twitter-timeline { margin-top: 20px; width: 100% !important; }
+        .togetter>div { margin-top: 20px !important; }
+        .togetter>div .reco_item_box { display: none; }
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/teaparty/2015/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 第4回 名状しがたいお茶会
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '15
+        ol.breadcrumb
+          li
+            a(href='/ja/teaparty/') 名状しがたいお茶会
+          li 2015
+      section
+        //          
+            <p class="alert alert-warning"><b>重要なお知らせ:</b> 円滑な運営のため、できるだけ(<b>5分以下の発表の方は必ず</b>)PowerPoint、PDF、動画ファイルなど発表資料を加藤宛てに事前にお送りください。メール&lt;<a href="mailto:i@junkato.jp">i@junkato.jp</a>&gt;、Dropbox、Facebook Messeenger、Skypeなど、送信方法は問いません。当日、セッション前の休憩時間にUSBメモリなどでお渡しいただいても大丈夫です。</p>
+            
+        p アニメ、ゲーム、絵、音楽、小説など、面白いコンテンツを作る・作れる・作りたい人たちと、その活動を応援したい人たちの集まりです。お茶を飲みながらざっくばらんに語ります。カジュアルな勉強会のようなものとお考えください。2012年から、毎年一回程度のペースで開催しています。
+        p 目的はいろいろありますが、その一つは、コンテンツ制作・鑑賞支援研究者、コンテンツ制作者、鑑賞者の距離を縮めることです。毎回、立場を超えて交流し、立場を超えて活動していきたいメンタリティの持ち主が集まっています。
+        p 業界横断で濃い人たちの参加をお待ちしてます。初対面同士が多いお茶会なので、知り合いが少なくてちょっとひよりそうな人も、物怖じせずご参加ください。ついでに、濃い友達がいたら、ぜひ連れてきてください。
+        p 今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。
+        p
+          a.btn.btn-primary.btn-lg(href='https://www.facebook.com/events/873913542653717/', title='Facebook イベントページ') Facebook
+          // <a href="https://docs.google.com/forms/d/1ne4_GlTyFeN0wpwt4mk7hQx8RujnwMU-vsRtZioVja4/viewform" class="btn btn-default btn-lg">事前アンケート</a> 
+          a.btn.btn-default.btn-lg(href='https://docs.google.com/forms/d/1xUDrcGYtj45wCRggYmnZGlljlsemq7DMZbj6oHJdZq8/viewform') 事後アンケート
+      section
+        .row
+          .col-sm-12.col-md-7
+            h2 タイムテーブル
+            p
+              | 例年になく人数が増えたため、話題ごとにセッションとしてまとまりを作りました。クリエータの方々の作品紹介「
+              b Creators' Showcase #1, #2
+              | 」と、テーマごとの「
+              b 科学・教育
+              | 」「
+              b 人・コンピュータ・知能
+              | 」「
+              b ゲーム
+              | 」「
+              b 海外動向
+              | 」「
+              b 五感に訴えるコンテンツ
+              | 」「
+              b コンテンツ理解・生成
+              | 」、そして1分自己紹介「
+              b Shotgun Session
+              | 」です。
+            p
+              | 計
+              b 9
+              | セッション、
+              b 7時間
+              | に及ぶ発表と議論からなる欲張りなタイムテーブルです。頭をフル回転させ、全速力でお楽しみください。
+            iframe(src='https://docs.google.com/spreadsheets/d/1FqBKPyTiFDegmcOIcpRNEujx9yga4crkXvjVKMxsf9Y/pubhtml?gid=1689693383&single=true&widget=true&headers=false', style='width: 100%; height: 400px;')
+            h2 時と場所
+            p 2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。
+            p
+              | DMM.make AKIBA BASEは入り口にセキュリティゲートがあります。開場時間近辺はスタッフの方が開けてくださいますが、もし遅れる場合は
+              a(href='https://twitter.com/arcatdmz') @arcatdmz
+              | または #teaparty2015 でツイートするなどして中の人にご連絡ください。
+            #map-canvas
+            h2 設備
+            p 電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。
+            p プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。
+            h2 参加費
+            p
+              | 学生
+              b 1000
+              | 円、社会人
+              b 2500
+              | 円を予定しています。13-18時までお菓子とお茶が出るほか、18-20時まで夕飯とドリンクのケータリングが手配されています。
+          .col-sm-12.col-md-5.togetter
+            //              
+                    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/teaparty2015" data-widget-id="558477483448614912">#teaparty2015 Tweets</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    
+            //              
+                  <script src="//togetter.com/js/parts.js"></script><script>tgtr.ListWidget({id:'774222',url:'http://togetter.com/',width:'100%',height:'800px'});</script>
+                  
+            script(src='//togetter.com/js/parts.js')
+            script tgtr.ExtendWidget({id:'774222',url:'http://togetter.com/'});
+        ol.breadcrumb
+          li
+            a(href='/ja/teaparty/') 名状しがたいお茶会
+          li 2015
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/teaparty/2015/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?v=3.exp')
+      script google.maps.event.addDomListener(window, 'load', function (){
+	var latlng = new google.maps.LatLng(35.700514, 139.774166)
+	var mapOptions = {
+		zoom: 15,
+		center: latlng
+	};
+	map = new google.maps.Map(document.getElementById('map-canvas'),
+	mapOptions);
+	var marker = new google.maps.Marker({
+	position: latlng,
+	map: map,
+	title: 'DMM.make AKIBA'
+	});
+});
+    // /container 

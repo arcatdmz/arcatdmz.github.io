@@ -1,0 +1,167 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title リズム家電 | 家ハック | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/homehack/rhythm-kaden/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 家ハック
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '11-
+          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
+            i.glyphicon.glyphicon-tag
+            | NUI
+          // <span class="label label-important" rel="tooltip"><i class=" icon-folder-open icon-white"></i> CHI '13</span> 
+      section
+        p 研究とは別に、自分の身の回りを便利に面白くするサイドプロジェクトを継続的に進めてきました。このページではその一部を紹介します。
+        ul.nav.nav-tabs
+          li
+            a(href='/ja/homehack/') 概要
+          li
+            a(href='/ja/homehack/fungus-camera/')
+              | なめこカメラ
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '12-13
+          li.active
+            a(href='/ja/homehack/rhythm-kaden/')
+              | リズム家電
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '12
+          li
+            a(href='/ja/homehack/realmote/')
+              | Realmote
+              span.label.label-default
+                i.glyphicon.glyphicon-calendar
+                | '11-12
+      section
+        .tab-content
+          .tab-pane.active
+            h2.sr-only リズム家電
+            h3 概要
+            .row
+              .col-sm-8.col-md-9
+                p
+                  | ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム
+                  a(href='http://otoge.net/') otoge.net
+                  | ）の進行を家電製品が盛り上げてくれるアプリケーションを、お茶の水女子大学 西村、神奈川工科大学 藤崎とともに提案、開発した。
+                p
+                  | 本アプリケーションは、Sony CSLとお茶の水女子大学の共催ワークショップ「Home Hacker’s Workshop」の半日のセッションで制作された。また、Sony CSL、大和ハウス、ヤフーの共催イベント「
+                  a(href='https://www.sonycsl.co.jp/events/CustomizeYourHouse/') 住宅をカスタマイズするためのシンポジウム
+                  | 」で発表され、学生賞を受賞した。
+              .col-sm-4.col-md-3
+                .thumbnail
+                  img(src='/homehack/rhythmkaden.jpg')
+            .row
+              .col-md-6
+                h3 開発環境
+                ul
+                  li Java (プロキシサーバ), JavaScript (Webサービスの改造)
+                  li
+                    a(href='http://kadecot.net/') Kadecot Server
+                    | Web API + PC or Mac
+                h3 資料
+                ul
+                  li
+                    | 紹介記事:
+                    a(href='http://kadecot.net/blog/1185/') Home Hacker's Workshop
+                    | ,
+                    a(href='http://kadecot.net/blog/1189/') Customize YOUR House! シンポジウム
+                  li
+                    | 資料:
+                    a(href='/homehack/rhythmkaden-poster.pdf')
+                      i.icon-file
+                      | ポスター
+                    a(href='/homehack/rhythmkaden-slides.pdf')
+                      i.icon-play-circle
+                      | スライド
+                  li
+                    | ソースコード:
+                    a(href='https://github.com/arcatdmz/rhythmkaden-proxy')
+                      i.icon-download
+                      | GitHub
+                .thumbnail
+                  iframe(width='100%', height='315', src='//www.youtube.com/embed/Wu3OLxEmeww', frameborder='0', allowfullscreen='')
+              .col-md-6
+                .thumbnail
+                  h4 学生賞 選出コメント
+                  blockquote
+                    p 私が選出したので受賞理由を説明しますと、このシステムの真意は音ゲーで遊ばないと動作しない家電、というアプリのアイデアではなく、既存のWebアプリを特殊なプロキシサーバを介して書き換えることにより、いかなるWebアプリにも家電機能を追加できるという「家電マッシュアップ」の方式を提案したことにあります。
+                    p 家電を、温度や照明などの環境を変化させる演出機器だと捉えると、それは様々な(既存の)ゲームやエンタテインメントの臨場感や演出効果を高めるのに即座に応用できるでしょうし、またそういった応用は、さしたる追加の実装や新しいアイデアを必要とすることなくハイクオリティなエンタテインメントを生み出してくれることでしょう。そのような家電利用法への道を開く具体的な方法を示してくれたという点で、私はこの作品を評価しました。
+                  p
+                    a(href='http://kadecot.net/blog/1189/', title='Kadecot > Customize YOUR House! シンポジウム', style='display: inline;') Kadecotブログ
+                    | より
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/homehack/rhythm-kaden/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+    // /container 

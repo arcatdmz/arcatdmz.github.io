@@ -1,0 +1,180 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='加藤 淳')
+    meta(property='fb:admins', content='503220390')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Sharedo | junkato.jp
+    // Styles 
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
+    //      [if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]
+  body
+    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
+            span.sr-only ナビの表示を切り替える
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/ja/') 加藤 淳
+        #navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/ja/#about') 自己紹介
+            li.active
+              a(href='/ja/#projects') プロジェクト
+            li
+              a(href='/ja/publications/') 受賞歴と発表文献
+            li
+              a(href='/ja/fun/') お楽しみ
+            li
+              a(href='/ja/#contact') 連絡先
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/ja/blog/')
+                | ブログ
+                i.blog.glyphicon.glyphicon-pencil
+            li
+              a(href='/sharedo/')
+                | English
+                i.translation.glyphicon.glyphicon-text-background
+    // container 
+    .container
+      section
+        h1 Sharedo: To-doリストによる人-ロボット間のタスク共有
+        p
+          span.label.label-default
+            i.glyphicon.glyphicon-calendar
+            | '11-14
+          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
+            i.glyphicon.glyphicon-tag
+            | Robot
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | HAI '14
+          span.label.label-danger(rel='tooltip')
+            i.glyphicon.glyphicon-folder-open
+            | WISS '11
+      section
+        h2 概要
+        .row
+          .col-sm-8.col-md-9
+            p ユーザ間で To-do 共有が行える Web サービスにおいて、ロボットにユーザと同等の権限を与えて、ユーザとロボットの間でタスクの分業を行えるようにした試作システム Sharedo について報告する。本システムには、リスト単位で共有相手を選べる機能がついている。また、To-do ごとにコメント欄があり、曖昧な点について共有相手と対話できるようになっている。
+            p
+              | 本研究の詳細については、
+              a(href='http://sharedo.digitalmuseum.jp/research/wiss2011') WISS 2011で登壇発表したときの資料ページ
+              | が充実している。
+            p
+              | 本研究は
+              a(href='http://rit.rakuten.co.jp/conf/rrds4/') 第4回 楽天研究開発シンポジウム
+              | にて最優秀賞を受賞したほか、
+              a(href='http://hai-conference.net/hai2014/program/')
+                abbr(title='Human-Agent Interaction') HAI
+                | 2014
+              | でBest Paper Nomineeに選定された。システムのプロトタイプが
+              a(href='http://www.sharedo.info/') www.sharedo.info
+              | で稼働中である。
+          .col-sm-4.col-md-3
+            // <div class="thumbnail"><img src="/thumbnails/sharedo.jpg" alt="Sharedo" /></div> 
+            .thumbnail
+              iframe(width='100%', height='420', src='//www.youtube.com/embed/HxEUgOSwTeM', frameborder='0', allowfullscreen='')
+      section
+        h2 未来ビジョン
+        p 現時点では多くの家庭用ロボットの完成度は人に遠く及ばない。この間を縮める工学的な努力をやめるべきでないというのは論を待たないが、一方で、より至近の未来、実世界において我々が情報技術による恩恵に与るにはどうしたらよいだろうか。以下に、二つの未来ビジョンを提示したい。
+        p まず、我々は、ロボットに全ての雑務を任せて人は移動式ベッドに寝そべるだけの全自動な未来ではなく、人が得意なことは人が、ロボットが得意なことはロボットが行う「積極的な分業」の未来こそが幸せな解であると考えている。現状でも家電製品がユーザの余暇時間を増やしており、これも分業の一形態ではあるが、人にかかる負担を減らすためだけに機械を用いる「消極的な分業」が多いのではないか。人が楽しんで創造性を発揮できることをロボットにさせない自由があるべきだ。本提案は、そのための第一歩として、タスクの実行主体を選ぶ権利をユーザに提供するシステムである。
+        p 次に、我々は、人が情報システムの指示通りに実世界タスクをこなすことによって、自分でやり方を考えたときより楽にタスクをこなせる場合が多々あることに着目し、ロボットのように「自動的な人間」として動くことをもっと肯定的に捉えたいと考えている。例えば、本システムは掃除ロボットに回復不能なエラーが起きると人にタスクを割り当て、人をフェイルセーフとして利用することで掃除という大目標を確実に遂行できる。実社会ではOperations Researchが組織の意思決定に使われるなどマクロな応用例が目立つが、我々は個人単位のタスクに興味がある。例えば、Human Computationは遠隔地の知的労働力を計算能力に変換する手法だが、この実世界版としてHuman Actuationというものが可能ならどのような形態になるのか考えてみたい。
+      section
+        h2 発表文献
+        ul
+          li#hai2014-kato-sharedo(data-numpages='7')
+            u Jun Kato
+            | , Daisuke Sakamoto, Takeo Igarashi, Masataka Goto,
+            b "Sharedo: To-do List Interface for Human-agent Task Sharing"
+            | , In
+            i Proceedings of the Second International Conference on Human-agent Interaction
+            | . pp.345-351, 2014.
+            b.addition HAI 2014 Best Paper Nominee
+            | .
+            .btn-group.biblinks
+              a(href='http://doi.acm.org/10.1145/2658861.2658894')
+                i.glyphicon.glyphicon-barcode
+                abbr(title='Digital Object Identifier') DOI
+              a(href='http://junkato.jp/publications/hai2014-kato-sharedo.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/hai2014-kato-sharedo-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | Slides
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{hai2014-kato-sharedo,
+  title={Sharedo: To-do List Interface for Human-agent Task Sharing},
+  author={Jun Kato and Daisuke Sakamoto and Takeo Igarashi and Masataka Goto}
+  booktitle={Proceedings of the Second International Conference on Human-agent Interaction},
+  pages={345--351},
+  year={2014}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+          li#wiss2011-kato-sharedo
+            u 加藤 淳
+            | , 坂本 大介, 五十嵐 健夫,
+            b "Sharedo: To-doリストによる人-ロボット間のタスク共有"
+            | ,
+            i WISS '11: 第19回インタラクティブシステムとソフトウェアに関するワークショップ
+            | . pp.102-107, 2011年12月.
+            .btn-group.biblinks
+              a(href='http://junkato.jp/publications/wiss2011-kato-sharedo.pdf')
+                i.glyphicon.glyphicon-file
+                | PDF
+              a(href='http://junkato.jp/publications/wiss2011-kato-sharedo-slides.pdf')
+                i.glyphicon.glyphicon-play-circle
+                | 発表スライド
+              a(href='http://sharedo.digitalmuseum.jp/research/wiss2011/')
+                i.glyphicon.glyphicon-info-sign
+                | プロジェクトページ
+            a.bibtex(href='#', data-title='<textarea onclick="this.focus();this.select();return false;" readonly="readonly">@inproceedings{wiss2011-kato-sharedo,
+  title={Sharedo: To-doリストによる人-ロボット間のタスク共有},
+  author={ 加藤 淳 and  坂本 大介 and  五十嵐 健夫}
+  booktitle={WISS '11: 第19回インタラクティブシステムとソフトウェアに関するワークショップ},
+  pages={102--107},
+  year={2011}
+}</textarea>')
+              i.glyphicon.glyphicon-book
+              | BibTeX
+      footer
+        hr
+        p
+          | ©
+          a(href='mailto:i@junkato.jp') 加藤 淳
+          | 2012-2017 |
+          a(href='/sharedo/')
+            | English
+            i.translation.glyphicon.glyphicon-text-background
+      // Scripts 
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
+      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2538649-10', 'auto');
+  ga('send', 'pageview');
+
+  $(function(){
+    var a = $('a.bibtex'), lastTooltip = null;
+    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
+    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
+  });
+      script $(function(){
+  $('h1 p span.label').tooltip();
+});
+    // /container 
