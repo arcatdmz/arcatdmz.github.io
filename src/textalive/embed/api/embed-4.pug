@@ -84,92 +84,76 @@ html(lang='ja')
           a(href='/ja/textalive/')
             | 日本語
             i.translation.icon-ja
-      // Scripts 
-      script(src='//code.jquery.com/jquery-1.11.3.min.js')
-      script(src='/js/bootstrap.min.js')
-      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-2538649-10', 'auto');
-  ga('send', 'pageview');
-
-  $(function(){
-    var a = $('a.bibtex'), lastTooltip = null;
-    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
-    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
-  });
       script(src='prism.js', data-manual='')
       script(src='https://widget.songle.jp/v1/api.js')
       script(src='http://textalive.jp/javascripts/api/embed-v1.js')
-      script#code /*
-  HTML:
-  <div id="widget"></div>
-  <div id="player"></div>
-*/
-    var mySongleWidget, Player;
+      script#code.
+        /*
+          HTML:
+          <div id="widget"></div>
+          <div id="player"></div>
+        */
+        var mySongleWidget, Player;
 
-    // SongleWidgetの設置が完了したときに呼ばれるコールバック関数
-    function onSongleWidgetReady(apiKey, songleWidget) {
-      mySongleWidget = songleWidget;
-      initialize();
-    }
+        // SongleWidgetの設置が完了したときに呼ばれるコールバック関数
+        function onSongleWidgetReady(apiKey, songleWidget) {
+          mySongleWidget = songleWidget;
+          initialize();
+        }
 
-    // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
-    function taAsyncInit(P) {
-      Player = P;
-      initialize();
-    }
+        // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
+        function taAsyncInit(P) {
+          Player = P;
+          initialize();
+        }
 
-    function initialize() {
-      // 必要な準備が終わっていなかったら戻る
-      if (!mySongleWidget || !Player) return;
+        function initialize() {
+          // 必要な準備が終わっていなかったら戻る
+          if (!mySongleWidget || !Player) return;
 
-      // プレイヤーを作る
-      new Player({
-        playerRoot: '#player',
-        songleWidget: mySongleWidget,
-        onReady: readyCallback,
-        onError: errorCallback,
-        debug: true
-      }).synthVideo();
-    }
+          // プレイヤーを作る
+          new Player({
+            playerRoot: '#player',
+            songleWidget: mySongleWidget,
+            onReady: readyCallback,
+            onError: errorCallback,
+            debug: true
+          }).synthVideo();
+        }
 
-    function readyCallback(player) {
-      console.log('歌詞アニメーションの自動生成が完了しました');
-      player.setStyle('energetic');
-    }
+        function readyCallback(player) {
+          console.log('歌詞アニメーションの自動生成が完了しました');
+          player.setStyle('energetic');
+        }
 
-    function errorCallback(err) {
-      console.log('歌詞アニメーションの自動生成に失敗しました');
-      message = document.createElement('dl');
-      for (var key in err) {
-        var dt = document.createElement('dt');
-        dt.textContent = key;
-        var dd = document.createElement('dd');
-        dd.textContent = err[key];
-        message.appendChild(dt); message.appendChild(dd);
-      }
-      document.getElementById('player').appendChild(message);
-    }
+        function errorCallback(err) {
+          console.log('歌詞アニメーションの自動生成に失敗しました');
+          message = document.createElement('dl');
+          for (var key in err) {
+            var dt = document.createElement('dt');
+            dt.textContent = key;
+            var dd = document.createElement('dd');
+            dd.textContent = err[key];
+            message.appendChild(dt); message.appendChild(dd);
+          }
+          document.getElementById('player').appendChild(message);
+        }
 
-    $(function(){
+        $(function(){
 
-      // Songle Widgetを貼り付け
-      var songleWidgetElement =
-        SongleWidgetAPI.createSongleWidgetElement({
-          api: "songle-widget-api-example",
-          url: "www.youtube.com/watch?v=Za3SaGnFCFI",
-          songAutoPlay: false,
-          songAutoLoop: false,
-          songleWidgetSizeW: 'auto',
-          videoPlayerSizeW: 'auto'
+          // Songle Widgetを貼り付け
+          var songleWidgetElement =
+            SongleWidgetAPI.createSongleWidgetElement({
+              api: "songle-widget-api-example",
+              url: "www.youtube.com/watch?v=Za3SaGnFCFI",
+              songAutoPlay: false,
+              songAutoLoop: false,
+              songleWidgetSizeW: 'auto',
+              videoPlayerSizeW: 'auto'
+            });
+          $('#widget').append(songleWidgetElement);
+
+          // ソースコードをハイライトして表示
+          var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
+          Prism.highlightElement(el);
         });
-      $('#widget').append(songleWidgetElement);
-
-      // ソースコードをハイライトして表示
-      var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
-      Prism.highlightElement(el);
-    });
-    // /container 

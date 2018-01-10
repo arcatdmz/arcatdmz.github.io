@@ -81,62 +81,46 @@ html(lang='ja')
           a(href='/ja/textalive/')
             | 日本語
             i.translation.icon-ja
-      // Scripts 
-      script(src='//code.jquery.com/jquery-1.11.3.min.js')
-      script(src='/js/bootstrap.min.js')
-      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-2538649-10', 'auto');
-  ga('send', 'pageview');
-
-  $(function(){
-    var a = $('a.bibtex'), lastTooltip = null;
-    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
-    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
-  });
       script(src='prism.js', data-manual='')
       script(src='https://widget.songle.jp/v1/api.js')
       script(src='http://textalive.jp/javascripts/api/embed-v1.js')
-      script#code /*
-  HTML:
-  <div id="player"></div>
-  <div id="textalive-errors"></div>
-*/
+      script#code.
+        /*
+          HTML:
+          <div id="player"></div>
+          <div id="textalive-errors"></div>
+        */
 
-    // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
-    function taAsyncInit(Player) {
-      new Player({
-        playerRoot: '#player'
-      , onReady: readyCallback // 歌詞アニメーションの読み込み完了時のハンドラ（オプション）
-      , onError: errorCallback // 歌詞アニメーションの読み込み失敗時のハンドラ（オプション）
-      }).loadLatestVideoBySong('http://staff.aist.go.jp/t.nakano/music/VocaWatcher.Packaged.Megpoid.mp3');
-    }
+        // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
+        function taAsyncInit(Player) {
+          new Player({
+            playerRoot: '#player'
+          , onReady: readyCallback // 歌詞アニメーションの読み込み完了時のハンドラ（オプション）
+          , onError: errorCallback // 歌詞アニメーションの読み込み失敗時のハンドラ（オプション）
+          }).loadLatestVideoBySong('http://staff.aist.go.jp/t.nakano/music/VocaWatcher.Packaged.Megpoid.mp3');
+        }
 
-    function readyCallback(player) {
-      console.log('歌詞アニメーションの読み込みが完了しました / ID:', player.video.id);
-    }
+        function readyCallback(player) {
+          console.log('歌詞アニメーションの読み込みが完了しました / ID:', player.video.id);
+        }
 
-    function errorCallback(err) {
-      console.log('歌詞アニメーションの読み込みに失敗しました');
-      message = document.createElement('dl');
-      for (var key in err) {
-        var dt = document.createElement('dt');
-        dt.textContent = key;
-        var dd = document.createElement('dd');
-        dd.textContent = err[key];
-        message.appendChild(dt); message.appendChild(dd);
-      }
-      document.getElementById('textalive-errors').appendChild(message);
-      myPlayer.dispose();
-      myPlayer = null;
-    }
+        function errorCallback(err) {
+          console.log('歌詞アニメーションの読み込みに失敗しました');
+          message = document.createElement('dl');
+          for (var key in err) {
+            var dt = document.createElement('dt');
+            dt.textContent = key;
+            var dd = document.createElement('dd');
+            dd.textContent = err[key];
+            message.appendChild(dt); message.appendChild(dd);
+          }
+          document.getElementById('textalive-errors').appendChild(message);
+          myPlayer.dispose();
+          myPlayer = null;
+        }
 
-    // ソースコードをハイライトして表示
-    $(function(){
-      var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
-      Prism.highlightElement(el);
-    });
-    // /container 
+        // ソースコードをハイライトして表示
+        $(function(){
+          var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
+          Prism.highlightElement(el);
+        });

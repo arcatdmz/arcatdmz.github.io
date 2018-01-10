@@ -81,107 +81,91 @@ html(lang='ja')
           a(href='/ja/textalive/')
             | 日本語
             i.translation.icon-ja
-      // Scripts 
-      script(src='//code.jquery.com/jquery-1.11.3.min.js')
-      script(src='/js/bootstrap.min.js')
-      script(type='text/javascript') (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-2538649-10', 'auto');
-  ga('send', 'pageview');
-
-  $(function(){
-    var a = $('a.bibtex'), lastTooltip = null;
-    a.tooltip({ trigger: "manual", html: true, template: '<div class="tooltip bibtex"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' });
-    a.click(function(e){ e.preventDefault(); if (lastTooltip !== this) $(lastTooltip).tooltip('hide'); lastTooltip = this; $(lastTooltip).tooltip('toggle'); return false; });
-  });
       script(src='prism.js', data-manual='')
       script(src='https://widget.songle.jp/v1/api.js')
       script(src='http://textalive.jp/javascripts/api/embed-v1.js')
-      script#code /*
-  HTML:
-  <div id="player"></div>
-  <div id="textalive-errors"></div>
-*/
-    var mySongleWidget, Player, myPlayer;
+      script#code.
+        /*
+          HTML:
+          <div id="player"></div>
+          <div id="textalive-errors"></div>
+        */
+        var mySongleWidget, Player, myPlayer;
 
-    // SongleWidgetの設置が完了したときに呼ばれるコールバック関数
-    function onSongleWidgetReady(apiKey, songleWidget) {
-      mySongleWidget = songleWidget;
-      initialize();
-    }
+        // SongleWidgetの設置が完了したときに呼ばれるコールバック関数
+        function onSongleWidgetReady(apiKey, songleWidget) {
+          mySongleWidget = songleWidget;
+          initialize();
+        }
 
-    // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
-    function taAsyncInit(P) {
-      Player = P;
-      initialize();
-    }
+        // TextAlive APIの準備が完了したときに呼ばれるコールバック関数
+        function taAsyncInit(P) {
+          Player = P;
+          initialize();
+        }
 
-    function initialize() {
-      // 必要な準備が終わっていなかったら戻る
-      if (!mySongleWidget || !Player) return;
+        function initialize() {
+          // 必要な準備が終わっていなかったら戻る
+          if (!mySongleWidget || !Player) return;
 
-      // プレイヤーのスタイルを整えて貼り付ける
-      var myPlayerRoot = document.createElement('div');
-      myPlayerRoot.style.top = '50px';
-      myPlayerRoot.style.left =
-      myPlayerRoot.style.right =
-      myPlayerRoot.style.bottom = '0px';
-      myPlayerRoot.style.position = 'fixed';
-      myPlayerRoot.style.zIndex = '2';
-      document.body.insertBefore(myPlayerRoot, document.body.firstChild);
+          // プレイヤーのスタイルを整えて貼り付ける
+          var myPlayerRoot = document.createElement('div');
+          myPlayerRoot.style.top = '50px';
+          myPlayerRoot.style.left =
+          myPlayerRoot.style.right =
+          myPlayerRoot.style.bottom = '0px';
+          myPlayerRoot.style.position = 'fixed';
+          myPlayerRoot.style.zIndex = '2';
+          document.body.insertBefore(myPlayerRoot, document.body.firstChild);
 
-      // プレイヤーを作る
-      // （playerRootを指定していないので貼り付けはされない）
-      myPlayer = new Player({
-        songleWidget: mySongleWidget,
-        playerRoot: myPlayerRoot,
-        infobarPosition: 'left-bottom',
-        proportion: 'fill',
-        onReady: readyCallback,
-        onError: errorCallback
-      });
+          // プレイヤーを作る
+          // （playerRootを指定していないので貼り付けはされない）
+          myPlayer = new Player({
+            songleWidget: mySongleWidget,
+            playerRoot: myPlayerRoot,
+            infobarPosition: 'left-bottom',
+            proportion: 'fill',
+            onReady: readyCallback,
+            onError: errorCallback
+          });
 
-      // 動画を自動生成
-      myPlayer.synthVideo();
-    }
+          // 動画を自動生成
+          myPlayer.synthVideo();
+        }
 
-    function readyCallback() {
-      myPlayer.setDefaultStyle();
+        function readyCallback() {
+          myPlayer.setDefaultStyle();
 
-      // 以降、プレイヤーへのマウスイベントを透過する
-      // （再生ボタンのクリック以降は下のHTML要素に渡す）
-      myPlayerRoot.style.pointerEvents = 'none';
-    }
+          // 以降、プレイヤーへのマウスイベントを透過する
+          // （再生ボタンのクリック以降は下のHTML要素に渡す）
+          myPlayerRoot.style.pointerEvents = 'none';
+        }
 
-    function errorCallback(err) {
-      message = document.createElement('dl');
-      for (var key in err) {
-        var dt = document.createElement('dt');
-        dt.textContent = key;
-        var dd = document.createElement('dd');
-        dd.textContent = err[key];
-        message.appendChild(dt); message.appendChild(dd);
-      }
-      document.getElementById('textalive-errors').appendChild(message);
-    }
+        function errorCallback(err) {
+          message = document.createElement('dl');
+          for (var key in err) {
+            var dt = document.createElement('dt');
+            dt.textContent = key;
+            var dd = document.createElement('dd');
+            dd.textContent = err[key];
+            message.appendChild(dt); message.appendChild(dd);
+          }
+          document.getElementById('textalive-errors').appendChild(message);
+        }
 
-    $(function(){
+        $(function(){
 
-      // Songle Widgetを貼り付け
-      var songleWidgetElement =
-        SongleWidgetAPI.createSongleWidgetElement({
-          api: "songle-widget-api-example",
-          url: "www.youtube.com/watch?v=Za3SaGnFCFI",
-          songAutoPlay: false,
-          songAutoLoop: false
+          // Songle Widgetを貼り付け
+          var songleWidgetElement =
+            SongleWidgetAPI.createSongleWidgetElement({
+              api: "songle-widget-api-example",
+              url: "www.youtube.com/watch?v=Za3SaGnFCFI",
+              songAutoPlay: false,
+              songAutoLoop: false
+            });
+          $('#widget').append(songleWidgetElement);
+
+          // ソースコードをハイライトして表示
+          var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
+          Prism.highlightElement(el);
         });
-      $('#widget').append(songleWidgetElement);
-
-      // ソースコードをハイライトして表示
-      var el = $('pre').text($('#code').text()).addClass('language-javascript').get(0);
-      Prism.highlightElement(el);
-    });
-    // /container 
