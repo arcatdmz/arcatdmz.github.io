@@ -70,9 +70,9 @@ mixin sidebar()
     | ブログ
   - }
 
-mixin header(id)
-  .ui.top.fixed.menu(id=id)
     a.active.item(href=basePath)
+mixin header()
+  .ui.top.fixed.menu#fixed-menu
       span.mobile.hidden #{author}
       span.mobile.only: i.user.icon
     a.mobile.hidden.item(href=`${basePath}#contact`)
