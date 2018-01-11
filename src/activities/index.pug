@@ -4,6 +4,20 @@ block vars
   - var title = en ? 'Professional Activities' : '職務活動';
   - var me = 'activities/';
 
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup: .ui.divided.list
+    a.item(href='#meetups')
+      i.users.icon
+      .content #{en ? 'Meetups' : '勉強会'}
+    a.item(href='#services')
+      i.lab.icon
+      .content #{en ? 'Academic' : '学会活動'}
+    a.item(href='#miscellaneous')
+      i.book.icon
+      .content #{en ? 'Others' : 'その他'}
+
 block main
   h1.ui.header
     i.student.icon
@@ -22,37 +36,51 @@ block main
     +render-project-item(p)
     - }
   .ui.hidden.divider
-  h2.ui.header#conferences
+  h2.ui.header#services
     i.lab.icon
-    | #{en ? 'Academic conferences and journals' : '学会活動'}
-  h3.ui.header #{en ? 'Organizing committee' : '運営委員'}
+    | #{en ? 'Academic services' : '学会活動'}
+  h3.ui.header #{en ? 'Program committee' : 'プログラム委員'}
   - if (en) {
-  p I have served as committee members for academic conferences and journals.
+  p I have served as program committee members for academic conferences and journals.
   - } else {
-  p 国際会議や国際ジャーナルの運営委員・プログラム委員を務めてきました。
+  p 国際会議、ワークショップやジャーナルなどのプログラム委員を務めてきました。
   - }
-  .ui.stackable.three.columns.grid
+  .ui.stackable.two.columns.grid
     .column
       h4.ui.header Human-Computer Interaction
       .ui.list
         .ui.item
+          .header <a href="http://iui.acm.org/2018/current_pcs.html" title="The 23nd International Conference on Intelligent User Interfaces">ACM IUI 2018</a>
+          .meta Program Committee
+        .ui.item
           .header <a href="https://uist.acm.org/uist2017/#program-committee" title="The 30th annual ACM symposium on User Interface Software and Technology">ACM UIST 2017</a>
           .meta Program Committee
         .ui.item
-          .header <a href="https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems" title="The 2017 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2017</a> &quot;Engineering Interactive Systems and Technologies&quot;
-          .meta Program Committee (Associate Chair)
-        .ui.item
-          .header <a href="https://uist.acm.org/uist2016/organizers" title="The 29th annual ACM symposium on User Interface Software and Technology">ACM UIST 2016</a>
-          .meta Student Volunteer Chair
+          .header <a href="https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems" title="The 2017 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2017</a>
+          .meta Associate Chair (Engineering Interactive Systems and Technologies)
         .ui.item
           .header <a href="http://www.acm.org/uist/uist2014/organizers.php" title="The 27th annual ACM symposium on User Interface Software and Technology">ACM UIST 2014</a>
           .meta Program Committee
         .ui.item
-          .header <a href="http://www.acm.org/uist/uist2013/organizers.php" title="The 26th annual ACM symposium on User Interface Software and Technology">ACM UIST 2013</a>
-          .meta Publicity Co-chair
+          .header ACM CHI Symposium on Emerging Japanese HCI Research Collection
+          .meta Program Committee (
+            a(href="http://hci.tokyo/chi2015/") 2015
+            | , 
+            a(href="http://hci.tokyo/chi2016/") 2016
+            | )
+        .ui.item
+          .header Asian CHI Symposium: Emerging HCI Research Collection
+          .meta Program Committee (
+            a(href="http://hci.tokyo/chi2017/") 2017
+            | , 
+            a(href="http://hci.tokyo/chi2018/") 2018
+            | )
     .column
       h4.ui.header !{en ? 'Programming Experience': 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'}
       .ui.list
+        .ui.item
+          .header <span title="The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity">ACM SPLASH 2018</span> <span>LIVE</span> workshop
+          .meta Program Committee
         .ui.item
           .header <a href="http://2018.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2018</a> <a href="http://2018.programming-conference.org/track/px-2018/" title="The forth edition of the Programming Experience workshop">PX/18</a> workshop
           .meta Program Committee
@@ -68,6 +96,66 @@ block main
         .ui.item
           .header <a href="http://2016.ecoop.org/home" title="The 30th European Conference on Object-Oriented Programming">ECOOP 2016</a> <a href="http://2016.ecoop.org/track/PX-2016" title="The first edition of the Programming Experience workshop">PX</a> and <a href="http://2016.ecoop.org/track/LIVE-2016" title="The second workshop on Live Programming systems">LIVE</a> workshops
           .meta Program Committee
+  .ui.stackable.two.columns.grid
+    .column
+      h4.ui.header Human-Robot Interaction #{en ? 'etc.' : 'など'}
+      .ui.list
+        .ui.item
+          .header <a href="http://humanrobotinteraction.org/2017/" title="The 2017 Conference on Human-Robot Interaction">IEEE/ACM HRI 2017</a>
+          .meta Demo &amp; Video Co-chair
+        .ui.item
+          .header <a href="http://hai-conference.net/hai2014/" title="2nd International Conference on Human-Agent Interaction">HAI 2014</a>
+          .meta Program Committee
+    - if (!en) {
+    .column
+      h4.ui.header 国内会議
+      .ui.list
+        .ui.item
+          .header 情報処理学会シンポジウム <a href="http://www.interaction-ipsj.org">インタラクション</a>
+          .meta プログラム委員 (2017-#{new Date().getFullYear()})
+        .ui.item
+          .header 日本ソフトウェア科学会 <a href="http://wiss.org/" title="インタラクティブシステムとソフトウェアに関するワークショップ">WISS</a>
+          .meta プログラム委員 (2015-#{new Date().getFullYear()})
+    - }
+  .ui.divider
+  h3.ui.header #{en ? 'Organizing committee' : '運営委員'}
+  - if (en) {
+  p I have served as organizing committee members for academic conferences and workshops.
+  - } else {
+  p 国際会議やワークショップなどの運営委員を務めてきました。
+  - }
+  .ui.stackable.two.columns.grid
+    .column
+      h4.ui.header Human-Computer Interaction
+      .ui.list
+        .ui.item
+          .header <a href="http://iui.acm.org/2018/call_for_studentconsortium.html" title="The 23nd International Conference on Intelligent User Interfaces">ACM IUI 2018</a>
+          .meta Student Consortium Committee
+        .ui.item
+          .header <a href="https://uist.acm.org/uist2016/organizers" title="The 29th annual ACM symposium on User Interface Software and Technology">ACM UIST 2016</a>
+          .meta Student Volunteer Chair
+        .ui.item
+          .header <a href="http://www.acm.org/uist/uist2013/organizers.php" title="The 26th annual ACM symposium on User Interface Software and Technology">ACM UIST 2013</a>
+          .meta Publicity Co-chair
+      h4.ui.header #{en ? 'HCI regional committees' : 'HCI 地域委員'}
+      .ui.list
+        .ui.item
+          .header <a href="http://sigchi.jp/">Japan ACM SIGCHI Chapter</a>
+          .meta Board Member (2016-#{new Date().getFullYear()})
+        .ui.item
+          .header ACM CHI Symposium on Emerging Japanese HCI Research Collection
+          .meta Organizing Committee (
+            a(href="http://hci.tokyo/chi2015/") 2015
+            | , 
+            a(href="http://hci.tokyo/chi2016/") 2016
+            | )
+        .ui.item
+          .header Asian CHI Symposium: Emerging HCI Research Collection
+          .meta Organizing Committee (
+            a(href="http://hci.tokyo/chi2017/") 2017
+            | , 
+            a(href="http://hci.tokyo/chi2018/") 2018
+            | )
     .column
       h4.ui.header Human-Robot Interaction #{en ? 'etc.' : 'など'}
       .ui.list
@@ -77,18 +165,15 @@ block main
         .ui.item
           .header <a href="http://iss2016.acm.org/" title="The 2016 ACM International Conference on Interactive Surfaces and Spaces">ACM ISS 2016</a>
           .meta Publicity Co-chair
+      - if (!en) {
+      h4.ui.header 国内会議
+      .ui.list
         .ui.item
-          .header <a href="http://hai-conference.net/hai2014/" title="2nd International Conference on Human-Agent Interaction">HAI 2014</a>
-          .meta Program Committee
-        .ui.item
-          .header ACM CHI 2017 Symposium on Emerging Japanese HCI Research Collection (
-            a(href="http://hci.tokyo/chi2017/") 2017
-            | , 
-            a(href="http://hci.tokyo/chi2016/") 2016
-            | , 
-            a(href="http://hci.tokyo/chi2015/") 2015
-            | )
-          .meta Organizing Committee
+          .header 日本ソフトウェア科学会 <a href="http://wiss.org/" title="インタラクティブシステムとソフトウェアに関するワークショップ">WISS</a>
+          .meta Web/投票/ローカルサーバ担当 運営委員 (2015-#{new Date().getFullYear()})
+      - }
+
+  .ui.divider
   h3.ui.header #{en ? 'Reviewer' : '査読'}
   - if (en) {
   p I have served as regular reviewers for academic conferences and journals.
@@ -133,13 +218,13 @@ block main
   h2.ui.header#miscellaneous
     i.book.icon
     | #{en ? 'Miscellaneous' : 'その他の活動'}
-  h3.ui.header 
-  ul
-    li Organized 12nd Joint Seminar on <a href="http://sigchi.jp/seminar/chi2017/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 25, 2017.
-    li Served as a teaching assistant of the &quot;Media Informatics&quot; course for graduate students at The University of Tokyo, Summer 2016.
-    li Organized 11th Joint Seminar on <a href="http://hci.tokyo/seminar/chi2016/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 26, 2016.
-    li Organized 10th Joint Seminar on <a href="http://hci.tokyo/seminar/chi2015/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 27, 2015.
-    li Organized annual symposiums for Japanese researchers and creators of visual media to foster future collaborations for four years in a row since 2012.
-    li Consulted user interface design for <a href="http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet">new animated television series</a>, October, 2011.
-    li Organized 6th Joint Seminar on &quot;Reading All CHI Papers in One Day&quot;, September 8, 2011.
-    li Served as a teaching assistant of the &quot;Media Informatics&quot; course for graduate students at The University of Tokyo, Winter 2008.
+  .ui.divided.list.miscellaneous-list
+    .item
+      .header #{en ? 'User interface design consultant for an animation TV series' : 'アニメ地上波放映シリーズのユーザインタフェース考証'}
+      .meta !{en ? '<a href="http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet">Gargantia on the Verdurous Planet</a> (October, 2011)' : '<a href="http://gargantia.jp/">翠星のガルガンティア</a>'}
+    .item
+      .header #{en ? 'Organizer of a joint seminar on &quot;Reading All CHI Papers in One Day&quot;' : 'CHI勉強会 幹事'}
+      .meta 2011, 2015-<a href="http://sigchi.jp/seminar/chi2017/">2017</a>
+    .item
+      .header !{en ? 'Teaching assistant of the &quot;Media Informatics&quot; course' : 'メディア情報学<abbr title="ティーチングアシスタント">TA</abbr>'}
+      .meta #{en ? 'Winter 2008, Summer 2016 (The University of Tokyo)' : '2008年冬学期, 2016年夏学期 (東京大学大学院)'}
