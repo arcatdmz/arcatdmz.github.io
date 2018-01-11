@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const watch = require('gulp-watch');
+const path = require('path');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
@@ -97,8 +99,11 @@ gulp.task('js:debug', ['ts'], function(){
 });
 
 gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
-  return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+  return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
+});
+
+function compilePug(stream) {
+  return stream.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: {
         histories: require('./build/javascripts/histories').default,
@@ -110,7 +115,7 @@ gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
       pretty: true
     }))
     .pipe(gulp.dest('dist/'));
-});
+}
 
 gulp.task('css', function(){
   return gulp.src('src/stylesheets/**/*.less')
@@ -161,6 +166,34 @@ gulp.task('watch', function(){
   gulp.watch('semantic/**/*.js', ['semantic']);
 });
 
+gulp.task('watch:html', function(){
+  return watch(['src/**/*.pug'], function(vinyl){
+    // vinyl.type: add | change | unlink
+    if (vinyl.event === 'unlink') return;
+    // vinyl.path: full path
+    const fullPath = vinyl.path;
+    const basePath = path.resolve(__dirname, 'src');
+    const relPath = path.relative(basePath, fullPath);
+
+    // _layout.pug that affects all pages
+    if (relPath === '_layout.pug') {
+      return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
+    }
+
+    // an English page that has a dependent Japanese page
+    const jaPath = path.resolve(basePath, 'ja', relPath);
+    if (relPath.indexOf('ja' + path.sep) !== 0
+        && fs.existsSync(jaPath)) {
+      return compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+    }
+
+    // a Japanese pug page
+    // or an English page that does not have a dependent Japanese page
+    return compilePug(gulp.src([fullPath], { base: basePath }));
+  });
+});
+
 gulp.task('default', ['site']);
 gulp.task('debug', ['site:debug']);
 gulp.task('sync', ['watch', 'browser-sync']);
+gulp.task('sync:html', ['watch:html', 'browser-sync']);
