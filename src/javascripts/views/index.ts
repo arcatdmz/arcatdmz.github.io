@@ -1,3 +1,5 @@
+import { checkSmoothScrollable } from './library';
+
 
 const lang: 'en'|'ja' = (<any>self)["lang"];
 
@@ -6,9 +8,29 @@ $('a.sns').on('click touch', (ev) => {
   return true;
 });
 
-import(/* webpackChunkName: "library" */ './library').then(TestLib => {
-  const testLib = new TestLib.default();
-  console.log('dynamically loaded library: 1+2=', testLib.test(1, 2));
+import(/* webpackChunkName: "library" */ './library').then(Library => {
+  var anchor: HTMLAnchorElement | null = null;
+  console.log('dynamically loaded library: ', new Library.default());
+  Library.setSidebarHiddenListener(function(){
+    // console.log('sidebar is hidden', this);
+    if (anchor) {
+      // console.log('scroll to', anchor);
+      Library.doSmoothScroll(anchor);
+    }
+    anchor = null;
+  });
+  $('.ui.sidebar.menu a').on('click touch', function(ev){
+    const a = <HTMLAnchorElement>this;
+    if (!Library.checkSmoothScrollable(a)) {
+      // console.log('anchor unscrollable', a);
+      return true;
+    }
+    ev.preventDefault();
+    anchor = a;
+    $('.ui.sidebar').sidebar('hide');
+    // console.log('anchor scrollable', a);
+    return false;
+  });
 });
 
 const num = 5;

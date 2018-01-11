@@ -7,6 +7,18 @@ const lang: 'en'|'ja' = (<any>self)["lang"];
 const basePath: string = (<any>self)["basePath"];
 
 // initialize sidebar
+var onSidebarHidden: (this: JQuery) => void;
+export function setSidebarHiddenListener(func: (this: JQuery) => void) {
+  onSidebarHidden = func; 
+}
+$('.ui.sidebar').sidebar({
+  onHidden: function() {
+    // console.log('sidebar is hidden (library side)');
+    if (onSidebarHidden) {
+      onSidebarHidden.call(this);
+    }
+  }
+});
 $('.sidebar-button').on('click touch', (ev) => {
   ev.preventDefault();
   $('.ui.sidebar').sidebar('toggle');
@@ -124,26 +136,9 @@ function loadProjects() {
 }
 
 // smooth scroll when possible
-setSmoothScroll($('a[href*=\\#]'));
-
-function setSmoothScroll($e: JQuery) {
-  $e.on('click touch', function(ev){
-    const a = <HTMLAnchorElement>this;
-    if (location.pathname === a.pathname) {
-      const offset = $(a.hash).offset();
-      if (offset) {
-        ev.preventDefault();
-        $('html,body').animate({
-          scrollTop: offset.top - 64
-        }, 700, () => {
-          history.pushState({}, '', a.href);
-        });
-        return false;
-      }
-    }
-    return true;
-  });
-}
+setSmoothScroll(
+    $('#pusher a[href*=\\#]')
+      .add('#post-footer a[href*=\\#]'));
 
 // clipboard
 const clipText = lang === 'en'
@@ -186,9 +181,37 @@ $('a.bibtex.button')
 
 new Clipboard('a.bibtex.button');
 
-export default class TestLib {
+export function setSmoothScroll($e: JQuery) {
+  $e.on('click touch', function(ev){
+    return doSmoothScroll(<HTMLAnchorElement>this, ev);
+  });
+}
+
+export function doSmoothScroll(a: HTMLAnchorElement, ev?: JQuery.Event) {
+  if (!checkSmoothScrollable(a)) {
+    return true;
+  }
+  if (ev) {
+    ev.preventDefault();
+  }
+  const offset = <JQuery.Coordinates>$(a.hash).offset();
+  $('#pusher').animate({
+    scrollTop: offset.top - 64
+  }, 700, () => {
+    history.pushState({}, '', a.href);
+  });
+  return false;
+}
+
+export function checkSmoothScrollable(a: HTMLAnchorElement) {
+  // console.log('check scrollability', a);
+  return location.pathname === a.pathname
+    && typeof $(a.hash).offset() !== 'undefined';
+}
+
+export default class Library {
   constructor() {
-    //
+    // Do nothing.
   }
   test(a: number, b: number) {
     return a + b;

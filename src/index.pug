@@ -5,7 +5,9 @@ block vars
   - var me = '';
 
 block projects-menu
-  //
+  a.ui.item(href=`${basePath}#projects`)
+    i.lab.icon
+    | #{en ? 'Projects' : 'プロジェクト'}
 
 block main
   h1.ui.header

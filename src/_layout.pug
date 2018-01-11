@@ -33,10 +33,10 @@ mixin sidebar()
   a.item(href=`${basePath}`)
     img.ui.avatar.image(src='/images/junkato.jpg')
     | #{en ? 'Top page' : 'トップ'}
+  a.item(href=`${basePath}#contact`)
+    i.address.card.icon
+    | #{en ? 'Contact' : '連絡先'}
   block projects-menu
-    a.item(href=`${basePath}#contact`)
-      i.address.card.icon
-      | #{en ? 'Contact' : '連絡先'}
     .ui.item(href=`${basePath}#projects`)
       i.lab.icon
       | #{en ? 'Projects' : 'プロジェクト'}
@@ -215,7 +215,7 @@ html(lang='ja')
   body
     .ui.right.sidebar.inverted.vertical.menu
       +sidebar()
-    .pusher
+    #pusher.pusher
       block header
         +header()
       #body
@@ -223,7 +223,8 @@ html(lang='ja')
           .ui.container#main(class=containerClass)
             block main
         +footer()
-    block post-footer
+    #post-footer
+      block post-footer
     script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en},lang="#{lang}",basePath="#{basePath}";
