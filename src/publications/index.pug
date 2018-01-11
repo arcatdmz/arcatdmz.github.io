@@ -39,10 +39,10 @@ mixin publications-menu()
           a.item(href='#selected-publications')
             i.right.triangle.icon
             .content Selected
-          a.item(href='#archival-publications')
+          a.item(href='#reviewed-publications')
             i.right.triangle.icon
-            .content Archival
-          a.item(href='#non-archival-publications')
+            .content Reviewed
+          a.item(href='#other-publications')
             i.right.triangle.icon
             .content Others
     a.item(href=`${basePath}timeline/`)
@@ -71,12 +71,13 @@ mixin awards()
 
 mixin publications()
   block publications
-    h2.ui.header#selected-publications Selected archival publications
+    h2.ui.header#selected-publications Selected peer-reviewed publications
     .ui.divided.list
       - for (const entry of selectedPublications) {
       +render-publication(entry)
       - }
-    h2.ui.header#archival-publications Archival/semi-archival publications
+    h2.ui.header#reviewed-publications Journal/conference/workshop publications
+    p All of these publications went through a review process; most of these publications are considered either archival or semi-archival.
     .ui.divided.list
       - for (const entry of publications) {
       - if (selectedPublicationKeys.indexOf(entry.citationKey) >= 0) continue;
@@ -85,7 +86,9 @@ mixin publications()
       +render-publication(entry)
       - }
     .ui.hidden.divider
-    h2.ui.header#non-archival-publications Non-archival publications
+    h2.ui.header#other-publications Other publications
+    p The following publications are either invited articles or non-archival demo/poster papers.
+    p 
     .ui.divided.list
       - for (const entry of publications) {
       - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications

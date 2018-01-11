@@ -29,24 +29,19 @@ class Entry implements BibTexEntry {
     if (!this.entryTags || typeof this.entryTags.author !== 'string') {
       return [];
     }
-    const authors = this.entryTags.author.split(/\s+and\s+/);
-    for (const key in authors) {
-      const names = authors[key].split(/\s*,\s*/);
-      if (names.length > 1) {
-        authors[key] = names.reverse().join(' ');
-      }
-    }
-    return authors;
+    return parseNames(this.entryTags.author);
   }
   public getAuthorsTags() {
-    const authors = this.getAuthors();
-    var i = -1, j = -1;
-    if ((i = authors.indexOf('Jun Kato')) >= 0
-        || (j = authors.indexOf('加藤 淳')) >= 0) {
-      const k = Math.max(i, j);
-      authors[k] = `<u>${authors[k]}</u>`;
+    return namesToHTML(this.getAuthors());
+  }
+  public getEditors() {
+    if (!this.entryTags || typeof this.entryTags.editor !== 'string') {
+      return [];
     }
-    return authors;
+    return parseNames(this.entryTags.editor);
+  }
+  public getEditorsTags() {
+    return namesToHTML(this.getEditors());
   }
   public getBibTeX() {
     const entrysep = ',\n', indent = '  ';
@@ -94,6 +89,27 @@ class Entry implements BibTexEntry {
     }
     return book;
   }
+}
+
+export function parseNames(names: string) {
+  const namesArr = names.split(/\s+and\s+/);
+  for (const key in namesArr) {
+    const arr = namesArr[key].split(/\s*,\s*/);
+    if (arr.length > 1) {
+      namesArr[key] = arr.reverse().join(' ');
+    }
+  }
+  return namesArr;
+}
+
+export function namesToHTML(namesArr: string[]) {
+  var i = -1, j = -1;
+  if ((i = namesArr.indexOf('Jun Kato')) >= 0
+      || (j = namesArr.indexOf('加藤 淳')) >= 0) {
+    const k = Math.max(i, j);
+    namesArr[k] = `<u>${namesArr[k]}</u>`;
+  }
+  return namesArr;
 }
 
 export function parse(bibtex: any): Entry[] {
