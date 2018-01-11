@@ -39,9 +39,9 @@ mixin timeline()
         i.book.icon
         | publication records
       |  in their chronological order.
-  - var i = 0, year = histories[lang][0].date.getYear() + 1;
+  - var i = 0, year = new Date().getFullYear();
   - while (i < histories[lang].length) {
-  - const y = year + 1900;
+  - const y = year;
   h2.ui.header(id=y) #{en ? y : `${y}年`}
   h3.ui.header(id=`${y}-updates`) #{en ? 'Updates' : '更新情報'}
   .ui.segment
@@ -49,8 +49,8 @@ mixin timeline()
       - var i_ = i;
       - while (i < histories[lang].length) {
       - const entry = histories[lang][i];
-      - if (entry.date.getYear() !== year) {
-      - year = entry.date.getYear();
+      - if (entry.date.getFullYear() !== year) {
+      - year = entry.date.getFullYear();
       - break;
       - }
       .item
@@ -83,7 +83,7 @@ mixin timeline()
       - }
   .ui.hidden.divider
   - }
-  - const y = --year + 1900;
+  - const y = --year;
   h2.ui.header(id=y) #{en ? `${y} and before` : `${y}年とそれ以前`}
   h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
   .ui.segment

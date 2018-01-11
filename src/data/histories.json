@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "1/14/2018",
+      "text": "Renewed the website. See the code at <a href=\"https://github.com/arcatdmz/junkato.jp\"><i class=\"github icon\"></i>GitHub</a>."
+    },
+    {
       "date": "11/8/2017",
       "text": "Provided a keynote talk at <a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>. I'm writing a follow-up article about the talk, but for now, please refer to <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">the talk abstract</a> and <a href=\"https://junkato.jp/publications/live2017-kato-keynote-slides.pdf\">slide deck</a>."
     },
@@ -186,6 +190,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "1/14/2018",
+      "text": "ウェブサイトをリニューアルしました。<a href=\"https://github.com/arcatdmz/junkato.jp\"><i class=\"github icon\"></i>GitHub</a>上で開発し、Travis CIでデプロイしています。"
+    },
     {
       "date": "10/19/2017",
       "text": "国際会議<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>で<a href=\"https://junkato.jp/ja/blog/2017/10/8/live-programming/\">Live Programming</a>に関して基調講演します。<a href=\"https://sigpx.org/\">SIGPX</a>で扱ってきたさまざまなトピックをカバーした情報処理学会 学会誌の小特集「<a href=\"https://sigpx.org/ipsj2017\">プログラミング・エクスペリエンスの新潮流</a>」でエディタを務めました。"
