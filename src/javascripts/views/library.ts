@@ -6,6 +6,13 @@ import '../../../dist/semantic/semantic.min';
 const lang: 'en'|'ja' = (<any>self)["lang"];
 const basePath: string = (<any>self)["basePath"];
 
+// initialize sidebar
+$('.sidebar-button').on('click touch', (ev) => {
+  ev.preventDefault();
+  $('.ui.sidebar').sidebar('toggle');
+  return false;
+});
+
 // initialize dropdown menus
 $('.dropdown.item').dropdown();
 

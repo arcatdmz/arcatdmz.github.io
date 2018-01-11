@@ -29,59 +29,68 @@ mixin head()
   - }
   link(rel='stylesheet', href='/stylesheets/main.css')
 
+mixin sidebar()
+  a.item(href=`${basePath}`)
+    img.ui.avatar.image(src='/images/junkato.jpg')
+    | #{en ? 'Top page' : 'トップ'}
+  block projects-menu
+    a.item(href=`${basePath}#contact`)
+      i.address.card.icon
+      | #{en ? 'Contact' : '連絡先'}
+    .ui.item(href=`${basePath}#projects`)
+      i.lab.icon
+      | #{en ? 'Projects' : 'プロジェクト'}
+      .menu
+        a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
+        .ui.divider
+        - for (const p of projects) {
+        - if (recentProjects.indexOf(p.project) < 0) continue;
+        //- - if (p.category === 'committee' || p.category === 'private') continue;
+        //- - if ((p.year.to || p.year.from) < 2012) continue;
+        a.item(href=basePath + p.project) #{p.getTitle(lang)}
+        - }
+        .ui.divider
+        a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+        a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
+  a.item(href=`${basePath}publications`)
+    i.text.file.icon
+    | #{en ? 'Publications' : '発表文献'}
+  a.item(href=`${basePath}activities`)
+    i.student.icon
+    | #{en ? 'Activities' : '職務活動'}
+  a.item(href=`${basePath}timeline`)
+    i.history.icon
+    | #{en ? 'Timeline' : '活動履歴'}
+  a.item(href=`${basePath}collaborations`)
+    i.handshake.icon
+    | #{en ? 'Collaborations' : '共同研究'}
+  - if (!en) {
+  a.item(href='/ja/blog')
+    i.wordpress.icon
+    | ブログ
+  - }
+
 mixin header(id)
   .ui.top.fixed.menu(id=id)
     a.active.item(href=basePath) #{author}
-    block projects-menu
-      .ui.dropdown.item(href=`${basePath}#projects`)
-        i.lab.icon
-        span.mobile.hidden #{en ? 'Projects' : 'プロジェクト'}
-        i.dropdown.icon
-        .menu
-          a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
-          .ui.divider
-          - for (const p of projects) {
-          - if (recentProjects.indexOf(p.project) < 0) continue;
-          //- - if (p.category === 'committee' || p.category === 'private') continue;
-          //- - if ((p.year.to || p.year.from) < 2012) continue;
-          a.item(href=basePath + p.project) #{p.getTitle(lang)}
-          - }
-          .ui.divider
-          a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
-          a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
-    - if (en) {
-    a.item(href='/#contact')
-      i.address.card.icon
-      span.mobile.hidden Contact
-    a.item(href='/publications')
-      i.text.file.icon
-      span.mobile.hidden Publications
-    a.item(href='/activities')
-      i.student.icon
-      span.mobile.hidden Activities
-    - } else {
-    a.item(href='/ja/#contact')
-      i.address.card.icon
-      span.mobile.hidden 連絡先
-    a.item(href='/ja/publications')
-      i.text.file.icon
-      span.mobile.hidden 発表文献
-    a.item(href='/ja/activities')
-      i.student.icon
-      span.mobile.hidden 職務活動
+    - if (!en) {
     a.item(href='/ja/blog')
       i.wordpress.icon
       span.mobile.hidden ブログ
     - }
-    - if (en) {
-    a.right.item(href=`/ja/${me}`)
-      i.translate.icon
-      span.mobile.hidden 日本語
-    - } else {
-    a.right.item(href=`/${me}`)
-      i.translate.icon
-      span.mobile.hidden English
-    - }
+    .right.menu
+      - if (en) {
+      a.item(href=`/ja/${me}`)
+        i.translate.icon
+        | 日本語
+      - } else {
+      a.item(href=`/${me}`)
+        i.translate.icon
+        | English
+      - }
+      a.item.sidebar-button(href='#')
+        i.sidebar.icon
+        | #{en ? 'Menu' : 'メニュー'}
 
 mixin footer()
   footer.ui.center.aligned.basic.segment
@@ -204,13 +213,16 @@ html(lang='ja')
   head
     +head()
   body
-    block header
-      +header()
-    #body
-      block main-container
-        .ui.container#main(class=containerClass)
-          block main
-      +footer()
+    .ui.right.sidebar.inverted.vertical.menu
+      +sidebar()
+    .pusher
+      block header
+        +header()
+      #body
+        block main-container
+          .ui.container#main(class=containerClass)
+            block main
+        +footer()
     block post-footer
     script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
