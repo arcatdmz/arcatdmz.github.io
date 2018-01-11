@@ -23,7 +23,7 @@ $('.ui.sidebar').sidebar({
 doPusherFix();
 function doPusherFix() {
   // related to https://github.com/Semantic-Org/Semantic-UI/issues/5827
-  $('#pusher').css('overflow', 'initial');
+  // $('#pusher').css('overflow', 'initial');
 }
 $('.sidebar-button').on('click touch', (ev) => {
   ev.preventDefault();
@@ -201,7 +201,7 @@ export function doSmoothScroll(a: HTMLAnchorElement, ev?: JQuery.Event) {
     ev.preventDefault();
   }
   const offset = <JQuery.Coordinates>$(a.hash).offset();
-  $('#pusher').animate({
+  $('body,html').animate({
     scrollTop: offset.top - 64
   }, 700, () => {
     history.pushState({}, '', a.href);
