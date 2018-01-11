@@ -26,6 +26,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-typescript": "^3.2.3",
+    "gulp-watch": "^5.0.0",
     "semantic-ui": "^2.2.13",
     "typescript": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.1.5",
