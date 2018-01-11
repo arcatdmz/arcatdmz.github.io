@@ -128,7 +128,7 @@ mixin render-project-card(p)
       span.right.floated
         i.calendar.icon
         | #{p.getYearString(lang)}
-      - if (p.category !== 'private') {
+      - if (p.category !== 'private' && p.category !== 'committee') {
       - if (p.publication) {
       span
         i.student.icon
@@ -150,7 +150,7 @@ mixin render-project-item(p)
         span.right.floated
           i.calendar.icon
           | #{p.getYearString(lang)}
-        - if (p.category !== 'private') {
+        - if (p.category !== 'private' && p.category !== 'committee') {
         - if (p.publication) {
         span.ui.green.tiny.basic.label
           i.student.icon

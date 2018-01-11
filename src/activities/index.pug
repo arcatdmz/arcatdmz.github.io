@@ -10,19 +10,27 @@ block main
     | #{title}
   h2.ui.header#meetups
     i.users.icon
-    | Meetups
+    | #{en ? 'Meetups' : '勉強会'}
+  - if (en) {
   p I have founded and regularly held meetups for researchers and creators.
-  .ui.cards.projects#meetups-list
+  - } else {
+  p 年に数回、研究者とクリエータのための勉強会を運営しています。
+  - }
+  .ui.divided.items.projects#meetups-list
     - for (const p of projects) {
     - if (p.category !== 'committee') continue;
-    +render-project-card(p)
+    +render-project-item(p)
     - }
   .ui.hidden.divider
   h2.ui.header#conferences
-    i.book.icon
-    | Academic conferences and journals
-  h3.ui.header Organizing committee
+    i.lab.icon
+    | #{en ? 'Academic conferences and journals' : '学会活動'}
+  h3.ui.header #{en ? 'Organizing committee' : '運営委員'}
+  - if (en) {
   p I have served as committee members for academic conferences and journals.
+  - } else {
+  p 国際会議や国際ジャーナルの運営委員・プログラム委員を務めてきました。
+  - }
   .ui.stackable.three.columns.grid
     .column
       h4.ui.header Human-Computer Interaction
@@ -43,7 +51,7 @@ block main
           .header <a href="http://www.acm.org/uist/uist2013/organizers.php" title="The 26th annual ACM symposium on User Interface Software and Technology">ACM UIST 2013</a>
           .meta Publicity Co-chair
     .column
-      h4.ui.header Programming Experience
+      h4.ui.header !{en ? 'Programming Experience': 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'}
       .ui.list
         .ui.item
           .header <a href="http://2018.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2018</a> <a href="http://2018.programming-conference.org/track/px-2018/" title="The forth edition of the Programming Experience workshop">PX/18</a> workshop
@@ -61,7 +69,7 @@ block main
           .header <a href="http://2016.ecoop.org/home" title="The 30th European Conference on Object-Oriented Programming">ECOOP 2016</a> <a href="http://2016.ecoop.org/track/PX-2016" title="The first edition of the Programming Experience workshop">PX</a> and <a href="http://2016.ecoop.org/track/LIVE-2016" title="The second workshop on Live Programming systems">LIVE</a> workshops
           .meta Program Committee
     .column
-      h4.ui.header Human-Robot Interaction etc.
+      h4.ui.header Human-Robot Interaction #{en ? 'etc.' : 'など'}
       .ui.list
         .ui.item
           .header <a href="http://humanrobotinteraction.org/2017/" title="The 2017 Conference on Human-Robot Interaction">IEEE/ACM HRI 2017</a>
@@ -81,8 +89,12 @@ block main
             a(href="http://hci.tokyo/chi2015/") 2015
             | )
           .meta Organizing Committee
-  h3.ui.header Reviewer
+  h3.ui.header #{en ? 'Reviewer' : '査読'}
+  - if (en) {
   p I have served as regular reviewers for academic conferences and journals.
+  - } else {
+  p 以下の国際会議や国際ジャーナルにおいて、学術論文の査読を行ってきました。
+  - }
   .ui.horizontal.divided.list.reviewers-list
     .item
       .header: abbr(title='The SIGCHI Conference on Human Factors in Computing Systems') CHI
@@ -117,7 +129,10 @@ block main
     .item
       .header: abbr(title='IPSJ Forum on Information Technology') FIT
       .meta 2011
-  h3.ui.header Miscellaneous
+  h2.ui.header#miscellaneous
+    i.book.icon
+    | #{en ? 'Miscellaneous' : 'その他の活動'}
+  h3.ui.header 
   ul
     li Organized 12nd Joint Seminar on <a href="http://sigchi.jp/seminar/chi2017/">&quot;Reading All CHI Papers in One Day&quot;</a>, June 25, 2017.
     li Served as a teaching assistant of the &quot;Media Informatics&quot; course for graduate students at The University of Tokyo, Summer 2016.

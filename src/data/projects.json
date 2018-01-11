@@ -29,25 +29,32 @@
   },
   "projects": [
     {
-      "project": "teaparty",
-      "title": "Nameless Teaparty",
-      "year": {
-        "from": 2012,
-        "to": 2016
-      },
-      "category": "committee",
-      "thumbnail": "teaparty.jpg",
-      "ja": {
-        "title": "名状しがたいお茶会"
-      }
-    },
-    {
       "project": "sigpx",
+      "url": "https://sigpx.org/en",
       "title": "SIGPX",
       "year": {
         "from": 2016
       },
-      "category": "committee"
+      "category": "committee",
+      "description": "This is a Japanese domestic study group for those interested in programming environments and their programming experience, founded in January 2016.",
+      "ja": {
+        "url": "https://sigpx.org",
+        "description": "プログラミングのための環境と、その環境が提供する体験の設計に興味を持つ人で集まり、最新の研究動向や事例について情報交換する会です。"
+      }
+    },
+    {
+      "project": "teaparty",
+      "title": "Indescribable Tea Party",
+      "year": {
+        "from": 2012
+      },
+      "category": "committee",
+      "thumbnail": "teaparty.jpg",
+      "description": "This is an annual gathering event for those who { create media content, do research on creativity support tools, love such content and want to support its creators }.",
+      "ja": {
+        "title": "名状しがたいお茶会",
+        "description": "アニメ、ゲーム、絵、音楽、小説など、面白いコンテンツを作る・作れる・作りたい人たちと、その活動を応援したい人たちの集まりです。お茶を飲みながらざっくばらんに語ります。"
+      }
     },
     {
       "project": "songle-sync",
