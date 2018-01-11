@@ -4,10 +4,15 @@ block vars
   - var title = en ? 'Portfolio of Jun Kato' : '加藤 淳のポートフォリオ';
   - var me = '';
 
-block projects-menu
+block projects-sidebar-menu
   a.ui.item(href=`${basePath}#projects`)
     i.lab.icon
     | #{en ? 'Projects' : 'プロジェクト'}
+
+block projects-header-menu
+  a.ui.mobile.hidden.item(href=`${basePath}#projects`)
+    i.lab.icon
+    span.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
 
 block main
   h1.ui.header

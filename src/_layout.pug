@@ -36,7 +36,7 @@ mixin sidebar()
   a.item(href=`${basePath}#contact`)
     i.address.card.icon
     | #{en ? 'Contact' : '連絡先'}
-  block projects-menu
+  block projects-sidebar-menu
     .ui.item(href=`${basePath}#projects`)
       i.lab.icon
       | #{en ? 'Projects' : 'プロジェクト'}
@@ -72,24 +72,57 @@ mixin sidebar()
 
 mixin header(id)
   .ui.top.fixed.menu(id=id)
-    a.active.item(href=basePath) #{author}
+    a.active.item(href=basePath)
+      span.mobile.hidden #{author}
+      span.mobile.only: i.user.icon
+    a.mobile.hidden.item(href=`${basePath}#contact`)
+      i.address.card.fitted.icon
+      span.tablet.or.lower.hidden #{en ? 'Contact' : '連絡先'}
+    block projects-header-menu
+      .ui.dropdown.mobile.hidden.item(href=`${basePath}#projects`)
+        i.lab.fitted.icon
+        span.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
+        .menu
+          a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
+          .ui.divider
+          - for (const p of projects) {
+          - if (recentProjects.indexOf(p.project) < 0) continue;
+          //- - if (p.category === 'committee' || p.category === 'private') continue;
+          //- - if ((p.year.to || p.year.from) < 2012) continue;
+          a.item(href=basePath + p.project) #{p.getTitle(lang)}
+          - }
+          .ui.divider
+          a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+          a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
+    a.mobile.hidden.item(href=`${basePath}publications`)
+      i.text.file.fitted.icon
+      span.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}
+    a.mobile.hidden.item(href=`${basePath}activities`)
+      i.student.fitted.icon
+      span.tablet.or.lower.hidden #{en ? 'Activities' : '職務活動'}
+    a.mobile.hidden.item(href=`${basePath}timeline`)
+      i.history.fitted.icon
+      span.computer.or.lower.hidden #{en ? 'Timeline' : '活動履歴'}
+    a.mobile.hidden.item(href=`${basePath}collaborations`)
+      i.handshake.fitted.icon
+      span.computer.or.lower.hidden #{en ? 'Collaborations' : '共同研究'}
     - if (!en) {
     a.item(href='/ja/blog')
-      i.wordpress.icon
+      i.wordpress.fitted.icon
       span.mobile.hidden ブログ
     - }
     .right.menu
       - if (en) {
       a.item(href=`/ja/${me}`)
-        i.translate.icon
+        i.translate.fitted.icon
         | 日本語
       - } else {
       a.item(href=`/${me}`)
-        i.translate.icon
+        i.translate.fitted.icon
         | English
       - }
       a.item.sidebar-button(href='#')
-        i.sidebar.icon
+        i.sidebar.fitted.icon
         | #{en ? 'Menu' : 'メニュー'}
 
 mixin footer()
