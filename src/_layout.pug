@@ -215,9 +215,9 @@ html(lang='ja')
   body
     .ui.right.sidebar.inverted.vertical.menu
       +sidebar()
+    block header
+      +header()
     #pusher.pusher
-      block header
-        +header()
       #body
         block main-container
           .ui.container#main(class=containerClass)
