@@ -7,24 +7,22 @@ block left-rail-list
   .item
     .ui.list
       a.item(href='#international-publications')
-        i.book.icon
+        i.right.triangle.icon
         .content 国際
       a.item(href='#domestic-publications')
-        i.book.icon
+        i.right.triangle.icon
         .content 国内
 
 block publications
   h2.ui.header#international-publications 国際会議・ジャーナル
-  .ui.segment
-    .ui.divided.list
-      - for (const entry of publications) {
-      - if (entry.entryTags && entry.entryTags.language === 'japanese') continue;
-      +render-publication(entry)
-      - }
+  .ui.divided.list
+    - for (const entry of publications) {
+    - if (entry.entryTags && entry.entryTags.language === 'japanese') continue;
+    +render-publication(entry)
+    - }
   h2.ui.header#domestic-publications 国内会議・ジャーナル
-  .ui.segment
-    .ui.divided.list
-      - for (const entry of publications) {
-      - if (!entry.entryTags || entry.entryTags.language !== 'japanese') continue;
-      +render-publication(entry)
-      - }
+  .ui.divided.list
+    - for (const entry of publications) {
+    - if (!entry.entryTags || entry.entryTags.language !== 'japanese') continue;
+    +render-publication(entry)
+    - }

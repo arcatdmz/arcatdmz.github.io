@@ -81,7 +81,7 @@ mixin timeline()
         i.info.circle.icon
         .content #{en ? 'No publication record found in this year.' : '発表文献はありません。'}
       - }
-  .ui.divider
+  .ui.hidden.divider
   - }
   - const y = --year + 1900;
   h2.ui.header(id=y) #{en ? `${y} and before` : `${y}年とそれ以前`}

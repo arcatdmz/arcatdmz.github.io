@@ -13,7 +13,7 @@ block main
       i.trophy.icon
       .content #{en ? 'Awards' : '受賞歴'}
     +awards()
-    .ui.divider
+    .ui.hidden.divider
     h1.ui.header#publications
       i.book.icon
       .content #{en ? 'Publications' : '発表文献'}
@@ -36,11 +36,14 @@ mixin publications-menu()
     block left-rail-list
       .item
         .ui.list
+          a.item(href='#selected-publications')
+            i.right.triangle.icon
+            .content Selected
           a.item(href='#archival-publications')
-            i.book.icon
+            i.right.triangle.icon
             .content Archival
           a.item(href='#non-archival-publications')
-            i.book.icon
+            i.right.triangle.icon
             .content Others
     a.item(href=`${basePath}timeline/`)
       i.history.icon
@@ -68,19 +71,24 @@ mixin awards()
 
 mixin publications()
   block publications
+    h2.ui.header#selected-publications Selected archival publications
+    .ui.divided.list
+      - for (const entry of selectedPublications) {
+      +render-publication(entry)
+      - }
     h2.ui.header#archival-publications Archival/semi-archival publications
-    .ui.segment
-      .ui.divided.list
-        - for (const entry of publications) {
-        - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
-        - if (entry.entryTags && !entry.entryTags.numpages) continue; // skip non-archival publications
-        +render-publication(entry)
-        - }
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (selectedPublicationKeys.indexOf(entry.citationKey) >= 0) continue;
+      - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+      - if (entry.entryTags && !entry.entryTags.numpages) continue; // skip non-archival publications
+      +render-publication(entry)
+      - }
+    .ui.hidden.divider
     h2.ui.header#non-archival-publications Non-archival publications
-    .ui.segment
-      .ui.divided.list
-        - for (const entry of publications) {
-        - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
-        - if (entry.entryTags && entry.entryTags.numpages) continue; // skip archival publications
-        +render-publication(entry)
-        - }
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+      - if (entry.entryTags && entry.entryTags.numpages) continue; // skip archival publications
+      +render-publication(entry)
+      - }

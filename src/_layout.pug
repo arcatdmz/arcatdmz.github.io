@@ -1,4 +1,18 @@
+- // TODO: move these code into gulpfile.js
 - const recentProjects = ['songle-sync', 'f3js', 'textalive'];
+- const selectedPublicationKeys = ['programming-with-examples', 'dis2017-kato-f3js', 'chi2015-kato-textalive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
+- const selectedPublications = [];
+- for (const key of selectedPublicationKeys) {
+- for (const entry of publications) {
+- if (key === entry.citationKey) {
+- selectedPublications.push(entry);
+- }
+- }
+- }
+- const projectsTable = {};
+- for (const entry of projects) {
+- projectsTable[entry.project] = entry;
+- }
 
 mixin head()
   meta(charset='utf-8')
@@ -77,7 +91,7 @@ mixin footer()
         a(href=`${basePath}#contact`) Jun Kato
         |  2018
 
-mixin render-publication(entry)
+mixin render-publication(entry, withIcon=false, withProjectLabel=true)
   - if (!entry.entryTags) return;
   .item.publication(class=entry.entryType, id=entry.citationKey)
     .right.floated.content
@@ -89,9 +103,11 @@ mixin render-publication(entry)
       - }
       a.ui.circular.icon.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
         i.book.icon
+    - if (withIcon) {
     i.icon(class=entry.getIcon())
+    - }
     .content
-      .header #{entry.entryTags.title}
+      h4.ui.header #{entry.entryTags.title}
       .description
         .ui.list
           .item
@@ -109,6 +125,14 @@ mixin render-publication(entry)
               span.ui.tiny.orange.label
                 i.trophy.icon
                 | #{entry.entryTags.addition}
+              - }
+              - if (withProjectLabel) {
+              - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
+              - const p = projectsTable[entry.entryTags.project];
+              a.ui.tiny.basic.red.label(href=basePath + p.project)
+                i.lab.icon
+                | #{p.getTitle(lang)}
+              - }
               - }
           .item.authors
             i.users.icon
