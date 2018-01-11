@@ -107,17 +107,15 @@ mixin header()
     a.mobile.hidden.item(href=`${basePath}collaborations`, class=getItemClass('collaborations/'))
       i.handshake.fitted.icon
       span.computer.or.lower.hidden #{en ? 'Collaborations' : '共同研究'}
-    - if (!en) {
-    a.item(href='/ja/blog')
-      i.wordpress.fitted.icon
-      span.mobile.hidden ブログ
-    - }
     .right.menu
       - if (en) {
       a.item(href=`/ja/${me}`)
         i.translate.fitted.icon
         | 日本語
       - } else {
+      a.item(href='/ja/blog')
+        i.wordpress.fitted.icon
+        span.mobile.hidden ブログ
       a.item(href=`/${me}`)
         i.translate.fitted.icon
         | English
