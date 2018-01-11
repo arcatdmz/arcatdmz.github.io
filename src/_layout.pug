@@ -13,6 +13,7 @@
 - for (const entry of projects) {
 - projectsTable[entry.project] = entry;
 - }
+- const getItemClass = function(path) { return me === path ? 'active' : undefined; }
 
 mixin head()
   meta(charset='utf-8')
@@ -30,7 +31,7 @@ mixin head()
   link(rel='stylesheet', href='/stylesheets/main.css')
 
 mixin sidebar()
-  a.item(href=`${basePath}`)
+  a.item(href=`${basePath}`, class=getItemClass(''))
     img.ui.avatar.image(src='/images/junkato.jpg')
     | #{en ? 'Top page' : 'トップ'}
   a.item(href=`${basePath}#contact`)
@@ -52,16 +53,16 @@ mixin sidebar()
         .ui.divider
         a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
         a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
-  a.item(href=`${basePath}publications`)
+  a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
     | #{en ? 'Publications' : '発表文献'}
-  a.item(href=`${basePath}activities`)
+  a.item(href=`${basePath}activities`, class=getItemClass('activities/'))
     i.student.icon
     | #{en ? 'Activities' : '職務活動'}
-  a.item(href=`${basePath}timeline`)
+  a.item(href=`${basePath}timeline`, class=getItemClass('timeline/'))
     i.history.icon
     | #{en ? 'Timeline' : '活動履歴'}
-  a.item(href=`${basePath}collaborations`)
+  a.item(href=`${basePath}collaborations`, class=getItemClass('collaborations/'))
     i.handshake.icon
     | #{en ? 'Collaborations' : '共同研究'}
   - if (!en) {
@@ -70,9 +71,9 @@ mixin sidebar()
     | ブログ
   - }
 
-    a.active.item(href=basePath)
 mixin header()
   .ui.top.fixed.menu#fixed-menu
+    a.item(href=basePath, class=getItemClass(''))
       span.mobile.hidden #{author}
       span.mobile.only: i.user.icon
     a.mobile.hidden.item(href=`${basePath}#contact`)
@@ -94,16 +95,16 @@ mixin header()
           .ui.divider
           a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
           a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
-    a.mobile.hidden.item(href=`${basePath}publications`)
+    a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.fitted.icon
       span.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}
-    a.mobile.hidden.item(href=`${basePath}activities`)
+    a.mobile.hidden.item(href=`${basePath}activities`, class=getItemClass('activities/'))
       i.student.fitted.icon
       span.tablet.or.lower.hidden #{en ? 'Activities' : '職務活動'}
-    a.mobile.hidden.item(href=`${basePath}timeline`)
+    a.mobile.hidden.item(href=`${basePath}timeline`, class=getItemClass('timeline/'))
       i.history.fitted.icon
       span.computer.or.lower.hidden #{en ? 'Timeline' : '活動履歴'}
-    a.mobile.hidden.item(href=`${basePath}collaborations`)
+    a.mobile.hidden.item(href=`${basePath}collaborations`, class=getItemClass('collaborations/'))
       i.handshake.fitted.icon
       span.computer.or.lower.hidden #{en ? 'Collaborations' : '共同研究'}
     - if (!en) {
