@@ -14,11 +14,17 @@ export function setSidebarHiddenListener(func: (this: JQuery) => void) {
 $('.ui.sidebar').sidebar({
   onHidden: function() {
     // console.log('sidebar is hidden (library side)');
+    doPusherFix();
     if (onSidebarHidden) {
       onSidebarHidden.call(this);
     }
   }
 });
+doPusherFix();
+function doPusherFix() {
+  // related to https://github.com/Semantic-Org/Semantic-UI/issues/5827
+  $('#pusher').css('overflow', 'initial');
+}
 $('.sidebar-button').on('click touch', (ev) => {
   ev.preventDefault();
   $('.ui.sidebar').sidebar('toggle');
