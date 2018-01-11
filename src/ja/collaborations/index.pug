@@ -8,20 +8,125 @@ block message
   a(href='/ja/#contact') メールやソーシャルネットワークサービス
   | で受け付けています。
 
+block popup-menu
+  .ui.divided.list
+    a.item(href='#tech-transfer')
+      i.gift.icon
+      .content 外部連携
+    a.item(href='#students')
+      i.student.icon
+      .content 技術研修生
+
 block collaborations
     .ui.stackable.grid
       .eight.wide.column
-        h2.ui.header
+        h2.ui.header#tech-transfer
           i.gift.icon
           | 外部連携
-        .ui.fluid.stackable.three.column.grid
-          .column
-            a(href='http://tutorial.songle.jp/sync') Songle Sync Tutorial
-          .column
-            a(href='http://f3js.org') f3.js
-          .column
-            a(href='http://textalive.jp') TextAlive
+        p これまでに研究開発してきた創作支援システムは、大学院の講義や大規模イベントでのライブなどで活用されてきました。
+        p 今後もより多くの現場で使われる創作支援システムを実現していきたいと考えているので、ご協力よろしくお願いいたします。
+        dl
+          dt: strong 共同研究や招待講演などのお問合せ:
+          dd
+            a(href='/ja/#contact') 連絡先
+            | へメールでご相談ください。
+          dt: strong 学会運営委員などのご依頼:
+          dd
+            a(href='/ja/#contact') 同じ連絡先
+            | で承りますが、
+            a(href='/ja/activities') 溢れ気味
+            | でお断りせざるを得ない場合が多いです。
+          dt: strong 技術の利用:
+          dd
+            a(href='#services') 下記のサービス
+            | はWeb上でお試しいただけます。教育用途や営利目的で利用されたい場合は、各システムの窓口（
+            a(href='mailto:songle-sync-ml@aist.go.jp') Songle Sync
+            | 、
+            a(href='mailto:f3js-ml@aist.go.jp') f3.js
+            | 、
+            a(href='mailto:textalive-ml@aist.go.jp') TextAlive
+            | ）へメールでご相談ください。
+        +services()
       .eight.wide.column
-        h2.ui.header
+        h2.ui.header#students
           i.student.icon
           | 技術研修生
+        p <abbr title='Human-Computer Interaction'>HCI</abbr>分野の研究に興味のある学生を受け入れ、一緒に研究してきました。通常は以下のような内容ですが、期間や場所は応相談です。
+        dl
+          dt: strong 研究テーマ:
+          dd 自由（一から企画立案して取り組むことを基本とします）
+          dt: strong 立場:
+          dd 技術研修生（履歴書に書くことができます）
+          dt: strong 期間:
+          dd 春休みか夏休みの1-2か月（前後も含め数か月で論文化を目指します）
+          dt: strong 場所:
+          dd 産総研つくば中央第二事業所（他の学生と一緒に泊まり込むことを基本とします）
+        p
+          | HCIのなかでもCG寄りの場合は
+          a(href='http://koyama.xyz') 小山氏
+          | 、ハードウェア寄りの場合は
+          a(href='http://masaogata.com') 尾形氏
+          | が主に担当することもあるかもしれません。モーションキャプチャ、3Dプリンタ、レーザーカッター、切削加工機や電子工作に必要な機材が揃っています。
+        h3.ui.header 過去の技術研修生
+        p 多くの場合、複数の研究員が共同でメンタリングします。加藤が主に担当した学生は名前の前に
+          i.check.circle.icon
+          | が付いています。
+        .ui.list
+          .item
+            .header 山根 壮一、小林 和弘
+            .meta 奈良先端科学技術大学院大学（2014/09-10）
+          .item
+            .header: a(href='http://ryosuzuki.org/')
+              i.check.circle.icon
+              | 鈴木 遼
+            .meta 東京大学大学院 経済学研究科 （2015/02-03）
+          .item
+            .header 赤堀 渉、
+              a(href='https://www.komazawa-u.ac.jp/~thirai/') 平井 辰典
+            .meta 早稲田大学 先進理工学部（2015/02-03）
+          .item
+            .header 吉館 要
+            .meta 筑波大学 情報学群（2015/02-03）
+          .item
+            .header: a(href='http://site.kkunihir.com/') 加藤 邦拓
+            .meta 明治大学大学院 理工学研究科 （2015/09-10）
+          .item
+            .header
+              i.check.circle.icon
+              | 若林 裕太、
+              a(href='http://fms-cat.github.io/')
+                i.check.circle.icon
+                | 小渕 豊
+            .meta 明治大学 総合数理学部（2015/09-10）
+          .item
+            .header: a(href='http://pushl.net/')
+              i.check.circle.icon
+              | 今井 朝貴
+            .meta 東京工業大学大学院 情報理工学研究科（2015/09-10）
+          .item
+            .header: a(href='http://makerbox.net/')
+              i.check.circle.icon
+              | 原 健太
+            .meta 明治大学 総合数理学部（2016/02-03）
+          .item
+            .header 若狭 健太
+            .meta 筑波大学情報学群（2016/08-2016/09）
+          .item
+            .header: a(href='http://iis-lab.org/members/') 有賀 竣哉
+            .meta 東京大学 工学系研究科（2016/09-2016/09）
+          .item
+            .header 吉館 要、
+              a(href='http://yumetaro.info/index.ja.xhtml') 矢倉 大夢
+            .meta 筑波大学情報学群（2015/04-2017/03）
+          .item
+            .header: a(href='http://www.0x0c.me/publications')
+              i.check.circle.icon
+              | 松田 暁
+            .meta 東京大学大学院 学際情報学府（2017/02-2017/03）
+          .item
+            .header 宮川 翔貴
+            .meta 早稲田大学 先進理工学部（2017/08-2017/09）
+        h3.ui.header その他の学生向け情報
+        p
+          a(href='http://junkato.jp/ja/blog/') ブログ
+          | で定期的に情報発信しています。サイドバーに学生向けのおすすめ記事をまとめてあります。

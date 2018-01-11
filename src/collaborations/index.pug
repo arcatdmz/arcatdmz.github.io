@@ -4,14 +4,27 @@ block vars
   - var title = en ? 'Call for collaborations' : '共同研究';
   - var me = 'collaborations/';
 
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup
+    block popup-menu
+      .ui.divided.list
+        a.item(href='#tech-transfer')
+          i.gift.icon
+          .content Tech transfer
+        a.item(href='#students')
+          i.student.icon
+          .content Students
+
 block main
   h1.ui.header#collaborations
     i.handshake.icon
     .content #{title}
-  .ui.segment: .ui.items
-    .item
-      .ui.tiny.image: img(src='/images/junkato.jpg')
-      .middle.aligned.content
+  .ui.segment
+    .ui.feed: .event
+      .label: img(src='/images/junkato.jpg')
+      .content
         block message
           | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
           a(href='/#contact') email or social networking services
@@ -20,9 +33,10 @@ block main
   block collaborations
     .ui.stackable.grid
       .eight.wide.column
-        h2.ui.header
+        h2.ui.header#tech-transfer
           i.gift.icon
-          | Interested in technologies?
+          | Tech transfer?
+        h3.ui.header Web services
         p My recent projects have been published as web services 
           a(href='#services') as shown below
           | . If you want to try using the technologies, please visit their websites, preferably with modern web browsers.
@@ -36,20 +50,14 @@ block main
           | . Did you know that even this website is 
           a(href='https://github.com/arcatdmz/junkato.jp') open-sourced
           | ?
-        .ui.divider#services
-        - for (const p of projects) {
-        - if (recentProjects.indexOf(p.project) < 0) continue;
-        .ui.fluid.card(id=`projects-${p.project}`)
-          a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
-          .content
-            a.header(href=basePath + p.project) #{p.getTitle(lang)}
-            .content !{p.getDescription(lang)}
-        - }
+        +services()
       .eight.wide.column
-        h2.ui.header
+        h2.ui.header#students
           i.student.icon
           | Students?
-        p I regularly work with graduate students who are interested in Human-Computer Interaction (HCI) and/or Programming Experience (PX) research.
+        p My affiliation (
+          a(href='https://www.aist.go.jp/index_en.html'): abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
+          | ) is in-between academia and industry; it does not take students but does allow collaborations with them and sometimes hire them as interns. I regularly work with graduate students who are interested in Human-Computer Interaction (HCI) and/or Programming Experience (PX) research.
         p Please contact me if you want to work with me. Keep in mind that, generally speaking, the first step toward working with professional researchers is often meeting them at academic conferences and get them know who you are and what you are doing.
         h3.ui.header Potential ways for collaborations
         p If you are living outside Japan, remote collaborations would be the easiest. If you have an appropriate visa, it would be possible for me to invite you to Tsukuba and work with you for a short term (e.g. regular internship programs for domestic students last for a month or so).
@@ -75,3 +83,15 @@ block main
           //.item
             a.header(href='https://sites.google.com/site/jstcrestproject/home') JST CREST &quot;技能獲得メカニズムの原理解明および獲得支援システムへの展開&quot;
             .content Prof. Hideki Koike, Tokyo Institute of Technology
+
+mixin services()
+  .ui.divider#services
+  - for (const p of projects) {
+  - if (recentProjects.indexOf(p.project) < 0) continue;
+  .ui.fluid.card(id=`projects-${p.project}`)
+    a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+    .content
+      a.header(href=basePath + p.project) #{p.getTitle(lang)}
+      .content !{p.getDescription(lang)}
+  - }
+
