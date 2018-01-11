@@ -2,3 +2,11 @@ extends ../../activities/index
 
 block lang
   - var en = false, lang = 'ja', basePath = '/ja/';
+
+block message
+  | 共同研究の相談やお仕事の依頼については
+  a(href=`${basePath}collaborations/`)
+    i.handshake.icon
+    | 共同研究
+  | のページを見てみてください。
+

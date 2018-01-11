@@ -22,6 +22,15 @@ block main
   h1.ui.header
     i.student.icon
     | #{title}
+  .ui.segment: .ui.feed: .event
+    .label: img(src='/images/junkato.jpg')
+    .content
+      block message
+        | Hi! I am open for collaborations. Please see 
+        a(href=`${basePath}collaborations/`)
+          i.handshake.icon
+          | Collaborations
+        |  for more details.
   h2.ui.header#meetups
     i.users.icon
     | #{en ? 'Meetups' : '勉強会'}
@@ -221,7 +230,7 @@ block main
   .ui.divided.list.miscellaneous-list
     .item
       .header #{en ? 'User interface design consultant for an animation TV series' : 'アニメ地上波放映シリーズのユーザインタフェース考証'}
-      .meta !{en ? '<a href="http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet">Gargantia on the Verdurous Planet</a> (October, 2011)' : '<a href="http://gargantia.jp/">翠星のガルガンティア</a>'}
+      .meta !{en ? '<a href="http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet">Gargantia on the Verdurous Planet</a> (October, 2011)' : '<a href="http://gargantia.jp/">翠星のガルガンティア</a> (2011)'}
     .item
       .header #{en ? 'Organizer of a joint seminar on &quot;Reading All CHI Papers in One Day&quot;' : 'CHI勉強会 幹事'}
       .meta 2011, 2015-<a href="http://sigchi.jp/seminar/chi2017/">2017</a>

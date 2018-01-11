@@ -21,14 +21,13 @@ block main
   h1.ui.header#collaborations
     i.handshake.icon
     .content #{title}
-  .ui.segment
-    .ui.feed: .event
-      .label: img(src='/images/junkato.jpg')
-      .content
-        block message
-          | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
-          a(href='/#contact') email or social networking services
-          | .
+  .ui.segment: .ui.feed: .event
+    .label: img(src='/images/junkato.jpg')
+    .content
+      block message
+        | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
+        a(href='/#contact') email or social networking services
+        | .
   .ui.hidden.divider
   block collaborations
     .ui.stackable.grid
