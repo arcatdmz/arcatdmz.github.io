@@ -44,6 +44,9 @@ mixin sidebar()
   a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
     | #{en ? 'Publications' : '発表文献'}
+  a.item(href=`${basePath}design`, class=getItemClass('design/'))
+    i.paint.brush.fitted.icon
+    | #{en ? 'Design' : 'デザイン'}
   a.item(href=`${basePath}activities`, class=getItemClass('activities/'))
     i.student.icon
     | #{en ? 'Activities' : '職務活動'}
@@ -86,9 +89,12 @@ mixin header()
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.fitted.icon
       span.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}
+    a.mobile.hidden.item(href=`${basePath}design`, class=getItemClass('design/'))
+      i.paint.brush.fitted.icon
+      span(class = en ? 'tablet or lower hidden' : 'computer or lower hidden') #{en ? 'Design' : 'デザイン'}
     a.mobile.hidden.item(href=`${basePath}activities`, class=getItemClass('activities/'))
       i.student.fitted.icon
-      span.tablet.or.lower.hidden #{en ? 'Activities' : '職務活動'}
+      span(class = en ? 'tablet or lower hidden' : 'computer or lower hidden') #{en ? 'Activities' : '職務活動'}
     a.mobile.hidden.item(href=`${basePath}timeline`, class=getItemClass('timeline/'))
       i.history.fitted.icon
       span.computer.or.lower.hidden #{en ? 'Timeline' : '活動履歴'}
