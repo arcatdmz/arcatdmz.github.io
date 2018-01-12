@@ -7,12 +7,12 @@ block vars
 
 block main
   section
-    h1.ui.header TextAlive
-      .sub.header ウェブ上の楽曲と歌詞を用いたKinetic Typographyのための統合制作環境
+    h1.ui.header #{title}
+      .sub.header #{p.getSubtitle(lang)}
     .ui.horizontal.divided.list
-      .item 加藤 淳
-      .item 中野 倫靖
-      .item 後藤 真孝
+      - for (member of p.getMembers(lang)) {
+      .item #{member}
+      - }
       .item
         span.ui.tiny.basic.label
           i.calendar.icon
@@ -64,13 +64,21 @@ block main
             .ui.tiny.label
               i.calendar.icon
               span 2015-
-          .ui.embed: iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo', frameborder='0', allowfullscreen='')
+          +embed-youtube('https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo')
+          - if (!en) {
+          p.caption Web版のTextAliveは現在も開発が続けられています。この作例は、アイドルのライブなどのイベントで利用されたものです。 
+            a(href='http://textalive.jp') textalive.jp
+            |  にアクセスすれば、誰でも動画を制作できます。
+          - }
         .column
           h3.ui.header #{en ? 'TextAlive Desktop' : 'デスクトップ版'}
             .ui.tiny.label
               i.calendar.icon
               span 2014-2015
-          .ui.embed: iframe(src='https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe', frameborder='0', allowfullscreen='')
+          +embed-youtube('https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe')
+          - if (!en) {
+          p.caption デスクトップ版のTextAliveは研究用プロトタイプとして開発されました。この作例は、プログラマや音楽動画制作者の方々を対象としたユーザスタディなどで制作されたものです。
+          - }
         //.column: .ui.embed
           iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
         //.column: .ui.embed(data-url="sigmus104-kato-textalive-example-1.mp4")

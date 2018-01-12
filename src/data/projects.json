@@ -104,9 +104,13 @@
       },
       "publication": "CHI '17",
       "title": "TextAlive",
+      "subtitle": "An Integrated Design Environment for kinetic typography",
       "description": "An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.",
+      "members": ["Jun Kato", "Tomoyasu Nakano", "Masataka Goto"],
       "ja": {
-        "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。"
+        "subtitle": "ウェブ上の楽曲と歌詞を用いたKinetic Typographyのための統合制作環境",
+        "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。",
+        "members": ["加藤 淳", "中野 倫靖", "後藤真孝"]
       }
     },
     {

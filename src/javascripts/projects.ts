@@ -16,11 +16,15 @@ interface RawEntry {
   category?: 'collaboration' | 'committee' | 'private';
   publication?: string;
   title: string;
+  subtitle?: string;
   description: string;
+  members: string[];
   ja: {
     publication?: string;
     title?: string;
+    subtitle?: string;
     description?: string;
+    members?: string[];
   }
 }
 
@@ -53,8 +57,14 @@ class Entry {
   get title() {
     return this.data.title;
   }
+  get subtitle() {
+    return this.data.subtitle;
+  }
   get description() {
     return this.data.description;
+  }
+  get members() {
+    return this.data.members;
   }
   get ja() {
     return this.data.ja;
@@ -97,12 +107,37 @@ class Entry {
     }
     return this.data.title;
   }
+  getSubtitle(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja.subtitle) {
+      return this.data.ja.subtitle;
+    }
+    return this.data.subtitle;
+  }
   getDescription(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.description) {
       return this.data.ja.description;
     }
     return this.data.description;
   }
+  getMembers(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja.members) {
+      return this.data.ja.members;
+    }
+    return this.data.members;
+  }
+  getMembersTags(lang?: 'en'|'ja') {
+    return namesToHTML(this.getMembers(lang));
+  }
+}
+
+export function namesToHTML(namesArr: string[]) {
+  var i = -1, j = -1;
+  if ((i = namesArr.indexOf('Jun Kato')) >= 0
+      || (j = namesArr.indexOf('加藤 淳')) >= 0) {
+    const k = Math.max(i, j);
+    namesArr[k] = `<u>${namesArr[k]}</u>`;
+  }
+  return namesArr;
 }
 
 const entries: Entry[] = [];
