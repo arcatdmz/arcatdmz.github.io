@@ -118,14 +118,17 @@ function compilePug(stream) {
 }
 
 gulp.task('css', function(){
-  return gulp.src('src/stylesheets/**/*.less')
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+  return compileCSS(gulp.src('src/stylesheets/**/*.less'));
+});
+
+function compileCSS(stream){
+  return stream.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(minifyCSS())
     .pipe(gulp.dest('dist/stylesheets'))
     .pipe(browserSync.stream());
-});
+}
 
 gulp.task('copy', function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json}', 'src/.htaccess'], { base: 'src'})
@@ -182,7 +185,7 @@ gulp.task('watch:html', function(){
 
     // an English page that has a dependent Japanese page
     const jaPath = path.resolve(basePath, 'ja', relPath);
-    if (relPath.indexOf('ja' + path.sep) !== 0
+    if (relPath.indexOf('ja' + path.sep) < 0
         && fs.existsSync(jaPath)) {
       return compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
     }
@@ -193,7 +196,13 @@ gulp.task('watch:html', function(){
   });
 });
 
+gulp.task('watch:css', function(){
+  return watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
+    return gulp.start('css');
+  });
+});
+
 gulp.task('default', ['site']);
 gulp.task('debug', ['site:debug']);
 gulp.task('sync', ['watch', 'browser-sync']);
-gulp.task('sync:html', ['watch:html', 'browser-sync']);
+gulp.task('sync:html', ['watch:html', 'watch:css', 'browser-sync']);
