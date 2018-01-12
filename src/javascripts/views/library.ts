@@ -176,7 +176,6 @@ $('a.bibtex.button')
   })
   .popup({
     content: clipText,
-    position: 'left center',
     addTouchEvents: true
   });
 

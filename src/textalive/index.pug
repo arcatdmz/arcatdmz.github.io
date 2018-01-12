@@ -1,0 +1,86 @@
+extends ../_layout
+
+block vars
+  - var p = projectsTable['textalive']
+  - var title = p.getTitle(lang);
+  - var me = p.project + '/';
+
+block main
+  section
+    h1.ui.header TextAlive
+      .sub.header ウェブ上の楽曲と歌詞を用いたKinetic Typography制作環境
+    .ui.horizontal.divided.list
+      .item 加藤 淳
+      .item 中野 倫靖
+      .item 後藤 真孝
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | #{p.getYearString(lang)}
+      - if (p.publication) {
+      .item
+        span.ui.green.tiny.basic.label
+          i.student.icon
+          | !{p.getPublication(lang)}
+      - }
+      .item 関連キーワード: !{p.getTags(lang).join(', ')}
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header
+      .content 概要
+    .ui.basic.segment
+      p Kinetic Typographyは、文字を動かして見せることで意味をより深く伝えられる手法として、楽曲のプロモーションなどの動画で頻繁に利用されている。しかし、歌詞を楽曲と同期してアニメーションさせる動画を制作するためには、まず、動画制作ツールの使い方に慣れる必要があった。さらに、歌詞を文字ごとに時刻同期させて動きを手付けするため、多くの手間がかかっていた。
+      p TextAliveは、ウェブ上に公開されている楽曲と歌詞の時間的対応付けを自動で推定し、Kinetic Typographyを用いた動画を自動生成する。したがって、事前にツールの使い方を学ばなくても、好みの楽曲のKinetic Typography動画を楽しむことができる。また、生成された動画をウェブ上のグラフィカルなインタフェースで編集でき、一から動画を作るより大幅に少ない手間で動画を制作できる。さらに、文字の動きを定めているアルゴリズムをその場でプログラミングでき、プリセットのテンプレートに縛られない自由な表現が可能である。
+  .ui.hidden.divider
+  section#presentations
+    h2.ui.header 発表内容
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header CHI 2015 fast-forward (
+            a(href='https://www.youtube.com/watch?v=ofczPQZaWMk&t=29s') full version
+            | )
+          +embed-youtube('https://www.youtube.com/embed/lOdt-pf5U8Q')
+        .column
+          h3.ui.header 
+  .ui.hidden.divider
+  section#examples
+    h2.ui.header 作例
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header Web版
+            .ui.tiny.label
+              i.calendar.icon
+              span 2015-
+          .ui.embed: iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo', frameborder='0', allowfullscreen='')
+        .column
+          h3.ui.header デスクトップ版
+            .ui.tiny.label
+              i.calendar.icon
+              span 2014-2015
+          .ui.embed: iframe(src='https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe', frameborder='0', allowfullscreen='')
+        //.column: .ui.embed
+          iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
+        //.column: .ui.embed(data-url="sigmus104-kato-textalive-example-1.mp4")
+  .ui.hidden.divider
+  section#news
+    h2.ui.header
+      i.announcement.icon
+      .content ニュース
+    .ui.basic.segment: .ui.divided.feed
+      .event
+        .content
+          .date 2015/9/8
+          .summary
+            | 本研究は
+            a(href='http://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html') プレスリリース
+            | と同時に
+            a(href='http://textalive.jp') Webサービスとして一般公開
+            | を始めました。ぜひお試しください。
+  .ui.hidden.divider
+  section#publications
+    h2.ui.header
+      i.book.icon
+      .content 発表文献
+    +render-project-publications('textalive', 'chi2015-kato-textalive')

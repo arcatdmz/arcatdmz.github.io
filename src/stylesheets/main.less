@@ -63,12 +63,43 @@
 
 /* publications */
 
+.item.award {
+  color: @red;
+}
+
 .item.publication:not(:first-child)>.content>h4.ui.header {
   margin-top: .3em;
 }
 
 .item.publication>.content>.description>.authors {
   margin-bottom: 0.1em;
+}
+
+.major-publication>h4.ui.header {
+  margin-top: calc(1.2rem - .14285714em);
+}
+.major-publication>.ui.ribbon.label {
+  margin-right: -1.5em;
+}
+
+.major-publication>.labels>.ui.label,
+.item.labels>.content>.ui.label {
+  margin-right: .35em;
+}
+.major-publication>.labels>.ui.label:last-child,
+.item.labels>.content>.ui.label:last-child {
+  margin-right: 0;
+}
+
+.major-publication>.ui.form>.field.bibtex>textarea {
+  height: 5em;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.major-publication>.ui.form>.field.bibtex>a {
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 /* activities */
@@ -106,6 +137,11 @@ h1.ui.header {
   margin-right: .2em;
 }
 
+.ui.corner.label:after, .ui.ribbon.label:after {
+  // somehow this gets overwritten by other rules, so mark it as important
+  border-right-color: inherit !important;
+}
+
 /* divided feed */
 @dividedBorderWidth: 1px;
 @dividedBorder: @dividedBorderWidth solid @borderColor;
@@ -117,6 +153,9 @@ h1.ui.header {
 .ui.divided.feed > .event:first-child {
   padding-top: .5rem;
   border-top: none;
+}
+.ui.basic.segment > .ui.divided.feed > .event:first-child {
+  padding-top: 0;
 }
 
 /* card size adjustment */

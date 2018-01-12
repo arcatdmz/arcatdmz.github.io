@@ -60,7 +60,7 @@ mixin awards()
           i.world.icon
           .content #{en ? 'International awards' : '国際'}
     .ui.segment
-      .ui.divided.list.timeline
+      .ui.divided.list
         - for (const entry of awards) {
         .item(class=entry.entryType)
           i.icon(class=entry.getIcon())

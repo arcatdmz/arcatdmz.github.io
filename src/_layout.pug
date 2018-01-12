@@ -1,13 +1,13 @@
 - // TODO: move these code into gulpfile.js
 - const recentProjects = ['songle-sync', 'f3js', 'textalive'];
 - const selectedPublicationKeys = ['programming-with-examples', 'dis2017-kato-f3js', 'chi2015-kato-textalive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
+- const publicationsTable = {};
+- for (const entry of publications) {
+- publicationsTable[entry.citationKey] = entry;
+- }
 - const selectedPublications = [];
 - for (const key of selectedPublicationKeys) {
-- for (const entry of publications) {
-- if (key === entry.citationKey) {
-- selectedPublications.push(entry);
-- }
-- }
+- selectedPublications.push(publicationsTable[key]);
 - }
 - const projectsTable = {};
 - for (const entry of projects) {
@@ -132,6 +132,21 @@ mixin footer()
         a(href=`${basePath}#contact`) Jun Kato
         |  2018
 
+mixin embed-youtube(src)
+  .ui.embed: iframe(src=src, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen)
+
+mixin render-project-publications(project, majorPublication)
+  .ui.basic.segment
+    .ui.raised.segment.major-publication
+      span.ui.red.ribbon.label #{en ? 'Cite this!' : '引用するならコレ！'}
+      +render-major-publication(publicationsTable[majorPublication], false, false)
+    .ui.secondary.segment: .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.citationKey === majorPublication) continue;
+      - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
+      +render-publication(entry, false, false)
+      - }
+
 mixin render-publication(entry, withIcon=false, withProjectLabel=true)
   - if (!entry.entryTags) return;
   .item.publication(class=entry.entryType, id=entry.citationKey)
@@ -149,42 +164,75 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
     - }
     .content
       h4.ui.header #{entry.entryTags.title}
-      .description
-        .ui.list
-          .item
-            i.right.triangle.icon
-            .content 
-              span.ui.tiny.label
-                i.calendar.icon
-                | #{entry.entryTags.year}
-              - if (entry.entryTags.series) {
-              span.ui.tiny.green.label
-                i.student.icon
-                | #{entry.entryTags.series}
-              - }
-              - if (entry.entryTags.addition) {
-              span.ui.tiny.orange.label
-                i.trophy.icon
-                | #{entry.entryTags.addition}
-              - }
-              - if (withProjectLabel) {
-              - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
-              - const p = projectsTable[entry.entryTags.project];
-              a.ui.tiny.basic.red.label(href=basePath + p.project)
-                i.lab.icon
-                | #{p.getTitle(lang)}
-              - }
-              - }
-          .item.authors
-            i.users.icon
-            .content
-              | !{entry.getAuthorsTags().join(', ')}
-              - if (entry.entryTags.editor) {
-              |  (Eds. !{entry.getEditorsTags().join(', ')})
-              - }
-          .item.book
-            i.book.icon
-            .content #{entry.getBookWithPages()}
+      .description: .ui.list
+        .item.labels
+          i.right.triangle.icon
+          .content 
+            span.ui.tiny.label
+              i.calendar.icon
+              | #{entry.entryTags.year}
+            - if (entry.entryTags.series) {
+            span.ui.tiny.green.label
+              i.student.icon
+              | #{entry.entryTags.series}
+            - }
+            - if (entry.entryTags.addition) {
+            span.ui.tiny.red.label
+              i.trophy.icon
+              | #{entry.entryTags.addition}
+            - }
+            - if (withProjectLabel) {
+            - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
+            - const p = projectsTable[entry.entryTags.project];
+            a.ui.tiny.basic.red.label(href=basePath + p.project)
+              i.lab.icon
+              | #{p.getTitle(lang)}
+            - }
+            - }
+        .item.authors
+          i.users.icon
+          .content
+            | !{entry.getAuthorsTags().join(', ')}
+            - if (entry.entryTags.editor) {
+            |  (Eds. !{entry.getEditorsTags().join(', ')})
+            - }
+        .item.book
+          i.book.icon
+          .content #{entry.getBookWithPages()}
+
+mixin render-major-publication(entry)
+  span.labels
+    span.ui.label
+      i.calendar.icon
+      | #{entry.entryTags.year}
+    - if (entry.entryTags.series) {
+    span.ui.green.label
+      i.student.icon
+      | #{entry.entryTags.series}
+    - }
+  h4.ui.header #{entry.entryTags.title}
+  .ui.list
+    .item.authors
+      i.users.icon
+      .content
+        | !{entry.getAuthorsTags().join(', ')}
+        - if (entry.entryTags.editor) {
+        |  (Eds. !{entry.getEditorsTags().join(', ')})
+        - }
+    .item.book
+      i.book.icon
+      .content #{entry.getBookWithPages()}
+    - if (entry.entryTags.addition) {
+    .item.award
+      i.trophy.icon
+      .content: strong #{entry.entryTags.addition}
+    - }
+  .ui.form: .field.bibtex
+    label BibTeX:
+    textarea(readonly) #{entry.getBibTeX()}
+    a.ui.bottom.attached.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
+      i.copy.icon
+      | #{en ? 'Copy to the clipboard' : 'クリップボードにコピー'}
 
 mixin render-project-card(p)
   .card(id=`projects-${p.project}`, data-project=p.project)
