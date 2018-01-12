@@ -60,7 +60,7 @@ class Entry {
     }
     return this.text[lang];
   }
-  public getIcon() {
+  public getIconClass() {
     return this.entryType === 'domestic' ? 'circle' : 'world';
   }
 }

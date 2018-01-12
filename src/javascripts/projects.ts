@@ -8,6 +8,7 @@ const data: {
 interface RawEntry {
   project: string;
   thumbnail?: string;
+  icon?: string;
   tags?: string[];
   year: {
     from: number;
@@ -41,6 +42,9 @@ class Entry {
       return this.data.thumbnail;
     }
     return `${this.data.project}.png`;
+  }
+  get icon() {
+    return this.data.icon;
   }
   get tags() {
     return this.data.tags;
@@ -92,14 +96,18 @@ class Entry {
     }
     return results;
   }
+  hasPublication(lang?: 'en'|'ja') {
+    return (lang === 'en' && this.data.publication)
+      || (lang === 'ja' && this.data.ja && this.data.ja.publication);
+  }
   getPublication(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.publication) {
       return this.data.ja.publication;
     }
-    if (this.publication) {
-      return this.publication;
+    if (this.data.publication) {
+      return this.data.publication;
     }
-    return lang === 'ja' ? '(文献未発表)' : '(Work in progress)';
+    return null;
   }
   getTitle(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.title) {

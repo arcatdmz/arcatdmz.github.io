@@ -26,17 +26,29 @@ $('.sidebar-button').on('click touch', (ev) => {
 });
 
 // initialize dropdown menus
-$('.dropdown.item').dropdown();
+$('.ui.dropdown').dropdown();
 
-// initialize popup menu if exists
+// initialize popup tiphelp if exists
 $('.with-popup').popup({
+  hoverable: true,
   addTouchEvents: true
 });
 
+// initialize popup menu if exists
+$('.publication .with-popup-menu').popup({
+  inline: true,
+  position: 'top right',
+  lastResort: 'top right',
+  hoverable: true,
+  addTouchEvents: true
+});
+
+// initialize left bottom popup menu if exists
 const $popupButton = $('a.popup-menu.button');
 $popupButton
   .removeClass('hidden')
   .popup({
+    inline: true,
     position: 'top left',
     lastResort: 'top left',
     hoverable: true,
@@ -148,7 +160,7 @@ const clipText = lang === 'en'
 const copyText = lang === 'en'
   ? 'Copied!'
   : 'コピーしました！';
-$('a.bibtex.button')
+$('a.bibtex')
   .on('click touch', (ev) => {
     const $a = $(ev.currentTarget);
     var closable = false;
@@ -179,7 +191,7 @@ $('a.bibtex.button')
     addTouchEvents: true
   });
 
-new Clipboard('a.bibtex.button');
+new Clipboard('a.bibtex');
 
 export function setSmoothScroll($e: JQuery) {
   $e.on('click touch', function(ev){

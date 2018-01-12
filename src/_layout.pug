@@ -32,9 +32,11 @@ mixin sidebar()
         a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
         .ui.divider
         - for (const p of recentProjects) {
-        //- - if (p.category === 'committee' || p.category === 'private') continue;
-        //- - if ((p.year.to || p.year.from) < 2012) continue;
-        a.item(href=basePath + p.project) #{p.getTitle(lang)}
+        a.item(href=basePath + p.project)
+          - if (p.icon) {
+          img.ui.avatar.image(src=`/icons/${p.icon}`)
+          - }
+          | #{p.getTitle(lang)}
         - }
         .ui.divider
         a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -134,11 +136,12 @@ mixin render-project-header(project)
         span.ui.tiny.basic.label
           i.calendar.icon
           | #{p.getYearString(lang)}
-      - if (p.publication) {
+      - if (p.hasPublication(lang)) {
+      - const pub = publicationsTable[p.getPublication(lang)];
       .item
         span.ui.green.tiny.basic.label
           i.student.icon
-          | !{p.getPublication(lang)}
+          | !{pub ? pub.getSeriesTag() : 'undefined'}
       - }
       .item #{en ? 'Keywords' : '関連キーワード'}: !{p.getTags(lang).join(', ')}
 
@@ -175,16 +178,35 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
   - if (!entry.entryTags) return;
   .item.publication(class=entry.entryType, id=entry.citationKey)
     .right.floated.content
-      //a.ui.circular.icon.tiny.button(href='')
-        i.film.icon
-      - if (entry.entryTags.pdf || entry.entryTags.doi || entry.entryTags.url) {
-      a.ui.circular.icon.tiny.button(href=entry.entryTags.pdf || entry.entryTags.doi || entry.entryTags.url)
-        i.file.icon
-      - }
-      a.ui.circular.icon.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
-        i.book.icon
+      .ui.circular.icon.tiny.with-popup-menu.button
+        i.sidebar.icon
+      .ui.popup
+        .ui.divided.list
+          - if (entry.entryTags.pdf) {
+          a.item(href=entry.entryTags.pdf)
+            i.text.file.icon
+            | #{en ? 'Paper PDF' : '論文PDF'}
+          - }
+          - if (entry.entryTags.poster) {
+          a.item(href=entry.entryTags.poster)
+            i.image.file.icon
+            | #{en ? 'Poster PDF' : 'ポスターPDF'}
+          - }
+          - if (entry.entryTags.slides) {
+          a.item(href=entry.entryTags.slides)
+            i.powerpoint.file.outline.icon
+            | #{en ? 'Slides PDF' : 'スライドPDF'}
+          - }
+          - if (entry.hasDOIUrl()) {
+          a.item(href=entry.getDOIUrl())
+            i.barcode.icon
+            | #{en ? 'Resolve DOI' : 'DOIを照会'}
+          - }
+          a.bibtex.item(data-clipboard-text=entry.getBibTeX(), href='#')
+            i.book.icon
+            | #{en ? 'Copy BibTeX' : 'BibTeXをコピー'}
     - if (withIcon) {
-    i.icon(class=entry.getIcon())
+    i.icon(class=entry.getIconClass())
     - }
     .content
       h4.ui.header #{entry.entryTags.title}
@@ -262,7 +284,11 @@ mixin render-project-card(p)
   .card(id=`projects-${p.project}`, data-project=p.project)
     a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
     .content
-      a.header(href=basePath + p.project) #{p.getTitle(lang)}
+      a.header(href=basePath + p.project)
+        - if (p.icon) {
+        img.ui.avatar.image(src=`/icons/${p.icon}`)
+        - }
+        | #{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
       .description !{p.getDescription(lang)}
     .extra.content
@@ -270,12 +296,13 @@ mixin render-project-card(p)
         i.calendar.icon
         | #{p.getYearString(lang)}
       - if (p.category !== 'private' && p.category !== 'committee') {
-      - if (p.publication) {
+      - if (p.hasPublication(lang)) {
+      - const pub = publicationsTable[p.getPublication(lang)];
       span
         i.student.icon
-        | !{p.getPublication(lang)}
+        | !{pub ? pub.getSeriesTag() : 'undefined'}
       - } else {
-      span !{p.getPublication(lang)}
+      span #{en ? '(Work in progress)' : '(文献未発表)'}
       - }
       - }
 
@@ -284,7 +311,9 @@ mixin render-project-item(p)
     a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=basePath + p.project)
-        img.ui.avatar.image.mobile.only(src=`/thumbnails/${p.thumbnail}`)
+        - if (p.icon) {
+        img.ui.avatar.image.mobile.only(src=`/icons/${p.icon}`)
+        - }
         | #{p.getTitle(lang)}
       .description !{p.getDescription(lang)}
       .extra
@@ -292,12 +321,13 @@ mixin render-project-item(p)
           i.calendar.icon
           | #{p.getYearString(lang)}
         - if (p.category !== 'private' && p.category !== 'committee') {
-        - if (p.publication) {
+        - if (p.hasPublication(lang)) {
+        - const pub = publicationsTable[p.getPublication(lang)];
         span.ui.green.tiny.basic.label
           i.student.icon
-          | !{p.getPublication(lang)}
+          | !{pub ? pub.getSeriesTag() : 'undefined'}
         - } else {
-        span !{p.getPublication(lang)}
+        span #{en ? '(Work in progress)' : '(文献未発表)'}
         - }
         - }
         - if (p.category === 'collaboration') {

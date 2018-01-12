@@ -63,7 +63,7 @@ mixin awards()
       .ui.divided.list
         - for (const entry of awards) {
         .item(class=entry.entryType)
-          i.icon(class=entry.getIcon())
+          i.icon(class=entry.getIconClass())
           .content
             .header !{entry.getText(lang)}
             .description #{entry.getDateString(lang)}

@@ -18,7 +18,7 @@ class Entry implements BibTexEntry {
     this.entryType = e.entryType;
     this.entryTags = e.entryTags;
   }
-  public getIcon() {
+  public getIconClassClass() {
     if (!this.entryTags) {
       return undefined;
     }
@@ -62,7 +62,14 @@ class Entry implements BibTexEntry {
     out += '\n}';
     return out;
   }
+  public getSeries() {
+    return this.entryTags.series;
+  }
+  public getSeriesTag() {
+    return this.getSeries();
+  }
   public getBook() {
+    if (!this.entryTags) return '';
     var book: string;
     if (this.entryTags.booktitle) {
       book = this.entryTags.booktitle;
@@ -78,6 +85,7 @@ class Entry implements BibTexEntry {
     return book;
   }
   public getBookWithPages() {
+    if (!this.entryTags) return '';
     var book = this.getBook(), pages = this.entryTags.pages;
     if (pages) {
       if (pages.indexOf('-') >= 0) {
@@ -88,6 +96,26 @@ class Entry implements BibTexEntry {
       }
     }
     return book;
+  }
+  public isUrlDOIResolver() {
+    return this.entryTags.url
+      && /[\./]doi[\./]/.exec(this.entryTags.url);
+  }
+  public hasDOIUrl() {
+    return this.entryTags.doi || this.isUrlDOIResolver();
+  }
+  public getDOIUrl() {
+    if (!this.entryTags) return '';
+    if (this.isUrlDOIResolver()) {
+      return this.entryTags.url;
+    }
+    if (this.entryTags.doi) {
+      if (/^https?:/.exec(this.entryTags.doi)) {
+        return this.entryTags.doi;
+      }
+      return `http://dx.doi.org/${this.entryTags.doi}`;
+    }
+    return '';
   }
 }
 
