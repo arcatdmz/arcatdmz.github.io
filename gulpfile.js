@@ -165,7 +165,7 @@ function compileCSS(stream){
     .pipe(browserSync.stream());
 }
 
-gulp.task('copy', function(){
+gulp.task('copy', ['copy:bibtex'], function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
