@@ -6,24 +6,7 @@ block vars
   - var me = p.project + '/';
 
 block main
-  section
-    h1.ui.header #{title}
-      .sub.header #{p.getSubtitle(lang)}
-    .ui.horizontal.divided.list
-      - for (member of p.getMembers(lang)) {
-      .item #{member}
-      - }
-      .item
-        span.ui.tiny.basic.label
-          i.calendar.icon
-          | #{p.getYearString(lang)}
-      - if (p.publication) {
-      .item
-        span.ui.green.tiny.basic.label
-          i.student.icon
-          | !{p.getPublication(lang)}
-      - }
-      .item #{en ? 'Keywords' : '関連キーワード'}: !{p.getTags(lang).join(', ')}
+  +render-project-header('textalive')
   .ui.hidden.divider
   section#abstract
     h2.ui.header
@@ -108,8 +91,4 @@ block main
             | を始めました。ぜひお試しください。
         - }
   .ui.hidden.divider
-  section#publications
-    h2.ui.header
-      i.book.icon
-      .content #{en ? 'Publications' : '発表文献'}
-    +render-project-publications('textalive', 'chi2015-kato-textalive')
+  +render-project-publications('textalive', 'chi2015-kato-textalive')

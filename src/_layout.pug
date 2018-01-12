@@ -135,17 +135,42 @@ mixin footer()
 mixin embed-youtube(src)
   .ui.embed: iframe(src=src, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen)
 
+mixin render-project-header(project)
+  - const p = projectsTable[project]
+  section
+    h1.ui.header #{title}
+      .sub.header #{p.getSubtitle(lang)}
+    .ui.horizontal.divided.list
+      - for (member of p.getMembers(lang)) {
+      .item #{member}
+      - }
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | #{p.getYearString(lang)}
+      - if (p.publication) {
+      .item
+        span.ui.green.tiny.basic.label
+          i.student.icon
+          | !{p.getPublication(lang)}
+      - }
+      .item #{en ? 'Keywords' : '関連キーワード'}: !{p.getTags(lang).join(', ')}
+
 mixin render-project-publications(project, majorPublication)
-  - if (majorPublication) {
-  +render-project-publications-with-major(project, majorPublication)
-  - } else {
-  .ui.segment: .ui.divided.list
-    - for (const entry of publications) {
-    - if (en && entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
-    - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
-    +render-publication(entry, false, false)
+  section#publications
+    h2.ui.header
+      i.book.icon
+      .content #{en ? 'Publications' : '発表文献'}
+    - if (majorPublication) {
+    +render-project-publications-with-major(project, majorPublication)
+    - } else {
+    .ui.segment: .ui.divided.list
+      - for (const entry of publications) {
+      - if (en && entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+      - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
+      +render-publication(entry, false, false)
+      - }
     - }
-  - }
 
 mixin render-project-publications-with-major(project, majorPublication)
   .ui.basic.segment
