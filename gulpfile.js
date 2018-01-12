@@ -105,16 +105,51 @@ gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
 function compilePug(stream) {
   return stream.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
-      locals: {
-        histories: require('./build/javascripts/histories').default,
-        awards: require('./build/javascripts/awards').default,
-        projects: require('./build/javascripts/projects').default,
-        publications: require('./build/javascripts/publications').parse(require('./build/data/publications.json'))
-      },
+      locals: setupLocals(),
       verbose: true,
       pretty: true
     }))
     .pipe(gulp.dest('dist/'));
+}
+
+function setupLocals() {
+  const options = JSON.parse(fs.readFileSync('./build/data/website.json'))
+    , histories = require('./build/javascripts/histories').default
+    , awards = require('./build/javascripts/awards').default
+    , projects = require('./build/javascripts/projects').default
+    , publications = require('./build/javascripts/publications').parse(
+        JSON.parse(fs.readFileSync('./build/data/publications.json')));
+
+  // build projects table and list
+  const projectsTable = {};
+  for (const entry of projects) {
+    projectsTable[entry.project] = entry;
+  }
+  const recentProjects = [];
+  for (const key of options.recentProjects) {
+    recentProjects.push(projectsTable[key]);
+  }
+
+  // build publications table and list
+  const publicationsTable = {};
+  for (const entry of publications) {
+    publicationsTable[entry.citationKey] = entry;
+  }
+  const selectedPublications = [];
+  for (const key of options.selectedPublications) {
+    selectedPublications.push(publicationsTable[key]);
+  }
+
+  return {
+      histories: histories
+    , awards: awards
+    , projects: projects
+    , projectsTable: projectsTable
+    , recentProjects: recentProjects
+    , publications: publications
+    , publicationsTable: publicationsTable
+    , selectedPublications: selectedPublications
+  }
 }
 
 gulp.task('css', function(){

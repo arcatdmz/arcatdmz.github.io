@@ -85,8 +85,7 @@ block main
 
 mixin services()
   .ui.divider#services
-  - for (const p of projects) {
-  - if (recentProjects.indexOf(p.project) < 0) continue;
+  - for (const p of recentProjects) {
   .ui.fluid.card(id=`projects-${p.project}`)
     a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
     .content

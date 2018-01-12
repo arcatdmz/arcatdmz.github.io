@@ -1,19 +1,6 @@
-- // TODO: move these code into gulpfile.js
-- const recentProjects = ['songle-sync', 'f3js', 'textalive'];
-- const selectedPublicationKeys = ['programming-with-examples', 'dis2017-kato-f3js', 'chi2015-kato-textalive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
-- const publicationsTable = {};
-- for (const entry of publications) {
-- publicationsTable[entry.citationKey] = entry;
+- function getItemClass(path) {
+-   return me === path ? 'active' : undefined;
 - }
-- const selectedPublications = [];
-- for (const key of selectedPublicationKeys) {
-- selectedPublications.push(publicationsTable[key]);
-- }
-- const projectsTable = {};
-- for (const entry of projects) {
-- projectsTable[entry.project] = entry;
-- }
-- const getItemClass = function(path) { return me === path ? 'active' : undefined; }
 
 mixin head()
   meta(charset='utf-8')
@@ -44,8 +31,7 @@ mixin sidebar()
       .menu
         a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
         .ui.divider
-        - for (const p of projects) {
-        - if (recentProjects.indexOf(p.project) < 0) continue;
+        - for (const p of recentProjects) {
         //- - if (p.category === 'committee' || p.category === 'private') continue;
         //- - if ((p.year.to || p.year.from) < 2012) continue;
         a.item(href=basePath + p.project) #{p.getTitle(lang)}
@@ -87,7 +73,7 @@ mixin header()
           a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
           .ui.divider
           - for (const p of projects) {
-          - if (recentProjects.indexOf(p.project) < 0) continue;
+          - if (recentProjects.indexOf(p) < 0) continue;
           //- - if (p.category === 'committee' || p.category === 'private') continue;
           //- - if ((p.year.to || p.year.from) < 2012) continue;
           a.item(href=basePath + p.project) #{p.getTitle(lang)}

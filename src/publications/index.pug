@@ -80,7 +80,7 @@ mixin publications()
     p All of these publications went through a review process; most of these publications are considered either archival or semi-archival.
     .ui.divided.list
       - for (const entry of publications) {
-      - if (selectedPublicationKeys.indexOf(entry.citationKey) >= 0) continue;
+      - if (selectedPublications.indexOf(entry) >= 0) continue;
       - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
       - if (entry.entryTags && !entry.entryTags.numpages) continue; // skip non-archival publications
       +render-publication(entry)
