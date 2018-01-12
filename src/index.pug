@@ -99,15 +99,13 @@ mixin history()
     i.history.icon
     .content #{en ? 'Recent updates' : '近況'}
   .ui.basic.segment
-    .ui.divided.list.timeline
+    .ui.divided.feed
       - var i = 0;
       - for (const entry of histories[lang]) {
       - if (++i > 5) break;
-      .item
-        i.right.triangle.icon
-        .content
-          .header !{entry.text}
-          .description #{entry.getDateString(lang)}
+      .event: .content
+        .date #{entry.getDateString(lang)}
+        .summary !{entry.text}
       - }
   - if (histories[lang].length > 5) {
   .ui.right.aligned.basic.segment

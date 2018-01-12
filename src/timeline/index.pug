@@ -45,7 +45,7 @@ mixin timeline()
   h2.ui.header(id=y) #{en ? y : `${y}年`}
   h3.ui.header(id=`${y}-updates`) #{en ? 'Updates' : '更新情報'}
   .ui.segment
-    .ui.divided.list.timeline
+    .ui.divided.feed
       - var i_ = i;
       - while (i < histories[lang].length) {
       - const entry = histories[lang][i];
@@ -53,17 +53,15 @@ mixin timeline()
       - year = entry.date.getFullYear();
       - break;
       - }
-      .item
-        i.right.triangle.icon
-        .content
-          .header !{entry.text}
-          .description #{entry.getDateString(lang)}
+      .event: .content
+        .date #{entry.getDateString(lang)}
+        .summary !{entry.text}
       - i ++;
       - }
       - if (i === i_) {
-      .item
-        i.info.circle.icon
-        .content #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
+      .event: .content
+        .content
+          .summary #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
       - }
   h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
   .ui.segment

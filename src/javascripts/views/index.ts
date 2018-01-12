@@ -52,12 +52,12 @@ $moreButton
 
 function handleEntries(entries: any[]) {
   const es = entries.slice(cursor, cursor + num)
-    , $historyList = $('#history .ui.segment .ui.list')
+    , $historyList = $('#history .ui.feed')
   var $added = null;
   for (const e of es) {
-    const $item = $('<div class="item"><i class="right triangle icon"></i><div class="content"><div class="header"></div><div class="description"></div></div></div>');
+    const $item = $('<div class="event"><div class="content"><div class="date"></div><div class="header"></div></div></div>');
+    $item.find('.date').text(e.getDateString(lang));
     $item.find('.header').html(e.text);
-    $item.find('.description').text(e.getDateString(lang));
     $historyList.append($item);
     if (!$added) $added = $item;
     else $added = $added.add($item);

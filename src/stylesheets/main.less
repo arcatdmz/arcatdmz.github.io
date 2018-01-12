@@ -61,18 +61,6 @@
   }
 }
 
-/* timeline */
-
-.ui.list.timeline>.item>.content>.header {
-  font-weight: normal;
-}
-
-.ui.list.timeline>.item>.content>.description {
-  font-weight: bold;
-  font-size: 0.9em;
-  color: rgba(0,0,0,.6);
-}
-
 /* publications */
 
 .item.publication:not(:first-child)>.content>h4.ui.header {
@@ -116,6 +104,19 @@ h1.ui.header {
 .ui.items .ui.horizontal.list>.item>i.icon {
   margin-top: 0 !important;
   margin-right: .2em;
+}
+
+/* divided feed */
+@dividedBorderWidth: 1px;
+@dividedBorder: @dividedBorderWidth solid @borderColor;
+
+.ui.divided.feed > .event {
+  padding-top: .7em;
+  border-top: @dividedBorder;
+}
+.ui.divided.feed > .event:first-child {
+  padding-top: .5rem;
+  border-top: none;
 }
 
 /* card size adjustment */
