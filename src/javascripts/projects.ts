@@ -127,7 +127,14 @@ class Entry {
     }
     return this.data.description;
   }
+  hasMembers(lang?: 'en'|'ja') {
+    return (lang === 'en' && this.data.members)
+      || (lang === 'ja' && this.data.ja && this.data.ja.members);
+  }
   getMembers(lang?: 'en'|'ja') {
+    if (!this.hasMembers(lang)) {
+      return [];
+    }
     if (lang === 'ja' && this.data.ja && this.data.ja.members) {
       return this.data.ja.members;
     }

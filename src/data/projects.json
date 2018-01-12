@@ -29,6 +29,23 @@
   },
   "projects": [
     {
+      "project": "website",
+      "url": "https://junkato.jp",
+      "title": "&quot;junkato.jp&quot; Website",
+      "year": {
+        "from": 2012
+      },
+      "category": "private",
+      "thumbnail": "junkato.jpg",
+      "icon": "junkato.jpg",
+      "description": "This portfolio website is built with various <abbr title=\"Open-Source Softwtare\">OSS</abbr> and itself is open-sourced on GitHub.",
+      "ja": {
+        "url": "https://junkato.jp/ja",
+        "title": "&quot;junkato.jp&quot; Webサイト",
+        "description": "このポートフォリオWebサイトはさまざまな<abbr title=\"Open-Source Softwtare\">OSS</abbr>を用いて開発されており、それ自体がGitHub上にオープンソースで公開されています。"
+      }
+    },
+    {
       "project": "sigpx",
       "url": "https://sigpx.org/en",
       "title": "SIGPX",

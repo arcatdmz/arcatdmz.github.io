@@ -1,0 +1,52 @@
+extends ../_layout
+
+block vars
+  - var p = projectsTable['website']
+  - var title = p.getTitle(lang);
+  - var me = p.project + '/';
+
+block main
+  +render-project-header('website')
+  h2.ui.header Code and data
+  .ui.basic.segment
+    p This website is a collection of static HTML/CSS/JavaScript files. It is built from code and data every time something is pushed to the master branch of the <a href="https://github.com/arcatdmz/junkato.jp"><i class="github icon"></i>GitHub</a> repository. The build pipeline is executed on <a href="travis-ci.org/arcatdmz/junkato.jp/builds">Travis <abbr title="Continuous Integration">CI</abbr></a>.
+    p During the build process, the following files are used as data source. Feel free to steal the data structure for making your own portfolio website or making HTTP requests to these data files in your application (but ... for what?)
+    .ui.divided.list
+      .item: .content
+        a.header(href='/data/histories.json') histories.json
+        .description All of the &quot;Recent updates&quot; entries
+      .item: .content
+        a.header(href='/data/publications.json') publications.json
+        .description Publication history (generated from <a href="/junkato.bib">junkato.bib</a>)
+      .item: .content
+        a.header(href='/data/awards.json') awards.json
+        .description All of the received awards information
+      .item: .content
+        a.header(href='/data/projects.json') projects.json
+        .description All of the projects information as well as the project tags information
+      .item: .content
+        a.header(href='/data/website.json') website.json
+        .description Some meta information such as the list of recent projects and selected publications
+  h2.ui.header Acknowledgement
+  .ui.basic.segment
+    p This website is made possible with help of various <abbr title="Open-Source Software">OSS</abbr> projects. As noted in <a href="https://github.com/arcatdmz/junkato.jp#readme">README.md</a>, it is built with the following tools, libraries, and languages. For the complete list of dependent libraries, see <a href="https://github.com/arcatdmz/junkato.jp/blob/master/package.json">package.json</a>.
+    .ui.divided.list
+      .item: .content
+        .header Gulp v3.9
+        .description for managing build pipelines
+      .item: .content
+        .header Webpack v3
+        .description for packing JavaScript code
+      .item: .content
+        .header Babel v7
+        .description for transpiling JS code to be compatible with outdated browsers
+      .item: .content
+        .header Pug v2
+        .description for easier HTML coding
+      .item: .content
+        .header LESS
+        .description for easier CSS coding
+      .item: .content
+        .header TypeScript v2.6
+        .description for easier JS coding
+

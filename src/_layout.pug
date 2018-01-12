@@ -36,7 +36,7 @@ mixin sidebar()
           - if (p.icon) {
           img.ui.avatar.image(src=`/icons/${p.icon}`)
           - }
-          | #{p.getTitle(lang)}
+          | !{p.getTitle(lang)}
         - }
         .ui.divider
         a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -78,7 +78,7 @@ mixin header()
           - if (recentProjects.indexOf(p) < 0) continue;
           //- - if (p.category === 'committee' || p.category === 'private') continue;
           //- - if ((p.year.to || p.year.from) < 2012) continue;
-          a.item(href=basePath + p.project) #{p.getTitle(lang)}
+          a.item(href=basePath + p.project) !{p.getTitle(lang)}
           - }
           .ui.divider
           a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -126,10 +126,10 @@ mixin embed-youtube(src)
 mixin render-project-header(project)
   - const p = projectsTable[project]
   section
-    h1.ui.header #{title}
+    h1.ui.header !{title}
       .sub.header #{p.getSubtitle(lang)}
     .ui.horizontal.divided.list
-      - for (member of p.getMembers(lang)) {
+      - if (p.hasMembers()) for (member of p.getMembers(lang)) {
       .item #{member}
       - }
       .item
@@ -143,7 +143,10 @@ mixin render-project-header(project)
           i.student.icon
           | !{pub ? pub.getSeriesTag() : 'undefined'}
       - }
-      .item #{en ? 'Keywords' : '関連キーワード'}: !{p.getTags(lang).join(', ')}
+      - const tags = p.getTags(lang);
+      - if (tags.length > 0) {
+      .item #{en ? 'Keywords' : '関連キーワード'}: !{tags.join(', ')}
+      - }
 
 mixin render-project-publications(project, majorPublication)
   section#publications
@@ -232,7 +235,7 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - const p = projectsTable[entry.entryTags.project];
             a.ui.tiny.basic.red.label(href=basePath + p.project)
               i.lab.icon
-              | #{p.getTitle(lang)}
+              | !{p.getTitle(lang)}
             - }
             - }
         .item.authors
@@ -288,7 +291,7 @@ mixin render-project-card(p)
         - if (p.icon) {
         img.ui.avatar.image(src=`/icons/${p.icon}`)
         - }
-        | #{p.getTitle(lang)}
+        | !{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
       .description !{p.getDescription(lang)}
     .extra.content
@@ -314,7 +317,7 @@ mixin render-project-item(p)
         - if (p.icon) {
         img.ui.avatar.image.mobile.only(src=`/icons/${p.icon}`)
         - }
-        | #{p.getTitle(lang)}
+        | !{p.getTitle(lang)}
       .description !{p.getDescription(lang)}
       .extra
         span.right.floated
