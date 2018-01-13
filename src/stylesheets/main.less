@@ -16,6 +16,10 @@
   // right: 0;
 }
 
+body.without-header-menu #body {
+  padding-top: 0;
+}
+
 .caption {
   margin-top: .3em;
   border-top: 1px solid @borderColor;
@@ -231,7 +235,7 @@ h1.ui.header {
   position: fixed !important;
 }
 
-#main.with-rail>.left-rail {
+body.with-rail #main>.left-rail {
   display: none;
 }
 
@@ -240,35 +244,35 @@ h1.ui.header {
     display: none;
   }
 
-  #main.with-rail {
+  body.with-rail #main {
     position: relative;
   }
   
-  #main.with-rail>.left-rail,
-  #main.with-rail>.left-rail>.ui.list {
+  body.with-rail #main>.left-rail,
+  body.with-rail #main>.left-rail>.ui.list {
     width: @railWidth;
     position: fixed;
     display: block;
   }
   
-  #main.with-rail>.right-content {
+  body.with-rail #main>.right-content {
     margin-left: @railWidth + @railMargin;
   }
 }
 
 .popup-menu.popup .ui.list>a.item,
-#main.with-rail>.left-rail .ui.list>a.item {
+body.with-rail #main>.left-rail .ui.list>a.item {
   padding: .4em 0;
   text-decoration: none;
 }
 
 .popup-menu.popup .ui.list .ui.list>a.item,
-#main.with-rail>.left-rail .ui.list .ui.list>a.item {
+body.with-rail #main>.left-rail .ui.list .ui.list>a.item {
   padding: .2em 0;
 }
 
 .popup-menu.popup .ui.list>a.item>.content,
-#main.with-rail>.left-rail .ui.list>a.item>.content {
+body.with-rail #main>.left-rail .ui.list>a.item>.content {
   text-decoration: underline;
 }
 

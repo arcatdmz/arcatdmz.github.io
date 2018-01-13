@@ -16,6 +16,7 @@ mixin head()
   link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/notosansjapanese.css')
   - }
   link(rel='stylesheet', href='/stylesheets/main.css')
+  block head
 
 mixin sidebar()
   a.item(href=`${basePath}`, class=getItemClass(''))
@@ -355,10 +356,10 @@ html(lang='ja')
   - var author = en ? 'Jun Kato' : '加藤 淳';
   block vars
     - var me = '';
-    - var containerClass = undefined;
+    - var bodyClass = undefined;
   head
     +head()
-  body
+  body(class=bodyClass)
     .ui.right.sidebar.inverted.vertical.menu
       +sidebar()
     block header
@@ -366,7 +367,7 @@ html(lang='ja')
     #pusher.pusher
       #body
         block main-container
-          .ui.container#main(class=containerClass)
+          .ui.container#main
             block main
           +footer()
     #post-footer

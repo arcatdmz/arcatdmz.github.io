@@ -3,11 +3,103 @@ extends ../_layout
 block vars
   - var title = en ? 'Design' : 'デザイン';
   - var me = 'design/';
+  - var bodyClass = 'without-header-menu design';
+
+block head
+  link(rel='stylesheet', href='/stylesheets/design.css')
 
 block header
-  .ui.top.fixed.menu#fixed-menu
-    .right.menu
+  .ui.text.fixed.menu
+    .menu#research-menu
+      a.item(href=basePath)
+        i.lab.icon
+        - if (en) {
+        | Back to research
+        - } else {
+        | 研究
+        span.mobile.hidden に戻る
+        - }
+    .right.menu#design-menu
       +right-header-menu()
 
 block main-container
-  h1.ui.header #{title}
+  .hero-unit
+    h1.ui.center.aligned.icon.header
+      i.circular.paint.brush.icon
+      | #{title}
+    .ui.container
+      block message
+        p While my primary focus and strength is on conducting research, I have been interested in creating concrete design artifacts&mdash;such as graphic and user interface design. This page shows my design portfolio.
+  .ui.container: +main-design()
+  +footer()
+
+mixin main-design()
+  h2.ui.header #{en ? 'Design work' : 'これまでにデザインしたもの'}
+  .ui.basic.segment#junkato
+    a.ui.small.left.floated.image(href=`${basePath}junkato`): img(src='/icons/junkato.jpg')
+    h3.ui.header junkato.jp web design
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | 2018
+      .item: .ui.basic.label
+        i.paint.brush.icon
+        | Graphic
+    .ui.clearing.divider
+  .ui.basic.segment#songle-sync
+    a.ui.small.left.floated.image(href=`${basePath}songle-sync`): img(src='/icons/songle-sync.png')
+    h3.ui.header Songle Sync brand design
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | 2017
+      .item: .ui.basic.label
+        i.paint.brush.icon
+        | Graphic
+    .ui.clearing.divider
+  .ui.basic.segment#tenju
+    a.ui.small.left.floated.image(href='http://tenju.jp'): img(src='/icons/tenju.jpg')
+    h3.ui.header Tenju Works web design
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | 2017
+      .item: .ui.basic.label
+        i.paint.brush.icon
+        | Graphic
+    .ui.clearing.divider
+  .ui.basic.segment#f3js
+    a.ui.small.left.floated.image(href=`${basePath}f3js`): img(src='/icons/f3js.png')
+    h3.ui.header f3.js brand design
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | 2016
+      .item: .ui.basic.label
+        i.paint.brush.icon
+        | Graphic
+      .item: .ui.basic.label
+        i.wizard.icon
+        | User Interface
+    .ui.clearing.divider
+  .ui.basic.segment#textalive
+    a.ui.small.left.floated.image(href=`${basePath}textalive`): img(src='/icons/textalive.jpg')
+    h3.ui.header TextAlive brand design
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | 2014
+      .item: .ui.basic.label
+        i.paint.brush.icon
+        | Graphic
+      .item: .ui.basic.label
+        i.wizard.icon
+        | User Interface
+    .ui.clearing.hidden.divider
+  h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
+  .ui.basic.segment
+    .ui.list
+      .item
+        .content 
+          .header Photoshop
+          .description over 10 years
