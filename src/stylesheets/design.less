@@ -1,6 +1,20 @@
 
+/* devicon */
+@import (inline) "../../build/stylesheets/devicon.css";
+@import (inline) "../../build/stylesheets/devicon-colors.css";
+
+i[class*=" devicon-"],
+i[class^=devicon-] {
+  font-family: 'devicon' !important;
+  line-height: inherit !important;
+}
+
 /* /design */
+body.design>.ui.text.fixed.menu {
+  pointer-events: none;
+}
 body.design>.ui.text.fixed.menu>.menu {
+  pointer-events: initial;
   margin-top: .5em;
   margin-left: .7em;
 }
@@ -39,7 +53,19 @@ body.design #body>.ui.container {
   padding-top: 2em;
 }
 
-body.design #body>.ui.container>.ui.segment>a.image+h3.ui.header {
+body.design #body>.ui.container .ui.segment>a.image+h3.ui.header {
   font-size: 1.2em;
   margin: 0 0 1rem 0;
+}
+
+#skillset .ui.list>.item>i.ellipsis.icon {
+  color: #999;
+}
+
+#skillset .ui.list>.item>i.ellipsis.icon {
+  padding-top: .054em;
+}
+#skillset .ui.list>.item>i.icon[class*=" devicon-"],
+#skillset .ui.list>.item>i.icon[class^=devicon-] {
+  line-height: 1.4 !important;
 }

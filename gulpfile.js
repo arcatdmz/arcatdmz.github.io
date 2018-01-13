@@ -3,6 +3,7 @@ const watch = require('gulp-watch');
 const path = require('path');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
+const replace = require('gulp-replace');
 const pug = require('gulp-pug');
 const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
@@ -84,6 +85,18 @@ gulp.task('copy:node', function(){
     .pipe(gulp.dest('build'));
 });
 
+gulp.task('copy:fonts', function(){
+  return gulp.src('node_modules/devicon/fonts/*', { base: 'node_modules/devicon'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('replace:devicon', function(){
+  gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
+    .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
+    .pipe(gulp.dest('build/stylesheets/'));
+});
+
 gulp.task('js', ['ts'], function(){
   const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
@@ -152,7 +165,7 @@ function setupLocals() {
   }
 }
 
-gulp.task('css', function(){
+gulp.task('css', ['replace:devicon'], function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
@@ -171,13 +184,13 @@ gulp.task('copy', ['copy:bibtex'], function(){
     .pipe(gulp.dest('dist'));
 })
 
-gulp.task('site', ['semantic'], function(){
+gulp.task('site', ['semantic', 'copy:fonts'], function(){
   for (const name of ['html', 'css', 'js', 'copy']) {
     gulp.start(name);
   }
 });
 
-gulp.task('site:debug', ['semantic'], function(){
+gulp.task('site:debug', ['semantic', 'copy:fonts'], function(){
   for (const name of ['html', 'css', 'js:debug', 'copy']) {
     gulp.start(name);
   }
