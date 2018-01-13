@@ -122,6 +122,12 @@ mixin projects()
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
   h3.ui.header#recent-projects #{en ? 'Recent research projects' : '最近の研究プロジェクト'}
+  block projects
+    p The following list only contains research projects. See 
+      a(href='/design')
+        i.paint.brush.icon
+        | Design
+      |  for the design-oriented list of my projects.
   .ui.cards.projects#recent-projects-list
     - for (const p of recentProjects) {
     +render-project-card(p)

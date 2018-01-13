@@ -22,6 +22,20 @@ block header
     .right.menu#design-menu
       +right-header-menu()
 
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup: .ui.divided.list
+    a.item(href='#body')
+      i.chevron.circle.up.icon
+      .content #{en ? 'Top' : 'トップ'}
+    a.item(href=`#design-work`)
+      i.history.icon
+      .content #{en ? 'Design work' : 'デザインしたもの'}
+    a.item(href=`#skillset`)
+      i.lab.icon
+      .content #{en ? 'Skillset' : 'スキルセット'}
+
 block main-container
   .hero-unit
     h1.ui.center.aligned.icon.header
@@ -34,9 +48,13 @@ block main-container
   +footer()
 
 mixin main-design()
+  section#design-work: +design-work()
+  section#skillset: +skillset()
+
+mixin design-work()
   h2.ui.header #{en ? 'Design work' : 'これまでにデザインしたもの'}
   .ui.basic.segment#junkato
-    a.ui.small.left.floated.image(href=`${basePath}junkato`): img(src='/icons/junkato.jpg')
+    a.ui.small.left.floated.image(href=`${basePath}website`): img(src='/icons/junkato.jpg')
     h3.ui.header junkato.jp web design
     .ui.horizontal.list
       .item: .ui.basic.label
@@ -96,10 +114,148 @@ mixin main-design()
         i.wizard.icon
         | User Interface
     .ui.clearing.hidden.divider
+
+mixin skillset()
   h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
-  .ui.basic.segment
-    .ui.list
-      .item
-        .content 
-          .header Photoshop
-          .description over 10 years
+  block skillset
+    p The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See <a href="/resume.html">my resume</a> for more general information.
+  .ui.stackable.two.columns.grid
+    .column
+      h3.ui.header #{en ? 'As a graphic designer' : 'グラフィックデザイン'}
+      .ui.basic.segment
+        .ui.divided.list
+          +skillset-graphic()
+    .column
+      h3.ui.header #{en ? 'As an interaction designer' : 'インタラクションデザイン'}
+      .ui.basic.segment
+        .ui.divided.list
+          +skillset-ixd()
+
+mixin skillset-graphic
+  .item
+    i.large.devicon-photoshop-plain.colored.icon
+    .content
+      .header Photoshop
+      .description over 10 years
+  .item
+    i.large.devicon-illustrator-plain.colored.icon
+    .content
+      .header Illustrator
+      .description over 10 years
+  .item
+    i.large.ellipsis.horizontal.icon
+    .content
+      .header Other Adobe products
+      .description Premier for producing demo videos and InDesign for basic <abbr title="Desktop Publishing">DTP</abbr> tasks
+  .item
+    i.large.devicon-html5-plain.colored.icon
+    .content
+      .header HTML
+      .description over 10 years
+  .item
+    i.large.ellipsis.horizontal.icon
+    .content
+      .header Pug (Jade)
+      .description 4 years
+  .item
+    i.large.devicon-css3-plain.colored.icon
+    .content
+      .header CSS
+      .description over 10 years
+  .item
+    i.large.devicon-less-plain-wordmark.colored.icon
+    .content
+      .header Stylus and LESS
+      .description 3 years
+  .item
+    i.large.devicon-bootstrap-plain.colored.icon
+    .content
+      .header Bootstrap (&lt; 4)
+      .description 6 years
+  .item
+    i.large.ellipsis.horizontal.icon
+    .content
+      .header Semantic UI
+      .description 2 years
+  .item
+    i.large.devicon-grunt-line.colored.icon
+    .content
+      .header Grunt
+      .description 4 years
+  .item
+    i.large.devicon-gulp-plain.colored.icon
+    .content
+      .header Gulp
+      .description 1 month
+
+mixin skillset-ixd()
+  .item
+    i.large.devicon-javascript-plain.colored.icon
+    .content
+      .header JavaScript
+      .description over 10 years
+  .item
+    i.large.devicon-typescript-plain.colored.icon
+    .content
+      .header TypeScript
+      .description since it was called <a href="http://www.zdnet.com/article/who-built-microsoft-typescript-and-why/">&quot;Strada&quot;</a>
+  .item
+    i.large.devicon-jquery-plain.colored.icon
+    .content
+      .header jQuery
+      .description 6 years
+  .item
+    i.large.devicon-d3js-plain.colored.icon
+    .content
+      .header D3.js
+      .description 2 months
+  .item
+    i.large.devicon-webpack-plain.colored.icon
+    .content
+      .header Webpack
+      .description 1 month
+  .item
+    i.large.devicon-babel-plain.colored.icon
+    .content
+      .header Babel
+      .description 1 month
+  .item
+    i.large.devicon-nodejs-plain.colored.icon
+    .content
+      .header Node.js
+      .description 4 years
+  .item
+    i.large.devicon-php-plain.colored.icon
+    .content
+      .header PHP (&lt; 7)
+      .description over 10 years
+  .item
+    i.large.devicon-csharp-plain.colored.icon
+    .content
+      .header C#
+      .description for desktop apps and ASP.NET apps
+  .item
+    i.large.devicon-java-plain.colored.icon
+    .content
+      .header Java (&lt; 8)
+      .description 9 years, for desktop apps and browser applets
+  .item
+    i.large.devicon-visualstudio-plain.colored.icon
+    .content
+      .header Visual Studio, Visual Studio Code
+      .description 9 years and since it was born, respectively
+  .item
+    i.large.devicon-mysql-plain.colored.icon
+    .content
+      .header MySQL
+      .description 9 years
+  .item
+    i.large.ellipsis.horizontal.icon
+    .content
+      .header Eclipse
+      .description 9 years
+  .item
+    i.large.devicon-github-plain.colored.icon
+    .content
+      .header GitHub
+      .description see <a href="https://github.com/arcatdmz">my repos</a>
