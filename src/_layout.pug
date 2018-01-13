@@ -35,7 +35,7 @@ mixin sidebar()
         - for (const p of recentProjects) {
         a.item(href=basePath + p.project)
           - if (p.icon) {
-          img.ui.avatar.image(src=`/icons/${p.icon}`)
+          img.ui.avatar.image(src=`/images/icons/${p.icon}`)
           - }
           | #{p.getTitle(lang)}
         - }
@@ -295,11 +295,11 @@ mixin render-major-publication(entry)
 
 mixin render-project-card(p)
   .card(id=`projects-${p.project}`, data-project=p.project)
-    a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+    a.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=basePath + p.project)
         - if (p.icon) {
-        img.ui.avatar.image(src=`/icons/${p.icon}`)
+        img.ui.avatar.image(src=`/images/icons/${p.icon}`)
         - }
         | #{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
@@ -321,11 +321,11 @@ mixin render-project-card(p)
 
 mixin render-project-item(p)
   .item(id=`projects-${p.project}`, data-project=p.project)
-    a.mobile.hidden.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
+    a.mobile.hidden.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=basePath + p.project)
         - if (p.icon) {
-        img.ui.avatar.image.mobile.only(src=`/icons/${p.icon}`)
+        img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
         - }
         | #{p.getTitle(lang)}
       .description !{p.getDescription(lang)}
