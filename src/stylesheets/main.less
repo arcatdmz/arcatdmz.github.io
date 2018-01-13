@@ -8,6 +8,12 @@
  * # junkato.jp
  */
 
+@media only print {
+  .ui.top.fixed.menu {
+    position: absolute !important;
+  }
+}
+
 #body {
   padding-top: 4.4rem;
   // top: 4.4rem;
@@ -219,7 +225,7 @@ h1.ui.header {
 @railMargin: 20px;
 
 .ui.popup-menu.button {
-  display: block;
+  display: none;
   position: fixed;
   left: 12px;
   bottom: 12px;
@@ -237,6 +243,12 @@ h1.ui.header {
 
 body.with-rail #main>.left-rail {
   display: none;
+}
+
+@media only screen {
+  .ui.popup-menu.button {
+    display: block;
+  }
 }
 
 @media only screen and (min-width : @tabletBreakpoint) {
@@ -281,6 +293,12 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
  * https://github.com/Semantic-Org/Semantic-UI/issues/1114
  */
 /* Mobile */
+
+@media only print {
+  .print-hidden {
+    display: none !important;
+  }
+}
 
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   [class*="mobile hidden"],
