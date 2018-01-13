@@ -29,11 +29,11 @@ block post-footer
     a.item(href='#body')
       i.chevron.circle.up.icon
       .content #{en ? 'Top' : 'トップ'}
-    a.item(href=`#design-work`)
+    a.item(href=`#portfolio`)
       i.history.icon
-      .content #{en ? 'Design work' : 'デザインしたもの'}
+      .content #{en ? 'Portfolio' : 'ポートフォリオ'}
     a.item(href=`#skillset`)
-      i.lab.icon
+      i.user.icon
       .content #{en ? 'Skillset' : 'スキルセット'}
 
 block main-container
@@ -48,11 +48,11 @@ block main-container
   +footer()
 
 mixin main-design()
-  section#design-work: +design-work()
+  section#portfolio: +portfolio()
   section#skillset: +skillset()
 
-mixin design-work()
-  h2.ui.header #{en ? 'Design work' : 'これまでにデザインしたもの'}
+mixin portfolio()
+  h2.ui.header #{en ? 'Portfolio' : 'ポートフォリオ'}
   .ui.basic.segment#junkato
     a.ui.small.left.floated.image(href=`${basePath}website`): img(src='/icons/junkato.jpg')
     h3.ui.header junkato.jp web design
@@ -119,17 +119,16 @@ mixin skillset()
   h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
   block skillset
     p The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See <a href="/resume.html">my resume</a> for more general information.
+  .ui.hidden.divider
   .ui.stackable.two.columns.grid
     .column
       h3.ui.header #{en ? 'As a graphic designer' : 'グラフィックデザイン'}
-      .ui.basic.segment
-        .ui.divided.list
-          +skillset-graphic()
+      .ui.divided.list
+        +skillset-graphic()
     .column
       h3.ui.header #{en ? 'As an interaction designer' : 'インタラクションデザイン'}
-      .ui.basic.segment
-        .ui.divided.list
-          +skillset-ixd()
+      .ui.divided.list
+        +skillset-ixd()
 
 mixin skillset-graphic
   .item
