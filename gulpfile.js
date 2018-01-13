@@ -91,7 +91,13 @@ gulp.task('copy:fonts', function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('replace:devicon', function(){
+gulp.task('copy:devicon', function(){
+  return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('build/stylesheets/'));
+});
+
+gulp.task('replace:devicon', ['copy:devicon'], function(){
   gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
     .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
     .pipe(gulp.dest('build/stylesheets/'));
