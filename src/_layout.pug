@@ -36,7 +36,7 @@ mixin sidebar()
           - if (p.icon) {
           img.ui.avatar.image(src=`/icons/${p.icon}`)
           - }
-          | !{p.getTitle(lang)}
+          | #{p.getTitle(lang)}
         - }
         .ui.divider
         a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -81,7 +81,7 @@ mixin header()
           - if (recentProjects.indexOf(p) < 0) continue;
           //- - if (p.category === 'committee' || p.category === 'private') continue;
           //- - if ((p.year.to || p.year.from) < 2012) continue;
-          a.item(href=basePath + p.project) !{p.getTitle(lang)}
+          a.item(href=basePath + p.project) #{p.getTitle(lang)}
           - }
           .ui.divider
           a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -102,21 +102,24 @@ mixin header()
       i.handshake.fitted.icon
       span.computer.or.lower.hidden #{en ? 'Collaborations' : '共同研究'}
     .right.menu
-      - if (en) {
-      a.item(href=`/ja/${me}`)
-        i.translate.fitted.icon
-        | 日本語
-      - } else {
-      a.item(href='/ja/blog')
-        i.wordpress.fitted.icon
-        span.mobile.hidden ブログ
-      a.item(href=`/${me}`)
-        i.translate.fitted.icon
-        | English
-      - }
-      a.item.sidebar-button(href='#')
-        i.sidebar.fitted.icon
-        | #{en ? 'Menu' : 'メニュー'}
+      +right-header-menu()
+
+mixin right-header-menu()
+  - if (en) {
+  a.item(href=`/ja/${me}`)
+    i.translate.fitted.icon
+    | 日本語
+  - } else {
+  a.item(href='/ja/blog')
+    i.wordpress.fitted.icon
+    span.mobile.hidden ブログ
+  a.item(href=`/${me}`)
+    i.translate.fitted.icon
+    | English
+  - }
+  a.item.sidebar-button(href='#')
+    i.sidebar.fitted.icon
+    | #{en ? 'Menu' : 'メニュー'}
 
 mixin footer()
   footer.ui.center.aligned.basic.segment
@@ -241,7 +244,7 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - const p = projectsTable[entry.entryTags.project];
             a.ui.tiny.basic.red.label(href=basePath + p.project)
               i.lab.icon
-              | !{p.getTitle(lang)}
+              | #{p.getTitle(lang)}
             - }
             - }
         .item.authors
@@ -297,7 +300,7 @@ mixin render-project-card(p)
         - if (p.icon) {
         img.ui.avatar.image(src=`/icons/${p.icon}`)
         - }
-        | !{p.getTitle(lang)}
+        | #{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
       .description !{p.getDescription(lang)}
     .extra.content
@@ -323,7 +326,7 @@ mixin render-project-item(p)
         - if (p.icon) {
         img.ui.avatar.image.mobile.only(src=`/icons/${p.icon}`)
         - }
-        | !{p.getTitle(lang)}
+        | #{p.getTitle(lang)}
       .description !{p.getDescription(lang)}
       .extra
         span.right.floated
@@ -365,7 +368,7 @@ html(lang='ja')
         block main-container
           .ui.container#main(class=containerClass)
             block main
-        +footer()
+          +footer()
     #post-footer
       block post-footer
     script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')

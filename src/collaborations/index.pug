@@ -89,7 +89,7 @@ mixin services()
   .ui.fluid.card(id=`projects-${p.project}`)
     a.image(href=basePath + p.project): img(src=`/thumbnails/${p.thumbnail}`)
     .content
-      a.header(href=basePath + p.project) !{p.getTitle(lang)}
+      a.header(href=basePath + p.project) #{p.getTitle(lang)}
       .content !{p.getDescription(lang)}
   - }
 
