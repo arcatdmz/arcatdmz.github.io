@@ -55,9 +55,9 @@ mixin main-design()
 mixin portfolio()
   h2.ui.header #{en ? 'Portfolio' : 'ポートフォリオ'}
   .ui.basic.segment#junkato
-    a.ui.small.left.floated.image(href=`${basePath}website`): img(src='/images/icons/junkato.jpg')
+    a.ui.small.left.floated.image(href=`${basePath}website`): img(src='/images/icons/website.png')
     h3.ui.header junkato.jp web design
-    p Created the website with focus on usability and maintenanceability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. More technical details can be found <a href="/website">here</a>.
+    p Created the website with focus on usability and maintenanceability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href="/website">here</a>.
     .ui.horizontal.list
       .item: .ui.basic.label
         i.calendar.icon
@@ -192,6 +192,11 @@ mixin skillset-graphic
     .content
       .header Gulp
       .description 1 month
+  .item
+    i.large.devicon-vim-plain.colored.icon
+    .content
+      .header Vim
+      .description over 10 years
 
 mixin skillset-ixd()
   .item

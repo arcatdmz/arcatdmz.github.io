@@ -36,8 +36,7 @@
         "from": 2012
       },
       "category": "private",
-      "thumbnail": "junkato.jpg",
-      "icon": "junkato.jpg",
+      "icon": "website.png",
       "description": "This portfolio website is built with various <abbr title=\"Open-Source Softwtare\">OSS</abbr> and itself is open-sourced on GitHub.",
       "ja": {
         "url": "https://junkato.jp/ja",
