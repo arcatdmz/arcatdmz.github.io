@@ -98,7 +98,7 @@ gulp.task('copy:devicon', function(){
 });
 
 gulp.task('replace:devicon', ['copy:devicon'], function(){
-  gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
+  return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
     .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
     .pipe(gulp.dest('build/stylesheets/'));
 });
