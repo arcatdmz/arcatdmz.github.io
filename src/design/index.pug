@@ -65,6 +65,9 @@ mixin portfolio()
       .item: .ui.basic.label
         i.paint.brush.icon
         | Graphic
+      .item: .ui.basic.label
+        i.wizard.icon
+        | User Interface
     .ui.clearing.divider
   .ui.basic.segment#songle-sync
     a.ui.small.left.floated.image(href=`${basePath}songle-sync`): img(src='/images/icons/songle-sync.png')
@@ -77,6 +80,9 @@ mixin portfolio()
       .item: .ui.basic.label
         i.paint.brush.icon
         | Graphic
+      .item: .ui.basic.label
+        i.wizard.icon
+        | User Interface
     .ui.clearing.divider
   .ui.basic.segment#tenju
     a.ui.small.left.floated.image(href='http://tenju.jp'): img(src='/images/icons/tenju.jpg')
@@ -158,14 +164,10 @@ mixin portfolio()
       .item: .ui.basic.label
         i.paint.brush.icon
         | Graphic
-      .item: .ui.basic.label
-        i.wizard.icon
-        | User Interface
     .ui.clearing.hidden.divider
     // Project CRENO
     // SCI
     // digitalmuseum
-    // CD jackets from http://digitalmuseum.jp/sound/
 
 mixin skillset()
   h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
