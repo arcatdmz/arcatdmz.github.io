@@ -294,7 +294,7 @@ mixin render-major-publication(entry)
       | #{en ? 'Copy to the clipboard' : 'クリップボードにコピー'}
 
 mixin render-project-card(p)
-  .card(id=`projects-${p.project}`, data-project=p.project)
+  .card(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
     a.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=basePath + p.project)
@@ -320,7 +320,7 @@ mixin render-project-card(p)
       - }
 
 mixin render-project-item(p)
-  .item(id=`projects-${p.project}`, data-project=p.project)
+  .item(id=p.project ? `projects-${p.project}` : undefined, , data-project=p.project)
     a.mobile.hidden.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=basePath + p.project)
@@ -350,6 +350,7 @@ mixin render-project-item(p)
         - }
         span.meta !{p.getTags(lang).join(' ')}
 
+doctype html
 html(lang='ja')
   block lang
     - var en = true, lang = 'en', basePath = '/';
