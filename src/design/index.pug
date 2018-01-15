@@ -54,109 +54,35 @@ mixin main-design()
 
 mixin portfolio()
   h2.ui.header #{en ? 'Portfolio' : 'ポートフォリオ'}
-  .ui.basic.segment#junkato
-    a.ui.small.left.floated.image(href=`${basePath}website`): img(src='/images/icons/website.png')
-    h3.ui.header junkato.jp web design
-    p Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href="/website">here</a>.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2018
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-      .item: .ui.basic.label
-        i.wizard.icon
-        | User Interface
-    .ui.clearing.divider
-  .ui.basic.segment#songle-sync
-    a.ui.small.left.floated.image(href=`${basePath}songle-sync`): img(src='/images/icons/songle-sync.png')
-    h3.ui.header Songle Sync brand design
-    p Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href="/songle-sync">the Songle Sync tutorial website</a> and <a href="https://github.com/SongleJp">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2017
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-      .item: .ui.basic.label
-        i.wizard.icon
-        | User Interface
-    .ui.clearing.divider
-  .ui.basic.segment#tenju
-    a.ui.small.left.floated.image(href='http://tenju.jp'): img(src='/images/icons/tenju.jpg')
-    h3.ui.header Tenju Works web design
-    p Helped renovation of <a href="http://tenju.jp">the Tenju Works website</a>. Customized multiple WordPress plugins to behave accordingly.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2017
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-    .ui.clearing.divider
-  .ui.basic.segment#ongacrest
-    .ui.small.left.floated.image: img(src='/images/icons/ongacrest.jpg')
-    h3.ui.header OngaCREST service flyer and poster design
-    p Designed flyers and posters of the four web services developed by <a href="https://ongacrest.jp/en/">the OngaCREST project</a>: <a href="http://songle.jp">Songle</a>, <a href="http://songrium.jp">Songrium</a>, <a href="http://textalive.jp">TextAlive</a>, and <a href="http://songmash.jp">Songmash</a>. The flyer was distributed at an international convention (<a href="https://no-maps.jp/en/about">No Maps 2016</a>) and other events and can be viewed as <a href="/design/nomaps2016-ongacrest-flyers.pdf">a PDF file</a>.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2016
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-    .ui.clearing.divider
-  .ui.basic.segment#f3js
-    a.ui.small.left.floated.image(href=`${basePath}f3js`): img(src='/images/icons/f3js.png')
-    h3.ui.header f3.js brand design
-    p Built a brand kit for <a href="/f3js">the f3.js research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Semantic UI CSS/JavaScript framework.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2016
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-      .item: .ui.basic.label
-        i.wizard.icon
-        | User Interface
-    .ui.clearing.divider
-  .ui.basic.segment#textalive
-    a.ui.small.left.floated.image(href=`${basePath}textalive`): img(src='/images/icons/textalive.jpg')
-    h3.ui.header TextAlive brand design
-    p Built a brand kit for <a href="/textalive"> the TextAlive research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Bootstrap CSS framework.
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | 2014
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-      .item: .ui.basic.label
-        i.wizard.icon
-        | User Interface
-    .ui.clearing.divider
-  .ui.basic.segment#cd-jackets
-    .ui.small.left.floated.image: img(src='/design/cd-jackets/conception-a.jpg')
-    h3.ui.header <abbr title="Compact Disc">CD</abbr> jacket design
-    p Designed multiple <abbr title="Compact Disc">CD</abbr> jackets. The following jackets are A/B sides of &quot;Project CRENO Conception&quot;, &quot;SUMMER.EXE&quot;, and &quot;gamma&quot;, respectively.
+  - const sortedProjects = [];
+  - for (const p of projects) {
+  - if (!p.isDesignProject()) continue;
+  - sortedProjects.push(p);
+  - }
+  - sortedProjects.sort(function(a, b){ return b.year.from - a.year.from; });
+  - for (const p of sortedProjects) {
+  .ui.basic.segment(id=p.project)
+    a.ui.small.left.floated.image(href=basePath+p.project): img(src=`/images/icons/${p.icon}`)
+    h3.ui.header !{p.getDesignTitle(lang)}
+    p !{p.getDesignDescription(lang)}
+    - if (p.images) {
     .ui.tiny.images
-      img.ui.image(src='/design/cd-jackets/conception-a.jpg')
-      img.ui.image(src='/design/cd-jackets/conception-b.jpg')
-      img.ui.image(src='/design/cd-jackets/summer.exe-a.jpg')
-      img.ui.image(src='/design/cd-jackets/summer.exe-b.jpg')
-      img.ui.image(src='/design/cd-jackets/gamma-a.jpg')
-      img.ui.image(src='/design/cd-jackets/gamma-b.jpg')
+      - for (const image of p.images) {
+      img.ui.image(src=image)
+      - }
+    - }
     .ui.horizontal.list
       .item: .ui.basic.label
         i.calendar.icon
-        | 2007-2008
-      .item: .ui.basic.label
-        i.paint.brush.icon
-        | Graphic
-    .ui.clearing.hidden.divider
+        | #{p.getYearString(lang)}
+      - const tags = p.getDesignTags(lang);
+      - if (tags.length > 0) {
+      - for (const tag of tags) {
+      .item !{tag}
+      - }
+      - }
+    .ui.clearing.divider
+  - }
     // Project CRENO
     // SCI
     // digitalmuseum

@@ -121,13 +121,13 @@ mixin projects()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Projects' : 'プロジェクト'}
-  h3.ui.header#recent-projects #{en ? 'Recent research projects' : '最近の研究プロジェクト'}
   block projects
-    p The following list only contains research projects. See 
+    p Below is the list of research projects, followed by the list of design and/or engineering projects. See 
       a(href='/design')
         i.paint.brush.icon
         | Design
       |  for the design-oriented list of my projects.
+  h3.ui.header#recent-projects #{en ? 'Recent research projects' : '最近の研究プロジェクト'}
   .ui.cards.projects#recent-projects-list
     - for (const p of recentProjects) {
     +render-project-card(p)
@@ -139,7 +139,7 @@ mixin projects()
     - if (p.category === 'committee' || p.category === 'private') continue; // skip committee and private projects
     +render-project-item(p)
     - }
-  h3.ui.header#private-projects #{en ? 'Private projects' : '趣味プロジェクト'}
+  h3.ui.header#private-projects #{en ? 'Private design and/or engineering projects' : '研究以外のプロジェクト'}
   .ui.segment: .ui.divided.items.projects#private-projects-list
     - for (const p of projects) {
     - if (p.category !== 'private') continue; // skip research projects

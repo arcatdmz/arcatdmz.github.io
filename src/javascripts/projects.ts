@@ -2,6 +2,7 @@
 import * as json from "../data/projects.json";
 const data: {
   tags: {[tag: string]: { title?: string; label: string; }},
+  "tags-design": {[tag: string]: { title?: string; icon: string; label: string; }},
   projects: RawEntry[]
 } = json.default ? json.default : json;
 
@@ -10,6 +11,7 @@ interface RawEntry {
   thumbnail?: string;
   icon?: string;
   tags?: string[];
+  "tags-design"?: string[];
   year: {
     from: number;
     to?: number;
@@ -17,15 +19,22 @@ interface RawEntry {
   category?: 'collaboration' | 'committee' | 'private';
   publication?: string;
   title: string;
+  "title-design"?: string;
   subtitle?: string;
   description: string;
+  "description-design"?: string;
   members: string[];
+  images?: string[];
+  url?: string;
   ja: {
     publication?: string;
     title?: string;
+    "title-design"?: string;
     subtitle?: string;
     description?: string;
+    "description-design"?: string;
     members?: string[];
+    url?: string;
   }
 }
 
@@ -61,14 +70,26 @@ class Entry {
   get title() {
     return this.data.title;
   }
+  get designTitle() {
+    return this.data['title-design'];
+  }
   get subtitle() {
     return this.data.subtitle;
   }
   get description() {
     return this.data.description;
   }
+  get designDescription() {
+    return this.data['description-design'];
+  }
   get members() {
     return this.data.members;
+  }
+  get images() {
+    return this.data.images;
+  }
+  get url() {
+    return this.data.url;
   }
   get ja() {
     return this.data.ja;
@@ -85,14 +106,33 @@ class Entry {
     }
     return `${this.data.year.from}-${to}`;
   }
+  isDesignProject() {
+    return Array.isArray(this.data.tags)
+        && this.data.tags.indexOf('design') >= 0;
+  }
   getTags(lang?: 'en'|'ja') {
     const results = [];
-    const tags = this.data.tags ? this.data.tags : [];
-   const dict = data.tags;
-    for (const tag of tags) {
-      const t = dict[tag];
-      if (!t) continue;
-      results.push(`<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`);
+    const tags = this.data.tags;
+    const dict = data.tags;
+    if (typeof tags !== 'undefined') {
+      for (const tag of tags) {
+        const t = dict[tag];
+        if (!t) continue;
+        results.push(`<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`);
+      }
+    }
+    return results;
+  }
+  getDesignTags(lang?: 'en'|'ja') {
+    const results = [];
+    const tags = this.data['tags-design'];
+    const dict = data['tags-design'];
+    if (typeof tags !== 'undefined') {
+      for (const tag of tags) {
+        const t = dict[tag];
+        if (!t) continue;
+        results.push(`<div class="ui basic label project design ${tag}" data-tag="${tag}"><i class="${t.icon} icon"></i>${t.label}</div>`);
+      }
     }
     return results;
   }
@@ -115,6 +155,16 @@ class Entry {
     }
     return this.data.title;
   }
+  hasDesignTitle(lang?: 'en'|'ja') {
+    return (lang === 'en' && this.data['title-design'])
+      || (lang === 'ja' && this.data.ja && this.data.ja['title-design']);
+  }
+  getDesignTitle(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja['title-design']) {
+      return this.data.ja['title-design'];
+    }
+    return this.data['title-design'];
+  }
   getSubtitle(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.subtitle) {
       return this.data.ja.subtitle;
@@ -126,6 +176,16 @@ class Entry {
       return this.data.ja.description;
     }
     return this.data.description;
+  }
+  hasDesignDescription(lang?: 'en'|'ja') {
+    return (lang === 'en' && this.data['description-design'])
+      || (lang === 'ja' && this.data.ja && this.data.ja['description-design']);
+  }
+  getDesignDescription(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja['description-design']) {
+      return this.data.ja['description-design'];
+    }
+    return this.data['description-design'];
   }
   hasMembers(lang?: 'en'|'ja') {
     return (lang === 'en' && this.data.members)

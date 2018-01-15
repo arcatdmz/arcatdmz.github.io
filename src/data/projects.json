@@ -25,19 +25,44 @@
     "toolkit": {
       "title": "User Interface Toolkit",
       "label": "Toolkit"
+    },
+    "design": {
+      "title": "Design &amp; Engineering",
+      "label": "Design"
+    }
+  },
+  "tags-design": {
+    "graphic": {
+      "title": "Graphic Design",
+      "icon": "paint brush",
+      "label": "Graphic"
+    },
+    "ui": {
+      "title": "User Interface Design",
+      "icon": "wizard",
+      "label": "User Interface"
     }
   },
   "projects": [
     {
       "project": "website",
       "url": "https://junkato.jp",
-      "title": "\"junkato.jp\" Website",
+      "title": "&quot;junkato.jp&quot; Website",
+      "title-design": "&quot;junkato.jp&quot; web design",
       "year": {
         "from": 2012
       },
       "category": "private",
       "icon": "website.png",
+      "tags": [
+        "design"
+      ],
+      "tags-design": [
+        "graphic",
+        "ui"
+      ],
       "description": "This portfolio website is built with various <abbr title=\"Open-Source Softwtare\">OSS</abbr> and itself is open-sourced on GitHub.",
+      "description-design": "Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href=\"/website\">here</a>.",
       "ja": {
         "url": "https://junkato.jp/ja",
         "title": "\"junkato.jp\" Webサイト",
@@ -79,13 +104,20 @@
       "tags": [
         "creativity",
         "music",
-        "ide"
+        "ide",
+        "design"
+      ],
+      "tags-design": [
+        "graphic",
+        "ui"
       ],
       "year": {
         "from": 2017
       },
       "title": "Songle Sync Tutorial",
+      "title-design": "Songle Sync brand design",
       "description": "An interactive tutorial for the Songle Sync <abbr title=\"Application Programming Interface\">API</abbr> that allows controlling numerous devices in synchrony with the songs.",
+      "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"/songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
       "ja": {
         "description": "多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title=\"Application Programming Interface\">API</abbr>のためのインタラクティブなチュートリアルです。"
       }
@@ -97,14 +129,21 @@
       "tags": [
         "physical",
         "creativity",
-        "ide"
+        "ide",
+        "design"
+      ],
+      "tags-design": [
+        "graphic",
+        "ui"
       ],
       "year": {
         "from": 2015
       },
       "publication": "dis2017-kato-f3js",
       "title": "f3.js",
+      "title-design": "f3.js brand design",
       "description": "A parametric design tool for physical computing devices for both interaction designers and end-users.",
+      "description-design": "Built a brand kit for <a href=\"/f3js\">the f3.js research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Semantic UI CSS/JavaScript framework.",
       "ja": {
         "description": "<abbr title=\"Internet of Things\">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。"
       }
@@ -116,20 +155,35 @@
       "tags": [
         "creativity",
         "music",
-        "ide"
+        "ide",
+        "design"
+      ],
+      "tags-design": [
+        "graphic",
+        "ui"
       ],
       "year": {
         "from": 2014
       },
       "publication": "chi2015-kato-textalive",
       "title": "TextAlive",
+      "title-design": "TextAlive brand design",
       "subtitle": "An Integrated Design Environment for kinetic typography",
       "description": "An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.",
-      "members": ["Jun Kato", "Tomoyasu Nakano", "Masataka Goto"],
+      "description-design": "Built a brand kit for <a href=\"/textalive\"> the TextAlive research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Bootstrap CSS framework.",
+      "members": [
+        "Jun Kato",
+        "Tomoyasu Nakano",
+        "Masataka Goto"
+      ],
       "ja": {
         "subtitle": "ウェブ上の楽曲と歌詞を用いたKinetic Typographyのための統合制作環境",
         "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。",
-        "members": ["加藤 淳", "中野 倫靖", "後藤真孝"]
+        "members": [
+          "加藤 淳",
+          "中野 倫靖",
+          "後藤真孝"
+        ]
       }
     },
     {
@@ -336,6 +390,52 @@
       "description": "Multi-touch Interface for Controlling Multiple Mobile Robots"
     },
     {
+      "project": "tenju",
+      "title": "Tenju Works web design",
+      "title-design": "Tenju Works web design",
+      "year": {
+        "from": 2017,
+        "to": 2017
+      },
+      "tags": [
+        "design"
+      ],
+      "tags-design": [
+        "graphic"
+      ],
+      "category": "private",
+      "thumbnail": "tenju.jpg",
+      "icon": "tenju.jpg",
+      "description": "Helped renovation of the Tenju Works website.",
+      "description-design": "Helped renovation of <a href=\"http://tenju.jp\">the Tenju Works website</a>. Customized multiple WordPress plugins to behave accordingly.",
+      "ja": {
+        "title": "Tenju Works Webデザイン"
+      }
+    },
+    {
+      "project": "ongacrest-flyers",
+      "title": "OngaCREST service flyer and poster design",
+      "title-design": "OngaCREST service flyer and poster design",
+      "year": {
+        "from": 2016,
+        "to": 2016
+      },
+      "tags": [
+        "design"
+      ],
+      "tags-design": [
+        "graphic"
+      ],
+      "category": "private",
+      "thumbnail": "ongacrest-flyers.jpg",
+      "icon": "ongacrest-flyers.jpg",
+      "description": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>.",
+      "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events and can be viewed as <a href=\"/design/nomaps2016-ongacrest-flyers.pdf\">a PDF file</a>.",
+      "ja": {
+        "title": "OngaCREST関連デザイン"
+      }
+    },
+    {
       "project": "homehack",
       "title": "Home hacking",
       "year": {
@@ -376,6 +476,34 @@
       "category": "private",
       "thumbnail": "intelliviewer.jpg",
       "description": "IntelliViewer: Hierarchical Source Code Viewer on Adaptive Keyboard"
+    },
+    {
+      "project": "cd-jackets",
+      "title": "<abbr title=\"Compact Disc\">CD</abbr> jacket design",
+      "title-design": "<abbr title=\"Compact Disc\">CD</abbr> jacket design",
+      "year": {
+        "from": 2007,
+        "to": 2008
+      },
+      "tags": [
+        "design"
+      ],
+      "tags-design": [
+        "graphic"
+      ],
+      "category": "private",
+      "thumbnail": "cd-jackets.jpg",
+      "icon": "cd-jackets.jpg",
+      "description": "Designed multiple <abbr title=\"Compact Disc\">CD</abbr> jackets.",
+      "description-design": "Designed multiple <abbr title=\"Compact Disc\">CD</abbr> jackets. The following jackets are A/B sides of &quot;Project CRENO Conception&quot;, &quot;SUMMER.EXE&quot;, and &quot;gamma&quot;, respectively.",
+      "images": [
+        "/design/cd-jackets/conception-a.jpg",
+        "/design/cd-jackets/conception-b.jpg",
+        "/design/cd-jackets/summer.exe-a.jpg",
+        "/design/cd-jackets/summer.exe-b.jpg",
+        "/design/cd-jackets/gamma-a.jpg",
+        "/design/cd-jackets/gamma-b.jpg"
+      ]
     },
     {
       "url": "http://digitalmuseum.jp/software/chippie/",
