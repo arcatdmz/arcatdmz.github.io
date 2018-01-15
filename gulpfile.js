@@ -16,6 +16,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const fs = require('fs');
 const bibtexParse = require('bibtex-parse-js');
+const htmlhint = require("gulp-htmlhint")
 
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
@@ -124,6 +125,12 @@ function compilePug(stream) {
     }))
     .pipe(gulp.dest('dist/'));
 }
+
+gulp.task('lint:html', function() {
+  return gulp.src('dist/**/*.html')
+    .pipe(htmlhint())
+	  .pipe(htmlhint.failAfterError())
+});
 
 function setupLocals() {
   const options = JSON.parse(fs.readFileSync('./build/data/website.json'))
