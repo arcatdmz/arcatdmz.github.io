@@ -276,7 +276,7 @@ mixin render-major-publication(entry)
       | #{entry.entryTags.series}
     - }
   h4.ui.header #{entry.entryTags.title}
-  .ui.list
+  .ui.list.meta
     .item.authors
       i.users.icon
       .content
@@ -291,6 +291,27 @@ mixin render-major-publication(entry)
     .item.award
       i.trophy.icon
       .content: strong #{entry.entryTags.addition}
+    - }
+  .ui.horizontal.divided.list.extra
+    - if (entry.entryTags.pdf) {
+    a.item(href=)
+      i.text.file.icon
+      | #{en ? 'Paper PDF' : '論文PDF'}
+    - }
+    - if (entry.entryTags.poster) {
+    a.item(href=entry.entryTags.poster)
+      i.image.file.icon
+      | #{en ? 'Poster PDF' : 'ポスターPDF'}
+    - }
+    - if (entry.entryTags.slides) {
+    a.item(href=entry.entryTags.slides)
+      i.powerpoint.file.outline.icon
+      | #{en ? 'Slides PDF' : 'スライドPDF'}
+    - }
+    - if (entry.hasDOIUrl()) {
+    a.item(href=entry.getDOIUrl())
+      i.barcode.icon
+      | #{en ? 'Resolve DOI' : 'DOIを照会'}
     - }
   .ui.form: .field.bibtex
     label BibTeX:
