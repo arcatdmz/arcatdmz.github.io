@@ -25,6 +25,9 @@ $('.sidebar-button').on('click touch', (ev) => {
   return false;
 });
 
+// initialize embed
+$('#body .ui.embed').embed();
+
 // initialize dropdown menus
 $('.ui.dropdown').dropdown();
 

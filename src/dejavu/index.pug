@@ -35,26 +35,28 @@ block main
           h3.ui.header UIST 2012 Demo Video
           +embed-youtube('//www.youtube.com/embed/k5USoB7ZPPk')
         .column
-          h3.ui.header UIST 2012 Slides
-          .ui.embed: iframe(src=publicationsTable[p.publication].entryTags.slides, frameborder='0', allowfullscreen)
+          h3.ui.header UIST 2012 Slides (
+            a(href=publicationsTable[p.publication].entryTags.slides) #{ja ? 'ダウンロード' : 'Download'}
+            | )
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
   .ui.hidden.divider
   section#overview
     h2.ui.header DejaVu <abbr title="Integrated Development Environment">IDE</abbr>
     .ui.basic.segment
       p We added two interlinked components to a general purpose development environment.
       .ui.stackable.two.columns.grid
-        .four.wide.column
-          h3.ui.header Canvas
-          a.ui.fluid.image(href='/dejavu/fig4-canvas.png')
+        .six.wide.column
+          p: a.ui.fluid.image(href='/dejavu/fig4-canvas.png')
             img(src='/dejavu/fig4-canvas.png', alt='Canvas', width='570')
+          p: a.ui.fluid.image(href='/dejavu/fig6-timeline.png')
+            img(src='/dejavu/fig6-timeline.png', alt='Timeline', width='570')
+        .ten.wide.column
+          h3.ui.header Canvas
           ul
             li Visualizing various variable contents by drag-and-drop
             li Continuously showing camera input, variable contents, window output
             li Sketching capability
-        .twelve.wide.column
           h3.ui.header Timeline
-          a.ui.fluid.image(href='/dejavu/fig6-timeline.png')
-            img(src='/dejavu/fig6-timeline.png', alt='Timeline', width='570')
           ul
             li Auto-recording, replaying (input streams) &amp; refreshing (variables) to handle non-reproducible input
             li Contents synchronized with canvas

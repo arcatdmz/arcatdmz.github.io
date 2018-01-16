@@ -36,8 +36,10 @@ block main
             | )
           +embed-youtube('https://www.youtube.com/embed/lOdt-pf5U8Q')
         .column
-          h3.ui.header CHI 2015 Slides
-          .ui.embed: iframe(src=publicationsTable[p.publication].entryTags.slides, frameborder='0', allowfullscreen)
+          h3.ui.header CHI 2015 Slides (
+            a(href=publicationsTable[p.publication].entryTags.slides) #{ja ? 'ダウンロード' : 'Download'}
+            | )
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
   .ui.hidden.divider
   section#examples
     h2.ui.header #{en ? 'Example videos' : '作例'}
