@@ -1,8 +1,8 @@
 /// <reference path='./typings.d.ts' />
 import * as json from "../data/projects.json";
 const data: {
-  tags: {[tag: string]: { title?: string; label: string; }},
-  "tags-design": {[tag: string]: { title?: string; icon: string; label: string; }},
+  tags: { [tag: string]: { title?: string; label: string; ja?: { title?: string; } } },
+  "tags-design": { [tag: string]: { title?: string; icon: string; label: string; ja?: { title?: string; } } },
   projects: RawEntry[]
 } = json.default ? json.default : json;
 
@@ -131,7 +131,8 @@ class Entry {
       for (const tag of tags) {
         const t = dict[tag];
         if (!t) continue;
-        results.push(`<div class="ui basic label project design ${tag}" data-tag="${tag}"><i class="${t.icon} icon"></i>${t.label}</div>`);
+        const tagTitle = lang === 'ja' && t.ja && t.ja.title ? t.ja.title : t.title;
+        results.push(`<div class="ui basic label project design ${tag}" data-tag="${tag}" title=${tagTitle}><i class="${t.icon} icon"></i>${t.label}</div>`);
       }
     }
     return results;

@@ -2,14 +2,20 @@
   "tags": {
     "creativity": {
       "title": "Creativity Support",
-      "label": "Creativity"
+      "label": "Creativity",
+      "ja": {
+        "title": "創作支援"
+      }
     },
     "music": {
       "title": "Human-Music Interaction",
       "label": "Music"
     },
     "ide": {
-      "label": "<abbr title=\"Integrated Development Environment\">IDE</abbr>"
+      "label": "<abbr title=\"Integrated Development Environment\">IDE</abbr>",
+      "ja": {
+        "title": "統合開発環境"
+      }
     },
     "physical": {
       "title": "Physical Computing",
@@ -24,23 +30,35 @@
     },
     "toolkit": {
       "title": "User Interface Toolkit",
-      "label": "Toolkit"
+      "label": "Toolkit",
+      "ja": {
+        "title": "ツールキット"
+      }
     },
     "design": {
-      "title": "Design &amp; Engineering",
-      "label": "Design"
+      "title": "Design",
+      "label": "Design",
+      "ja": {
+        "title": "デザイン"
+      }
     }
   },
   "tags-design": {
     "graphic": {
       "title": "Graphic Design",
       "icon": "paint brush",
-      "label": "Graphic"
+      "label": "Graphic",
+      "ja": {
+        "title": "グラフィックデザイン"
+      }
     },
     "ui": {
       "title": "User Interface Design",
       "icon": "wizard",
-      "label": "User Interface"
+      "label": "User Interface",
+      "ja": {
+        "title": "インタフェースデザイン"
+      }
     }
   },
   "projects": [

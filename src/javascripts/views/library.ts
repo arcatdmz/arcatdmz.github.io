@@ -113,8 +113,14 @@ if ($tagLink.length > 0) {
 function listProjectsByTag(projects: any, tag: string, currentProject: string) {
   const entries = projects.default;
   const tags = projects.tags;
-  var $popupContent = $('<div class="ui hidden popup project tag"><div class="header"></div><div class="content"><p></p><div class="ui divided list"></div></div></div>');
-  $popupContent.find('.header').html(tags[tag].title ? tags[tag].title : tags[tag].label);
+  const $popupContent = $('<div class="ui hidden popup project tag"><div class="header"></div><div class="content"><p></p><div class="ui divided list"></div></div></div>');
+  var tagTitle;
+  if (lang === 'ja' && tags[tag].ja && tags[tag].ja.title) {
+    tagTitle = tags[tag].ja.title;
+  } else {
+    tagTitle = tags[tag].title ? tags[tag].title : tags[tag].label;
+  }
+  $popupContent.find('.header').html(tagTitle);
   const $list = $popupContent.find('.ui.list');
   var count = 0;
   for (const p of entries) {
@@ -129,7 +135,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
     count ++;
   }
   $popupContent.find('p').html(lang === 'ja'
-      ? (count > 0 ? `以下のプロジェクトも<strong>${tags[tag].label}</strong>に関するものです。` : `他に<strong>${tags[tag].label}</strong>に関するプロジェクトはありません。`)
+      ? (count > 0 ? `以下のプロジェクトも<strong>${tagTitle}</strong>に関するものです。` : `他に<strong>${tagTitle}</strong>に関するプロジェクトはありません。`)
       : (count > 0 ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.` : `No other project is tagged with <strong>${tags[tag].label}</strong>.`))
   setSmoothScroll($list.find('a'));
   return $popupContent;
