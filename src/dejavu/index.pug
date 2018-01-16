@@ -1,135 +1,62 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title DejaVu | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href='/#about') Profile
-            li.active
-              a(href='/#projects') Projects
-            li
-              a(href='/publications/') Awards & Publications
-            li
-              a(href='/fun/') Fun
-            li
-              a(href='/#contact') Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/ja/dejavu/')
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 DejaVu: Integrated Support for Developing Interactive Camera-Based Programs
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '12
-          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
-            i.glyphicon.glyphicon-tag
-            | IDE
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.icon-folder-open.icon-white
-            | ACM UIST '12
-        p.alert.alert-info
-          b For those interested in this IDE:
-          | Unfortunately, there's no short term plan for the distribution.
-      section
-        h2 Abstract
-        .row
-          .col-md-6
-            p The increasing popularity of interactive camera-based programs highlights the inadequacies of conventional IDEs in developing these programs given their distinctive attributes and workflows. We present DejaVu, an IDE enhancement that eases the development of these programs by enabling programmers to visually and continuously monitor program data in consistency with the frame-based pipeline of computer-vision programs; and to easily record, review, and reprocess temporal data to iteratively improve the processing of non-reproducible camera input. DejaVu was positively received by three experienced programmers of interactive camera-based programs in our preliminary user trial.
-            p
-              | This research was done during my internship at Microsoft Research Asia
-              a(href='http://research.microsoft.com/hci') HCI Group
-              | . My mentors were
-              a(href='http://research.microsoft.com/en-us/people/xiangc/') Xiang Cao
-              | and
-              a(href='http://research.microsoft.com/people/smcdirm/') Sean McDirmid
-              | .
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/k5USoB7ZPPk', frameborder='0', allowfullscreen='')
-        h2 DejaVu IDE
-        p We added two interlinked components to a general purpose development environment.
-        .row
-          .col-md-6
-            h3 Canvas
-            ul
-              li Visualizing various variable contents by drag-and-drop
-              li Continuously showing camera input, variable contents, window output
-              li Sketching capability
-            a.thumbnail(href='/dejavu/fig4-canvas.png')
-              img(src='/dejavu/fig4-canvas.png', alt='Canvas', width='570')
-          .col-md-6
-            h3 Timeline
-            ul
-              li Auto-recording, replaying (input streams) & refreshing (variables) to handle non-reproducible input
-              li Contents synchronized with canvas
-            a.thumbnail(href='/dejavu/fig6-timeline.png')
-              img(src='/dejavu/fig6-timeline.png', alt='Timeline', width='570')
-      section
-        h2 Publication
-        ul
-          li#uist2012-kato-dejavu(data-numpages='8')
-            u Jun Kato
-            | , Sean McDirmid, Xiang Cao,
-            b "DejaVu: Integrated Support for Developing Interactive Camera-Based Programs"
-            | , In
-            i UIST '12: Proceedings of the 25th annual ACM symposium on User Interface Software and Technology
-            | . pp.189-196, Oct. 2012.
-            .btn-group.biblinks
-              a(href='http://doi.acm.org/10.1145/2380116.2380142')
-                i.glyphicon.glyphicon-barcode
-                abbr(title='Digital Object Identifier') DOI
-              a(href='http://junkato.jp/publications/uist2012-kato-dejavu.pdf')
-                i.glyphicon.glyphicon-file
-                | PDF
-              a(href='http://junkato.jp/publications/uist2012-kato-dejavu-poster.pdf')
-                i.glyphicon.glyphicon-file
-                | Poster
-              a(href='http://junkato.jp/publications/uist2012-kato-dejavu-slides.pdf')
-                i.glyphicon.glyphicon-play-circle
-                | Slides
-              a(href='http://junkato.jp/dejavu/')
-                i.glyphicon.glyphicon-info-sign
-                | Website
-            a.bibtex BibTeX
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href='/ja/dejavu/')
-            | 日本語
-            i.translation.icon-ja
+extends ../_layout
+
+block vars
+  - var p = projectsTable['dejavu']
+  - var title = p.getTitle(lang);
+  - var me = p.project + '/';
+
+block main
+  +render-project-header('dejavu')
+  .ui.message
+    strong For those interested in this IDE:
+    |  Unfortunately, there's no short term plan for the distribution. You can still use 
+    a(href='https://msdn.microsoft.com/en-us/library/hh855389.aspx') Kinect Studio
+    |  that partially provides similar features (recording and replaying data stream) though without tight integration with the IDE.
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header
+      .content #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      p The increasing popularity of interactive camera-based programs highlights the inadequacies of conventional IDEs in developing these programs given their distinctive attributes and workflows. We present DejaVu, an IDE enhancement that eases the development of these programs by enabling programmers to visually and continuously monitor program data in consistency with the frame-based pipeline of computer-vision programs; and to easily record, review, and reprocess temporal data to iteratively improve the processing of non-reproducible camera input. DejaVu was positively received by three experienced programmers of interactive camera-based programs in our preliminary user trial.
+      p
+        | This research was done during my internship at Microsoft Research Asia 
+        a(href='http://research.microsoft.com/hci') HCI Group
+        | . My mentors were 
+        a(href='https://scholar.google.com/citations?user=XprSyesAAAAJ&hl=en') Xiang Cao
+        |  and 
+        a(href='https://scholar.google.com/citations?user=EFCqkUsAAAAJ&hl=en') Sean McDirmid
+        | .
+  .ui.hidden.divider
+  section#presentations
+    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header UIST 2012 Demo Video
+          +embed-youtube('//www.youtube.com/embed/k5USoB7ZPPk')
+        .column
+          h3.ui.header UIST 2012 Slides
+          .ui.embed: iframe(src=publicationsTable[p.publication].entryTags.slides, frameborder='0', allowfullscreen)
+  .ui.hidden.divider
+  section#overview
+    h2.ui.header DejaVu <abbr title="Integrated Development Environment">IDE</abbr>
+    .ui.basic.segment
+      p We added two interlinked components to a general purpose development environment.
+      .ui.stackable.two.columns.grid
+        .four.wide.column
+          h3.ui.header Canvas
+          a.ui.fluid.image(href='/dejavu/fig4-canvas.png')
+            img(src='/dejavu/fig4-canvas.png', alt='Canvas', width='570')
+          ul
+            li Visualizing various variable contents by drag-and-drop
+            li Continuously showing camera input, variable contents, window output
+            li Sketching capability
+        .twelve.wide.column
+          h3.ui.header Timeline
+          a.ui.fluid.image(href='/dejavu/fig6-timeline.png')
+            img(src='/dejavu/fig6-timeline.png', alt='Timeline', width='570')
+          ul
+            li Auto-recording, replaying (input streams) &amp; refreshing (variables) to handle non-reproducible input
+            li Contents synchronized with canvas
+  .ui.hidden.divider
+  +render-project-publications('dejavu', 'uist2012-kato-dejavu')

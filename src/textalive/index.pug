@@ -31,12 +31,13 @@ block main
     .ui.basic.segment
       .ui.stackable.two.columns.grid
         .column
-          h3.ui.header CHI 2015 fast-forward (
+          h3.ui.header CHI 2015 Fast-forward (
             a(href='https://www.youtube.com/watch?v=ofczPQZaWMk&t=29s') full version
             | )
           +embed-youtube('https://www.youtube.com/embed/lOdt-pf5U8Q')
         .column
-          h3.ui.header 
+          h3.ui.header CHI 2015 Slides
+          .ui.embed: iframe(src=publicationsTable[p.publication].entryTags.slides, frameborder='0', allowfullscreen)
   .ui.hidden.divider
   section#examples
     h2.ui.header #{en ? 'Example videos' : '作例'}

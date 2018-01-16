@@ -298,6 +298,7 @@
     {
       "project": "dejavu",
       "title": "DejaVu",
+      "subtitle": "Integrated Support for Developing Interactive Camera-Based Programs",
       "year": {
         "from": 2012,
         "to": 2012
