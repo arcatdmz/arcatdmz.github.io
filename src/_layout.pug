@@ -401,11 +401,13 @@ mixin render-project-item(p)
 doctype html
 html(lang='ja')
   block lang
-    - var en = true, lang = 'en', basePath = rootPath;
+    - var lang = 'en';
+  - var en = lang === 'en';
+  - var basePath = en ? rootPath : `${rootPath}ja/`;
   - var author = en ? 'Jun Kato' : '加藤 淳';
   - var imageUrl = defaultImageUrl;
   - var description = en ? defaultDescription : defaultJapaneseDescription;
-  - var me, bodyClass = undefined;
+  - var me, title, bodyClass = undefined;
   block vars
     - me = '';
   head
