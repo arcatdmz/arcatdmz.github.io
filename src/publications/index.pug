@@ -9,15 +9,17 @@ block main
   .left-rail
     +publications-menu()
   .right-content
-    h1.ui.header#awards
-      i.trophy.icon
-      .content #{en ? 'Awards' : '受賞歴'}
-    +awards()
+    section#awards
+      h1.ui.header
+        i.trophy.icon
+        .content #{en ? 'Awards' : '受賞歴'}
+      +awards()
     .ui.hidden.divider
-    h1.ui.header#publications
-      i.book.icon
-      .content #{en ? 'Publications' : '発表文献'}
-    +publications()
+    section#publications
+      h1.ui.header
+        i.book.icon
+        .content #{en ? 'Publications' : '発表文献'}
+      +publications()
 
 block post-footer
   a.ui.circular.icon.popup-menu.large.grey.hidden.button

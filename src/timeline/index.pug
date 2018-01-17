@@ -30,65 +30,69 @@ mixin timeline-menu()
     - }
 
 mixin timeline()
-  h1.ui.header
-    i.history.icon
-    .content #{title}
-  block description
-    p This page shows updates to the website as well as 
-      a(href='/publications')
-        i.book.icon
-        | publication records
-      |  in their chronological order.
+  section
+    h1.ui.header
+      i.history.icon
+      .content #{title}
+    block description
+      p This page shows updates to the website as well as 
+        a(href='/publications')
+          i.book.icon
+          | publication records
+        |  in their chronological order.
   - var i = 0, year = new Date().getFullYear();
   - while (i < histories[lang].length) {
   - const y = year;
-  h2.ui.header(id=y) #{en ? y : `${y}年`}
-  h3.ui.header(id=`${y}-updates`) #{en ? 'Updates' : '更新情報'}
-  .ui.segment
-    .ui.divided.feed
-      - var i_ = i;
-      - while (i < histories[lang].length) {
-      - const entry = histories[lang][i];
-      - if (entry.date.getFullYear() !== year) {
-      - year = entry.date.getFullYear();
-      - break;
-      - }
-      .event: .content
-        .date #{entry.getDateString(lang)}
-        .summary !{entry.text}
-      - i ++;
-      - }
-      - if (i === i_) {
-      .event: .content
-        .content
-          .summary #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
-      - }
-  h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
-  .ui.segment
-    .ui.divided.list
-      - var p = 0;
-      - for (const entry of publications) {
-      - if (!entry.entryTags) continue;
-      - if (en && entry.entryTags.language === 'japanese') continue;
-      - if (entry.entryTags.year != y) continue;
-      - p ++;
-      +render-publication(entry)
-      - }
-      - if (p === 0) {
-      .item
-        i.info.circle.icon
-        .content #{en ? 'No publication record found in this year.' : '発表文献はありません。'}
-      - }
   .ui.hidden.divider
+  section(id=y)
+    h2.ui.header #{en ? y : `${y}年`}
+    h3.ui.header(id=`${y}-updates`) #{en ? 'Updates' : '更新情報'}
+    .ui.segment
+      .ui.divided.feed
+        - var i_ = i;
+        - while (i < histories[lang].length) {
+        - const entry = histories[lang][i];
+        - if (entry.date.getFullYear() !== year) {
+        - year = entry.date.getFullYear();
+        - break;
+        - }
+        .event: .content
+          .date #{entry.getDateString(lang)}
+          .summary !{entry.text}
+        - i ++;
+        - }
+        - if (i === i_) {
+        .event: .content
+          .content
+            .summary #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
+        - }
+    h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
+    .ui.segment
+      .ui.divided.list
+        - var p = 0;
+        - for (const entry of publications) {
+        - if (!entry.entryTags) continue;
+        - if (en && entry.entryTags.language === 'japanese') continue;
+        - if (entry.entryTags.year != y) continue;
+        - p ++;
+        +render-publication(entry)
+        - }
+        - if (p === 0) {
+        .item
+          i.info.circle.icon
+          .content #{en ? 'No publication record found in this year.' : '発表文献はありません。'}
+        - }
   - }
   - const y = --year;
-  h2.ui.header(id=y) #{en ? `${y} and before` : `${y}年とそれ以前`}
-  h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
-  .ui.segment
-    .ui.divided.list
-      - for (const entry of publications) {
-      - if (!entry.entryTags) continue;
-      - if (en && entry.entryTags.language === 'japanese') continue;
-      - if (parseInt(entry.entryTags.year) > y) continue;
-      +render-publication(entry)
-      - }
+  .ui.hidden.divider
+  section(id=y)
+    h2.ui.header #{en ? `${y} and before` : `${y}年とそれ以前`}
+    h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
+    .ui.segment
+      .ui.divided.list
+        - for (const entry of publications) {
+        - if (!entry.entryTags) continue;
+        - if (en && entry.entryTags.language === 'japanese') continue;
+        - if (parseInt(entry.entryTags.year) > y) continue;
+        +render-publication(entry)
+        - }

@@ -138,7 +138,7 @@ class Entry {
     return results;
   }
   hasPublication(lang?: 'en'|'ja') {
-    return (lang === 'en' && this.data.publication)
+    return (this.data.publication)
       || (lang === 'ja' && this.data.ja && this.data.ja.publication);
   }
   getPublication(lang?: 'en'|'ja') {
