@@ -1,175 +1,143 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Phybots | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/phybots/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Phybots: A Toolkit for Prototyping Robotic Things
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '09-12
-          span.label.label-info(rel='tooltip', data-original-title='Prototyping Toolkit')
-            i.glyphicon.glyphicon-tag
-            | Toolkit
-          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
-            i.glyphicon.glyphicon-tag
-            | Robot
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM DIS '12
-        .alert.alert-info
-          | Phybots is open-source and available at
-          a(href='http://phybots.com/') http://phybots.com/
-          | .
-      section
-        h2 Abstract
-        .row
-          .col-md-8
+extends ../_layout
+
+block vars
+  - p = projectsTable['phybots']
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('phybots')
+  .ui.message
+    block message
+      | Phybots is open-source at 
+      a(href='https://github.com/arcatdmz/phybots/') GitHub
+      |  and can be downloaded at 
+      a(href='http://phybots.com/') http://phybots.com
+      | .
+  .ui.hidden.divider
+  section#abstract
+    .ui.basic.segment
+      .ui.stackable.grid
+        .ten.wide.column
+          h2.ui.header #{en ? 'Abstract' : '概要'}
+          block abstract
             p There are many toolkits for physical UIs, but most physical UI applications are not locomotive. When the programmer wants to make things move around in the environment, he faces difficulty related to robotics. Toolkits for robot programming, unfortunately, are usually not as accessible as those for building physical UIs.
-            p
-              | To address this interdisciplinary issue, we propose Phybots, a toolkit that allows researchers and interaction designers to rapidly prototype applications with locomotive robotic things. The contributions of this research are the combination of a hardware setup, software API, its underlying architecture and a graphical runtime debug tool that supports the whole prototyping activity.
-              a(href='http://junkato.jp/publications/dis2012-kato-phybots.pdf') The paper
-              | introduces the toolkit, applications and lessons learned from three user studies.
-          .col-md-4
-            a.thumbnail(href=`${rootPath}phybots/fig1-overview.jpg`)
-              img(src=`${rootPath}phybots/fig1-overview.jpg`, alt='Overview of hardware setup for Phybots')
-      section
-        .row
-          .col-md-6
-            h2 APIs for 2D Locomotion
-            p Phybots assumes a simple and inexpensive hardware setup of a camera looking down on the floor and visual markers attached to the top of physical objects. This hardware setup can easily be deployed to everyday spaces such as a working desk, a dining table or in a kitchen or living room. Given the hardware setup, Phybots provides APIs for two-dimensional localization and locomotion of floor-based robotic things. These APIs are similar to those for graphical applications in which object positions are defined by screen coordinates, and support moving to a goal, pushing an object toward a goal, tracing a path, and other custom behavior by specifying a vector field.
-            h2 Centralized and Extensible Architecture
-            p
-              | Phybots APIs are built on top of a centralized and extensible software architecture that runs on one personal computer and manages all physical objects of interest including cameras, robotic things, and entities with visual markers. The programmer has direct access to these objects as instances of the
-              i Camera
-              | ,
-              i Robot
-              | and
-              i Entity
-              | interfaces, respectively. Time-consuming tasks including locomotion APIs are represented by Task interface. The toolkit can be easily extended on top of these software stacks to support other types of sensors, roobts, and tasks. In addition, a
-              i Workflow
-              | class represents a directed graph consisting of a set of
-              i Robot
-              | and
-              i Task
-              | instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel.
-            h2 Runtime Debug Tool
-            p
-              | Phybots provides a
-              i runtime debug tool
-              | that supports a test phase, beyond the programming phase, as an essential part of the prototyping process. In the robot application test phase, when the robot fails to accomplish its task, the user usually has to order the same task to be performed again. Because it is too costly to restart a test run for each error, the programmer often wants to fix the error right away without restarting. To support this workflow, a graphical
-              i runtime debug tool
-              | enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.
-            .thumbnail
-              .caption
-                h4 Runtime debug tools
-              img(src=`${rootPath}phybots/debug-tools.png`)
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/iFrNOQiw0Go', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><div class="caption"><h4>Selected applications from the user studies</h4></div><a href="#{rootPath}phybots/robotic-things.jpg"><img src="#{rootPath}phybots/robotic-things.jpg" width="570" alt="Robotic Things"></a><br><iframe width="100%" height="360" src="//www.youtube.com/embed/cMyOY4FJuDc?list=PL5EC9CECDDBEA183A&amp;hl=en_US" frameborder="0" allowfullscreen>
-            .thumbnail
-              .caption
-                h4 Comparison between toolkits
-              table.table.table-bordered
-                thead
-                  tr
-                    th Toolkits for:
-                    th Physical UIs
-                    th Phybots
-                    th Robots
-                tbody
-                  tr
-                    th Target users:
-                    td(colspan='2') HCI researchers & interaction designers
-                    td Robotics people
-                  tr
-                    th Focus:
-                    td(colspan='2') Prototyping
-                    td Reliability
-                  tr
-                    th Software APIs:
-                    td Low-level and static
-                    td(colspan='2') High-level and extensible
-                  tr
-                    th Hardware size & cost:
-                    td(colspan='2')
-                      | Small & cheap (Phidget Kit $200,
-                      a(href='http://www.inmojo.com/store/inmojo-market/item/ikimo-robot-platform/') Ikimo Robot
-                      | $160)
-                    td Medium to large & expensive ($700-)
-      section
-        h2 Publications
-        ul
-          li#dis2012-kato-phybots(data-numpages='10')
-            u Jun Kato
-            | , Daisuke Sakamoto, Takeo Igarashi,
-            b "Phybots: A Toolkit for Making Robotic Things"
-            | , In
-            i DIS '12: Proceedings of the 9th conference on Designing Interactive Systems
-            | . pp.248-257, Jun. 2012.
-            .btn-group.biblinks
-              a(href='http://doi.acm.org/10.1145/2317956.2317996')
-                i.glyphicon.glyphicon-barcode
-                abbr(title='Digital Object Identifier') DOI
-              a(href='http://junkato.jp/publications/dis2012-kato-phybots.pdf')
-                i.glyphicon.glyphicon-file
-                | PDF
-              a(href='http://junkato.jp/publications/dis2012-kato-phybots-slides.pdf')
-                i.glyphicon.glyphicon-play-circle
-                | Slides
-              a(href='http://phybots.com/')
-                i.glyphicon.glyphicon-info-sign
-                | Website
-            a.bibtex BibTeX
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/phybots/`)
-            | 日本語
-            i.translation.icon-ja
+            p To address this interdisciplinary issue, we propose Phybots, a toolkit that allows researchers and interaction designers to rapidly prototype applications with locomotive robotic things. The contributions of this research are the combination of a hardware setup, software API, its underlying architecture and a graphical runtime debug tool that supports the whole prototyping activity.
+            p The paper introduces the toolkit, applications and lessons learned from three user studies.
+        .six.wide.column
+          a.ui.fluid.image(href=`${rootPath}phybots/fig1-overview.jpg`)
+            img(src=`${rootPath}phybots/fig1-overview.jpg`, alt='Overview of hardware setup for Phybots')
+  .ui.hidden.divider
+  section#presentations
+    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header Example applications
+          +embed-youtube('https://www.youtube.com/embed/videoseries?list=PL5EC9CECDDBEA183A')
+          .caption: .ui.horizontal.list
+            .item
+              a(href='//www.youtube.com/playlist?list=PL5EC9CECDDBEA183A')
+                i.youtube.icon
+                | YouTube
+        .column
+          h3.ui.header DIS 2012 #{en ? 'Slides' : '発表スライド'}
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
+          .caption: .ui.horizontal.list
+            .item
+              a(href=publicationsTable[p.publication].entryTags.slides)
+                i.download.icon
+                | #{en ? 'Download' : 'ダウンロード'}
+          - if (!en) {
+          p.caption 日本語の発表スライドは
+            a(href='#publications')
+              i.book.icon
+              | 発表文献
+            | で日本語文献の 
+            i.sidebar.fitted.icon
+            |  をクリックすると閲覧できます。
+          - }
+  .ui.hidden.divider
+  section#toolkit
+    h2.ui.header #{en ? 'Phybots Toolkit' : 'Phybots ツールキット'}
+    .ui.basic.segment
+      block comparison
+        table.ui.fluid.table
+          thead
+            tr
+              th Toolkits for:
+              th Physical UIs
+              th.center.aligned Phybots
+              th.right.aligned Robots
+          tbody
+            tr
+              td: strong Target users:
+              td.positive(colspan='2') HCI researchers &amp; interaction designers
+              td.negative.right.aligned Robotics people
+            tr
+              td: strong Focus:
+              td.positive(colspan='2') Prototyping
+              td.negative.right.aligned Reliability
+            tr
+              td: strong Software APIs:
+              td.negative Low-level and static
+              td.positive.right.aligned(colspan='2') High-level and extensible
+            tr
+              td: strong Hardware size &amp; cost:
+              td.positive(colspan='2')
+                | Small &amp; cheap (Phidget Kit $200, 
+                a(href='http://www.inmojo.com/store/inmojo-market/item/ikimo-robot-platform/') Ikimo Robot
+                |  $160)
+              td.negative.right.aligned Medium to large &amp; expensive ($700-)
+        .caption Comparison between toolkits
+      .ui.hidden.divider
+      .ui.stackable.three.columns.grid
+        .column
+          h3.ui.header #{en ? 'APIs for 2D Locomotion' : '平面上での移動指示のためのAPI'}
+          p Phybots assumes a simple and inexpensive hardware setup of a camera looking down on the floor and visual markers attached to the top of physical objects. This hardware setup can easily be deployed to everyday spaces such as a working desk, a dining table or in a kitchen or living room.
+          p Given the hardware setup, Phybots provides APIs for two-dimensional localization and locomotion of floor-based robotic things. These APIs are similar to those for graphical applications in which object positions are defined by screen coordinates, and support moving to a goal, pushing an object toward a goal, tracing a path, and other custom behavior by specifying a vector field.
+          p: +translate('phybots/index.pug')
+        .column
+          h3.ui.header #{en ? 'Centralized and Extensible Architecture' : '中央集権・拡張容易なアーキテクチャ'}
+          p Phybots APIs are built on top of a centralized and extensible software architecture that runs on one personal computer and manages all physical objects of interest.
+          p The programmer has direct access to these objects including cameras, robotic things, and entities with visual markers as instances of the 
+            i Camera
+            | , 
+            i Robot
+            |  and 
+            i Entity
+            |  interfaces, respectively. Time-consuming tasks including locomotion APIs are represented by 
+            i Task
+            |  interface.
+          p The toolkit can be easily extended on top of these software stacks to support other types of sensors, roobts, and tasks. In addition, a 
+            i Workflow
+            |  class represents a directed graph consisting of a set of 
+            i Robot
+            |  and 
+            i Task
+            |  instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel.
+          p: +translate('phybots/index.pug')
+        .column
+          h3.ui.header #{en ? 'Runtime Debug Tool' : 'ランタイムデバッグツール'}
+          p Phybots provides a 
+            i runtime debug tool
+            |  that supports a test phase, beyond the programming phase, as an essential part of the prototyping process.
+          p In the robot application test phase, when the robot fails to accomplish its task, the user usually has to order the same task to be performed again. Because it is too costly to restart a test run for each error, the programmer often wants to fix the error right away without restarting.
+          p To support this workflow, a graphical 
+            i runtime debug tool
+            |  enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.
+          p: +translate('phybots/index.pug')
+      .ui.hidden.divider
+      p
+        a.ui.fluid.image(href=`${rootPath}phybots/debug-tools.png`)
+          img(src=`${rootPath}phybots/debug-tools.png`)
+      .caption #{en ? 'Overview of the Phybots runtime debug tool' : 'ランタイムデバッグツールの概観'}
+  - if (!en) {
+  .ui.hidden.divider
+  section#vision
+    h2.ui.header 未来ビジョン
+    .ui.basic.segment
+      block vision
+  - }
+  .ui.hidden.divider
+  +render-project-publications('phybots', 'dis2012-kato-phybots')

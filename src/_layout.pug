@@ -167,11 +167,14 @@ mixin footer()
 mixin embed-youtube(src)
   .ui.embed: iframe(src=src, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen)
 
+mixin translate(path)
+  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/junkato.jp/blob/master/src/${path}`, data-content='翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります') 翻訳が必要
+
 mixin render-project-header(project)
   - const p = projectsTable[project]
   section
     h1.ui.header !{title}
-      .sub.header #{p.getSubtitle(lang)}
+      .sub.header !{p.getSubtitle(lang)}
     .ui.horizontal.divided.list
       - if (p.hasMembers()) for (member of p.getMembers(lang)) {
       .item #{member}
