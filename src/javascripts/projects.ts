@@ -164,7 +164,10 @@ class Entry {
     if (lang === 'ja' && this.data.ja && this.data.ja['title-design']) {
       return this.data.ja['title-design'];
     }
-    return this.data['title-design'];
+    if (lang === 'en' && this.data['title-design']) {
+      return this.data['title-design'];
+    }
+    return this.getTitle(lang);
   }
   getSubtitle(lang?: 'en'|'ja') {
     if (lang === 'ja' && this.data.ja && this.data.ja.subtitle) {
@@ -186,7 +189,10 @@ class Entry {
     if (lang === 'ja' && this.data.ja && this.data.ja['description-design']) {
       return this.data.ja['description-design'];
     }
-    return this.data['description-design'];
+    if (lang === 'en' && this.data['description-design']) {
+      return this.data['description-design'];
+    }
+    return this.getDescription(lang);
   }
   hasMembers(lang?: 'en'|'ja') {
     return (lang === 'en' && this.data.members)
