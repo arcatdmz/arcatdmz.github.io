@@ -1,6 +1,6 @@
 {
   "protocol": "https",
-  "domain": "junkato.jp",
+  "domain": "junkato.digitalmuseum.jp",
   "rootPath": "/",
   "defaultImageUrl": "http://junkato.digitalmuseum.jp/images/thumbnails/website.png",
   "defaultDescription": "Research and design portfolio website of Dr. Jun Kato, introducing past projects, publications, and so on.",

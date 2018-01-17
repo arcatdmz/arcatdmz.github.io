@@ -3,6 +3,20 @@
 - }
 
 mixin head()
+  - if (!description) {
+  - if (p) {
+  - description = p.getDescription(lang);
+  - } else {
+  - description = en ? defaultDescription : defaultJapaneseDescription;
+  - }
+  - }
+  - if (!imageUrl) {
+  - if (p) {
+  - imageUrl = `${protocol}://${domain}${rootPath}images/thumbnails/${p.thumbnail}`;
+  - } else {
+  - imageUrl = defaultImageUrl;
+  - }
+  - }
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   title #{title} | junkato.jp
@@ -405,9 +419,7 @@ html(lang='ja')
   - var en = lang === 'en';
   - var basePath = en ? rootPath : `${rootPath}ja/`;
   - var author = en ? 'Jun Kato' : '加藤 淳';
-  - var imageUrl = defaultImageUrl;
-  - var description = en ? defaultDescription : defaultJapaneseDescription;
-  - var me, title, bodyClass = undefined;
+  - var me, p, title, description, imageUrl, bodyClass = undefined;
   block vars
     - me = '';
   head

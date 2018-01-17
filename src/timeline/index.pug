@@ -69,15 +69,15 @@ mixin timeline()
     h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
     .ui.segment
       .ui.divided.list
-        - var p = 0;
+        - var pub = 0;
         - for (const entry of publications) {
         - if (!entry.entryTags) continue;
         - if (en && entry.entryTags.language === 'japanese') continue;
         - if (entry.entryTags.year != y) continue;
-        - p ++;
+        - pub ++;
         +render-publication(entry)
         - }
-        - if (p === 0) {
+        - if (pub === 0) {
         .item
           i.info.circle.icon
           .content #{en ? 'No publication record found in this year.' : '発表文献はありません。'}
