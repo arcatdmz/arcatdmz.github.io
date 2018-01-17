@@ -92,6 +92,12 @@ block main
             dd wait for the specified time at the end of this action.
             dt <strong>ActionResult</strong> Action.play()
             dd play this action.
-  block extra
+  - if (!en) {
+  .ui.hidden.divider
+  section#vision
+    h2.ui.header 未来ビジョン
+    .ui.basic.segment
+      block extra
+  - }
   .ui.hidden.divider
   +render-project-publications('picode', 'chi2013-kato-picode')
