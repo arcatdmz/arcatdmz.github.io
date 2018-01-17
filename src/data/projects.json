@@ -241,6 +241,7 @@
       "subtitle": "To-Do List Interface for Human-Agent Task Sharing",
       "description": "A to-do list interface for sharing tasks between human and agents including robots and software personal assistants.",
       "ja": {
+        "subtitle": "TODOリストによる人&mdash;ロボット間のタスク共有インタフェース",
         "description": "ロボットにユーザと同等の権限を与えて、ユーザとロボットの間でタスクの分業を行えるようにしたTODOリスト共有インタフェースです。"
       }
     },
@@ -318,6 +319,7 @@
       "thumbnail": "picode.jpg",
       "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> that shows inline photos representing posture data in source code. It manages the data binding between the photos and posture data and show photos to aid source code comprehension and editing.",
       "ja": {
+        "subtitle": "ソースコードに写真を貼り込める統合開発環境",
         "description": "人やロボットの姿勢データを写真と紐づけて管理し、ソースコード中に写真を貼り込める統合開発環境です。ソースコードを直感的に理解できるようになるほか、初学者でも写真撮影を通してプログラムの振る舞いを変えられます。"
       }
     },
@@ -376,6 +378,7 @@
       "thumbnail": "phybots.jpg",
       "description": "A toolkit that allows researchers and interaction designers to rapidly prototype applications with locomotive robotic things.",
       "ja": {
+        "subtitle": "日用品にモビリティを付与するプロトタイピング用ツールキット",
         "description": "ロボット工学の専門知識を持たないHCI研究者やインタラクションデザイナーでも、生活空間を動き回れる&quot;Robotic Things&quot;&mdash;ロボット的なるもの&mdash;をプロトタイピングできるツールキットです。"
       }
     },
@@ -413,6 +416,7 @@
       "thumbnail": "pressing.jpg",
       "description": "A &quot;pressure-sensitive&quot; programming environment with visual feedbacks of the built-in 2D physical simulator.",
       "ja": {
+        "subtitle": "打鍵の強さで出力が変わるビジュアルインタプリタ",
         "description": "プログラムの実行結果がソースコード入力時のキーの打鍵圧に影響を受ける統合開発環境です。メソッド呼び出しを強く打鍵すると物理シミュレーション上でボールが速く動いたりします。"
       }
     },
@@ -453,6 +457,7 @@
       "thumbnail": "multirobot.jpg",
       "description": "A multi-touch interface with a top-down view from a ceiling-mounted camera for simultaneously controlling multiple mobile robots.",
       "ja": {
+        "title": "複数台の移動型ロボットを操作するためのマルチタッチインタフェース",
         "description": "机上に見下ろし映像が投影され、その上で複数台の移動ロボットを同時に制御できるマルチタッチ入力インタフェースです。個々のロボットに指示出しする代わりに、環境側に流れを描いてたくさんのロボットを「流す」ことができます。"
       }
     },
