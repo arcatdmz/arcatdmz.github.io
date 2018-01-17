@@ -170,7 +170,7 @@ mixin embed-youtube(src)
 mixin translate(path)
   a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/junkato.jp/blob/master/src/${path}`, data-content='翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります') 翻訳が必要
 
-mixin render-project-header(project)
+mixin render-project-header(project, additionalLabels)
   - const p = projectsTable[project]
   section
     h1.ui.header !{title}
@@ -184,11 +184,13 @@ mixin render-project-header(project)
           i.calendar.icon
           | #{p.getYearString(lang)}
       - if (p.hasPublication(lang)) {
-      - const pub = publicationsTable[p.getPublication(lang)];
-      .item
-        span.ui.green.tiny.basic.label
-          i.student.icon
-          | !{pub ? pub.getSeriesTag() : 'undefined'}
+      .item: +render-project-label(p)
+      - }
+      - if (typeof additionalLabels === 'string') {
+      - additionalLabels = [additionalLabels];
+      - }
+      - if (Array.isArray(additionalLabels)) for (additionalLabel of additionalLabels) {
+      .item !{additionalLabel}
       - }
       - const tags = p.getTags(lang);
       - if (tags.length > 0) {
@@ -398,15 +400,7 @@ mixin render-project-item(p)
           i.calendar.icon
           | #{p.getYearString(lang)}
         - if (p.category !== 'private' && p.category !== 'committee') {
-        - if (p.hasPublication(lang)) {
-        - const pubKey = p.getPublication(lang);
-        - const pub = publicationsTable[pubKey];
-        span.ui.green.tiny.basic.label
-          i.student.icon
-          | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
-        - } else {
-        span #{en ? '(Work in progress)' : '(文献未発表)'}
-        - }
+        +render-project-label(p)
         - }
         - if (p.category === 'collaboration') {
         span.ui.tiny.basic.label
@@ -414,6 +408,17 @@ mixin render-project-item(p)
           | #{en ? 'Co-authored' : '共著'}
         - }
         span.meta !{p.getTags(lang).join(' ')}
+
+mixin render-project-label(p)
+  - if (p.hasPublication(lang)) {
+  - const pubKey = p.getPublication(lang);
+  - const pub = publicationsTable[pubKey];
+  span.ui.green.tiny.basic.label
+    i.student.icon
+    | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
+  - } else {
+  span #{en ? '(Work in progress)' : '(文献未発表)'}
+  - }
 
 doctype html
 html(lang='ja')

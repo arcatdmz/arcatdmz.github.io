@@ -1,193 +1,110 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title OpenPool | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    link(href='http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css', rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/openpool/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 OpenPool: Open-source Billiard Table as an Interactive Surface
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '12-13
-          span.label.label-info(rel='tooltip')
-            i.glyphicon.glyphicon-tag
-            | Toolkit
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | SxSW '13 Gaming Expo, Trade Show
-        .alert.alert-info
-          | OpenPool is a collaborative open-source project developed at
-          a(href='http://github.com/openpool/openpool-core') GitHub
-          | . The official site is
-          a(href='http://www.openpool.cc/') openpool.cc
-          | .
-      section
-        h2 Abstract
-        .row
-          .col-sm-8.col-md-9
-            p
-              | People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus
-              a(href='#ppp') [1]
-              | , a novel way of augmenting ping pong table with a set of microphone array in 1999. The project later became an open-source project in 2011
-              a(href='#pppp') [2]
-              | , which needed some soldering to be deployed. We walk the same line with PingPongPlus, but with a billiard table and off-the-shelf hardware products.
-            p In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/openpool.jpg`, alt='OpenPool')
-      section
-        .row
-          .col-md-6
-            h2 Implementation
-            p OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac.
-            p Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail.
-            h3 OpenPool core library
-            pre.prettyprint.linenums.
-              OpenPool op = new OpenPool(this);
+extends ../_layout
 
-              op.updateBalls();
-              for (int i = 0; i < op.balls; i ++) {
-                Ball ball = op.balls[i];
-                ellipse(ball.x, ball.y, 10, 10);
-                if (ball.prev != null) {
-                  line(ball.x, ball.y, ball.prev.x, ball.prev.y);
-                }
-              }
-            p Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.
-            p The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.
-            h3 OpenPool pocket detection library
-            pre.prettyprint.linenums.
-              OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");
-              p.start();
+block vars
+  - p = projectsTable['openpool']
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
 
-              int[] pockets = p.getPockets();
-              for (int i = 0; i < pockets.length; i++) {
-                if (pockets[i] > 0) {
-                  print(pockets[i]);
-                  print(" balls fell in the pocket no.");
-                  println(i + 1);
-                }
-              }
-            p With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket.
-            p To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.
-          .col-md-6
-            .thumbnail
-              iframe(src='https://www.facebook.com/video/embed?video_id=608850275796418', width='100%', height='315', frameborder='0', allowfullscreen='')
-            .thumbnail
-              iframe(src='https://www.facebook.com/video/embed?video_id=614971478517631', width='100%', height='315', frameborder='0', allowfullscreen='')
-            .thumbnail
-              iframe(src='https://www.facebook.com/video/embed?video_id=615808058433973', width='100%', height='315', frameborder='0', allowfullscreen='')
-      section
-        h2 Related Work
-        ol
-          li#ppp
-            a(href='http://tangible.media.mit.edu/project/pingpongplus/') PingPongPlus
-          li#pppp
-            a(href='http://pppp.media.mit.edu/') PingPong++
-        h2 Publication
-        ul
-          li#gcce2013-kato-openpool(data-numpages='2')
-            u Jun Kato
-            | , Takashi Nakashima, Hideki Takeoka, Kazunori Ogasawara, Kazuma Murao, Toshinari Shimokawa, Masaaki Sugimoto,
-            b "OpenPool: Community-based Prototyping of Digitally-augmented Billiard Table"
-            | , In
-            i GCCE '13: Proceedings of the 2nd IEEE Global Conference on Consumer Electronics
-            | . pp.175-176, Oct. 2013.
-            .btn-group.biblinks
-              a(href='http://dx.doi.org/10.1109/GCCE.2013.6664790')
-                i.glyphicon.glyphicon-barcode
-                abbr(title='Digital Object Identifier') DOI
-              a(href='http://junkato.jp/publications/gcce2013-kato-openpool.pdf')
-                i.glyphicon.glyphicon-file
-                | PDF
-              a(href='http://junkato.jp/publications/gcce2013-kato-openpool-slides.pdf')
-                i.glyphicon.glyphicon-play-circle
-                | Slides
-            a.bibtex BibTeX
-        h2#press Press Coverage
-        .row
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://www.engadget.com/2013/03/09/openpool/', title='engadget')
-              img(width='150', height='45', src='http://www.openpool.cc/wp-content/uploads/engadget-150x45.jpg', alt='engadget')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://gizmodo.com/OpenPool/', title='Gizmodo')
-              img(width='150', height='21', src='http://www.openpool.cc/wp-content/uploads/Gizmodo-150x21.png', alt='Gizmodo')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://austin.culturemap.com/newsdetail/03-13-13-the-5-coolest-things-at-the-sxswi-trade-show/', title='austin')
-              img(width='150', height='28', src='http://www.openpool.cc/wp-content/uploads/austin-150x28.png', alt='austin')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://blog.laptopmag.com/openpool-lets-fish-and-lights-dance-and-play-with-moving-objects', title='laptop')
-              img(width='150', height='49', src='http://www.openpool.cc/wp-content/uploads/laptop.png', alt='laptop')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://www.techhive.com/article/2030378/five-highlights-from-the-sxsw-gaming-expo.html', title='techhive')
-              img(width='150', height='49', src='http://www.openpool.cc/wp-content/uploads/techhive.png', alt='techhive')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://blip.tv/dargadgetz/openpool-open-source-super-billiards-at-sxsw-2013-6551425', title='blip')
-              img(width='150', height='76', src='http://www.openpool.cc/wp-content/uploads/blip.png', alt='blip')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://gearburn.com/2013/03/7-of-the-best-gadgets-of-sxsw/', title='gearburn')
-              img(width='150', height='33', src='http://www.openpool.cc/wp-content/uploads/gearburn.png', alt='gearburn')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://www.jeuxvideo.org/index.php/2013/03/14/kinect-un-projecteur-et-un-billard-openpool/', title='jeuxvideo')
-              img(width='150', height='41', src='http://www.openpool.cc/wp-content/uploads/jeuxvideo.png', alt='jeuxvideo')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://www.roclay.com/techbuzz/openpool-change-your-billiards-game-with-kinects-camera-controlled-lights', title='qclay')
-              img(width='150', height='48', src='http://www.openpool.cc/wp-content/uploads/qclay.png', alt='qclay')
-          .col-xs-3.col-sm-4.col-md-4
-            a.thumbnail(href='http://www.thecoolgeek.net/openpool-transforms-billiards-with-a-kinect-camera-controlled-light-show/', title='thecoolgeek')
-              img(width='150', height='33', src='http://www.openpool.cc/wp-content/uploads/thecoolgeek.png', alt='thecoolgeek')
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/openpool/`)
-            | 日本語
-            i.translation.icon-ja
+block main
+  +render-project-header('openpool', '<span class="ui tiny green basic label"><i class="student icon"></i>SxSW \'13 Gaming Expo, Trade Show</span>')
+  .ui.message
+    block message
+      | OpenPool is a collaborative open-source project developed at 
+      a(href='http://github.com/openpool/openpool-core') GitHub
+      | . The official site is 
+      a(href='http://www.openpool.cc/') openpool.cc
+      | .
+  .ui.hidden.divider
+  .ui.stackable.two.columns.grid
+    .column: +body()
+    .column: +videos()
+  .ui.hidden.divider
+  +render-project-publications('openpool', 'gcce2013-kato-openpool')
+
+mixin body()
+  section#abstract
+    h2.ui.header #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus
+          a(href='#ppp') [1]
+          | , a novel way of augmenting ping pong table with a set of microphone array in 1999. The project later became an open-source project in 2011
+          a(href='#pppp') [2]
+          | , which needed some soldering to be deployed. We walk the same line with PingPongPlus, but with a billiard table and off-the-shelf hardware products.
+        p In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.
+  .ui.hidden.divider
+  section#implementation
+    h2.ui.header #{en ? 'Implementation' : '実装'}
+    .ui.basic.segment
+      p OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac.
+      p Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail.
+      h3 OpenPool core library
+      pre.prettyprint.linenums.
+        OpenPool op = new OpenPool(this);
+
+        op.updateBalls();
+        for (int i = 0; i &lt; op.balls; i ++) {
+          Ball ball = op.balls[i];
+          ellipse(ball.x, ball.y, 10, 10);
+          if (ball.prev != null) {
+            line(ball.x, ball.y, ball.prev.x, ball.prev.y);
+          }
+        }
+      p Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.
+      p The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.
+      h3 OpenPool pocket detection library
+      pre.prettyprint.linenums.
+        OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");
+        p.start();
+
+        int[] pockets = p.getPockets();
+        for (int i = 0; i &lt; pockets.length; i++) {
+          if (pockets[i] &gt; 0) {
+            print(pockets[i]);
+            print(" balls fell in the pocket no.");
+            println(i + 1);
+          }
+        }
+      p With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket.
+      p To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.
+
+mixin videos()
+  section#videos
+    .ui.embed: iframe(src='https://www.facebook.com/video/embed?video_id=608850275796418', frameborder='0', allowfullscreen='')
+    .caption Playing 8 ball pool with OpenPool
+    .ui.hidden.divider
+    .ui.embed: iframe(src='https://www.facebook.com/video/embed?video_id=614971478517631', frameborder='0', allowfullscreen='')
+    .caption Collision detection between balls and virtual objects
+    .ui.hidden.divider
+    .ui.embed: iframe(src='https://www.facebook.com/video/embed?video_id=615808058433973', frameborder='0', allowfullscreen='')
+    .caption Animation effect triggered by an OpenPool pocket detection sensor
+  .ui.divider
+  section#press
+  h2.ui.header Press Coverage
+  .ui.basic.segment: .ui.horizontal.list
+    a.item(href='http://www.engadget.com/2013/03/09/openpool/', title='engadget')
+      img.ui.small.image(width='150', height='45', src='http://www.openpool.cc/wp-content/uploads/engadget-150x45.jpg', alt='engadget')
+    a.item(href='http://gizmodo.com/OpenPool/', title='Gizmodo')
+      img.ui.small.image(width='150', height='21', src='http://www.openpool.cc/wp-content/uploads/Gizmodo-150x21.png', alt='Gizmodo')
+    a.item(href='http://austin.culturemap.com/newsdetail/03-13-13-the-5-coolest-things-at-the-sxswi-trade-show/', title='austin')
+      img.ui.small.image(width='150', height='28', src='http://www.openpool.cc/wp-content/uploads/austin-150x28.png', alt='austin')
+    a.item(href='http://blog.laptopmag.com/openpool-lets-fish-and-lights-dance-and-play-with-moving-objects', title='laptop')
+      img.ui.small.image(width='150', height='49', src='http://www.openpool.cc/wp-content/uploads/laptop.png', alt='laptop')
+    a.item(href='http://www.techhive.com/article/2030378/five-highlights-from-the-sxsw-gaming-expo.html', title='techhive')
+      img.ui.small.image(width='150', height='49', src='http://www.openpool.cc/wp-content/uploads/techhive.png', alt='techhive')
+    a.item(href='http://blip.tv/dargadgetz/openpool-open-source-super-billiards-at-sxsw-2013-6551425', title='blip')
+      img.ui.small.image(width='150', height='76', src='http://www.openpool.cc/wp-content/uploads/blip.png', alt='blip')
+    a.item(href='http://gearburn.com/2013/03/7-of-the-best-gadgets-of-sxsw/', title='gearburn')
+      img.ui.small.image(width='150', height='33', src='http://www.openpool.cc/wp-content/uploads/gearburn.png', alt='gearburn')
+    a.item(href='http://www.jeuxvideo.org/index.php/2013/03/14/kinect-un-projecteur-et-un-billard-openpool/', title='jeuxvideo')
+      img.ui.small.image(width='150', height='41', src='http://www.openpool.cc/wp-content/uploads/jeuxvideo.png', alt='jeuxvideo')
+    a.item(href='http://www.roclay.com/techbuzz/openpool-change-your-billiards-game-with-kinects-camera-controlled-lights', title='qclay')
+      img.ui.small.image(width='150', height='48', src='http://www.openpool.cc/wp-content/uploads/qclay.png', alt='qclay')
+    a.item(href='http://www.thecoolgeek.net/openpool-transforms-billiards-with-a-kinect-camera-controlled-light-show/', title='thecoolgeek')
+      img.ui.small.image(width='150', height='33', src='http://www.openpool.cc/wp-content/uploads/thecoolgeek.png', alt='thecoolgeek')
+  .ui.divider
+  section#related-work
+    h2.ui.header Related Work
+    ol
+      li#ppp: a(href='http://tangible.media.mit.edu/project/pingpongplus/') PingPongPlus
+      li#pppp: a(href='http://pppp.media.mit.edu/') PingPong++
