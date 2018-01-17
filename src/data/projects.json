@@ -253,8 +253,9 @@
       "description": "VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications"
     },
     {
-      "project": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html",
+      "project": "capstudio",
       "title": "CapStudio",
+      "subtitle": "An Interactive Screencast for Visual Application Development",
       "year": {
         "from": 2012,
         "to": 2014
@@ -265,11 +266,12 @@
       "category": "collaboration",
       "publication": "chi2014-fukahori-capstudio",
       "thumbnail": "capstudio.jpg",
-      "description": "CapStudio: An Interactive Screencast for Visual Application Development",
+      "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> for visual applications that shows interactive screencasts for replaying program executions and editing visual parameters.",
       "ja": {
         "project": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio.html",
-        "description": "CapStudio: プログラムの実行画面の録画映像を利用した統合開発環境"
-      }
+        "description": "ゲームなどの視覚的なアプリケーション開発において、プログラム実行画面の録画映像を表示し、さらに参照している画像リソースなどを編集して動的に確認できる統合開発環境です。"
+      },
+      "url": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html"
     },
     {
       "project": "touchdevelop",

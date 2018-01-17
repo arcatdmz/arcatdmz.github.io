@@ -33,7 +33,7 @@ mixin sidebar()
         a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
         .ui.divider
         - for (const p of recentProjects) {
-        a.item(href=basePath + p.project)
+        a.item(href=p.getLink(lang, basePath))
           - if (p.icon) {
           img.ui.avatar.image(src=`/images/icons/${p.icon}`)
           - }
@@ -82,7 +82,7 @@ mixin header()
           - if (recentProjects.indexOf(p) < 0) continue;
           //- - if (p.category === 'committee' || p.category === 'private') continue;
           //- - if ((p.year.to || p.year.from) < 2012) continue;
-          a.item(href=basePath + p.project) !{p.getTitle(lang)}
+          a.item(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
           - }
           .ui.divider
           a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
@@ -249,7 +249,7 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - if (withProjectLabel) {
             - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
             - const p = projectsTable[entry.entryTags.project];
-            a.ui.tiny.basic.red.label(href=basePath + p.project)
+            a.ui.tiny.basic.red.label(href=p.getLink(lang, basePath))
               i.lab.icon
               | !{p.getTitle(lang)}
             - }
@@ -322,9 +322,9 @@ mixin render-major-publication(entry)
 
 mixin render-project-card(p)
   .card(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
-    a.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
+    a.image(href=p.getLink(lang, basePath)): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
-      a.header(href=basePath + p.project)
+      a.header(href=p.getLink(lang, basePath))
         - if (p.icon) {
         img.ui.avatar.image(src=`/images/icons/${p.icon}`)
         - }
@@ -348,9 +348,9 @@ mixin render-project-card(p)
 
 mixin render-project-item(p)
   .item(id=p.project ? `projects-${p.project}` : undefined, , data-project=p.project)
-    a.mobile.hidden.image(href=basePath + p.project): img(src=`/images/thumbnails/${p.thumbnail}`)
+    a.mobile.hidden.image(href=p.getLink(lang, basePath)): img(src=`/images/thumbnails/${p.thumbnail}`)
     .content
-      a.header(href=basePath + p.project)
+      a.header(href=p.getLink(lang, basePath))
         - if (p.icon) {
         img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
         - }
@@ -362,10 +362,11 @@ mixin render-project-item(p)
           | #{p.getYearString(lang)}
         - if (p.category !== 'private' && p.category !== 'committee') {
         - if (p.hasPublication(lang)) {
-        - const pub = publicationsTable[p.getPublication(lang)];
+        - const pubKey = p.getPublication(lang);
+        - const pub = publicationsTable[pubKey];
         span.ui.green.tiny.basic.label
           i.student.icon
-          | !{pub ? pub.getSeriesTag() : 'undefined'}
+          | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
         - } else {
         span #{en ? '(Work in progress)' : '(文献未発表)'}
         - }

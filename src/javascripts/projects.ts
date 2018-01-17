@@ -204,6 +204,14 @@ class Entry {
   getMembersTags(lang?: 'en'|'ja') {
     return namesToHTML(this.getMembers(lang));
   }
+  getUrl(lang?: 'en'|'ja') {
+    if (lang === 'ja' && this.data.ja && this.data.ja.url) return this.data.ja.url;
+    return this.data.url;
+  }
+  getLink(lang: 'en'|'ja', basePath: string) {
+    const url = this.getUrl(lang);
+    return url ? url : basePath + this.data.project;
+  }
 }
 
 export function namesToHTML(namesArr: string[]) {
