@@ -19,13 +19,6 @@ block main
           | The experimental implementation is available at 
           a(href='http://www.sharedo.info') http://www.sharedo.info
           | . You can sign in with your Twitter account and share to-do lists with the shopping agent and the media content agent.
-  - if (!en) {
-  .ui.hidden.divider
-  section#vision
-    h2.ui.header 未来ビジョン
-    .ui.basic.segment
-      block vision
-  - }
   .ui.hidden.divider
   section#presentations
     h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
@@ -56,5 +49,12 @@ block main
             i.sidebar.fitted.icon
             |  をクリックすると閲覧できます。
           - }
+  - if (!en) {
+  .ui.hidden.divider
+  section#vision
+    h2.ui.header 未来ビジョン
+    .ui.basic.segment
+      block vision
+  - }
   .ui.hidden.divider
   +render-project-publications('sharedo', 'hai2014-kato-sharedo')
