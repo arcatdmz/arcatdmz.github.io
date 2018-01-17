@@ -1,0 +1,45 @@
+extends ../../website/index
+
+block lang
+  - var lang = 'ja';
+
+block design
+  p このWebサイトは、ユーザビリティ、メンテナンスのしやすさ、そして速度を念頭に設計されています。
+  .ui.hidden.divider
+  .ui.stackable.three.columns.grid
+    .column
+      h3.ui.header
+        i.user.icon
+        | ユーザビリティ
+      .ui.basic.segment
+        p このWebサイトは
+          a(href='https://semantic-ui.com') Semantic UI
+          |  CSSフレームワークを利用して作られており、さまざまな閲覧環境を想定したレスポンシブデザインとなっています。
+        p また、色はモノトーンを基調としてアクセントカラーにアドニスブルーを採用し、肝心の内容が引き立つよう控え目に配色されています。
+    .column
+      h3.ui.header
+        i.configure.icon
+        | メンテナンスのしやすさ
+      .ui.basic.segment
+        p
+          a(href='#code') 下で詳しく触れているように
+          | 、Webサイトは専用に開発されたデータ構造を持ち、データが更新されるたびに動的にビルドされるようにできています。
+        p このビルドパイプラインにより、メンテナンスとテストが容易になっています。
+    .column
+      h3.ui.header
+        i.plane.icon
+        | 速度
+      .ui.basic.segment
+        p このWebサイトはほとんどが静的なHTML/CSSファイルからなっており、サーバ側でも、クライアント側でも、画面に描画される前に必要な処理が少なくて済むように設計されています。
+        p 唯一の例外は、読み込みに多少時間のかかるWebフォント
+          a(href='https://fonts.google.com/specimen/Fira+Sans') Fira
+          | と
+          a(href='https://googlefonts.github.io/japanese/#notosansjapanese') Noto
+          | ですが、これは綺麗なタイポグラフィのためには外せないものです。
+
+block code
+  p このWebサイトはほとんどが静的なHTML/CSS/JavaScriptファイルの塊です。そうしたファイルは、<a href="https://github.com/arcatdmz/junkato.jp"><i class="github icon"></i>GitHub</a>リポジトリのmasterブランチに何かがpushされるたび、コードとデータをもとにビルドされています。ビルドパイプラインは<a href="travis-ci.org/arcatdmz/junkato.jp/builds">Travis <abbr title="Continuous Integration">CI</abbr></a>上で実行されています。
+  p ビルド中は、以下のファイルの内容が何度も参照されています。もし似たようなWebサイトを作ってみたい場合、データ構造を参考にしてみてください。また、このポートフォリオ上の情報を機械的に処理したい場合にも使えるかもしれません。
+
+block acknowledgement
+  p このWebサイトはさまざまな<abbr title="Open-Source Software">OSS</abbr>プロジェクトを利用して開発されています。<a href="https://github.com/arcatdmz/junkato.jp#readme">README.md</a>に書いてあるように、以下のツール、ライブラリ、プログラミング言語が主に使われています。その他も含めたすべての依存ライブラリの一覧は<a href="https://github.com/arcatdmz/junkato.jp/blob/master/package.json">package.json</a>をご覧ください。
