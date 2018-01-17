@@ -10,8 +10,8 @@ html(lang='en')
     title Realmote | Homehack | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,18 +29,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/homehack/realmote/')
+              a(href=`${rootPath}ja/homehack/realmote/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -59,21 +59,21 @@ html(lang='en')
         .alert.alert-info This page is under construction.
         ul.nav.nav-tabs
           li
-            a(href='/homehack/') Overview
+            a(href=`${rootPath}homehack/`) Overview
           li
-            a(href='/homehack/fungus-camera/')
+            a(href=`${rootPath}homehack/fungus-camera/`)
               | Fungus Camera
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12-13
           li
-            a(href='/homehack/rhythm-kaden/')
+            a(href=`${rootPath}homehack/rhythm-kaden/`)
               | Rhythm-Kaden
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12
           li.active
-            a(href='/homehack/realmote/')
+            a(href=`${rootPath}homehack/realmote/`)
               | Realmote
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
@@ -90,7 +90,7 @@ html(lang='en')
                 ul
                   li
                     | Java +
-                    a(href='/ja/phybots/') Phybots
+                    a(href=`${rootPath}ja/phybots/`) Phybots
                     | on Mac OS X
                   li
                     a(href='http://buffalo.jp/products/catalog/item/p/pc-op-rs1/') パソコン用学習リモコン PC-OP-RS1
@@ -111,18 +111,18 @@ html(lang='en')
                   iframe(width='100%', height='315', src='//www.youtube.com/embed/bhbW39zoxyg', frameborder='0', allowfullscreen='')
               .col-xs-6.col-sm-6.col-md-3
                 .thumbnail
-                  a(href='/homehack/realmote-edit.jpg')
-                    img(src='/homehack/thumbnails/realmote-edit.jpg')
+                  a(href=`${rootPath}homehack/realmote-edit.jpg`)
+                    img(src=`${rootPath}homehack/thumbnails/realmote-edit.jpg`)
               .col-xs-6.col-sm-6.col-md-3
                 .thumbnail
-                  a(href='/homehack/realmote.jpg')
-                    img(src='/homehack/thumbnails/realmote.jpg')
+                  a(href=`${rootPath}homehack/realmote.jpg`)
+                    img(src=`${rootPath}homehack/thumbnails/realmote.jpg`)
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/homehack/realmote/')
+          a(href=`${rootPath}ja/homehack/realmote/`)
             | 日本語
             i.translation.icon-ja

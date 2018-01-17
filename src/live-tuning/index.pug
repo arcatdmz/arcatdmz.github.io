@@ -10,9 +10,9 @@ html(lang='en')
     title Live Tuning | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
-    link(rel='stylesheet', href='/talks/people-are-programmers/rangeslider.css')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
+    link(rel='stylesheet', href=`${rootPath}talks/people-are-programmers/rangeslider.css`)
     meta(property='og:title', content='Live Tuning: Expanding Live Programming Benefits to Non-Programmers | junkato.jp')
     meta(property='og:description', content='Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time. In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.')
     meta(property='og:type', content='article')
@@ -33,18 +33,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li.active
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/live-tuning/')
+              a(href=`${rootPath}ja/live-tuning/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -106,10 +106,10 @@ html(lang='en')
           .col-md-4
             h2 Paper
             p
-              a(href='/publications/live2016-kato-livetuning.pdf')
+              a(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
                 img.img-responsive(src='live2016-kato-livetuning.jpg', style='border: 1px solid #000')
             p
-              a.btn.btn-primary.btn-lg(href='/publications/live2016-kato-livetuning.pdf')
+              a.btn.btn-primary.btn-lg(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
                 i.glyphicon.glyphicon-download
                 | Download PDF
           .col-md-8
@@ -144,7 +144,7 @@ html(lang='en')
             ul
               li
                 | There are more and more
-                a(href='/programming-with-examples', title='Programming with Examples to Develop Data-Intensive User Interfaces') data-intensive programs
+                a(href=`${rootPath}programming-with-examples`, title='Programming with Examples to Develop Data-Intensive User Interfaces') data-intensive programs
                 | such as animation design,
                 abbr(title='Internet of Things') IoT
                 | application development, machine learning, etc.
@@ -202,13 +202,13 @@ html(lang='en')
         .row
           .col-md-6
             p
-              img.img-responsive(src='/live-tuning/textalive-code.png', style='border: 1px solid #ccc')
+              img.img-responsive(src=`${rootPath}live-tuning/textalive-code.png`, style='border: 1px solid #ccc')
             p
               strong For programmers:
               | it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time.
           .col-md-6
             p
-              img.img-responsive(src='/live-tuning/textalive-tuning.png', style='border: 1px solid #ccc')
+              img.img-responsive(src=`${rootPath}live-tuning/textalive-tuning.png`, style='border: 1px solid #ccc')
             p
               strong For end-users:
               | it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size.
@@ -223,13 +223,13 @@ html(lang='en')
         .row
           .col-md-6
             p
-              img.img-responsive(src='/live-tuning/f3js-code.png', style='border: 1px solid #ccc')
+              img.img-responsive(src=`${rootPath}live-tuning/f3js-code.png`, style='border: 1px solid #ccc')
             p
               strong For programmers:
               | It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience.
           .col-md-6
             p
-              img.img-responsive(src='/live-tuning/f3js-tuning.png', style='border: 1px solid #ccc')
+              img.img-responsive(src=`${rootPath}live-tuning/f3js-tuning.png`, style='border: 1px solid #ccc')
             p
               strong For end-users:
               | it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera.
@@ -238,7 +238,7 @@ html(lang='en')
         h2 Discussion
         p
           | Please refer to
-          a(href='/publications/live2016-kato-livetuning.pdf#page=4') the paper (p.4-6)
+          a(href=`${rootPath}publications/live2016-kato-livetuning.pdf#page=4`) the paper (p.4-6)
           | for the detailed discussion.
           u Underlined
           | options are those we consider the most interesting and promising.
@@ -271,7 +271,7 @@ html(lang='en')
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/live-tuning/')
+          a(href=`${rootPath}ja/live-tuning/`)
             | 日本語
             i.translation.icon-ja
       script.

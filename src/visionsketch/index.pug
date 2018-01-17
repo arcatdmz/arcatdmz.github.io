@@ -41,7 +41,7 @@ block main
                 | #{en ? 'YouTube' : 'YouTube'}
         .column
           h3.ui.header GI 2012 #{en ? 'Slides' : '発表スライド'}
-          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
           .caption: .ui.horizontal.list
             .item
               a(href=publicationsTable[p.publication].entryTags.slides)
@@ -52,16 +52,16 @@ block main
     h2 VisionSketch IDE
     .ui.stackable.two.columns.grid
       .column
-        a.ui.fluid.image(href='/visionsketch/fig1-overview.jpg')
-          img(src='/visionsketch/fig1-overview.jpg', alt='Overview')
+        a.ui.fluid.image(href=`${rootPath}visionsketch/fig1-overview.jpg`)
+          img(src=`${rootPath}visionsketch/fig1-overview.jpg`, alt='Overview')
         .caption #{en ? 'Overview of the VisionSketch IDE (GI \'14)' : 'VisionSketch IDEの概観'}
         .ui.hidden.divider
-        a.ui.fluid.image(href='/visionsketch/visionsketch-overview.jpg')
-          img(src='/visionsketch/visionsketch-overview.jpg', alt='Overview (original version)')
+        a.ui.fluid.image(href=`${rootPath}visionsketch/visionsketch-overview.jpg`)
+          img(src=`${rootPath}visionsketch/visionsketch-overview.jpg`, alt='Overview (original version)')
         .caption #{en ? 'Prototype of the VisionSketch IDE (PLDI \'13)' : 'PLDI \'13発表時の初版の概観'}
       .column
-        a.ui.fluid.image(href='/visionsketch/visionsketch-example.jpg')
-          img(src='/visionsketch/visionsketch-example.jpg', alt='Example use case #1: counting grinds', width='560')
+        a.ui.fluid.image(href=`${rootPath}visionsketch/visionsketch-example.jpg`)
+          img(src=`${rootPath}visionsketch/visionsketch-example.jpg`, alt='Example use case #1: counting grinds', width='560')
         .caption #{en ? 'An example image processing pipeline' : '構築した画像処理パイプラインの例'}
   .ui.hidden.divider
   +render-project-publications('visionsketch', 'gi2014-kato-visionsketch')

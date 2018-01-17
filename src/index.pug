@@ -38,7 +38,7 @@ block post-footer
 
 block main
   h1.ui.header
-    img.ui.circular.image(src='/images/junkato.jpg')
+    img.ui.circular.image(src=`${rootPath}images/junkato.jpg`)
     .content #{author}
       .sub.header
         - if (en) {
@@ -54,7 +54,7 @@ block main
   #contact: +contact()
 
 block scripts
-  script(type='text/javascript', src='/javascripts/views/index.js')
+  script(type='text/javascript', src=`${rootPath}javascripts/views/index.js`)
 
 mixin about()
   .ui.basic.segment#about
@@ -77,7 +77,7 @@ mixin about()
       .ui.horizontal.list
         .item
           i.file.icon
-          .content: a(href='/resume.html') !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
+          .content: a(href=`${rootPath}resume.html`) !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
         .item
           i.google.icon
           .content: a(href='https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=' + (en ? 'en' : 'ja')) Google Scholar
@@ -123,7 +123,7 @@ mixin projects()
     .content #{en ? 'Projects' : 'プロジェクト'}
   block projects
     p Below is the list of research projects, followed by the list of design and/or engineering projects. See 
-      a(href='/design')
+      a(href=`${rootPath}design`)
         i.paint.brush.icon
         | Design
       |  for the design-oriented list of my projects.

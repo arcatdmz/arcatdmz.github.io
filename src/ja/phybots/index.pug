@@ -10,8 +10,8 @@ html(lang='ja')
     title Phybots | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,26 +25,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li.active
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/phybots/')
+              a(href=`${rootPath}phybots/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -75,8 +75,8 @@ html(lang='ja')
             p ユーザの指示に従って料理や服畳みといった実世界におけるタスクを実行するインタラクティブなロボットアプリケーションが実現しつつある。また、このような高度なアプリケーションの効果的な開発には、プロトタイピングが重要である。しかし、HCI分野で利用されてきた既存のプロトタイピング用ツールキットは、空間内の特定の場所に置かれて使われるアプリケーションを想定している。そのため、プログラマがモビリティを備えたアプリケーションを開発しようとすると、ロボット工学的な困難に直面する。一方で、ロボット工学向けのツールキットは、利用に際し、ある程度の前提知識を必要とするものがほとんどである。
             p 我々は、この学際的な問題を解決するためにツールキットPhybotsを提案した。Phybotsを用いると、HCI研究者やインタラクションデザイナーが、生活空間を動き回れる"Robotic Things"─ロボット的なるもの─をプロトタイピングできる。
           .col-md-4
-            a.thumbnail(href='/phybots/fig1-overview.jpg')
-              img(src='/phybots/fig1-overview.jpg', alt='Overview of hardware setup for Phybots')
+            a.thumbnail(href=`${rootPath}phybots/fig1-overview.jpg`)
+              img(src=`${rootPath}phybots/fig1-overview.jpg`, alt='Overview of hardware setup for Phybots')
       section
         .row
           .col-md-6
@@ -107,8 +107,8 @@ html(lang='ja')
             .thumbnail
               .caption
                 h4 Runtime debug tools
-              a(href='/phybots/debug-tools.png')
-                img(src='/phybots/debug-tools.png')
+              a(href=`${rootPath}phybots/debug-tools.png`)
+                img(src=`${rootPath}phybots/debug-tools.png`)
           .col-md-6
             .thumbnail
               iframe(width='100%', height='315', src='//www.youtube.com/embed/iFrNOQiw0Go', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><div class="caption"><h4>ユーザスタディの作例（抜粋）</h4></div><a href="/phybots/robotic-things.jpg"><img src="/phybots/robotic-things.jpg" width="570" alt="Robotic Things"></a><br><iframe width="100%" height="360" src="//www.youtube.com/embed/cMyOY4FJuDc?list=PL5EC9CECDDBEA183A&amp;hl=en_US" frameborder="0" allowfullscreen>
@@ -155,7 +155,7 @@ html(lang='ja')
           | 本研究には以下の原稿とは別に未来ビジョン（裏）が存在する。詳細は
           a(href='http://junkato.jp/publications/wiss2010-kato-matereal-slides.pdf') 発表スライド
           | 後半に書いてあり、これが翌年の
-          a(href='/ja/sharedo/') Sharedo
+          a(href=`${rootPath}ja/sharedo/`) Sharedo
           | に繋がっている。
         p 我々はロボットが何であるかを知らない。自分たちで作った言葉であるにも拘らず、言葉が独り歩きし、各々が勝手なイメージを持っている。日本においては、とくに大型で人型の印象が強いようである。しかしながら、既存のロボット研究において一般的に用いられてきた大型のロボットは、ロバストに動作させるためにハードウェアおよび制御用ソフトウェアに高度な作りこみが求められ、かつ高価なため、そもそも多くのソフトウェアプログラマが満足にアプリケーション開発できるだけの環境を用意するのが困難である。また、空間知能化などのキーワードを考えたとき、大型ロボットは動作空間を用意すること自体に手間がかかる。
         p 一方、小型のロボットであればArduino等のPhysical Computing用ツールキットを利用して比較的安価に自作することが容易であり、さまざまな種類のロボットを試作できることが見込まれる。小型であれば机上など多くの場所で動作させることができるだろう。アプリケーションが確立すれば、小型ロボットなら大量生産もしやすく一層安価になることが期待できる。そもそも人間の生活環境における小型ロボットの存在は既存の家電製品との境界が曖昧であり、とくに家電製品をネットワーク越しに操作できるようになったとき境界はほぼ消失すると考えている。このように我々は、ネットワーク家電を含む小型ロボットが複数台・複数種人間の生活環境に溶け込んでいる未来ビジョンを念頭においてツールキットを開発してきたため、本文中のサンプルアプリケーションでも多くの小型ロボットや遠隔操作できるようハックした家電製品を登場させた。
@@ -190,6 +190,6 @@ html(lang='ja')
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/phybots/')
+          a(href=`${rootPath}phybots/`)
             | English
             i.translation.glyphicon.glyphicon-text-background

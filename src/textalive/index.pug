@@ -40,7 +40,7 @@ block main
                 | Full version
         .column
           h3.ui.header CHI 2015 #{en ? 'Slides' : '発表スライド'}
-          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
           .caption: .ui.horizontal.list
             .item
               a(href=publicationsTable[p.publication].entryTags.slides)

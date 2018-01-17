@@ -10,8 +10,8 @@ html(lang='en')
     title Indescribable Tea Party | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,18 +29,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li.active
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/teaparty/')
+              a(href=`${rootPath}ja/teaparty/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -64,7 +64,7 @@ html(lang='en')
               strong (NOTE: This event has nothing to do with the Tea Party movement!)
           .col-sm-4.col-md-3
             .thumbnail
-              img(src='/images/thumbnails/teaparty.jpg', alt='Indescribable tea party')
+              img(src=`${rootPath}images/thumbnails/teaparty.jpg`, alt='Indescribable tea party')
       section
         .row
           .col-md-5
@@ -84,17 +84,17 @@ html(lang='en')
             p Researchers, engineers, artists, producers, and fans of media content gathered at a cozy Lab-Cafe and provided presentations, getting to know each other and learn the cutting edge of creating media content.
           .col-md-7
             .thumbnail
-              img(src='/ja/teaparty/20160213-5th-teaparty.jpg', title='第5回')
+              img(src=`${rootPath}ja/teaparty/20160213-5th-teaparty.jpg`, title='第5回')
             .thumbnail
-              img(src='/ja/teaparty/20140301-3rd-teaparty.jpg', title='第3回')
+              img(src=`${rootPath}ja/teaparty/20140301-3rd-teaparty.jpg`, title='第3回')
             .thumbnail
-              img(src='/ja/teaparty/20130105-2nd-teaparty.jpg', title='第2回')
+              img(src=`${rootPath}ja/teaparty/20130105-2nd-teaparty.jpg`, title='第2回')
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/teaparty/')
+          a(href=`${rootPath}ja/teaparty/`)
             | 日本語
             i.translation.icon-ja

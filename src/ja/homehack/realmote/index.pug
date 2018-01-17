@@ -10,8 +10,8 @@ html(lang='ja')
     title Realmote | 家ハック | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,26 +25,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/homehack/realmote/')
+              a(href=`${rootPath}homehack/realmote/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -63,21 +63,21 @@ html(lang='ja')
         p 研究とは別に、自分の身の回りを便利に面白くするサイドプロジェクトを継続的に進めてきました。このページではその一部を紹介します。
         ul.nav.nav-tabs
           li
-            a(href='/ja/homehack/') 概要
+            a(href=`${rootPath}ja/homehack/`) 概要
           li
-            a(href='/ja/homehack/fungus-camera/')
+            a(href=`${rootPath}ja/homehack/fungus-camera/`)
               | なめこカメラ
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12-13
           li
-            a(href='/ja/homehack/rhythm-kaden/')
+            a(href=`${rootPath}ja/homehack/rhythm-kaden/`)
               | リズム家電
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12
           li.active
-            a(href='/ja/homehack/realmote/')
+            a(href=`${rootPath}ja/homehack/realmote/`)
               | Realmote
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
@@ -94,7 +94,7 @@ html(lang='ja')
                 ul
                   li
                     | Java +
-                    a(href='/ja/phybots/') Phybots
+                    a(href=`${rootPath}ja/phybots/`) Phybots
                     | on Mac OS X
                   li
                     a(href='http://buffalo.jp/products/catalog/item/p/pc-op-rs1/') パソコン用学習リモコン PC-OP-RS1
@@ -115,18 +115,18 @@ html(lang='ja')
                   iframe(width='100%', height='315', src='//www.youtube.com/embed/bhbW39zoxyg', frameborder='0', allowfullscreen='')
               .col-xs-6.col-sm-6.col-md-3
                 .thumbnail
-                  a(href='/homehack/realmote-edit.jpg')
-                    img(src='/homehack/thumbnails/realmote-edit.jpg')
+                  a(href=`${rootPath}homehack/realmote-edit.jpg`)
+                    img(src=`${rootPath}homehack/thumbnails/realmote-edit.jpg`)
               .col-xs-6.col-sm-6.col-md-3
                 .thumbnail
-                  a(href='/homehack/realmote.jpg')
-                    img(src='/homehack/thumbnails/realmote.jpg')
+                  a(href=`${rootPath}homehack/realmote.jpg`)
+                    img(src=`${rootPath}homehack/thumbnails/realmote.jpg`)
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/homehack/realmote/')
+          a(href=`${rootPath}homehack/realmote/`)
             | English
             i.translation.glyphicon.glyphicon-text-background

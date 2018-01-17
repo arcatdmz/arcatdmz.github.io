@@ -10,8 +10,8 @@ html(lang='en')
     title Picode | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,18 +29,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li.active
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/picode/')
+              a(href=`${rootPath}ja/picode/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -74,7 +74,7 @@ html(lang='en')
             p To address this issue, we propose a text-based development environment integrated with visual representations: photos of human and robots. With our development environment, the user first takes a photo to bind it to a posture data. Then, s/he drag-and-drops the photo to the code editor, where it is shown as an inline image.
           .col-sm-4.col-md-3
             .thumbnail
-              img(src='/images/thumbnails/picode.jpg', alt='Picode editor')
+              img(src=`${rootPath}images/thumbnails/picode.jpg`, alt='Picode editor')
       section
         h2 Picode IDE
         .row
@@ -82,7 +82,7 @@ html(lang='en')
             p Our prototype implementation consists of three main components: the code editor, the pose library, and the preview window. First, the user takes a photo of a human or robot in the preview window. At the same time, posture data is captured and the dataset is stored in the pose library. Next, s/he drag-and-drops the photo from the pose library into the code editor, where the photo is shown inline. Then, s/he can run the application. S/he can also distribute the source code bundled with the referenced datasets so that others can run the same application on our development environment.
             p
               | During the coding phase, the programmer can benefit from a software library tightly coupled with the IDE. The library provides a set of API that enables easy control of robots. The main functions are shown below. Other APIs are listed in
-              a(href='/picode/docs/?com/phybots/picode/api/package-summary.html') Javadoc
+              a(href=`${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`) Javadoc
               | .
             dl
               dt Pose Robot.getPose()
@@ -106,7 +106,7 @@ html(lang='en')
               iframe(width='100%', height='315', src='//www.youtube.com/embed/cQv0-4f8LEA', frameborder='0', allowfullscreen='')
           .col-md-6
             .thumbnail
-              img(src='/picode/picode-ide.jpg', width='570', alt='Overview of the Picode IDE')
+              img(src=`${rootPath}picode/picode-ide.jpg`, width='570', alt='Overview of the Picode IDE')
       section
         h2 Publication
         ul
@@ -139,6 +139,6 @@ html(lang='en')
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/picode/')
+          a(href=`${rootPath}ja/picode/`)
             | 日本語
             i.translation.icon-ja

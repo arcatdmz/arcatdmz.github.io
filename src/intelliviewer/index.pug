@@ -10,8 +10,8 @@ html(lang='en')
     title IntelliViewer | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,18 +29,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li.active
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/intelliviewer/')
+              a(href=`${rootPath}ja/intelliviewer/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -80,13 +80,13 @@ html(lang='en')
                 | Microsoft Channel9 (UIST '10 interview, 5:55-)
           .col-sm-4.col-md-3
             .thumbnail
-              img(src='/images/thumbnails/intelliviewer.jpg', alt='IntelliViewer')
+              img(src=`${rootPath}images/thumbnails/intelliviewer.jpg`, alt='IntelliViewer')
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/intelliviewer/')
+          a(href=`${rootPath}ja/intelliviewer/`)
             | 日本語
             i.translation.icon-ja

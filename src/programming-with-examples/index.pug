@@ -10,8 +10,8 @@ html(lang='en')
     title Programming with Examples (PwE) | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     meta(property='og:title', content='Programming with Examples to Develop Data-Intensive User Interfaces | junkato.jp')
     meta(property='og:description', content='The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and userss understand applications and configure them to meet their needs. The web page provides summary and additional information for the journal article discussing PwE that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.')
     meta(property='og:type', content='article')
@@ -37,18 +37,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li.active
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/programming-with-examples/')
+              a(href=`${rootPath}ja/programming-with-examples/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -196,7 +196,7 @@ html(lang='en')
           | workflow. Some of them are implemented as
           abbr(title='Web-based Integrated Development Environments') WIDEs
           | and you can try them out! At this moment, those with
-          a(href='/live-tuning') Live Tuning
+          a(href=`${rootPath}live-tuning`) Live Tuning
           | interfaces are publicly available. See
           a(href='http://textalive.jp') TextAlive at http://textalive.jp
           | and
@@ -205,33 +205,33 @@ html(lang='en')
         .row
           .col-md-3
             p
-              a(href='/picode')
-                img.img-responsive(src='/images/thumbnails/picode.jpg', style='border: 1px solid #ccc')
+              a(href=`${rootPath}picode`)
+                img.img-responsive(src=`${rootPath}images/thumbnails/picode.jpg`, style='border: 1px solid #ccc')
             p
-              a(href='/picode') Picode [CHI '13]
+              a(href=`${rootPath}picode`) Picode [CHI '13]
               | supports handling robot/human posture information with the code editor that shows inline photos representing the posture data.
           .col-md-3
             p
-              a(href='/dejavu')
-                img.img-responsive(src='/images/thumbnails/dejavu.png', style='border: 1px solid #ccc')
+              a(href=`${rootPath}dejavu`)
+                img.img-responsive(src=`${rootPath}images/thumbnails/dejavu.png`, style='border: 1px solid #ccc')
             p
-              a(href='/dejavu') DejaVu [UIST '12]
+              a(href=`${rootPath}dejavu`) DejaVu [UIST '12]
               | supports creating interacitve camera-based apps with the timeline and canvas interfaces for built-in record-and-replay and re-evaluation feature.
           .col-md-3
             p
-              a(href='/visionsketch')
-                img.img-responsive(src='/images/thumbnails/visionsketch.jpg', style='border: 1px solid #ccc')
+              a(href=`${rootPath}visionsketch`)
+                img.img-responsive(src=`${rootPath}images/thumbnails/visionsketch.jpg`, style='border: 1px solid #ccc')
             p
-              a(href='/visionsketch') VisionSketch [GI '13]
+              a(href=`${rootPath}visionsketch`) VisionSketch [GI '13]
               | implements graphical annotation-based code completion where methods are suggested based on sketched shapes on input images.
           .col-md-3
             p
-              a(href='/textalive')
-                img.img-responsive(src='/images/thumbnails/textalive.png', style='border: 1px solid #ccc')
+              a(href=`${rootPath}textalive`)
+                img.img-responsive(src=`${rootPath}images/thumbnails/textalive.png`, style='border: 1px solid #ccc')
             p
-              a(href='/textalive') TextAlive [CHI '15]
+              a(href=`${rootPath}textalive`) TextAlive [CHI '15]
               | supports authoring Kinetic Typography videos of lyrics text synchronized with songs equipped with
-              a(href='/live-tuning') Live Tuning
+              a(href=`${rootPath}live-tuning`) Live Tuning
               | interfaces for end-users.
         p
           | There are of course excellent prior work and other ongoing work that supports the
@@ -305,7 +305,7 @@ html(lang='en')
           li
             strong Collaborative application authoring is the key in the age of big data.
             | Collaboration among people with diverse backgrounds is essential for developing successful user interfaces for data-intensive applications in the age of big data. The amount and variations of data far surpass what programmers alone can manage and edit. One potential answer to this implication is
-            a(href='/live-tuning') Live Tuning
+            a(href=`${rootPath}live-tuning`) Live Tuning
             | that expands benefits of Live Programming to end-users.
           li
             strong Borders between the development and runtime environments will be eliminated.
@@ -322,6 +322,6 @@ html(lang='en')
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/programming-with-examples/')
+          a(href=`${rootPath}ja/programming-with-examples/`)
             | 日本語
             i.translation.icon-ja

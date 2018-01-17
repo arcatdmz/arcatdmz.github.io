@@ -10,8 +10,8 @@ html(lang='en')
     title Homehack | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,18 +29,18 @@ html(lang='en')
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/#about') Profile
+              a(href=`${rootPath}#about`) Profile
             li
-              a(href='/#projects') Projects
+              a(href=`${rootPath}#projects`) Projects
             li
-              a(href='/publications/') Awards & Publications
+              a(href=`${rootPath}publications/`) Awards & Publications
             li
-              a(href='/fun/') Fun
+              a(href=`${rootPath}fun/`) Fun
             li
-              a(href='/#contact') Contact
+              a(href=`${rootPath}#contact`) Contact
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/homehack/')
+              a(href=`${rootPath}ja/homehack/`)
                 | 日本語
                 i.translation.icon-ja
     // container 
@@ -59,21 +59,21 @@ html(lang='en')
         .alert.alert-info This page is under construction.
         ul.nav.nav-tabs
           li.active
-            a(href='/homehack/') Overview
+            a(href=`${rootPath}homehack/`) Overview
           li
-            a(href='/homehack/fungus-camera/')
+            a(href=`${rootPath}homehack/fungus-camera/`)
               | Fungus Camera
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12-13
           li
-            a(href='/homehack/rhythm-kaden/')
+            a(href=`${rootPath}homehack/rhythm-kaden/`)
               | Rhythm-Kaden
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
                 | '12
           li
-            a(href='/homehack/realmote/')
+            a(href=`${rootPath}homehack/realmote/`)
               | Realmote
               span.label.label-default
                 i.glyphicon.glyphicon-calendar
@@ -99,18 +99,18 @@ html(lang='en')
             h3 なめこカメラ
             .row
               .col-md-3
-                a.thumbnail(href='/homehack/fungus-camera/')
-                  img(src='/homehack/thumbnails/fungus-box.jpg')
+                a.thumbnail(href=`${rootPath}homehack/fungus-camera/`)
+                  img(src=`${rootPath}homehack/thumbnails/fungus-box.jpg`)
               .col-md-9
                 p なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。
                 p ついでに、玄関の明かりのスイッチがドアから遠い問題（明かりをつけようとしている間にドアが閉まって真っ暗になる）を解決するため、このデバイスに近づくと明かりをONにして、遠ざかってしばらくするとOFFにする機能もつけた。
                 p
-                  a.btn.btn-default(href='/homehack/fungus-camera/', role='button') 詳細を読む »
+                  a.btn.btn-default(href=`${rootPath}homehack/fungus-camera/`, role='button') 詳細を読む »
             h3 リズム家電
             .row
               .col-md-3
-                a.thumbnail(href='/homehack/rhythm-kaden/')
-                  img(src='/homehack/rhythmkaden.jpg')
+                a.thumbnail(href=`${rootPath}homehack/rhythm-kaden/`)
+                  img(src=`${rootPath}homehack/rhythmkaden.jpg`)
               .col-md-9
                 p
                   | ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム
@@ -121,22 +121,22 @@ html(lang='en')
                   a(href='https://www.sonycsl.co.jp/events/CustomizeYourHouse/') 住宅をカスタマイズするためのシンポジウム
                   | 」で発表され、学生賞を受賞した。
                 p
-                  a.btn.btn-default(href='/homehack/rhythm-kaden/', role='button') 詳細を読む »
+                  a.btn.btn-default(href=`${rootPath}homehack/rhythm-kaden/`, role='button') 詳細を読む »
             h3 Realmote
             .row
               .col-md-3
-                a.thumbnail(href='/homehack/realmote/')
-                  img(src='/homehack/thumbnails/realmote.jpg')
+                a.thumbnail(href=`${rootPath}homehack/realmote/`)
+                  img(src=`${rootPath}homehack/thumbnails/realmote.jpg`)
               .col-md-9
                 p スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。
                 p
-                  a.btn.btn-default(href='/homehack/realmote/', role='button') 詳細を読む »
+                  a.btn.btn-default(href=`${rootPath}homehack/realmote/`, role='button') 詳細を読む »
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/homehack/')
+          a(href=`${rootPath}ja/homehack/`)
             | 日本語
             i.translation.icon-ja

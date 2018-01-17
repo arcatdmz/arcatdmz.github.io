@@ -11,8 +11,8 @@ html(lang='ja')
     title 名状しがたいお茶会 | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,26 +25,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li.active
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/teaparty/')
+              a(href=`${rootPath}teaparty/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -64,7 +64,7 @@ html(lang='ja')
             p 業界横断で濃い人たちの参加をお待ちしてます。初対面同士が多いお茶会なので、知り合いが少なくてちょっとひよりそうな人も、物怖じせずご参加ください。ついでに、濃い友達がいたら、ぜひ連れてきてください。
           .col-sm-4.col-md-3
             .thumbnail
-              img(src='/images/thumbnails/teaparty.jpg', alt='名状しがたいお茶会')
+              img(src=`${rootPath}images/thumbnails/teaparty.jpg`, alt='名状しがたいお茶会')
       section
         .row
           .col-md-6
@@ -77,11 +77,11 @@ html(lang='ja')
               a(href='https://www.wantedly.com/chat') Wantedlyチャット
               | を利用して、オフラインの発表と同時並行でオンラインの議論を行いました。また、運営を複数名で行ったおかげで、温かいお茶やコーヒーをサーブでき、懇親会の時間もしっかり取れました。
             p
-              a.btn.btn-primary(href='/ja/teaparty/2016/', title='イベントページ') 詳細
+              a.btn.btn-primary(href=`${rootPath}ja/teaparty/2016/`, title='イベントページ') 詳細
             h3 第4回 2015年1月24日 DMM.make AKIBA BASE
             p 例年になく人数が増えたため、話題ごとにセッションとしてまとまりを作りました。クリエータの方々の作品紹介「Creators' Showcase #1, #2」と、テーマごとの「科学・教育」「人・コンピュータ・知能」「ゲーム」「海外動向」「五感に訴えるコンテンツ」「コンテンツ理解・生成」、そして1分自己紹介「Shotgun Session」です。
             p
-              a.btn.btn-primary(href='/ja/teaparty/2015/', title='イベントページ') 詳細
+              a.btn.btn-primary(href=`${rootPath}ja/teaparty/2015/`, title='イベントページ') 詳細
             h3 第3回 2014年3月1日 Lab-Cafe
             p 2月の開催予定が雪で3月に延期されました。新しい楽器や音楽情報処理の最前線についての講演、携帯端末向けニコニコ動画アプリ、ビリヤードをプロジェクションマッピングで楽しくするプロジェクト、結婚式二次会を盛り上げる余興アプリなど、さまざまな話題で盛り上がりました。
             p
@@ -99,17 +99,17 @@ html(lang='ja')
               | (一般公開)
           .col-md-6
             .thumbnail
-              img(src='/ja/teaparty/20160213-5th-teaparty.jpg', title='第5回')
+              img(src=`${rootPath}ja/teaparty/20160213-5th-teaparty.jpg`, title='第5回')
             .thumbnail
-              img(src='/ja/teaparty/20140301-3rd-teaparty.jpg', title='第3回')
+              img(src=`${rootPath}ja/teaparty/20140301-3rd-teaparty.jpg`, title='第3回')
             .thumbnail
-              img(src='/ja/teaparty/20130105-2nd-teaparty.jpg', title='第2回')
+              img(src=`${rootPath}ja/teaparty/20130105-2nd-teaparty.jpg`, title='第2回')
       footer
         hr
         p
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/teaparty/')
+          a(href=`${rootPath}teaparty/`)
             | English
             i.translation.glyphicon.glyphicon-text-background

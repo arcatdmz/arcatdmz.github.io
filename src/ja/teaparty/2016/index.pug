@@ -10,8 +10,8 @@ html(lang='ja')
     title 第5回 名状しがたいお茶会 | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     style.
       #map-canvas { height: 224px; margin: 10px 0 }
       .twitter-timeline { margin-top: 20px; width: 100% !important; }
@@ -30,26 +30,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/teaparty/2016/')
+              a(href=`${rootPath}teaparty/2016/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -62,7 +62,7 @@ html(lang='ja')
             | '16
         ol.breadcrumb
           li
-            a(href='/ja/teaparty/') 名状しがたいお茶会
+            a(href=`${rootPath}ja/teaparty/`) 名状しがたいお茶会
           li 2016
       section
         p
@@ -131,7 +131,7 @@ html(lang='ja')
       section
         ol.breadcrumb
           li
-            a(href='/ja/teaparty/') 名状しがたいお茶会
+            a(href=`${rootPath}ja/teaparty/`) 名状しがたいお茶会
           li 2016
       footer
         hr
@@ -139,6 +139,6 @@ html(lang='ja')
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/teaparty/2016/')
+          a(href=`${rootPath}teaparty/2016/`)
             | English
             i.translation.glyphicon.glyphicon-text-background

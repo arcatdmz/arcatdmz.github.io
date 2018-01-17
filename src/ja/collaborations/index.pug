@@ -5,7 +5,7 @@ block lang
 
 block message
   | 外部連携や技術研修生のお問合せは
-  a(href='/ja/#contact') メールやソーシャルネットワークサービス
+  a(href=`${rootPath}ja/#contact`) メールやソーシャルネットワークサービス
   | で受け付けています。
 
 block popup-menu
@@ -28,13 +28,13 @@ block collaborations
         dl
           dt: strong 共同研究や招待講演などのお問合せ:
           dd
-            a(href='/ja/#contact') 連絡先
+            a(href=`${rootPath}ja/#contact`) 連絡先
             | へメールでご相談ください。
           dt: strong 学会運営委員などのご依頼:
           dd
-            a(href='/ja/#contact') 同じ連絡先
+            a(href=`${rootPath}ja/#contact`) 同じ連絡先
             | で承りますが、
-            a(href='/ja/activities') 溢れ気味
+            a(href=`${rootPath}ja/activities`) 溢れ気味
             | でお断りせざるを得ない場合が多いです。
           dt: strong 技術の利用:
           dd

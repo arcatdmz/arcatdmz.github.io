@@ -41,7 +41,7 @@ block main
                 | #{en ? 'YouTube' : 'YouTube'}
         .column
           h3.ui.header HAI 2014 #{en ? 'Slides' : '発表スライド'}
-          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
           .caption: .ui.horizontal.list
             .item
               a(href=publicationsTable[p.publication].entryTags.slides)

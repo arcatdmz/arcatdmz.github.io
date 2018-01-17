@@ -36,7 +36,7 @@ mixin timeline()
       .content #{title}
     block description
       p This page shows updates to the website as well as 
-        a(href='/publications')
+        a(href=`${rootPath}publications`)
           i.book.icon
           | publication records
         |  in their chronological order.

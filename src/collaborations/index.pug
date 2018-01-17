@@ -23,11 +23,11 @@ block main
       i.handshake.icon
       .content #{title}
     .ui.segment: .ui.feed: .event
-      .label: img(src='/images/junkato.jpg')
+      .label: img(src=`${rootPath}images/junkato.jpg`)
       .content
         block message
           | Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via 
-          a(href='/#contact') email or social networking services
+          a(href=`${rootPath}#contact`) email or social networking services
           | .
     .ui.hidden.clearing.divider
     +collaborations()

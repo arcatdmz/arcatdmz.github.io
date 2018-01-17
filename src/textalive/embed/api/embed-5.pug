@@ -10,8 +10,8 @@ html(lang='ja')
     title TextAlive Web APIテスト (5) | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     link(href='prism.css', rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
@@ -26,26 +26,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li.active
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/textalive/')
+              a(href=`${rootPath}textalive/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -78,7 +78,7 @@ html(lang='ja')
           | ©
           a(href='mailto:i@junkato.jp') Jun Kato
           | 2012-2017 |
-          a(href='/ja/textalive/')
+          a(href=`${rootPath}ja/textalive/`)
             | 日本語
             i.translation.icon-ja
       script(src='prism.js', data-manual='')

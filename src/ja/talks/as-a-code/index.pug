@@ -10,9 +10,9 @@ html(lang='ja')
     title * as a Code | コンテンツをプログラミングする方法 | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
-    link(rel='stylesheet', href='/talks/as-a-code/rangeslider.css')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
+    link(rel='stylesheet', href=`${rootPath}talks/as-a-code/rangeslider.css`)
     meta(property='og:title', content='* as a Code | コンテンツをプログラミングする方法')
     meta(property='og:type', content='article')
     meta(property='og:image', content='http://junkato.jp/talks/as-a-code/as-a-code.png')
@@ -74,26 +74,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li.active
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/talks/as-a-code/')
+              a(href=`${rootPath}talks/as-a-code/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -160,7 +160,7 @@ html(lang='ja')
         h2#intro はじめに
         p
           | 講義に使うスライドは
-          a(href='/publications/151209-ce-slides.pdf')
+          a(href=`${rootPath}publications/151209-ce-slides.pdf`)
             i.glyphicon.glyphicon-file
             | 151209-ce-slides.pdf
           | です。この講義の目標は次の3点です。
@@ -203,7 +203,7 @@ html(lang='ja')
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/talks/as-a-code/')
+          a(href=`${rootPath}talks/as-a-code/`)
             | English
             i.translation.glyphicon.glyphicon-text-background
       script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js')

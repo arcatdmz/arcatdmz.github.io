@@ -10,8 +10,8 @@ html(lang='ja')
     title Picode | junkato.jp
     // Styles 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
+    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
+    link(href=`${rootPath}css/main.css`, rel='stylesheet')
     // Le HTML5 shim, for IE6-8 support of HTML5 elements 
     //      [if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,26 +25,26 @@ html(lang='ja')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/ja/') 加藤 淳
+          a.navbar-brand(href=`${rootPath}ja/`) 加藤 淳
         #navigation.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a(href='/ja/#about') 自己紹介
+              a(href=`${rootPath}ja/#about`) 自己紹介
             li.active
-              a(href='/ja/#projects') プロジェクト
+              a(href=`${rootPath}ja/#projects`) プロジェクト
             li
-              a(href='/ja/publications/') 受賞歴と発表文献
+              a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
-              a(href='/ja/fun/') お楽しみ
+              a(href=`${rootPath}ja/fun/`) お楽しみ
             li
-              a(href='/ja/#contact') 連絡先
+              a(href=`${rootPath}ja/#contact`) 連絡先
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='/ja/blog/')
+              a(href=`${rootPath}ja/blog/`)
                 | ブログ
                 i.blog.glyphicon.glyphicon-pencil
             li
-              a(href='/picode/')
+              a(href=`${rootPath}picode/`)
                 | English
                 i.translation.glyphicon.glyphicon-text-background
     // container 
@@ -78,7 +78,7 @@ html(lang='ja')
             p そこで我々は、人やロボットの姿勢データを写真と紐づけ、ソースコード中に写真を貼り込める開発環境Picode (旧名Roboko)を試作した。まず、写真と紐づけられた姿勢データを第一級オブジェクトとして扱う拡張を既存の文字言語に施した。次に、姿勢データを引数に取るAPIライブラリを提供した。そして、エディタに写真を貼り付けられるような開発環境を実装した。
           .col-sm-4.col-md-3
             .thumbnail
-              img(src='/images/thumbnails/picode.jpg', alt='Picode editor')
+              img(src=`${rootPath}images/thumbnails/picode.jpg`, alt='Picode editor')
       section
         h2 Picode IDE
         .row
@@ -87,7 +87,7 @@ html(lang='ja')
             h3 Picode API
             p
               | 現在、以下のようなAPIがサポートされている。(
-              a(href='/picode/docs/?com/phybots/picode/api/package-summary.html') Javadoc
+              a(href=`${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`) Javadoc
               | )
             dl
               dt Pose Robot.getPose()
@@ -109,20 +109,20 @@ html(lang='ja')
             h3 サンプルコード
             dl
               dt
-                a(href='/picode/xylophone/') 鉄琴演奏ロボ
+                a(href=`${rootPath}picode/xylophone/`) 鉄琴演奏ロボ
               dd かえるの歌を演奏する。
               dt
-                a(href='/picode/hello/') 挙手でスライド送り
+                a(href=`${rootPath}picode/hello/`) 挙手でスライド送り
               dd 右手を挙げるとスライドを次に送り、左手を挙げると一つ前に戻す。
               dt
-                a(href='/picode/flag/') 旗揚げゲーム
+                a(href=`${rootPath}picode/flag/`) 旗揚げゲーム
               dd 画面に出てくるキャラクターと同じほうの手を素早く挙げると高得点。
           .col-md-6
             .thumbnail
               iframe(width='100%', height='315', src='//www.youtube.com/embed/cQv0-4f8LEA', frameborder='0', allowfullscreen='')
           .col-md-6
             .thumbnail
-              img(src='/picode/picode-ide.jpg', width='570', alt='Overview of the Picode IDE')
+              img(src=`${rootPath}picode/picode-ide.jpg`, width='570', alt='Overview of the Picode IDE')
       section
         h2 未来ビジョン
         p "Programmers are people, too."という言葉がある。この、プログラマだって人である、という言葉には、プログラマがいかに分かりづらい言語を理解し、使いづらい開発環境と格闘してきたか、プログラマと一般人の溝がいかに深いか、という現状認識が現れているように思われる。
@@ -170,6 +170,6 @@ html(lang='ja')
           | ©
           a(href='mailto:i@junkato.jp') 加藤 淳
           | 2012-2017 |
-          a(href='/picode/')
+          a(href=`${rootPath}picode/`)
             | English
             i.translation.glyphicon.glyphicon-text-background

@@ -13,19 +13,19 @@ block main
     p During the build process, the following files are used as data source. Feel free to steal the data structure for making your own portfolio website or making HTTP requests to these data files in your application (but ... for what?)
     .ui.divided.list
       .item: .content
-        a.header(href='/data/histories.json') histories.json
+        a.header(href=`${rootPath}data/histories.json`) histories.json
         .description All of the &quot;Recent updates&quot; entries
       .item: .content
-        a.header(href='/data/publications.json') publications.json
+        a.header(href=`${rootPath}data/publications.json`) publications.json
         .description Publication history (generated from <a href="/junkato.bib">junkato.bib</a>)
       .item: .content
-        a.header(href='/data/awards.json') awards.json
+        a.header(href=`${rootPath}data/awards.json`) awards.json
         .description All of the received awards information
       .item: .content
-        a.header(href='/data/projects.json') projects.json
+        a.header(href=`${rootPath}data/projects.json`) projects.json
         .description All of the projects information as well as the project tags information
       .item: .content
-        a.header(href='/data/website.json') website.json
+        a.header(href=`${rootPath}data/website.json`) website.json
         .description Some meta information such as the list of recent projects and selected publications
   h2.ui.header Acknowledgement
   .ui.basic.segment
