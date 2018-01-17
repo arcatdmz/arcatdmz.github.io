@@ -1,134 +1,67 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title VisionSketch | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/main.css', rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href='/#about') Profile
-            li.active
-              a(href='/#projects') Projects
-            li
-              a(href='/publications/') Awards & Publications
-            li
-              a(href='/fun/') Fun
-            li
-              a(href='/#contact') Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/ja/visionsketch/')
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '13-14
-          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
-            i.glyphicon.glyphicon-tag
-            | IDE
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM PLDI '13 Student Research Competition
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | Graphics Interface '14
-        .alert.alert-info
-          | Source code is available on
-          a(href='https://github.com/arcatdmz/visionsketch/') GitHub
-          | ! It works on both Windows and Mac OS X.
-      section
-        h2 Abstract
-        .row
-          .col-md-6
-            p We propose an integrated development environment (IDE) called "VisionSketch", which supports example-centric programming for easily building image processing pipelines.
-            p With VisionSketch, a programmer is first asked to select the input video. Then, he can start building the pipeline with a visual programming language that provides immediate graphical feedback for algorithms applied to the video. He can also use a text-based editor to create or edit the implementation of each algorithm.
-            p During the development, the pipeline is always ready for execution with a video player-like interface enabling rapid iterative prototyping. In a preliminary user study, VisionSketch was positively received by five programmers, who had prior experience of writing text-based image processing programs and could successfully build interesting applications.
-            //              
-                    <p>Text is not always the best for representing computational procedures. In particular, image processing takes image and its relevant information, e.g., position and area in the image as arguments and outputs new image. Regarding this visual nature of image processing, we propose VisionSketch, a domain-specific programming language and its integrated development environment to rapidly build and run an image processing pipeline.</p>
-                    <p>The user first opens an image or video and sketches shapes on it to specify the area of interest. Then, she chooses an image processing operation which takes the area as an input. Its output is immediately shown to the right of the input image so that the desired set of arguments and operation can be easily found.</p>
-                    <p>With VisionSketch, an image processing pipeline is built by the iterative cycle of sketching shapes and choosing an operation, which is akin to writing program sentences in a text-based language. In this paper, we present VisionSketch system with several example applications.</p>
-              
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/I6FTOVygHxc', frameborder='0', allowfullscreen='')
-      section
-        h2 VisionSketch IDE
-        .row
-          .col-md-6
-            .thumbnail
-              .caption
-                h4 Overview of VisionSketch IDE
-              a(href='/visionsketch/fig1-overview.jpg')
-                img(src='/visionsketch/fig1-overview.jpg', alt='Overview')
-            .thumbnail
-              .caption
-                h4 Prototype of VisionSketch IDE presented at PLDI '13
-              a(href='/visionsketch/visionsketch-overview.jpg')
-                img(src='/visionsketch/visionsketch-overview.jpg', alt='Overview (original version)')
-          .col-md-6
-            .thumbnail
-              .caption
-                h4 Example pipeline
-              a(href='/visionsketch/visionsketch-example.jpg')
-                img(src='/visionsketch/visionsketch-example.jpg', alt='Example use case #1: counting grinds', width='560')
-      section
-        h2 Publication
-        ul
-          li#gi2014-kato-visionsketch(data-numpages='8')
-            u Jun Kato
-            | , Takeo Igarashi,
-            b "VisionSketch: Integrated Support for Example-centric Programming of Image Processing Applications"
-            | , In
-            i Proceedings of the 2014 Graphics Interface Conference
-            | . pp.115-122, 2014.
-            .btn-group.biblinks
-              a(href='http://dl.acm.org/citation.cfm?id=2619648.2619668')
-                i.glyphicon.glyphicon-barcode
-                abbr(title='Digital Object Identifier') DOI
-              a(href='http://junkato.jp/publications/gi2014-kato-visionsketch.pdf')
-                i.glyphicon.glyphicon-file
-                | PDF
-              a(href='http://junkato.jp/publications/gi2014-kato-visionsketch-slides.pdf')
-                i.glyphicon.glyphicon-play-circle
-                | Slides
-            a.bibtex BibTeX
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href='/ja/visionsketch/')
-            | 日本語
-            i.translation.icon-ja
+extends ../_layout
+
+block vars
+  - var p = projectsTable['visionsketch']
+  - var title = p.getTitle(lang);
+  - var me = p.project + '/';
+
+block main
+  +render-project-header('visionsketch')
+  .ui.message
+    block message
+      | Source code is available on 
+      a(href='https://github.com/arcatdmz/visionsketch/') GitHub
+      | ! It works on both Windows and Mac OS X.
+
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header
+      .content #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p We propose an integrated development environment (IDE) called &quot;VisionSketch&quot;, which supports example-centric programming for easily building image processing pipelines.
+        p With VisionSketch, a programmer is first asked to select the input video. Then, he can start building the pipeline with a visual programming language that provides immediate graphical feedback for algorithms applied to the video. He can also use a text-based editor to create or edit the implementation of each algorithm.
+        p During the development, the pipeline is always ready for execution with a video player-like interface enabling rapid iterative prototyping. In a preliminary user study, VisionSketch was positively received by five programmers, who had prior experience of writing text-based image processing programs and could successfully build interesting applications.
+        //              
+          <p>Text is not always the best for representing computational procedures. In particular, image processing takes image and its relevant information, e.g., position and area in the image as arguments and outputs new image. Regarding this visual nature of image processing, we propose VisionSketch, a domain-specific programming language and its integrated development environment to rapidly build and run an image processing pipeline.</p>
+          <p>The user first opens an image or video and sketches shapes on it to specify the area of interest. Then, she chooses an image processing operation which takes the area as an input. Its output is immediately shown to the right of the input image so that the desired set of arguments and operation can be easily found.</p>
+          <p>With VisionSketch, an image processing pipeline is built by the iterative cycle of sketching shapes and choosing an operation, which is akin to writing program sentences in a text-based language. In this paper, we present VisionSketch system with several example applications.</p>
+  .ui.hidden.divider
+  section#presentations
+    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header GI 2014 #{en ? 'Demo Video' : 'デモ動画'}
+          +embed-youtube('//www.youtube.com/embed/I6FTOVygHxc')
+          .caption: .ui.horizontal.list
+            .item
+              a(href='//www.youtube.com/watch?v=I6FTOVygHxc')
+                i.youtube.icon
+                | #{en ? 'YouTube' : 'YouTube'}
+        .column
+          h3.ui.header GI 2012 #{en ? 'Slides' : '発表スライド'}
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder='/images/background-eee.png', data-icon='video play outline')
+          .caption: .ui.horizontal.list
+            .item
+              a(href=publicationsTable[p.publication].entryTags.slides)
+                i.download.icon
+                | #{en ? 'Download' : 'ダウンロード'}
+  .ui.hidden.divider
+  section
+    h2 VisionSketch IDE
+    .ui.stackable.two.columns.grid
+      .column
+        a.ui.fluid.image(href='/visionsketch/fig1-overview.jpg')
+          img(src='/visionsketch/fig1-overview.jpg', alt='Overview')
+        .caption #{en ? 'Overview of the VisionSketch IDE (GI \'14)' : 'VisionSketch IDEの概観'}
+        .ui.hidden.divider
+        a.ui.fluid.image(href='/visionsketch/visionsketch-overview.jpg')
+          img(src='/visionsketch/visionsketch-overview.jpg', alt='Overview (original version)')
+        .caption #{en ? 'Prototype of the VisionSketch IDE (PLDI \'13)' : 'PLDI \'13発表時の初版の概観'}
+      .column
+        a.ui.fluid.image(href='/visionsketch/visionsketch-example.jpg')
+          img(src='/visionsketch/visionsketch-example.jpg', alt='Example use case #1: counting grinds', width='560')
+        .caption #{en ? 'An example image processing pipeline' : '構築した画像処理パイプラインの例'}
+  .ui.hidden.divider
+  +render-project-publications('visionsketch', 'gi2014-kato-visionsketch')

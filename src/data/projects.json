@@ -235,6 +235,7 @@
     {
       "project": "visionsketch",
       "title": "VisionSketch",
+      "subtitle": "Integrated Support for Example-Centric Programming of Image Processing Applications",
       "year": {
         "from": 2013,
         "to": 2014
