@@ -1,144 +1,97 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Picode | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/picode/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Picode: Inline Photos Representing Posture Data in Source Code
+extends ../_layout
+
+block vars
+  - p = projectsTable['picode']
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('picode')
+  .ui.message
+    block message
+      | The project was implemented using the 
+      a(href=`${basePath}phybots`) Phybots
+      |  library for creating robotic things and its source code is available on 
+      a(href='https://github.com/arcatdmz/picode/') GitHub
+      | ! The development was supported in part by 
+      a(href='http://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx') Microsoft Research CORE 7 program (Japanese page)
+      | .
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header
+      .content #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p Current programming environments use textual or symbolic representations. While these representations are good at describing logical processes, they are not appropriate for representing human and robot posture data which is necessary for handing gesture input and controlling robots.
+        p To address this issue, we propose a text-based development environment integrated with visual representations: photos of human and robots. With our development environment, the user first takes a photo to bind it to a posture data. Then, s/he drag-and-drops the photo to the code editor, where it is shown as an inline image.
+  .ui.hidden.divider
+  section#presentations
+    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header CHI 2013 Fast-forward
+          +embed-youtube('//www.youtube.com/embed/NCou4Q1STE8')
+          .caption: .ui.horizontal.list
+            .item
+              a(href='//www.youtube.com/watch?v=NCou4Q1STE8')
+                i.youtube.icon
+                | Fast-forward
+            .item
+              a(href='//www.youtube.com/watch?v=cQv0-4f8LEA')
+                i.youtube.icon
+                | Full version
+        .column
+          h3.ui.header CHI 2013 #{en ? 'Slides' : '発表スライド'}
+          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
+          .caption: .ui.horizontal.list
+            .item
+              a(href=publicationsTable[p.publication].entryTags.slides)
+                i.download.icon
+                | #{en ? 'Download' : 'ダウンロード'}
+          - if (!en) {
+          p.caption 日本語の発表スライドは
+            a(href='#publications')
+              i.book.icon
+              | 発表文献
+            | で日本語文献の 
+            i.sidebar.fitted.icon
+            |  をクリックすると閲覧できます。
+          - }
+  .ui.hidden.divider
+  section
+    h2 Picode IDE
+    .ui.basic.segment
+      block overview
+        p Our prototype implementation consists of three main components: the code editor, the pose library, and the preview window. First, the user takes a photo of a human or robot in the preview window. At the same time, posture data is captured and the dataset is stored in the pose library. Next, s/he drag-and-drops the photo from the pose library into the code editor, where the photo is shown inline. Then, s/he can run the application. S/he can also distribute the source code bundled with the referenced datasets so that others can run the same application on our development environment.
         p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '11-13
-          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
-            i.glyphicon.glyphicon-tag
-            | IDE
-          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
-            i.glyphicon.glyphicon-tag
-            | Robot
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM CHI '13
-        .alert.alert-info
-          | Picode is an open-source project developed at
-          a(href='http://github.com/arcatdmz/picode') GitHub
-          | . This project was supported by
-          a(href='http://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx') Microsoft Research CORE 7 program (Japanese page)
+          | During the coding phase, the programmer can benefit from a software library tightly coupled with the IDE. The library provides a set of API that enables easy control of robots. The main functions are shown below. Other APIs are listed in 
+          a(href=`${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`) Javadoc
           | .
-      section
-        h2 Abstract
-        .row
-          .col-sm-8.col-md-9
-            p Current programming environments use textual or symbolic representations. While these representations are good at describing logical processes, they are not appropriate for representing human and robot posture data which is necessary for handing gesture input and controlling robots.
-            p To address this issue, we propose a text-based development environment integrated with visual representations: photos of human and robots. With our development environment, the user first takes a photo to bind it to a posture data. Then, s/he drag-and-drops the photo to the code editor, where it is shown as an inline image.
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/picode.jpg`, alt='Picode editor')
-      section
-        h2 Picode IDE
-        .row
-          .col-md-6
-            p Our prototype implementation consists of three main components: the code editor, the pose library, and the preview window. First, the user takes a photo of a human or robot in the preview window. At the same time, posture data is captured and the dataset is stored in the pose library. Next, s/he drag-and-drops the photo from the pose library into the code editor, where the photo is shown inline. Then, s/he can run the application. S/he can also distribute the source code bundled with the referenced datasets so that others can run the same application on our development environment.
-            p
-              | During the coding phase, the programmer can benefit from a software library tightly coupled with the IDE. The library provides a set of API that enables easy control of robots. The main functions are shown below. Other APIs are listed in
-              a(href=`${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`) Javadoc
-              | .
-            dl
-              dt Pose Robot.getPose()
-              dd returns the current pose data.
-              dt float Pose.distance(Pose pose)
-              dd calculates the distance between the two poses. [0.0-1.0]
-              dt boolean Pose.eq(Pose pose, float threshold)
-              dd returns whether the two poses can be thought of as identical or not. (returns whether the distance between the two poses is less than the threshold or not.)
-              dt boolean Robot.setPose(Pose pose)
-              dd set the current pose to the specified data.
-              dt Action Robot.action()
-              dd start building an action for the robot.
-              dt Action Action.pose(Pose pose)
-              dd add this pose to the end of this action.
-              dt Action Action.stay(int ms)
-              dd wait for the specified time at the end of this action.
-              dt ActionResult Action.play()
-              dd play this action.
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/cQv0-4f8LEA', frameborder='0', allowfullscreen='')
-          .col-md-6
-            .thumbnail
-              img(src=`${rootPath}picode/picode-ide.jpg`, width='570', alt='Overview of the Picode IDE')
-      section
-        h2 Publication
-        ul
-          li#chi2013-kato-picode(data-numpages='4')
-            u Jun Kato
-            | , Daisuke Sakamoto, Takeo Igarashi,
-            b "Picode: Inline Photos Representing Posture Data in Source Code"
-            | , In
-            i CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
-            | . pp.3097-3100, Apr. 2013.
-            b.addition ACM CHI 2013 Best Paper Honorable Mention Award
-            | .
-            .btn-group.biblinks
-              a(href='http://doi.acm.org/10.1145/2470654.2466422')
-                i.glyphicon.glyphicon-barcode
-                abbr(title='Digital Object Identifier') DOI
-              a(href='http://junkato.jp/publications/chi2013-kato-picode.pdf')
-                i.glyphicon.glyphicon-file
-                | PDF
-              a(href='http://junkato.jp/publications/chi2013-kato-picode-slides.pdf')
-                i.glyphicon.glyphicon-play-circle
-                | Slides
-              a(href='http://junkato.jp/picode/')
-                i.glyphicon.glyphicon-info-sign
-                | Website
-            a.bibtex BibTeX
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/picode/`)
-            | 日本語
-            i.translation.icon-ja
+    .ui.stackable.two.columns.grid
+      .column
+        a.ui.fluid.image(href=`${rootPath}picode/picode-ide.jpg`)
+          img(src=`${rootPath}picode/picode-ide.jpg`, alt='Overview')
+        .caption #{en ? 'Overview of the Picode IDE' : 'Picode IDEの概観'}
+      .column
+        block api
+          dl
+            dt <strong>Pose</strong> Robot.getPose()
+            dd returns the current pose data.
+            dt <strong>float</strong> Pose.distance(Pose pose)
+            dd calculates the distance between the two poses. [0.0-1.0]
+            dt <strong>boolean</strong> Pose.eq(Pose pose, float threshold)
+            dd returns whether the two poses can be thought of as identical or not. (returns whether the distance between the two poses is less than the threshold or not.)
+            dt <strong>boolean</strong> Robot.setPose(Pose pose)
+            dd set the current pose to the specified data.
+            dt <strong>Action</strong> Robot.action()
+            dd start building an action for the robot.
+            dt <strong>Action</strong> Action.pose(Pose pose)
+            dd add this pose to the end of this action.
+            dt <strong>Action</strong> Action.stay(int ms)
+            dd wait for the specified time at the end of this action.
+            dt <strong>ActionResult</strong> Action.play()
+            dd play this action.
+  block extra
+  .ui.hidden.divider
+  +render-project-publications('picode', 'chi2013-kato-picode')

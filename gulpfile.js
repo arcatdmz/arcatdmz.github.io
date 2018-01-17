@@ -201,7 +201,7 @@ function compileCSS(stream){
 }
 
 gulp.task('copy', ['copy:bibtex'], function(){
-  return gulp.src(['src/**/*.{pdf,png,jpg,bib,json}', 'src/.htaccess'], { base: 'src'})
+  return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 })
