@@ -160,7 +160,8 @@ function setupLocals() {
     selectedPublications.push(publicationsTable[key]);
   }
 
-  return {
+  // merge locals with options
+  var locals = {
       histories: histories
     , awards: awards
     , projects: projects
@@ -170,6 +171,11 @@ function setupLocals() {
     , publicationsTable: publicationsTable
     , selectedPublications: selectedPublications
   }
+  for (var key in options) {
+    if (typeof options[key] !== 'string') continue;
+    locals[key] = options[key];
+  }
+  return locals;
 }
 
 gulp.task('css', ['replace:devicon'], function(){

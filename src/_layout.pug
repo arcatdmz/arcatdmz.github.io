@@ -5,11 +5,31 @@
 mixin head()
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  meta(name='description', content='')
+  title #{title} | junkato.jp
+  meta(name='author', content=author)
+  meta(name='description', content=description)
+  // for SEO
+  meta(itemprop='name', content=title)
+  meta(itemprop='description', content=description)
+  - if (imageUrl) {
+  meta(itemprop='image', content=imageUrl)
+  - }
+  // for Facebook
   meta(property='fb:admins', content='503220390')
-  block meta
-    meta(name='author', content=author)
-    title #{title} | junkato.jp
+  meta(property='og:url', content=`${protocol}://${domain}${basePath}${me}`)
+  meta(property='og:type', content='website')
+  meta(property='og:title', content=title)
+  meta(property='og:description', content=description)
+  - if (imageUrl) {
+  meta(property='og:image', content=imageUrl)
+  - }
+  // for Twitter
+  - if (imageUrl) {
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content=imageUrl)
+  - }
+  meta(name='twitter:title', content=title)
+  meta(name='twitter:description', content=description)
   link(rev='made', href='mailto:i@junkato.jp')
   link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Fira+Sans')
   - if (!en) {
@@ -381,11 +401,13 @@ mixin render-project-item(p)
 doctype html
 html(lang='ja')
   block lang
-    - var en = true, lang = 'en', basePath = '/';
+    - var en = true, lang = 'en', basePath = rootPath;
   - var author = en ? 'Jun Kato' : '加藤 淳';
+  - var imageUrl = defaultImageUrl;
+  - var description = en ? defaultDescription : defaultJapaneseDescription;
+  - var me, bodyClass = undefined;
   block vars
-    - var me = '';
-    - var bodyClass = undefined;
+    - me = '';
   head
     +head()
   body(class=bodyClass)
