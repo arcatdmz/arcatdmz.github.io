@@ -64,7 +64,6 @@
   "projects": [
     {
       "project": "website",
-      "url": "https://junkato.jp",
       "title": "&quot;junkato.jp&quot; Website",
       "title-design": "&quot;junkato.jp&quot; web design",
       "year": {
@@ -80,9 +79,8 @@
         "ui"
       ],
       "description": "This portfolio website is built with various <abbr title=\"Open-Source Softwtare\">OSS</abbr> and itself is open-sourced on GitHub.",
-      "description-design": "Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href=\"/website\">here</a>.",
+      "description-design": "Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href=\"${rootPath}website\">here</a>.",
       "ja": {
-        "url": "https://junkato.jp/ja",
         "title": "&quot;junkato.jp&quot; Webサイト",
         "description": "このポートフォリオWebサイトはさまざまな<abbr title=\"Open-Source Softwtare\">OSS</abbr>を用いて開発されており、それ自体がGitHub上にオープンソースで公開されています。"
       }
@@ -135,11 +133,11 @@
       "title": "Songle Sync Tutorial",
       "title-design": "Songle Sync brand design",
       "description": "An interactive tutorial for the Songle Sync <abbr title=\"Application Programming Interface\">API</abbr> that allows controlling numerous devices in synchrony with the songs.",
-      "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"/songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
+      "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"${rootPath}songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
       "ja": {
         "title-design": "Songle Sync ブランドデザイン",
         "description": "多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title=\"Application Programming Interface\">API</abbr>のためのインタラクティブなチュートリアルです。",
-        "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"/ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
+        "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"${rootPath}ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
       }
     },
     {
@@ -163,11 +161,11 @@
       "title": "f3.js",
       "title-design": "f3.js brand design",
       "description": "A parametric design tool for physical computing devices for both interaction designers and end-users.",
-      "description-design": "Built a brand kit for <a href=\"/f3js\">the f3.js research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Semantic UI CSS/JavaScript framework.",
+      "description-design": "Built a brand kit for <a href=\"${rootPath}f3js\">the f3.js research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Semantic UI CSS/JavaScript framework.",
       "ja": {
         "title-design": "f3.js ブランドデザイン",
         "description": "<abbr title=\"Internet of Things\">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。",
-        "description-design": "研究プロジェクト<a href=\"/ja/f3js\">f3.js</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはSemantic UI CSS/JavaScriptフレームワークを利用しました。"
+        "description-design": "研究プロジェクト<a href=\"${rootPath}ja/f3js\">f3.js</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはSemantic UI CSS/JavaScriptフレームワークを利用しました。"
       }
     },
     {
@@ -192,7 +190,7 @@
       "title-design": "TextAlive brand design",
       "subtitle": "An Integrated Design Environment for kinetic typography",
       "description": "An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.",
-      "description-design": "Built a brand kit for <a href=\"/textalive\"> the TextAlive research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Bootstrap CSS framework.",
+      "description-design": "Built a brand kit for <a href=\"${rootPath}textalive\"> the TextAlive research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Bootstrap CSS framework.",
       "members": [
         "Jun Kato",
         "Tomoyasu Nakano",
@@ -202,7 +200,7 @@
         "subtitle": "ウェブ上の楽曲と歌詞を用いたKinetic Typographyのための統合制作環境",
         "title-design": "TextAlive ブランドデザイン",
         "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。",
-        "description-design": "研究プロジェクト<a href=\"/ja/textalive\">TextAlive</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはBootstrap CSSフレームワークを利用しました。",
+        "description-design": "研究プロジェクト<a href=\"${rootPath}ja/textalive\">TextAlive</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはBootstrap CSSフレームワークを利用しました。",
         "members": [
           "加藤 淳",
           "中野 倫靖",
@@ -501,12 +499,12 @@
       "thumbnail": "ongacrest-flyers.jpg",
       "icon": "ongacrest-flyers.jpg",
       "description": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>.",
-      "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events and can be viewed as <a href=\"/design/nomaps2016-ongacrest-flyers.pdf\">a PDF file</a>.",
+      "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events and can be viewed as <a href=\"${rootPath}design/nomaps2016-ongacrest-flyers.pdf\">a PDF file</a>.",
       "ja": {
         "title": "OngaCREST関連デザイン",
         "title-design": "OngaCREST関連サービスの印刷物デザイン",
         "description": "OngaCRESTで研究開発された4つのWebサービスの宣伝用フライヤーとポスターをデザインしました。",
-        "description-design": "<a href=\"https://ongacrest.jp/en/\">OngaCREST</a>で研究開発された4つのWebサービス: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, <a href=\"http://songmash.jp\">Songmash</a>の宣伝用フライヤーとポスターをデザインしました。国際コンベンション<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>などで配布されたフライヤーを<a href=\"/design/nomaps2016-ongacrest-flyers.pdf\">PDF</a>で閲覧できます。"
+        "description-design": "<a href=\"https://ongacrest.jp/en/\">OngaCREST</a>で研究開発された4つのWebサービス: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, <a href=\"http://songmash.jp\">Songmash</a>の宣伝用フライヤーとポスターをデザインしました。国際コンベンション<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>などで配布されたフライヤーを<a href=\"${rootPath}design/nomaps2016-ongacrest-flyers.pdf\">PDF</a>で閲覧できます。"
       }
     },
     {
@@ -581,12 +579,12 @@
       "description": "Designed multiple <abbr title=\"Compact Disc\">CD</abbr> jackets.",
       "description-design": "Designed multiple <abbr title=\"Compact Disc\">CD</abbr> jackets. The following jackets are A/B sides of &quot;Project CRENO Conception&quot;, &quot;SUMMER.EXE&quot;, and &quot;gamma&quot;, respectively.",
       "images": [
-        "/design/cd-jackets/conception-a.jpg",
-        "/design/cd-jackets/conception-b.jpg",
-        "/design/cd-jackets/summer.exe-a.jpg",
-        "/design/cd-jackets/summer.exe-b.jpg",
-        "/design/cd-jackets/gamma-a.jpg",
-        "/design/cd-jackets/gamma-b.jpg"
+        "${rootPath}design/cd-jackets/conception-a.jpg",
+        "${rootPath}design/cd-jackets/conception-b.jpg",
+        "${rootPath}design/cd-jackets/summer.exe-a.jpg",
+        "${rootPath}design/cd-jackets/summer.exe-b.jpg",
+        "${rootPath}design/cd-jackets/gamma-a.jpg",
+        "${rootPath}design/cd-jackets/gamma-b.jpg"
       ],
       "ja": {
         "title": "<abbr title=\"Compact Disc\">CD</abbr> ジャケットデザイン",

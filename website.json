@@ -1,0 +1,20 @@
+{
+  "protocol": "https",
+  "domain": "junkato.jp",
+  "rootPath": "/",
+  "defaultImageUrl": "http://junkato.digitalmuseum.jp/images/thumbnails/website.png",
+  "defaultDescription": "Research and design portfolio website of Dr. Jun Kato, introducing past projects, publications, and so on.",
+  "defaultJapaneseDescription": "加藤 淳（Human-Computer Interaction 研究者，情報理工学博士）のポートフォリオWebサイトです。これまでの研究、デザイン、発表文献などを紹介しています。",
+  "recentProjects": [
+    "songle-sync",
+    "f3js",
+    "textalive"
+  ],
+  "selectedPublications": [
+    "programming-with-examples",
+    "dis2017-kato-f3js",
+    "chi2015-kato-textalive",
+    "chi2013-kato-picode",
+    "uist2012-kato-dejavu"
+  ]
+}

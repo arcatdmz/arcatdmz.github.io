@@ -24,6 +24,13 @@ const webpackConfigFile = './webpack.config';
 const webpackDebugConfigFile = './webpack-debug.config';
 const bibtexFile = 'src/junkato.bib';
 
+var website = loadConfig();
+
+function loadConfig(){
+  website = JSON.parse(fs.readFileSync('./website.json'));
+}
+loadConfig();
+
 gulp.task('semantic-js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic-assets', require('./semantic/tasks/build/assets'));
 gulp.task('semantic', ['semantic-js', 'semantic-assets']);
@@ -80,9 +87,11 @@ gulp.task('copy:bibtex', ['bibtex'], function(){
     .pipe(gulp.dest('build/data'));
 })
 
-gulp.task('copy:node', function(){
+gulp.task('replace:node', function(){
+  loadConfig();
   return gulp.src('src/**/*.json', { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(replace('${rootPath}', website.rootPath))
     .pipe(gulp.dest('build'));
 });
 
@@ -112,7 +121,7 @@ gulp.task('js:debug', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', ['ts:node', 'copy:node', 'copy:bibtex'], function(){
+gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
 });
 
@@ -133,8 +142,8 @@ gulp.task('lint:html', function() {
 });
 
 function setupLocals() {
-  const options = JSON.parse(fs.readFileSync('./build/data/website.json'))
-    , histories = require('./build/javascripts/histories').default
+  loadConfig();
+  const histories = require('./build/javascripts/histories').default
     , awards = require('./build/javascripts/awards').default
     , projects = require('./build/javascripts/projects').default
     , publications = require('./build/javascripts/publications').parse(
@@ -146,7 +155,7 @@ function setupLocals() {
     projectsTable[entry.project] = entry;
   }
   const recentProjects = [];
-  for (const key of options.recentProjects) {
+  for (const key of website.recentProjects) {
     recentProjects.push(projectsTable[key]);
   }
 
@@ -156,11 +165,11 @@ function setupLocals() {
     publicationsTable[entry.citationKey] = entry;
   }
   const selectedPublications = [];
-  for (const key of options.selectedPublications) {
+  for (const key of website.selectedPublications) {
     selectedPublications.push(publicationsTable[key]);
   }
 
-  // merge locals with options
+  // merge locals with website options
   var locals = {
       histories: histories
     , awards: awards
@@ -171,9 +180,9 @@ function setupLocals() {
     , publicationsTable: publicationsTable
     , selectedPublications: selectedPublications
   }
-  for (var key in options) {
-    if (typeof options[key] !== 'string') continue;
-    locals[key] = options[key];
+  for (var key in website) {
+    if (typeof website[key] !== 'string') continue;
+    locals[key] = website[key];
   }
   return locals;
 }

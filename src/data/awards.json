@@ -53,8 +53,8 @@
   {
     "date": "10/1/2013",
     "text": {
-      "en": "<a href=\"http://www.jidp.or.jp/en/\"><abbr title=\"Japan Institute of Design Promotion\">JDP</abbr></a> <a href=\"http://www.g-mark.org/award/describe/40508\">Good Design Award</a> for <a href=\"/openpool/\">OpenPool</a> Project",
-      "ja": "<a href=\"http://www.g-mark.org/award/describe/40508?locale=ja\">グッドデザイン賞</a> 受賞 (<a href=\"/ja/openpool/\">OpenPool プロジェクト</a>に対して)"
+      "en": "<a href=\"http://www.jidp.or.jp/en/\"><abbr title=\"Japan Institute of Design Promotion\">JDP</abbr></a> <a href=\"http://www.g-mark.org/award/describe/40508\">Good Design Award</a> for <a href=\"${rootPath}openpool/\">OpenPool</a> Project",
+      "ja": "<a href=\"http://www.g-mark.org/award/describe/40508?locale=ja\">グッドデザイン賞</a> 受賞 (<a href=\"${rootPath}ja/openpool/\">OpenPool プロジェクト</a>に対して)"
     },
     "type": "domestic"
   },
