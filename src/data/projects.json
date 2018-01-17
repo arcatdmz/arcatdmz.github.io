@@ -230,7 +230,11 @@
       },
       "publication": "hai2014-kato-sharedo",
       "title": "Sharedo",
-      "description": "A to-do list interface for sharing tasks between human and agents including robots and software personal assistants."
+      "subtitle": "To-Do List Interface for Human-Agent Task Sharing",
+      "description": "A to-do list interface for sharing tasks between human and agents including robots and software personal assistants.",
+      "ja": {
+        "description": "ロボットにユーザと同等の権限を与えて、ユーザとロボットの間でタスクの分業を行えるようにしたTODOリスト共有インタフェースです。"
+      }
     },
     {
       "project": "visionsketch",
