@@ -1,98 +1,57 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Multi-touch Multi-robot | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/multirobot/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1#about Multi-touch Interface for Controlling Multiple Mobile Robots
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '08-09
-          span.label.label-info(rel='tooltip', data-original-title='Robot Application')
-            i.glyphicon.glyphicon-tag
-            | Robot
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM CHI '09 Student Research Competition
-      section
-        h2 Abstract
-        .row
-          .col-sm-8.col-md-9
-            p
-              | Existing user interfaces for controlling mobile robots in real-time are generally for only one robot. Controlling multiple robots simultaneously is difficult. We developed a multi-touch interface with a top-down view from a ceiling-mounted camera for simultaneously controlling multiple mobile robots. Users touch and move their hands on the screen to specify the vector field, and all the robots move along the vector field.
-              // We also combined the vector field with a collision avoidance method using a potential field. 
-              |  The test users in our study successfully operated multiple robots simultaneously with our interface.
-            p
-              | This was my graduation thesis work and won 1
-              sup st
-              | place at CHI 2009
-              a(href='http://src.acm.org/previouswinners.html') Student Research Competition
-              | .
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/multirobot.jpg`, alt='Multi-touch Multi-robot')
-      section
-        .row
-          .col-md-6
-            h2 Multi-touch Vector Field Operation
-            p With our multi-touch interface, users can navigate multiple robots simultaneously through three operation modes. Please note that the users do not need to switch between these modes explicitly.
-            dl
-              dt Drag
-              dd When users touch and drag their hands along the panel, a virtual stream appears on the vector field and robots move in accordance with the stream.
-              dt Mix
-              dd When users drag their fingers on existing streams, the vector data near the streams are blended in proportion to their distances from the streams. Nearer streams affect the vectors more strongly.
-              dt Hold
-              dd Touching the panel without further motion will reset the vectors under that hand. Thus, we can stop a robot by touching and holding an area in front of the robot.
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/zGioJvhsoIY', frameborder='0', allowfullscreen='')
-            <div class="thumbnail"><img src="#{rootPath}multirobot/operations.png" width="570" alt="Three operation modes"></div>
-      section
-        h2 Publication
-        p (omitted)
+extends ../_layout
+
+block vars
+  - p = projectsTable['multirobot'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('multirobot')
+  .ui.hidden.divider
+  .ui.stackable.two.columns.grid
+    .column
+      section#abstract: +abstract()
+      section#interaction: +interaction()
+    .column: section#videos: +videos()
+  +render-project-publications('multirobot', 'chi2009-kato-multirobot')
+
+mixin abstract()
+  h2.ui.header #{en ? 'Abstract' : '概要'}
+  .ui.basic.segment
+    block abstract
+      p Existing user interfaces for controlling mobile robots in real-time are generally for only one robot. Controlling multiple robots simultaneously is difficult. We developed a multi-touch interface with a top-down view from a ceiling-mounted camera for simultaneously controlling multiple mobile robots. Users touch and move their hands on the screen to specify the vector field, and all the robots move along the vector field.
+        // We also combined the vector field with a collision avoidance method using a potential field. 
+        |  The test users in our study successfully operated multiple robots simultaneously with our interface.
+      p This was my graduate thesis work and won 1
+        sup st
+        | place at CHI 2009 
+        a(href='http://src.acm.org/previouswinners.html') Student Research Competition
+        | .
+  .ui.hidden.divider
+
+mixin interaction()
+  h2.ui.header #{en ? 'Multi-touch Vector Field Operation' : 'ベクトル場を用いた複数ロボットの同時操作'}
+  .ui.basic.segment
+    block interaction
+      p With our multi-touch interface, users can navigate multiple robots simultaneously through three operation modes. Please note that the users do not need to switch between these modes explicitly.
+      dl
+        dt: strong Drag
+        dd When users touch and drag their hands along the panel, a virtual stream appears on the vector field and robots move in accordance with the stream.
+        dt: strong Mix
+        dd When users drag their fingers on existing streams, the vector data near the streams are blended in proportion to their distances from the streams. Nearer streams affect the vectors more strongly.
+        dt: strong Hold
+        dd Touching the panel without further motion will reset the vectors under that hand. Thus, we can stop a robot by touching and holding an area in front of the robot.
+  .ui.hidden.divider
+
+mixin videos()
+  +embed-youtube('//www.youtube.com/embed/zGioJvhsoIY')
+  .caption: .ui.horizontal.list
+    .item
+      a(href='//www.youtube.com/watch?v=QKtzsOU-sA8')
+        i.youtube.icon
+        | YouTube
+  .ui.hidden.divider
+  a.ui.fluid.image(href=`${rootPath}multirobot/operations.png`)
+    img(src=`${rootPath}multirobot/operations.png`)
+  .caption #{en ? 'Three operation modes' : '3つの操作モード'}
+  .ui.hidden.divider
