@@ -333,7 +333,7 @@ mixin render-major-publication(entry)
     - }
   .ui.horizontal.divided.list.extra
     - if (entry.entryTags.pdf) {
-    a.item(href=)
+    a.item(href=entry.entryTags.pdf)
       i.text.file.icon
       | #{en ? 'Paper PDF' : '論文PDF'}
     - }

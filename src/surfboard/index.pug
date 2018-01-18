@@ -1,79 +1,50 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Surfboard | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/surfboard/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Surfboard: Keyboard with Microphone as a Low-cost Interactive Surface
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '10
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM UIST '10 Demonstration
-      section
-        h2 Abstract
-        .row
-          .col-sm-8.col-md-9
-            p We introduce a technique to detect simple gestures of "surfing" (moving a hand horizontally) on a standard keyboard by analyzing recorded sounds in real-time with a microphone attached close to the keyboard. This technique allows the user to maintain a focus on the screen while surfing on the keyboard. Since this technique uses a standard keyboard without any modification, the user can take full advantage of the input functionality and tactile quality of his favorite keyboard supplemented with our interface.
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/surfboard.jpg`, alt='Surfboard')
-      section
-        .row
-          .col-md-6
-            h2 Recognizable gestures
-            p Surfboard can recognize whether the user is surfing on a keyboard or not. When the user surfs on a keyboard, it can distinguish left to right or right to left surfing directions. We have not yet tested other motions like drawing circle or more complex shapes because they would be difficult to execute on a keyboard which is generally horizontally long.
-            h2 Supported hardware
-            p Our prototype implementation uses a monaural microphone attached close to the keyboard of a personal computer. It needs to be attached near the right or left edge of the keyboard to distinguish surfing direction effectively. Fortunately at present, many laptop computers are equipped with a microphone, and we confirmed that Surfboard works at a quiet office and a noisy cafeteria with built-in microphones that are located at several different positions.
-          .col-md-6
-            .thumbnail
-              iframe(width='100%', height='315', src='//www.youtube.com/embed/QKtzsOU-sA8', frameborder='0', allowfullscreen='') </div><div class="thumbnail"><img src="#{rootPath}surfboard/fig2-microphones.jpg" width="570" alt="Microphones attached close to keyboards"></div>
-      h2 Publication
-      p (omitted)
+extends ../_layout
+
+block vars
+  - p = projectsTable['surfboard']
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('surfboard')
+  .ui.message
+    block message
+      | Surfboard is open-sourced at 
+      a(href='https://github.com/arcatdmz/surfboard') GitHub
+      | .
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p We introduce a technique to detect simple gestures of &quot;surfing&quot; (moving a hand horizontally) on a standard keyboard by analyzing recorded sounds in real-time with a microphone attached close to the keyboard. This technique allows the user to maintain a focus on the screen while surfing on the keyboard. Since this technique uses a standard keyboard without any modification, the user can take full advantage of the input functionality and tactile quality of his favorite keyboard supplemented with our interface.
+  .ui.hidden.divider
+  .ui.stackable.two.columns.grid
+    .column
+      section#gestures
+        h2.ui.header #{en ? 'Recognizable gestures' : '検出可能なジェスチャ'}
+        .ui.basic.segment
+          block gestures
+            p Surfboard can recognize whether the user is surfing on a keyboard or not. When the user surfs on a keyboard, it can distinguish left to right or right to left surfing directions.
+            p We have not yet tested other motions like drawing circle or more complex shapes because they would be difficult to execute on a keyboard which is generally horizontally long.
+      .ui.hidden.divider
+      section#hardware
+        h2.ui.header #{en ? 'Supported hardware' : '対応ハードウェア'}
+        .ui.basic.segment
+          block hardware
+            p Our prototype implementation uses a monaural microphone attached close to the keyboard of a personal computer. It needs to be attached near the right or left edge of the keyboard to distinguish surfing direction effectively. 
+            p Fortunately at present, many laptop computers are equipped with a microphone, and we confirmed that Surfboard works at a quiet office and a noisy cafeteria with built-in microphones that are located at several different positions.
+      .ui.hidden.divider
+    .column
+      +embed-youtube('//www.youtube.com/embed/QKtzsOU-sA8')
+      .caption: .ui.horizontal.list
+        .item
+          a(href='//www.youtube.com/watch?v=QKtzsOU-sA8')
+            i.youtube.icon
+            | YouTube
+      .ui.hidden.divider
+      a.ui.fluid.image(href=`${rootPath}surfboard/fig2-microphones.jpg`)
+        img(src=`${rootPath}surfboard/fig2-microphones.jpg`)
+      .caption #{en ? 'Microphones attached close to keyboards' : 'キーボードの近くに設置されたマイク'}
+  .ui.hidden.divider
+  +render-project-publications('surfboard', 'uist2010-kato-surfboard')
