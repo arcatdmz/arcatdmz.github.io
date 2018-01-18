@@ -206,10 +206,15 @@ mixin render-project-publications(project, majorPublication)
     +render-project-publications-with-major(project, majorPublication)
     - } else {
     .ui.segment: .ui.divided.list
+      - var pub = 0;
       - for (const entry of publications) {
       - if (en && entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
       - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
+      - pub ++;
       +render-publication(entry, false, false)
+      - }
+      - if (pub <= 0) {
+      .item No publication record found for this project.
       - }
     - }
 

@@ -1,132 +1,80 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Pressing | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/pressing/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Pressing: A Pressure-sensitive Interpreter with Visual Feedbacks
+extends ../_layout
+
+block vars
+  - p = projectsTable['pressing']
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('pressing')
+  .ui.hidden.divider
+  .ui.stackable.grid
+    .ten.wide.column: +body()
+    .six.wide.column: +images()
+  .ui.hidden.divider
+  +render-project-publications('pressing')
+
+mixin body()
+  section#abstract
+    h2.ui.header #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with 
+          a(href='http://www.youtube.com/watch?v=1zo0kJ_wi80') a practical pressure-sensitive keyboard
+          |  developed by 
+          a(href='http://www.microsoft.com/appliedsciences/') Microsoft Applied Science Group
+          | .
+        p This work was presented at UIST 2009 
+          a(href='http://www.acm.org/uist/uist2009/call/contest.htmll') Student Innovation Contest
+          |  with 
+          a(href=`${rootPath}publications/uist2009-kato-pressing-flyer.pdf`)
+            i.file.icon
+            | a flyer
+          | .
+      .ui.hidden.divider
+      .ui.fluid.image
+        img(src='http://digitalmuseum.jp/en/software/pressing/images/usage.png')
+      .caption #{en ? 'Example code and its execution results' : 'サンプルコードとその実行結果'}
+  .ui.hidden.divider
+  section#px
+    h2.ui.header #{en ? 'Programming Experience' : 'プログラミング体験'}
+    .ui.basic.segment
+      block px
+        p When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct.
         p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '10
-          span.label.label-info(rel='tooltip', data-original-title='Integrated Development Environment')
-            i.glyphicon.glyphicon-tag
-            | IDE
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          span.label.label-danger(rel='tooltip')
-            i.glyphicon.glyphicon-folder-open
-            | ACM UIST '09 Student Innovation Contest
-      section
-        h2 Abstract
-        .row
-          .col-sm-8.col-md-9
-            p
-              | Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with
-              a(href='http://www.youtube.com/watch?v=1zo0kJ_wi80') a practical pressure-sensitive keyboard
-              | developed by
-              a(href='http://www.microsoft.com/appliedsciences/') Microsoft Applied Science Group
-              | .
-            p
-              | This work was presented at UIST 2009
-              a(href='http://www.acm.org/uist/uist2009/call/contest.htmll') Student Innovation Contest
-              | with
-              a(href=`${rootPath}publications/uist2009-kato-pressing-flyer.pdf`)
-                i.icon-file
-                | a flyer
-              | .
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/pressing.jpg`, alt='Pressing')
-      section
-        .row
-          .col-sm-12.col-md-9
-            h2 Programming Experience
-            p When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct.
-            p
-              | For example, when he types
-              code new Ball()
-              | and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name
-              i Ball
-              | is typed.
-            p
-              | There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable
-              i b
-              | and its track will be painted with a red brush. The brush width is defined by how strong
-              i Brush
-              | is typed.
-            pre b = new Ball(); b.pen(new Brush(255,0,0));
-            p The programmer can interact with the instantiated ball objects not only by writing code,
-            pre World.setGravity(0, 0.98); b.setSpeed(100);
-            p but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience.
-            h2 Implementation
-            p
-              | This integrated development environment (IDE) has its original interpreter named
-              i Kotosaka
-              | which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects.
-            p
-              | The IDE contains a two-dimensional virtual world equipped with a
-              a(href='http://box2d.org/') Box2D
-              | -based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure.
-            .thumbnail
-              img(src='http://digitalmuseum.jp/en/software/pressing/images/usage.png')
-          .col-xs-6.col-sm-6.col-md-3
-            .thumbnail
-              a(href=`${rootPath}pressing/pressing.png`)
-                img(src=`${rootPath}pressing/pressing.png`, width='260', alt='Pressing screen shot')
-          .col-xs-6.col-sm-6.col-md-3
-            .thumbnail
-              a(href='http://www.flickr.com/photos/zhiquan/3989241000/')
-                img(src=`${rootPath}pressing/3989241000_35cb13136a_o.jpg`, alt='Demonstration at UIST \'09')
-      footer
-        hr
+          | For example, when he types 
+          code new Ball()
+          |  and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name 
+          i Ball
+          |  is typed.
         p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/pressing/`)
-            | 日本語
-            i.translation.icon-ja
+          | There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable 
+          i b
+          |  and its track will be painted with a red brush. The brush width is defined by how strong 
+          i Brush
+          |  is typed.
+        pre b = new Ball(); b.pen(new Brush(255,0,0));
+        p The programmer can interact with the instantiated ball objects not only by writing code,
+        pre World.setGravity(0, 0.98); b.setSpeed(100);
+        p but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience.
+  .ui.hidden.divider
+  section#implementation
+    h2.ui.header #{en ? 'Implementation' : '実装'}
+    .ui.basic.segment
+      block implementation
+        p This integrated development environment (IDE) has its original interpreter named 
+          i Kotosaka
+          |  which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects.
+        p The IDE contains a two-dimensional virtual world equipped with a 
+          a(href='http://box2d.org/') Box2D
+          | -based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure.
+
+mixin images()
+  a.ui.fluid.image(href=`${rootPath}pressing/pressing.png`)
+    img(src=`${rootPath}pressing/pressing.png`)
+  .caption #{en ? 'Screenshot of the Pressing IDE' : '統合開発環境Pressingのスクリーンショット'}
+  .ui.hidden.divider
+  a.ui.fluid.image(href='http://www.flickr.com/photos/zhiquan/3989241000/')
+    img(src=`${rootPath}pressing/3989241000_35cb13136a_o.jpg`)
+  .caption #{en ? 'Demonstration at UIST \'09' : 'UIST \'09でのデモの様子'}
+  .ui.hidden.divider
