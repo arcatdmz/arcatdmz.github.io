@@ -1,100 +1,51 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Indescribable Tea Party | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li.active
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/teaparty/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Indescribable Tea Party
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '12-17
-      section
-        h2 Summary
-        .row
-          .col-sm-8.col-md-9
-            p
-              strong "Indescribable tea party" is an annual gathering event for those who { create media content, do research on creativity support tools, love such content and want to support its creators }.
-              | The media content includes but is not limited to: animations, games, illustrations, music, novels, etc.
-            p Attendees are expected to provide presentations of varying durations (from 1 min lightning talk to 30 min long presentation) to get to know each other and learn the cutting edge of creating/delivering/enjoying media content.
-            p
-              | The party welcomes people who have full of curiosity in wide range of topics relevant to the future of media content, science, and technology.
-              strong (NOTE: This event has nothing to do with the Tea Party movement!)
-          .col-sm-4.col-md-3
-            .thumbnail
-              img(src=`${rootPath}images/thumbnails/teaparty.jpg`, alt='Indescribable tea party')
-      section
-        .row
-          .col-md-5
-            h2 Past Events
-            h3 6th Party: 2/12/2017 @ Wantedly, Inc.
-            p
-              | 36 people from industry and academia gathered and presented their work in the following sessions: AI & IA, Media Content and Society, Startups, Design, Interaction, etc. There was also a panel session in which Prof. Inami (
-              a(href='http://inamilab.org/') The University of Tokyo
-              | ), Mr. Hirasawa (
-              a(href='http://uspi.jp/') USP
-              | ), and Kato discussed the future of creativity support.
-            h3 5th Party: 2/13/2016 @ Wantedly, Inc.
-            p >30 people attended the event. A variety of presentations relevant to science, technology, and media content were provided, forming the following sessions: Music, Video, Food, Game, Ethnography, Business, 2D/3D/Fabrication, and lightning talks.
-            h3 4th Party: 1/24/2015 @ DMM.make AKIBA BASE
-            p Lots of attendees! Organized sessions for the first time: Creators' Showcase #1/#2, Science and Education, Human/Computer/Intelligence, Game, Oversea, Media Content for the Five Senses, Understanding and Creating Content, and the Shotgun Session.
-            h3 1st - 3rd Parties: 2012-2014 @ Lab-Cafe
-            p Researchers, engineers, artists, producers, and fans of media content gathered at a cozy Lab-Cafe and provided presentations, getting to know each other and learn the cutting edge of creating media content.
-          .col-md-7
-            .thumbnail
-              img(src=`${rootPath}ja/teaparty/20160213-5th-teaparty.jpg`, title='第5回')
-            .thumbnail
-              img(src=`${rootPath}ja/teaparty/20140301-3rd-teaparty.jpg`, title='第3回')
-            .thumbnail
-              img(src=`${rootPath}ja/teaparty/20130105-2nd-teaparty.jpg`, title='第2回')
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/teaparty/`)
-            | 日本語
-            i.translation.icon-ja
+extends ../_layout
+
+block vars
+  - p = projectsTable['teaparty'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('teaparty')
+  .ui.hidden.divider
+  .ui.stackable.grid
+    .ten.wide.column: +body()
+    .six.wide.column: +images()
+
+mixin body()
+  section
+    h2.ui.header#summary #{en ? 'Summary' : '概要'}
+    .ui.basic.segment: block summary
+      p &quot;Indescribable tea party&quot; welcomes people who have full of curiosity in wide range of topics relevant to the future of media content, science, and technology. The media content includes but is not limited to: animations, games, illustrations, music, novels, etc.
+      p All attendees are expected to provide presentations of varying durations (from 1 min lightning talk to 30 min long presentation) to get to know each other and learn the cutting edge of creating/delivering/enjoying media content.
+      p: strong (NOTE: This event has nothing to do with the Tea Party movement!)
+  .ui.hidden.divider
+  section#past-events
+    h2.ui.header #{en ? 'Past Events' : 'イベント一覧'}
+    .ui.basic.segment: block past-events
+      h3.ui.header 7th Party: 1/28/2017 @ Wantedly, Inc.
+      p: strong TBA
+      h3.ui.header 6th Party: 2/12/2017 @ Wantedly, Inc.
+      p 36 people from industry and academia gathered and presented their work in the following sessions: AI &amp; IA, Media Content and Society, Startups, Design, Interaction, etc. There was also a panel session in which Prof. Inami (
+        a(href='http://inamilab.org/') The University of Tokyo
+        | ), Mr. Hirasawa (
+        a(href='http://uspi.jp/') USP
+        | ), and Dr. Kato discussed the future of creativity support research and development.
+      h3.ui.header 5th Party: 2/13/2016 @ Wantedly, Inc.
+      p &gt;30 people attended the event. A variety of presentations relevant to science, technology, and media content were provided, forming the following sessions: Music, Video, Food, Game, Ethnography, Business, 2D/3D/Fabrication, and lightning talks.
+      h3.ui.header 4th Party: 1/24/2015 @ DMM.make AKIBA BASE
+      p Lots of attendees! Organized sessions for the first time: Creators' Showcase #1/#2, Science and Education, Human/Computer/Intelligence, Game, Oversea, Media Content for the Five Senses, Understanding and Creating Content, and the Shotgun Session.
+      h3.ui.header 1st - 3rd Parties: 2012-2014 @ Lab-Cafe
+      p Researchers, engineers, artists, producers, and fans of media content gathered at a cozy Lab-Cafe and provided presentations, getting to know each other and learn the cutting edge of creating media content.
+  .ui.hidden.divider
+
+mixin images()
+  img.ui.fluid.image(src=`${rootPath}teaparty/20160213-5th-teaparty.jpg`)
+  .caption #{en ? 'A photo from the 5th party' : '第5回の模様'}
+  .ui.hidden.divider
+  img.ui.fluid.image(src=`${rootPath}teaparty/20140301-3rd-teaparty.jpg`)
+  .caption #{en ? 'A photo from the 3rd party' : '第3回の模様'}
+  .ui.hidden.divider
+  img.ui.fluid.image(src=`${rootPath}teaparty/20130105-2nd-teaparty.jpg`)
+  .caption #{en ? 'A photo from the 2nd party' : '第2回の模様'}
+  .ui.hidden.divider
