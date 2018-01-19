@@ -38,6 +38,7 @@
     "design": {
       "title": "Design",
       "label": "Design",
+      "project": "design",
       "ja": {
         "title": "デザイン"
       }
@@ -67,7 +68,7 @@
       "title": "&quot;junkato.jp&quot; Website",
       "title-design": "&quot;junkato.jp&quot; web design",
       "year": {
-        "from": 2012
+        "from": 2018
       },
       "category": "private",
       "icon": "website.png",
@@ -87,16 +88,16 @@
     },
     {
       "project": "sigpx",
-      "url": "https://sigpx.org/en",
       "title": "SIGPX",
       "year": {
         "from": 2016
       },
       "category": "committee",
       "description": "This is a Japanese domestic study group for those interested in programming environments and their programming experience, founded in January 2016.",
+      "url": "https://sigpx.org/en",
       "ja": {
-        "url": "https://sigpx.org",
-        "description": "プログラミングのための環境と、その環境が提供する体験の設計に興味を持つ人で集まり、最新の研究動向や事例について情報交換する会です。"
+        "description": "プログラミングのための環境と、その環境が提供する体験の設計に興味を持つ人で集まり、最新の研究動向や事例について情報交換する会です。",
+        "url": "https://sigpx.org"
       }
     },
     {
@@ -281,11 +282,11 @@
       "publication": "chi2014-fukahori-capstudio",
       "thumbnail": "capstudio.jpg",
       "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> for visual applications that shows interactive screencasts for replaying program executions and editing visual parameters.",
+      "url": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html",
       "ja": {
-        "project": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio.html",
-        "description": "ゲームなどの視覚的なアプリケーション開発において、プログラム実行画面の録画映像を表示し、さらに参照している画像リソースなどを編集して動的に確認できる統合開発環境です。"
-      },
-      "url": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html"
+        "description": "ゲームなどの視覚的なアプリケーション開発において、プログラム実行画面の録画映像を表示し、さらに参照している画像リソースなどを編集して動的に確認できる統合開発環境です。",
+        "url": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio.html"
+      }
     },
     {
       "project": "touchdevelop",
@@ -424,7 +425,6 @@
     },
     {
       "project": "cristal",
-      "url": "http://www.jst.go.jp/erato/igarashi/en/projects/CRISTAL",
       "title": "CRISTAL",
       "subtitle": "Control of Remotely Interfaced Systems Using Touch-Based Actions in Living Spaces",
       "year": {
@@ -439,6 +439,7 @@
       "publication": "siggraph2009-kato-cristal",
       "thumbnail": "cristal.jpg",
       "description": "A table-top interface that provides a streaming video view of the living room, so users can walk up to it, see the layout of the room and interact with the TV, lighting, cleaning robot, and so on.",
+      "url": "http://www.jst.go.jp/erato/igarashi/en/projects/CRISTAL",
       "ja": {
         "description": "机上に部屋の見下ろし映像が投影され、その上のテレビ、写真立て、照明などを直接操作できるタッチ入力インタフェースです。床を操作することで掃除ロボットへの指示出しもできます。",
         "url": "http://www.jst.go.jp/erato/igarashi/projects/CRISTAL"
@@ -508,6 +509,7 @@
       "icon": "ongacrest-flyers.jpg",
       "description": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>.",
       "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events and can be viewed as <a href=\"${rootPath}design/nomaps2016-ongacrest-flyers.pdf\">a PDF file</a>.",
+      "url": "${rootPath}design/nomaps2016-ongacrest-flyers.pdf",
       "ja": {
         "title": "OngaCREST関連デザイン",
         "title-design": "OngaCREST関連サービスの印刷物デザイン",
@@ -594,6 +596,7 @@
         "${rootPath}design/cd-jackets/gamma-a.jpg",
         "${rootPath}design/cd-jackets/gamma-b.jpg"
       ],
+      "url": false,
       "ja": {
         "title": "<abbr title=\"Compact Disc\">CD</abbr> ジャケットデザイン",
         "title-design": "<abbr title=\"Compact Disc\">CD</abbr> ジャケットデザイン",
@@ -620,14 +623,14 @@
       "icon": "chippie.png",
       "description": "An extendible PHP framework for content management of news website.",
       "description-design": "An extendible PHP framework for content management of news website used in <a href=\"http://digitalmuseum.jp\">digitalmuseum</a>, <a href=\"http://sci.digitalmuseum.jp\">SCI (the frontline of SCIence)</a>, and <a href=\"https://web.archive.org/web/20071209195557/http://www.ut-life.net:80/\" title=\"The University of Tokyo-life\">UT-Life</a>, all of which are designed and implemented by me.",
-      "url": "http://digitalmuseum.jp/software/chippie/",
+      "url": false,
       "ja": {
         "description": "主にニュース配信を目的とするWebサイトのコンテンツ管理を容易にするPHPフレームワークです。",
-        "description-design": "主にニュース配信を目的とするWebサイトのコンテンツ管理を容易にするPHPフレームワークです。3つのWebサイト: <a href=\"http://digitalmuseum.jp\">digitalmuseum</a>, <a href=\"http://sci.digitalmuseum.jp\">SCI (サイエンスの最先端を)</a>, <a href=\"https://web.archive.org/web/20071209195557/http://www.ut-life.net:80/\" title=\"The University of Tokyo-life\">UT-Life</a> をデザイン、開発する際に利用しました。"
+        "description-design": "主にニュース配信を目的とするWebサイトのコンテンツ管理を容易にするPHPフレームワークです。3つのWebサイト: <a href=\"http://digitalmuseum.jp\">digitalmuseum</a>, <a href=\"http://sci.digitalmuseum.jp\">SCI (サイエンスの最先端を)</a>, <a href=\"https://web.archive.org/web/20071209195557/http://www.ut-life.net:80/\" title=\"The University of Tokyo-life\">UT-Life</a> をデザイン、開発する際に利用しました。",
+        "url": "http://digitalmuseum.jp/software/chippie/"
       }
     },
     {
-      "url": "http://digitalmuseum.jp/software/arxmp/",
       "title": "arX MusicPlayer",
       "description": "Yet another music player for Windows with a built-in interpreter of a domain-specific language to change &quot;skins.&quot;",
       "year": {
@@ -636,12 +639,13 @@
       },
       "category": "private",
       "thumbnail": "arxmusicplayer.jpg",
+      "url": false,
       "ja": {
-        "description": "Hot Soup Processor製のWindows用音楽再生ソフトです。<a href=\"https://github.com/arcatdmz/arxmp#readme\">GitHub</a>でソースコードが公開されています。"
+        "description": "Hot Soup Processor製のWindows用音楽再生ソフトです。<a href=\"https://github.com/arcatdmz/arxmp#readme\">GitHub</a>でソースコードが公開されています。",
+        "url": "http://digitalmuseum.jp/software/arxmp/"
       }
     },
     {
-      "url": "http://digitalmuseum.jp/software/arxlc/",
       "title": "arX Launcher",
       "description": "Yet another program launcher for Windows written with &lt;300 physical <abbr title=\"Lines of code\">loc</abbr>.",
       "year": {
@@ -650,8 +654,10 @@
       },
       "category": "private",
       "thumbnail": "arxlauncher.png",
+      "url": false,
       "ja": {
-        "description": "300行未満で記述されたHot Soup Processor製のWindows用ランチャーソフトです。<a href=\"https://github.com/arcatdmz/arxlc/blob/master/hidden/source/arxlc.as\">GitHub</a>でソースコードが公開されています。"
+        "description": "300行未満で記述されたHot Soup Processor製のWindows用ランチャーソフトです。<a href=\"https://github.com/arcatdmz/arxlc/blob/master/hidden/source/arxlc.as\">GitHub</a>でソースコードが公開されています。",
+        "url": "http://digitalmuseum.jp/software/arxlc/"
       }
     }
   ]

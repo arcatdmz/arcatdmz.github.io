@@ -1,10 +1,31 @@
 /// <reference path='./typings.d.ts' />
 import * as json from "../data/projects.json";
-const data: {
-  tags: { [tag: string]: { title?: string; label: string; ja?: { title?: string; } } },
-  "tags-design": { [tag: string]: { title?: string; icon: string; label: string; ja?: { title?: string; } } },
+
+const data: ProjectData = json.default ? json.default : json;
+
+interface ProjectData {
+  tags: { [tag: string]: TagEntry },
+  "tags-design": { [tag: string]: DesignTagEntry },
   projects: RawEntry[]
-} = json.default ? json.default : json;
+}
+
+interface TagEntry {
+  title?: string;
+  label: string;
+  project?: string;
+  ja?: {
+    title?: string;
+  }
+}
+
+interface DesignTagEntry {
+  title?: string;
+  icon: string;
+  label: string;
+  ja?: {
+    title?: string;
+  }
+}
 
 interface RawEntry {
   project: string;
@@ -25,7 +46,7 @@ interface RawEntry {
   "description-design"?: string;
   members: string[];
   images?: string[];
-  url?: string;
+  url?: string | boolean;
   ja: {
     publication?: string;
     title?: string;
@@ -34,7 +55,7 @@ interface RawEntry {
     description?: string;
     "description-design"?: string;
     members?: string[];
-    url?: string;
+    url?: string | boolean;
   }
 }
 
@@ -216,7 +237,7 @@ class Entry {
   }
   getLink(lang: 'en'|'ja', basePath: string) {
     const url = this.getUrl(lang);
-    return url ? url : basePath + this.data.project;
+    return typeof url === 'undefined' ? basePath + this.data.project : url;
   }
 }
 
@@ -236,4 +257,5 @@ for (const project of data.projects) {
 }
 
 export var tags = data.tags;
+export var designTags = data['tags-design'];
 export default entries;

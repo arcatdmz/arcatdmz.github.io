@@ -61,27 +61,7 @@ mixin portfolio()
   - }
   - sortedProjects.sort(function(a, b){ return b.year.from - a.year.from; });
   - for (const p of sortedProjects) {
-  .ui.basic.segment(id=p.project)
-    a.ui.small.left.floated.image(href=basePath+p.project): img(src=`/images/icons/${p.icon}`)
-    h3.ui.header !{p.getDesignTitle(lang)}
-    p !{p.getDesignDescription(lang)}
-    - if (p.images) {
-    .ui.tiny.images
-      - for (const image of p.images) {
-      img.ui.image(src=image)
-      - }
-    - }
-    .ui.horizontal.list
-      .item: .ui.basic.label
-        i.calendar.icon
-        | #{p.getYearString(lang)}
-      - const tags = p.getDesignTags(lang);
-      - if (tags.length > 0) {
-      - for (const tag of tags) {
-      .item !{tag}
-      - }
-      - }
-    .ui.clearing.divider
+  +render-design-segment(p)
   - }
     // Project CRENO
     // SCI
@@ -102,7 +82,7 @@ mixin skillset()
       .ui.divided.list
         +skillset-ixd()
 
-mixin skillset-graphic
+mixin skillset-graphic()
   .item
     i.large.devicon-photoshop-plain.colored.icon
     .content
@@ -245,3 +225,31 @@ mixin skillset-ixd()
     .content
       .header GitHub
       .description see <a href="https://github.com/arcatdmz">my repos</a>
+
+mixin render-design-segment(p)
+  - const link = p.getLink(lang, basePath);
+  .ui.basic.segment(id=p.project)
+    - if (link === false) {
+    img.ui.small.left.floated.image(src=`/images/icons/${p.icon}`)
+    - } else {
+    a.ui.small.left.floated.image(href=link): img(src=`/images/icons/${p.icon}`)
+    - }
+    h3.ui.header !{p.getDesignTitle(lang)}
+    p !{p.getDesignDescription(lang)}
+    - if (p.images) {
+    .ui.tiny.images
+      - for (const image of p.images) {
+      img.ui.image(src=image)
+      - }
+    - }
+    .ui.horizontal.list
+      .item: .ui.basic.label
+        i.calendar.icon
+        | #{p.getYearString(lang)}
+      - const tags = p.getDesignTags(lang);
+      - if (tags.length > 0) {
+      - for (const tag of tags) {
+      .item !{tag}
+      - }
+      - }
+    .ui.clearing.divider
