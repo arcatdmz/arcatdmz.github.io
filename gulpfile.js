@@ -249,7 +249,7 @@ gulp.task('watch:html', function(){
     const relPath = path.relative(basePath, fullPath);
 
     // _layout.pug that affects all pages
-    if (relPath === '_layout.pug') {
+    if (relPath.indexOf('_layout') === 0) {
       return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
     }
 

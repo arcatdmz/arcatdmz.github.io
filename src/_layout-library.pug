@@ -1,0 +1,278 @@
+
+- function getItemClass(path) {
+-   return me === path ? 'active' : undefined;
+- }
+
+mixin embed-youtube(src)
+  .ui.embed: iframe(src=src, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen)
+
+mixin translate(path)
+  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/junkato.jp/blob/master/src/${path}`, data-content='翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります') 翻訳が必要
+
+mixin render-project-header(project, additionalLabels)
+  - const p = projectsTable[project];
+  section
+    h1.ui.header !{title}
+      .sub.header !{p.getSubtitle(lang)}
+    .ui.horizontal.divided.list
+      - if (p.hasMembers()) for (member of p.getMembers(lang)) {
+      .item #{member}
+      - }
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | #{p.getYearString(lang)}
+      - if (p.hasPublication(lang)) {
+      .item: +render-project-label(p)
+      - }
+      - if (typeof additionalLabels === 'string') {
+      - additionalLabels = [additionalLabels];
+      - }
+      - if (Array.isArray(additionalLabels)) for (additionalLabel of additionalLabels) {
+      .item !{additionalLabel}
+      - }
+      - const tags = p.getTags(lang);
+      - if (tags.length > 0) {
+      .item #{en ? 'Keywords' : '関連キーワード'}: !{tags.join(', ')}
+      - }
+
+mixin render-project-publications(project, majorPublication)
+  section#publications
+    h2.ui.header
+      i.book.icon
+      .content #{en ? 'Publications' : '発表文献'}
+    - if (majorPublication) {
+    +render-project-publications-with-major(project, majorPublication)
+    - } else {
+    .ui.segment: .ui.divided.list
+      - var pub = 0;
+      - for (const entry of publications) {
+      - if (en && entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+      - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
+      - pub ++;
+      +render-publication(entry, false, false)
+      - }
+      - if (pub <= 0) {
+      .item No publication record found for this project.
+      - }
+    - }
+
+mixin render-project-publications-with-major(project, majorPublication)
+  - const projectPublications = [];
+  - for (const entry of publications) {
+  - if (entry.citationKey === majorPublication) continue;
+  - if (en && entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+  - if (!entry.entryTags || !entry.entryTags.project || entry.entryTags.project.indexOf(project) < 0) continue;
+  - projectPublications.push(entry);
+  - }
+  .ui.basic.segment
+    .ui.raised.segment.major-publication
+      span.ui.red.ribbon.label #{en ? 'Cite this!' : '引用するならコレ！'}
+      +render-major-publication(publicationsTable[majorPublication], false, false)
+    - if (projectPublications.length > 0) {
+    .ui.secondary.segment: .ui.divided.list
+      - for (const entry of projectPublications) {
+      +render-publication(entry, false, false)
+      - }
+    - }
+
+mixin render-publication(entry, withIcon=false, withProjectLabel=true)
+  - if (!entry.entryTags) return;
+  .item.publication(class=entry.entryType, id=entry.citationKey)
+    .right.floated.content
+      .ui.circular.icon.tiny.with-popup-menu.button
+        i.sidebar.icon
+      .ui.popup
+        .ui.divided.list
+          - if (entry.entryTags.pdf) {
+          a.item(href=entry.entryTags.pdf)
+            i.text.file.icon
+            | #{en ? 'Paper PDF' : '論文PDF'}
+          - }
+          - if (entry.entryTags.poster) {
+          a.item(href=entry.entryTags.poster)
+            i.image.file.icon
+            | #{en ? 'Poster PDF' : 'ポスターPDF'}
+          - }
+          - if (entry.entryTags.slides) {
+          a.item(href=entry.entryTags.slides)
+            i.powerpoint.file.outline.icon
+            | #{en ? 'Slides PDF' : 'スライドPDF'}
+          - }
+          - if (entry.hasDOIUrl()) {
+          a.item(href=entry.getDOIUrl())
+            i.barcode.icon
+            | #{en ? 'Resolve DOI' : 'DOIを照会'}
+          - }
+          a.bibtex.item(data-clipboard-text=entry.getBibTeX(), href='#')
+            i.book.icon
+            | #{en ? 'Copy BibTeX' : 'BibTeXをコピー'}
+    - if (withIcon) {
+    i.icon(class=entry.getIconClass())
+    - }
+    .content
+      h4.ui.header #{entry.entryTags.title}
+      .description: .ui.list
+        .item.labels
+          i.right.triangle.icon
+          .content 
+            span.ui.tiny.label
+              i.calendar.icon
+              | #{entry.entryTags.year}
+            - if (entry.entryTags.series) {
+            span.ui.tiny.green.label
+              i.student.icon
+              | #{entry.entryTags.series}
+            - }
+            - if (entry.entryTags.addition) {
+            span.ui.tiny.red.label
+              i.trophy.icon
+              | #{entry.entryTags.addition}
+            - }
+            - if (withProjectLabel) {
+            - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
+            - const p = projectsTable[entry.entryTags.project];
+            a.ui.tiny.basic.red.label(href=p.getLink(lang, basePath))
+              i.lab.icon
+              | !{p.getTitle(lang)}
+            - }
+            - }
+        .item.authors
+          i.users.icon
+          .content
+            | !{entry.getAuthorsTags().join(', ')}
+            - if (entry.entryTags.editor) {
+            |  (Eds. !{entry.getEditorsTags().join(', ')})
+            - }
+        .item.book
+          i.book.icon
+          .content #{entry.getBookWithPages()}
+
+mixin render-major-publication(entry)
+  span.labels
+    span.ui.label
+      i.calendar.icon
+      | #{entry.entryTags.year}
+    - if (entry.entryTags.series) {
+    span.ui.green.label
+      i.student.icon
+      | #{entry.entryTags.series}
+    - }
+  h4.ui.header #{entry.entryTags.title}
+  .ui.list.meta
+    .item.authors
+      i.users.icon
+      .content
+        | !{entry.getAuthorsTags().join(', ')}
+        - if (entry.entryTags.editor) {
+        |  (Eds. !{entry.getEditorsTags().join(', ')})
+        - }
+    .item.book
+      i.book.icon
+      .content #{entry.getBookWithPages()}
+    - if (entry.entryTags.addition) {
+    .item.award
+      i.trophy.icon
+      .content: strong #{entry.entryTags.addition}
+    - }
+  .ui.horizontal.divided.list.extra
+    - if (entry.entryTags.pdf) {
+    a.item(href=entry.entryTags.pdf)
+      i.text.file.icon
+      | #{en ? 'Paper PDF' : '論文PDF'}
+    - }
+    - if (entry.entryTags.poster) {
+    a.item(href=entry.entryTags.poster)
+      i.image.file.icon
+      | #{en ? 'Poster PDF' : 'ポスターPDF'}
+    - }
+    - if (entry.entryTags.slides) {
+    a.item(href=entry.entryTags.slides)
+      i.powerpoint.file.outline.icon
+      | #{en ? 'Slides PDF' : 'スライドPDF'}
+    - }
+    - if (entry.hasDOIUrl()) {
+    a.item(href=entry.getDOIUrl())
+      i.barcode.icon
+      | #{en ? 'Resolve DOI' : 'DOIを照会'}
+    - }
+  .ui.form: .field.bibtex
+    label BibTeX:
+    textarea(readonly) #{entry.getBibTeX()}
+    a.ui.bottom.attached.tiny.bibtex.button(data-clipboard-text=entry.getBibTeX())
+      i.copy.icon
+      | #{en ? 'Copy to the clipboard' : 'クリップボードにコピー'}
+
+mixin render-project-card(p)
+  .card(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
+    a.image(href=p.getLink(lang, basePath)): img(src=`/images/thumbnails/${p.thumbnail}`)
+    .content
+      a.header(href=p.getLink(lang, basePath))
+        - if (p.icon) {
+        img.ui.avatar.image(src=`/images/icons/${p.icon}`)
+        - }
+        | !{p.getTitle(lang)}
+      .meta !{p.getTags(lang).join('')}
+      .description !{p.getDescription(lang)}
+    .extra.content
+      span.right.floated
+        i.calendar.icon
+        | #{p.getYearString(lang)}
+      - if (p.category !== 'private' && p.category !== 'committee') {
+      - if (p.hasPublication(lang)) {
+      - const pub = publicationsTable[p.getPublication(lang)];
+      span
+        i.student.icon
+        | !{pub ? pub.getSeriesTag() : 'undefined'}
+      - } else {
+      span #{en ? '(Work in progress)' : '(文献未発表)'}
+      - }
+      - }
+
+mixin render-project-item(p)
+  - const link = p.getLink(lang, basePath);
+  .item(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
+    - if (link === false) {
+    .mobile.hidden.image: img(src=`/images/thumbnails/${p.thumbnail}`)
+    - } else {
+    a.mobile.hidden.image(href=link): img(src=`/images/thumbnails/${p.thumbnail}`)
+    - }
+    .content
+      - if (link === false) {
+      .header
+        - if (p.icon) {
+        img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
+        - }
+        | !{p.getTitle(lang)}
+      - } else {
+      a.header(href=link)
+        - if (p.icon) {
+        img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
+        - }
+        | !{p.getTitle(lang)}
+      - }
+      .description !{p.getDescription(lang)}
+      .extra
+        span.right.floated
+          i.calendar.icon
+          | #{p.getYearString(lang)}
+        - if (p.category !== 'private' && p.category !== 'committee') {
+        +render-project-label(p)
+        - }
+        - if (p.category === 'collaboration') {
+        span.ui.tiny.basic.label
+          i.handshake.icon
+          | #{en ? 'Co-authored' : '共著'}
+        - }
+        span.meta !{p.getTags(lang).join(' ')}
+
+mixin render-project-label(p)
+  - if (p.hasPublication(lang)) {
+  - const pubKey = p.getPublication(lang);
+  - const pub = publicationsTable[pubKey];
+  span.ui.green.tiny.basic.label
+    i.student.icon
+    | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
+  - } else {
+  span #{en ? '(Work in progress)' : '(文献未発表)'}
+  - }
