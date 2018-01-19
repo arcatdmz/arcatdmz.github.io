@@ -262,7 +262,7 @@
       ],
       "publication": "gi2014-kato-visionsketch",
       "thumbnail": "visionsketch.jpg",
-      "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> for example-centric programming of image processing applications, enabling fluid transition between abstract text-based coding and concrete direct manipulation.",
+      "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> for example-centric programming of image processing applications, enabling fluid transition between abstract text-based coding and concrete direct manipulation.",
       "ja": {
         "description": "処理したい映像上でスケッチすることで画像処理パイプラインを構築できるビジュアルなプログラミング環境です。既存アルゴリズムに満足できなければ、文字ベースのプログラミングにスムーズに移行できます。"
       }
@@ -281,7 +281,7 @@
       "category": "collaboration",
       "publication": "chi2014-fukahori-capstudio",
       "thumbnail": "capstudio.jpg",
-      "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> for visual applications that shows interactive screencasts for replaying program executions and editing visual parameters.",
+      "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> for visual applications that shows interactive screencasts for replaying program executions and editing visual parameters.",
       "url": "http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html",
       "ja": {
         "description": "ゲームなどの視覚的なアプリケーション開発において、プログラム実行画面の録画映像を表示し、さらに参照している画像リソースなどを編集して動的に確認できる統合開発環境です。",
@@ -301,7 +301,7 @@
       ],
       "publication": "pldi2013-kato-alive",
       "thumbnail": "touchdevelop.jpg",
-      "description": "The TouchDevelop <abbr=\"Integrated Development Environment\">IDE</abbr> enables live programming for user interface programming by cleanly separating the rendering and non-rendering aspects of a UI program, allowing the display to be refreshed on a code change without restarting the program.",
+      "description": "The TouchDevelop <abbr title=\"Integrated Development Environment\">IDE</abbr> enables live programming for user interface programming by cleanly separating the rendering and non-rendering aspects of a UI program, allowing the display to be refreshed on a code change without restarting the program.",
       "ja": {
         "description": "TouchDevelopはユーザインタフェースのLive Programmingを可能にするWebベースの統合開発環境です。Webアプリを起動したまま、そのユーザインタフェースを定義するソースコードを変更できます。"
       }
@@ -320,7 +320,7 @@
       ],
       "publication": "chi2013-kato-picode",
       "thumbnail": "picode.jpg",
-      "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> that shows inline photos representing posture data in source code. It manages the data binding between the photos and posture data and show photos to aid source code comprehension and editing.",
+      "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> that shows inline photos representing posture data in source code. It manages the data binding between the photos and posture data and show photos to aid source code comprehension and editing.",
       "ja": {
         "subtitle": "ソースコードに写真を貼り込める統合開発環境",
         "description": "人やロボットの姿勢データを写真と紐づけて管理し、ソースコード中に写真を貼り込める統合開発環境です。ソースコードを直感的に理解できるようになるほか、初学者でも写真撮影を通してプログラムの振る舞いを変えられます。"
@@ -360,7 +360,7 @@
       ],
       "publication": "uist2012-kato-dejavu",
       "thumbnail": "dejavu.png",
-      "description": "An <abbr=\"Integrated Development Environment\">IDE</abbr> that eases the iterative development of interactive camera-based programs with support for monitoring, recording, reviewing, and reprocess temporal data",
+      "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> that eases the iterative development of interactive camera-based programs with support for monitoring, recording, reviewing, and reprocess temporal data",
       "ja": {
         "description": "Kinectなどのカメラ入力を用いたインタラクティブなアプリケーション開発を支援する統合開発環境です。カメラ入力を自動録画し、プログラム実行結果を何度も再生したり、プログラムを修正して実行結果を更新したりできます。"
       }
@@ -564,7 +564,7 @@
       ],
       "category": "private",
       "thumbnail": "intelliviewer.jpg",
-      "description": "A user interface for helping navigation of source code in <abbr=\"Integrated Development Environment\">IDE</abbr>s. For each row of the keyboard, available namespaces, classes, member variables and methods are shown on the keytops.",
+      "description": "A user interface for helping navigation of source code in <abbr title=\"Integrated Development Environment\">IDE</abbr>s. For each row of the keyboard, available namespaces, classes, member variables and methods are shown on the keytops.",
       "ja": {
         "description": "キートップの最下列から順に、列ごとにネームスペース、クラス、メンバ変数とメソッドの一覧を表示し、統合開発環境においてソースコード内のナビゲーションを高速化するユーザインタフェースです。"
       }

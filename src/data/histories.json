@@ -1,8 +1,8 @@
 {
   "en": [
     {
-      "date": "1/14/2018",
-      "text": "Renewed the website. See the code at <a href=\"https://github.com/arcatdmz/junkato.jp\"><i class=\"github icon\"></i>GitHub</a>."
+      "date": "1/20/2018",
+      "text": "Renewed the website. See <a href=\"${rootPath}website\">how it's made</a>&mdash;source code available!"
     },
     {
       "date": "11/8/2017",
@@ -191,8 +191,8 @@
   ],
   "ja": [
     {
-      "date": "1/14/2018",
-      "text": "ウェブサイトをリニューアルしました。<a href=\"https://github.com/arcatdmz/junkato.jp\"><i class=\"github icon\"></i>GitHub</a>上で開発し、Travis CIでデプロイしています。"
+      "date": "1/20/2018",
+      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。"
     },
     {
       "date": "10/19/2017",

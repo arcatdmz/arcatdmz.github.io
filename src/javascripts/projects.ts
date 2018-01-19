@@ -153,7 +153,7 @@ class Entry {
         const t = dict[tag];
         if (!t) continue;
         const tagTitle = lang === 'ja' && t.ja && t.ja.title ? t.ja.title : t.title;
-        results.push(`<div class="ui basic label project design ${tag}" data-tag="${tag}" title=${tagTitle}><i class="${t.icon} icon"></i>${t.label}</div>`);
+        results.push(`<div class="ui basic label project design ${tag}" data-tag="${tag}" title="${tagTitle}"><i class="${t.icon} icon"></i>${t.label}</div>`);
       }
     }
     return results;

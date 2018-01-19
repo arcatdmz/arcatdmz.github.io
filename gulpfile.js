@@ -136,7 +136,7 @@ function compilePug(stream) {
 }
 
 gulp.task('lint:html', function() {
-  return gulp.src('dist/**/*.html')
+  return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
     .pipe(htmlhint())
 	  .pipe(htmlhint.failAfterError())
 });
