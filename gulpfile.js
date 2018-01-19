@@ -273,6 +273,7 @@ gulp.task('watch:css', function(){
 });
 
 gulp.task('default', ['site']);
+gulp.task('test', ['lint:html']);
 gulp.task('debug', ['site:debug']);
 gulp.task('sync', ['watch', 'browser-sync']);
 gulp.task('sync:html', ['watch:html', 'watch:css', 'browser-sync']);

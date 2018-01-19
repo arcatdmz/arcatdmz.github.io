@@ -73,7 +73,7 @@
               <p class="text-left box"><i class="fa fa-check-circle"></i> <a href="//textalive.jp">http://textalive.jp</a></p>
             </div>
           </section>
-          <section id="textalive">
+          <section id="f3js">
             <h1>f3.js for Internet of Things</h1>
             <div class="stretch">
               <dl>
@@ -227,9 +227,9 @@ class ProposeButton {
 
     // In TextAlive, this file represents a single template class
     // that defines a particular kind of visual effect.
-<div class='clickable line' data-target='#impl-2-last-field-code'>    var node: ASTNode = this.findLastFieldDeclaration(ast);
+<div class="clickable line" data-target="#impl-2-last-field-code">    var node: ASTNode = this.findLastFieldDeclaration(ast);
 </div>    if (node) node = node.next();
-<div class='clickable line' data-target='#impl-2-first-line-code'>    else node = this.findFirstLineOfFunctionBody(ast);
+<div class="clickable line" data-target="#impl-2-first-line-code">    else node = this.findFirstLineOfFunctionBody(ast);
 </div>
     IDE.addWidgetCode(proposal, node);
     IDE.updateSourceFile(file);
@@ -279,7 +279,7 @@ function RotateAndZoomWithBackground() {
   // @title @ja 背景縦位置
   this.yFix = 15;
 
-<div class='marker'>  <i class='fa fa-arrow-left'></i> Code snippet will be inserted here.</div>
+<div class="marker">  <i class="fa fa-arrow-left"></i> Code snippet will be inserted here.</div>
   this.animate = function(now) {
     // details omitted
   };
@@ -288,7 +288,7 @@ function RotateAndZoomWithBackground() {
 </code></pre>
             <pre class="hidden modal" id="impl-2-first-line-code"><code class="typescript"><h3>Example app code with no field declaration</h3>
 function TemplateWithNoCustomizationParameter() {
-<div class='marker'>  <i class='fa fa-arrow-left'></i> Code snippet will be inserted here.</div>
+<div class="marker">  <i class="fa fa-arrow-left"></i> Code snippet will be inserted here.</div>
   this.animate = function(now) {
     // details omitted
   }
@@ -310,7 +310,7 @@ class IDE {
 
   addWidgetCode(proposal: Proposal, node: ASTNode) {
     var widgetCode = this.getWidgetCode(proposal, node);
-<div class='clickable line' data-target='#impl-3-code-snippet'>  file.ast.find(loc).insert(IDE.parse(widgetCode));
+<div class="clickable line" data-target="#impl-3-code-snippet">  file.ast.find(loc).insert(IDE.parse(widgetCode));
 </div>
     IDE.writeFile(file);
   }
