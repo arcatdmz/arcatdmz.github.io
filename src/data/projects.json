@@ -163,10 +163,12 @@
       },
       "publication": "dis2017-kato-f3js",
       "title": "f3.js",
+      "subtitle": "A Parametric Design Tool for Physical Computing Devices for Both Interaction Designers and End-users",
       "title-design": "f3.js brand design",
       "description": "A parametric design tool for physical computing devices for both interaction designers and end-users.",
       "description-design": "Built a brand kit for <a href=\"${rootPath}f3js\">the f3.js research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Semantic UI CSS/JavaScript framework.",
       "ja": {
+        "subtitle": "IoTアプリケーションのソフトウェア・ハードウェアを単一コードベースで開発できる統合開発環境",
         "title-design": "f3.js ブランドデザイン",
         "description": "<abbr title=\"Internet of Things\">IoT</abbr>機器の筐体設計とファームウェア開発を同時に行える設計ツールです。専門知識不要で機器をカスタマイズできます。",
         "description-design": "研究プロジェクト<a href=\"${rootPath}ja/f3js\">f3.js</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはSemantic UI CSS/JavaScriptフレームワークを利用しました。"
