@@ -1,0 +1,39 @@
+extends ../_layout
+
+block vars
+  - p = projectsTable['homehack'];
+  - var homehack;
+  block homehack-vars
+  -
+    var titles = {
+      "en": {
+        "fungus-camera": "Fungus Camera",
+        "rhythm-kaden": "Rhythm-Kaden",
+        "realmote": "Realmote"
+      },
+      "ja": {
+        "fungus-camera": "なめこカメラ",
+        "rhythm-kaden": "リズム家電",
+        "realmote": "Realmote"
+      }
+    };
+    title = p.getTitle(lang) + (homehack ? ` (${titles[lang][homehack]})` : '');
+    me = p.project + '/' + (homehack ? homehack + '/' : '');
+
+block main
+  +render-project-header('homehack')
+  .ui.secondary.pointing.menu
+    a.item(href=`${basePath}homehack/`, class=typeof homehack === 'undefined' ? 'active' : undefined) #{en ? 'Overview' : '概要'}
+    a.item(href=`${basePath}homehack/fungus-camera/`, class=homehack === 'fungus-camera' ? 'active' : undefined) #{titles[lang]['fungus-camera']}
+      .ui.horizontal.label
+        i.calendar.icon
+        | '12-13
+    a.item(href=`${basePath}homehack/rhythm-kaden/`, class=homehack === 'rhythm-kaden' ? 'active' : undefined) #{titles[lang]['rhythm-kaden']}
+      .ui.horizontal.label
+        i.calendar.icon
+        | '12
+    a.item(href=`${basePath}homehack/realmote/`, class=homehack === 'realmote' ? 'active' : undefined) #{titles[lang]['realmote']}
+      .ui.horizontal.label
+        i.calendar.icon
+        | '11-12
+  block homehack-main

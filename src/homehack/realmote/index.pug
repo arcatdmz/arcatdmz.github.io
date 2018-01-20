@@ -1,128 +1,38 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='Jun Kato')
-    meta(property='fb:admins', content='503220390')
-    link(rev='made', href='mailto:i@junkato.jp')
-    title Realmote | Homehack | junkato.jp
-    // Styles 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans')
-    link(href=`${rootPath}css/bootstrap.min.css`, rel='stylesheet')
-    link(href=`${rootPath}css/main.css`, rel='stylesheet')
-    // Le HTML5 shim, for IE6-8 support of HTML5 elements 
-    //      [if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-          <![endif]
-  body
-    .navbar.navbar-default.navbar-fixed-top(data-dropdown='dropdown', role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Jun Kato
-        #navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href=`${rootPath}#about`) Profile
-            li
-              a(href=`${rootPath}#projects`) Projects
-            li
-              a(href=`${rootPath}publications/`) Awards & Publications
-            li
-              a(href=`${rootPath}fun/`) Fun
-            li
-              a(href=`${rootPath}#contact`) Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href=`${rootPath}ja/homehack/realmote/`)
-                | 日本語
-                i.translation.icon-ja
-    // container 
-    .container
-      section
-        h1 Homehack
-        p
-          span.label.label-default
-            i.glyphicon.glyphicon-calendar
-            | '11-
-          span.label.label-info(rel='tooltip', data-original-title='Natural User Interface')
-            i.glyphicon.glyphicon-tag
-            | NUI
-          // <span class="label label-important" rel="tooltip"><i class=" icon-folder-open icon-white"></i> CHI '13</span> 
-      section
-        .alert.alert-info This page is under construction.
-        ul.nav.nav-tabs
-          li
-            a(href=`${rootPath}homehack/`) Overview
-          li
-            a(href=`${rootPath}homehack/fungus-camera/`)
-              | Fungus Camera
-              span.label.label-default
-                i.glyphicon.glyphicon-calendar
-                | '12-13
-          li
-            a(href=`${rootPath}homehack/rhythm-kaden/`)
-              | Rhythm-Kaden
-              span.label.label-default
-                i.glyphicon.glyphicon-calendar
-                | '12
-          li.active
-            a(href=`${rootPath}homehack/realmote/`)
-              | Realmote
-              span.label.label-default
-                i.glyphicon.glyphicon-calendar
-                | '11-12
-      section
-        .tab-content
-          .tab-pane.active
-            h2.sr-only Realmote
-            h3 概要
-            .row
-              .col-md-6
-                p スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。
-                h3 開発環境
-                ul
-                  li
-                    | Java +
-                    a(href=`${rootPath}ja/phybots/`) Phybots
-                    | on Mac OS X
-                  li
-                    a(href='http://buffalo.jp/products/catalog/item/p/pc-op-rs1/') パソコン用学習リモコン PC-OP-RS1
-                  li
-                    a(href='https://www.sparkfun.com/products/684') ルンバ用Bluetoothインタフェース RooTooth
-                h3 資料
-                ul
-                  li
-                    | ブログ記事:
-                    a(href='http://junkato.jp/ja/blog/2012/12/24/realmote-remote-control/') Realmoteで家のリモコンを一つにまとめる
-                  li
-                    | ソースコード:
-                    a(href='https://github.com/arcatdmz/realmote')
-                      i.icon-download
-                      | GitHub
-              .col-sm-12.col-md-6
-                .thumbnail
-                  iframe(width='100%', height='315', src='//www.youtube.com/embed/bhbW39zoxyg', frameborder='0', allowfullscreen='')
-              .col-xs-6.col-sm-6.col-md-3
-                .thumbnail
-                  a(href=`${rootPath}homehack/realmote-edit.jpg`)
-                    img(src=`${rootPath}homehack/thumbnails/realmote-edit.jpg`)
-              .col-xs-6.col-sm-6.col-md-3
-                .thumbnail
-                  a(href=`${rootPath}homehack/realmote.jpg`)
-                    img(src=`${rootPath}homehack/thumbnails/realmote.jpg`)
-      footer
-        hr
-        p
-          | ©
-          a(href='mailto:i@junkato.jp') Jun Kato
-          | 2012-2017 |
-          a(href=`${rootPath}ja/homehack/realmote/`)
-            | 日本語
-            i.translation.icon-ja
+extends ../_layout
+
+block homehack-vars
+  - homehack = 'realmote';
+
+block homehack-main
+  h3.ui.header 概要
+  .ui.stackable.two.columns.grid
+    .column
+      p スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。
+      h3.ui.header 開発環境
+      ul
+        li
+          | Java +
+          a(href=`${rootPath}ja/phybots/`) Phybots
+          |  on Mac OS X
+        li
+          a(href='http://buffalo.jp/products/catalog/item/p/pc-op-rs1/') パソコン用学習リモコン PC-OP-RS1
+        li
+          a(href='https://www.sparkfun.com/products/684') ルンバ用Bluetoothインタフェース RooTooth
+      h3.ui.header 資料
+      ul
+        li
+          | ブログ記事: 
+          a(href='https://junkato.jp/ja/blog/2012/12/24/realmote-remote-control/') Realmoteで家のリモコンを一つにまとめる
+        li
+          | ソースコード: 
+          a(href='https://github.com/arcatdmz/realmote')
+            i.icon-download
+            | GitHub
+    .column
+      +embed-youtube('//www.youtube.com/embed/bhbW39zoxyg')
+    .column
+      a.ui.fluid.image(href=`${rootPath}homehack/realmote-edit.jpg`)
+        img(src=`${rootPath}homehack/thumbnails/realmote-edit.jpg`)
+    .column
+      a.ui.fluid.image(href=`${rootPath}homehack/realmote.jpg`)
+        img(src=`${rootPath}homehack/thumbnails/realmote.jpg`)

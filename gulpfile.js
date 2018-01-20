@@ -245,12 +245,26 @@ gulp.task('watch:html', function(){
     if (vinyl.event === 'unlink') return;
     // vinyl.path: full path
     const fullPath = vinyl.path;
+    const baseName = path.basename(fullPath);
     const basePath = path.resolve(__dirname, 'src');
     const relPath = path.relative(basePath, fullPath);
+    const relDirPath = path.relative(basePath, path.dirname(fullPath));
 
-    // _layout.pug that affects all pages
-    if (relPath.indexOf('_layout') === 0) {
-      return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
+    // _layout.pug affects all pages
+    if (baseName.indexOf('_layout') === 0) {
+      if (relDirPath.length > 0) {
+        return compilePug(gulp.src([
+            `src/${relDirPath}/**/*.pug`
+          , `!src/${relDirPath}/**/_*.pug`
+          , `src/ja/${relDirPath}/**/*.pug`
+          , `!src/ja/${relDirPath}/**/_*.pug`
+        ]));
+      } else {
+        return compilePug(gulp.src([
+            'src/**/*.pug'
+          , '!src/**/_*.pug'
+        ]));
+      }
     }
 
     // an English page that has a dependent Japanese page
