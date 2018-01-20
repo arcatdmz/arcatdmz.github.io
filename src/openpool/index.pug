@@ -38,7 +38,7 @@ mixin body()
     .ui.basic.segment
       p OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac.
       p Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail.
-      h3 OpenPool core library
+      h3.ui.header OpenPool core library
       pre.prettyprint.linenums.
         OpenPool op = new OpenPool(this);
 
@@ -52,7 +52,7 @@ mixin body()
         }
       p Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.
       p The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.
-      h3 OpenPool pocket detection library
+      h3.ui.header OpenPool pocket detection library
       pre.prettyprint.linenums.
         OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");
         p.start();

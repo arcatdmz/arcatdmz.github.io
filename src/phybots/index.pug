@@ -96,7 +96,9 @@ block main
           h3.ui.header #{en ? 'APIs for 2D Locomotion' : '平面上での移動指示のためのAPI'}
           p Phybots assumes a simple and inexpensive hardware setup of a camera looking down on the floor and visual markers attached to the top of physical objects. This hardware setup can easily be deployed to everyday spaces such as a working desk, a dining table or in a kitchen or living room.
           p Given the hardware setup, Phybots provides APIs for two-dimensional localization and locomotion of floor-based robotic things. These APIs are similar to those for graphical applications in which object positions are defined by screen coordinates, and support moving to a goal, pushing an object toward a goal, tracing a path, and other custom behavior by specifying a vector field.
+          - if (!en) {
           p: +translate('phybots/index.pug')
+          - }
         .column
           h3.ui.header #{en ? 'Centralized and Extensible Architecture' : '中央集権・拡張容易なアーキテクチャ'}
           p Phybots APIs are built on top of a centralized and extensible software architecture that runs on one personal computer and manages all physical objects of interest.
@@ -116,7 +118,9 @@ block main
             |  and 
             i Task
             |  instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel.
+          - if (!en) {
           p: +translate('phybots/index.pug')
+          - }
         .column
           h3.ui.header #{en ? 'Runtime Debug Tool' : 'ランタイムデバッグツール'}
           p Phybots provides a 
@@ -126,7 +130,9 @@ block main
           p To support this workflow, a graphical 
             i runtime debug tool
             |  enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.
+          - if (!en) {
           p: +translate('phybots/index.pug')
+          - }
       .ui.hidden.divider
       p
         a.ui.fluid.image(href=`${rootPath}phybots/debug-tools.png`)
