@@ -48,14 +48,20 @@ block main
           - }
   .ui.hidden.divider
   section#concept
-    h2.ui.header #{en ? 'Core concept: parametric design of devices' : '核となるアイデア: デバイスのパラメトリックデザイン'}
+    h2.ui.header #{en ? 'Core concept: parametric design of devices' : '核となるアイデア: IoTデバイスのパラメトリックデザイン'}
     .ui.basic.segment
       .ui.stackable.two.columns.grid
         .column
-          h3.ui.header Parametric Design for Interaction Designers
+          h3.ui.header
+            - if (en) {
+            | Parametric Design for Interaction Designers
+            - } else {
+            | インタラクションデザイナ向けの特長
+            .sub.header ハードとソフトの一体開発
+            - }
           a.ui.fluid.image(href=`${rootPath}f3js/f3js-programmers.png`)
             img(src=`${rootPath}f3js/f3js-programmers.png`)
-          .caption
+          .caption: block designer
             p A physical computing device is a combination of hardware (a device enclosure with sensor and actuator modules) and software (a program that drives the modules), both of which are usually designed with different tools&mdash;CAD tools for the former and IDEs for the latter.
             p This separation might work well in creating a single artifact of the device, but it is cumbersome to create and manage multiple variations of the device with different enclosure shapes and program features. Exploring design alternatives involves numerous iterations of splitting and merging the two independent workflows. For instance, testing different numbers of buttons in a device requires operations with both tools.
             p With the proposed <strong>code-centric development process</strong> of f3.js in which every aspect of a physical computing device is defined in a single codebase, parametric design of devices is as easy as defining a variable in the code and tweaking its value with intuitive <strong>lightweight GUI widgets</strong>.
@@ -65,22 +71,36 @@ block main
             .column
               a.ui.fluid.image(href=`${rootPath}f3js/extrusion-without-opposite-plane.jpg`)
                 img(src=`${rootPath}f3js/extrusion-without-opposite-plane-resized.jpg`)
-              p.caption Extruding a rectangle makes a box.
+              p.caption #{en ? 'Extruding a rectangle makes a box.' : '矩形を押し出すと箱型ができる。'}
               .ui.hidden.divider
             .column
               a.ui.fluid.image(href=`${rootPath}f3js/circle-layout.jpg`)
                 img(src=`${rootPath}f3js/circle-layout-resized.jpg`)
+              - if (en) {
               p.caption Circular layout is common in physical user interfaces.
               p Other figures showing the API usage and design patterns include: 
                 a(href=`${rootPath}f3js/partial-extrusion.jpg`) partial extrusion
                 |  and  
                 a(href=`${rootPath}f3js/line-layout.jpg`) line layout
                 | .
+              - } else {
+              p.caption モジュールが円形に並ぶデザインは多くのIoTデバイスで見られる。他に
+                a(href=`${rootPath}f3js/partial-extrusion.jpg`) 押し出し操作の別例
+                | と
+                a(href=`${rootPath}f3js/line-layout.jpg`) モジュールが線上に並ぶデザイン
+                | の図がある。いずれもf3.jsのAPIで容易に設計できる形状である。
+              - }
               .ui.hidden.divider
         .column
-          h3.ui.header Parametric Design for End-uesrs
+          h3.ui.header
+            - if (en) {
+            | Parametric Design for End-uesrs
+            - } else {
+            | エンドユーザ向けの特長
+            .sub.header プラモデルのようなデバイス組み立て
+            - }
           a.ui.fluid.image(href=`${rootPath}f3js/f3js-end-users.png`): img(src=`${rootPath}f3js/f3js-end-users.png`)
-          .caption
+          .caption: block end-user
             p The f3.js design tool enables customization, printing, and the use of devices without prior knowledge by providing lightweight GUI widgets for customization and detailed instructions on building of devices. Building physical prototypes that perfectly match the need is <i>&quot;as easy as assembling a plastic model kit&quot;</i> with f3.js (quoted from a user study).
             .ui.right.floated.small.image
               a(href=`${rootPath}f3js/design-alternatives-shapes.jpg`)
@@ -98,25 +118,19 @@ block main
         .column
           h3.ui.header #{en ? 'Videos of 17 applications' : '17個の作例動画'}
           +embed-youtube('https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvYwbJqt8Z30LS72LkPrPJb')
-          - if (en) {
-          .caption
+          .caption: block example-videos
             p We conducted two user studies in different stages of developing f3.js. This playlist contains seventeen example applications created through the studies.
             p The first study was conducted to validate its potential and to assess its limitations by collecting a variety of applications that could be made with f3.js. The second study was conducted after revisions to check if the tool could help both interaction designers and end-users to explore variations in devices.
-          - } else {
-          p.caption Web版のTextAliveは現在も開発が続けられています。この作例は、アイドルのライブなどのイベントで利用されたものです。 
-            a(href='http://textalive.jp') textalive.jp
-            |  にアクセスすれば、誰でも動画を制作できます。
-          - }
           .ui.hidden.divider
         .column
-          h3.ui.header #{en ? 'Explanations on the first 5 apps' : 'はじめの5個についての説明'}
-          .ui.basic.segment
+          h3.ui.header #{en ? 'Explanations on the first 5 apps' : '冒頭5例の紹介'}
+          .ui.basic.segment: block examples
             ol(type='a')
-              li QuadBuzzer is a musical instrument with one to four buzzers. It is connected to a host PC and creates sound according to user operations on the host. The enclosure is centrosymmetrical with curves and the buzzers are placed with the Circle layout. 
-              li Music Kiosk plays musical melodies in synchronicity with another computer that is playing a music video uploaded to YouTube. The device enclosure uses the Line layout to place four equally-spaced LEDs in line.
-              li Card Matching Game allows a user to choose a number of players from one or two and changes the number of printed controllers, as well as the available game modes. 
-              li Rhythm Game on a Drum is an interactive game that utilizes a sound sensor to detect a hit on the drum, which is made of a hand-crafted case.
-              li Translator is an arm-mounted device that uses a Web-based translation API to translate text captured by a camera and presents the results on its LCD.
+              li <strong>QuadBuzzer</strong> is a musical instrument with one to four buzzers. It is connected to a host PC and creates sound according to user operations on the host. The enclosure is centrosymmetrical with curves and the buzzers are placed with the Circle layout. 
+              li <strong>Music Kiosk</strong> plays musical melodies in synchronicity with another computer that is playing a music video uploaded to YouTube. The device enclosure uses the Line layout to place four equally-spaced LEDs in line.
+              li <strong>Card Matching Game</strong> allows a user to choose a number of players from one or two and changes the number of printed controllers, as well as the available game modes. 
+              li <strong>Rhythm Game on a Drum</strong> is an interactive game that utilizes a sound sensor to detect a hit on the drum, which is made of a hand-crafted case.
+              li <strong>Translator</strong> is an arm-mounted device that uses a Web-based translation API to translate text captured by a camera and presents the results on its LCD.
             p There are more interesting applications in the playlist, so please do not miss them.
           .ui.hidden.divider
   section#news
