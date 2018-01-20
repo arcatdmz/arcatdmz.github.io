@@ -1,0 +1,163 @@
+[
+  {
+    "date": "9/1/2017",
+    "text": {
+      "ja": "<a href=\"https://jssst2017.wordpress.com/ftd/\">日本ソフトウェア科学会第 34 回大会 Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "6/1/2017",
+    "text": {
+      "ja": "<a href=\"http://hcii.cmu.edu\"><abbr title=\"Carnegie Mellon University\">CMU</abbr> <abbr title=\"Human-Computer Interaction Institute\">HCII</abbr></a>, Special Human-Computer Interaction Talk, <a href=\"https://www.scs.cmu.edu/calendar/mon-2017-06-26-1230/special-human-computer-interaction-talk\">&quot;Delivering Benefits of Programming to Everyone through Programming Experience Research&quot;</a>, <a href=\"https://scs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fd1c36b4-c0ad-49ef-b50c-aab0e5fa36b7\"><i class=\"video play icon\"></i>講演動画</a>",
+      "en": "<a href=\"http://hcii.cmu.edu\"><abbr title=\"Carnegie Mellon University\">CMU</abbr> <abbr title=\"Human-Computer Interaction Institute\">HCII</abbr></a>, Special Human-Computer Interaction Talk, <a href=\"https://www.scs.cmu.edu/calendar/mon-2017-06-26-1230/special-human-computer-interaction-talk\">&quot;Delivering Benefits of Programming to Everyone through Programming Experience Research&quot;</a>, <a href=\"https://scs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fd1c36b4-c0ad-49ef-b50c-aab0e5fa36b7\"><i class=\"video play icon\"></i>Video</a>"
+    }
+  },
+  {
+    "date": "6/1/2017",
+    "text": {
+      "ja": "<a href=\"http://dagstuhl.de/en/program/calendar/semhp/?semnr=17232\">Dagstuhl Seminar 17232 (Computational Interactivity)</a>, &quot;The Future of Programming and Data Sciences&quot;",
+      "en": "<a href=\"http://dagstuhl.de/en/program/calendar/semhp/?semnr=17232\">Dagstuhl Seminar 17232 (Computational Interactivity)</a>, &quot;The Future of Programming and Data Sciences&quot;"
+    }
+  },
+  {
+    "date": "4/1/2016",
+    "text": {
+      "ja": "<a href=\"http://vpri.org/\">Viewpoints Research Institute</a> and <a href=\"https://blog.ycombinator.com/harc\">Y Combinator Research <abbr title=\"Human Advancement Research Community\">HARC</abbr></a>, &quot;Programming with {Examples | People}&quot;",
+      "en": "<a href=\"http://vpri.org/\">Viewpoints Research Institute</a> and <a href=\"https://blog.ycombinator.com/harc\">Y Combinator Research <abbr title=\"Human Advancement Research Community\">HARC</abbr></a>, &quot;Programming with {Examples | People}&quot;"
+    }
+  },
+  {
+    "date": "3/1/2016",
+    "text": {
+      "ja": "<a href=\"http://ipsj-one.org\">情報処理学会全国大会 第78回全国大会 IPSJ-ONE</a> 「コンピュータを変幻自在の道具にするためのプログラミング環境技術」, <a href=\"https://docs.com/junkato/3910\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "9/1/2015",
+    "text": {
+      "ja": "<a href=\"http://wakate.org/37\">情報処理学会 第48回 情報科学若手の会</a> 「ぼくらのプログラミングから、みんなのプログラミングへ」, <a href=\"http://junkato.jp/ja/talks/people-are-programmers/\"><i class=\"video play icon\"></i>インタラクティブ講演資料</a>, <a href=\"${rootPath}publications/wakate2015-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "7/1/2015",
+    "text": {
+      "ja": "<a href=\"http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->",
+      "en": "<a href=\"http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->"
+    }
+  },
+  {
+    "date": "6/1/2014",
+    "text": {
+      "ja": "<a href=\"http://hci.cs.umanitoba.ca/\">University of Manitoba <abbr title=\"Human-Computer Interaction Laboratory\">HCI Lab</abbr></a> seminar, <a href=\"http://www.cs.umanitoba.ca/events/event.php?event=2014-06-23-dr-jun-kato\">&quot;Toward Live Programming in the Real World&quot;</a>",
+      "en": "<a href=\"http://hci.cs.umanitoba.ca/\">University of Manitoba <abbr title=\"Human-Computer Interaction Laboratory\">HCI Lab</abbr></a> seminar, <a href=\"http://www.cs.umanitoba.ca/events/event.php?event=2014-06-23-dr-jun-kato\">&quot;Toward Live Programming in the Real World&quot;</a>"
+    }
+  },
+  {
+    "date": "6/1/2014",
+    "text": {
+      "ja": "<a href=\"http://www.dgp.toronto.edu/\">University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> seminar, &quot;Toward Live Programming in the Real World&quot;",
+      "en": "<a href=\"http://www.dgp.toronto.edu/\">University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> seminar, &quot;Toward Live Programming in the Real World&quot;"
+    }
+  },
+  {
+    "date": "3/1/2014",
+    "text": {
+      "ja": "<a href=\"http://www.sighci.jp/events/view/29\">IPSJ 第157回 HCI研究会</a> 「プログラマだって人である─統合開発環境におけるHCI」"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "12/1/2013",
+    "text": {
+      "ja": "Microsoft Research Forum in The University of Tokyo 2013, &quot;My Internship Experience&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "10/1/2013",
+    "text": {
+      "ja": "<a href=\"http://dub.washington.edu/\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a> seminar, &quot;Integrated Graphical Representations for Programming with Real-world Input and Output&quot;, <a href=\"http://vimeo.com/77669396\"><i class=\"video play icon\"></i>講演動画</a>",
+      "en": "<a href=\"http://dub.washington.edu/\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a> seminar, &quot;Integrated Graphical Representations for Programming with Real-world Input and Output&quot;, <a href=\"http://vimeo.com/77669396\"><i class=\"video play icon\"></i>Video</a>"
+    }
+  },
+  {
+    "date": "9/1/2013",
+    "text": {
+      "ja": "<a href=\"http://conference.vrsj.org/ac2013/\" title=\"第18回 日本バーチャルリアリティ学会大会\">VRSJ 2013</a> 「<a href=\"http://conference.vrsj.org/ac2013/program/252/\" title=\"Picode: ソースコードに姿勢データを表す写真を貼り込める統合開発環境\">世界を目指せ！ ～トップコンファレンス採択論文紹介～</a>」, <a href=\"${rootPath}publications/vrsj2013-kato-topconf.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "7/1/2013",
+    "text": {
+      "ja": "IBM Research Tokyo 「実世界入出力を伴うプログラム開発の視覚表現を用いた支援手法」"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "5/1/2013",
+    "text": {
+      "ja": "Concent「Human-Computer Interaction研究について」</a>"
+    },
+    "type": "private"
+  },
+  {
+    "date": "12/1/2012",
+    "text": {
+      "ja": "<a href=\"http://www.i.u-tokyo.ac.jp/edu/indus/aboutus.shtml\">東京大学R2P/ISTリーディング・リサーチャー・カフェ</a> 「実世界指向アプリケーションのための開発環境の提案」, <a href=\"${rootPath}publications/r2pist-kato-poster.pdf\"><i class=\"file icon\"></i>ポスター</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "11/1/2012",
+    "text": {
+      "ja": "Exvision, Tokyo, &quot;Self Introduction (Talk at Exvision)&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "10/1/2012",
+    "text": {
+      "ja": "Rakuten Institute of Technology - New York, &quot;Tools for Programming in the Real World&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "7/1/2012",
+    "text": {
+      "ja": "Berkeley Institute of Design, University of California Berkeley, &quot;Tools for Programming in the Real World&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "6/1/2011",
+    "text": {
+      "ja": "東京大学 Interaction Technology Laboratory, &quot;Self Introduction (Talk at ITL)&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "5/1/2011",
+    "text": {
+      "ja": "<a href=\"http://research.microsoft.com/en-us/labs/asia/\" title=\"IDE for Designing Actions of Robots\">Microsoft Research Asia</a>, <a href=\"${rootPath}publications/core-project7-kato-booklet.pdf\"><i class=\"file icon\"></i>配布資料</a>",
+      "en": "<a href=\"http://research.microsoft.com/en-us/labs/asia/\" title=\"IDE for Designing Actions of Robots\">Microsoft Research Asia</a>, <a href=\"${rootPath}publications/core-project7-kato-booklet.pdf\"><i class=\"file icon\"></i>Document</a>"
+    }
+  },
+  {
+    "date": "5/1/2011",
+    "text": {
+      "ja": "Sony CSL, &quot;Self Introduction (Talk at Sony CSL)&quot;"
+    },
+    "type": "private"
+  },
+  {
+    "date": "10/1/2010",
+    "text": {
+      "ja": "CG/UI Lab, Columbia University, &quot;Self Introduction (Talk at CG/UI @ Columbia University)&quot;"
+    },
+    "type": "private"
+  }
+]

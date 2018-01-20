@@ -46,42 +46,87 @@ mixin timeline()
   .ui.hidden.divider
   section(id=y)
     h2.ui.header #{en ? y : `${y}年`}
-    h3.ui.header(id=`${y}-updates`) #{en ? 'Updates' : '更新情報'}
+    h3.ui.header(id=`${y}-updates`)
+      i.announcement.icon
+      | #{en ? 'Updates' : '更新情報'}
     .ui.segment
       .ui.divided.feed
-        - var i_ = i;
-        - while (i < histories[lang].length) {
-        - const entry = histories[lang][i];
-        - if (entry.date.getFullYear() !== year) {
-        - year = entry.date.getFullYear();
-        - break;
-        - }
+        -
+          var i_ = i;
+          while (i < histories[lang].length) {
+            const entry = histories[lang][i];
+            if (entry.date.getFullYear() !== year) {
+              year = entry.date.getFullYear();
+              break;
+            }
         .event: .content
           .date #{entry.getDateString(lang)}
           .summary !{entry.text}
-        - i ++;
-        - }
-        - if (i === i_) {
+        -
+            i ++;
+          }
+          if (i === i_) {
         .event: .content
           .content
             .summary #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
         - }
-    h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
+    -
+      var as = [];
+      for (const entry of awards) {
+        if (en && entry.entryType === 'domestic') continue;
+        if (entry.date.getFullYear() != y) continue;
+        as.push(entry);
+      }
+      if (as.length > 0) {
+    h3.ui.header(id=`${y}-awards`)
+      i.trophy.icon
+      | #{en ? 'Awards' : '受賞'}
+    .ui.segment
+      .ui.divided.feed
+        - for (entry of as) {
+        .event: .content
+          .date #{entry.getDateString(lang)}
+          .summary !{entry.getText(lang)}
+        - }
+    - }
+    -
+      var ts = [];
+      for (const entry of talks) {
+        if (entry.entryType === 'private') continue;
+        if (en && entry.entryType === 'domestic') continue;
+        if (entry.date.getFullYear() != y) continue;
+        ts.push(entry);
+      }
+      if (ts.length > 0) {
+    h3.ui.header(id=`${y}-talks`)
+      i.talk.icon
+      | #{en ? 'Invited Talks' : '招待講演'}
+    .ui.segment
+      .ui.divided.feed
+        - for (entry of ts) {
+        .event: .content
+          .date #{entry.getDateString(lang)}
+          .summary !{entry.getText(lang)}
+        - }
+    - }
+    -
+      var ps = [];
+      for (const entry of publications) {
+        if (!entry.entryTags) continue;
+        if (en && entry.entryTags.language === 'japanese') continue;
+        if (entry.entryTags.year != y) continue;
+        ps.push(entry);
+      }
+      if (ps.length > 0) {
+    h3.ui.header(id=`${y}-publications`)
+      i.book.icon
+      | #{en ? 'Publications' : '発表文献'}
     .ui.segment
       .ui.divided.list
-        - var pub = 0;
-        - for (const entry of publications) {
-        - if (!entry.entryTags) continue;
-        - if (en && entry.entryTags.language === 'japanese') continue;
-        - if (entry.entryTags.year != y) continue;
-        - pub ++;
+        - for (entry of ps) {
         +render-publication(entry)
         - }
-        - if (pub === 0) {
-        .item
-          i.info.circle.icon
-          .content #{en ? 'No publication record found in this year.' : '発表文献はありません。'}
-        - }
+    - }
   - }
   - const y = --year;
   .ui.hidden.divider
@@ -90,9 +135,10 @@ mixin timeline()
     h3.ui.header(id=`${y}-publications`) #{en ? 'Publications' : '発表文献'}
     .ui.segment
       .ui.divided.list
-        - for (const entry of publications) {
-        - if (!entry.entryTags) continue;
-        - if (en && entry.entryTags.language === 'japanese') continue;
-        - if (parseInt(entry.entryTags.year) > y) continue;
+        -
+          for (const entry of publications) {
+            if (!entry.entryTags) continue;
+            if (en && entry.entryTags.language === 'japanese') continue;
+            if (parseInt(entry.entryTags.year) > y) continue;
         +render-publication(entry)
         - }

@@ -145,6 +145,7 @@ function setupLocals() {
   loadConfig();
   const histories = require('./build/javascripts/histories').default
     , awards = require('./build/javascripts/awards').default
+    , talks = require('./build/javascripts/talks').default
     , projects = require('./build/javascripts/projects').default
     , publications = require('./build/javascripts/publications').parse(
         JSON.parse(fs.readFileSync('./build/data/publications.json')));
@@ -173,6 +174,7 @@ function setupLocals() {
   var locals = {
       histories: histories
     , awards: awards
+    , talks: talks
     , projects: projects
     , projectsTable: projectsTable
     , recentProjects: recentProjects
