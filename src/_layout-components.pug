@@ -88,10 +88,17 @@ mixin sidebar()
   a.item(href=`${basePath}collaborations`, class=getItemClass('collaborations/'))
     i.handshake.icon
     | #{en ? 'Collaborations' : '共同研究'}
-  - if (!en) {
+  - if (en) {
+  a.item(href=`${rootPath}ja/${me}`)
+    i.translate.fitted.icon
+    | 日本語
+  - } else {
   a.item(href=`${rootPath}ja/blog`)
-    i.wordpress.icon
+    i.wordpress.fitted.icon
     | ブログ
+  a.item(href=`${rootPath}${me}`)
+    i.translate.fitted.icon
+    | English
   - }
 
 mixin header()
@@ -138,14 +145,14 @@ mixin header()
 
 mixin right-header-menu()
   - if (en) {
-  a.item(href=`/ja/${me}`)
+  a.item(href=`${rootPath}ja/${me}`)
     i.translate.fitted.icon
     span.print-hidden 日本語
   - } else {
   a.item(href=`${rootPath}ja/blog`)
     i.wordpress.fitted.icon
-    span.print-hidden.mobile.hidden ブログ
-  a.item(href=`/${me}`)
+    span.print-hidden.tablet.or.lower.hidden ブログ
+  a.item(href=`${rootPath}${me}`)
     i.translate.fitted.icon
     span.print-hidden English
   - }
@@ -157,6 +164,18 @@ mixin footer()
   footer.ui.center.aligned.basic.segment
     .ui.container
       .ui.divider
-      p &copy; 
-        a(href=`${basePath}#contact`) Jun Kato
-        |  2012-#{new Date().getFullYear()}
+      .ui.horizontal.divided.list
+        .item
+          | &copy; 
+          a(href=`${basePath}#contact`) #{en ? 'Jun Kato' : '加藤 淳'}
+        .item 2012-#{new Date().getFullYear()}
+        .item
+          - if (en) {
+          a.item(href=`${rootPath}ja/${me}`)
+            i.translate.icon
+            |  日本語
+          - } else {
+          a.item(href=`${rootPath}${me}`)
+            i.translate.icon
+            | English
+          - }
