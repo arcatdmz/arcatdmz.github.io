@@ -1,3 +1,22 @@
+
 Satisfy any
 Order allow,deny
 Allow from all
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP:X-Sakura-Forwarded-For} ^$
+RewriteRule ^(.*)$ https://junkato.jp/$1 [R=301,L]
+</IfModule>
+
+Redirect permanent /resume.php https://junkato.jp/resume.html
+Redirect permanent /ja/resume.php https://junkato.jp/resume.html
+Redirect permanent /roboko/ https://junkato.jp/picode/
+Redirect permanent /ja/roboko/ https://junkato.jp/ja/picode/
+Redirect permanent /phybots/apps https://www.youtube.com/playlist?list=PL5EC9CECDDBEA183A 
+Redirect permanent /phybots/apps/ https://www.youtube.com/playlist?list=PL5EC9CECDDBEA183A 
+Redirect permanent /teaparty/2015 https://junkato.jp/teaparty
+Redirect permanent /teaparty/2016 https://junkato.jp/teaparty
+Redirect permanent /ugv http://junkato.digitalmuseum.jp/user-generated-variables
+Redirect permanent /pwe https://junkato.jp/programming-with-examples
+Redirect permanent /lt https://junkato.jp/live-tuning
