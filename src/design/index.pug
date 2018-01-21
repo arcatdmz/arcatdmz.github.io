@@ -230,9 +230,9 @@ mixin render-design-segment(p)
   - const link = p.getLink(lang, basePath);
   .ui.basic.segment(id=p.project)
     - if (link === false) {
-    img.ui.small.left.floated.image(src=`/images/icons/${p.icon}`)
+    img.ui.small.left.floated.image(src=`${rootPath}images/icons/${p.icon}`)
     - } else {
-    a.ui.small.left.floated.image(href=link): img(src=`/images/icons/${p.icon}`)
+    a.ui.small.left.floated.image(href=link): img(src=`${rootPath}images/icons/${p.icon}`)
     - }
     h3.ui.header !{p.getDesignTitle(lang)}
     p !{p.getDesignDescription(lang)}

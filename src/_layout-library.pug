@@ -259,11 +259,11 @@ mixin render-major-publication(entry)
 
 mixin render-project-card(p)
   .card(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
-    a.image(href=p.getLink(lang, basePath)): img(src=`/images/thumbnails/${p.thumbnail}`)
+    a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
     .content
       a.header(href=p.getLink(lang, basePath))
         - if (p.icon) {
-        img.ui.avatar.image(src=`/images/icons/${p.icon}`)
+        img.ui.avatar.image(src=`${rootPath}images/icons/${p.icon}`)
         - }
         | !{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
@@ -287,21 +287,21 @@ mixin render-project-item(p)
   - const link = p.getLink(lang, basePath);
   .item(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
     - if (link === false) {
-    .mobile.hidden.image: img(src=`/images/thumbnails/${p.thumbnail}`)
+    .mobile.hidden.image: img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
     - } else {
-    a.mobile.hidden.image(href=link): img(src=`/images/thumbnails/${p.thumbnail}`)
+    a.mobile.hidden.image(href=link): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
     - }
     .content
       - if (link === false) {
       .header
         - if (p.icon) {
-        img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
+        img.ui.avatar.image.mobile.only(src=`${rootPath}images/icons/${p.icon}`)
         - }
         | !{p.getTitle(lang)}
       - } else {
       a.header(href=link)
         - if (p.icon) {
-        img.ui.avatar.image.mobile.only(src=`/images/icons/${p.icon}`)
+        img.ui.avatar.image.mobile.only(src=`${rootPath}images/icons/${p.icon}`)
         - }
         | !{p.getTitle(lang)}
       - }

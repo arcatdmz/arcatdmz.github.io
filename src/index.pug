@@ -49,6 +49,8 @@ block main
   +about()
   #history: +history()
   .ui.hidden.divider
+  #concepts: +concepts()
+  .ui.hidden.divider
   #projects: +projects()
   .ui.hidden.divider
   #contact: +contact()
@@ -116,6 +118,29 @@ mixin history()
       i.maximize.icon
       | #{en ? 'Show all' : '全部見る'}
   - }
+
+mixin concepts()
+  h2.ui.header
+    i.idea.icon
+    .content #{en ? 'Research topics' : '研究トピック'}
+  .ui.basic.segment
+    block concepts
+      p While I am interested in broad area of <abbr title="Human-Computer Interaction">HCI</abbr> and have a high-level goal of supporting people's creativity, I have been especially focused on the following topics. For the list of concrete projects, see 
+        a(href='#projects')
+          i.lab.icon
+          | Projects
+        | .
+    .ui.grid#concepts-list
+      .sixteen.wide.tablet.eight.wide.computer.column#concepts-programming-with-examples: .ui.fluid.card
+        a.image(href=`${basePath}programming-with-examples`): img(src=`${rootPath}images/thumbnails/programming-with-examples.jpg`)
+        .content
+          a.header(href=`${basePath}programming-with-examples`) Programming with Examples
+          .description The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data.
+      .sixteen.wide.tablet.eight.wide.computer.column#concepts-live-tuning: .ui.fluid.card
+        a.image(href=`${basePath}live-tuning`): img(src=`${rootPath}images/thumbnails/live-tuning.jpg`)
+        .content
+          a.header(href=`${basePath}live-tuning`) Live Tuning
+          .description hoge
 
 mixin projects()
   h2.ui.header
