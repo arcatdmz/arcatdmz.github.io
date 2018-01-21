@@ -17,6 +17,8 @@ const del = require('del');
 const fs = require('fs');
 const bibtexParse = require('bibtex-parse-js');
 const htmlhint = require("gulp-htmlhint")
+const through2 = require('through2');
+const pdfinfo = require('pdfinfo');
 
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
@@ -138,7 +140,24 @@ function compilePug(stream) {
 gulp.task('lint:html', function() {
   return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
     .pipe(htmlhint())
-	  .pipe(htmlhint.failAfterError())
+	  .pipe(htmlhint.failAfterError());
+});
+
+gulp.task('lint:pdf', function() {
+  return gulp.src('dist/**/*.pdf')
+  .pipe(through2.obj(function(chunk, enc, cb) {
+      const pdf = pdfinfo(chunk.path);
+      pdf.info(function(err, meta) {
+        // chunk.path
+        // chunk.contents
+        if (err) {
+          console.error(chunk.path, err);
+        } else {
+          console.log(chunk.path, meta);
+        }
+        cb(null, chunk);
+      });
+    }));
 });
 
 function setupLocals() {
