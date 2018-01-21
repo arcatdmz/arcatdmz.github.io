@@ -10,3 +10,7 @@ block message
     a(href='http://www.openpool.cc/') openpool.cc
     | .
   p: +translate('openpool/index.pug')
+
+block project-header
+  - additionalLabels.push('<span class="ui tiny red basic label"><i class="trophy icon"></i>\'13 グッドデザイン賞</span>');
+  +render-project-header('openpool', additionalLabels)

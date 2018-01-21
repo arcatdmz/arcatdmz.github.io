@@ -345,7 +345,6 @@
       "thumbnail": "openpool.jpg",
       "description": "An open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the &quot;super-billiard&quot; experience.",
       "ja": {
-        "publication": "グッドデザイン賞 '13",
         "description": "ビリヤード台をプロジェクションマッピングで覆い、ボールの動きに応じてビジュアルエフェクトを表示することで、これまでにないビリヤード体験を実現するオープンソースプロジェクトです。"
       }
     },

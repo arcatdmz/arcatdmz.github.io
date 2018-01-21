@@ -4,9 +4,11 @@ block vars
   - p = projectsTable['openpool'];
   - title = p.getTitle(lang);
   - me = p.project + '/';
+  - var additionalLabels = ['<span class="ui tiny green basic label"><i class="student icon"></i>SxSW \'13 Gaming Expo, Trade Show</span>'];
 
 block main
-  +render-project-header('openpool', '<span class="ui tiny green basic label"><i class="student icon"></i>SxSW \'13 Gaming Expo, Trade Show</span>')
+  block project-header
+    +render-project-header('openpool', additionalLabels)
   .ui.message
     block message
       | OpenPool is a collaborative open-source project developed at 
@@ -107,5 +109,4 @@ mixin videos()
     h2.ui.header Related Work
     ol
       li#ppp: a(href='https://tangible.media.mit.edu/project/pingpongplus/') PingPongPlus
-      li#pppp: a(href='https://tangible.media.mit.edu/project/pingpongplusplus/
-') PingPong++
+      li#pppp: a(href='https://tangible.media.mit.edu/project/pingpongplusplus/') PingPong++

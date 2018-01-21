@@ -47,11 +47,21 @@ mixin render-share()
       }(document, 'script', 'facebook-jssdk'));
 
 mixin render-project-header(project, additionalLabels)
-  - const p = projectsTable[project];
+  -
+    const p = projectsTable[project];
+    const projectAwards = [];
+    for (const pub of publications) {
+      if (pub.entryTags
+          && pub.entryTags.project && pub.entryTags.project.indexOf(project) >= 0
+          && pub.entryTags.addition
+          && (!pub.entryTags.language || (!en && pub.entryTags.language === 'japanese'))) {
+        projectAwards.push(pub.entryTags.addition);
+      }
+    }
   section
     h1.ui.header !{title}
       .sub.header !{p.getSubtitle(lang)}
-    .ui.horizontal.divided.list
+    .ui.horizontal.divided.list.project-meta-list
       - if (p.hasMembers()) for (member of p.getMembers(lang)) {
       .item #{member}
       - }
@@ -61,6 +71,12 @@ mixin render-project-header(project, additionalLabels)
           | #{p.getYearString(lang)}
       - if (p.hasPublication(lang)) {
       .item: +render-project-label(p)
+      - }
+      - for (const award of projectAwards) {
+      .item
+        span.ui.red.tiny.basic.label
+          i.trophy.icon
+          | #{award}
       - }
       - if (typeof additionalLabels === 'string') {
       - additionalLabels = [additionalLabels];
