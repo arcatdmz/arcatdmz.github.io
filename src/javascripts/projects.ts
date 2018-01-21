@@ -118,12 +118,12 @@ class Entry {
   getYearString(lang?: 'en'|'ja') {
     var to: number;
     if (typeof this.data.year.to === 'number') {
-      if (this.data.year.from === this.data.year.to) {
-        return this.data.year.from.toString();
-      }
       to = this.data.year.to;
     } else {
       to = new Date().getFullYear();
+    }
+    if (this.data.year.from === this.data.year.to) {
+      return this.data.year.from.toString();
     }
     return `${this.data.year.from}-${to}`;
   }
