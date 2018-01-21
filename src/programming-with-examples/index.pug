@@ -3,13 +3,13 @@ extends ../_layout
 block vars
   - title = 'Programming with Examples';
   - description = 'The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and userss understand applications and configure them to meet their needs. The web page provides summary and additional information for the journal article discussing PwE that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.';
-  - imageUrl = `${protocol}://${domain}${rootPath}images/thumbnails/programming-with-examples.jpg`;
+  - imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-with-examples.png`;
   - me = 'programming-with-examples/';
 
 block main
   section
-    .mobile.hidden: .ui.right.floated.small.image(style='z-index: 100')
-      img(src='programming-with-examples.jpg', style='border: 1px solid #ccc')
+    .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
+      img(src=`${rootPath}programming-with-examples/programming-with-examples.jpg`)
       .caption: a(href='http://dx.doi.org/10.1109/MC.2016.217')
         i.book.icon
         | Read the article
@@ -208,7 +208,9 @@ block main
           |  Programmers will ship programs together with the development environments so that nonprogrammers can customize them by updating the example data. In such environments, representations of the example data serve as the boundary that defines what can be easily customized and what cannot. We believe that user interface design will become a process to create applications with such a boundary that defines the appropriate flexibility.
   .ui.hidden.divider
   section#revision
-    h2.ui.header Revision history
+    h2.ui.header
+      i.announcement.icon
+      | #{en ? 'Revision history' : '更新履歴'}
     .ui.basic.segment: .ui.divided.feed
       block news
         .event: .content
