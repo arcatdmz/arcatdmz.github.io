@@ -146,14 +146,30 @@ gulp.task('lint:html', function() {
 gulp.task('lint:pdf', function() {
   return gulp.src('dist/**/*.pdf')
   .pipe(through2.obj(function(chunk, enc, cb) {
-      const pdf = pdfinfo(chunk.path);
+      const pdf = pdfinfo(chunk.path, ["-enc", "UTF-8"]);
       pdf.info(function(err, meta) {
         // chunk.path
         // chunk.contents
         if (err) {
           console.error(chunk.path, err);
         } else {
-          console.log(chunk.path, meta);
+          meta.file = chunk.path;
+          console.log(meta);
+          // example output of meta:
+          // { title: 'プログラマ×デザイナ×エンドユーザのための三つ巴システム設計 +HCI系国際会議や研究インターンのご紹介\r',
+          //   author: 'Jun Kato\r',
+          //   creator: 'Acrobat PDFMaker 15 for PowerPoint\r',
+          //   producer: 'Adobe PDF Library 15.0\r',
+          //   created: '10/16/15 23:00:49\r',
+          //   modified: '10/16/15 23:02:48\r',
+          //   tagged: 'yes\r',
+          //   form: 'none\r',
+          //   pages: 15,
+          //   encrypted: 'no\r',
+          //   page_size: '960 x 540 pts (rotated 0 degrees)\r',
+          //   file_size: '1771252 bytes\r',
+          //   optimized: 'no\r',
+          //   pdf_version: 1.6 }
         }
         cb(null, chunk);
       });

@@ -511,13 +511,13 @@
       "thumbnail": "ongacrest-flyers.jpg",
       "icon": "ongacrest-flyers.jpg",
       "description": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>.",
-      "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events and can be viewed as <a href=\"${rootPath}design/nomaps2016-ongacrest-flyers.pdf\">a PDF file</a>.",
-      "url": "${rootPath}design/nomaps2016-ongacrest-flyers.pdf",
+      "description-design": "Designed flyers and posters of the four web services developed by <a href=\"https://ongacrest.jp/en/\">the OngaCREST project</a>: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, and <a href=\"http://songmash.jp\">Songmash</a>. The flyer was distributed at an international convention (<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>) and other events. The poster can be viewed as <a href=\"${rootPath}design/nomaps2016-ongacrest-posters.pdf\">a PDF file</a>.",
+      "url": "${rootPath}design/nomaps2016-ongacrest-posters.pdf",
       "ja": {
         "title": "OngaCREST関連デザイン",
         "title-design": "OngaCREST関連サービスの印刷物デザイン",
         "description": "OngaCRESTで研究開発された4つのWebサービスの宣伝用フライヤーとポスターをデザインしました。",
-        "description-design": "<a href=\"https://ongacrest.jp/en/\">OngaCREST</a>で研究開発された4つのWebサービス: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, <a href=\"http://songmash.jp\">Songmash</a>の宣伝用フライヤーとポスターをデザインしました。国際コンベンション<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>などで配布されたフライヤーを<a href=\"${rootPath}design/nomaps2016-ongacrest-flyers.pdf\">PDF</a>で閲覧できます。"
+        "description-design": "<a href=\"https://ongacrest.jp/en/\">OngaCREST</a>で研究開発された4つのWebサービス: <a href=\"http://songle.jp\">Songle</a>, <a href=\"http://songrium.jp\">Songrium</a>, <a href=\"http://textalive.jp\">TextAlive</a>, <a href=\"http://songmash.jp\">Songmash</a>の宣伝用フライヤーとポスターをデザインしました。宣伝用フライヤーは国際コンベンション<a href=\"https://no-maps.jp/en/about\">No Maps 2016</a>などで配布されました。ポスターは<a href=\"${rootPath}design/nomaps2016-ongacrest-posters.pdf\">PDF</a>で閲覧できます。"
       }
     },
     {
