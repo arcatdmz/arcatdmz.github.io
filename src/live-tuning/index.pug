@@ -26,7 +26,7 @@ block main
           i.student.icon
           | LIVE '16
     .ui.message
-      p This page provides summary and some graphical materials of the workshop paper that is presented at 
+      p This page provides summary and some graphical materials of the workshop paper that was presented at 
         a(href='http://2016.ecoop.org/track/LIVE-2016') ECOOP 2016 LIVE
         | .
       - if (!en) {
@@ -36,7 +36,8 @@ block main
   section#paper
     h2.ui.header Paper
     .ui.basic.segment
-      p Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time. In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.
+      p Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time.
+      p In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values &quot;Live Tuning.&quot; Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.
       .ui.raised.segment.major-publication
         //- span.ui.red.ribbon.label #{en ? 'Cite this!' : '引用するならコレ！'}
         +render-major-publication(publicationsTable['live2016-kato-livetuning'])
