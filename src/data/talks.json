@@ -37,15 +37,15 @@
   {
     "date": "9/1/2015",
     "text": {
-      "ja": "<a href=\"http://wakate.org/37\">情報処理学会 第48回 情報科学若手の会</a> 「ぼくらのプログラミングから、みんなのプログラミングへ」, <a href=\"http://junkato.jp/ja/talks/people-are-programmers/\"><i class=\"video play icon\"></i>インタラクティブ講演資料</a>, <a href=\"${rootPath}publications/wakate2015-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+      "ja": "<a href=\"http://wakate.org/2015/09/22/48threport/\">情報処理学会 第48回 情報科学若手の会</a> 「ぼくらのプログラミングから、みんなのプログラミングへ」, <a href=\"http://junkato.jp/ja/talks/people-are-programmers/\"><i class=\"video play icon\"></i>インタラクティブ講演資料</a>, <a href=\"${rootPath}publications/wakate2015-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
     },
     "type": "domestic"
   },
   {
     "date": "7/1/2015",
     "text": {
-      "ja": "<a href=\"http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->",
-      "en": "<a href=\"http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->"
+      "ja": "<a href=\"https://web.archive.org/web/20170712084655/http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->",
+      "en": "<a href=\"https://web.archive.org/web/20170712084655/http://big.cs.bris.ac.uk\">University of Bristol <abbr title=\"Bristol Interaction and Graphics\">BIG</abbr> Group</a> seminar, <a href=\"http://www.bristol.ac.uk/engineering/events/2015/integrated-design-environments-for-creating-interactive-media-content.html\">&quot;Integrated Design Environments for Creating Interactive Media Content&quot;</a><!-- big.cs.bris.ac.uk/seminars/integrated-design-environments-for-creating-interactive-media-content -->"
     }
   },
   {

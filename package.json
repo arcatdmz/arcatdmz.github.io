@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp",
     "test": "gulp test",
-    "start": "gulp sync"
+    "start": "gulp sync",
+    "blc": "broken-link-checker http://localhost:3000/ -ro"
   },
   "author": "Jun Kato",
   "devDependencies": {
@@ -16,6 +17,7 @@
     "@types/semantic-ui": "^2.2.6",
     "babel-loader": "^8.0.0-beta.0",
     "bibtex-parse-js": "0.0.24",
+    "broken-link-checker": "^0.7.7",
     "browser-sync": "^2.18.13",
     "del": "^3.0.0",
     "gulp": "^3.9.1",

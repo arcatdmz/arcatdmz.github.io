@@ -26,7 +26,7 @@
     },
     {
       "date": "3/27/2017",
-      "text": "Publicly demonstrated <a href=\"http://logs.f3js.org\">Robocam (f3js-logs)</a> for the first time at <a href=\"humanrobotinteraction.org/2017/\">ACM/IEEE HRI 2017</a>, which is an accompanying tool and web-based interface to f3.js that helps recording event logs of IoT applications and authoring their demo videos."
+      "text": "Publicly demonstrated <a href=\"http://logs.f3js.org\">Robocam (f3js-logs)</a> for the first time at <a href=\"http://humanrobotinteraction.org/2017/\">ACM/IEEE HRI 2017</a>, which is an accompanying tool and web-based interface to f3.js that helps recording event logs of IoT applications and authoring their demo videos."
     },
     {
       "date": "12/18/2016",
@@ -34,7 +34,7 @@
     },
     {
       "date": "10/19/2016",
-      "text": "Served as a Student Volunteer Chair for <a href=\"http://www.acm.org/uist/uist2016/\">ACM UIST 2016</a>. Thanks all for coming to Tokyo!"
+      "text": "Served as a Student Volunteer Chair for <a href=\"https://www.acm.org/uist/uist2016/\">ACM UIST 2016</a>. Thanks all for coming to Tokyo!"
     },
     {
       "date": "8/7/2016",
@@ -54,7 +54,7 @@
     },
     {
       "date": "2/27/2016",
-      "text": "Organized <a href=\"http://sigpx.org/en/1\">The First Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>. English translation of the press release that introduces the <a href=\"http://textalive.jp/\">TextAlive</a> web service is <a href=\"http://www.aist.go.jp/aist_e/latest_research/2016/20160125/en20160125.html\">now available</a>."
+      "text": "Organized <a href=\"http://sigpx.org/en/1\">The First Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>. English translation of the press release that introduces the <a href=\"http://textalive.jp/\">TextAlive</a> web service is <a href=\"http://www.aist.go.jp/aist_e/latest_research/2015/20160125/en20160125.html\">now available</a>."
     },
     {
       "date": "12/18/2015",
@@ -106,7 +106,7 @@
     },
     {
       "date": "4/25/2014",
-      "text": "Serving as a program committee member for <a href=\"http://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a> is exciting but difficult. Apart from it, I'm getting settled in the new environment and have just started to prepare for attending <a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>. I'm going to present <a href=\"${rootPath}visionsketch/\">VisionSketch</a> in the &quot;<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>&quot; session on 5/8."
+      "text": "Serving as a program committee member for <a href=\"https://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a> is exciting but difficult. Apart from it, I'm getting settled in the new environment and have just started to prepare for attending <a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>. I'm going to present <a href=\"${rootPath}visionsketch/\">VisionSketch</a> in the &quot;<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>&quot; session on 5/8."
     },
     {
       "date": "4/1/2014",
@@ -122,7 +122,7 @@
     },
     {
       "date": "11/19/2013",
-      "text": "Visited St. Andrews to for <a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>, gave a talk at <a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>, met friends of the Microsoft campus, and finished the Adobe internship... I'm back in Japan!"
+      "text": "Visited St. Andrews to for <a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>, gave a talk at <a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>, met friends of the Microsoft campus, and finished the Adobe internship... I'm back in Japan!"
     },
     {
       "date": "8/12/2013",
@@ -130,11 +130,11 @@
     },
     {
       "date": "8/4/2013",
-      "text": "I am going to attend <a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a> ... expecting fruitful discussion at Doctoral Symposium. My paper describing the development process of <a href=\"${rootPath}openpool/\">OpenPool</a> is accepted to present at <a href=\"http://www.ieee-gcce.org/2013/\">IEEE GCCE 2013</a>."
+      "text": "I am going to attend <a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a> ... expecting fruitful discussion at Doctoral Symposium. My paper describing the development process of <a href=\"${rootPath}openpool/\">OpenPool</a> is accepted to present at <a href=\"http://www.ieee-gcce.org/2013/\">IEEE GCCE 2013</a>."
     },
     {
       "date": "6/24/2013",
-      "text": "Got some sort of recognition at ACM conferences, <a href=\"http://chi2013.acm.org/\">ACM CHI</a> and <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>, detailed in <a href=\"${rootPath}publications/#awards\">Awards</a> section. Will work for <a href=\"http://www.adobe.com/technology/people-by-location.html#seattle\">Adobe Research Seattle</a> this summer."
+      "text": "Got some sort of recognition at ACM conferences, <a href=\"http://chi2013.acm.org/\">ACM CHI</a> and <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>, detailed in <a href=\"${rootPath}publications/#awards\">Awards</a> section. Will work for <a href=\"https://research.adobe.com/about-the-labs/#seattle\">Adobe Research Seattle</a> this summer."
     },
     {
       "date": "4/16/2013",
@@ -142,7 +142,7 @@
     },
     {
       "date": "3/5/2013",
-      "text": "My colleagues are going to present <a href=\"${rootPath}openpool/\">OpenPool</a> at <a href=\"http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>. I've worked on the project as one of the main programmers. Stay tuned for its open-source distribution!"
+      "text": "My colleagues are going to present <a href=\"${rootPath}openpool/\">OpenPool</a> at <a href=\"https://web.archive.org/web/20130927185430/http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>. I've worked on the project as one of the main programmers. Stay tuned for its open-source distribution!"
     },
     {
       "date": "3/2/2013",
@@ -154,11 +154,11 @@
     },
     {
       "date": "10/28/2012",
-      "text": "Attended <a href=\"http://www.msra.cn/21CCC/xsjs_en.html\" title=\"Computing in the 21st Century Conference\">21 CCC</a> in Tianjin, China and received this year's <a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>."
+      "text": "Attended <a href=\"https://www.msra.cn/zh-cn/um/events/21ccc/2012/html5/xsjs_en.html\" title=\"Computing in the 21st Century Conference\">21 CCC</a> in Tianjin, China and received this year's <a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>."
     },
     {
       "date": "10/15/2012",
-      "text": "Finished my talk at <a href=\"http://www.acm.org/uist/uist2012/\">ACM UIST 2012</a> in the &quot;<a href=\"http://www.acm.org/uist/uist2012/program.html#Paper_211\">Toolkits</a>&quot; session on 10/9. Will serve as a Publicity Co-chair at <a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>!"
+      "text": "Finished my talk at <a href=\"https://www.acm.org/uist/uist2012/\">ACM UIST 2012</a> in the &quot;<a href=\"https://www.acm.org/uist/uist2012/program.html#Paper_211\">Toolkits</a>&quot; session on 10/9. Will serve as a Publicity Co-chair at <a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>!"
     },
     {
       "date": "9/18/2012",
@@ -166,7 +166,7 @@
     },
     {
       "date": "7/21/2012",
-      "text": "My paper about an IDE named DejaVu is accepted to <a href=\"http://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>. The details will come later."
+      "text": "My paper about an IDE named DejaVu is accepted to <a href=\"https://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>. The details will come later."
     },
     {
       "date": "6/21/2012",
@@ -178,7 +178,7 @@
     },
     {
       "date": "3/23/2012",
-      "text": "My paper about <a href=\"${rootPath}phybots/\">Phybots</a> is accepted to <a href=\"http://www.dis2012.org/\">ACM DIS 2012</a>. I will present the paper in the &quot;<a href=\"http://www.dis2012.org/program.php#session10\">Absolutely Fab</a>&quot; session on 6/13."
+      "text": "My paper about <a href=\"${rootPath}phybots/\">Phybots</a> is accepted to <a href=\"https://web.archive.org/web/20170916142003/http://dis2012.org/\">ACM DIS 2012</a>. I will present the paper in the &quot;<a href=\"https://web.archive.org/web/20170916142003/http://dis2012.org/program.php#session10\">Absolutely Fab</a>&quot; session on 6/13."
     },
     {
       "date": "3/19/2012",
@@ -186,7 +186,7 @@
     },
     {
       "date": "1/9/2012",
-      "text": "Started an internship at <a href=\"http://research.microsoft.com/hci\">HCI Group</a> of Microsoft Research Asia."
+      "text": "Started an internship at <a href=\"https://web.archive.org/web/20120408040100/http://research.microsoft.com/en-us/um/beijing/groups/hci/\">HCI Group</a> of Microsoft Research Asia."
     }
   ],
   "ja": [
@@ -224,11 +224,11 @@
     },
     {
       "date": "10/19/2016",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2016/\">ACM UIST 2016</a>でStudent Volunteer Chairとして学生と一緒に学会運営しました。アジア初のUISTで過去最高の参加者を迎えられてよかったです。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2016/\">ACM UIST 2016</a>でStudent Volunteer Chairとして学生と一緒に学会運営しました。アジア初のUISTで過去最高の参加者を迎えられてよかったです。"
     },
     {
       "date": "10/16/2016",
-      "text": "国際コンベンション<a href=\"http://docs.textalive.jp/nomaps2016/\">No Maps 2016</a>で研究成果のTextAliveをデモ展示しました。また、アイドルグループ<a href=\"http://www.brgh.tokyo/\">BELLRING少女ハート</a>のライブでTextAlive製の歌詞アニメーションが使われました。"
+      "text": "国際コンベンション<a href=\"http://docs.textalive.jp/nomaps2016/\">No Maps 2016</a>で研究成果のTextAliveをデモ展示しました。また、アイドルグループ<a href=\"https://web.archive.org/web/20161027074819/http://brgh.tokyo\">BELLRING少女ハート</a>のライブでTextAlive製の歌詞アニメーションが使われました。"
     },
     {
       "date": "8/7/2016",
@@ -260,19 +260,19 @@
     },
     {
       "date": "2/5/2016",
-      "text": "昨年<a href=\"http://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html\">プレスリリース</a>して今年同内容が<a href=\"http://www.aist.go.jp/aist_e/latest_research/2016/20160125/en20160125.html\">英訳</a>され、まだ研究開発を続けている<a href=\"http://textalive.jp\">TextAlive</a>が<a href=\"http://textalive.jp/snowmiku2016/\">SNOW MIKU 2016</a>とタイアップしています。<a href=\"http://miraist.com/2016/2/textalive\">カフェでの上映</a>や<a href=\"http://blog.crypton.co.jp/l/2016/2/textalive/\">piaproとの連携</a>など盛りだくさんです！"
+      "text": "昨年<a href=\"http://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html\">プレスリリース</a>して今年同内容が<a href=\"http://www.aist.go.jp/aist_e/latest_research/2015/20160125/en20160125.html\">英訳</a>され、まだ研究開発を続けている<a href=\"http://textalive.jp\">TextAlive</a>が<a href=\"http://textalive.jp/snowmiku2016/\">SNOW MIKU 2016</a>とタイアップしています。<a href=\"http://miraist.com/2016/2/textalive\">カフェでの上映</a>や<a href=\"http://blog.crypton.co.jp/l/2016/2/textalive/\">piaproとの連携</a>など盛りだくさんです！"
     },
     {
       "date": "12/7/2015",
-      "text": "国内会議<a href=\"http://www.wiss.org/WISS2015/\">WISS 2015</a>で、先日<a href=\"http://www.acm.org/uist/uist2015/\">ACM UIST 2015</a>でも発表した<a href=\"http://f3js.org\">f3.js</a>をデモ発表しました。"
+      "text": "国内会議<a href=\"http://www.wiss.org/WISS2015/\">WISS 2015</a>で、先日<a href=\"https://www.acm.org/uist/uist2015/\">ACM UIST 2015</a>でも発表した<a href=\"http://f3js.org\">f3.js</a>をデモ発表しました。"
     },
     {
       "date": "11/20/2015",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2015/\">ACM UIST 2015</a>で、IoTアプリケーションのハードウェアとソフトウェアを両方JavaScriptで記述できる<a href=\"http://f3js.org\">f3.js</a>をデモ発表しました。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2015/\">ACM UIST 2015</a>で、IoTアプリケーションのハードウェアとソフトウェアを両方JavaScriptで記述できる<a href=\"http://f3js.org\">f3.js</a>をデモ発表しました。"
     },
     {
       "date": "9/20/2015",
-      "text": "情報処理学会 <a href=\"http://wakate.org/37\">第48回 情報科学若手の会</a>で若手特別講演者として「<a href=\"http://junkato.jp/ja/talks/people-are-programmers/\">ぼくらのプログラミングから、みんなのプログラミングへ</a>」と題して<a href=\"http://textalive.jp\">TextAlive</a>のデモを交えてお話しました。"
+      "text": "情報処理学会 <a href=\"http://wakate.org/2015/09/22/48threport/\">第48回 情報科学若手の会</a>で若手特別講演者として「<a href=\"http://junkato.jp/ja/talks/people-are-programmers/\">ぼくらのプログラミングから、みんなのプログラミングへ</a>」と題して<a href=\"http://textalive.jp\">TextAlive</a>のデモを交えてお話しました。"
     },
     {
       "date": "9/8/2015",
@@ -328,7 +328,7 @@
     },
     {
       "date": "8/28/2014",
-      "text": "8月24日<a href=\"http://prosym.github.io/sprosym2014/\">情報処理学会 夏のプログラミングシンポジウム2014</a>で「<a href=\"http://www.slideshare.net/arcatdmz/live-programming\">実世界Live Programmingの実現に向けて</a>」と題して数年分の研究成果をご紹介し、プログラミングの未来について議論しました(<a href=\"http://togetter.com/li/710516\">反響</a>)。また、<a href=\"http://www.sigmus.jp/?page_id=2780\"><abbr title=\"情報処理学会 音楽情報科学研究会(音情研)\">SIGMUS</abbr></a> <a href=\"https://staff.aist.go.jp/jun.kato/TextAlive/\">TextAlive</a>の発表でベストプレゼンテーション賞をいただきました！<a href=\"http://www.ustream.tv/recorded/51869488\">Ustream</a>で発表の録画をご覧いただけます。(59分56秒-)"
+      "text": "8月24日<a href=\"http://prosym.github.io/sprosym2014/\">情報処理学会 夏のプログラミングシンポジウム2014</a>で「<a href=\"http://www.slideshare.net/arcatdmz/live-programming\">実世界Live Programmingの実現に向けて</a>」と題して数年分の研究成果をご紹介し、プログラミングの未来について議論しました(<a href=\"http://togetter.com/li/710516\">反響</a>)。また、<a href=\"http://www.sigmus.jp/?page_id=2780\"><abbr title=\"情報処理学会 音楽情報科学研究会(音情研)\">SIGMUS</abbr></a> <a href=\"https://staff.aist.go.jp/jun.kato/TextAlive/\">TextAlive</a>の発表でベストプレゼンテーション賞をいただきました！"
     },
     {
       "date": "8/19/2014",
@@ -340,15 +340,15 @@
     },
     {
       "date": "5/23/2014",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a>のProgram Committeeミーティングで、来月またカナダに行きます。<a href=\"http://www.dgp.toronto.edu/\">トロント大学<abbr title=\"Dynamic Graphics Project\">DGP</abbr></a>と<a href=\"http://hci.cs.umanitoba.ca/\">マニトバ大<abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a>で招待講演を行う予定です。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a>のProgram Committeeミーティングで、来月またカナダに行きます。<a href=\"http://www.dgp.toronto.edu/\">トロント大学<abbr title=\"Dynamic Graphics Project\">DGP</abbr></a>と<a href=\"http://hci.cs.umanitoba.ca/\">マニトバ大<abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a>で招待講演を行う予定です。"
     },
     {
       "date": "4/25/2014",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a>のProgram Committeeの役を仰せつかりまして、初めてだらけの経験にひーひー言っております。さておき、来月はカナダの国内会議で、歴史が古いため実質的に国際会議であるところの<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>に参加し、5月8日のセッション「<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>」で<a href=\"${rootPath}ja/visionsketch/\">VisionSketch</a>について発表予定です。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2014/organizers.php\">ACM UIST 2014</a>のProgram Committeeの役を仰せつかりまして、初めてだらけの経験にひーひー言っております。さておき、来月はカナダの国内会議で、歴史が古いため実質的に国際会議であるところの<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/\">Graphics Interface 2014</a>に参加し、5月8日のセッション「<a href=\"http://www.cs.mcgill.ca/~kry/gi2014/program.html#S5\">Video and Collaboration</a>」で<a href=\"${rootPath}ja/visionsketch/\">VisionSketch</a>について発表予定です。"
     },
     {
       "date": "4/1/2014",
-      "text": "博士（情報理工学）になり、<a href=\"http://www.aist.go.jp/\">産業技術総合研究所</a>へ研究員として就職しました。9年間の大学生活を離れ、<a href=\"http://itri.aist-go.jp/\">情報技術研究部門</a> <a href=\"https://staff.aist.go.jp/m.goto/MIG/index-j.html\">メディアインタラクション研究グループ</a>で改めて研究活動に従事します。"
+      "text": "博士（情報理工学）になり、<a href=\"http://www.aist.go.jp/\">産業技術総合研究所</a>へ研究員として就職しました。9年間の大学生活を離れ、<a href=\"https://www.itri.aist.go.jp/\">情報技術研究部門</a> <a href=\"https://staff.aist.go.jp/m.goto/MIG/index-j.html\">メディアインタラクション研究グループ</a>で改めて研究活動に従事します。"
     },
     {
       "date": "3/8/2014",
@@ -376,7 +376,7 @@
     },
     {
       "date": "11/19/2013",
-      "text": "スコットランドで<a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>に参加し、シアトルでは<a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>で講演し、Microsoftでお世話になった人たちと再会して、Adobeでのインターンを終えました。というわけで帰国しました！"
+      "text": "スコットランドで<a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>に参加し、シアトルでは<a href=\"http://vimeo.com/77669396\">University of Washington <abbr title=\"Design Use Build\">dub</abbr></a>で講演し、Microsoftでお世話になった人たちと再会して、Adobeでのインターンを終えました。というわけで帰国しました！"
     },
     {
       "date": "9/19/2013",
@@ -388,11 +388,11 @@
     },
     {
       "date": "8/4/2013",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a> Doctoral Symposiumに採択されました。博士課程の研究について議論してきます。また、<a href=\"http://www.ieee-gcce.org/2013/\">IEEE GCCE 2013</a>のSpecial Session (Entertainment Computing)に<a href=\"${rootPath}ja/openpool/\">OpenPool</a>の開発過程についてまとめた論文がアクセプトされました。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a> Doctoral Symposiumに採択されました。博士課程の研究について議論してきます。また、<a href=\"http://www.ieee-gcce.org/2013/\">IEEE GCCE 2013</a>のSpecial Session (Entertainment Computing)に<a href=\"${rootPath}ja/openpool/\">OpenPool</a>の開発過程についてまとめた論文がアクセプトされました。"
     },
     {
       "date": "6/24/2013",
-      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI</a>と<a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>で<a href=\"${rootPath}ja/publications/#awards\">賞など</a>をいただきました。今年の夏は8月から<a href=\"http://www.adobe.com/technology/people-by-location.html#seattle\">Adobe Research Seattle</a>でインターンしてきます。"
+      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI</a>と<a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>で<a href=\"${rootPath}ja/publications/#awards\">賞など</a>をいただきました。今年の夏は8月から<a href=\"https://research.adobe.com/about-the-labs/#seattle\">Adobe Research Seattle</a>でインターンしてきます。"
     },
     {
       "date": "4/16/2013",
@@ -400,7 +400,7 @@
     },
     {
       "date": "3/10/2013",
-      "text": "友人たちと開発を進めてきたオープンソースプロジェクトの<a href=\"${rootPath}ja/openpool/\">OpenPool</a>が、<a href=\"http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>でお披露目されています。これは、Kinectの深度画像とプロジェクターを使ってビリヤード台をインタラクティブサーフェイスに変貌させ、かつてないビリヤード体験を提供するという試みです。"
+      "text": "友人たちと開発を進めてきたオープンソースプロジェクトの<a href=\"${rootPath}ja/openpool/\">OpenPool</a>が、<a href=\"https://web.archive.org/web/20130927185430/http://sxsw.com/trade-shows/exhibitors?client_id=S13-6173\" title=\"South by Southwest 2013\">SXSW 2013</a>でお披露目されています。これは、Kinectの深度画像とプロジェクターを使ってビリヤード台をインタラクティブサーフェイスに変貌させ、かつてないビリヤード体験を提供するという試みです。"
     },
     {
       "date": "3/2/2013",
@@ -412,19 +412,19 @@
     },
     {
       "date": "12/15/2012",
-      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI 2013</a>に、<a href=\"${rootPath}ja/roboko/\" title=\"Picode: Inline Photos Representing Posture Data in Source Code\">Picode (旧名Roboko)</a>に関する論文が条件付きアクセプトされました。元々ロボットの姿勢制御が主用途だったためRobokoという名前でしたが、実態にそぐわなくなってきたのでPicodeに改名しました。"
+      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI 2013</a>に、<a href=\"${rootPath}ja/picode/\" title=\"Picode: Inline Photos Representing Posture Data in Source Code\">Picode (旧名Roboko)</a>に関する論文が条件付きアクセプトされました。元々ロボットの姿勢制御が主用途だったためRobokoという名前でしたが、実態にそぐわなくなってきたのでPicodeに改名しました。"
     },
     {
       "date": "11/6/2012",
-      "text": "国内会議<a href=\"http://www.wiss.org/WISS2012/\">WISS 2012</a>に、<a href=\"${rootPath}ja/roboko/\" title=\"Roboko: ソースコードに写真を貼り込める統合開発環境\">Roboko</a>に関する論文がアクセプトされました。今年は海外に出ている期間が長かったですが、しばらく日本に落ち着いている予定です！"
+      "text": "国内会議<a href=\"http://www.wiss.org/WISS2012/\">WISS 2012</a>に、<a href=\"${rootPath}ja/picode/\" title=\"Roboko: ソースコードに写真を貼り込める統合開発環境\">Roboko</a>に関する論文がアクセプトされました。今年は海外に出ている期間が長かったですが、しばらく日本に落ち着いている予定です！"
     },
     {
       "date": "10/28/2012",
-      "text": "中国天津で開かれた<a href=\"http://www.msra.cn/21CCC/xsjs_en.html\">Computing in the 21st Century</a>という会議に参加して、今年の<a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>を受賞しました。"
+      "text": "中国天津で開かれた<a href=\"https://www.msra.cn/zh-cn/um/events/21ccc/2012/html5/xsjs_en.html\">Computing in the 21st Century</a>という会議に参加して、今年の<a href=\"http://blogs.technet.com/b/inside_microsoft_research/archive/2012/10/26/14-years-of-inspiring-asia-pacific-ph-d-candidates.aspx\">Microsoft Research Asia Fellowship</a>を受賞しました。"
     },
     {
       "date": "10/15/2012",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>のセッション「<a href=\"http://www.acm.org/uist/uist2012/program.html#Paper_211\">Toolkits</a>」で<a href=\"${rootPath}ja/dejavu/\" title=\"DejaVu: Integrated Support for Developing Interactive Camera-Based Programs\">DejaVu</a>を登壇発表し、デモ展示も行いました。来年の<a href=\"http://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>でPublicity Co-chairの役を仰せつかりました。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>のセッション「<a href=\"https://www.acm.org/uist/uist2012/program.html#Paper_211\">Toolkits</a>」で<a href=\"${rootPath}ja/dejavu/\" title=\"DejaVu: Integrated Support for Developing Interactive Camera-Based Programs\">DejaVu</a>を登壇発表し、デモ展示も行いました。来年の<a href=\"https://www.acm.org/uist/uist2013/\">ACM UIST 2013</a>でPublicity Co-chairの役を仰せつかりました。"
     },
     {
       "date": "9/18/2012",
@@ -432,7 +432,7 @@
     },
     {
       "date": "7/21/2012",
-      "text": "国際会議<a href=\"http://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>に、<a href=\"${rootPath}ja/dejavu/\">DejaVu</a>という統合開発環境に関する論文がアクセプトされました。"
+      "text": "国際会議<a href=\"https://www.acm.org/uist/uist2012/\">ACM UIST 2012</a>に、<a href=\"${rootPath}ja/dejavu/\">DejaVu</a>という統合開発環境に関する論文がアクセプトされました。"
     },
     {
       "date": "6/21/2012",
@@ -444,7 +444,7 @@
     },
     {
       "date": "3/23/2012",
-      "text": "国際会議<a href=\"http://www.dis2012.org/\">ACM DIS 2012</a>のプログラムが公開されました。6月13日のセッション「<a href=\"http://www.dis2012.org/program.php#session10\">Absolutely Fab</a>」でPhybotsを登壇発表します。デモにも参加予定です。"
+      "text": "国際会議<a href=\"https://web.archive.org/web/20170916142003/http://dis2012.org/\">ACM DIS 2012</a>のプログラムが公開されました。6月13日のセッション「<a href=\"https://web.archive.org/web/20170916142003/http://dis2012.org/program.php#session10\">Absolutely Fab</a>」でPhybotsを登壇発表します。デモにも参加予定です。"
     },
     {
       "date": "3/19/2012",
@@ -452,7 +452,7 @@
     },
     {
       "date": "1/9/2012",
-      "text": "Microsoft Research Asiaの<a href=\"http://research.microsoft.com/hci\">HCI Group</a>にきました。北京に3ヶ月間滞在する予定です。"
+      "text": "Microsoft Research Asiaの<a href=\"https://web.archive.org/web/20120408040100/http://research.microsoft.com/en-us/um/beijing/groups/hci/\">HCI Group</a>にきました。北京に3ヶ月間滞在する予定です。"
     },
     {
       "date": "12/2/2011",
