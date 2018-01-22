@@ -24,14 +24,23 @@ block post-footer
     a.item(href=`#history`)
       i.history.icon
       .content #{en ? 'Updates' : '近況'}
+    a.item(href=`#concepts`)
+      i.idea.icon
+      .content #{en ? 'Research' : '研究トピック'}
     a.item(href=`#projects`)
       i.lab.icon
       .content #{en ? 'Projects' : 'プロジェクト'}
     .item
       .ui.list
-        a.item(href=`${basePath}#recent-projects`) #{en ? 'Recent projects' : '最近のプロジェクト'}
-        a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
-        a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
+        a.item(href=`${basePath}#recent-projects`)
+          i.right.triangle.icon
+          | #{en ? 'Recent' : '最近のもの'}
+        a.item(href=`${basePath}#previous-projects`)
+          i.right.triangle.icon
+          | #{en ? 'Previous' : '以前のもの'}
+        a.item(href=`${basePath}#private-projects`)
+          i.right.triangle.icon
+          | #{en ? 'Private' : '趣味のもの'}
     a.item(href='#contact')
       i.address.card.icon
       .content #{en ? 'Contact' : '連絡先'}
@@ -47,13 +56,13 @@ block main
         | Human-Computer Interaction 研究者，博士（情報理工学）
         - }
   +about()
-  #history: +history()
+  section#history: +history()
   .ui.hidden.divider
-  #concepts: +concepts()
+  section#concepts: +concepts()
   .ui.hidden.divider
-  #projects: +projects()
+  section#projects: +projects()
   .ui.hidden.divider
-  #contact: +contact()
+  section#contact: +contact()
 
 block scripts
   script(type='text/javascript', src=`${rootPath}javascripts/views/index.js`)
