@@ -33,9 +33,9 @@ function loadConfig(){
 }
 loadConfig();
 
-gulp.task('semantic-js', require('./semantic/tasks/build/javascript'));
-gulp.task('semantic-assets', require('./semantic/tasks/build/assets'));
-gulp.task('semantic', ['semantic-js', 'semantic-assets']);
+gulp.task('semantic:js', require('./semantic/tasks/build/javascript'));
+gulp.task('semantic:assets', require('./semantic/tasks/build/assets'));
+gulp.task('semantic', ['semantic:js', 'semantic:assets']);
 
 gulp.task('del', function(){
   return del([
@@ -76,9 +76,8 @@ gulp.task('bibtex', function(callback) {
     fs.readFileSync(
         bibtexFile
       , { encoding: 'UTF-8' }));
-  if (!fs.existsSync('dist/data')) {
-    fs.mkdirSync('dist/data');
-  }
+  if (!fs.existsSync('dist')) fs.mkdirSync('dist');
+  if (!fs.existsSync('dist/data')) fs.mkdirSync('dist/data');
   fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
   callback();
 });
