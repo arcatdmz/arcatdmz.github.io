@@ -69,9 +69,10 @@ mixin presentations()
           img(src=`${slideImagePath}05.jpg`)
         .caption
           p Live Programming refers to a <abbr title="Programming Experience">PX</abbr> that provides continuous feedback to the programmer about the program being developed.
-    .ui.hidden.divider
+  .ui.basic.segment
     p Live Programming systems provide concrete information about how the program behaves when it is executed. With help of this concrete information, programmers can easily iterate on editing and testing the program behavior.
     p Please note that the origin of Live Programming is not new as you can see early examples in visual programming and object-oriented programming environments. Then, why is it attracting much attention these days? In short, I consider it is because of its focus on the user experience.
+  .ui.basic.segment
     .ui.stackable.two.columns.grid
       .column
         a.ui.fluid.bordered.image(href=`${slideImagePath}13.jpg`)
@@ -80,7 +81,8 @@ mixin presentations()
         .caption
           p Live Programming requires decent user interfaces for exploring the problem space.
           p As such, building decent Live Programming systems requires deep understanding on the target application domains; e.g. avoid sudden changes in the program behavior, keep the program and its output relevant, and allow continuously exploring the problem space.
-          p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
+  .ui.basic.segment
+    p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
     .ui.stackable.three.columns.grid
       .column
         h4.ui.header Programming with End-users
@@ -107,7 +109,7 @@ mixin presentations()
         .caption
           p Live Programming puts focus on providing live feedback to the programmer, but it does not always mean providing realtime information of the running program.
           p The timeline interface and record and replay features together provide time traveling experience and play an important role to find critical timings in the history. Once the timing of interest is found, editing the code and program input would update the program output, allowing the programmer to explore future&quot;s.&quot;
-    .ui.hidden.divider
+  .ui.basic.segment
     a.ui.fluid.bordered.image(href=`${slideImagePath}47.jpg`)
       img(src=`${slideImagePath}47.jpg`)
     .caption
