@@ -11,9 +11,11 @@
     "textalive"
   ],
   "selectedPublications": [
-    "programming-with-examples",
     "dis2017-kato-f3js",
+    "programming-with-examples",
     "chi2015-kato-textalive",
+    "gi2014-kato-visionsketch",
+    "pldi2013-kato-alive",
     "chi2013-kato-picode",
     "uist2012-kato-dejavu"
   ]

@@ -2,7 +2,7 @@
   "en": [
     {
       "date": "1/20/2018",
-      "text": "Renewed the website. See <a href=\"${rootPath}website\">how it's made</a>&mdash;source code available!"
+      "text": "Renewed the website. See <a href=\"${rootPath}website\">how it's made</a>&mdash;source code available! Beside <abbr title=\"User Interface\">UI</abbr> changes, newly-added content includes <a href=\"${rootPath}live-programming\">the follow-up page for the LIVE keynote talk</a> discussing user interfaces for Live Programming, <a href=\"${rootPath}f3js\">the f3.js project page</a>, <a href=\"${rootPath}textalive\">the TextAlive project page</a>, and <a href=\"${rootPath}design\">the design portfolio</a>."
     },
     {
       "date": "11/8/2017",
@@ -192,7 +192,7 @@
   "ja": [
     {
       "date": "1/21/2018",
-      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。"
+      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/\">デザインポートフォリオ</a>を新設しました。"
     },
     {
       "date": "10/19/2017",
