@@ -15,6 +15,13 @@
     },
     "clean": "../dist/semantic/"
   },
+  "components": [
+    "sidebar",
+    "transition",
+    "embed",
+    "dropdown",
+    "popup"
+  ],
   "permission": false,
   "autoInstall": false,
   "rtl": false,
