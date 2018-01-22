@@ -234,7 +234,7 @@ gulp.task('css:bare', function(){
 
 gulp.task('css:purify', ['css', 'js', 'html'], function(){
   return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
-    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true }))
+    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true, info: true }))
     .pipe(gulp.dest('dist'));
 });
 
