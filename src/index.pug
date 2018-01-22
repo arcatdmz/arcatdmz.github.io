@@ -131,16 +131,22 @@ mixin concepts()
           | Projects
         | .
     .ui.grid#concepts-list
+      .sixteen.wide.tablet.eight.wide.computer.column#concepts-user-interfaces-for-live-programming: .ui.fluid.card
+        a.image(href=`${basePath}live-programming`): img(src=`${rootPath}images/panels/live-programming.jpg`)
+        .content
+          a.header(href=`${basePath}live-programming`) User Interfaces for Live Programming
+          .description
+            block concepts-user-interfaces-for-live-programming
+              p Live programming eliminates the gulf between code and execution. User interface design plays the key role in providing live programming experience.
+              p With appropriate user interface design, live programming can potentially benefit end-users, be used for applications whose computation takes long time, and mean much more than merely providing realtime information of the running program.
       .sixteen.wide.tablet.eight.wide.computer.column#concepts-programming-with-examples: .ui.fluid.card
         a.image(href=`${basePath}programming-with-examples`): img(src=`${rootPath}images/panels/programming-with-examples.png`)
         .content
           a.header(href=`${basePath}programming-with-examples`) Programming with Examples
-          .description The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data.
-      .sixteen.wide.tablet.eight.wide.computer.column#concepts-live-tuning: .ui.fluid.card
-        a.image(href=`${basePath}live-programming`): img(src=`${rootPath}images/panels/live-programming.jpg`)
-        .content
-          a.header(href=`${basePath}live-programming`) User Interfaces for Live Programming
-          .description Live programming eliminates the gulf between code and execution. User interface design plays the key role in providing live <abbr title="Programming Experience">PX</abbr>.
+          .description
+            block concepts-programming-with-examples
+              p The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data.
+              p This is particularly useful in developing data-intensive applications such as physical computing, image processing, video authoring, machine learning, and others that require intensive parameter tuning.
 
 mixin projects()
   h2.ui.header

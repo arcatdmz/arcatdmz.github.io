@@ -32,109 +32,117 @@ block main
       p: +translate('live-programming/index.pug')
       - }
     .ui.hidden.divider
-  section#abstract
-    h2.ui.header #{en ? 'Summary' : '概要'}
-    .ui.basic.segment
-      p Live programming has attracted much attention for eliminating the gulf between code and execution. To design live programming systems, we first need to understand what we are developing. Once we gain domain-specific knowledge of the target applications, we create user interfaces to edit the running application, such as scrubbing sliders, color palettes, and timeline interfaces. The key to the fluid programming experience of live programming is the combination of deep understanding of the target applications and adoption of interactive user interfaces.
-      p In the keynote talk at LIVE '16, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
-      p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
-        a(href=`${basePath}live-tuning/`) Live Tuning
-        |  and 
-        a(href=`${basePath}user-generated-variables/`) User-Generated Variables
-        | .
+  section#abstract: +abstract()
   .ui.hidden.divider
-  section#presentations
-    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
-    .ui.basic.segment
-      .ui.stackable.two.columns.grid
-        .column
-          h3.ui.header LIVE 2017 #{en ? 'Slides' : '発表スライド'}
-          .ui.embed(data-url=slideUrl, data-placeholder=`${slideImagePath}00.jpg`, data-icon='video play outline')
-          .caption: .ui.horizontal.list
-            .item
-              a(href=slideUrl)
-                i.download.icon
-                | #{en ? 'Download' : 'ダウンロード'}
-        .column
-          h3.ui.header What is Live Programming?
-          a.ui.fluid.bordered.image(href=`${slideImagePath}05.jpg`)
-            img(src=`${slideImagePath}05.jpg`)
-          .caption
-            p Live Programming refers to a <abbr title="Programming Experience">PX</abbr> that provides continuous feedback to the programmer about the program being developed.
-      .ui.hidden.divider
-      p In Live Programming systems, by providing concrete information about how the program behaves when it is executed, programmers can easily iterate on editing and testing the program behavior.
-      p Please note that the origin of Live Programming is not new as you can see early examples in visual programming and object-oriented programming environments. Then, why is it attracting much attention these days? In short, I consider it is because of its focus on the user experience.
-      .ui.stackable.two.columns.grid
-        .column
-          a.ui.fluid.bordered.image(href=`${slideImagePath}13.jpg`)
-            img(src=`${slideImagePath}13.jpg`)
-        .column
-          .caption
-            p Live Programming requires decent user interfaces for exploring the problem space.
-            p As such, building decent Live Programming systems requires deep understanding on the target application domains; e.g. avoid sudden changes in the program behavior, keep the program and its output relevant, and allow continuously exploring the problem space.
-            p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
-      .ui.stackable.three.columns.grid
-        .column
-          h4.ui.header Programming with End-users
-          a.ui.fluid.bordered.image(href=`${slideImagePath}18.jpg`)
-            img(src=`${slideImagePath}18.jpg`)
-          .caption
-            p As Live Programming systems provide interactive and intuitive user interfaces for debugging and editing programs, some of the user interfaces can be exposed to the end-users so that they can customize the programs as they wish. [
-              a(href=`${basePath}live-tuning/`) Live Tuning
-              | ]
-            p When the provided user interfaces cannot satisfy their needs, they can still submit requests to programmers with rich contextual information provided by the Live Programming systems. [
-              a(href=`${basePath}user-generated-variables/`) User-Generated Variables
-              | ]
-        .column
-          h4.ui.header Programming this Material World
-          a.ui.fluid.bordered.image(href=`${slideImagePath}27.jpg`)
-            img(src=`${slideImagePath}27.jpg`)
-          .caption
-            p Live Programming often targets simple applications such as drawing graphics. In contrast, &quot;software is eating the world&quot; and there are interesting applications such as physical computing and virtual reality.
-            p Their actual &quot;framerate&quot; can be very slow; e.g. printing device enclosures and producing scent. Emulating, or sometimes even pretending, is needed to provide the continuous feedback. Making full use of five senses in programming environments would be crucial in the near future.
-        .column
-          h4.ui.header Programming with Time Travel
-          a.ui.fluid.bordered.image(href=`${slideImagePath}39.jpg`)
-            img(src=`${slideImagePath}39.jpg`)
-          .caption
-            p Live Programming puts focus on providing live feedback to the programmer, but it does not always mean providing realtime information of the running program.
-            p The timeline interface and record and replay features together provide time traveling experience and play an important role to find critical timings in the history. Once the timing of interest is found, editing the code and program input would update the program output, allowing the programmer to explore future&quot;s.&quot;
-      .ui.hidden.divider
-      a.ui.fluid.bordered.image(href=`${slideImagePath}47.jpg`)
-        img(src=`${slideImagePath}47.jpg`)
-      .caption
-        p As a summary, Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction.
-        p LIVE, PX workshops and 
-          a(href='https://sigpx.org/en') SIGPX
-          |  are such an attempt to attract people from all of these research fields.
+  section#presentations: +presentations()
   .ui.hidden.divider
-  section#revision
-    h2.ui.header
-      i.announcement.icon
-      | #{en ? 'Revision history' : '更新履歴'}
-    .ui.basic.segment: .ui.divided.feed
-      block news
-        .event: .content
-          .date 1/21/2018
-          .summary Upload the initial prototype version.
+  section#revision: +revision()
   .ui.hidden.divider
-  section#further-reading
-    h2.ui.header
-      i.book.icon
-      .content #{en ? 'Further reading' : '関連論文'}
-    .ui.basic.segment
-      p The following papers are highly relevant to the topic. 
-        span.ui.tiny.basic.red.label
-          i.lab.icon
-          | This label
-        |  indicates that the paper belongs to a particular research project and links to the project website.
-    .ui.segment: .ui.divided.list
-      -
-        const projectPublications = [];
-        const citationKeys = ['dis2017-kato-f3js', 'px2017-kato-ugv', 'live2016-kato-livetuning', 'programming-with-examples', 'chi2015-kato-textalive', 'gi2014-kato-visionsketch', 'pldi2013-kato-alive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
-        for (const key of citationKeys) {
-          if (publicationsTable[key]) projectPublications.push(publicationsTable[key]);
-        }
-      - for (const entry of projectPublications) {
-      +render-publication(entry)
-      - }
+  section#further-reading: +further-readings()
+
+mixin abstract()
+  h2.ui.header #{en ? 'Summary' : '概要'}
+  .ui.basic.segment
+    p Live programming has attracted much attention for eliminating the gulf between code and execution. To design live programming systems, we first need to understand what we are developing. Once we gain domain-specific knowledge of the target applications, we create user interfaces to edit the running application, such as scrubbing sliders, color palettes, and timeline interfaces. The key to the fluid programming experience of live programming is the combination of deep understanding of the target applications and adoption of interactive user interfaces.
+    p In the keynote talk at LIVE '16, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
+    p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
+      a(href=`${basePath}live-tuning/`) Live Tuning
+      |  and 
+      a(href=`${basePath}user-generated-variables/`) User-Generated Variables
+      | .
+
+mixin presentations()
+  h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        h3.ui.header LIVE 2017 #{en ? 'Slides' : '発表スライド'}
+        .ui.embed(data-url=slideUrl, data-placeholder=`${slideImagePath}00.jpg`, data-icon='video play outline')
+        .caption: .ui.horizontal.list
+          .item
+            a(href=slideUrl)
+              i.download.icon
+              | #{en ? 'Download' : 'ダウンロード'}
+      .column
+        h3.ui.header What is Live Programming?
+        a.ui.fluid.bordered.image(href=`${slideImagePath}05.jpg`)
+          img(src=`${slideImagePath}05.jpg`)
+        .caption
+          p Live Programming refers to a <abbr title="Programming Experience">PX</abbr> that provides continuous feedback to the programmer about the program being developed.
+    .ui.hidden.divider
+    p Live Programming systems provide concrete information about how the program behaves when it is executed. With help of this concrete information, programmers can easily iterate on editing and testing the program behavior.
+    p Please note that the origin of Live Programming is not new as you can see early examples in visual programming and object-oriented programming environments. Then, why is it attracting much attention these days? In short, I consider it is because of its focus on the user experience.
+    .ui.stackable.two.columns.grid
+      .column
+        a.ui.fluid.bordered.image(href=`${slideImagePath}13.jpg`)
+          img(src=`${slideImagePath}13.jpg`)
+      .column
+        .caption
+          p Live Programming requires decent user interfaces for exploring the problem space.
+          p As such, building decent Live Programming systems requires deep understanding on the target application domains; e.g. avoid sudden changes in the program behavior, keep the program and its output relevant, and allow continuously exploring the problem space.
+          p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
+    .ui.stackable.three.columns.grid
+      .column
+        h4.ui.header Programming with End-users
+        a.ui.fluid.bordered.image(href=`${slideImagePath}18.jpg`)
+          img(src=`${slideImagePath}18.jpg`)
+        .caption
+          p As Live Programming systems provide interactive and intuitive user interfaces for debugging and editing programs, some of the user interfaces can be exposed to the end-users so that they can customize the programs as they wish. [
+            a(href=`${basePath}live-tuning/`) Live Tuning
+            | ]
+          p When the provided user interfaces cannot satisfy their needs, they can still submit requests to programmers with rich contextual information provided by the Live Programming systems. [
+            a(href=`${basePath}user-generated-variables/`) User-Generated Variables
+            | ]
+      .column
+        h4.ui.header Programming this Material World
+        a.ui.fluid.bordered.image(href=`${slideImagePath}27.jpg`)
+          img(src=`${slideImagePath}27.jpg`)
+        .caption
+          p Live Programming often targets simple applications such as drawing graphics. In contrast, &quot;software is eating the world&quot; and there are interesting applications such as physical computing and virtual reality.
+          p Their actual &quot;framerate&quot; can be very slow; e.g. printing device enclosures and producing scent. Emulating, or sometimes even pretending, is needed to provide the continuous feedback. Making full use of five senses in programming environments would be crucial in the near future.
+      .column
+        h4.ui.header Programming with Time Travel
+        a.ui.fluid.bordered.image(href=`${slideImagePath}39.jpg`)
+          img(src=`${slideImagePath}39.jpg`)
+        .caption
+          p Live Programming puts focus on providing live feedback to the programmer, but it does not always mean providing realtime information of the running program.
+          p The timeline interface and record and replay features together provide time traveling experience and play an important role to find critical timings in the history. Once the timing of interest is found, editing the code and program input would update the program output, allowing the programmer to explore future&quot;s.&quot;
+    .ui.hidden.divider
+    a.ui.fluid.bordered.image(href=`${slideImagePath}47.jpg`)
+      img(src=`${slideImagePath}47.jpg`)
+    .caption
+      p As a summary, Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction.
+      p LIVE, PX workshops and 
+        a(href='https://sigpx.org/en') SIGPX
+        |  are such an attempt to attract people from all of these research fields.
+
+mixin revision()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 1/21/2018
+        .summary Upload the initial prototype version.
+
+mixin further-reading()
+  h2.ui.header
+    i.book.icon
+    .content #{en ? 'Further reading' : '関連論文'}
+  .ui.basic.segment
+    p The following papers are highly relevant to the topic. 
+      span.ui.tiny.basic.red.label
+        i.lab.icon
+        | This label
+      |  indicates that the paper belongs to a particular research project and links to the project website.
+  .ui.segment: .ui.divided.list
+    -
+      const projectPublications = [];
+      const citationKeys = ['dis2017-kato-f3js', 'px2017-kato-ugv', 'live2016-kato-livetuning', 'programming-with-examples', 'chi2015-kato-textalive', 'gi2014-kato-visionsketch', 'pldi2013-kato-alive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
+      for (const key of citationKeys) {
+        if (publicationsTable[key]) projectPublications.push(publicationsTable[key]);
+      }
+    - for (const entry of projectPublications) {
+    +render-publication(entry)
+    - }
