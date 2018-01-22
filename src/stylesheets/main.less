@@ -169,6 +169,12 @@ body.without-header-menu #body {
 
 /* overriding default styles */
 
+.ui.horizontal.list>.item:first-child {
+  /* this rule is somehow filtered out by purifyCSS, so we declare it here */
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 a:link>i.icon {
   text-decoration: none;
 }

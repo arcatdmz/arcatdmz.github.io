@@ -7,7 +7,7 @@ const replace = require('gulp-replace');
 const pug = require('gulp-pug');
 const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
-const minifyCSS = require('gulp-csso');
+const purify = require('gulp-purifycss');
 const ts = require('gulp-typescript');
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
@@ -228,11 +228,20 @@ gulp.task('css', ['replace:devicon'], function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
+gulp.task('css:bare', function(){
+  return compileCSS(gulp.src('src/stylesheets/**/*.less'));
+});
+
+gulp.task('css:purify', ['css', 'js', 'html'], function(){
+  return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
+    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true }))
+    .pipe(gulp.dest('dist'));
+});
+
 function compileCSS(stream){
   return stream.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(less())
     .pipe(autoprefixer())
-    .pipe(minifyCSS())
     .pipe(gulp.dest('dist/stylesheets'))
     .pipe(browserSync.stream());
 }
@@ -243,17 +252,9 @@ gulp.task('copy', ['copy:bibtex'], function(){
     .pipe(gulp.dest('dist'));
 })
 
-gulp.task('site', ['semantic', 'copy:fonts'], function(){
-  for (const name of ['html', 'css', 'js', 'copy']) {
-    gulp.start(name);
-  }
-});
+gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css:purify']);
 
-gulp.task('site:debug', ['semantic', 'copy:fonts'], function(){
-  for (const name of ['html', 'css', 'js:debug', 'copy']) {
-    gulp.start(name);
-  }
-});
+gulp.task('site:debug', ['semantic', 'js:debug', 'copy', 'copy:fonts', 'html', 'css']);
 
 gulp.task('browser-sync', function(){
   browserSync({
@@ -270,7 +271,7 @@ gulp.task('reload', function(){
 
 gulp.task('watch', function(){
   gulp.watch(['src/**/*.pug', 'src/**/*.{bib,json}'], ['html']);
-  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], ['css']);
+  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], ['css:bare']);
   gulp.watch('src/**/*.ts', ['js:debug']);
   gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', ['copy']);
   gulp.watch('semantic/**/*.js', ['semantic']);
@@ -319,7 +320,7 @@ gulp.task('watch:html', function(){
 
 gulp.task('watch:css', function(){
   return watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
-    return gulp.start('css');
+    return gulp.start('css:bare');
   });
 });
 
