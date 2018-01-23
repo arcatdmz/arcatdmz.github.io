@@ -233,6 +233,8 @@ function compileCSS(stream){
 
 // Post-process
 const gzip = require('gulp-gzip');
+const sharp = require('sharp');
+const File = require('vinyl');
 
 gulp.task('gzip', ['js', 'css'], function(){
   return gulp.src(['dist/**/*.{js,css}'])
@@ -245,6 +247,55 @@ gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
     .pipe(gzip())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('sharp', function(){
+  return gulp.src('dist/images/**/*.jpg')
+  .pipe(through2.obj(function(chunk, enc, cb) {
+    if (chunk.isNull()) {
+      this.push(chunk);
+      return cb();
+    }
+    if (chunk.isStream()) {
+      console.error('stream is not supported');
+      return cb();
+    }
+    // chunk.isBuffer() === true
+    const image = sharp(chunk.contents);
+    image.metadata()
+      .then(function(metadata) {
+        // console.log(metadata);
+        if (metadata.width < 200 || metadata.height < 200) {
+          throw new Error(`[Skipped] ${chunk.path}`);
+        }
+        return image
+          .resize(120)
+          .max()
+          .withoutEnlargement()
+          .toFormat(metadata.format)
+          .toBuffer();
+      })
+      .then(function(data) {
+        const fullPath = chunk.path;
+        const dirName = path.dirname(fullPath);
+        const ext = path.extname(fullPath);
+        const baseName = path.basename(fullPath, ext);
+        const newBasePath = path.resolve(__dirname, 'dist');
+        const newFilePath = path.join(dirName, `${baseName}-resized${ext}`);
+        const newFile = new File({
+            base: newBasePath
+          , path: newFilePath
+          , contents: data
+        });
+        console.log(`[Resized] ${newFilePath}`);
+        cb(null, newFile);
+      })
+      .catch(function(err) {
+        console.error(err.message);
+        return cb();
+      });
+  }))
+  .pipe(gulp.dest('dist'));
+})
 
 // Lint
 const htmlhint = require("gulp-htmlhint")
