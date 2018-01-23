@@ -268,7 +268,7 @@ gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css', 'gzip:debug']);
+gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css', 'gzip']);
 
 gulp.task('site:debug', ['semantic', 'js:debug', 'copy', 'copy:fonts', 'html:debug', 'css:debug', 'gzip:debug']);
 
