@@ -122,7 +122,7 @@ class Entry {
     } else {
       to = new Date().getFullYear();
     }
-    if (this.data.year.from === this.data.year.to) {
+    if (this.data.year.from === to) {
       return this.data.year.from.toString();
     }
     return `${this.data.year.from}-${to}`;
