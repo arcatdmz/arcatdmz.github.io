@@ -26,13 +26,13 @@ html(lang=lang)
           +footer()
     #post-footer
       block post-footer
-    script(src='https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js')
+    script(src='https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     script(type='text/javascript') var en=#{en},lang="#{lang}",basePath="#{basePath}";
     block scripts
       script(type='text/javascript', src=`${rootPath}javascripts/views/default.js`)
     block post-scripts
-    script.
+    script(type='text/javascript').
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-2538649-20', 'auto');
       ga('send', 'pageview');
