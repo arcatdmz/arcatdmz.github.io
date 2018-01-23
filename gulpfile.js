@@ -1,39 +1,28 @@
+// Gulp packages
 const gulp = require('gulp');
 const watch = require('gulp-watch');
-const path = require('path');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const replace = require('gulp-replace');
-const pug = require('gulp-pug');
-const less = require('gulp-less');
-const autoprefixer = require('gulp-autoprefixer');
-const purify = require('gulp-purifycss');
-const ts = require('gulp-typescript');
-const webpackStream = require('webpack-stream');
-const webpack = require('webpack');
-const uglify = require('gulp-uglify');
-const browserSync = require('browser-sync');
-const del = require('del');
-const fs = require('fs');
-const bibtexParse = require('bibtex-parse-js');
-const htmlhint = require("gulp-htmlhint")
-const through2 = require('through2');
-const pdfinfo = require('pdfinfo');
-const gzip = require('gulp-gzip');
 
-const tsProject = ts.createProject('tsconfig.json');
-const tsNodeProject = ts.createProject('tsconfig-node.json');
+// General packages
+const path = require('path');
+const fs = require('fs');
+const through2 = require('through2');
+const browserSync = require('browser-sync');
+
+// Load website-wide config
+const tsProjectFile = './tsconfig.json';
+const tsNodeProjectFile = './tsconfig-node.json';
 const webpackConfigFile = './webpack.config';
 const webpackDebugConfigFile = './webpack-debug.config';
-const bibtexFile = 'src/junkato.bib';
+const bibtexFile = './src/junkato.bib';
 
-var website = loadConfig();
-
+var website;
 function loadConfig(){
   website = JSON.parse(fs.readFileSync('./website.json'));
 }
 loadConfig();
-
 
 // Import Semantic UI tasks
 gulp.task('semantic:js', require('./semantic/tasks/build/javascript'));
@@ -41,6 +30,8 @@ gulp.task('semantic:assets', require('./semantic/tasks/build/assets'));
 gulp.task('semantic', ['semantic:js', 'semantic:assets']);
 
 // Clean up
+const del = require('del');
+
 gulp.task('del', function(){
   return del([
       'dist/**/*'
@@ -62,6 +53,12 @@ gulp.task('del:node', function(){
 });
 
 // TypeScript & JavaScript compilation
+const ts = require('gulp-typescript');
+const tsProject = ts.createProject(tsProjectFile);
+const tsNodeProject = ts.createProject(tsNodeProjectFile);
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
+
 gulp.task('ts', ['del:js'], function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -91,6 +88,8 @@ gulp.task('js:debug', ['ts'], function(){
 });
 
 // Copy & replace
+const bibtexParse = require('bibtex-parse-js');
+
 gulp.task('bibtex', function(callback) {
   const bibtexJSON = bibtexParse.toJSON(
     fs.readFileSync(
@@ -137,6 +136,8 @@ gulp.task('replace:devicon', function(){
 });
 
 // HTML
+const pug = require('gulp-pug');
+
 gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), false);
 });
@@ -204,6 +205,10 @@ function setupLocals() {
 }
 
 // CSS
+const less = require('gulp-less');
+const autoprefixer = require('gulp-autoprefixer');
+const purify = require('gulp-purifycss');
+
 gulp.task('css:debug', ['replace:devicon'], function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
@@ -227,6 +232,8 @@ function compileCSS(stream){
 }
 
 // Post-process
+const gzip = require('gulp-gzip');
+
 gulp.task('gzip', ['js', 'css'], function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
@@ -240,6 +247,9 @@ gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
 });
 
 // Lint
+const htmlhint = require("gulp-htmlhint")
+const pdfinfo = require('pdfinfo');
+
 gulp.task('lint:html', function() {
   return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
     .pipe(htmlhint())
