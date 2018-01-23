@@ -42,10 +42,6 @@ mixin head()
   meta(name='twitter:title', content=title)
   meta(name='twitter:description', content=description)
   link(rev='made', href='mailto:i@junkato.jp')
-  link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Fira+Sans')
-  - if (!en) {
-  link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/notosansjapanese.css')
-  - }
   link(rel='stylesheet', href=`${rootPath}stylesheets/main.css`)
   block head
 

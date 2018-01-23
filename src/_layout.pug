@@ -27,8 +27,12 @@ html(lang=lang)
     #post-footer
       block post-footer
     script(src='https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js')
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
+    script(src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
     script(type='text/javascript') var en=#{en},lang="#{lang}",basePath="#{basePath}";
+    script(type='text/javascript').
+      var webFontConfig=en?{google:{families:["Fira Sans"]}}:{google:{families:["Fira Sans"]},custom:{families:["Noto Sans Japanese"],urls:["//fonts.googleapis.com/earlyaccess/notosansjapanese.css"]}};
+      WebFont.load(webFontConfig);
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     block scripts
       script(type='text/javascript', src=`${rootPath}javascripts/views/default.js`)
     block post-scripts
