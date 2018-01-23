@@ -43,6 +43,7 @@
   "dependencies": {
     "clipboard": "^1.7.1",
     "devicon": "git+https://github.com/konpa/devicon.git",
+    "gulp-gzip": "^1.4.2",
     "pinkie-promise": "git+https://github.com/floatdrop/pinkie-promise.git"
   }
 }

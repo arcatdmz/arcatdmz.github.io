@@ -19,6 +19,7 @@ const bibtexParse = require('bibtex-parse-js');
 const htmlhint = require("gulp-htmlhint")
 const through2 = require('through2');
 const pdfinfo = require('pdfinfo');
+const gzip = require('gulp-gzip');
 
 const tsProject = ts.createProject('tsconfig.json');
 const tsNodeProject = ts.createProject('tsconfig-node.json');
@@ -123,15 +124,19 @@ gulp.task('js:debug', ['ts'], function(){
 });
 
 gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
-  return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']));
+  return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), false);
 });
 
-function compilePug(stream) {
+gulp.task('html:debug', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
+  return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), true);
+});
+
+function compilePug(stream, pretty) {
   return stream.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(pug({
       locals: setupLocals(),
       verbose: true,
-      pretty: true
+      pretty: pretty
     }))
     .pipe(gulp.dest('dist/'));
 }
@@ -223,7 +228,7 @@ function setupLocals() {
   return locals;
 }
 
-gulp.task('css', ['replace:devicon'], function(){
+gulp.task('css:debug', ['replace:devicon'], function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
@@ -231,7 +236,7 @@ gulp.task('css:bare', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
-gulp.task('css:purify', ['css', 'js', 'html'], function(){
+gulp.task('css', ['css:debug', 'js', 'html'], function(){
   return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
     .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true, info: true }))
     .pipe(gulp.dest('dist'));
@@ -249,11 +254,23 @@ gulp.task('copy', ['copy:bibtex'], function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
-})
+});
 
-gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css:purify']);
+gulp.task('gzip', ['js', 'css'], function(){
+  return gulp.src(['dist/**/*.{js,css}'])
+    .pipe(gzip())
+    .pipe(gulp.dest('dist'));
+});
 
-gulp.task('site:debug', ['semantic', 'js:debug', 'copy', 'copy:fonts', 'html', 'css']);
+gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
+  return gulp.src(['dist/**/*.{js,css}'])
+    .pipe(gzip())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css', 'gzip:debug']);
+
+gulp.task('site:debug', ['semantic', 'js:debug', 'copy', 'copy:fonts', 'html:debug', 'css:debug', 'gzip:debug']);
 
 gulp.task('browser-sync', function(){
   browserSync({
