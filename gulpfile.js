@@ -34,10 +34,13 @@ function loadConfig(){
 }
 loadConfig();
 
+
+// Import Semantic UI tasks
 gulp.task('semantic:js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic:assets', require('./semantic/tasks/build/assets'));
 gulp.task('semantic', ['semantic:js', 'semantic:assets']);
 
+// Clean up
 gulp.task('del', function(){
   return del([
       'dist/**/*'
@@ -58,6 +61,7 @@ gulp.task('del:node', function(){
   ]);
 });
 
+// TypeScript & JavaScript compilation
 gulp.task('ts', ['del:js'], function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -70,43 +74,6 @@ gulp.task('ts:node', ['del:node'], function(){
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
     .pipe(gulp.dest('build/javascripts'));
-});
-
-gulp.task('bibtex', function(callback) {
-  const bibtexJSON = bibtexParse.toJSON(
-    fs.readFileSync(
-        bibtexFile
-      , { encoding: 'UTF-8' }));
-  if (!fs.existsSync('dist')) fs.mkdirSync('dist');
-  if (!fs.existsSync('dist/data')) fs.mkdirSync('dist/data');
-  fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
-  callback();
-});
-
-gulp.task('copy:bibtex', ['bibtex'], function(){
-  return gulp.src('dist/data/publications.json')
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('build/data'));
-})
-
-gulp.task('replace:node', function(){
-  loadConfig();
-  return gulp.src('src/**/*.json', { base: 'src'})
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(replace('${rootPath}', website.rootPath))
-    .pipe(gulp.dest('build'));
-});
-
-gulp.task('copy:fonts', function(){
-  return gulp.src('node_modules/devicon/fonts/*', { base: 'node_modules/devicon'})
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('replace:devicon', function(){
-  return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
-    .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
-    .pipe(gulp.dest('build/stylesheets/'));
 });
 
 gulp.task('js', ['ts'], function(){
@@ -123,6 +90,53 @@ gulp.task('js:debug', ['ts'], function(){
     .pipe(gulp.dest('dist'));
 });
 
+// Copy & replace
+gulp.task('bibtex', function(callback) {
+  const bibtexJSON = bibtexParse.toJSON(
+    fs.readFileSync(
+        bibtexFile
+      , { encoding: 'UTF-8' }));
+  if (!fs.existsSync('dist')) fs.mkdirSync('dist');
+  if (!fs.existsSync('dist/data')) fs.mkdirSync('dist/data');
+  fs.writeFileSync('dist/data/publications.json', JSON.stringify(bibtexJSON, '  '))
+  callback();
+});
+
+gulp.task('copy:bibtex', ['bibtex'], function(){
+  return gulp.src('dist/data/publications.json')
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('build/data'));
+});
+
+gulp.task('copy:fonts', function(){
+  return gulp.src('node_modules/devicon/fonts/*', { base: 'node_modules/devicon'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy:default', ['copy:bibtex'], function(){
+  return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy', ['copy:bibtex', 'copy:fonts', 'copy:default']);
+
+gulp.task('replace:node', function(){
+  loadConfig();
+  return gulp.src('src/**/*.json', { base: 'src'})
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(replace('${rootPath}', website.rootPath))
+    .pipe(gulp.dest('build'));
+});
+
+gulp.task('replace:devicon', function(){
+  return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
+    .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
+    .pipe(gulp.dest('build/stylesheets/'));
+});
+
+// HTML
 gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), false);
 });
@@ -140,45 +154,6 @@ function compilePug(stream, pretty) {
     }))
     .pipe(gulp.dest('dist/'));
 }
-
-gulp.task('lint:html', function() {
-  return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
-    .pipe(htmlhint())
-	  .pipe(htmlhint.failAfterError());
-});
-
-gulp.task('lint:pdf', function() {
-  return gulp.src('dist/**/*.pdf')
-  .pipe(through2.obj(function(chunk, enc, cb) {
-      const pdf = pdfinfo(chunk.path, ["-enc", "UTF-8"]);
-      pdf.info(function(err, meta) {
-        // chunk.path
-        // chunk.contents
-        if (err) {
-          console.error(chunk.path, err);
-        } else {
-          meta.file = chunk.path;
-          console.log(meta);
-          // example output of meta:
-          // { title: 'プログラマ×デザイナ×エンドユーザのための三つ巴システム設計 +HCI系国際会議や研究インターンのご紹介\r',
-          //   author: 'Jun Kato\r',
-          //   creator: 'Acrobat PDFMaker 15 for PowerPoint\r',
-          //   producer: 'Adobe PDF Library 15.0\r',
-          //   created: '10/16/15 23:00:49\r',
-          //   modified: '10/16/15 23:02:48\r',
-          //   tagged: 'yes\r',
-          //   form: 'none\r',
-          //   pages: 15,
-          //   encrypted: 'no\r',
-          //   page_size: '960 x 540 pts (rotated 0 degrees)\r',
-          //   file_size: '1771252 bytes\r',
-          //   optimized: 'no\r',
-          //   pdf_version: 1.6 }
-        }
-        cb(null, chunk);
-      });
-    }));
-});
 
 function setupLocals() {
   loadConfig();
@@ -228,6 +203,7 @@ function setupLocals() {
   return locals;
 }
 
+// CSS
 gulp.task('css:debug', ['replace:devicon'], function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
@@ -250,12 +226,7 @@ function compileCSS(stream){
     .pipe(browserSync.stream());
 }
 
-gulp.task('copy', ['copy:bibtex'], function(){
-  return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('dist'));
-});
-
+// Post-process
 gulp.task('gzip', ['js', 'css'], function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
@@ -268,10 +239,47 @@ gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('site', ['semantic', 'js', 'copy', 'copy:fonts', 'html', 'css', 'gzip']);
+// Lint
+gulp.task('lint:html', function() {
+  return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
+    .pipe(htmlhint())
+	  .pipe(htmlhint.failAfterError());
+});
 
-gulp.task('site:debug', ['semantic', 'js:debug', 'copy', 'copy:fonts', 'html:debug', 'css:debug', 'gzip:debug']);
+gulp.task('lint:pdf', function() {
+  return gulp.src('dist/**/*.pdf')
+  .pipe(through2.obj(function(chunk, enc, cb) {
+      const pdf = pdfinfo(chunk.path, ["-enc", "UTF-8"]);
+      pdf.info(function(err, meta) {
+        // chunk.path
+        // chunk.contents
+        if (err) {
+          console.error(chunk.path, err);
+        } else {
+          meta.file = chunk.path;
+          console.log(meta);
+          // example output of meta:
+          // { title: 'プログラマ×デザイナ×エンドユーザのための三つ巴システム設計 +HCI系国際会議や研究インターンのご紹介\r',
+          //   author: 'Jun Kato\r',
+          //   creator: 'Acrobat PDFMaker 15 for PowerPoint\r',
+          //   producer: 'Adobe PDF Library 15.0\r',
+          //   created: '10/16/15 23:00:49\r',
+          //   modified: '10/16/15 23:02:48\r',
+          //   tagged: 'yes\r',
+          //   form: 'none\r',
+          //   pages: 15,
+          //   encrypted: 'no\r',
+          //   page_size: '960 x 540 pts (rotated 0 degrees)\r',
+          //   file_size: '1771252 bytes\r',
+          //   optimized: 'no\r',
+          //   pdf_version: 1.6 }
+        }
+        cb(null, chunk);
+      });
+    }));
+});
 
+// Watch & sync
 gulp.task('browser-sync', function(){
   browserSync({
     server: {
@@ -340,8 +348,13 @@ gulp.task('watch:css', function(){
   });
 });
 
+// Build from scratch
+gulp.task('site', ['semantic', 'copy', 'html', 'js', 'css', 'gzip']);
+gulp.task('site:debug', ['semantic', 'copy', 'html:debug', 'js:debug', 'css:debug', 'gzip:debug']);
+
+// High-level tasks
 gulp.task('default', ['site']);
-gulp.task('test', ['lint:html']);
 gulp.task('debug', ['site:debug']);
+gulp.task('test', ['lint:html']);
 gulp.task('sync', ['watch', 'browser-sync']);
 gulp.task('sync:html', ['watch:html', 'watch:css', 'browser-sync']);
