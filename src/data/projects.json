@@ -79,11 +79,11 @@
         "graphic",
         "ui"
       ],
-      "description": "This portfolio website is built with various <abbr title=\"Open-Source Softwtare\">OSS</abbr> and itself is open-sourced on GitHub.",
+      "description": "This portfolio website is built with various <abbr title=\"Open-Source Software\">OSS</abbr> and itself is open-sourced on GitHub.",
       "description-design": "Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href=\"${rootPath}website\">here</a>.",
       "ja": {
         "title": "&quot;junkato.jp&quot; Webサイト",
-        "description": "このポートフォリオWebサイトはさまざまな<abbr title=\"Open-Source Softwtare\">OSS</abbr>を用いて開発されており、それ自体がGitHub上にオープンソースで公開されています。"
+        "description": "このポートフォリオWebサイトはさまざまな<abbr title=\"Open-Source Software\">OSS</abbr>を用いて開発されており、それ自体がGitHub上にオープンソースで公開されています。"
       }
     },
     {
