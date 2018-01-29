@@ -64,6 +64,27 @@
   },
   "projects": [
     {
+      "project": "reactile",
+      "thumbnail": "reactile.jpg",
+      "icon": "reactile.png",
+      "tags": [
+        "physical",
+        "ide"
+      ],
+      "year": {
+        "from": 2017,
+        "to": 2018
+      },
+      "category": "collaboration",
+      "publication": "chi2018-suzuki-reactile",
+      "title": "Reactile",
+      "description": "Reactile is an exploratory research project that investigates and proposes a new approach to programming <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> by leveraging direct physical manipulation.",
+      "url": "http://ryosuzuki.org",
+      "ja": {
+        "description": "<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>のアプリケーション開発において、直接Swarmを操作することでSwarmの振る舞いをプログラミングできる手法(direct physical manipulation)を提案した研究です。"
+      }
+    },
+    {
       "project": "website",
       "title": "&quot;junkato.jp&quot; Website",
       "title-design": "&quot;junkato.jp&quot; web design",

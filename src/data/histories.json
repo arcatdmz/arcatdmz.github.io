@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "1/30/2018",
+      "text": "One co-authored paper of <a href=\"${rootPath}#projects-reactile\">the Reactile project</a> discussing how to program <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> has been accepted to <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>."
+    },
+    {
       "date": "1/20/2018",
       "text": "Renewed the website. See <a href=\"${rootPath}website\">how it's made</a>&mdash;source code available! Beside <abbr title=\"User Interface\">UI</abbr> changes, newly-added content includes <a href=\"${rootPath}live-programming\">the follow-up page for the LIVE keynote talk</a> discussing user interfaces for Live Programming, <a href=\"${rootPath}f3js\">the f3.js project page</a>, <a href=\"${rootPath}textalive\">the TextAlive project page</a>, and <a href=\"${rootPath}design\">the design portfolio</a>."
     },
@@ -190,6 +194,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "1/30/2018",
+      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>に<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文がアクセプトされました。<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>の新しいプログラミング手法を提案しています。"
+    },
     {
       "date": "1/29/2018",
       "text": "<a href=\"https://sigpx.org\">SIGPX</a> <a href=\"https://sigpx.org/4\">第4回 勉強会</a>を3月2日（金）に東京大学本郷キャンパスで開催します。奮ってご参加ください。論文投稿〆切は2月2日です。"
