@@ -191,6 +191,10 @@
   ],
   "ja": [
     {
+      "date": "1/29/2018",
+      "text": "<a href=\"https://sigpx.org\">SIGPX</a> <a href=\"https://sigpx.org/4\">第4回 勉強会</a>を3月2日（金）に東京大学本郷キャンパスで開催します。奮ってご参加ください。論文投稿〆切は2月2日です。"
+    },
+    {
       "date": "1/21/2018",
       "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/\">デザインポートフォリオ</a>を新設しました。"
     },
