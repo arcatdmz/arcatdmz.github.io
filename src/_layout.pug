@@ -5,6 +5,7 @@ doctype html
 block lang
   - var lang = 'en';
 html(lang=lang)
+  - moment.locale(lang);
   - var en = lang === 'en';
   - var basePath = en ? rootPath : `${rootPath}ja/`;
   - var author = en ? 'Jun Kato' : '加藤 淳';

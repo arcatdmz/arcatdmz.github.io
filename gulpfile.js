@@ -10,6 +10,7 @@ const path = require('path');
 const fs = require('fs');
 const through2 = require('through2');
 const browserSync = require('browser-sync');
+const moment = require('moment');
 
 // Load website-wide config
 const tsProjectFile = './tsconfig.json';
@@ -196,6 +197,7 @@ function setupLocals() {
     , publications: publications
     , publicationsTable: publicationsTable
     , selectedPublications: selectedPublications
+    , moment: moment
   }
   for (var key in website) {
     if (typeof website[key] !== 'string') continue;
