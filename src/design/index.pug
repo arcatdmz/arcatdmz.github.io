@@ -87,22 +87,27 @@ mixin skillset-graphic()
     i.large.devicon-photoshop-plain.colored.icon
     .content
       .header Photoshop
-      .description over 15 years
+      .description #{moment([2002,9,1]).toNow(true)}
   .item
     i.large.devicon-illustrator-plain.colored.icon
     .content
       .header Illustrator
-      .description over 15 years
+      .description #{moment([2002,9,1]).toNow(true)}
   .item
     i.large.ellipsis.horizontal.icon
     .content
+      - if (en) {
       .header Other Adobe products
       .description Premier for producing demo videos and InDesign for basic <abbr title="Desktop Publishing">DTP</abbr> tasks
+      - } else {
+      .header その他のAdobe製品
+      .description Premier (デモ動画制作), InDesign (<abbr title="Desktop Publishing">DTP</abbr>)
+      - }
   .item
     i.large.devicon-html5-plain.colored.icon
     .content
       .header HTML
-      .description over 15 years
+      .description #{moment([2000,10,1]).toNow(true)}
   .item
     i.large.ellipsis.horizontal.icon
     .content
@@ -113,7 +118,7 @@ mixin skillset-graphic()
     i.large.devicon-css3-plain.colored.icon
     .content
       .header CSS
-      .description over 15 years
+      .description #{moment([2000,10,1]).toNow(true)}
   .item
     i.large.devicon-less-plain-wordmark.colored.icon
     .content
@@ -156,7 +161,7 @@ mixin skillset-ixd()
     i.large.devicon-javascript-plain.colored.icon
     .content
       .header JavaScript
-      .description over 15 years
+      .description #{moment([2000,10,1]).toNow(true)}
   .item
     i.large.devicon-typescript-plain.colored.icon
     .content
@@ -209,19 +214,20 @@ mixin skillset-ixd()
     .content
       .header C#
       .description for desktop apps and ASP.NET apps
+      //- DejaVu & MSD Japan internship
   .item
     i.large.devicon-java-plain.colored.icon
     .content
       .header Java (&lt; 8)
       .description #{moment([2008,5,1]).toNow(true)}
-        | , for robot and desktop apps, browser applets, and 
+        | , for robot and desktop apps and browser applets
       //- ERATO
   .item
     i.large.devicon-java-plain.colored.icon
     .content
       .header Processing
       .description #{moment([2008,5,1]).toNow(true)}
-        | , mostly for robot apps using <a href="#{rootPath}phybots">Phybots</a> and <a href="#{rootPath}picode">Picode</a>.
+        | , mostly for robot apps using <a href="#{rootPath}phybots">Phybots</a> and <a href="#{rootPath}picode">Picode</a>
       //- ERATO
   .item
     i.large.devicon-visualstudio-plain.colored.icon
