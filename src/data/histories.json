@@ -195,6 +195,10 @@
   ],
   "ja": [
     {
+      "date": "2/7/2018",
+      "text": "グローバルなハッカソンイベント<a href=\"http://entertechlab.jp/mhd2018/\">MUSIC HACK DAY Tokyo 2018</a>に<a href=\"http://hackathon.songle.jp\">Songle API</a>開発チームとして参加しました。APIを<a href=\"https://twitter.com/arcatdmz/status/960140907260489728\">多くの方</a>に使っていただくことができて嬉しかったです。今週末は<a href=\"${rootPath}ja/textalive\">TextAlive</a>で制作した歌詞アニメーションが<a href=\"http://events.ongaaccel.jp/snowmiku2018/\">SNOW MIKU LIVE! 2018</a>で使われます。楽しみです！"
+    },
+    {
       "date": "1/30/2018",
       "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>に<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文がアクセプトされました。<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>の新しいプログラミング手法を提案しています。"
     },
