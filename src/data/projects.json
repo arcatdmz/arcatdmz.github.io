@@ -64,6 +64,41 @@
   },
   "projects": [
     {
+      "project": "snowmiku2018",
+      "title": "SNOW MIKU LIVE! 2018 lyrics animation",
+      "title-design": "SNOW MIKU LIVE! 2018 lyrics animation",
+      "year": {
+        "from": 2018,
+        "to": 2018
+      },
+      "tags": [
+        "design"
+      ],
+      "tags-design": [
+        "graphic"
+      ],
+      "category": "private",
+      "thumbnail": "snowmiku2018.png",
+      "icon": "snowmiku2018.png",
+      "description": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
+      "description-design": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
+      "images": [
+        "${rootPath}snowmiku2018/00004690.png",
+        "${rootPath}snowmiku2018/00006485.png",
+        "${rootPath}snowmiku2018/00010161.png",
+        "${rootPath}snowmiku2018/00010454.png",
+        "${rootPath}snowmiku2018/00010730.png"
+      ],
+      "url": false,
+      "ja": {
+        "title": "SNOW MIKU LIVE! 2018 ライブ映像制作",
+        "title-design": "SNOW MIKU LIVE! 2018 ライブ映像制作",
+        "description": "<a href=\"http://docs.textalive.jp/snowmiku2018\">「SNOW MIKU LIVE! 2018」</a>で、SNOW MIKU 2018テーマソングであり、ライブ最後のアンコール曲を飾った「四角い地球を丸くする」の映像制作を行いました。<a href=\"${rootPath}ja/textalive\">TextAlive</a>で制作した歌詞アニメーションが、紗幕上方に大画面で流れました。",
+        "description-design": "<a href=\"http://docs.textalive.jp/snowmiku2018\">「SNOW MIKU LIVE! 2018」</a>で、SNOW MIKU 2018テーマソングであり、ライブ最後のアンコール曲を飾った「四角い地球を丸くする」の映像制作を行いました。<a href=\"${rootPath}ja/textalive\">TextAlive</a>で制作した歌詞アニメーションが、紗幕上方に大画面で流れました。",
+        "url": "http://docs.textalive.jp/snowmiku2018/"
+      }
+    },
+    {
       "project": "reactile",
       "thumbnail": "reactile.jpg",
       "icon": "reactile.png",
