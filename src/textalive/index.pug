@@ -8,20 +8,35 @@ block vars
 block main
   +render-project-header('textalive')
   .ui.hidden.divider
-  section#abstract
-    h2.ui.header
-      .content #{en ? 'Abstract' : '概要'}
-    .ui.basic.segment
-      block abstract
-        p This paper presents TextAlive, a graphical tool that allows interactive editing of kinetic typography videos in which lyrics or transcripts are animated in synchrony with the corresponding music or speech.
-        p While existing systems have allowed the designer and casual user to create animations, most of them do not take into account synchronization with audio signals. They allow predefined motions to be applied to objects and parameters to be tweaked, but it is usually impossible to extend the predefined set of motion algorithms within these systems.
-        p We therefore propose an integrated design environment featuring
-        ul
-          li GUIs that designers can use to create and edit animations synchronized with audio signals,
-          li integrated tools that programmers can use to implement animation algorithms, and
-          li a framework for bridging the interfaces for designers and programmers.
-        p A preliminary user study with designers, programmers, and casual users demonstrated its capability in authoring various kinetic typography videos.
-  .ui.hidden.divider
+  .with-rail
+    .right-rail: section#news
+      h2.ui.header
+        i.announcement.icon
+        .content #{en ? 'News' : 'ニュース'}
+      .ui.basic.segment: .ui.divided.feed
+        block news
+          .event: .content
+            .date 1/25/2016
+            .summary
+              a(href='http://textalive.jp') TextAlive has been publicly available as a web service
+              |  after the press release which was 
+              a(href='http://www.aist.go.jp/aist_e/latest_research/2015/20160125/en20160125.html') translated into English
+              | . Please have it a try!
+      .ui.hidden.divider
+    .left-content: section#abstract
+      h2.ui.header
+        .content #{en ? 'Abstract' : '概要'}
+      .ui.basic.segment
+        block abstract
+          p This paper presents TextAlive, a graphical tool that allows interactive editing of kinetic typography videos in which lyrics or transcripts are animated in synchrony with the corresponding music or speech.
+          p While existing systems have allowed the designer and casual user to create animations, most of them do not take into account synchronization with audio signals. They allow predefined motions to be applied to objects and parameters to be tweaked, but it is usually impossible to extend the predefined set of motion algorithms within these systems.
+          p We therefore propose an integrated design environment featuring
+          ul
+            li GUIs that designers can use to create and edit animations synchronized with audio signals,
+            li integrated tools that programmers can use to implement animation algorithms, and
+            li a framework for bridging the interfaces for designers and programmers.
+          p A preliminary user study with designers, programmers, and casual users demonstrated its capability in authoring various kinetic typography videos.
+      .ui.hidden.divider
   section#presentations
     h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
     .ui.basic.segment
@@ -83,19 +98,5 @@ block main
         //.column: .ui.embed
           iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
         //.column: .ui.embed(data-url="sigmus104-kato-textalive-example-1.mp4")
-  .ui.hidden.divider
-  section#news
-    h2.ui.header
-      i.announcement.icon
-      .content #{en ? 'News' : 'ニュース'}
-    .ui.basic.segment: .ui.divided.feed
-      block news
-        .event: .content
-          .date 1/25/2016
-          .summary
-            a(href='http://textalive.jp') TextAlive has been publicly available as a web service
-            |  after the press release on 9/8/2015 which was then 
-            a(href='http://www.aist.go.jp/aist_e/latest_research/2015/20160125/en20160125.html') translated into English
-            | . Please have it a try!
   .ui.hidden.divider
   +render-project-publications('textalive', 'chi2015-kato-textalive')
