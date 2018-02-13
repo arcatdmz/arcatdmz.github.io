@@ -224,6 +224,24 @@ h1.ui.header {
   border-right-color: inherit !important;
 }
 
+.ui.page.dimmer {
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 102;
+}
+
+.ui.page.dimmer>.ui.modal>.image.content {
+  text-align: center;
+}
+.ui.page.dimmer>.ui.modal>.image.content>img {
+  max-width: 100%;
+  margin: auto;
+}
+
 /* divided feed */
 @dividedBorderWidth: 1px;
 @dividedBorder: @dividedBorderWidth solid @borderColor;

@@ -20,7 +20,9 @@
     "transition",
     "embed",
     "dropdown",
-    "popup"
+    "popup",
+    "modal",
+    "dimmer"
   ],
   "permission": false,
   "autoInstall": false,

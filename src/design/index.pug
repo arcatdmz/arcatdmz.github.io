@@ -35,6 +35,10 @@ block post-footer
     a.item(href=`#skillset`)
       i.user.icon
       .content #{en ? 'Skillset' : 'スキルセット'}
+  .ui.modal
+    .header Header
+    .image.content
+      img.image
 
 block main-container
   .hero-unit
@@ -46,6 +50,9 @@ block main-container
         p While my primary focus and strength is on conducting research, I have been interested in creating concrete design artifacts&mdash;such as graphic and user interface design. This page shows my design portfolio.
   .ui.container: +main-design()
   +footer()
+
+block scripts
+  script(type='text/javascript', src=`${rootPath}javascripts/views/design.js`)
 
 mixin main-design()
   section#portfolio: +portfolio()
@@ -63,9 +70,6 @@ mixin portfolio()
   - for (const p of sortedProjects) {
   +render-design-segment(p)
   - }
-    // Project CRENO
-    // SCI
-    // digitalmuseum
 
 mixin skillset()
   h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
@@ -267,7 +271,7 @@ mixin render-design-segment(p)
     - if (p.images) {
     .ui.tiny.images
       - for (const image of p.images) {
-      img.ui.image(src=image)
+      a.ui.for-modal.image: img(src=image)
       - }
     - }
     .ui.horizontal.list
