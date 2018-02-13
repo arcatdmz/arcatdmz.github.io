@@ -50,6 +50,9 @@ mixin publications-menu()
           a.item(href='#selected-publications')
             i.right.triangle.icon
             .content Selected
+          a.item(href='#dissertation')
+            i.right.triangle.icon
+            .content Dissertation
           a.item(href='#reviewed-publications')
             i.right.triangle.icon
             .content Reviewed
@@ -120,6 +123,14 @@ mixin publications()
       - for (const entry of selectedPublications) {
       +render-publication(entry)
       - }
+    .ui.hidden.divider
+    h2.ui.header#dissertation Dissertation
+    p 
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.entryType !== 'phdthesis') continue;
+      +render-publication(entry)
+      - }
     h2.ui.header#reviewed-publications Journal/conference/workshop publications
     p All of these publications went through a review process; most of these publications are considered either archival or semi-archival.
     .ui.divided.list
@@ -127,6 +138,7 @@ mixin publications()
       - if (selectedPublications.indexOf(entry) >= 0) continue;
       - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
       - if (entry.entryTags && !entry.entryTags.numpages) continue; // skip non-archival publications
+      - if (entry.entryType === 'phdthesis') continue;
       +render-publication(entry)
       - }
     .ui.hidden.divider
@@ -137,5 +149,6 @@ mixin publications()
       - for (const entry of publications) {
       - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
       - if (entry.entryTags && entry.entryTags.numpages) continue; // skip archival publications
+      - if (entry.entryType === 'phdthesis') continue;
       +render-publication(entry)
       - }

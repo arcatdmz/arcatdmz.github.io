@@ -198,9 +198,11 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - if (entry.entryTags.editor) {
             |  (Eds. !{entry.getEditorsTags().join(', ')})
             - }
+        - if (entry.getBook().length > 0) {
         .item.book
           i.book.icon
           .content #{entry.getBookWithPages()}
+        - }
 
 mixin render-major-publication(entry)
   span.labels

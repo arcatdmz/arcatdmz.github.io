@@ -12,17 +12,28 @@ block left-rail-list
       a.item(href='#domestic-publications')
         i.right.triangle.icon
         .content 国内
+      a.item(href='#dissertation')
+        i.right.triangle.icon
+        .content 学位論文
 
 block publications
   h2.ui.header#international-publications 国際会議・ジャーナル
   .ui.divided.list
     - for (const entry of publications) {
     - if (entry.entryTags && entry.entryTags.language === 'japanese') continue;
+    - if (entry.entryType === 'phdthesis') continue;
     +render-publication(entry)
     - }
   h2.ui.header#domestic-publications 国内会議・ジャーナル
   .ui.divided.list
     - for (const entry of publications) {
     - if (!entry.entryTags || entry.entryTags.language !== 'japanese') continue;
+    - if (entry.entryType === 'phdthesis') continue;
+    +render-publication(entry)
+    - }
+  h2.ui.header#dissertation 学位論文
+  .ui.divided.list
+    - for (const entry of publications) {
+    - if (entry.entryType !== 'phdthesis') continue;
     +render-publication(entry)
     - }
