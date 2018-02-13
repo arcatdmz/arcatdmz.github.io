@@ -9,6 +9,6 @@ import(/* webpackChunkName: "library" */ './library').then(Library => {
       , $modalImg = $modal.find('img');
     $modalHeader.html($title.html());
     $modalImg.attr('src', <string>$img.attr('src'));
-    $modal.modal('show');
+    $modal.modal('refresh').modal('show');
   });
 });
