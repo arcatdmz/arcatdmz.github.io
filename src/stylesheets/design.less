@@ -77,9 +77,15 @@ body.design #body>.ui.container .ui.segment>.image+h3.ui.header {
   margin: 0 0 0 .3em;
 }
 
-#portfolio .ui.images>img.ui.image {
+#portfolio .ui.images>a.ui.image {
+  cursor: pointer;
   width: auto;
-  height: 50px;
+  height: auto;
+}
+
+#portfolio .ui.images>.ui.image>img {
+  width: auto;
+  height: 70px;
 }
 
 #skillset .ui.list>.item>i.ellipsis.icon {
