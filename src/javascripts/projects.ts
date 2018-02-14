@@ -116,6 +116,7 @@ class Entry {
     return this.data.ja;
   }
   getYearString(lang?: 'en'|'ja') {
+    if (!this.data.year) return '';
     var to: number;
     if (typeof this.data.year.to === 'number') {
       to = this.data.year.to;

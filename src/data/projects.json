@@ -11,6 +11,14 @@
       "title": "Human-Music Interaction",
       "label": "Music"
     },
+    "live-programming": {
+      "title": "User Interfaces for Live Programming",
+      "label": "<abbr title=\"Live Programming\">Live</abbr>"
+    },
+    "programming-with-examples": {
+      "title": "Programming with Examples",
+      "label": "<abbr title=\"Programming with Examples\">PwE</abbr>"
+    },
     "ide": {
       "label": "<abbr title=\"Integrated Development Environment\">IDE</abbr>",
       "ja": {
@@ -64,6 +72,26 @@
   },
   "projects": [
     {
+      "project": "live-programming",
+      "thumbnail": "live-programming.jpg",
+      "category": "concept",
+      "title": "User Interfaces for Live Programming",
+      "description": "<p>Live programming eliminates the gulf between code and execution. User interface design plays the key role in providing live programming experience.</p><p>With appropriate user interface design, live programming can potentially benefit end-users, be used for applications whose computation takes a long time, and mean much more than merely providing real-time information of the running program.</p>",
+      "ja": {
+        "description": "<p>Live Programmingは、プログラム実行時の情報を参照しながらプログラムを編集できるようにする<strong>プログラマ向けのインタラクションデザイン</strong>です。プログラムの情報をプログラマへどう提示するか、プログラマの編集意図をどう汲み取るかという<abbr title=\"Human-Computer Interaction\">HCI</abbr>の観点が極めて重要です。</p><p>私は、Live Programmingのためのユーザインタフェースの提案を通して、その応用範囲を拡大する研究を行ってきました。例えば、プログラマとユーザによるプログラムの共同開発支援や、実世界のプログラミング支援などに取り組んできました。</p>"
+      }
+    },
+    {
+      "project": "programming-with-examples",
+      "thumbnail": "programming-with-examples.png",
+      "category": "concept",
+      "title": "Programming with Examples",
+      "description": "<p>The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data.</p><p>This is particularly useful in developing data-intensive applications such as physical computing, image processing, video authoring, machine learning, and others that require intensive parameter tuning.</p>",
+      "ja": {
+        "description": "<p>Programming with Examples (PwE)は、プログラマがインタラクティブなアプリケーションの開発を行う際に<strong>Examples (例示データ)の助けを借りる開発手法</strong>です。通常の統合開発環境には、例示データの可視化と管理のための機能はありません。そこで私は、統合開発環境に特別なユーザインタフェースを追加することでPwEを支援する研究を行ってきました。</p><p>PwEは、<abbr title=\"Internet of Things\">IoT</abbr>デバイスの開発、画像処理、動画編集、機械学習など、大量のデータを扱う必要のあるアプリケーション開発において重要な役割を果たす開発支援技術です。</p>"
+      }
+    },
+    {
       "project": "snowmiku2018",
       "title": "SNOW MIKU LIVE! 2018 lyrics animation",
       "title-design": "SNOW MIKU LIVE! 2018 lyrics animation",
@@ -104,6 +132,8 @@
       "icon": "reactile.png",
       "tags": [
         "physical",
+        "programming-with-examples",
+        "live-programming",
         "ide"
       ],
       "year": {
@@ -207,6 +237,8 @@
       "tags": [
         "physical",
         "creativity",
+        "programming-with-examples",
+        "live-programming",
         "ide",
         "design"
       ],
@@ -237,6 +269,8 @@
       "tags": [
         "creativity",
         "music",
+        "programming-with-examples",
+        "live-programming",
         "ide",
         "design"
       ],
@@ -316,6 +350,8 @@
         "to": 2014
       },
       "tags": [
+        "programming-with-examples",
+        "live-programming",
         "ide",
         "nui"
       ],
@@ -335,6 +371,8 @@
         "to": 2014
       },
       "tags": [
+        "programming-with-examples",
+        "live-programming",
         "ide"
       ],
       "category": "collaboration",
@@ -356,6 +394,7 @@
         "to": 2013
       },
       "tags": [
+        "live-programming",
         "ide"
       ],
       "publication": "pldi2013-kato-alive",
@@ -374,6 +413,7 @@
         "to": 2013
       },
       "tags": [
+        "programming-with-examples",
         "ide",
         "robot"
       ],
@@ -413,6 +453,8 @@
         "to": 2012
       },
       "tags": [
+        "programming-with-examples",
+        "live-programming",
         "ide",
         "nui"
       ],
@@ -470,6 +512,7 @@
         "to": 2009
       },
       "tags": [
+        "live-programming",
         "ide",
         "nui"
       ],

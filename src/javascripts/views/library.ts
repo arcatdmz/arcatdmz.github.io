@@ -116,14 +116,25 @@ if ($tagLink.length > 0) {
 function listProjectsByTag(projects: any, tag: string, currentProject: string) {
   const entries = projects.default;
   const tags = projects.tags;
-  const $popupContent = $('<div class="ui hidden popup project tag"><div class="header"></div><div class="content"><p></p><div class="ui divided list"></div></div></div>');
+
+  var header =  '<div class="header"></div>';
+  for (const p of entries) {
+    if (p.project === tag) header = '<a class="header" href=""></a>';
+  }
+  const $popupContent = $('<div class="ui hidden popup project tag">' + header + '<div class="content"><p></p><div class="ui divided list"></div></div></div>');
+
   var tagTitle;
   if (lang === 'ja' && tags[tag].ja && tags[tag].ja.title) {
     tagTitle = tags[tag].ja.title;
   } else {
     tagTitle = tags[tag].title ? tags[tag].title : tags[tag].label;
   }
-  $popupContent.find('.header').html(tagTitle);
+  const $header = $popupContent.find('.header');
+  $header.html(tagTitle);
+  if (typeof $header.attr('href') !== 'undefined') {
+    $header.attr('href', basePath + tag);
+  }
+
   const $list = $popupContent.find('.ui.list');
   var count = 0;
   for (const p of entries) {
@@ -137,6 +148,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
     $list.append(`<a class="item" href="${basePath}#projects-${p.project}">${p.getTitle(lang)}</a>`);
     count ++;
   }
+
   $popupContent.find('p').html(lang === 'ja'
       ? (count > 0 ? `以下のプロジェクトも<strong>${tagTitle}</strong>に関するものです。` : `他に<strong>${tagTitle}</strong>に関するプロジェクトはありません。`)
       : (count > 0 ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.` : `No other project is tagged with <strong>${tags[tag].label}</strong>.`))

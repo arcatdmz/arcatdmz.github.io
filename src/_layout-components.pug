@@ -114,7 +114,7 @@ mixin header()
           .ui.divider
           - for (const p of projects) {
           - if (recentProjects.indexOf(p) < 0) continue;
-          //- if (p.category === 'committee' || p.category === 'private') continue;
+          //- if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
           //- if ((p.year.to || p.year.from) < 2012) continue;
           a.item(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
           - }

@@ -308,6 +308,7 @@ mixin render-project-item(p)
         | !{p.getTitle(lang)}
       - }
       .description !{p.getDescription(lang)}
+      - if (p.category !== 'concept') {
       .extra
         span.right.floated
           i.calendar.icon
@@ -321,6 +322,7 @@ mixin render-project-item(p)
           | #{en ? 'Co-authored' : '共著'}
         - }
         span.meta !{p.getTags(lang).join(' ')}
+      - }
 
 mixin render-project-label(p)
   - if (p.hasPublication(lang)) {
