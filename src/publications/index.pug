@@ -50,15 +50,15 @@ mixin publications-menu()
           a.item(href='#selected-publications')
             i.right.triangle.icon
             .content Selected
-          a.item(href='#dissertation')
-            i.right.triangle.icon
-            .content Dissertation
           a.item(href='#reviewed-publications')
             i.right.triangle.icon
             .content Reviewed
           a.item(href='#other-publications')
             i.right.triangle.icon
             .content Others
+          a.item(href='#dissertation')
+            i.right.triangle.icon
+            .content Dissertation
     a.item(href=`${basePath}timeline/`)
       i.history.icon
       .content #{en ? 'Timeline' : '活動履歴'}
@@ -124,13 +124,6 @@ mixin publications()
       +render-publication(entry)
       - }
     .ui.hidden.divider
-    h2.ui.header#dissertation Dissertation
-    p 
-    .ui.divided.list
-      - for (const entry of publications) {
-      - if (entry.entryType !== 'phdthesis') continue;
-      +render-publication(entry)
-      - }
     h2.ui.header#reviewed-publications Journal/conference/workshop publications
     p All of these publications went through a review process; most of these publications are considered either archival or semi-archival.
     .ui.divided.list
@@ -144,11 +137,17 @@ mixin publications()
     .ui.hidden.divider
     h2.ui.header#other-publications Other publications
     p The following publications are either invited articles or non-archival demo/poster papers.
-    p 
     .ui.divided.list
       - for (const entry of publications) {
       - if (entry.entryTags && entry.entryTags.language === 'japanese') continue; // skip Japanese publications
       - if (entry.entryTags && entry.entryTags.numpages) continue; // skip archival publications
       - if (entry.entryType === 'phdthesis') continue;
+      +render-publication(entry)
+      - }
+    .ui.hidden.divider
+    h2.ui.header#dissertation Dissertation
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.entryType !== 'phdthesis') continue;
       +render-publication(entry)
       - }
