@@ -9,15 +9,28 @@ block main-hero-unit
   +render-project-hero('f3js')
 
 block main
-  section#abstract
-    h2.ui.header
-      .content #{en ? 'Abstract' : '概要'}
-    .ui.basic.segment
-      block abstract
-        p Although the exploration of design alternatives is crucial for interaction designers and customization is required for end-users, the current development tools for physical computing devices have focused on single versions of an artifact.
-        p We propose the parametric design of devices including their enclosure layouts and programs to address this issue. A Web-based design tool called f3.js is presented as an example implementation, which allows devices assembled from laser-cut panels with sensors and actuator modules to be parametrically created and customized.
-        p It enables interaction designers to write code with dedicated APIs, declare parameters, and interactively tune them to produce the enclosure layouts and programs. It also provides a separate user interface for end-users that allows parameter tuning and dynamically generates instructions for device assembly. The parametric design approach and the tool were evaluated through two user studies with interaction designers, university students, and end-users.
-    .ui.hidden.divider
+  .with-rail
+    .right-rail: section#news
+      h2.ui.header
+        i.announcement.icon
+        .content #{en ? 'News' : 'ニュース'}
+      .ui.basic.segment: .ui.divided.feed
+        block news
+          .event: .content
+            .date 6/14/2017
+            .summary f3.js was presented at ACM DIS 2017 and is available on the web at 
+              a(href='http://f3js.org') f3js.org
+              | . Please try it out!
+      .ui.hidden.divider
+    .left-content: section#abstract
+      h2.ui.header
+        .content #{en ? 'Abstract' : '概要'}
+      .ui.basic.segment
+        block abstract
+          p Although the exploration of design alternatives is crucial for interaction designers and customization is required for end-users, the current development tools for physical computing devices have focused on single versions of an artifact.
+          p We propose the parametric design of devices including their enclosure layouts and programs to address this issue. A Web-based design tool called f3.js is presented as an example implementation, which allows devices assembled from laser-cut panels with sensors and actuator modules to be parametrically created and customized.
+          p It enables interaction designers to write code with dedicated APIs, declare parameters, and interactively tune them to produce the enclosure layouts and programs. It also provides a separate user interface for end-users that allows parameter tuning and dynamically generates instructions for device assembly. The parametric design approach and the tool were evaluated through two user studies with interaction designers, university students, and end-users.
+      .ui.hidden.divider
   section#presentations
     h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
     .ui.basic.segment
@@ -134,16 +147,5 @@ block main
               li <strong>Translator</strong> is an arm-mounted device that uses a Web-based translation API to translate text captured by a camera and presents the results on its LCD.
             p There are more interesting applications in the playlist, so please do not miss them.
           .ui.hidden.divider
-  section#news
-    h2.ui.header
-      i.announcement.icon
-      .content #{en ? 'News' : 'ニュース'}
-    .ui.basic.segment: .ui.divided.feed
-      block news
-        .event: .content
-          .date 6/14/2017
-          .summary f3.js was presented at ACM DIS 2017 and is available on the web at 
-            a(href='http://f3js.org') f3js.org
-            | . Please try it out!
   .ui.hidden.divider
   +render-project-publications('f3js', 'dis2017-kato-f3js')
