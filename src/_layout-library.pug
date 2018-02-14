@@ -85,8 +85,9 @@ mixin render-project-header(project, additionalLabels)
       .item !{additionalLabel}
       - }
       - const tags = p.getTags(lang);
+      - for (var i = 0; i < tags.length; i ++) tags[i] = tags[i].replace(/<a class="(.+)" data-tag="(.+)">/, '<a class="$1" data-tag="$2" data-position="bottom center">');
       - if (tags.length > 0) {
-      .item #{en ? 'Keywords' : '関連キーワード'}: !{tags.join(', ')}
+      .tags.item #{en ? 'Keywords' : '関連キーワード'}: !{tags.join(', ')}
       - }
     +render-share()
 

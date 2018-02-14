@@ -117,8 +117,77 @@ body.without-header-menu #body {
 
 /* project page */
 
+.hero-unit {
+  margin-top: -1.4rem;
+  padding: 4rem 0 3rem 0;
+  background: #555;
+  position: relative;
+}
+
+.hero-unit>.ui.container {
+  z-index: 3;
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+.hero-unit>.background-wrapper {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.hero-unit>.background-wrapper>.background {
+  z-index: 2;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-unit .ui.horizontal.list>.item {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-unit .ui.header, .hero-unit .ui.header .sub.header {
+  color: #fff;
+  text-shadow: 1px 1px 6px #000;
+}
+
+.hero-unit .ui.header {
+  margin-bottom: 2.4rem;
+  font-size: 3.6rem;
+}
+
+.hero-unit .ui.header .sub.header {
+  font-size: 1.2rem;
+}
+
+.hero-unit .tags {
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.hero-unit .tags a.project.tag {
+  color: hsl(191, 65%, 90%);
+  text-shadow: 1px 1px 3px hsl(191, 65%, 20%);
+}
+
 .ui.horizontal.divided.list.project-meta-list>.item {
   margin-bottom: .3em !important;
+  line-height: 1em;
 }
 
 /* publications */

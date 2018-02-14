@@ -40,7 +40,7 @@ block post-footer
     .image.content
       img.image
 
-block main-container
+block main-hero-unit
   .hero-unit
     h1.ui.center.aligned.icon.header
       i.circular.paint.brush.icon
@@ -48,16 +48,14 @@ block main-container
     .ui.container
       block message
         p While my primary focus and strength is on conducting research, I have been interested in creating concrete design artifacts&mdash;such as graphic and user interface design. This page shows my design portfolio.
-  .ui.container: +main-design()
-  +footer()
 
-block scripts
-  script(type='text/javascript', src=`${rootPath}javascripts/views/design.js`)
-
-mixin main-design()
+block main
   section#portfolio: +portfolio()
   .ui.hidden.divider
   section#skillset: +skillset()
+
+block scripts
+  script(type='text/javascript', src=`${rootPath}javascripts/views/design.js`)
 
 mixin portfolio()
   h2.ui.header #{en ? 'Portfolio' : 'ポートフォリオ'}

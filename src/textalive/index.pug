@@ -5,8 +5,12 @@ block vars
   - title = p.getTitle(lang);
   - me = p.project + '/';
 
+block main-hero-unit
+  .hero-unit
+    .background-wrapper: .background(style=`background-image:url(${protocol}://${domain}${rootPath}images/thumbnails/${p.thumbnail})`)
+    .ui.container: +render-project-header('textalive')
+
 block main
-  +render-project-header('textalive')
   .ui.hidden.divider
   .with-rail
     .right-rail: section#news
