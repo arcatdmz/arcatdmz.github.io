@@ -1,8 +1,9 @@
 extends ../_layout
 
 block vars
-  - title = en ? 'Design' : 'デザイン';
-  - me = 'design/';
+  - p = projectsTable['design'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
   - var bodyClass = 'without-header-menu design';
 
 block head
@@ -45,9 +46,7 @@ block main-hero-unit
     h1.ui.center.aligned.icon.header
       i.circular.paint.brush.icon
       | #{title}
-    .ui.container
-      block message
-        p While my primary focus and strength is on conducting research, I have been interested in creating concrete design artifacts&mdash;such as graphic and user interface design. This page shows my design portfolio.
+    .ui.container !{p.getDescription(lang)}
 
 block main
   section#portfolio: +portfolio()
@@ -58,7 +57,7 @@ block scripts
   script(type='text/javascript', src=`${rootPath}javascripts/views/design.js`)
 
 mixin portfolio()
-  h2.ui.header #{en ? 'Portfolio' : 'ポートフォリオ'}
+  h2.ui.dividing.header #{en ? 'Portfolio' : 'ポートフォリオ'}
   - const sortedProjects = [];
   - for (const p of projects) {
   - if (!p.isDesignProject()) continue;
@@ -70,7 +69,7 @@ mixin portfolio()
   - }
 
 mixin skillset()
-  h2.ui.header #{en ? 'Skillset' : 'スキルセット'}
+  h2.ui.dividing.header #{en ? 'Skillset' : 'スキルセット'}
   block skillset
     p The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See <a href="#{rootPath}resume.html">my resume</a> for more general information.
   .ui.hidden.divider

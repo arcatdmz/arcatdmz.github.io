@@ -72,6 +72,16 @@
   },
   "projects": [
     {
+      "project": "design",
+      "category": "concept",
+      "title": "Design",
+      "description": "<p>While my primary focus and strength is on conducting research, I have been interested in creating concrete design artifacts—such as graphic and user interface design. This page shows my design portfolio.</p>",
+      "ja": {
+        "title": "デザイン",
+        "description": "<p>研究者ですが、仕事柄、人がすぐに触れられる具体的なもののデザインにも興味があります。このページでは、これまでにデザインしたものを紹介しています。</p>"
+      }
+    },
+    {
       "project": "live-programming",
       "thumbnail": "live-programming.jpg",
       "category": "concept",

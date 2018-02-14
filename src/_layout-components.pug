@@ -7,6 +7,7 @@ mixin head()
   - description = en ? defaultDescription : defaultJapaneseDescription;
   - }
   - }
+  - description = description.replace(/(<([^>]+)>)/ig,"");
   - if (!imageUrl) {
   - if (p) {
   - imageUrl = `${protocol}://${domain}${rootPath}images/thumbnails/${p.thumbnail}`;

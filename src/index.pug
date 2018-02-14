@@ -142,6 +142,7 @@ mixin concepts()
     .ui.grid#concepts-list
       - for (const p of projects) {
       - if (p.category !== 'concept') continue;
+      - if (p.project === 'design') continue;
       .sixteen.wide.tablet.eight.wide.computer.column#concepts-user-interfaces-for-live-programming
         .ui.fluid.card
           a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
