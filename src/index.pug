@@ -40,7 +40,7 @@ block post-footer
           | #{en ? 'Previous' : '以前のもの'}
         a.item(href=`${basePath}#private-projects`)
           i.right.triangle.icon
-          | #{en ? 'Private' : '趣味のもの'}
+          | #{en ? 'Non-research' : '研究以外'}
     a.item(href='#contact')
       i.address.card.icon
       .content #{en ? 'Contact' : '連絡先'}
@@ -176,7 +176,7 @@ mixin projects()
       - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
       +render-project-item(p)
       - }
-    h3.ui.header#private-projects #{en ? 'Private design and/or engineering projects' : '趣味プロジェクト'}
+    h3.ui.header#private-projects #{en ? 'Design and/or engineering projects' : 'デザインとエンジニアリングに関するプロジェクト'}
     .ui.segment: .ui.divided.items.projects#private-projects-list
       - for (const p of projects) {
       //- skip research projects
