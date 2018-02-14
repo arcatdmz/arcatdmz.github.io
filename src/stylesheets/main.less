@@ -119,6 +119,7 @@ body.without-header-menu #body {
 
 .hero-unit {
   margin-top: -1.4rem;
+  margin-bottom: 2.4rem;
   padding: 4rem 0 3rem 0;
   background: #555;
   position: relative;
@@ -155,6 +156,16 @@ body.without-header-menu #body {
   filter: blur(5px);
   background-size: cover;
   background-position: center;
+}
+
+.hero-unit>.background-wrapper>.background:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .hero-unit .ui.horizontal.list>.item {

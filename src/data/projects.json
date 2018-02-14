@@ -244,6 +244,7 @@
       "project": "f3js",
       "thumbnail": "f3js.jpg",
       "icon": "f3js.png",
+      "hero": "f3js.jpg",
       "tags": [
         "physical",
         "creativity",
@@ -276,6 +277,7 @@
       "project": "textalive",
       "thumbnail": "textalive.jpg",
       "icon": "textalive.jpg",
+      "hero": "textalive.jpg",
       "tags": [
         "creativity",
         "music",

@@ -5,9 +5,10 @@ block vars
   - title = p.getTitle(lang);
   - me = p.project + '/';
 
+block main-hero-unit
+  +render-project-hero('f3js')
+
 block main
-  +render-project-header('f3js')
-  .ui.hidden.divider
   section#abstract
     h2.ui.header
       .content #{en ? 'Abstract' : '概要'}

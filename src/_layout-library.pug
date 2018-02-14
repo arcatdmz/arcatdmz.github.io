@@ -46,6 +46,14 @@ mixin render-share()
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
+mixin render-project-hero(project, additionalLabels)
+  -
+    const p = projectsTable[project];
+    const backgroundImageUrl = `${rootPath}images/heros/${p.hero}`;
+  .hero-unit
+    .background-wrapper: .background(style=`background-image:url(${backgroundImageUrl})`)
+    .ui.container: +render-project-header(project, additionalLabels)
+
 mixin render-project-header(project, additionalLabels)
   -
     const p = projectsTable[project];

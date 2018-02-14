@@ -6,12 +6,9 @@ block vars
   - me = p.project + '/';
 
 block main-hero-unit
-  .hero-unit
-    .background-wrapper: .background(style=`background-image:url(${protocol}://${domain}${rootPath}images/thumbnails/${p.thumbnail})`)
-    .ui.container: +render-project-header('textalive')
+  +render-project-hero('textalive')
 
 block main
-  .ui.hidden.divider
   .with-rail
     .right-rail: section#news
       h2.ui.header

@@ -31,6 +31,7 @@ interface RawEntry {
   project: string;
   thumbnail?: string;
   icon?: string;
+  hero?: string;
   tags?: string[];
   "tags-design"?: string[];
   year: {
@@ -75,6 +76,9 @@ class Entry {
   }
   get icon() {
     return this.data.icon;
+  }
+  get hero() {
+    return this.data.hero;
   }
   get tags() {
     return this.data.tags;
