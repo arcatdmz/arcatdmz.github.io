@@ -21,7 +21,7 @@ block main
         span.ui.red.tiny.basic.label
           | Keynote Talk at LIVE '17
     .ui.message
-      p This page is still under construction. The page provides summary for 
+      p The page provides summary for 
         a(href='https://2017.splashcon.org/event/live-2017-keynote-a') the keynote talk at LIVE '17 workshop
         |  and links to relevant sub-projects including 
         a(href=`${basePath}live-tuning/`) Live Tuning
@@ -36,9 +36,9 @@ block main
   .ui.hidden.divider
   section#presentations: +presentations()
   .ui.hidden.divider
-  section#revision: +revision()
-  .ui.hidden.divider
   section#further-reading: +further-reading()
+  .ui.hidden.divider
+  section#revision: +revision()
 
 mixin abstract()
   h2.ui.header #{en ? 'Summary' : '概要'}
@@ -118,6 +118,22 @@ mixin presentations()
         a(href='https://sigpx.org/en') SIGPX
         |  are such an attempt to attract people from all of these research fields.
 
+mixin further-reading()
+  h2.ui.header
+    i.lab.icon
+    .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+  .ui.basic.segment
+    p The following projects are highly relevant to the topic.
+  .ui.segment
+    .ui.divided.items.projects
+      - for (const p of projects) {
+      //- skip concept, committee, and private projects
+      - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
+      //- 
+      - if (!Array.isArray(p.tags) || p.tags.indexOf('live-programming') < 0) continue;
+      +render-project-item(p)
+      - }
+
 mixin revision()
   h2.ui.header
     i.announcement.icon
@@ -125,26 +141,8 @@ mixin revision()
   .ui.basic.segment: .ui.divided.feed
     block news
       .event: .content
+        .date 2/15/2018
+        .summary Replace &quot;Further reading&quot; with the list of relevant projects. Please visit each project page for further readings.
+      .event: .content
         .date 1/21/2018
         .summary Upload the initial prototype version.
-
-mixin further-reading()
-  h2.ui.header
-    i.book.icon
-    .content #{en ? 'Further reading' : '関連論文'}
-  .ui.basic.segment
-    p The following papers are highly relevant to the topic. 
-      span.ui.tiny.basic.red.label
-        i.lab.icon
-        | This label
-      |  indicates that the paper belongs to a particular research project and links to the project website.
-  .ui.segment: .ui.divided.list
-    -
-      const projectPublications = [];
-      const citationKeys = ['dis2017-kato-f3js', 'px2017-kato-ugv', 'live2016-kato-livetuning', 'programming-with-examples', 'chi2015-kato-textalive', 'gi2014-kato-visionsketch', 'pldi2013-kato-alive', 'chi2013-kato-picode', 'uist2012-kato-dejavu'];
-      for (const key of citationKeys) {
-        if (publicationsTable[key]) projectPublications.push(publicationsTable[key]);
-      }
-    - for (const entry of projectPublications) {
-    +render-publication(entry)
-    - }
