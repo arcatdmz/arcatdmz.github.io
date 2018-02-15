@@ -241,6 +241,25 @@
       }
     },
     {
+      "project": "live-tuning",
+      "thumbnail": "live-tuning.png",
+      "icon": "live-tuning.png",
+      "tags": [
+        "live-programming",
+        "ide"
+      ],
+      "year": {
+        "from": 2016,
+        "to": 2016
+      },
+      "publication": "live2016-kato-livetuning",
+      "title": "Live Tuning",
+      "description": "Live Tuning is the subset of Live Programming interaction that only involves changes in constant values through parameter tuning interfaces. It expands Live Programming benefits to non-programmers.",
+      "ja": {
+        "description": "Live Tuningは、Live Programmingから定数値をインタラクティブに変更できるインタラクションデザインだけを抜き出したものです。プログラマでなくともプログラムの振る舞いをカスタマイズできるようにする技術です。"
+      }
+    },
+    {
       "project": "f3js",
       "thumbnail": "f3js.jpg",
       "icon": "f3js.png",
