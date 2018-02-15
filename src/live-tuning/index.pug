@@ -1,46 +1,64 @@
 extends ../_layout
 
 block vars
-  - title = 'Live Tuning';
-  - description = '';
-  - imageUrl = '${protocol}://${domain}${rootPath}images/thumbnails/live-tuning.jpg';
-  - me = 'live-tuning/';
+  - p = projectsTable['live-tuning'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
 
 block main
-  section
-    .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
-      img(src=`${rootPath}live-tuning/live2016-kato-livetuning.jpg`)
-      .caption: a(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
-        i.book.icon
-        | Read the article
-    h1.ui.header #{title}
-      .sub.header Expanding Live Programming Benefits to Non-Programmers
-    +render-share()
-    .ui.horizontal.divided.list.project-meta-list
-      .item
-        span.ui.tiny.basic.label
-          i.calendar.icon
-          | 7/16/2016
-      .item
-        span.ui.green.tiny.basic.label
-          i.student.icon
-          | LIVE '16
-    .ui.message
-      p This page provides summary and some graphical materials of the workshop paper that was presented at 
-        a(href='http://2016.ecoop.org/track/LIVE-2016') ECOOP 2016 LIVE
-        | .
-      - if (!en) {
-      p: +translate('live-tuning/index.pug')
-      - }
+  .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
+    img(src=`${rootPath}live-tuning/live2016-kato-livetuning.jpg`)
+    .caption: a(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
+      i.book.icon
+      | Read the article
+  +render-project-header('live-tuning')
+  .ui.message
+    p This page provides summary and some graphical materials of the workshop paper that was presented at 
+      a(href='http://2016.ecoop.org/track/LIVE-2016') ECOOP 2016 LIVE
+      | .
+    - if (!en) {
+    p: +translate('live-tuning/index.pug')
+    - }
   .ui.hidden.divider
-  section#paper
-    h2.ui.header Paper
+  section#abstract
+    h2.ui.header
+      .content #{en ? 'Abstract' : '概要'}
     .ui.basic.segment
       p Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time.
       p In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values &quot;Live Tuning.&quot; Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.
-      .ui.raised.segment.major-publication
-        //- span.ui.red.ribbon.label #{en ? 'Cite this!' : '引用するならコレ！'}
-        +render-major-publication(publicationsTable['live2016-kato-livetuning'])
+  section#live-tuning-comparison
+    .ui.basic.segment: .ui.stackable.two.columns.grid
+      .column
+        h2.ui.header Live Programming
+        p(style='position: relative')
+          a#live-programming
+            img.ui.fluid.image.hover(src=`${rootPath}live-tuning/live-programming-environment.png`, style='position: absolute; display: none; z-index: 10')
+            img.ui.fluid.image(src=`${rootPath}live-tuning/live-programming-environment-shadow.png`, style='z-index: 5')
+        ul
+          li
+            | Interaction design for 
+            strong programmers
+            | , typically built in development environments
+          li Prior knowledge of programming is required.
+          li The entire programs are always live and editable.
+          li The programmer has full control and is responsible for every aspect of program details.
+      .column
+        h2.ui.header Live Tuning
+        p(style='position: relative')
+          a#live-tuning
+            img.ui.fluid.image.hover(src=`${rootPath}live-tuning/live-tuning-environment.png`, style='position: absolute; display: none; z-index: 10')
+            img.ui.fluid.image(src=`${rootPath}live-tuning/live-tuning-environment-shadow.png`, style='z-index: 5')
+        ul
+          li
+            | Interaction design for 
+            strong end-users
+            | , built in ordinary runtime environments
+          li
+            | Prior knowledge of programming is 
+            strong not
+            |  required.
+          li Only a certain number of variables are editable.
+          li The programmer and end-user are separating their roles of specifying program details.
   .ui.hidden.divider
   section#motivation
     h2.ui.header Motivation
@@ -59,40 +77,6 @@ block main
         ul
           li Live Programming (changing program behaviors without losing context) can benefit end-users. In particular, they can comprehend parameter tuning interfaces and customize programs to match their needs.
           li They typically do not have access to development environments since they lack prior knowledge of programming.
-  .ui.hidden.divider
-  section#live-tuning-comparison
-    .ui.basic.segment: .ui.stackable.two.columns.grid
-      .column
-        h2.ui.header Live Programming
-        p(style='position: relative')
-          a#live-programming
-            img.ui.fluid.image.hover(src='live-programming-environment.png', style='position: absolute; display: none')
-            img.ui.fluid.image(src='live-programming-environment-shadow.png')
-        ul
-          li
-            | Interaction design for 
-            strong programmers
-            | , typically built in development environments
-          li Prior knowledge of programming is required.
-          li The entire programs are always live and editable.
-          li The programmer has full control and is responsible for every aspect of program details.
-      .column
-        h2.ui.header Live Tuning
-        p(style='position: relative')
-          a#live-tuning
-            img.ui.fluid.image.hover(src='live-tuning-environment.png', style='position: absolute; display: none')
-            img.ui.fluid.image(src='live-tuning-environment-shadow.png')
-        ul
-          li
-            | Interaction design for 
-            strong end-users
-            | , built in ordinary runtime environments
-          li
-            | Prior knowledge of programming is 
-            strong not
-            |  required.
-          li Only a certain number of variables are editable.
-          li The programmer and end-user are separating their roles of specifying program details.
   .ui.hidden.divider
   section#example-ides
     h2.ui.header Example &quot;Live Tuning&quot; 
@@ -116,7 +100,7 @@ block main
       h3.ui.header f3.js: Form Follows Function()
       p
         a(href=`${basePath}f3js`): strong f3.js
-        | is an Integrated Development Environment for developing <abbr title="Internet of Things">IoT</abbr> applications.
+        |  is an Integrated Development Environment for developing <abbr title="Internet of Things">IoT</abbr> applications.
       .ui.stackable.two.columns.grid
         .column
           img.ui.fluid.bordered.image(src=`${rootPath}live-tuning/f3js-code.png`)
@@ -161,6 +145,8 @@ block main
       .event: .content
         .date 7/16/2016
         .summary Upload the initial revision.
+  .ui.hidden.divider
+  +render-project-publications('live-tuning', 'live2016-kato-livetuning')
 
 block post-scripts
   script.

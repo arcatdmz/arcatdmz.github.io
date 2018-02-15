@@ -1,8 +1,4 @@
-doctype html
-- const url = `${protocol}://${domain}${rootPath}live-tuning`;
-html(lang='ja')
-  head
-    meta(http-equiv='refresh', content=`0; URL='${url}'`)
-    title Redirecting ...
-  body
-    p: a(href=url) 日本語のページはありません
+extends ../../live-tuning/index
+
+block lang
+  - var lang = 'ja';
