@@ -357,6 +357,14 @@ h1.ui.header {
 .ui.cards>.card {
   width: calc(~"33.3333% - " @cardHorizontalSpacing);
 }
+#concepts-list>.column>.card {
+  height: 100%;
+}
+@media only screen and (max-width : @tabletBreakpoint) {
+  #concepts-list>.column>.card {
+    height: auto;
+  }
+}
 @media only screen and (max-width : @computerBreakpoint) {
   .ui.cards>.card {
     width: calc(~"50% - " @cardHorizontalSpacing);
