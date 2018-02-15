@@ -280,6 +280,13 @@ a:link>i.icon {
 
 .ui.popup {
   text-align: left !important;
+  width: 320px;
+  max-width: 60vw;
+}
+@media only screen and (max-width : @tabletBreakpoint) {
+  .ui.popup {
+    width: 240px;
+  }
 }
 
 h1.ui.header {
