@@ -1,8 +1,12 @@
 {
   "en": [
     {
+      "date": "2/18/2018",
+      "text": "With <a href=\"${rootPath}textalive\">TextAlive</a>, I created <a href=\"https://www.youtube.com/watch?v=0assSnUjkLA&amp;list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo\">lyrics animation videos</a> used in <a href=\"https://www.youtube.com/watch?v=0USE9AMu8i8\">SNOW MIKU LIVE! 2018</a>, a live performance by a renowned virtual idol singer - Hatsune Miku!"
+    },
+    {
       "date": "1/30/2018",
-      "text": "One co-authored paper of <a href=\"${rootPath}#projects-reactile\">the Reactile project</a> discussing how to program <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> has been accepted to <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>."
+      "text": "A co-authored paper of <a href=\"${rootPath}#projects-reactile\">the Reactile project</a> discussing how to program <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> has been accepted to <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>."
     },
     {
       "date": "1/20/2018",
@@ -194,6 +198,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2/18/2018",
+      "text": "2月9-10日に札幌で開催された「<a href=\"https://www.youtube.com/watch?v=0USE9AMu8i8\">SNOW MIKU LIVE! 2018</a>」で、SNOW MIKU 2018テーマソングであり、ライブ最後のアンコール曲を飾った「四角い地球を丸くする」の映像制作を行いました。私の研究プロジェクトである<a href=\"${rootPath}textalive\">TextAlive</a>で制作した<a href=\"https://www.youtube.com/watch?v=0assSnUjkLA&amp;list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo\">歌詞アニメーション</a>が、紗幕上方に大画面で流れました。"
+    },
     {
       "date": "2/7/2018",
       "text": "グローバルなハッカソンイベント<a href=\"http://entertechlab.jp/mhd2018/\">MUSIC HACK DAY Tokyo 2018</a>に<a href=\"http://hackathon.songle.jp\">Songle API</a>開発チームとして参加しました。APIを<a href=\"https://twitter.com/arcatdmz/status/960140907260489728\">多くの方</a>に使っていただくことができて嬉しかったです。今週末は<a href=\"${rootPath}ja/textalive\">TextAlive</a>で制作した歌詞アニメーションが<a href=\"http://docs.textalive.jp/snowmiku2018/\">SNOW MIKU LIVE! 2018</a>で使われます。楽しみです！"
