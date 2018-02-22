@@ -1,0 +1,23 @@
+extends ../../../_layout
+
+block lang
+  - var lang = 'ja';
+
+block vars
+  - p = projectsTable['teaparty'];
+  - title = '第7回 名状しがたいお茶会';
+  - me = p.project + '/';
+
+block main
+  section
+    h1.ui.header 第7回 名状しがたいお茶会
+    .ui.horizontal.divided.list
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | 2018/1/28
+  .ui.hidden.divider
+  section#timetable
+    h2.ui.header タイムテーブル
+    .ui.basic.segment
+      iframe(src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQmYZaNWiUzNorraA1ZsFgUT3hDZyZQZmwrfLdoRwRXJfN4Lur1zaWsCu2lRXrDtStn25x-3gQ6eclr/pubhtml?gid=318679183&amp;single=true&amp;widget=true&amp;headers=false', style='width: 100%; height: 640px;')
