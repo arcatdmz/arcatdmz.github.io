@@ -9,6 +9,11 @@ block vars
   - me = p.project + '/';
 
 block main
+  .ui.breadcrumb
+    a.section(href=basePath+me) 名状しがたいお茶会
+    i.right.angle.icon.divider
+    .active.section 第7回 (2018)
+  .ui.divider
   section
     h1.ui.header 第7回 名状しがたいお茶会
     .ui.horizontal.divided.list
@@ -17,7 +22,20 @@ block main
           i.calendar.icon
           | 2018/1/28
   .ui.hidden.divider
+  section#summary
+    h2.ui.header 概要
+    .ui.basic.segment
+      p 32名が参加し、「科学」「技術」そして「語る」「奏でる」「動かす」「描く」のセッションで発表しました。おやつのマカロンが好評だったようです。懇親会の時間を長く取ることができました。
+      p 会場は2年前からWantedlyさんにご提供いただいています。様子は
+        a(href=`${basePath+me}2016`) こちら
+        | からご覧ください。
+  .ui.hidden.divider
   section#timetable
     h2.ui.header タイムテーブル
     .ui.basic.segment
       iframe(src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQmYZaNWiUzNorraA1ZsFgUT3hDZyZQZmwrfLdoRwRXJfN4Lur1zaWsCu2lRXrDtStn25x-3gQ6eclr/pubhtml?gid=318679183&amp;single=true&amp;widget=true&amp;headers=false', style='width: 100%; height: 640px;')
+  .ui.divider
+  .ui.breadcrumb
+    a.section(href=basePath+me) 名状しがたいお茶会
+    i.right.angle.icon.divider
+    .active.section 第7回 (2018)

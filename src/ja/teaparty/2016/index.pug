@@ -9,6 +9,11 @@ block vars
   - me = p.project + '/';
 
 block main
+  .ui.breadcrumb
+    a.section(href=basePath+me) 名状しがたいお茶会
+    i.right.angle.icon.divider
+    .active.section 第5回 (2016)
+  .ui.divider
   section
     h1.ui.header 第5回 名状しがたいお茶会
     .ui.horizontal.divided.list
@@ -51,6 +56,11 @@ block main
           .ui.hidden.divider
           //- img.ui.fluid.image(src='8577bc68-4b7e-41b2-8f3f-8819a487bd16.png')
           //- .caption 会場までの地図
+  .ui.divider
+  .ui.breadcrumb
+    a.section(href=basePath+me) 名状しがたいお茶会
+    i.right.angle.icon.divider
+    .active.section 第5回 (2016)
 
 mixin details()
   section#details
