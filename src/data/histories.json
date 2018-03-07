@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "3/7/2018",
+      "text": "Organized <a href=\"http://sigpx.org/en/4\">The Forth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at The University of Tokyo."
+    },
+    {
       "date": "2/18/2018",
       "text": "With <a href=\"${rootPath}textalive\">TextAlive</a>, I created <a href=\"https://www.youtube.com/watch?v=0assSnUjkLA&amp;list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo\">lyrics animation videos</a> used in <a href=\"https://www.youtube.com/watch?v=0USE9AMu8i8\">SNOW MIKU LIVE! 2018</a>, a live performance by a renowned virtual idol singer - Hatsune Miku!"
     },
