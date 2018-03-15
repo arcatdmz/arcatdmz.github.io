@@ -224,7 +224,7 @@
     },
     {
       "date": "1/21/2018",
-      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/\">デザインポートフォリオ</a>を新設しました。"
+      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/design\">デザインポートフォリオ</a>を新設しました。"
     },
     {
       "date": "10/19/2017",
