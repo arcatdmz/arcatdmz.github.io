@@ -203,6 +203,8 @@ function setupLocals() {
     if (typeof website[key] !== 'string') continue;
     locals[key] = website[key];
   }
+
+  locals.stripTags = function(text) { return text.replace(/(<([^>]+)>)/ig,""); };
   return locals;
 }
 

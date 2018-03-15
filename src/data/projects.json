@@ -72,6 +72,24 @@
   },
   "projects": [
     {
+      "project": "science",
+      "thumbnail": "science.jpg",
+      "icon": "science.jpg",
+      "title": "Metascience",
+      "subtitle": "Human-Computer Interaction for Science",
+      "description": "The goal of this ongoing project is to develop human-friendly computer-aided technologies that help researchers to conduct scientific research.",
+      "year": {
+        "from": 2018
+      },
+      "url": false,
+      "ja": {
+        "title": "メタ科学",
+        "subtitle": "科学のためのHuman-Computer Interaction",
+        "description": "研究者の研究手法について調べ、それをコンピュータで支援する技術を開発したいと考えています。",
+        "url": "/ja/science"
+      }
+    },
+    {
       "project": "design",
       "category": "concept",
       "title": "Design",
@@ -93,7 +111,6 @@
     },
     {
       "project": "programming-with-examples",
-      "thumbnail": "programming-with-examples.png",
       "category": "concept",
       "title": "Programming with Examples",
       "description": "<p>The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data.</p><p>This is particularly useful in developing data-intensive applications such as physical computing, image processing, video authoring, machine learning, and others that require intensive parameter tuning.</p>",
@@ -116,7 +133,6 @@
         "graphic"
       ],
       "category": "private",
-      "thumbnail": "snowmiku2018.png",
       "icon": "snowmiku2018.png",
       "description": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
       "description-design": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
@@ -242,7 +258,6 @@
     },
     {
       "project": "live-tuning",
-      "thumbnail": "live-tuning.png",
       "icon": "live-tuning.png",
       "tags": [
         "live-programming",
@@ -491,7 +506,6 @@
         "nui"
       ],
       "publication": "uist2012-kato-dejavu",
-      "thumbnail": "dejavu.png",
       "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> that eases the iterative development of interactive camera-based programs with support for monitoring, recording, reviewing, and reprocess temporal data",
       "ja": {
         "description": "Kinectなどのカメラ入力を用いたインタラクティブなアプリケーション開発を支援する統合開発環境です。カメラ入力を自動録画し、プログラム実行結果を何度も再生したり、プログラムを修正して実行結果を更新したりできます。"

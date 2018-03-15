@@ -17,11 +17,11 @@ mixin head()
   - }
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  title !{title} | junkato.jp
+  title !{stripTags(title)} | junkato.jp
   meta(name='author', content=author)
   meta(name='description', content=description)
   // for SEO
-  meta(itemprop='name', content=title)
+  meta(itemprop='name', content=stripTags(title))
   meta(itemprop='description', content=description)
   - if (imageUrl) {
   meta(itemprop='image', content=imageUrl)
@@ -68,7 +68,7 @@ mixin sidebar()
           | !{p.getTitle(lang)}
         - }
         .ui.divider
-        a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+        a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
         a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
   a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
@@ -120,7 +120,7 @@ mixin header()
           a.item(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
           - }
           .ui.divider
-          a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+          a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
           a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.fitted.icon
