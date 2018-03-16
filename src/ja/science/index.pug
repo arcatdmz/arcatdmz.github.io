@@ -61,24 +61,30 @@ mixin reproducibility()
       | 論文PDF
       i.chevron.circle.right.icon
   .ui.basic.segment
-    p 本特集には他に以下の記事が掲載されており、すべて三浦 麻子氏のWebページからリンクを追って閲覧できます。
+    h3.ui.header: .content 特集号掲載論文
+    p 本特集には他に以下の記事が掲載されており、すべてWeb上で閲覧できます。
     table.ui.striped.small.table
       tr
-        td 松田 昌史
-        td 特集によせて: 心理学界を他山の石とする
+        td.four.wide 松田 昌史
+        td.twelve.wide: a(href="https://www.dropbox.com/s/0sme5as2cqupiyq/Matsuda2018HI.pdf?dl=0") 特集によせて: 心理学界を他山の石とする
       tr
         td 三浦 麻子
-        td 人を対象とした行動学研究における再現性問題
+        td: a(href="https://www.dropbox.com/s/dzliec1cr9usyds/Miura2018HI.pdf?dl=0") 人を対象とした行動学研究における再現性問題
       tr
         td 樋口 匡貴・藤島 喜嗣
-        td アスタリスク～真実の意思を求め(すぎ)て
+        td: a(href="https://osf.io/zua7d/") アスタリスク～真実の意思を求め(すぎ)て
       tr
         td 山田 祐樹
-        td 再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―
-  .ui.basic.right.aligned.segment
-    a.ui.primary.button(href="http://team1mile.com/asarinlab/2018/02/26/his2018/")
-      | 三浦 麻子氏のWebページ
-      i.chevron.circle.right.icon
+        td: a(href="https://osf.io/w9u6d") 再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―
+  .ui.basic.segment
+    h3.ui.header: .content 著者Webページ
+    .ui.divided.small.list
+      .item
+        a(href="http://team1mile.com/asarinlab/2018/02/26/his2018/") 論文が公刊されました &#8211; 関西学院大学文学部社会心理学研究室
+        |  (三浦 麻子)
+      .item
+        a(href="https://note.mu/momentumyy/n/n3b1ee3bcf81a") 心理学の再現可能性問題は心理学的問題
+        |  (山田 祐樹)
 
 mixin mitnse()
   h2.ui.header: .content MIT原子力理工学部による原子力発電の解説（翻訳）
