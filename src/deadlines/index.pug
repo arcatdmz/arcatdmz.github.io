@@ -1,0 +1,31 @@
+extends ../_layout
+
+block vars
+  - title = en ? 'Active Deadlines' : '〆切';
+  - me = 'deadlines/';
+
+block main
+  section
+    h1.ui.header
+      i.hourglass.half.icon
+      | #{title}
+  .ui.hidden.clearing.divider
+  .ui.stackable.three.columns.divided.grid
+    .column
+      h2.ui.header ACM UIST 2018 submission deadline
+      .basic.segment
+        iframe(src="//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-05T17:00:00/pa10", allowTransparency="true", frameborder="0", width="155", height="55")
+      .ui.right.aligned.basic.segment
+        a(href="//www.timeanddate.com/countdown/generic?iso=20180405T17&p0=234&msg=ACM+UIST+submission+deadline&font=cursive") Show the countdown timer
+    .column
+      h2.ui.header ACM Multimedia 2018 submission deadline
+      .basic.segment
+        iframe(src="//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-08T23:59:59/pa10", allowTransparency="true", frameborder="0", width="155", height="55")
+      .ui.right.aligned.basic.segment
+        a(href="//www.timeanddate.com/countdown/generic?iso=20180408T235959&p0=234&msg=ACM+Multimedia+submission+deadline&font=cursive") Show the countdown timer
+    .column
+      h2.ui.header IEEE VL/HCC 2018 submission deadline
+      .basic.segment
+        iframe(src="//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-13T23:59:59/pa10", allowTransparency="true", frameborder="0", width="155", height="55")
+      .ui.right.aligned.basic.segment
+        a(href="//www.timeanddate.com/countdown/generic?iso=20180413T235959&p0=3399&msg=IEEE+VL/HCC+submission+deadline&font=cursive") Show the countdown timer
