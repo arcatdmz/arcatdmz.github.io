@@ -1,6 +1,9 @@
 {
   "en": [
     {
+      "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
+    },
+    {
       "date": "3/7/2018",
       "text": "Organized <a href=\"http://sigpx.org/en/4\">The Forth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at The University of Tokyo."
     },
@@ -202,6 +205,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "4/29/2018",
+      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>で<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文の登壇発表（<a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">デモ動画</a>, <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">スライド</a>）がありました。5月25日に<a href=\"https://twitter.com/Yuta_Sugiura/status/990140503076159488\">慶應大学 情報工学特別講義</a>で講演します。"
+    },
     {
       "date": "3/16/2018",
       "text": "ヒューマンインタフェース学会誌 第20巻1号「特集: 研究再現性問題」に「<a href=\"${rootPath}publications/hi20-kato-reproducibility.pdf\">ヒューマンインタフェース研究における再現性向上に向けた取り組み</a>」を寄稿しました。これに合わせて、<a href=\"${rootPath}ja/science\">これまでのメタ科学的な取り組みをまとめたページ</a>を公開しました。"
