@@ -1,6 +1,7 @@
 {
   "en": [
     {
+      "date": "4/28/2018",
       "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
     },
     {
