@@ -15,7 +15,7 @@ export enum EntryDateType {
 export class Entry {
   public dateType: EntryDateType;
   public date: Date;
-  public endDate: Date;
+  public endDate: Date | undefined;
   public text: string | I18nText;
   public entryType: string | undefined;
   constructor(date: string, text: string | I18nText, entryType: string | undefined) {
@@ -35,7 +35,7 @@ export class Entry {
     this.entryType = entryType;
   }
   public getDateString(lang: string) {
-    const d = this.date, ed = this.endDate;
+    const d = this.date, ed = this.endDate || new Date();
     switch (this.dateType) {
       case EntryDateType.Year:
         return lang === 'en'
