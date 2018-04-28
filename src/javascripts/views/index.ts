@@ -35,7 +35,7 @@ import(/* webpackChunkName: "library" */ './library').then(Library => {
 
 const num = 5;
 const $moreButton = $('a.more');
-var cursor = num, entries: any[];
+var cursor = num, entries: any[] | undefined;
 $moreButton
   .removeClass('disabled')
   .on('click touch', () => {
@@ -46,7 +46,7 @@ $moreButton
     import(/* webpackChunkName: "histories" */ '../histories').then((histories) => {
       $moreButton.removeClass('loading disabled');
       entries = histories.default[lang];
-      handleEntries(entries);
+      if (entries) handleEntries(entries);
     });
 });
 

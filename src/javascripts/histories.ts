@@ -18,8 +18,8 @@ class Entry {
 }
 
 class Entries {
-  en: Entry[] = [];
-  ja: Entry[] = [];
+  en?: Entry[];
+  ja?: Entry[];
 }
 
 interface RawEntry {

@@ -40,9 +40,10 @@ mixin timeline()
           i.book.icon
           | publication records
         |  in their chronological order.
-  - var i = 0, year = new Date().getFullYear();
-  - while (i < histories[lang].length) {
-  - const y = year;
+  -
+    var i = 0, year = new Date().getFullYear();
+    while (i < histories[lang].length) {
+      const y = year;
   .ui.hidden.divider
   section(id=y)
     h2.ui.header #{en ? y : `${y}年`}
