@@ -245,14 +245,15 @@
       "year": {
         "from": 2017
       },
-      "title": "Songle Sync Tutorial",
+      "publication": "mm2018-kato-songlesync",
+      "title": "Songle Sync",
       "title-design": "Songle Sync brand design",
-      "description": "An interactive tutorial for the Songle Sync <abbr title=\"Application Programming Interface\">API</abbr> that allows controlling numerous devices in synchrony with the songs.",
+      "description": "The Songle Sync platform allows controlling numerous devices in synchrony with the songs with its <abbr title=\"Software Development Kit\">SDK</abbr> (<abbr title=\"Application Programming Interface\">API</abbr>, example code, and tutorials.)",
       "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"${rootPath}songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
       "url": "http://tutorial.songle.jp/sync",
       "ja": {
         "title-design": "Songle Sync ブランドデザイン",
-        "description": "多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title=\"Application Programming Interface\">API</abbr>のためのインタラクティブなチュートリアルです。",
+        "description": "Songle Syncは、多種多様なデバイスを音楽と同期して制御できるアプリケーションを容易に開発できるプラットフォームです。すぐに使える<abbr title=\"Software Development Kit; 開発キット\">SDK</abbr>（<abbr title=\"Application Programming Interface\">API</abbr>、サンプルコード、チュートリアル）が整備されています。",
         "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"${rootPath}ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
       }
     },
