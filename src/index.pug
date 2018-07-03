@@ -35,9 +35,9 @@ block post-footer
         a.item(href=`${basePath}#recent-projects`)
           i.right.triangle.icon
           | #{en ? 'Recent' : '最近のもの'}
-        a.item(href=`${basePath}#previous-projects`)
+        a.item(href=`${basePath}#other-projects`)
           i.right.triangle.icon
-          | #{en ? 'Previous' : '以前のもの'}
+          | #{en ? 'Other' : 'その他'}
         a.item(href=`${basePath}#private-projects`)
           i.right.triangle.icon
           | #{en ? 'Non-research' : '研究以外'}
@@ -167,8 +167,8 @@ mixin projects()
       - for (const p of recentProjects) {
       +render-project-card(p)
       - }
-    h3.ui.header#previous-projects #{en ? 'Previous research projects' : '以前の研究プロジェクト'}
-    .ui.segment: .ui.divided.items.projects#previous-projects-list
+    h3.ui.header#other-projects #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
+    .ui.segment: .ui.divided.items.projects#other-projects-list
       - for (const p of projects) {
       //- skip recent projects
       - if (recentProjects.indexOf(p) >= 0) continue;

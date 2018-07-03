@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "4/28/2018",
+      "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
+    },
+    {
       "date": "3/7/2018",
       "text": "Organized <a href=\"http://sigpx.org/en/4\">The Forth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at The University of Tokyo."
     },
@@ -203,6 +207,14 @@
   ],
   "ja": [
     {
+      "date": "4/29/2018",
+      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>で<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文の登壇発表（<a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">デモ動画</a>, <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">スライド</a>）がありました。5月25日に<a href=\"https://twitter.com/Yuta_Sugiura/status/990140503076159488\">慶應大学 情報工学特別講義</a>で講演します。"
+    },
+    {
+      "date": "3/16/2018",
+      "text": "ヒューマンインタフェース学会誌 第20巻1号「特集: 研究再現性問題」に「<a href=\"${rootPath}publications/hi20-kato-reproducibility.pdf\">ヒューマンインタフェース研究における再現性向上に向けた取り組み</a>」を寄稿しました。これに合わせて、<a href=\"${rootPath}ja/science\">これまでのメタ科学的な取り組みをまとめたページ</a>を公開しました。"
+    },
+    {
       "date": "2/18/2018",
       "text": "2月9-10日に札幌で開催された「<a href=\"https://www.youtube.com/watch?v=0USE9AMu8i8\">SNOW MIKU LIVE! 2018</a>」で、SNOW MIKU 2018テーマソングであり、ライブ最後のアンコール曲を飾った「四角い地球を丸くする」の映像制作を行いました。私の研究プロジェクトである<a href=\"${rootPath}textalive\">TextAlive</a>で制作した<a href=\"https://www.youtube.com/watch?v=0assSnUjkLA&amp;list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo\">歌詞アニメーション</a>が、紗幕上方に大画面で流れました。"
     },
@@ -220,7 +232,7 @@
     },
     {
       "date": "1/21/2018",
-      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/\">デザインポートフォリオ</a>を新設しました。"
+      "text": "ウェブサイトをリニューアルしました。<a href=\"${rootPath}ja/website\">作り方を公開</a>しています。見た目や使い勝手が変わった以外で、内容面では<a href=\"${rootPath}ja/live-programming\">Live Programming</a>のページ、<a href=\"${rootPath}ja/f3js\">f3.js</a>のプロジェクトページ、そして<a href=\"${rootPath}ja/design\">デザインポートフォリオ</a>を新設しました。"
     },
     {
       "date": "10/19/2017",

@@ -72,6 +72,24 @@
   },
   "projects": [
     {
+      "project": "science",
+      "thumbnail": "science.jpg",
+      "icon": "science.jpg",
+      "title": "Metascience",
+      "subtitle": "Human-Computer Interaction for Science",
+      "description": "The goal of this ongoing project is to develop human-friendly computer-aided technologies that help researchers to conduct scientific research.",
+      "year": {
+        "from": 2018
+      },
+      "url": false,
+      "ja": {
+        "title": "メタ科学",
+        "subtitle": "科学のためのHuman-Computer Interaction",
+        "description": "研究者の研究手法について調べ、それをコンピュータで支援する技術を開発したいと考えています。",
+        "url": "/ja/science"
+      }
+    },
+    {
       "project": "design",
       "category": "concept",
       "title": "Design",
@@ -93,7 +111,6 @@
     },
     {
       "project": "programming-with-examples",
-      "thumbnail": "programming-with-examples.png",
       "category": "concept",
       "title": "Programming with Examples",
       "description": "<p>The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data.</p><p>This is particularly useful in developing data-intensive applications such as physical computing, image processing, video authoring, machine learning, and others that require intensive parameter tuning.</p>",
@@ -116,7 +133,6 @@
         "graphic"
       ],
       "category": "private",
-      "thumbnail": "snowmiku2018.png",
       "icon": "snowmiku2018.png",
       "description": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
       "description-design": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
@@ -229,20 +245,20 @@
       "year": {
         "from": 2017
       },
-      "title": "Songle Sync Tutorial",
+      "publication": "mm2018-kato-songlesync",
+      "title": "Songle Sync",
       "title-design": "Songle Sync brand design",
-      "description": "An interactive tutorial for the Songle Sync <abbr title=\"Application Programming Interface\">API</abbr> that allows controlling numerous devices in synchrony with the songs.",
+      "description": "The Songle Sync platform allows controlling numerous devices in synchrony with the songs with its <abbr title=\"Software Development Kit\">SDK</abbr>.",
       "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"${rootPath}songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
       "url": "http://tutorial.songle.jp/sync",
       "ja": {
         "title-design": "Songle Sync ブランドデザイン",
-        "description": "多種多様なデバイスを音楽と同期して制御できるSongle Sync <abbr title=\"Application Programming Interface\">API</abbr>のためのインタラクティブなチュートリアルです。",
+        "description": "Songle Syncは、多種多様なデバイスを音楽と同期して制御できるアプリケーションを容易に開発できる<abbr title=\"Software Development Kit; 開発キット\">SDK</abbr>が整備されたプラットフォームです。",
         "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"${rootPath}ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
       }
     },
     {
       "project": "live-tuning",
-      "thumbnail": "live-tuning.png",
       "icon": "live-tuning.png",
       "tags": [
         "live-programming",
@@ -491,7 +507,6 @@
         "nui"
       ],
       "publication": "uist2012-kato-dejavu",
-      "thumbnail": "dejavu.png",
       "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> that eases the iterative development of interactive camera-based programs with support for monitoring, recording, reviewing, and reprocess temporal data",
       "ja": {
         "description": "Kinectなどのカメラ入力を用いたインタラクティブなアプリケーション開発を支援する統合開発環境です。カメラ入力を自動録画し、プログラム実行結果を何度も再生したり、プログラムを修正して実行結果を更新したりできます。"

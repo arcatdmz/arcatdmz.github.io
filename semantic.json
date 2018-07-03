@@ -15,17 +15,9 @@
     },
     "clean": "../dist/semantic/"
   },
-  "components": [
-    "sidebar",
-    "transition",
-    "embed",
-    "dropdown",
-    "popup",
-    "modal",
-    "dimmer"
-  ],
+  "components": ["sidebar", "transition", "embed", "dropdown", "popup", "modal", "dimmer"],
   "permission": false,
   "autoInstall": false,
   "rtl": false,
-  "version": "2.2.13"
+  "version": "2.3.1"
 }

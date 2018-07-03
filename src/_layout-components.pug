@@ -17,11 +17,11 @@ mixin head()
   - }
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  title !{title} | junkato.jp
+  title !{stripTags(title)} | junkato.jp
   meta(name='author', content=author)
   meta(name='description', content=description)
   // for SEO
-  meta(itemprop='name', content=title)
+  meta(itemprop='name', content=stripTags(title))
   meta(itemprop='description', content=description)
   - if (imageUrl) {
   meta(itemprop='image', content=imageUrl)
@@ -68,13 +68,13 @@ mixin sidebar()
           | !{p.getTitle(lang)}
         - }
         .ui.divider
-        a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+        a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
         a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
   a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
     | #{en ? 'Publications' : '発表文献'}
   a.item(href=`${basePath}design`, class=getItemClass('design/'))
-    i.paint.brush.fitted.icon
+    i.paint.brush.icon
     | #{en ? 'Design' : 'デザイン'}
   a.item(href=`${basePath}activities`, class=getItemClass('activities/'))
     i.student.icon
@@ -87,14 +87,14 @@ mixin sidebar()
     | #{en ? 'Collaborations' : '共同研究'}
   - if (en) {
   a.item(href=`${rootPath}ja/${me}`)
-    i.translate.fitted.icon
+    i.translate.icon
     | 日本語
   - } else {
   a.item(href=`${rootPath}ja/blog`)
-    i.wordpress.fitted.icon
+    i.wordpress.icon
     | ブログ
   a.item(href=`${rootPath}${me}`)
-    i.translate.fitted.icon
+    i.translate.icon
     | English
   - }
 
@@ -104,11 +104,11 @@ mixin header()
       span.mobile.hidden #{author}
       span.print-hidden.mobile.only: i.user.icon
     a.mobile.hidden.item(href=`${basePath}#contact`)
-      i.address.card.fitted.icon
+      i.address.card.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Contact' : '連絡先'}
     block projects-header-menu
       .ui.dropdown.mobile.hidden.item(href=`${basePath}#projects`)
-        i.lab.fitted.icon
+        i.lab.icon
         span.print-hidden.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
         .menu
           a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
@@ -120,22 +120,22 @@ mixin header()
           a.item(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
           - }
           .ui.divider
-          a.item(href=`${basePath}#previous-projects`) #{en ? 'Previous projects' : '以前のプロジェクト'}
+          a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
           a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
-      i.text.file.fitted.icon
+      i.text.file.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}
     a.mobile.hidden.item(href=`${basePath}design`, class=getItemClass('design/'))
-      i.paint.brush.fitted.icon
+      i.paint.brush.icon
       span.print-hidden(class = en ? 'tablet or lower hidden' : 'computer or lower hidden') #{en ? 'Design' : 'デザイン'}
     a.mobile.hidden.item(href=`${basePath}activities`, class=getItemClass('activities/'))
-      i.student.fitted.icon
+      i.student.icon
       span.print-hidden(class = en ? 'tablet or lower hidden' : 'computer or lower hidden') #{en ? 'Activities' : '職務活動'}
     a.mobile.hidden.item(href=`${basePath}timeline`, class=getItemClass('timeline/'))
-      i.history.fitted.icon
+      i.history.icon
       span.print-hidden.computer.or.lower.hidden #{en ? 'Timeline' : '活動履歴'}
     a.mobile.hidden.item(href=`${basePath}collaborations`, class=getItemClass('collaborations/'))
-      i.handshake.fitted.icon
+      i.handshake.icon
       span.print-hidden.computer.or.lower.hidden #{en ? 'Collaborations' : '共同研究'}
     .right.menu
       +right-header-menu()
@@ -143,19 +143,19 @@ mixin header()
 mixin right-header-menu()
   - if (en) {
   a.item(href=`${rootPath}ja/${me}`)
-    i.translate.fitted.icon
+    i.translate.icon
     span.print-hidden 日本語
   - } else {
   a.item(href=`${rootPath}ja/blog`)
-    i.wordpress.fitted.icon
+    i.wordpress.icon
     span.print-hidden.tablet.or.lower.hidden ブログ
   a.item(href=`${rootPath}${me}`)
-    i.translate.fitted.icon
+    i.translate.icon
     span.print-hidden English
   - }
   a.item.print-hidden.sidebar-button(href='#')
-    i.sidebar.fitted.icon
-    | #{en ? 'Menu' : 'メニュー'}
+    i.sidebar.icon
+    span.widescreen.monitor.only #{en ? 'Menu' : 'メニュー'}
 
 mixin footer()
   footer.ui.center.aligned.basic.segment
