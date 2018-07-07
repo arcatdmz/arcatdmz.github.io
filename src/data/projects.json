@@ -72,6 +72,25 @@
   },
   "projects": [
     {
+      "project": "deployground",
+      "thumbnail": "coming-soon.png",
+      "publication": "vlhcc2018-kato-deployground",
+      "title": "DeployGround",
+      "subtitle": "A Framework for Streamlined Programming from API Playgrounds to Application Deployment",
+      "description": "DeployGround seamlessly connects the <abbr title=\"Application Programming Interfaces\">API</abbr> playground and deployment target for kick-starting the application development after using the playground.",
+      "year": {
+        "from": 2018
+      },
+      "tags": [
+        "live-programming",
+        "ide"
+      ],
+      "url": false,
+      "ja": {
+        "description": "<abbr title=\"Application Programming Interfaces\">API</abbr>チュートリアルに開発環境の機能を組み込み、サンプルプログラムの開発からデプロイまで支援するフレームワークです。"
+      }
+    },
+    {
       "project": "science",
       "thumbnail": "science.jpg",
       "icon": "science.jpg",
