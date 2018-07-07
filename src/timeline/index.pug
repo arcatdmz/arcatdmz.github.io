@@ -111,7 +111,7 @@ mixin all(f, y)
     for (const entry of publications) {
       if (!entry.entryTags) continue;
       if (en && entry.entryTags.language === 'japanese') continue;
-      if (!f(entry.entryTags.year)) continue;
+      if (!f(parseInt(entry.entryTags.year))) continue;
       ps.push(entry);
     }
     if (ps.length > 0) {
