@@ -27,6 +27,7 @@ html(lang='en')
       h2 { font-size: 16pt; }
 
       h3 { margin: .4em 0 .2em 0; font-size: 12pt; }
+      h3.papers { margin: .4em 0; padding-bottom: .2em; border: solid #999; border-width: 0 0 1px 0; }
       h4 { margin: .1em 0; font-size: 11pt; }
 
       h4.wp { margin: .3em 0 0 0; }
@@ -102,7 +103,7 @@ html(lang='en')
         li 
           a(href='#references') References
     #container
-      p#updated Updated: 7/3/2018
+      p#updated Updated: 7/7/2018
       h1 Jun Kato
       p
         | Jun Kato is a Human-Computer Interaction researcher at 
@@ -154,7 +155,7 @@ html(lang='en')
           | Microsoft Research Redmond 
           abbr(title='Research in Software Engineering') RiSE
           |  Group
-        | (June 2012 - September 2012)
+        |  (June 2012 - September 2012)
       p
         | Worked with 
         a(href='http://research.microsoft.com/en-us/people/sburckha/') Sebastian Burckhardt
@@ -378,12 +379,12 @@ html(lang='en')
         a(href='#chi2009-multirobot') Publications
         | .
       h2#publications.page-break Publications
-      h3 Journal paper
+      h3.papers Journal paper
       h4#jnmr2017.wp 
         a(href='http://dx.doi.org/10.1080/09298215.2017.1303519') The CrossSong Puzzle: Developing a Logic Puzzle for Musical Thinking
         p Journal of New Music Research
       p
-        | Jordan Smith,
+        | Jordan Smith, 
         b Jun Kato
         | , Satoru Fukayama, Graham Percival and Masataka Goto, The CrossSong Puzzle: Developing a Logic Puzzle for Musical Thinking. In 
         i Journal of New Music Research
@@ -408,7 +409,14 @@ html(lang='en')
         |  (2011). IPSJ, 
         a(href='http://ci.nii.ac.jp/naid/110008507978/en') Vol. 52, No. 4
         | , 1425-1437.
-      h3 Refereed international conference and workshop papers
+      h3.papers Refereed international conference and workshop papers
+      h4#vlhcc2018-deployground.wp DeployGround: A Framework for Streamlined Programming from API Playgrounds to Application Deployment (to appear)
+        p IEEE VL/HCC '18
+      p
+        b Jun Kato
+        |  and Masataka Goto. In 
+        i Proceedings of VL/HCC '18: Proceedings of the 2018 IEEE Symposium on Visual Languages and Human-Centric Computing
+        |  (Lisbon, Portugal, 2018).
       h4#mm2018-songlesync.wp Songle Sync: A Large-Scale Web-based Platform for Controlling Various Devices in Synchronization with Music (to appear)
         p ACM MM '18 (acceptance rate: 27.5%; oral presentation: 8.5%)
       p
@@ -553,7 +561,7 @@ html(lang='en')
         | , Daisuke Sakamoto and Takeo Igarashi. In 
         i Proceedings of the 9th conference on Designing Interactive Systems
         |  (Newcastle Upon Tyne, UK, June 11 - 15, 2012). ACM, New York, NY, 248-257.
-      h3 Refereed international conference posters and demonstrations
+      h3.papers Refereed international conference posters and demonstrations
       h4#dis2018-music.wp 
         a(href='https://doi.org/10.1145/3029798.3036666') Placing Music in Space: A Study on Music Appreciation with Spatial Mapping
         p ACM DIS '18 poster
@@ -641,14 +649,24 @@ html(lang='en')
       ul
         li
           | Program Committee for 
+          a(href='http://2018.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2018
+          |  
+          a(href='https://2018.splashcon.org/track/live-2018-papers') LIVE
+          |  workshop
+        li
+          | Program Committee for 
           a(href='https://uist.acm.org/uist2018/organizers', title='The 31st annual ACM symposium on User Interface Software and Technology') ACM UIST 2018
+        li
+          | Organizing Committee for 
+          a(href='http://hci.tokyo/chi2018/') Asian CHI Symposium on Emerging HCI Research Collection 2018
         li
           | Program Committee for 
           a(href='https://2018.programming-conference.org', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2018
           |  conference
         li
           | Program Committee for 
-          a(href='http://2017.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2017 
+          a(href='http://2017.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2017
+          |  
           a(href='http://2017.splashcon.org/track/px-17-2') PX/17.2
           |  and 
           a(href='https://2017.splashcon.org/track/live-2017') LIVE
@@ -658,12 +676,13 @@ html(lang='en')
           a(href='https://uist.acm.org/uist2017/#program-committee', title='The 30th annual ACM symposium on User Interface Software and Technology') ACM UIST 2017
         li
           | Program Committee for 
-          a(href='http://2016.ecoop.org/home', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2017 
+          a(href='http://2016.ecoop.org/home', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2017
+          |  
           a(href='http://2017.programming-conference.org/track/px-2017/', title='The second edition of the Programming Experience workshop') PX/17.1
           |  workshop
         li
           | Organizing Committee for 
-          a(href='http://hci.tokyo/chi2017/') ACM CHI 2017 Symposium on Emerging Japanese HCI Research Collection
+          a(href='http://hci.tokyo/chi2017/') Asian CHI Symposium on Emerging HCI Research Collection 2017
         li
           | Demo &amp; Video Co-chair for 
           a(href='http://humanrobotinteraction.org/2017/', title='The 2017 Conference on Human-Robot Interaction') IEEE/ACM HRI 2017
@@ -676,7 +695,8 @@ html(lang='en')
           a(href='http://iss2016.acm.org/', title='The 2016 ACM International Conference on Interactive Surfaces and Spaces') ACM ISS 2016
         li
           | Program Committee for 
-          a(href='http://2016.ecoop.org/home', title='The 30th European Conference on Object-Oriented Programming') ECOOP 2016 
+          a(href='http://2016.ecoop.org/home', title='The 30th European Conference on Object-Oriented Programming') ECOOP 2016
+          |  
           a(href='http://2016.ecoop.org/track/PX-2016', title='The first edition of the Programming Experience workshop') PX
           |  and 
           a(href='http://2016.ecoop.org/track/LIVE-2016', title='The second workshop on Live Programming systems') LIVE
