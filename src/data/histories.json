@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "7/9/2018",
+      "text": "Started a new part-time technical advisor position at <a href=\"http://archinc.jp\">ARCH Inc.</a>, a Japanese animation production company. Please contact me if you want to pursue research on &quot;Japanimation!&quot;"
+    },
+    {
       "date": "7/7/2018",
       "text": "My first-authored papers about <a href=\"${rootPath}#projects\">Songle Sync</a> and <a href=\"${rootPath}#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
     },
@@ -210,6 +214,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "7/9/2018",
+      "text": "<a href=\"http://archinc.jp\">アーチ株式会社</a>で技術顧問（非常勤）になりました。詳しくは<a href=\"https://junkato.jp/ja/blog/2018/06/09/arch-inc-technical-advisor/\">ブログ記事</a>をご覧ください。"
+    },
     {
       "date": "7/7/2018",
       "text": "<a href=\"${rootPath}#projects\">Songle Sync</a>および<a href=\"${rootPath}#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
