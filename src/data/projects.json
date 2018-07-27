@@ -72,6 +72,25 @@
   },
   "projects": [
     {
+      "project": "deployground",
+      "thumbnail": "coming-soon.png",
+      "publication": "vlhcc2018-kato-deployground",
+      "title": "DeployGround",
+      "subtitle": "A Framework for Streamlined Programming from API Playgrounds to Application Deployment",
+      "description": "DeployGround seamlessly connects the <abbr title=\"Application Programming Interfaces\">API</abbr> playground and deployment target for kick-starting the application development after using the playground.",
+      "year": {
+        "from": 2018
+      },
+      "tags": [
+        "live-programming",
+        "ide"
+      ],
+      "url": false,
+      "ja": {
+        "description": "<abbr title=\"Application Programming Interfaces\">API</abbr>チュートリアルに開発環境の機能を組み込み、サンプルプログラムの開発からデプロイまで支援するフレームワークです。"
+      }
+    },
+    {
       "project": "science",
       "thumbnail": "science.jpg",
       "icon": "science.jpg",
@@ -253,7 +272,7 @@
       "url": "http://tutorial.songle.jp/sync",
       "ja": {
         "title-design": "Songle Sync ブランドデザイン",
-        "description": "Songle Syncは、多種多様なデバイスを音楽と同期して制御できるアプリケーションを容易に開発できる<abbr title=\"Software Development Kit; 開発キット\">SDK</abbr>が整備されたプラットフォームです。",
+        "description": "多種多様なデバイスを音楽と同期して制御できるアプリケーションを容易に開発できる<abbr title=\"Software Development Kit; 開発キット\">SDK</abbr>が整備されたプラットフォームです。",
         "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"${rootPath}ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
       }
     },

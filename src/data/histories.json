@@ -1,6 +1,14 @@
 {
   "en": [
     {
+      "date": "7/9/2018",
+      "text": "Started a new part-time technical advisor position at <a href=\"http://archinc.jp\">ARCH Inc.</a>, a Japanese animation production company. Please contact me if you want to pursue research on &quot;Japanimation!&quot;"
+    },
+    {
+      "date": "7/7/2018",
+      "text": "My first-authored papers about <a href=\"${rootPath}#projects\">Songle Sync</a> and <a href=\"${rootPath}#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
+    },
+    {
       "date": "4/28/2018",
       "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
     },
@@ -206,6 +214,14 @@
     }
   ],
   "ja": [
+    {
+      "date": "7/9/2018",
+      "text": "<a href=\"http://archinc.jp\">アーチ株式会社</a>で技術顧問（非常勤）になりました。詳しくは<a href=\"https://junkato.jp/ja/blog/2018/06/09/arch-inc-technical-advisor/\">ブログ記事</a>をご覧ください。"
+    },
+    {
+      "date": "7/7/2018",
+      "text": "<a href=\"${rootPath}ja/#projects\">Songle Sync</a>および<a href=\"${rootPath}ja/#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
+    },
     {
       "date": "4/29/2018",
       "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>で<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文の登壇発表（<a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">デモ動画</a>, <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">スライド</a>）がありました。5月25日に<a href=\"https://twitter.com/Yuta_Sugiura/status/990140503076159488\">慶應大学 情報工学特別講義</a>で講演します。"

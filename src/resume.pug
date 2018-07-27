@@ -27,6 +27,7 @@ html(lang='en')
       h2 { font-size: 16pt; }
 
       h3 { margin: .4em 0 .2em 0; font-size: 12pt; }
+      h3.papers { margin: .4em 0; padding-bottom: .2em; border: solid #999; border-width: 0 0 1px 0; }
       h4 { margin: .1em 0; font-size: 11pt; }
 
       h4.wp { margin: .3em 0 0 0; }
@@ -102,13 +103,15 @@ html(lang='en')
         li 
           a(href='#references') References
     #container
-      p#updated Updated: 9/23/2017
+      p#updated Updated: 7/9/2018
       h1 Jun Kato
       p
         | Jun Kato is a Human-Computer Interaction researcher at 
         a(href='http://www.aist.go.jp/index_en.html')
           abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
-        | , where he works on designing tools for programming interactive media content. He received a Ph.D in Computer Science from The University of Tokyo in March, 2014. Prior to graduation, he worked as research intern at Microsoft Research Asia, Redmond, and Adobe Research Seattle.
+        | , where he works on designing tools for programming interactive media content. He also serves as a part-time technical advisor at 
+        a(href='http://archinc.jp') ARCH Inc.
+        | , a Japanese animation production company. He received a Ph.D in Computer Science from The University of Tokyo in March, 2014. Prior to graduation, he worked as research intern at Microsoft Research Asia, Redmond, and Adobe Research Seattle.
       p
         | He has regularly gained academic recognition such as Microsoft Research Asia Fellowship 2012, ACM 
         abbr(title='The SIGCHI conference on Human Factors in Computing Systems') CHI
@@ -154,7 +157,7 @@ html(lang='en')
           | Microsoft Research Redmond 
           abbr(title='Research in Software Engineering') RiSE
           |  Group
-        | (June 2012 - September 2012)
+        |  (June 2012 - September 2012)
       p
         | Worked with 
         a(href='http://research.microsoft.com/en-us/people/sburckha/') Sebastian Burckhardt
@@ -378,16 +381,16 @@ html(lang='en')
         a(href='#chi2009-multirobot') Publications
         | .
       h2#publications.page-break Publications
-      h3 Journal paper
+      h3.papers Journal paper
       h4#jnmr2017.wp 
         a(href='http://dx.doi.org/10.1080/09298215.2017.1303519') The CrossSong Puzzle: Developing a Logic Puzzle for Musical Thinking
         p Journal of New Music Research
       p
-        | Jordan Smith,
+        | Jordan Smith, 
         b Jun Kato
-        | , Satoru Fukayama, Graham Percival and Masataka Goto, The CrossSong Puzzle: Developing a Logic Puzzle for Musical Thinking. In
+        | , Satoru Fukayama, Graham Percival and Masataka Goto, The CrossSong Puzzle: Developing a Logic Puzzle for Musical Thinking. In 
         i Journal of New Music Research
-        | (2017). Taylor &amp; Francis, 1-16.
+        |  (2017). Taylor &amp; Francis, 1-16.
       h4#ieeecomputer2016.wp 
         a(href='http://dx.doi.org/10.1109/MC.2016.217') Programming with Examples to Develop Data-Intensive User Interfaces
         p
@@ -396,52 +399,74 @@ html(lang='en')
           | )
       p
         b Jun Kato
-        | , Masataka Goto and Takeo Igarashi, Programming with Examples to Develop Data-Intensive User Interfaces. In
+        | , Masataka Goto and Takeo Igarashi, Programming with Examples to Develop Data-Intensive User Interfaces. In 
         i IEEE Computer
-        | (2016). IEEE, Vol. 49, Issue 7, 34-42.
+        |  (2016). IEEE, Vol. 49, Issue 7, 34-42.
       h4#ipsj2011.wp 
         a(href='http://ci.nii.ac.jp/naid/110008507978/en') Andy: A Toolkit for Developing Mobile Robot Applications with a Ceiling-mounted Camera and Visual Markers
       p
         b Jun Kato
-        | , Daisuke Sakamoto, Masahiko Inami and Takeo Igarashi, Andy: A Toolkit for Developing Mobile Robot Applications with a Ceiling-mounted Camera and Visual Markers. In
+        | , Daisuke Sakamoto, Masahiko Inami and Takeo Igarashi, Andy: A Toolkit for Developing Mobile Robot Applications with a Ceiling-mounted Camera and Visual Markers. In 
         i Transactions of Information Processing Society of Japan
-        | (2011). IPSJ, 
+        |  (2011). IPSJ, 
         a(href='http://ci.nii.ac.jp/naid/110008507978/en') Vol. 52, No. 4
         | , 1425-1437.
-      h3 Refereed international conference and workshop papers
+      h3.papers Refereed international conference and workshop papers
+      h4#vlhcc2018-deployground.wp DeployGround: A Framework for Streamlined Programming from API Playgrounds to Application Deployment (to appear)
+        p IEEE VL/HCC '18
+      p
+        b Jun Kato
+        |  and Masataka Goto. In 
+        i Proceedings of VL/HCC '18: Proceedings of the 2018 IEEE Symposium on Visual Languages and Human-Centric Computing
+        |  (Lisbon, Portugal, 2018).
+      h4#mm2018-songlesync.wp Songle Sync: A Large-Scale Web-based Platform for Controlling Various Devices in Synchronization with Music (to appear)
+        p ACM MM '18 (acceptance rate: 27.5%; oral presentation: 8.5%)
+      p
+        b Jun Kato
+        | , Masa Ogata, Takahiro Inoue, and Masataka Goto. In 
+        i Proceedings of MM '18: Proceedings of the 2018 ACM on Multimedia Conference
+        |  (Seoul, Korea, October, 2018).
+      h4#chi2018-reactile.wp 
+        a(href='https://doi.org/10.1145/3173574.3173773') Reactile: Programming Swarm User Interfaces through Direct Physical Manipulation
+        p ACM CHI '18 (acceptance rate: 25%)
+      p Ryo Suzuki, 
+        b Jun Kato
+        | , Mark D. Gross, and Masataka Goto. In 
+        i Proceedings of CHI '18: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
+        |  (Montreal QC, Canada, April, 2018). Paper No. 199, 13 pages (10 pages + references).
       h4#dis2017-f3js.wp 
         a(href='http://doi.acm.org/10.1145/3064663.3064681') f3.js: A Parametric Design Tool of Physical Computing Devices for Both Interaction Designers and End-users
         p ACM DIS '17 (acceptance rate: 22%)
       p
         b Jun Kato
-        | and Masataka Goto. In
+        | and Masataka Goto. In 
         i DIS '17: Proceedings of the 2017 ACM Conference on Designing Interactive Systems
-        | (Edinburgh, UK, June, 2017). 1099-1110.
+        |  (Edinburgh, UK, June, 2017). 1099-1110.
       h4#px2017-evd.wp 
         a(href='http://doi.acm.org/10.1145/3079368.3079403') User-Generated Variables: Streamlined Interaction Design for Feature Requests and Implementations
         p Programming PX '17
       p
         b Jun Kato
-        | and Masataka Goto. In
+        | and Masataka Goto. In 
         i Proceedings of the Programming Experience 2017 (PX/17) Workshop
-        | (Brussels, Belgium, April 4, 2017). 28:1-28:7
+        |  (Brussels, Belgium, April 4, 2017). 28:1-28:7
       h4#live2016-tuning.wp 
         a(href='https://junkato.jp/live-tuning/') Live Tuning: Expanding Live Programming Benefits to Non-Programmers
         p ECOOP LIVE '16
       p
         b Jun Kato
-        | and Masataka Goto. In
+        | and Masataka Goto. In 
         i Proceedings of LIVE '16: Proceedings of the Second Workshop on Live Programming Systems
-        | (Rome, Italy, July 17, 2016).
+        |  (Rome, Italy, July 17, 2016).
       h4#iui2016-playlist.wp 
         a(href='http://dx.doi.org/10.1145/2856767.2856809') PlaylistPlayer: An Interface Using Multiple Criteria to Change the Playback Order of a Music Playlist
         p ACM IUI '16
       p
         | Tomoyasu Nakano,
         b Jun Kato
-        | , Masahiro Hamasaki and Masataka Goto. In
+        | , Masahiro Hamasaki and Masataka Goto. In 
         i Proceedings of IUI '16: Proceedings of the 21st International Conference on Intelligent User Interfaces
-        | (Sonoma, CA, USA, March 7 - 10, 2016). 186-190.
+        |  (Sonoma, CA, USA, March 7 - 10, 2016). 186-190.
       h4#smc2015-crosssong.wp 
         a(href='https://staff.aist.go.jp/jun.kato/CrossSong/') CrossSong Puzzle: Generating and Unscrambling Music Mash-ups with Real-time Interactivity
         p
@@ -451,17 +476,17 @@ html(lang='en')
       p
         | Jordan B. L. Smith, Graham Percival,
         b Jun Kato
-        | , Masataka Goto and Satoru Fukayama. In
+        | , Masataka Goto and Satoru Fukayama. In 
         i Proceedings of SMC '15: Proceedings of the 12nd Sound and Music Computing Conference
-        | (Maynooth, Ireland, July 26 - August 1, 2015). 61-67.
+        |  (Maynooth, Ireland, July 26 - August 1, 2015). 61-67.
       h4#iclc2015-textalive.wp 
         a(href='http://dx.doi.org/10.5281/zenodo.19355') TextAlive Online: Live Programming of Kinetic Typography Videos with Online Music
         p ICLC '15
       p
         b Jun Kato
-        | , Tomoyasu Nakano and Masataka Goto. In
+        | , Tomoyasu Nakano and Masataka Goto. In 
         i Proceedings of ICLC '15: Proceedings of the First International Conference on Live Coding
-        | (Leeds, UK, July 13 - 15, 2015). Zenodo of 
+        |  (Leeds, UK, July 13 - 15, 2015). Zenodo of 
         abbr(title='Conseil Europeen pour la Recherche Nucleaire') CERN
         | , Genève, 199-205.
       h4#chi2015-textalive.wp 
@@ -472,9 +497,9 @@ html(lang='en')
           | , acceptance rate: 25%)
       p
         b Jun Kato
-        | , Tomoyasu Nakano and Masataka Goto. In
+        | , Tomoyasu Nakano and Masataka Goto. In 
         i Proceedings of CHI '15: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
-        | (Seoul, Korea, April 18 - 23, 2015). ACM, New York, NY, 3403-3412.
+        |  (Seoul, Korea, April 18 - 23, 2015). ACM, New York, NY, 3403-3412.
       h4#hai2014-sharedo.wp 
         a(href='http://doi.acm.org/10.1145/2658861.2658894') Sharedo: To-do List Interface for Human-agent Task Sharing
         p
@@ -483,34 +508,34 @@ html(lang='en')
           | )
       p
         b Jun Kato
-        | , Daisuke Sakamoto, Takeo Igarashi and Masataka Goto. In
+        | , Daisuke Sakamoto, Takeo Igarashi and Masataka Goto. In 
         i Proceedings of the Second International Conference on Human-Agent Interaction
-        | (Tsukuba, Japan, October 7 - 9, 2014). ACM, New York, NY, 345-351.
+        |  (Tsukuba, Japan, October 7 - 9, 2014). ACM, New York, NY, 345-351.
       h4#gi2014-visionsketch.wp 
         a(href='http://dl.acm.org/citation.cfm?id=2619648.2619668') VisionSketch: Integrated Support for Example-Centric Programming of Image Processing Applications
         p GI '14
       p
         b Jun Kato
-        | and Takeo Igarashi. In
+        | and Takeo Igarashi. In 
         i Proceedings of the 2014 Graphics Interface Conference
-        | (Montreal, QC, Canada, May 7 - 9, 2014). Canadian Information Processing Society, Toronto, ON, Canada, 115-122.
+        |  (Montreal, QC, Canada, May 7 - 9, 2014). Canadian Information Processing Society, Toronto, ON, Canada, 115-122.
       h4#gcce2013-openpool.wp 
         a(href='http://dx.doi.org/10.1109/GCCE.2013.6664790') OpenPool: Community-based Prototyping of Digitally-augmented Billiard Table
         p IEEE GCCE '13
       p
         b Jun Kato
-        | , Takashi Nakashima, Hideki Takeoka, Kazunori Ogasawara, Kazuma Murao, Toshinari Shimokawa and Masaaki Sugimoto. In
+        | , Takashi Nakashima, Hideki Takeoka, Kazunori Ogasawara, Kazuma Murao, Toshinari Shimokawa and Masaaki Sugimoto. In 
         i Proceedings of the 2nd IEEE Global Conference on Consumer Electronics
-        | (Tokyo, Japan, October 1 - 4, 2013). IEEE, 175-176.
+        |  (Tokyo, Japan, October 1 - 4, 2013). IEEE, 175-176.
       h4#pldi2013-alive.wp 
         a(href='https://doi.org/10.1145/2499370.2462170') It's Alive! Continuous Feedback in UI Programming
         p ACM PLDI '13 (acceptance rate: 17%)
       p
         | Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux,
         b Jun Kato
-        | , Sean McDirmid, Michal Moskal and Nikolai Tillmann.In
+        | , Sean McDirmid, Michal Moskal and Nikolai Tillmann.In 
         i Proceedings of the 34th ACM SIGPLAN conference on Programming Language Design and Implementation
-        | (Seattle, WA, USA, June 16 - 19, 2013). ACM, New York, NY, 95-104.
+        |  (Seattle, WA, USA, June 16 - 19, 2013). ACM, New York, NY, 95-104.
       h4#chi2013-picode.wp 
         a(href='http://dx.doi.org/10.1145/2470654.2466422') Picode: Inline Photos Representing Posture Data in Source Code
         p
@@ -519,84 +544,84 @@ html(lang='en')
           | , acceptance rate: 20%)
       p
         b Jun Kato
-        | , Daisuke Sakamoto and Takeo Igarashi. In
+        | , Daisuke Sakamoto and Takeo Igarashi. In 
         i Proceedings of CHI '13: Proceedings of the SIGCHI conference on Human Factors in Computing Systems
-        | (Paris, France, April 27 - May 2, 2013). ACM, New York, NY, 3097-3100.
+        |  (Paris, France, April 27 - May 2, 2013). ACM, New York, NY, 3097-3100.
       h4#uist2012-dejavu.wp 
         a(href='http://dx.doi.org/10.1145/2380116.2380142') DejaVu: Integrated Support for Developing Interactive Camera-Based Programs
         p ACM UIST '12 (acceptance rate: 22%)
       p
         b Jun Kato
-        | , Sean McDirmid and Xiang Cao. In
+        | , Sean McDirmid and Xiang Cao. In 
         i Proceedings of the 25th annual ACM symposium on User interface software and technology
-        | (Boston, NY, USA, October 7 - 10, 2012). ACM, New York, NY, 189-196.
+        |  (Boston, NY, USA, October 7 - 10, 2012). ACM, New York, NY, 189-196.
       h4#dis2012-phybots.wp 
         a(href='http://dx.doi.org/10.1145/2317956.2317996') Phybots: A Toolkit for Prototyping Robotic Things
         p ACM DIS '12 (acceptance rate: 20%)
       p
         b Jun Kato
-        | , Daisuke Sakamoto and Takeo Igarashi. In
+        | , Daisuke Sakamoto and Takeo Igarashi. In 
         i Proceedings of the 9th conference on Designing Interactive Systems
-        | (Newcastle Upon Tyne, UK, June 11 - 15, 2012). ACM, New York, NY, 248-257.
-      h3 Refereed international conference posters and demonstrations
+        |  (Newcastle Upon Tyne, UK, June 11 - 15, 2012). ACM, New York, NY, 248-257.
+      h3.papers Refereed international conference posters and demonstrations
+      h4#dis2018-music.wp 
+        a(href='https://doi.org/10.1145/3029798.3036666') Placing Music in Space: A Study on Music Appreciation with Spatial Mapping
+        p ACM DIS '18 poster
+      p Shoki Miyagawa, Yuki Koyama, 
+        b Jun Kato
+        | , Masataka Goto, and Shigeo Morishima. In 
+        i DIS '18 Companion: Proceedings of the 2018 ACM Conference Companion Publication on Designing Interactive Systems
+        |  (Hong Kong, China, June 9 - 13, 2018). ACM, New York, NY, 39-43.
       h4#hri2017-robocam.wp 
         a(href='https://doi.org/10.1145/3029798.3036666') A Robotic Framework for Video Recording and Authoring
         p ACM/IEEE HRI '17 demonstration
       p
         b Jun Kato
-        | and Masataka Goto. In
+        | and Masataka Goto. In 
         i HRI '17 Companion: Proceedings of the Companion of the 2017 ACM/IEEE International Conference on Human-Robot Interaction
-        | (Vienna, Austria, March 6 - 9, 2017). ACM, New York, NY, 41-41.
-      //        
-        <h4 id="chi2016-japan" class="wp"><a href="http://dx.doi.org/10.1145/2702613.2702638">Japanese HCI Symposium: Emerging Japanese HCI Research Collection</a><p>ACM CHI '15 extended abstracts (symposium proposal)</p></h4>
-        <p>Kohei Matsumura, Masa Ogata, Saki Sakaguchi, Takashi Ijiri, Takeshi Nishida, <b>Jun Kato</b>, Hiromi Nakamura, Daisuke Sakamoto, and Yoshifumi Kitamura. In <i>CHI '16 EA: Extended Abstracts on Human Factors in Computing Systems</i> (San Jose, CA, USA, May 7 - 12, 2016). ACM, New York, NY, 3325-3330.</p>
-        
+        |  (Vienna, Austria, March 6 - 9, 2017). ACM, New York, NY, 41-41.
       h4#uist2015-f3js.wp 
         a(href='http://doi.acm.org/10.1145/2815585.2817797') Form Follows Function(): An IDE to Create Laser-cut Interfaces and Microcontroller Programs from Single Code Base
         p ACM UIST '15 demonstration
       p
         b Jun Kato
-        | and Masataka Goto. In
+        | and Masataka Goto. In 
         i UIST '15 Adjunct: Adjunct Proceedings of the 28th Annual ACM Symposium on User Interface Software and Technology
-        | (Charlotte, NC, USA, November 8 - 11, 2015). ACM, New York, NY, 43-44.
-      //        
-        <h4 id="chi2015-japan" class="wp"><a href="http://dx.doi.org/10.1145/2702613.2702638">Japanese HCI Symposium: Emerging Japanese HCI Research Collection</a><p>ACM CHI '15 extended abstracts (symposium proposal)</p></h4>
-        <p><b>Jun Kato</b>, Hiromi Nakamura, Yuta Sugiura, Taku Hachisu, Daisuke Sakamoto, Koji Yatani, and Yoshifumi Kitamura. In <i>CHI '15 EA: Extended Abstracts on Human Factors in Computing Systems</i> (Seoul, Korea, April 18 - 23, 2015). ACM, New York, NY, 2321-2324.</p>
-        
+        |  (Charlotte, NC, USA, November 8 - 11, 2015). ACM, New York, NY, 43-44.
       h4#chi2014-capstudio.wp 
         a(href='http://doi.acm.org/10.1145/2559206.2581138') CapStudio: An Interactive Screencast for Visual Application Development
         p ACM CHI '14 extended abstracts
       p
         | Koumei Fukahori, Daisuke Sakamoto,
         b Jun Kato
-        | and Takeo Igarashi. In
+        | and Takeo Igarashi. In 
         i CHI '09 EA: Extended Abstracts on Human Factors in Computing Systems
-        | (Toronto, ON, Canada, April 26 - May 1, 2014). ACM, New York, NY, 1435-1458.
+        |  (Toronto, ON, Canada, April 26 - May 1, 2014). ACM, New York, NY, 1435-1458.
       h4#uist2013-phd.wp 
         a(href='http://dx.doi.org/10.1145/2508468.2508476') Integrated Visual Representations for Programming with Real-world Input and Output
         p ACM UIST '13 doctoral symposium
       p
         b Jun Kato
-        | . In
+        | . In 
         i Adjunct proceedings of the 26th annual ACM symposium on User interface software and technology
-        | (New York, NY, USA, October 1 - 3, 2010). ACM, New York, NY, 57-60.
+        |  (New York, NY, USA, October 1 - 3, 2010). ACM, New York, NY, 57-60.
       h4#uist2010-surfboard.wp 
         a(href='http://dx.doi.org/10.1145/1866218.1866233') Surfboard: Keyboard with Microphone as a Low-cost Interactive Surface
         p ACM UIST '10 demonstration
       p
         b Jun Kato
-        | , Daisuke Sakamoto and Takeo Igarashi. In
+        | , Daisuke Sakamoto and Takeo Igarashi. In 
         i Adjunct proceedings of the 23nd annual ACM symposium on User interface software and technology
-        | (New York, NY, USA, October 1 - 3, 2010). ACM, New York, NY, 387-388.
+        |  (New York, NY, USA, October 1 - 3, 2010). ACM, New York, NY, 387-388.
       h4#uist2009-andy.wp 
         a(href='https://junkato.jp/publications/uist2009-sakamoto-andy.pdf') A Toolkit for Easy Development of Mobile Robot Applications with Visual Markers and a Ceiling Camera
         p ACM UIST '09 poster
       p
         | Daisuke Sakamoto,
         b Jun Kato
-        | , Masahiko Inami and Takeo Igarashi.
+        | , Masahiko Inami and Takeo Igarashi. 
         i 22nd Symposium on User Interface Software and Technology
-        | (Victoria, BC, Canada, October 4 - 7, 2009).
+        |  (Victoria, BC, Canada, October 4 - 7, 2009).
       h4#siggraph2009-cristal.wp 
         a(href='http://www.siggraph.org/s2009/galleries_experiences/emerging_technologies/details/?type=etech&id=152') CRISTAL: Control of Remotely Interfaced Systems Using Touch-Based Actions in Living Spaces
         p
@@ -606,9 +631,9 @@ html(lang='en')
       p
         | Thomas Seifried, Christian Rendl, Florian Perteneder, Jakob Leitner, Michael Haller, Daisuke Sakamoto,
         b Jun Kato
-        | , Masahiko Inami and Stacey Scott.
+        | , Masahiko Inami and Stacey Scott. 
         i SIGGRAPH 2009 Emerging Technologies
-        | (New Orleans, USA, August 3 - 7, 2009).
+        |  (New Orleans, USA, August 3 - 7, 2009).
       h4#chi2009-multirobot.wp 
         a(href='http://dx.doi.org/10.1145/1520340.1520500') Multi-touch Interface for Controlling Multiple Mobile Robots
         p
@@ -617,20 +642,33 @@ html(lang='en')
           | )
       p
         b Jun Kato
-        | , Daisuke Sakamoto, Masahiko Inami and Takeo Igarashi. In
+        | , Daisuke Sakamoto, Masahiko Inami and Takeo Igarashi. In 
         i CHI '09 EA: Extended Abstracts on Human Factors in Computing Systems
-        | (Boston, MA, USA, April 4 - 9, 2009). ACM, New York, NY, 3443-3448.
+        |  (Boston, MA, USA, April 4 - 9, 2009). ACM, New York, NY, 3443-3448.
       h2#services.page-break Academic Services
       p Information on domestic academic services is omitted. Send an inquiry to me for the details.
       h3 Conference Organizer
       ul
         li
           | Program Committee for 
+          a(href='http://2018.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2018
+          |  
+          a(href='https://2018.splashcon.org/track/live-2018-papers') LIVE
+          |  workshop
+        li
+          | Program Committee for 
+          a(href='https://uist.acm.org/uist2018/organizers', title='The 31st annual ACM symposium on User Interface Software and Technology') ACM UIST 2018
+        li
+          | Organizing Committee for 
+          a(href='http://hci.tokyo/chi2018/') Asian CHI Symposium on Emerging HCI Research Collection 2018
+        li
+          | Program Committee for 
           a(href='https://2018.programming-conference.org', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2018
           |  conference
         li
           | Program Committee for 
-          a(href='http://2017.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2017 
+          a(href='http://2017.splashcon.org/home', title='The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity') ACM SPLASH 2017
+          |  
           a(href='http://2017.splashcon.org/track/px-17-2') PX/17.2
           |  and 
           a(href='https://2017.splashcon.org/track/live-2017') LIVE
@@ -640,12 +678,13 @@ html(lang='en')
           a(href='https://uist.acm.org/uist2017/#program-committee', title='The 30th annual ACM symposium on User Interface Software and Technology') ACM UIST 2017
         li
           | Program Committee for 
-          a(href='http://2016.ecoop.org/home', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2017 
+          a(href='http://2016.ecoop.org/home', title='The International Conference on the Art, Science, and Engineering of Programming') &lt;Programming&gt; 2017
+          |  
           a(href='http://2017.programming-conference.org/track/px-2017/', title='The second edition of the Programming Experience workshop') PX/17.1
           |  workshop
         li
           | Organizing Committee for 
-          a(href='http://hci.tokyo/chi2017/') ACM CHI 2017 Symposium on Emerging Japanese HCI Research Collection
+          a(href='http://hci.tokyo/chi2017/') Asian CHI Symposium on Emerging HCI Research Collection 2017
         li
           | Demo &amp; Video Co-chair for 
           a(href='http://humanrobotinteraction.org/2017/', title='The 2017 Conference on Human-Robot Interaction') IEEE/ACM HRI 2017
@@ -658,7 +697,8 @@ html(lang='en')
           a(href='http://iss2016.acm.org/', title='The 2016 ACM International Conference on Interactive Surfaces and Spaces') ACM ISS 2016
         li
           | Program Committee for 
-          a(href='http://2016.ecoop.org/home', title='The 30th European Conference on Object-Oriented Programming') ECOOP 2016 
+          a(href='http://2016.ecoop.org/home', title='The 30th European Conference on Object-Oriented Programming') ECOOP 2016
+          |  
           a(href='http://2016.ecoop.org/track/PX-2016', title='The first edition of the Programming Experience workshop') PX
           |  and 
           a(href='http://2016.ecoop.org/track/LIVE-2016', title='The second workshop on Live Programming systems') LIVE
