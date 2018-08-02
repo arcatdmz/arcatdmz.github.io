@@ -77,7 +77,7 @@
       "publication": "vlhcc2018-kato-deployground",
       "title": "DeployGround",
       "subtitle": "A Framework for Streamlined Programming from API Playgrounds to Application Deployment",
-      "description": "DeployGround seamlessly connects the <abbr title=\"Application Programming Interfaces\">API</abbr> playground and deployment target for kick-starting the application development after using the playground.",
+      "description": "DeployGround is a framework for developing web-based tutorials that seamlessly connects the <abbr title=\"Application Programming Interfaces\">API</abbr> playground and deployment target for kick-starting the application development.",
       "year": {
         "from": 2018
       },
@@ -331,7 +331,7 @@
     {
       "project": "textalive",
       "thumbnail": "textalive.jpg",
-      "icon": "textalive.jpg",
+      "icon": "textalive.png",
       "hero": "textalive.jpg",
       "tags": [
         "creativity",
