@@ -276,6 +276,11 @@ body.without-header-menu #body {
 
 /* overriding default styles */
 
+.ui.basic.label {
+  /* Semantic UI bug introduced in v2.3.3? */
+  background: none #fff !important;
+}
+
 .ui.horizontal.list>.item:first-child {
   /* this rule is somehow filtered out by purifyCSS, so we declare it here */
   margin-left: 0 !important;
