@@ -11,9 +11,9 @@
   },
   "author": "Jun Kato",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.55",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.55",
-    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
     "@types/semantic-ui": "^2.2.6",
     "babel-loader": "^8.0.0-beta.4",
     "bibtex-parse-js": "0.0.24",
@@ -45,7 +45,11 @@
     "clipboard": "^1.7.1",
     "devicon": "git+https://github.com/konpa/devicon.git",
     "gulp-gzip": "^1.4.2",
+    "natives": "^1.1.4",
     "pinkie-promise": "git+https://github.com/floatdrop/pinkie-promise.git",
     "sharp": "^0.20.5"
+  },
+  "resolutions": {
+    "natives": "1.1.4"
   }
 }
