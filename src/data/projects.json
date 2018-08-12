@@ -73,7 +73,7 @@
   "projects": [
     {
       "project": "deployground",
-      "thumbnail": "coming-soon.png",
+      "thumbnail": "deployground.png",
       "publication": "vlhcc2018-kato-deployground",
       "title": "DeployGround",
       "subtitle": "A Framework for Streamlined Programming from API Playgrounds to Application Deployment",
@@ -85,7 +85,6 @@
         "live-programming",
         "ide"
       ],
-      "url": false,
       "ja": {
         "description": "<abbr title=\"Application Programming Interfaces\">API</abbr>チュートリアルに開発環境の機能を組み込み、サンプルプログラムの開発からデプロイまで支援するフレームワークです。"
       }

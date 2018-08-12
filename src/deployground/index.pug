@@ -14,8 +14,11 @@ block main
 mixin abstract()
   h2.ui.header #{en ? 'Abstract' : '概要'}
   .ui.basic.segment
-    block abstract
-      p Interactive web pages for learning programming languages and application programming interfaces (APIs), called <strong>playgrounds,</strong> allow programmers to run and edit example codes in place. Despite the benefits of this live programming experience, programmers need to leave the playground at some point and re-start the development from scratch in their own programming environments.
-      p This paper proposes <strong>DeployGround</strong>, a framework for creating web-based tutorials that streamlines learning  APIs on playgrounds and developing and deploying applications.
-      p As a case study, we created a web-based tutorial for browser-based and Node.js-based JavaScript APIs. A preliminary user study found appreciation of the streamlined and social workflow of the DeployGround framework.
+    .ui.stackable.two.columns.grid
+      .column: p
+        img.ui.image(src="/deployground/vlhcc2018-kato-deployground-fig1.png")
+      .column: block abstract
+        p Interactive web pages for learning programming languages and application programming interfaces (APIs), called <strong>playgrounds,</strong> allow programmers to run and edit example codes in place. Despite the benefits of this live programming experience, programmers need to leave the playground at some point and re-start the development from scratch in their own programming environments.
+        p This paper proposes <strong>DeployGround</strong>, a framework for creating web-based tutorials that streamlines learning  APIs on playgrounds and developing and deploying applications. It has three unique features: <span style="color: #c00">a pseudo-runtime environment</span> for a quick response, <span style="color: #0c0">an adaptive boilerplate</span> for deploying projects, and <span style="color: #00c">a reversible software engineering feature</span> for importing deployed projects as example codes.
+        p As a case study, we created a web-based tutorial for browser-based and Node.js-based JavaScript APIs. A preliminary user study found appreciation of the streamlined and social workflow of the DeployGround framework.
   .ui.hidden.divider
