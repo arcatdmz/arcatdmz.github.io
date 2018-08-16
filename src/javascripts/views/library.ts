@@ -175,12 +175,9 @@ setSmoothScroll(
       .add('#post-footer a[href*=\\#]'));
 
 // clipboard
-const clipText = lang === 'en'
-  ? 'Click to copy the BibTeX entry to your clipboard'
-  : 'クリックでBibTeXをクリップボードにコピーします';
 const copyText = lang === 'en'
-  ? 'Copied!'
-  : 'コピーしました！';
+  ? 'Copied the BibTeX entry to your clipboard!'
+  : 'BibTeXをクリップボードにコピーしました！';
 $('a.bibtex')
   .on('click touch', (ev) => {
     const $a = $(ev.currentTarget);
@@ -190,26 +187,13 @@ $('a.bibtex')
       .popup(<any>{
         content: copyText,
         position: 'left center',
-        onHide: () => closable,
-        onHidden: () => {
-          $a
-            .popup('destroy')
-            .popup({
-              content: clipText,
-              position: 'left center',
-              addTouchEvents: true
-            });
-        }
+        onHide: () => closable
       })
       .popup('show');
     setTimeout(() => {
       closable = true;
       $a.popup('hide');
     }, 1000);
-  })
-  .popup({
-    content: clipText,
-    addTouchEvents: true
   });
 
 new Clipboard('a.bibtex');

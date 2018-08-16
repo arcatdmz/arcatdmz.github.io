@@ -167,7 +167,7 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             i.barcode.icon
             | #{en ? 'Resolve DOI' : 'DOIを照会'}
           - }
-          a.bibtex.item(data-clipboard-text=entry.getBibTeX(), href='#')
+          a.bibtex.item(data-clipboard-text=entry.getBibTeX())
             i.book.icon
             | #{en ? 'Copy BibTeX' : 'BibTeXをコピー'}
     - if (withIcon) {
