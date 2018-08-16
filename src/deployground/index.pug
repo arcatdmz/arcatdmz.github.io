@@ -8,6 +8,13 @@ block vars
 block main
   +render-project-header('deployground')
   .ui.hidden.divider
+  section: .ui.red.segment
+    block warning
+      h3.ui.header
+        i.red.warning.circle.icon
+        .content Under construction
+      p This page will be updated by the date of publication.
+  .ui.hidden.divider
   section#abstract: +abstract()
   +render-project-publications('deployground', 'vlhcc2018-kato-deployground')
 
