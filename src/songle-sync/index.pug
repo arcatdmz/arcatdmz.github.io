@@ -1,0 +1,30 @@
+extends ../_layout
+
+block vars
+  - p = projectsTable['songle-sync'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block main
+  +render-project-header('songle-sync')
+  .ui.hidden.divider
+  section: .ui.red.segment
+    block warning
+      h3.ui.header
+        i.red.warning.circle.icon
+        .content Under construction
+      p This page will be updated by the date of publication.
+  .ui.hidden.divider
+  section#abstract: +abstract()
+  +render-project-publications('songle-sync', 'mm2018-kato-songlesync')
+
+mixin abstract()
+  h2.ui.header #{en ? 'Abstract' : '概要'}
+  .ui.basic.segment
+    p: img.ui.image(src="/songle-sync/fig1-applications.jpg")
+    block abstract
+      p This paper presents Songle Sync, a web-based platform on which hundreds of Internet-connected devices — including smartphones, computers, and other physical computing devices — can be controlled to synchronize with music playback. It uses music-understanding technologies to dynamically synthesize music-driven multimedia performances from a musical piece of choice.
+      p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
+      p To evaluate the platform, we compared latencies, jitters, and amounts of network traffic between ours and the conventional architecture. To examine use cases in the wild, we deployed the platform to drive over a hundred of a variety of devices. We also developed a web browser-based application for a multimedia performance with music playback. It provided audiences of hundreds with a bring-your-own-device experience of synchronized animations on smartphones. In addition, the development kit was used in a two-day hackathon.
+      p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
+  .ui.hidden.divider

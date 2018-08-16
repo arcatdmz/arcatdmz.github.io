@@ -265,6 +265,7 @@
       },
       "publication": "mm2018-kato-songlesync",
       "title": "Songle Sync",
+      "subtitle": "A Large-Scale Web-based Platform for Controlling Various Devices in Synchronization with Music",
       "title-design": "Songle Sync brand design",
       "description": "The Songle Sync platform allows controlling numerous devices in synchrony with the songs with its <abbr title=\"Software Development Kit\">SDK</abbr>.",
       "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"${rootPath}songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
