@@ -117,7 +117,11 @@ mixin header()
           - if (recentProjects.indexOf(p) < 0) continue;
           //- if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
           //- if ((p.year.to || p.year.from) < 2012) continue;
-          a.item(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
+          a.item(href=p.getLink(lang, basePath))
+            - if (p.icon) {
+            img.ui.avatar.image(src=`${rootPath}images/icons/${p.icon}`)
+            - }
+            | !{p.getTitle(lang)}
           - }
           .ui.divider
           a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
