@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "8/20/2018",
+      "text": "First-authored projects <a href=\"http://tutorial.songle.jp/sync\">Songle Sync</a> (ACM Multimedia 2018) and <a href=\"https://junkato.jp/textalive/\">TextAlive</a> (ACM CHI 2015) will both be used at <a href=\"https://magicalmirai.com/2018/index_en.html\">Hatsune Miku &quot;Magical Mirai&quot; 2018</a>. <a href=\"https://events.ongaaccel.jp/magicalmirai2018/\">Celebrate her birthday with Songle Sync</a> or <a href=\"https://www.youtube.com/watch?v=x-mAHz4RsIk\">enjoy the live performance along with kinetic typography videos created with TextAlive</a>!"
+    },
+    {
       "date": "7/9/2018",
       "text": "Started a new part-time technical advisor position at <a href=\"http://archinc.jp\">ARCH Inc.</a>, a Japanese animation production company. Please contact me if you want to pursue research on &quot;Japanimation!&quot;"
     },
@@ -214,6 +218,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "8/20/2018",
+      "text": "<a href=\"http://tutorial.songle.jp/sync\">Songle Sync</a> (ACM Multimedia 2018)と<a href=\"https://junkato.jp/textalive/\">TextAlive</a> (ACM CHI 2015)が両方<a href=\"https://magicalmirai.com/2018/\">初音ミク「マジカルミライ 2018」</a>で使われます。<a href=\"https://events.ongaaccel.jp/magicalmirai2018/\">誕生日を祝って</a>、<a href=\"https://www.youtube.com/watch?v=x-mAHz4RsIk\">ライブ演出をお楽しみください</a>！"
+    },
     {
       "date": "7/27/2018",
       "text": "8月に大阪と東京で開かれる<a href=\"https://magicalmirai.com/2018/\">マジカルミライ 2018</a>で、TextAlive講座を開催することになりました。詳しくは<a href=\"http://docs.textalive.jp/magicalmirai2018/\">TextAlive上のイベント紹介ページ</a>や<a href=\"https://magicalmirai.com/2018/tokyo_crestage.html\">マジカルミライのクリエイティブステージ紹介ページ</a>をご覧ください。"
