@@ -4,11 +4,14 @@ block vars
   - p = projectsTable['deployground'];
   - title = p.getTitle(lang);
   - me = p.project + '/';
+  - const slideUrl = `${protocol}://${domain}${rootPath}publications/vlhcc2018-kato-deployground-slides.pdf`;
+  - const slideImagePath = `${rootPath}deployground/vlhcc2018-kato-deployground-slides.png`;
 
 block main
   +render-project-header('deployground')
   .ui.hidden.divider
   section#abstract: +abstract()
+  section#presentations: +presentations()
   section#related-work: +related-work()
   +render-project-publications('deployground', 'vlhcc2018-kato-deployground')
 
@@ -22,6 +25,28 @@ mixin abstract()
         p Interactive web pages for learning programming languages and application programming interfaces (APIs), called <strong>playgrounds,</strong> allow programmers to run and edit example codes in place. Despite the benefits of this live programming experience, programmers need to leave the playground at some point and re-start the development from scratch in their own programming environments.
         p This paper proposes <strong>DeployGround</strong>, a framework for creating web-based tutorials that streamlines learning  APIs on playgrounds and developing and deploying applications. It has three unique features: <span style="color: #c00">a pseudo-runtime environment</span> for a quick response, <span style="color: #0c0">an adaptive boilerplate</span> for deploying projects, and <span style="color: #00c">a reversible software engineering feature</span> for importing deployed projects as example codes.
         p As a case study, we created a web-based tutorial for browser-based and Node.js-based JavaScript APIs. A preliminary user study found appreciation of the streamlined and social workflow of the DeployGround framework.
+  .ui.hidden.divider
+
+mixin presentations()
+  h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        h3.ui.header IEEE VL/HCC 2018 #{en ? 'Demo Video' : 'デモ動画'}
+        +embed-youtube('//www.youtube.com/embed/dE6mCZVWIms')
+        .caption: .ui.horizontal.list
+          .item
+            a(href='//www.youtube.com/watch?v=dE6mCZVWIms')
+              i.youtube.icon
+              | YouTube
+      .column
+        h3.ui.header IEEE VL/HCC 2018 #{en ? 'Slides' : '発表スライド'}
+        .ui.embed(data-url=slideUrl, data-placeholder=slideImagePath, data-icon='video play outline')
+        .caption: .ui.horizontal.list
+          .item
+            a(href=slideUrl)
+              i.download.icon
+              | #{en ? 'Download' : 'ダウンロード'}
   .ui.hidden.divider
 
 mixin related-work()
