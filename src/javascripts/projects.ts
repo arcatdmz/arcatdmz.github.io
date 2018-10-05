@@ -3,6 +3,8 @@ import * as json from "../data/projects.json";
 
 const data: ProjectData = json.default ? json.default : json;
 
+const defaultImageType = "png";
+
 interface ProjectData {
   tags: { [tag: string]: TagEntry },
   "tags-design": { [tag: string]: DesignTagEntry },
@@ -72,10 +74,14 @@ class Entry {
     if (this.data.thumbnail) {
       return this.data.thumbnail;
     }
-    return `${this.data.project}.png`;
+    return `${this.data.project}.${defaultImageType}`;
   }
   get icon() {
-    return this.data.icon;
+    if (!this.data.icon) return this.data.icon;
+    if (typeof this.data.icon === "string") {
+      return this.data.icon;
+    }
+    return `${this.data.project}.${defaultImageType}`;
   }
   get hero() {
     return this.data.hero;
