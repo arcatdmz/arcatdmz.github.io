@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "10/7/2018",
+      "text": "Presented <a href=\"${rootPath}deployground\">DeployGround</a> in the &quot;APIs and Use of Programming Languages&quot; session at <a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>. Slides are available for download in <a href=\"${rootPath}deployground\">the project</a> page."
+    },
+    {
       "date": "8/20/2018",
       "text": "First-authored projects <a href=\"http://tutorial.songle.jp/sync\">Songle Sync</a> (ACM Multimedia 2018) and <a href=\"https://junkato.jp/textalive/\">TextAlive</a> (ACM CHI 2015) will both be used at <a href=\"https://magicalmirai.com/2018/index_en.html\">Hatsune Miku &quot;Magical Mirai&quot; 2018</a>. <a href=\"https://events.ongaaccel.jp/magicalmirai2018/\">Celebrate her birthday with Songle Sync</a> or <a href=\"https://www.youtube.com/watch?v=x-mAHz4RsIk\">enjoy the live performance along with kinetic typography videos created with TextAlive</a>!"
     },
