@@ -57,7 +57,7 @@ function handleEntries(entries: any[]) {
   for (const e of es) {
     const $item = $('<div class="event"><div class="content"><div class="date"></div><div class="header"></div></div></div>');
     $item.find('.date').text(e.getDateString(lang));
-    $item.find('.header').html(e.text);
+    $item.find('.header').html((e.text as string).replace("${rootPath}", "/"));
     $historyList.append($item);
     if (!$added) $added = $item;
     else $added = $added.add($item);
