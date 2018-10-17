@@ -223,6 +223,10 @@
   ],
   "ja": [
     {
+      "date": "10/17/2018",
+      "text": "国際会議<a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>の &quot;APIs and Use of Programming Languages&quot; セッションでプログラミングチュートリアルの作り方についての研究「<a href=\"${rootPath}deployground\">DeployGround</a>の登壇発表を行いました。"
+    },
+    {
       "date": "8/20/2018",
       "text": "<a href=\"http://tutorial.songle.jp/sync\">Songle Sync</a> (ACM Multimedia 2018)と<a href=\"https://junkato.jp/ja/textalive/\">TextAlive</a> (ACM CHI 2015)が両方<a href=\"https://magicalmirai.com/2018/\">初音ミク「マジカルミライ 2018」</a>で使われます。<a href=\"https://events.ongaaccel.jp/magicalmirai2018/\">誕生日を祝って</a>、<a href=\"https://www.youtube.com/watch?v=x-mAHz4RsIk\">ライブ演出をお楽しみください</a>！"
     },
