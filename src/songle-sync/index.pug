@@ -21,7 +21,7 @@ block main
 mixin abstract()
   h2.ui.header #{en ? 'Abstract' : '概要'}
   .ui.basic.segment
-    p: img.ui.image(src="/songle-sync/fig1-applications.jpg")
+    p: img.ui.image(src="/songle-sync/mm2018-songlesync-demo.jpg")
     block abstract
       p This paper presents Songle Sync, a web-based platform on which hundreds of Internet-connected devices — including smartphones, computers, and other physical computing devices — can be controlled to synchronize with music playback. It uses music-understanding technologies to dynamically synthesize music-driven multimedia performances from a musical piece of choice.
       p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
