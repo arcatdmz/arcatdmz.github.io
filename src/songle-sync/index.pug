@@ -31,6 +31,11 @@ mixin abstract()
       p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
       p To evaluate the platform, we compared latencies, jitters, and amounts of network traffic between ours and the conventional architecture. To examine use cases in the wild, we deployed the platform to drive over a hundred of a variety of devices. We also developed a web browser-based application for a multimedia performance with music playback. It provided audiences of hundreds with a bring-your-own-device experience of synchronized animations on smartphones. In addition, the development kit was used in a two-day hackathon.
       p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
+  .ui.basic.center.aligned.segment
+    p
+      a.ui.labeled.icon.massive.green.button(href="http://tutorial.songle.jp/sync?lang=en")
+        i.external.icon
+        |  Try out Songle Sync
   .ui.hidden.divider
 
 mixin presentations()
