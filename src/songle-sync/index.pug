@@ -4,18 +4,22 @@ block vars
   - p = projectsTable['songle-sync'];
   - title = p.getTitle(lang);
   - me = p.project + '/';
+  - const slideUrl = `${protocol}://${domain}${rootPath}publications/mm2018-kato-songlesync-slides.pdf`;
+  - const slideImagePath = `${rootPath}songle-sync/mm2018-kato-songlesync-slides.jpg`;
 
 block main
   +render-project-header('songle-sync')
   .ui.hidden.divider
-  section: .ui.red.segment
-    block warning
-      h3.ui.header
-        i.red.warning.circle.icon
-        .content Under construction
-      p This page will be updated by the date of publication.
+  .ui.positive.message
+    strong Collaborative project:
+    |  While I am credited as the first author of the ACM Multimedia 2018 paper, this project is the result of the collaborative effort in 
+    a(href="//staff.aist.go.jp/m.goto/MIG/index-j.html") Media Interaction Group
+    | . Please see 
+    a(href="//api.songle.jp/sync") the official project page
+    |  for the complete list of the contributors.
   .ui.hidden.divider
   section#abstract: +abstract()
+  section#presentations: +presentations()
   +render-project-publications('songle-sync', 'mm2018-kato-songlesync')
 
 mixin abstract()
@@ -27,4 +31,26 @@ mixin abstract()
       p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
       p To evaluate the platform, we compared latencies, jitters, and amounts of network traffic between ours and the conventional architecture. To examine use cases in the wild, we deployed the platform to drive over a hundred of a variety of devices. We also developed a web browser-based application for a multimedia performance with music playback. It provided audiences of hundreds with a bring-your-own-device experience of synchronized animations on smartphones. In addition, the development kit was used in a two-day hackathon.
       p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
+  .ui.hidden.divider
+
+mixin presentations()
+  h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        h3.ui.header ACM Multimedia 2018 #{en ? 'Demo Video' : 'デモ動画'}
+        +embed-youtube('//www.youtube.com/embed/dErV9oZw_uQ')
+        .caption: .ui.horizontal.list
+          .item
+            a(href='//www.youtube.com/watch?v=dErV9oZw_uQ')
+              i.youtube.icon
+              | YouTube
+      .column
+        h3.ui.header ACM Multimedia 2018 #{en ? 'Slides' : '発表スライド'}
+        .ui.embed(data-url=slideUrl, data-placeholder=slideImagePath, data-icon='video play outline')
+        .caption: .ui.horizontal.list
+          .item
+            a(href=slideUrl)
+              i.download.icon
+              | #{en ? 'Download' : 'ダウンロード'}
   .ui.hidden.divider

@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "10/25/2018",
+      "text": "Presented <a href=\"${rootPath}songle-sync\">Songle Sync</a> in the &quot;Experience&quot; session at <a href=\"http://www.acmmm.org/2018/\" title=\"The 2018 ACM Multimedia Conference\">ACM Multimedia 2018</a>. Slides are available for download in <a href=\"${rootPath}songle-sync\">the project</a> page."
+    },
+    {
       "date": "10/7/2018",
       "text": "Presented <a href=\"${rootPath}deployground\">DeployGround</a> in the &quot;APIs and Use of Programming Languages&quot; session at <a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>. Slides are available for download in <a href=\"${rootPath}deployground\">the project</a> page."
     },
