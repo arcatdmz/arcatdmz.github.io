@@ -7,9 +7,12 @@ block vars
   - const slideUrl = `${protocol}://${domain}${rootPath}publications/mm2018-kato-songlesync-slides.pdf`;
   - const slideImagePath = `${rootPath}songle-sync/mm2018-kato-songlesync-slides.jpg`;
 
+block main-hero-unit
+  +render-project-hero('songle-sync', null, 'http://tutorial.songle.jp/images/background.jpg')
+
 block main
-  +render-project-header('songle-sync')
-  .ui.hidden.divider
+  //- +render-project-header('songle-sync')
+  //- .ui.hidden.divider
   .ui.positive.message
     strong Collaborative project:
     |  While I am credited as the first author of the ACM Multimedia 2018 paper, this project is the result of the collaborative effort in 
@@ -20,6 +23,7 @@ block main
   .ui.hidden.divider
   section#abstract: +abstract()
   section#presentations: +presentations()
+  section#related-projects: +related-projects()
   +render-project-publications('songle-sync', 'mm2018-kato-songlesync')
 
 mixin abstract()
@@ -58,4 +62,24 @@ mixin presentations()
             a(href=slideUrl)
               i.download.icon
               | #{en ? 'Download' : 'ダウンロード'}
+  .ui.hidden.divider
+
+mixin related-projects()
+  h2.ui.header
+    i.lab.icon
+    .content #{en ? 'Related projects' : '関連プロジェクト'}
+  .ui.basic.segment
+    ul
+      li Automatic music analysis of Songle Sync relies on 
+        a(href="http://songle.jp") Songle
+        |  whose research contributions have been published in multiple academic papers.
+        |  For more details, 
+        a(href="https://staff.aist.go.jp/m.goto/publications.html") search for the keyword &quot;Songle&quot; in Dr. Goto's publications
+        | .
+      li
+        a(href="http://tutorial.songle.jp/sync") Interactive coding tutorials for Songle Sync
+        |  are implemented based on the DeployGround framework.
+    - dg = projectsTable['deployground'];
+    .ui.divided.items.projects
+      +render-project-item(dg)
   .ui.hidden.divider
