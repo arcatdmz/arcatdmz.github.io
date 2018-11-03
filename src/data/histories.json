@@ -227,8 +227,12 @@
   ],
   "ja": [
     {
+      "date": "11/3/2018",
+      "text": "国際会議<a href=\"http://acmmm.org/2018/\" title=\"ACM International Conference on Multimedia\">ACM Multimedia 2018</a>の <a href=\"http://www.acmmm.org/2018/full-papers/#experience1\">&quot;Experience&quot;</a> セッションで「<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>」の登壇発表とポスター発表を行いました。"
+    },
+    {
       "date": "10/17/2018",
-      "text": "国際会議<a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>の &quot;APIs and Use of Programming Languages&quot; セッションでプログラミングチュートリアルの作り方についての研究「<a href=\"${rootPath}deployground\">DeployGround</a>の登壇発表を行いました。"
+      "text": "国際会議<a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>の &quot;APIs and Use of Programming Languages&quot; セッションでプログラミングチュートリアルの作り方についての研究「<a href=\"${rootPath}ja/deployground\">DeployGround</a>」の登壇発表を行いました。"
     },
     {
       "date": "8/20/2018",
