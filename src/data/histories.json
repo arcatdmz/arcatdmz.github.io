@@ -14,7 +14,7 @@
     },
     {
       "date": "7/9/2018",
-      "text": "Started a new part-time technical advisor position at <a href=\"http://archinc.jp\">ARCH Inc.</a>, a Japanese animation production company. Please contact me if you want to pursue research on &quot;Japanimation!&quot;"
+      "text": "Started a new part-time technical advisor position at <a href=\"http://archinc.jp\">Arch Inc.</a>, a Japanese animation production company. Please contact me if you want to pursue research on &quot;Japanimation!&quot;"
     },
     {
       "date": "7/7/2018",
@@ -226,6 +226,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2/10/2019",
+      "text": "<abbr title=\"一般社団法人日本アニメーター・演出協会\">JAniCA</abbr>主催の<a href=\"http://www.janica.jp/course/digital/actf2019.html\">アニメーション・クリエイティブ・テクノロジー・フォーラム(ACTF) 2019</a>でアーチの技術顧問として登壇しました。<a href=\"https://docs.google.com/presentation/d/1hL-qmndaBh-waN1TSIlL9VRdEKEk9dAjoAoHDNS-_NQ/edit?usp=sharing\">担当部分の発表資料を公開</a>しています。"
+    },
     {
       "date": "11/3/2018",
       "text": "日本ソフトウェア科学会 <a href=\"https://sites.google.com/view/sig-mlse/\">機械学習工学研究会（MLSE）</a>の論文読み会 <a href=\"https://mlxse.connpass.com/event/102910/\">&quot;XX for ML #1&quot;</a> で<a href=\"https://junkato.jp/ja/blog/2018/12/19/hci-for-machine-learning/\">Human-Computer Interaction分野における機械学習支援研究を紹介する発表</a>を行いました。"
