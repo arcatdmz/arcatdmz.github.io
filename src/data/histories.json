@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "3/2/2019",
+      "text": "Attended <a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">the Shonan meeting on exploratory and live programming</a> and organized <a href=\"http://sigpx.org/en/6\">the Sixth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at a venue of The University of Tokyo. <a href=\"${rootPath}publications/sigpx6-kato-introduction.pdf\">The slides</a> at <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr> are available."
+    },
+    {
       "date": "10/25/2018",
       "text": "Presented <a href=\"${rootPath}songle-sync\">Songle Sync</a> in the &quot;Experience&quot; session at <a href=\"http://www.acmmm.org/2018/\" title=\"The 2018 ACM Multimedia Conference\">ACM Multimedia 2018</a>. Slides are available for download in <a href=\"${rootPath}songle-sync\">the project</a> page."
     },
@@ -26,7 +30,7 @@
     },
     {
       "date": "3/7/2018",
-      "text": "Organized <a href=\"http://sigpx.org/en/4\">The Forth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at The University of Tokyo."
+      "text": "Organized <a href=\"http://sigpx.org/en/4\">the Forth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at The University of Tokyo."
     },
     {
       "date": "2/18/2018",
@@ -66,7 +70,7 @@
     },
     {
       "date": "12/18/2016",
-      "text": "Attended <a href=\"http://sigchi.jp/symposium.html\">The First ACM SIGCHI Asian Symposium</a> and was named as a board member for <a href=\"http://sigchi.jp/\">Japan ACM SIGCHI Chapter</a>."
+      "text": "Attended <a href=\"http://sigchi.jp/symposium.html\">the First ACM SIGCHI Asian Symposium</a> and was named as a board member for <a href=\"http://sigchi.jp/\">Japan ACM SIGCHI Chapter</a>."
     },
     {
       "date": "10/19/2016",
@@ -74,7 +78,7 @@
     },
     {
       "date": "8/7/2016",
-      "text": "Organized <a href=\"http://sigpx.org/en/2\">The Second Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>."
+      "text": "Organized <a href=\"http://sigpx.org/en/2\">the Second Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>."
     },
     {
       "date": "7/16/2016",
@@ -90,7 +94,7 @@
     },
     {
       "date": "2/27/2016",
-      "text": "Organized <a href=\"http://sigpx.org/en/1\">The First Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>. English translation of the press release that introduces the <a href=\"http://textalive.jp/\">TextAlive</a> web service is <a href=\"http://www.aist.go.jp/aist_e/list/latest_research/2015/20160125/en20160125.html\">now available</a>."
+      "text": "Organized <a href=\"http://sigpx.org/en/1\">the First Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>. English translation of the press release that introduces the <a href=\"http://textalive.jp/\">TextAlive</a> web service is <a href=\"http://www.aist.go.jp/aist_e/list/latest_research/2015/20160125/en20160125.html\">now available</a>."
     },
     {
       "date": "12/18/2015",
@@ -226,6 +230,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "3/2/2019",
+      "text": "<a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">Exploratory ProgrammingとLive Programmingに関するトピックを扱う湘南会議</a>に参加しました。また、それにあわせて<a href=\"http://sigpx.org/en/6\">第6回<abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>を東京大学で開催しました。<a href=\"${rootPath}publications/sigpx6-kato-introduction.pdf\">発表スライド</a>がダウンロードできます。"
+    },
     {
       "date": "2/10/2019",
       "text": "<abbr title=\"一般社団法人日本アニメーター・演出協会\">JAniCA</abbr>主催の<a href=\"http://www.janica.jp/course/digital/actf2019.html\">アニメーション・クリエイティブ・テクノロジー・フォーラム(ACTF) 2019</a>でアーチの技術顧問として登壇しました。<a href=\"https://docs.google.com/presentation/d/1hL-qmndaBh-waN1TSIlL9VRdEKEk9dAjoAoHDNS-_NQ/edit?usp=sharing\">担当部分の発表資料を公開</a>しています。"
