@@ -2,7 +2,7 @@
   "en": [
     {
       "date": "3/2/2019",
-      "text": "Attended <a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">the Shonan meeting on exploratory and live programming</a> and organized <a href=\"http://sigpx.org/en/6\">the Sixth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at a venue of The University of Tokyo. <a href=\"${rootPath}publications/sigpx6-kato-introduction.pdf\">The slides</a> at <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr> are available."
+      "text": "Attended <a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">the Shonan meeting on exploratory and live programming</a> and organized <a href=\"http://sigpx.org/en/6\">the Sixth Workshop of <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a> at a venue of The University of Tokyo. <a href=\"${rootPath}publications/sigpx6-kato-slides.pdf\">The slides</a> at <abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr> are available."
     },
     {
       "date": "10/25/2018",
@@ -232,7 +232,7 @@
   "ja": [
     {
       "date": "3/2/2019",
-      "text": "<a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">Exploratory ProgrammingとLive Programmingに関するトピックを扱う湘南会議</a>に参加しました。また、それにあわせて<a href=\"http://sigpx.org/en/6\">第6回<abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>を東京大学で開催しました。<a href=\"${rootPath}publications/sigpx6-kato-introduction.pdf\">発表スライド</a>がダウンロードできます。"
+      "text": "<a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">Exploratory ProgrammingとLive Programmingに関するトピックを扱う湘南会議</a>に参加しました。また、それにあわせて<a href=\"http://sigpx.org/en/6\">第6回<abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>を東京大学で開催しました。<a href=\"${rootPath}publications/sigpx6-kato-slides.pdf\">発表スライド</a>がダウンロードできます。"
     },
     {
       "date": "2/10/2019",
