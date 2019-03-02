@@ -32,7 +32,7 @@ html(lang=lang)
     script(src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
     script(type='text/javascript') var en=#{en},lang="#{lang}",basePath="#{basePath}";
     script(type='text/javascript').
-      var webFontConfig=en?{google:{families:["Fira Sans"]}}:{google:{families:["Fira Sans","Noto Sans JP"]}};
+      var webFontConfig={google:{families:en?["Fira Sans"]:["Fira Sans","Noto Sans JP"]}};
       WebFont.load(webFontConfig);
     script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
     block scripts
