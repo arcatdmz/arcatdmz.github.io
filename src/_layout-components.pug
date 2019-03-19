@@ -171,6 +171,10 @@ mixin footer()
           a(href=`${basePath}#contact`) #{en ? 'Jun Kato' : '加藤 淳'}
         .item 2012-#{new Date().getFullYear()}
         .item
+          a(href=`${basePath}privacy`)
+            i.envelope.open.outline.icon
+            |  #{en ? 'Privacy Policy' : 'プライバシーポリシー'}
+        .item
           - if (en) {
           a.item(href=`${rootPath}ja/${me}`)
             i.translate.icon
