@@ -347,6 +347,7 @@ gulp.task('lint:pdf', function() {
 // Watch & sync
 gulp.task('browser-sync', function(){
   browserSync({
+    port: 8080,
     server: {
       baseDir: 'dist/'
     }
