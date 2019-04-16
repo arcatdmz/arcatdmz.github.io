@@ -231,6 +231,14 @@
   ],
   "ja": [
     {
+      "date": "4/14/2019",
+      "text": "<a href=\"https://research.archinc.jp/\">Arch Research</a>のWebサイトを公開しました。<a href=\"https://techbookfest.org/event/tbf06/circle/52360006\">技術書典 6</a>で冊子「<a href=\"https://research.archinc.jp/anitech/\">アニメ技術 2019春</a>」を頒布しました。"
+    },
+    {
+      "date": "4/11/2019",
+      "text": "<a href=\"${rootPath}textalive/\">TextAlive</a> v0.8.0を公開しました。<a href=\"http://aidn.jp/daniwell/\">daniwell</a>さん制作のスタイルで歌詞アニメーションを制作し、簡単にカスタマイズできるようになりました。"
+    },
+    {
       "date": "3/2/2019",
       "text": "<a href=\"http://shonan.nii.ac.jp/shonan/blog/2018/09/07/no-147-self-supporting-extensible-programming-languages-and-environments-for-exploratory-live-software-development/\" title=\"No.147 Self-supporting, Extensible Programming Languages and Environments for Exploratory, Live Software Development\">Exploratory ProgrammingとLive Programmingに関するトピックを扱う湘南会議</a>に参加しました。また、それにあわせて<a href=\"http://sigpx.org/en/6\">第6回<abbr title=\"Special Interest Group on Programming Experience\">SIGPX</abbr></a>を東京大学で開催しました。<a href=\"${rootPath}publications/sigpx6-kato-slides.pdf\">発表スライド</a>がダウンロードできます。"
     },
