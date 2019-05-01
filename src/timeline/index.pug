@@ -23,7 +23,7 @@ mixin timeline-menu()
       i.chevron.circle.up.icon
       .content #{title}
     - const oldestYear = en ? 2011 : 2010;
-    - for (var year = 2018; year >= oldestYear; year --) {
+    - for (var year = new Date().getFullYear(); year >= oldestYear; year --) {
     a.item(href=`#${year}`)
       i.right.triangle.icon
       .content #{year}
