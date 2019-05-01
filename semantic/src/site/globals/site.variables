@@ -9,7 +9,7 @@
   Gudea
 */
 
-@headerFont: 'Fira Sans','Noto Sans JP','Hiragino Kaku Gothic Pro',Meiryo,Helvetica,Arial,sans-serif;
+@headerFont: 'UD Shin Go Regular','Hiragino Kaku Gothic Pro',Meiryo,Helvetica,Arial,sans-serif;
 @pageFont: @headerFont;
 @importGoogleFonts: false;
 @fontSmoothing: antialiased;
