@@ -1,3 +1,9 @@
 /*******************************
          Site Overrides
 *******************************/
+
+b,
+strong {
+  font-family: @headerFont;
+  font-weight: @headerFontWeight;
+}
