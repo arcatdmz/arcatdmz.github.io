@@ -2,10 +2,6 @@
          Site Overrides
 *******************************/
 
-body, body * {
-  font-display: optional !important;
-}
-
 b,
 strong {
   font-family: @headerFont;
