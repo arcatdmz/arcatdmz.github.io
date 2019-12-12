@@ -1,5 +1,19 @@
 [
   {
+    "date": "12/23/2019",
+    "text": {
+      "ja": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/dbs170.html\">情報処理学会 第170回データベースシステム研究発表会</a>/<a href=\"https://www.ieice.org/ken/program/index.php?tgs_regid=abed63bc529af3a3885b0721e912ca90b17fc69c5bec01f73c25fda12290ef49&tgid=IEICE-DE\">電子情報通信学会 データ工学研究会</a>/<a href=\"http://www.sigmodj.org/conf/\">ACM SIGMOD-J</a>共催 「データ指向時代のプログラミング体験」"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "12/6/2019",
+    "text": {
+      "ja": "<a href=\"https://www.facebook.com/events/3279161965487156/\">サイエンスビアバー vol.5</a> 「すべてがプログラミングになる未来」"
+    },
+    "type": "domestic"
+  },
+  {
     "date": "9/1/2017",
     "text": {
       "ja": "<a href=\"https://jssst2017.wordpress.com/ftd/\">日本ソフトウェア科学会第 34 回大会 Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
