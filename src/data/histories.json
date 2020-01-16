@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "1/16/2020",
+      "text": "There have been <a href=\"${rootPath}activities\">many committee roles</a> these days ... I will provide an invited talk on &quot;Programming for X&quot; at <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a> which will be held as part of the preparation for <a href=\"https://chi2021.acm.org/\">CHI 2021</a>!"
+    },
+    {
       "date": "12/5/2019",
       "text": "It's been a while ... <a href=\"${rootPath}songle-sync\">Songle Sync</a> (ACM Multimedia 2018) and <a href=\"${rootPath}textalive\">TextAlive</a> (ACM CHI 2015) were both used at <a href=\"https://magicalmirai.com/2019/index_en.html\">Hatsune Miku &quot;Magical Mirai&quot; 2019</a>. Thank you for <a href=\"https://tutorial.songle.jp/sync/step1?style=magicalmirai2019\">your birthday messages</a> presented with Songle Sync and hope you enjoyed <a href=\"https://www.youtube.com/watch?v=tZwOy7GGoMQ\">the live performance</a> and <a href=\"https://www.youtube.com/watch?v=c4j1vGSKBXM\">disc jockey performance</a> using TextAlive!"
     },
@@ -234,6 +238,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "1/16/2020",
+      "text": "いろいろと<a href=\"${rootPath}ja/activities\">委員のお仕事</a>が多い今日この頃ですが、<a href=\"https://chi2021.acm.org/\">CHI 2021</a> の準備の一環で開催される <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a>で &quot;Programming for X&quot; と題して講演します。直近では、芝浦工業大学でも異なる内容で講演させていただく予定です。"
+    },
     {
       "date": "12/5/2019",
       "text": "<a href=\"${rootPath}ja/textalive\">TextAlive</a> (ACM CHI 2015)と<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a> (ACM Multimedia 2018)が両方<a href=\"https://magicalmirai.com/2019/\">初音ミク「マジカルミライ 2019」</a>で使われました。TextAliveは<a href=\"https://www.youtube.com/watch?v=tZwOy7GGoMQ\">ライブ演出</a>と、<a href=\"https://www.youtube.com/watch?v=c4j1vGSKBXM\">DJ演出</a>で活用されました。Songle Syncコラボ企画に<a href=\"https://tutorial.songle.jp/sync/step1?style=magicalmirai2019\">誕生日メッセージ</a>をお寄せいただいたみなさま、ありがとうございました。"
