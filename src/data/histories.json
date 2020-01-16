@@ -2,7 +2,7 @@
   "en": [
     {
       "date": "1/16/2020",
-      "text": "There have been <a href=\"${rootPath}activities\">many committee roles</a> these days ... I will provide an invited talk on &quot;Programming for X&quot; at <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a> which will be held as part of the preparation for <a href=\"https://chi2021.acm.org/\">CHI 2021</a>!"
+      "text": "There have been <a href=\"${rootPath}activities\">many committee roles</a> these days. I will provide an invited talk on &quot;Programming for X&quot; at <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a> which will be held as part of the preparation for <a href=\"https://chi2021.acm.org/\">CHI 2021</a>!"
     },
     {
       "date": "12/5/2019",
