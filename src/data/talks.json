@@ -1,8 +1,15 @@
 [
   {
+    "date": "1/22/2020",
+    "text": {
+      "ja": "芝浦工業大学 高度情報演習 ゲスト講義「プログラミング体験（PX）概論」"
+    },
+    "type": "domestic"
+  },
+  {
     "date": "12/23/2019",
     "text": {
-      "ja": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/dbs170.html\">情報処理学会 第170回データベースシステム研究発表会</a>/<a href=\"https://www.ieice.org/ken/program/index.php?tgs_regid=abed63bc529af3a3885b0721e912ca90b17fc69c5bec01f73c25fda12290ef49&tgid=IEICE-DE\">電子情報通信学会 データ工学研究会</a>/<a href=\"http://www.sigmodj.org/conf/\">ACM SIGMOD-J</a>共催 「データ指向時代のプログラミング体験」"
+      "ja": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/dbs170.html\">情報処理学会 第170回データベースシステム研究発表会</a>/<a href=\"https://www.ieice.org/ken/program/index.php?tgs_regid=abed63bc529af3a3885b0721e912ca90b17fc69c5bec01f73c25fda12290ef49&tgid=IEICE-DE\">電子情報通信学会 データ工学研究会</a>/<a href=\"http://www.sigmodj.org/conf/detail.php?conf_no=72\">ACM SIGMOD-J</a>共催 「データ指向時代のプログラミング体験」"
     },
     "type": "domestic"
   },
@@ -10,6 +17,13 @@
     "date": "12/6/2019",
     "text": {
       "ja": "<a href=\"https://www.facebook.com/events/3279161965487156/\">サイエンスビアバー vol.5</a> 「すべてがプログラミングになる未来」"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "5/25/2018",
+    "text": {
+      "ja": "慶応義塾大学 情報工学特別講義 ゲスト講義「プログラミングのためのユーザインタフェースと創作支援の未来」"
     },
     "type": "domestic"
   },
