@@ -2,6 +2,13 @@
   {
     "date": "1/22/2020",
     "text": {
+      "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;"
+    },
+    "type": "international"
+  },
+  {
+    "date": "1/22/2020",
+    "text": {
       "ja": "芝浦工業大学 高度情報演習 ゲスト講義「プログラミング体験（PX）概論」"
     },
     "type": "domestic"
