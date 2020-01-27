@@ -239,6 +239,10 @@
   ],
   "ja": [
     {
+      "date": "1/27/2020",
+      "text": "産総研と<a href=\"https://otonglass.jp\">株式会社オトングラス</a>で<a href=\"${rootPath}ja/programming-as-communication\">共同研究</a>を始めました。"
+    },
+    {
       "date": "1/16/2020",
       "text": "いろいろと<a href=\"${rootPath}ja/activities\">委員のお仕事</a>が多い今日この頃ですが、<a href=\"https://chi2021.acm.org/\">CHI 2021</a> の準備の一環で開催される <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a>で &quot;Programming for X&quot; と題して講演します。直近では、芝浦工業大学でも異なる内容で講演させていただく予定です。"
     },
