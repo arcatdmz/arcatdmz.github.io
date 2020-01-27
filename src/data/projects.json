@@ -180,9 +180,9 @@
       "project": "programming-as-communication",
       "category": "concept",
       "title": "Programming as Communication",
-      "description": "<p>The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data.</p><p>This is particularly useful in developing data-intensive applications such as physical computing, image processing, video authoring, machine learning, and others that require intensive parameter tuning.</p>",
+      "description": "<p>Programming should be a more social activity than what it is right now. A programming environment does not need to be only for programmers. It should instead be designed for users with diverse technical backgrounds.</p><p>Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.</p>",
       "ja": {
-        "description": "<p>Programming with Examples (PwE)は、プログラマがインタラクティブなアプリケーションの開発を行う際に<strong>Examples (例示データ)の助けを借りる開発手法</strong>です。通常の統合開発環境には、例示データの可視化と管理のための機能はありません。そこで私は、統合開発環境に特別なユーザインタフェースを追加することでPwEを支援する研究を行ってきました。</p><p>PwEは、<abbr title=\"Internet of Things\">IoT</abbr>デバイスの開発、画像処理、動画編集、機械学習など、大量のデータを扱う必要のあるアプリケーション開発において重要な役割を果たす開発支援技術です。</p>"
+        "description": "<p>プログラミングは今よりもっとソーシャルな行為であるべきです。プログラミング環境は、プログラマのためだけの環境である必要はありません。むしろ、多様な技術的背景を持つ人々のために設計されるべきです。</p><p>私は、<strong>プログラミング環境の設計を包摂的にする工夫</strong>により、プログラミングを通じたコミュニケーションが成立し、すべての人々にプログラミングによる利益──ひいてはエンパワーメントをもたらすことができると考えています。</p>"
       }
     },
     {
