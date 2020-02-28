@@ -239,6 +239,10 @@
   ],
   "ja": [
     {
+      "date": "2/29/2020",
+      "text": "<a href=\"https://research.archinc.jp/\">Arch Research</a>における絵コンテ制作支援プロジェクトの一環で、アイデアスケッチのためのWebアプリ「<a href=\"https://research.archinc.jp/griffith/sketch\">Griffith Sketch</a>」を公開しました。<a href=\"https://techbookfest.org/event/tbf08/circle/5768522244292608\">技術書典 8</a>開催日にあわせてのリリースです。イベント自体は新型コロナウイルス感染症の影響で中止となってしまいましたが、来週から開催される<a href=\"https://blog.techbookfest.org/2020/02/28/cheering-tbf/\">応援祭</a>で関連冊子を頒布予定です。"
+    },
+    {
       "date": "1/16/2020",
       "text": "いろいろと<a href=\"${rootPath}ja/activities\">委員のお仕事</a>が多い今日この頃ですが、<a href=\"https://chi2021.acm.org/\">CHI 2021</a> の準備の一環で開催される <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a>で &quot;Programming for X&quot; と題して講演します。直近では、芝浦工業大学でも異なる内容で講演させていただく予定です。"
     },
