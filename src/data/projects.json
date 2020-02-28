@@ -72,6 +72,27 @@
   },
   "projects": [
     {
+      "project": "griffith",
+      "title": "Griffith",
+      "subtitle": "A Web-based Tool for Authoring Anime Storyboards",
+      "year": {
+        "from": 2019
+      },
+      "tags": [
+        "creativity"
+      ],
+      "thumbnail": "griffith.jpg",
+      "icon": true,
+      "hero": "griffith.png",
+      "description": "Storyboards play a crucial role in Japanese animation (anime) production. Griffith is a web-based creativity support tool for anime storyboards, whose design is informed by professional interviews.",
+      "url": "https://research.archinc.jp/en/griffith/",
+      "ja": {
+        "subtitle": "Webベースのアニメ用絵コンテ制作支援ツール",
+        "description": "絵コンテは日本のアニメ制作において設計図とも言うべき重要な役割を果たします。Griffithは、絵コンテ制作のワークフローに関する監督取材などを元に設計され、開発が続いているWebベースの創作支援ツールです。",
+        "url": "https://research.archinc.jp/griffith/"
+      }
+    },
+    {
       "project": "magicalmirai2018",
       "title": "Magical Mirai 2018 live lyrics animation",
       "title-design": "Magical Mirai 2018 live lyrics animation",
