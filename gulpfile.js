@@ -1,6 +1,5 @@
 // Gulp packages
 const gulp = require('gulp');
-const watch = require('gulp-watch');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const replace = require('gulp-replace');
@@ -28,11 +27,12 @@ loadConfig();
 // Import Semantic UI tasks
 gulp.task('semantic:js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic:assets', require('./semantic/tasks/build/assets'));
-gulp.task('semantic', ['semantic:js', 'semantic:assets']);
+gulp.task('semantic', gulp.parallel('semantic:js', 'semantic:assets'));
 
 // Clean up
 const del = require('del');
 
+// [del]
 gulp.task('del', function(){
   return del([
       'dist/**/*'
@@ -40,6 +40,7 @@ gulp.task('del', function(){
   ]);
 });
 
+// [del:js]
 gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
@@ -47,6 +48,7 @@ gulp.task('del:js', function(){
   ]);
 });
 
+// [del:node]
 gulp.task('del:node', function(){
   return del([
     , 'build/**/*.js'
@@ -60,28 +62,32 @@ const tsNodeProject = ts.createProject(tsNodeProjectFile);
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
 
-gulp.task('ts', ['del:js'], function(){
+// [ts] should be called after del:js
+gulp.task('ts', function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsProject())
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('ts:node', ['del:node'], function(){
+// [ts:node] should be called after del:node
+gulp.task('ts:node', function(){
   return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
     .pipe(gulp.dest('build/javascripts'));
 });
 
-gulp.task('js', ['ts'], function(){
+// [js] should be called after ts
+gulp.task('js', function(){
   const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('js:debug', ['ts'], function(){
+// [js:debug] should be called after ts
+gulp.task('js:debug', function(){
   const webpackConfig = require(webpackDebugConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -91,6 +97,7 @@ gulp.task('js:debug', ['ts'], function(){
 // Copy & replace
 const bibtexParse = require('bibtex-parse-js');
 
+// [bibtex]
 gulp.task('bibtex', function(callback) {
   const bibtexJSON = bibtexParse.toJSON(
     fs.readFileSync(
@@ -102,26 +109,31 @@ gulp.task('bibtex', function(callback) {
   callback();
 });
 
-gulp.task('copy:bibtex', ['bibtex'], function(){
+// [copy:bibtex] should be called after bibtex
+gulp.task('copy:bibtex', function(){
   return gulp.src('dist/data/publications.json')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('build/data'));
 });
 
+// [copy:fonts]
 gulp.task('copy:fonts', function(){
   return gulp.src('node_modules/devicon/fonts/*', { base: 'node_modules/devicon'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy:default', ['copy:bibtex'], function(){
+// [copy:default] should be called after copy:bibtex
+gulp.task('copy:default', function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy', ['copy:bibtex', 'copy:fonts', 'copy:default']);
+// [copy]
+gulp.task('copy', gulp.parallel('copy:bibtex', 'copy:fonts', 'copy:default'));
 
+// [replace:node]
 gulp.task('replace:node', function(){
   loadConfig();
   return gulp.src('src/**/*.json', { base: 'src'})
@@ -130,6 +142,7 @@ gulp.task('replace:node', function(){
     .pipe(gulp.dest('build'));
 });
 
+// [replace:devicon]
 gulp.task('replace:devicon', function(){
   return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
     .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
@@ -139,11 +152,15 @@ gulp.task('replace:devicon', function(){
 // HTML
 const pug = require('gulp-pug');
 
-gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
+// [html] should be called after ts:node, replace:node, copy:bibtex
+// gulp.series('ts:node', 'replace:node', 'copy:bibtex')
+gulp.task('html', function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), false);
 });
 
-gulp.task('html:debug', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
+// [html:debug] should be called after ts:node, replace:node, copy:bibtex
+// gulp.series('ts:node', 'replace:node', 'copy:bibtex'
+gulp.task('html:debug', function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), true);
 });
 
@@ -213,15 +230,19 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const purify = require('gulp-purifycss');
 
-gulp.task('css:debug', ['replace:devicon'], function(){
+// [css:debug] should be called after replace:devicon
+gulp.task('css:debug', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
+// [css:bare]
 gulp.task('css:bare', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
-gulp.task('css', ['css:debug', 'js', 'html'], function(){
+// [css] should be called after css:debug, js, html
+// gulp.series('css:debug', 'js', 'html')
+gulp.task('css', function(){
   return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
     .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true, info: true }))
     .pipe(gulp.dest('dist'));
@@ -240,18 +261,23 @@ const gzip = require('gulp-gzip');
 const sharp = require('sharp');
 const File = require('vinyl');
 
-gulp.task('gzip', ['js', 'css'], function(){
+// [gzip] should be called after js, css
+// gulp.parallel('js', 'css')
+gulp.task('gzip', function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
+// [gzip:debug] should be called after js:debug, css:debug
+// gulp.parallel('js:debug', 'css:debug')
+gulp.task('gzip:debug', function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
     .pipe(gulp.dest('dist'));
 });
 
+// [sharp]
 gulp.task('sharp', function(){
   return gulp.src('dist/images/**/*.jpg')
   .pipe(through2.obj(function(chunk, enc, cb) {
@@ -305,12 +331,14 @@ gulp.task('sharp', function(){
 const htmlhint = require("gulp-htmlhint")
 const pdfinfo = require('pdfinfo');
 
+// [lint:html]
 gulp.task('lint:html', function() {
   return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
     .pipe(htmlhint())
 	  .pipe(htmlhint.failAfterError());
 });
 
+// [lint:pdf]
 gulp.task('lint:pdf', function() {
   return gulp.src('dist/**/*.pdf')
   .pipe(through2.obj(function(chunk, enc, cb) {
@@ -345,6 +373,7 @@ gulp.task('lint:pdf', function() {
 });
 
 // Watch & sync
+// [browser-sync]
 gulp.task('browser-sync', function(){
   browserSync({
     port: 8080,
@@ -352,23 +381,26 @@ gulp.task('browser-sync', function(){
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,js}', ['reload']);
+  gulp.watch('dist/**/*.{html,js}', gulp.task('reload'));
 });
 
+// [reload]
 gulp.task('reload', function(){
   browserSync.reload();
 });
 
+// [watch]
 gulp.task('watch', function(){
-  gulp.watch(['src/**/*.pug', 'src/**/*.{bib,json}'], ['html']);
-  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], ['css:bare']);
-  gulp.watch('src/**/*.ts', ['js:debug']);
-  gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', ['copy']);
-  gulp.watch('semantic/**/*.js', ['semantic']);
+  gulp.watch(['src/**/*.pug', 'src/**/*.{bib,json}'], gulp.task('html'));
+  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], gulp.task('css:bare'));
+  gulp.watch('src/**/*.ts', gulp.task('js:debug'));
+  gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', gulp.task('copy'));
+  gulp.watch('semantic/**/*.js', gulp.task('semantic'));
 });
 
+// [watch:html]
 gulp.task('watch:html', function(){
-  return watch(['src/**/*.pug'], function(vinyl){
+  return gulp.watch('src/**/*.pug', function(vinyl){
     // vinyl.type: add | change | unlink
     if (vinyl.event === 'unlink') return;
     // vinyl.path: full path
@@ -408,19 +440,22 @@ gulp.task('watch:html', function(){
   });
 });
 
+// [watch:css]
 gulp.task('watch:css', function(){
-  return watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
+  return gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
     return gulp.start('css:bare');
   });
 });
 
 // Build from scratch
-gulp.task('site', ['semantic', 'copy', 'html', 'js', 'css', 'gzip']);
-gulp.task('site:debug', ['semantic', 'copy', 'html:debug', 'js:debug', 'css:debug', 'gzip:debug']);
+// [site]
+gulp.task('site', gulp.series('semantic', 'copy', 'html', 'js', 'css', 'gzip'));
+// [site:debug]
+gulp.task('site:debug', gulp.series('semantic', 'copy', 'html:debug', 'js:debug', 'css:debug', 'gzip:debug'));
 
 // High-level tasks
-gulp.task('default', ['site']);
-gulp.task('debug', ['site:debug']);
-gulp.task('test', ['lint:html']);
-gulp.task('sync', ['watch', 'browser-sync']);
-gulp.task('sync:html', ['watch:html', 'watch:css', 'browser-sync']);
+gulp.task('default', gulp.task('site'));
+gulp.task('debug', gulp.task('site:debug'));
+gulp.task('test', gulp.task('lint:html'));
+gulp.task('sync', gulp.parallel('watch', 'browser-sync'));
+gulp.task('sync:html', gulp.parallel('watch:html', 'watch:css', 'browser-sync'));
