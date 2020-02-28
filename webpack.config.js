@@ -10,6 +10,7 @@ for (const file of files) {
 }
 
 module.exports = {
+  mode: 'production',
   entry: filesMap,
 
   output: {

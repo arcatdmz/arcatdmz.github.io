@@ -123,7 +123,7 @@ gulp.task('copy:fonts', function(){
     .pipe(gulp.dest('dist'));
 });
 
-// [copy:default] should be called after copy:bibtex
+// [copy:default]
 gulp.task('copy:default', function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -159,7 +159,6 @@ gulp.task('html', function(){
 });
 
 // [html:debug] should be called after ts:node, replace:node, copy:bibtex
-// gulp.series('ts:node', 'replace:node', 'copy:bibtex'
 gulp.task('html:debug', function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), true);
 });
@@ -169,7 +168,7 @@ function compilePug(stream, pretty) {
     .pipe(pug({
       locals: setupLocals(),
       verbose: true,
-      pretty: pretty
+      pretty
     }))
     .pipe(gulp.dest('dist/'));
 }
@@ -240,11 +239,10 @@ gulp.task('css:bare', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
-// [css] should be called after css:debug, js, html
-// gulp.series('css:debug', 'js', 'html')
+// [css] should be called after semantic, css:debug, js, html
 gulp.task('css', function(){
-  return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
-    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true, info: true }))
+  return gulp.src(['dist/stylesheets/**/*.css'], { base: 'dist' })
+    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true }))
     .pipe(gulp.dest('dist'));
 });
 
@@ -298,9 +296,7 @@ gulp.task('sharp', function(){
           throw new Error(`[Skipped] ${chunk.path}`);
         }
         return image
-          .resize(120)
-          .max()
-          .withoutEnlargement()
+          .resize(120, 120, { fit: 'inside', withoutEnlargement: true })
           .toFormat(metadata.format)
           .toBuffer();
       })
@@ -373,6 +369,11 @@ gulp.task('lint:pdf', function() {
 });
 
 // Watch & sync
+// [reload]
+gulp.task('reload', function(){
+  browserSync.reload();
+});
+
 // [browser-sync]
 gulp.task('browser-sync', function(){
   browserSync({
@@ -381,30 +382,14 @@ gulp.task('browser-sync', function(){
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,js}', gulp.task('reload'));
-});
-
-// [reload]
-gulp.task('reload', function(){
-  browserSync.reload();
-});
-
-// [watch]
-gulp.task('watch', function(){
-  gulp.watch(['src/**/*.pug', 'src/**/*.{bib,json}'], gulp.task('html'));
-  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], gulp.task('css:bare'));
-  gulp.watch('src/**/*.ts', gulp.task('js:debug'));
-  gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', gulp.task('copy'));
-  gulp.watch('semantic/**/*.js', gulp.task('semantic'));
+  return gulp.watch('dist/**/*.{html,js}', gulp.task('reload'));
 });
 
 // [watch:html]
 gulp.task('watch:html', function(){
-  return gulp.watch('src/**/*.pug', function(vinyl){
-    // vinyl.type: add | change | unlink
-    if (vinyl.event === 'unlink') return;
-    // vinyl.path: full path
-    const fullPath = vinyl.path;
+  const watcher = gulp.watch('src/**/*.pug');
+
+  const handler = function(fullPath, _stats) {
     const baseName = path.basename(fullPath);
     const basePath = path.resolve(__dirname, 'src');
     const relPath = path.relative(basePath, fullPath);
@@ -437,25 +422,93 @@ gulp.task('watch:html', function(){
     // a Japanese pug page
     // or an English page that does not have a dependent Japanese page
     return compilePug(gulp.src([fullPath], { base: basePath }));
-  });
+  };
+  watcher.on('add', handler);
+  watcher.on('change', handler);
+
+  return watcher;
+});
+
+// [watch:semantic]
+gulp.task('watch:semantic', function(){
+  return gulp.watch('semantic/**/*.{less,overrides,variables}', gulp.task('semantic:assets'));
 });
 
 // [watch:css]
 gulp.task('watch:css', function(){
-  return gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
-    return gulp.start('css:bare');
-  });
+  return gulp.watch(['src/stylesheets/**/*.less'], gulp.task('css:bare'));
 });
 
 // Build from scratch
 // [site]
-gulp.task('site', gulp.series('semantic', 'copy', 'html', 'js', 'css', 'gzip'));
+gulp.task('site',
+  gulp.series(
+    'del',
+    // build Semantic UI (Fomantic UI) and place them in dist/
+    'semantic',
+    gulp.parallel(
+      // copy font files to dist/
+      'copy:fonts',
+      // copy other files to dist/
+      'copy:default',
+      gulp.series(
+        gulp.parallel(
+          // build publications.json and place it in build/
+          gulp.series(
+            'bibtex',
+            'copy:bibtex'
+          ),
+          // build utility JavaScript files and place them in build/
+          'ts:node',
+          // replace text in *.json and place them in build/
+          'replace:node'
+        ),
+        gulp.parallel(
+          'html',
+          'js'
+        ),
+        'css',
+        'gzip'
+      )
+    )
+  )
+);
 // [site:debug]
-gulp.task('site:debug', gulp.series('semantic', 'copy', 'html:debug', 'js:debug', 'css:debug', 'gzip:debug'));
+gulp.task('site:debug',
+  gulp.series(
+    'del',
+    // build Semantic UI (Fomantic UI) and place them in dist/
+    'semantic',
+    gulp.parallel(
+      // copy font files to dist/
+      'copy:fonts',
+      // copy other files to dist/
+      'copy:default',
+      gulp.series(
+        gulp.parallel(
+          // build publications.json and place it in build/
+          gulp.series(
+            'bibtex',
+            'copy:bibtex'
+          ),
+          // build utility JavaScript files and place them in build/
+          'ts:node',
+          // replace text in *.json and place them in build/
+          'replace:node'
+        ),
+        gulp.parallel(
+          'html:debug',
+          'js:debug'
+        ),
+        'css:debug',
+        'gzip:debug'
+      )
+    )
+  )
+);
 
-// High-level tasks
+// // High-level tasks
 gulp.task('default', gulp.task('site'));
 gulp.task('debug', gulp.task('site:debug'));
 gulp.task('test', gulp.task('lint:html'));
-gulp.task('sync', gulp.parallel('watch', 'browser-sync'));
-gulp.task('sync:html', gulp.parallel('watch:html', 'watch:css', 'browser-sync'));
+gulp.task('sync', gulp.parallel('watch:html', 'watch:css', 'browser-sync'));
