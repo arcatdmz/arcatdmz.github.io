@@ -32,14 +32,6 @@ gulp.task('semantic', gulp.parallel('semantic:js', 'semantic:assets'));
 // Clean up
 const del = require('del');
 
-// [del]
-gulp.task('del', function(){
-  return del([
-      'dist/**/*'
-    , 'build/**/*'
-  ]);
-});
-
 // [del:js]
 gulp.task('del:js', function(){
   return del([
@@ -50,10 +42,11 @@ gulp.task('del:js', function(){
 
 // [del:node]
 gulp.task('del:node', function(){
-  return del([
-    , 'build/**/*.js'
-  ]);
+  return del('build/**/*.js');
 });
+
+// [del]
+gulp.task('del', gulp.parallel('del:js', 'del:node'));
 
 // TypeScript & JavaScript compilation
 const ts = require('gulp-typescript');
@@ -229,17 +222,15 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const purify = require('gulp-purifycss');
 
-// [css:debug] should be called after replace:devicon
-gulp.task('css:debug', function(){
-  return compileCSS(gulp.src('src/stylesheets/**/*.less'));
-});
-
 // [css:bare]
 gulp.task('css:bare', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
-// [css] should be called after semantic, css:debug, js, html
+// [css:debug] is the same as css:bare
+gulp.task('css:debug', gulp.parallel('css:bare', 'replace:devicon'));
+
+// [css] should be called after semantic, css:bare, js, html
 gulp.task('css', function(){
   return gulp.src(['dist/stylesheets/**/*.css'], { base: 'dist' })
     .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true }))
@@ -463,11 +454,14 @@ gulp.task('site',
           // build utility JavaScript files and place them in build/
           'ts:node',
           // replace text in *.json and place them in build/
-          'replace:node'
+          'replace:node',
+          // use devicon in *.less
+          'replace:devicon'
         ),
         gulp.parallel(
           'html',
-          'js'
+          'js',
+          'css:bare'
         ),
         'css',
         'gzip'
@@ -498,13 +492,15 @@ gulp.task('site:debug',
           // build utility JavaScript files and place them in build/
           'ts:node',
           // replace text in *.json and place them in build/
-          'replace:node'
+          'replace:node',
+          // use devicon in *.less
+          'replace:devicon'
         ),
         gulp.parallel(
           'html:debug',
-          'js:debug'
+          'js:debug',
+          'css:debug'
         ),
-        'css:debug',
         'gzip:debug'
       )
     )
