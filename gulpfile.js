@@ -458,6 +458,8 @@ gulp.task('site',
             'bibtex',
             'copy:bibtex'
           ),
+          // build client-side JavaScript files and place them in src/
+          'ts',
           // build utility JavaScript files and place them in build/
           'ts:node',
           // replace text in *.json and place them in build/
@@ -491,6 +493,8 @@ gulp.task('site:debug',
             'bibtex',
             'copy:bibtex'
           ),
+          // build client-side JavaScript files and place them in src/
+          'ts',
           // build utility JavaScript files and place them in build/
           'ts:node',
           // replace text in *.json and place them in build/
