@@ -1,6 +1,5 @@
 // Gulp packages
 const gulp = require('gulp');
-const watch = require('gulp-watch');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const replace = require('gulp-replace');
@@ -28,18 +27,12 @@ loadConfig();
 // Import Semantic UI tasks
 gulp.task('semantic:js', require('./semantic/tasks/build/javascript'));
 gulp.task('semantic:assets', require('./semantic/tasks/build/assets'));
-gulp.task('semantic', ['semantic:js', 'semantic:assets']);
+gulp.task('semantic', gulp.parallel('semantic:js', 'semantic:assets'));
 
 // Clean up
 const del = require('del');
 
-gulp.task('del', function(){
-  return del([
-      'dist/**/*'
-    , 'build/**/*'
-  ]);
-});
-
+// [del:js]
 gulp.task('del:js', function(){
   return del([
       'src/javascripts/**/*.js'
@@ -47,11 +40,13 @@ gulp.task('del:js', function(){
   ]);
 });
 
+// [del:node]
 gulp.task('del:node', function(){
-  return del([
-    , 'build/**/*.js'
-  ]);
+  return del('build/**/*.js');
 });
+
+// [del]
+gulp.task('del', gulp.parallel('del:js', 'del:node'));
 
 // TypeScript & JavaScript compilation
 const ts = require('gulp-typescript');
@@ -60,28 +55,32 @@ const tsNodeProject = ts.createProject(tsNodeProjectFile);
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
 
-gulp.task('ts', ['del:js'], function(){
+// [ts] should be called after del:js
+gulp.task('ts', function(){
   return gulp.src('src/**/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsProject())
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('ts:node', ['del:node'], function(){
+// [ts:node] should be called after del:node
+gulp.task('ts:node', function(){
   return gulp.src('src/javascripts/*.ts')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(tsNodeProject())
     .pipe(gulp.dest('build/javascripts'));
 });
 
-gulp.task('js', ['ts'], function(){
+// [js] should be called after ts
+gulp.task('js', function(){
   const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('js:debug', ['ts'], function(){
+// [js:debug] should be called after ts
+gulp.task('js:debug', function(){
   const webpackConfig = require(webpackDebugConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -91,6 +90,7 @@ gulp.task('js:debug', ['ts'], function(){
 // Copy & replace
 const bibtexParse = require('bibtex-parse-js');
 
+// [bibtex]
 gulp.task('bibtex', function(callback) {
   const bibtexJSON = bibtexParse.toJSON(
     fs.readFileSync(
@@ -102,26 +102,31 @@ gulp.task('bibtex', function(callback) {
   callback();
 });
 
-gulp.task('copy:bibtex', ['bibtex'], function(){
+// [copy:bibtex] should be called after bibtex
+gulp.task('copy:bibtex', function(){
   return gulp.src('dist/data/publications.json')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('build/data'));
 });
 
+// [copy:fonts]
 gulp.task('copy:fonts', function(){
   return gulp.src('node_modules/devicon/fonts/*', { base: 'node_modules/devicon'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy:default', ['copy:bibtex'], function(){
+// [copy:default]
+gulp.task('copy:default', function(){
   return gulp.src(['src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}', 'src/.htaccess'], { base: 'src'})
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy', ['copy:bibtex', 'copy:fonts', 'copy:default']);
+// [copy]
+gulp.task('copy', gulp.parallel('copy:bibtex', 'copy:fonts', 'copy:default'));
 
+// [replace:node]
 gulp.task('replace:node', function(){
   loadConfig();
   return gulp.src('src/**/*.json', { base: 'src'})
@@ -130,6 +135,7 @@ gulp.task('replace:node', function(){
     .pipe(gulp.dest('build'));
 });
 
+// [replace:devicon]
 gulp.task('replace:devicon', function(){
   return gulp.src('node_modules/devicon/*.css', { base: 'node_modules/devicon' })
     .pipe(replace('url(\'fonts/', 'url(\'/fonts/'))
@@ -139,11 +145,14 @@ gulp.task('replace:devicon', function(){
 // HTML
 const pug = require('gulp-pug');
 
-gulp.task('html', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
+// [html] should be called after ts:node, replace:node, copy:bibtex
+// gulp.series('ts:node', 'replace:node', 'copy:bibtex')
+gulp.task('html', function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), false);
 });
 
-gulp.task('html:debug', ['ts:node', 'replace:node', 'copy:bibtex'], function(){
+// [html:debug] should be called after ts:node, replace:node, copy:bibtex
+gulp.task('html:debug', function(){
   return compilePug(gulp.src(['src/**/*.pug', '!src/**/_*.pug']), true);
 });
 
@@ -152,7 +161,7 @@ function compilePug(stream, pretty) {
     .pipe(pug({
       locals: setupLocals(),
       verbose: true,
-      pretty: pretty
+      pretty
     }))
     .pipe(gulp.dest('dist/'));
 }
@@ -213,17 +222,18 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const purify = require('gulp-purifycss');
 
-gulp.task('css:debug', ['replace:devicon'], function(){
-  return compileCSS(gulp.src('src/stylesheets/**/*.less'));
-});
-
+// [css:bare]
 gulp.task('css:bare', function(){
   return compileCSS(gulp.src('src/stylesheets/**/*.less'));
 });
 
-gulp.task('css', ['css:debug', 'js', 'html'], function(){
-  return gulp.src('dist/stylesheets/**/*.css', { base: 'dist' })
-    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true, info: true }))
+// [css:debug] is the same as css:bare
+gulp.task('css:debug', gulp.parallel('css:bare', 'replace:devicon'));
+
+// [css] should be called after semantic, css:bare, js, html
+gulp.task('css', function(){
+  return gulp.src(['dist/stylesheets/**/*.css'], { base: 'dist' })
+    .pipe(purify(['dist/**/*.js', 'dist/**/*.html'], { minify: true }))
     .pipe(gulp.dest('dist'));
 });
 
@@ -240,18 +250,23 @@ const gzip = require('gulp-gzip');
 const sharp = require('sharp');
 const File = require('vinyl');
 
-gulp.task('gzip', ['js', 'css'], function(){
+// [gzip] should be called after js, css
+// gulp.parallel('js', 'css')
+gulp.task('gzip', function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('gzip:debug', ['js:debug', 'css:debug'], function(){
+// [gzip:debug] should be called after js:debug, css:debug
+// gulp.parallel('js:debug', 'css:debug')
+gulp.task('gzip:debug', function(){
   return gulp.src(['dist/**/*.{js,css}'])
     .pipe(gzip())
     .pipe(gulp.dest('dist'));
 });
 
+// [sharp]
 gulp.task('sharp', function(){
   return gulp.src('dist/images/**/*.jpg')
   .pipe(through2.obj(function(chunk, enc, cb) {
@@ -272,9 +287,7 @@ gulp.task('sharp', function(){
           throw new Error(`[Skipped] ${chunk.path}`);
         }
         return image
-          .resize(120)
-          .max()
-          .withoutEnlargement()
+          .resize(120, 120, { fit: 'inside', withoutEnlargement: true })
           .toFormat(metadata.format)
           .toBuffer();
       })
@@ -305,12 +318,14 @@ gulp.task('sharp', function(){
 const htmlhint = require("gulp-htmlhint")
 const pdfinfo = require('pdfinfo');
 
+// [lint:html]
 gulp.task('lint:html', function() {
   return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
     .pipe(htmlhint())
 	  .pipe(htmlhint.failAfterError());
 });
 
+// [lint:pdf]
 gulp.task('lint:pdf', function() {
   return gulp.src('dist/**/*.pdf')
   .pipe(through2.obj(function(chunk, enc, cb) {
@@ -345,34 +360,28 @@ gulp.task('lint:pdf', function() {
 });
 
 // Watch & sync
-gulp.task('browser-sync', function(){
+// [reload]
+gulp.task('reload', function(cb){
+  browserSync.reload();
+  cb();
+});
+
+// [browser-sync]
+gulp.task('browser-sync', function(cb){
   browserSync({
     port: 8080,
     server: {
       baseDir: 'dist/'
     }
   });
-  gulp.watch('dist/**/*.{html,js}', ['reload']);
+  cb();
 });
 
-gulp.task('reload', function(){
-  browserSync.reload();
-});
-
-gulp.task('watch', function(){
-  gulp.watch(['src/**/*.pug', 'src/**/*.{bib,json}'], ['html']);
-  gulp.watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], ['css:bare']);
-  gulp.watch('src/**/*.ts', ['js:debug']);
-  gulp.watch('src/**/*.{pdf,png,jpg,bib,json}', ['copy']);
-  gulp.watch('semantic/**/*.js', ['semantic']);
-});
-
+// [watch:html]
 gulp.task('watch:html', function(){
-  return watch(['src/**/*.pug'], function(vinyl){
-    // vinyl.type: add | change | unlink
-    if (vinyl.event === 'unlink') return;
-    // vinyl.path: full path
-    const fullPath = vinyl.path;
+  const watcher = gulp.watch('src/**/*.pug');
+
+  const handler = function(fullPath, _stats) {
     const baseName = path.basename(fullPath);
     const basePath = path.resolve(__dirname, 'src');
     const relPath = path.relative(basePath, fullPath);
@@ -381,46 +390,140 @@ gulp.task('watch:html', function(){
     // _layout.pug affects all pages
     if (baseName.indexOf('_layout') === 0) {
       if (relDirPath.length > 0) {
-        return compilePug(gulp.src([
+        compilePug(gulp.src([
             `src/${relDirPath}/**/*.pug`
           , `!src/${relDirPath}/**/_*.pug`
           , `src/ja/${relDirPath}/**/*.pug`
           , `!src/ja/${relDirPath}/**/_*.pug`
         ]));
       } else {
-        return compilePug(gulp.src([
+        compilePug(gulp.src([
             'src/**/*.pug'
           , '!src/**/_*.pug'
         ]));
       }
+      browserSync.reload();
+      return;
     }
 
     // an English page that has a dependent Japanese page
     const jaPath = path.resolve(basePath, 'ja', relPath);
     if (relPath.indexOf('ja' + path.sep) < 0
         && fs.existsSync(jaPath)) {
-      return compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+      compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+      browserSync.reload();
+      return;
     }
 
     // a Japanese pug page
     // or an English page that does not have a dependent Japanese page
-    return compilePug(gulp.src([fullPath], { base: basePath }));
-  });
+    compilePug(gulp.src([fullPath], { base: basePath }));
+    browserSync.reload();
+  };
+  watcher.on('add', handler);
+  watcher.on('change', handler);
+
+  return watcher;
 });
 
+// [watch:semantic]
+gulp.task('watch:semantic', function(){
+  return gulp.watch('semantic/**/*.{less,overrides,variables}', gulp.task('semantic:assets'));
+});
+
+// [watch:css]
 gulp.task('watch:css', function(){
-  return watch(['semantic/**/*.{less,overrides,variables}', 'src/stylesheets/**/*.less'], function(){
-    return gulp.start('css:bare');
-  });
+  const watcher = gulp.watch('src/stylesheets/**/*.less');
+
+  const handler = function(_fullPath, _stats) {
+    compileCSS(gulp.src('src/stylesheets/**/*.less'));
+    browserSync.reload();
+  };
+
+  watcher.on('add', handler);
+  watcher.on('change', handler);
+  return watcher;
 });
 
 // Build from scratch
-gulp.task('site', ['semantic', 'copy', 'html', 'js', 'css', 'gzip']);
-gulp.task('site:debug', ['semantic', 'copy', 'html:debug', 'js:debug', 'css:debug', 'gzip:debug']);
+// [site]
+gulp.task('site',
+  gulp.series(
+    'del',
+    // build Semantic UI (Fomantic UI) and place them in dist/
+    'semantic',
+    gulp.parallel(
+      // copy font files to dist/
+      'copy:fonts',
+      // copy other files to dist/
+      'copy:default',
+      gulp.series(
+        gulp.parallel(
+          // build publications.json and place it in build/
+          gulp.series(
+            'bibtex',
+            'copy:bibtex'
+          ),
+          // build client-side JavaScript files and place them in src/
+          'ts',
+          // build utility JavaScript files and place them in build/
+          'ts:node',
+          // replace text in *.json and place them in build/
+          'replace:node',
+          // use devicon in *.less
+          'replace:devicon'
+        ),
+        gulp.parallel(
+          'html',
+          'js',
+          'css:bare'
+        ),
+        'css',
+        'gzip'
+      )
+    )
+  )
+);
+// [site:debug]
+gulp.task('site:debug',
+  gulp.series(
+    'del',
+    // build Semantic UI (Fomantic UI) and place them in dist/
+    'semantic',
+    gulp.parallel(
+      // copy font files to dist/
+      'copy:fonts',
+      // copy other files to dist/
+      'copy:default',
+      gulp.series(
+        gulp.parallel(
+          // build publications.json and place it in build/
+          gulp.series(
+            'bibtex',
+            'copy:bibtex'
+          ),
+          // build client-side JavaScript files and place them in src/
+          'ts',
+          // build utility JavaScript files and place them in build/
+          'ts:node',
+          // replace text in *.json and place them in build/
+          'replace:node',
+          // use devicon in *.less
+          'replace:devicon'
+        ),
+        gulp.parallel(
+          'html:debug',
+          'js:debug',
+          'css:debug'
+        ),
+        'gzip:debug'
+      )
+    )
+  )
+);
 
-// High-level tasks
-gulp.task('default', ['site']);
-gulp.task('debug', ['site:debug']);
-gulp.task('test', ['lint:html']);
-gulp.task('sync', ['watch', 'browser-sync']);
-gulp.task('sync:html', ['watch:html', 'watch:css', 'browser-sync']);
+// // High-level tasks
+gulp.task('default', gulp.task('site'));
+gulp.task('debug', gulp.task('site:debug'));
+gulp.task('test', gulp.task('lint:html'));
+gulp.task('dev', gulp.parallel('browser-sync', 'watch:html', 'watch:css'));

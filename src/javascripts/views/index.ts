@@ -1,6 +1,3 @@
-import { checkSmoothScrollable } from './library';
-
-
 const lang: 'en'|'ja' = (<any>self)["lang"];
 
 $('a.sns').on('click touch', (ev) => {

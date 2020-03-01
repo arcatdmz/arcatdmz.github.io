@@ -6,8 +6,8 @@ All rights on image, video, text, and related resources (e.g., including paper P
 
 ## Dependencies
 
-- `Gulp v3.9.1`
-- `Webpack v3` + `Babel-loader v8` + `Babel v7`
+- `Gulp v4`
+- `Webpack v4` + `Babel-loader v8` + `Babel v7`
 - `TypeScript v2.9`
 - `Pug v2` (as part of `gulp-pug` plugin)
 
@@ -47,11 +47,5 @@ $ gulp debug
 Run the following command after `gulp` build will launch a new browser window.
 
 ```sh
-$ gulp sync
-```
-
-The following command allows partial rebuilds after each edit, which are significantly lighter than the `gulp sync` that builds all files.
-
-```sh
-$ gulp sync:html
+$ gulp dev
 ```
