@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp",
     "test": "gulp test",
-    "start": "gulp sync:html",
+    "dev": "gulp dev",
     "blc": "broken-link-checker http://localhost:8080/ -ro"
   },
   "author": "Jun Kato",

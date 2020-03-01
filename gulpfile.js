@@ -361,19 +361,20 @@ gulp.task('lint:pdf', function() {
 
 // Watch & sync
 // [reload]
-gulp.task('reload', function(){
+gulp.task('reload', function(cb){
   browserSync.reload();
+  cb();
 });
 
 // [browser-sync]
-gulp.task('browser-sync', function(){
+gulp.task('browser-sync', function(cb){
   browserSync({
     port: 8080,
     server: {
       baseDir: 'dist/'
     }
   });
-  return gulp.watch('dist/**/*.{html,js}', gulp.task('reload'));
+  cb();
 });
 
 // [watch:html]
@@ -389,30 +390,35 @@ gulp.task('watch:html', function(){
     // _layout.pug affects all pages
     if (baseName.indexOf('_layout') === 0) {
       if (relDirPath.length > 0) {
-        return compilePug(gulp.src([
+        compilePug(gulp.src([
             `src/${relDirPath}/**/*.pug`
           , `!src/${relDirPath}/**/_*.pug`
           , `src/ja/${relDirPath}/**/*.pug`
           , `!src/ja/${relDirPath}/**/_*.pug`
         ]));
       } else {
-        return compilePug(gulp.src([
+        compilePug(gulp.src([
             'src/**/*.pug'
           , '!src/**/_*.pug'
         ]));
       }
+      browserSync.reload();
+      return;
     }
 
     // an English page that has a dependent Japanese page
     const jaPath = path.resolve(basePath, 'ja', relPath);
     if (relPath.indexOf('ja' + path.sep) < 0
         && fs.existsSync(jaPath)) {
-      return compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+      compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+      browserSync.reload();
+      return;
     }
 
     // a Japanese pug page
     // or an English page that does not have a dependent Japanese page
-    return compilePug(gulp.src([fullPath], { base: basePath }));
+    compilePug(gulp.src([fullPath], { base: basePath }));
+    browserSync.reload();
   };
   watcher.on('add', handler);
   watcher.on('change', handler);
@@ -427,7 +433,16 @@ gulp.task('watch:semantic', function(){
 
 // [watch:css]
 gulp.task('watch:css', function(){
-  return gulp.watch(['src/stylesheets/**/*.less'], gulp.task('css:bare'));
+  const watcher = gulp.watch('src/stylesheets/**/*.less');
+
+  const handler = function(_fullPath, _stats) {
+    compileCSS(gulp.src('src/stylesheets/**/*.less'));
+    browserSync.reload();
+  };
+
+  watcher.on('add', handler);
+  watcher.on('change', handler);
+  return watcher;
 });
 
 // Build from scratch
@@ -511,4 +526,4 @@ gulp.task('site:debug',
 gulp.task('default', gulp.task('site'));
 gulp.task('debug', gulp.task('site:debug'));
 gulp.task('test', gulp.task('lint:html'));
-gulp.task('sync', gulp.parallel('watch:html', 'watch:css', 'browser-sync'));
+gulp.task('dev', gulp.parallel('browser-sync', 'watch:html', 'watch:css'));
