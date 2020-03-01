@@ -526,4 +526,5 @@ gulp.task('site:debug',
 gulp.task('default', gulp.task('site'));
 gulp.task('debug', gulp.task('site:debug'));
 gulp.task('test', gulp.task('lint:html'));
+gulp.task('json', gulp.series(gulp.parallel('ts', 'ts:node', 'replace:node'), 'js'))
 gulp.task('dev', gulp.parallel('browser-sync', 'watch:html', 'watch:css'));
