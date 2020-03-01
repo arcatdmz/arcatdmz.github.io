@@ -2,7 +2,8 @@
   {
     "date": "1/22/2020",
     "text": {
-      "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;"
+      "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;",
+      "en": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;"
     },
     "type": "international"
   },
