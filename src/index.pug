@@ -126,7 +126,7 @@ mixin history()
       i.zoom.icon
       | #{en ? 'More' : 'もっと見る'}
     a.ui.right.attached.all.with-popup.button(href=`${basePath}timeline/`, data-content=en ? 'Show the timeline of updates and publications' : '時系列で全ての更新履歴と発表文献を見ることができます', data-position='top right')
-      i.maximize.icon
+      i.expand.icon
       | #{en ? 'Show all' : '全部見る'}
   - }
 
@@ -226,7 +226,7 @@ mixin contact()
             i.fax.icon
             .content #{en ? '+81' : '0'}29-861-3313
       .ui.secondary.right.aligned.segment
-        a.ui.primary.large.with-popup.button(href=`${basePath}collaborations`, data-position='top right')
+        a.ui.primary.large.with-popup.labeled.button(href=`${basePath}collaborations`, data-position='top right')
           i.handshake.icon
           | #{en ? 'Interested in collaborations?' : '共同研究しませんか？'}
         .ui.popup
