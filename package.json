@@ -1,7 +1,8 @@
 {
   "name": "junkato.jp",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Source code of https://junkato.jp",
   "main": "index.js",
   "scripts": {
     "build": "gulp",
@@ -45,8 +46,5 @@
     "devicon": "^2.2.0",
     "fomantic-ui": "^2.8.4",
     "sharp": "^0.22.1"
-  },
-  "resolutions": {
-    "natives": "1.1.4"
   }
 }
