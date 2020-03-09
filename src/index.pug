@@ -141,15 +141,18 @@ mixin concepts()
           i.lab.icon
           | Projects
         | .
-    .ui.cards#concepts-list
+    .ui.divider
+    #concepts-list
       - for (const p of projects) {
       - if (p.category !== 'concept') continue;
       - if (p.project === 'design') continue;
-      .card(id=`concepts-${p.project}`)
-        a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
-        .content
-          a.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
-          .description !{p.getDescription(lang)}
+      .ui.two.column.stackable.grid(id=`concepts-${p.project}`)
+        .five.wide.column
+          a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
+        .eleven.wide.column
+          a.ui.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
+          p.description !{p.getDescription(lang)}
+      .ui.divider
       - }
 
 mixin projects()

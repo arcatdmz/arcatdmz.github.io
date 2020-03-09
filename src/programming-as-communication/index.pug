@@ -1,0 +1,221 @@
+extends ../_layout
+
+block vars
+  - title = 'Programming as Communication';
+  - description = '';
+  - imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-as-communication.png`;
+  - me = 'programming-as-communication/';
+
+block main
+  section
+    .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
+      img(src=`${rootPath}programming-with-examples/programming-with-examples.jpg`)
+      .caption: a(href='http://dx.doi.org/10.1109/MC.2016.217')
+        i.book.icon
+        | Read the article
+    h1.ui.header #{title}
+    +render-share()
+    .ui.horizontal.divided.list.project-meta-list
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | 7/15/2016
+      .item
+        span.ui.red.tiny.basic.label
+          | IEEE Computer Special Issue on 21st Century User Interfaces
+    .ui.message
+      p This page provides summary and additional information for the journal article that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.
+      - if (!en) {
+      p: +translate('programming-with-examples/index.pug')
+      - }
+  .ui.hidden.divider
+  section#paper
+    h2.ui.header Paper
+    .ui.basic.segment
+      p The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and users understand applications and configure them to meet their needs.
+      .ui.raised.segment.major-publication
+        span.ui.red.ribbon.label #{en ? 'Cite this!' : '引用するならコレ！'}
+        +render-major-publication(publicationsTable['programming-with-examples'])
+    .ui.basic.segment
+      .ui.two.columns.grid
+        .sixteen.wide.tablet.ten.wide.computer.column
+          img.ui.fluid.image(src=`${rootPath}programming-with-examples/pwe-fig1.jpg`, alt='(Programming by Example vs Programming with Examples)')
+        .sixteen.wide.tablet.six.wide.computer.column
+          p.caption
+            strong Figure 1.
+            |  Two workflows for developing data-intensive interactive systems. (a) Programming by example (PbE). (b) Programming with examples (PwE). Unlike PbE systems, PwE systems allow the representation of example data and enable explicit programming. IDE: integrated development environment.
+      .ui.hidden.divider
+  section#terminology
+    h2.ui.header What is (and what is not) "Programming with Examples"?
+    .ui.basic.segment
+      .ui.stackable.two.columns.grid
+        .column
+          h3.ui.header It is...
+          ul
+            li It is the workflow of programmers that makes use of example data during the development of applications.
+            li It is often required for the development of modern interactive systems that have become more and more data-intensive.
+            li Example target applications include 
+              abbr(title='Internet of Things') IoT
+              | , robot control, gesture recognition, image processing, and animation, and others that require intensive parameter tuning such as machine learning.
+            li Programmers have often developed their own tools for the purpose such as tools for visualizing recorded sensor data. We argue that such features should be built into 
+              abbr(title='Integrated Development Environments') IDEs
+              |  to provide fluid programming experience.
+        .column
+          h3.ui.header It is NOT...
+          ul
+            li
+              | It is different from typical 
+              abbr(title='Programming by Example') PbE
+              |  systems that encapsulate and hide the implementation of programs from the user. It requires explicit programming. (See 
+              strong Figure 1
+              |  above.)
+            li
+              | It is slightly different from the traditional definition of "Programming with Example" that appears in 
+              a(href='http://dx.doi.org/10.1145/22339.22349')
+                | Brad Myers' survey paper on 
+                abbr(title='Programming by Example') PbE
+                |  systems [CHI '86]
+              | . It indicated the omission of inferences in 
+              abbr(title='Programming by Example') PbE
+              |  systems and did not discuss data representations.
+            li
+              | It is different from Joel Brandt's 
+              a(href='https://en.wikipedia.org/wiki/Example-Centric_Programming') Example-Centric Programming
+              |  that helps programmers to benefit from existing example code on the web. Examples in his work denote the use of APIs (the logic of the programs) and examples in 
+              abbr(title='Programming with Examples') PwE
+              |  denote data used in the programs.
+  .ui.hidden.divider
+  section#examples
+    h2.ui.header Which 
+      abbr(title='Integrated Development Environments') IDEs
+      |  support &quot;Programming with Examples&quot;?
+    .ui.basic.segment
+      p We have designed 
+        abbr(title='Integrated Development Environments') IDEs
+        |  that support the 
+        abbr(title='Programming with Examples') PwE
+        |  workflow. Some of them are implemented as 
+        abbr(title='Web-based Integrated Development Environments') WIDEs
+        |  and you can try them out without leaving the web browser! See 
+        a(href=`${basePath}textalive`) TextAlive
+        |  and 
+        a(href=`${basePath}f3js`) f3.js
+        |  projects for more details.
+      .ui.divided.list
+        .item
+          a.ui.small.image(href=`${basePath}picode`)
+            img(src=`${rootPath}images/thumbnails/picode.jpg`)
+          .content
+            a.header(href=`${basePath}picode`) Picode [CHI '13]
+            .description It supports handling robot/human posture information with the code editor that shows inline photos representing the posture data.
+        .item
+          a.ui.small.image(href=`${basePath}dejavu`)
+            img(src=`${rootPath}images/thumbnails/dejavu.png`)
+          .content
+            a.header(href=`${basePath}dejavu`) DejaVu [UIST '12]
+            .description It supports creating interacitve camera-based apps with the timeline and canvas interfaces for built-in record-and-replay and re-evaluation feature.
+        .item
+          a.ui.small.image(href=`${basePath}visionsketch`)
+            img(src=`${rootPath}images/thumbnails/visionsketch.jpg`)
+          .content
+            a.header(href=`${basePath}visionsketch`) VisionSketch [GI '13]
+            .description It implements graphical annotation-based code completion where methods are suggested based on sketched shapes on input images.
+        .item
+          a.ui.small.image(href=`${basePath}textalive`)
+            img(src=`${rootPath}images/thumbnails/textalive.png`)
+          .content
+            a.header(href=`${basePath}textalive`) TextAlive [CHI '15]
+            .description It supports authoring Kinetic Typography videos of lyrics text synchronized with songs equipped with 
+            a(href=`${basePath}live-tuning`) Live Tuning
+            |  interfaces for end-users.
+      p
+        | There are of course excellent prior work and other ongoing work that supports the 
+        abbr(title='Programming with Examples') PwE
+        |  workflow, as shown below.
+      .ui.hidden.divider
+      h3.ui.header#conventional
+        | Programming with Examples in conventional 
+        abbr(title='Integrated Development Environments') IDEs
+      p Conventional 
+        abbr(title='Character-based User Interface') CUI
+        |  and 
+        abbr(title='Graphical User Interface') GUI
+        |  applications do not involve continuous and complex data handling. As a result, their development environments typically support 
+        strong simple text-based or symbol-based representations of example data
+        | .
+      ul
+        li
+          | Most 
+          abbr(title='Programming by Example') PbE
+          |  systems hide the program implementation from the user to require no programming knowledge, but exceptions do exist. 
+          a(href='http://acypher.com/wwid/Chapters/01Pygmalion.html') Pygmalion
+          |  lets programmers kick-start building a program by giving concrete input data instead of writing abstract program code.
+        li
+          a(href='http://www.subtext-lang.org/') The Subtext IDE [OOPSLA '05]
+          |  lets programmers specify test cases by writing example input data next to program code in a code editor.
+      .ui.hidden.divider
+      h3.ui.header#data-intensive
+        | Programming with Examples in 
+        abbr(title='Integrated Development Environments') IDEs
+        |  for data-intensive applications
+      p To develop data-intensive applications, more 
+        strong intuitive (typically graphical) representations of example data
+        |  are required other than text-based representations.
+      ul
+        li
+          a(href='http://hci.stanford.edu/research/dtools/') d.tools [UIST '06]
+          |  is a visual authoring environment for prototyping 
+          strong physical computing devices
+          | . It is capable of recording a video of the user's interaction with the physical device, logs interaction events, and play it in a video player-like interface.
+        li
+          a(href='http://dx.doi.org/10.1145/1866029.1866038') Gestalt [UIST '10]
+          |  provides integrated support for implementation and analysis in 
+          strong machine learning algorithms
+          |  and influences most of our projects. It comes with rich graphical representations of example data collected for the application development.
+        li
+          a(href='http://brrian.org/#current') Timelapse [UIST '13]
+          |  and its subsequent work are built into the developer tool of WebKit project that captures and replays 
+          strong web application
+          |  executions with the Timeline interface.
+        li
+          a(href='http://www.cs.cmu.edu/~shihpinc/gneiss.html') Gneiss [CHI '15]
+          |  and its related work extend a spreadsheet-based user interface for handling continuous or structured data retrieved from the web.
+      p
+        | Please 
+        a(href='mailto:jun.kato@aist.go.jp')
+          i.mail.icon
+          | contact us
+        |  to add your project here.
+  .ui.hidden.divider
+  section#future
+    h2.ui.header
+      | What are the design implications for future 
+      abbr(title='Integrated Development Environments') IDEs
+      | ?
+    .ui.basic.segment
+      p While we would strongly recommend you to read the article (p.40-41) for the detailed discussion, here are some lessons learned in case you are in a hurry.
+      ul
+        li
+          strong Intuitive representations of example data are important.
+          |  Researchers have proposed many intuitive interfaces for manipulating data through GUIs; we can learn from such interfaces to integrate data manipulation components into IDEs. Although the article focused on inherently visual example data, example data could be sounds, haptic sensations, tastes, and smells. We foresee that future development environments could exploit human sensory organs other than the eyes, including the ears, skin, tongue, and nose. A research question for you: how would you debug virtual reality applications with various kinds of sensations?
+        li
+          strong Collaborative application authoring is the key in the age of big data.
+          |  Collaboration among people with diverse backgrounds is essential for developing successful user interfaces for data-intensive applications in the age of big data. The amount and variations of data far surpass what programmers alone can manage and edit. One potential answer to this implication is 
+          a(href=`${rootPath}live-tuning`) Live Tuning
+          |  that expands benefits of Live Programming to end-users.
+        li
+          strong Borders between the development and runtime environments will be eliminated.
+          |  Programmers will ship programs together with the development environments so that nonprogrammers can customize them by updating the example data. In such environments, representations of the example data serve as the boundary that defines what can be easily customized and what cannot. We believe that user interface design will become a process to create applications with such a boundary that defines the appropriate flexibility.
+  .ui.hidden.divider
+  section#revision
+    h2.ui.header
+      i.announcement.icon
+      | #{en ? 'Revision history' : '更新履歴'}
+    .ui.basic.segment: .ui.divided.feed
+      block news
+        .event: .content
+          .date 1/21/2018
+          .summary Check missing links and update style.
+        .event: .content
+          .date 7/15/2016
+          .summary Upload the initial revision.
