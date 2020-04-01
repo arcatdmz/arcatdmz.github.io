@@ -14,28 +14,47 @@ block main
       .item
         span.ui.tiny.basic.label
           i.calendar.icon
-          | 3/11/2020
+          | 4/1/2020
       .item
         span.ui.red.tiny.basic.label
           | Convivial Computing Salon 2020
-      - if (!en) {
-      .item
-        +translate('programming-with-examples/index.pug')
-      - }
   .ui.hidden.divider
-  section#abstract
-    h2.ui.header #{en ? 'Summary' : '概要'}
-    .ui.basic.segment
+  section#abstract: +abstract()
+  .ui.hidden.divider
+  section#further-reading: +further-reading()
+  .ui.hidden.divider
+  section#revision: +revision()
+
+mixin abstract()
+  h2.ui.header #{en ? 'Summary' : '概要'}
+  .ui.basic.segment
+    block abstract
       p Computers have become ubiquitous in our life and work, and the way they are programmed needs fundamental improvements. The prior effort often aims at improving programming experience for people with specific technical backgrounds (e.g., programmers, end-users, data scientists), respectively.
       p In contrast, throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. A programming environment does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.
       p Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.
-  .ui.hidden.divider
-  section#revision
-    h2.ui.header
-      i.announcement.icon
-      | #{en ? 'Revision history' : '更新履歴'}
-    .ui.basic.segment: .ui.divided.feed
-      block news
-        .event: .content
-          .date 3/11/2020
-          .summary Upload the initial revision.
+
+mixin further-reading()
+  h2.ui.header
+    i.lab.icon
+    .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+  .ui.basic.segment
+    p The following projects are highly relevant to the topic.
+  .ui.segment
+    .ui.divided.items.projects
+      - for (const p of projects) {
+      //- skip concept, committee, and private projects
+      - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
+      //- 
+      - if (!Array.isArray(p.tags) || p.tags.indexOf('programming-as-communication') < 0) continue;
+      +render-project-item(p)
+      - }
+
+mixin revision()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 4/1/2020
+        .summary Upload the initial revision.
