@@ -18,7 +18,7 @@ const webpackConfigFile = './webpack.config';
 const webpackDebugConfigFile = './webpack-debug.config';
 const bibtexFile = './src/junkato.bib';
 
-var website;
+let website;
 function loadConfig(){
   website = JSON.parse(fs.readFileSync('./website.json'));
 }
@@ -180,9 +180,9 @@ function setupLocals() {
   for (const entry of projects) {
     projectsTable[entry.project] = entry;
   }
-  const recentProjects = [];
-  for (const key of website.recentProjects) {
-    recentProjects.push(projectsTable[key]);
+  const products = [];
+  for (const key of website.products) {
+    products.push(projectsTable[key]);
   }
 
   // build publications table and list
@@ -202,7 +202,7 @@ function setupLocals() {
     , talks: talks
     , projects: projects
     , projectsTable: projectsTable
-    , recentProjects: recentProjects
+    , products: products
     , publications: publications
     , publicationsTable: publicationsTable
     , selectedPublications: selectedPublications

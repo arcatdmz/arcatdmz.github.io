@@ -1,0 +1,20 @@
+extends ../../projects/index
+
+block lang
+  - var lang = 'ja';
+
+block projects
+  p このページでは研究プロジェクトの一覧を見ることができます。グラフィックデザインとインタラクションデザインに絞った一覧は
+    a(href=`${rootPath}ja/design`)
+      i.paint.brush.icon
+      | デザイン
+    | のページにあります。
+
+block products
+  p 以下のプロジェクトは一般公開されています。
+
+block research
+  p 以下のプロジェクトは科学的手法で取り組まれ、ほとんどが国際会議などで発表されています。
+
+block private
+  p 以下のプロジェクトはデザインや開発に主眼が置かれたものです。趣味またはプロボノ的活動として取り組んできました。
