@@ -71,7 +71,7 @@ mixin portfolio()
 mixin skillset()
   h2.ui.dividing.header #{en ? 'Skillset' : 'スキルセット'}
   block skillset
-    p The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See <a href="#{rootPath}resume.html">my resume</a> for more general information.
+    p The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See <a href=`${rootPath}resume.html`>my resume</a> for more general information.
   .ui.hidden.divider
   .ui.stackable.two.columns.grid
     .column
@@ -228,7 +228,7 @@ mixin skillset-ixd()
     .content
       .header Processing
       .description #{moment([2008,5,1]).toNow(true)}
-        | , mostly for robot apps using <a href="#{rootPath}phybots">Phybots</a> and <a href="#{rootPath}picode">Picode</a>
+        | , mostly for robot apps using <a href=`${rootPath}phybots`>Phybots</a> and <a href=`${rootPath}picode`>Picode</a>
       //- ERATO
   .item
     i.large.devicon-visualstudio-plain.colored.icon

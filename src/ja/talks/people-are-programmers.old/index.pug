@@ -60,7 +60,7 @@ html(lang='ja')
             li
               a(href=`${rootPath}ja/#about`) 自己紹介
             li
-              a(href=`${rootPath}ja/#projects`) プロジェクト
+              a(href=`${rootPath}ja/projects`) プロジェクト
             li.active
               a(href=`${rootPath}ja/publications/`) 受賞歴と発表文献
             li
@@ -235,8 +235,8 @@ html(lang='ja')
               b 仕組み
               | を作ってきたんだと思うんです。それも、今すでにある仕組みを疑って、自分なりにどうすればよくなるか考えて、作ってきました。
             //              
-                    <p><a href="http://digitalmuseum.jp">digitalmuseum</a>の取り組みは産学交流で何かが起きることを期待して<a href="http://junkato.jp/ja/teaparty">名状しがたいお茶会</a>という仕組み（場）作りに至りました。立花隆ゼミでは、ゼミ生が記事を書いたらウェブにすぐ掲載できるコンテンツ管理システム（CMS）<a href="http://digitalmuseum.jp/software/chippie/">Chippie</a>を作りました。</p>
-                    <p><a href="#{rootPath}ja/openpool">OpenPool</a>では、誰でもビリヤード台を豪華に演出できるツールキットのAPIを設計し、<a href="#{rootPath}ja/homehack">おうちハック</a>関連ではあとで紹介するVisionSketchという統合開発環境を作りました。</p>
+                    <p><a href="http://digitalmuseum.jp">digitalmuseum</a>の取り組みは産学交流で何かが起きることを期待して<a href=`${basePath}teaparty`>名状しがたいお茶会</a>という仕組み（場）作りに至りました。立花隆ゼミでは、ゼミ生が記事を書いたらウェブにすぐ掲載できるコンテンツ管理システム（CMS）<a href="http://digitalmuseum.jp/software/chippie/">Chippie</a>を作りました。</p>
+                    <p><a href=`${basePath}openpool`>OpenPool</a>では、誰でもビリヤード台を豪華に演出できるツールキットのAPIを設計し、<a href=`${basePath}homehack`>おうちハック</a>関連ではあとで紹介するVisionSketchという統合開発環境を作りました。</p>
                     <p>そんなわけで、人々が快適に楽しく過ごすための<b>仕組み</b>作りを目指してきました。</p>
                     
             p
@@ -245,7 +245,7 @@ html(lang='ja')
               | を疑ってもらい、歴史を知って、この先どうなるか考えていただくことです。さらに、プログラミングに限らず社会がどうなっていくのか、考えてみてほしいです！
             p.text-muted
               | ※僕がこれまでに作ってきた仕組みの一覧は
-              a(href=`${rootPath}ja`) トップページ
+              a(href=basePath) トップページ
               | にあります。
       hr
       .row
