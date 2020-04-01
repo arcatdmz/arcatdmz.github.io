@@ -78,20 +78,14 @@ body.without-header-menu #body {
   padding-top: 0;
 }
 
-/* /index projects */
-
-#main #projects {
-  padding-bottom: 1em;
-}
-
-/* /index recent-projects */
+/* /projects products */
 
 .ui.cards.projects>.card>.content>.meta {
   margin-top: .3em;
   overflow-x: auto;
 }
 
-/* /index other-projects */
+/* /projects research/private projects */
 
 .ui.items.projects>.item>.content>div {
   margin-top: .3em;
@@ -115,6 +109,10 @@ body.without-header-menu #body {
 .ui.items.projects>.item>.content>.extra>.meta>*>*,
 .ui.cards.projects>.card>.content>.meta>*>* {
   margin-right: 0;
+}
+
+.ui.items.projects>.item>.bordered.image>img {
+  border: 1px solid rgba(0,0,0,.1);
 }
 
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {

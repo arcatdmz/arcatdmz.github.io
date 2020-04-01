@@ -1,0 +1,90 @@
+extends ../_layout
+
+block vars
+  - title = en ? 'Projects' : 'プロジェクト';
+  - me = 'projects/';
+  - var bodyClass = 'with-rail';
+
+block main
+  .left-rail
+    +publications-menu()
+  .right-content
+    h1.ui.header
+      i.lab.icon
+      .content #{en ? 'Projects' : 'プロジェクト'}
+    +about()
+    .ui.hidden.divider
+    section#products: +products()
+    .ui.hidden.divider
+    section#research: +research()
+    .ui.hidden.divider
+    section#private: +private()
+
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup
+    +publications-menu()
+
+mixin publications-menu()
+  .ui.divided.list
+    a.item(href='#products')
+      i.gift.icon
+      .content #{en ? 'Products' : 'プロダクト'}
+    a.item(href='#research')
+      i.lab.icon
+      .content #{en ? 'Research' : '研究'}
+    a.item(href='#private')
+      i.paint.brush.icon
+      .content #{en ? 'Design etc.' : 'その他'}
+
+mixin about()
+  .ui.basic.segment#about
+    block projects
+      p This page shows the list of research projects. See 
+        a(href=`${rootPath}design`)
+          i.paint.brush.icon
+          | Design
+        |  for the design-oriented list of my projects.
+
+mixin products()
+  h2.ui.header
+    i.gift.icon
+    .content #{en ? 'Products' : 'プロダクト'}
+  .ui.basic.segment
+    block products
+      p The following projects are beyond research prototypes and generally available to public.
+    .ui.two.cards.projects#products-list
+      - for (const p of products) {
+      +render-project-card(p)
+      - }
+
+mixin research()
+  h2.ui.header
+    i.lab.icon
+    .content #{en ? 'Research projects' : '研究プロジェクト'}
+  .ui.basic.segment
+    block research
+      p The following research-oriented projects have been conducted under a certain scientific context and most of them have been published at archival venues.
+    .ui.divided.items.projects#other-projects-list
+      - for (const p of projects) {
+      //- skip recent projects
+      - if (products.indexOf(p) >= 0) continue;
+      //- skip concept, committee, and private projects
+      - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
+      +render-project-item(p)
+      - }
+
+mixin private()
+  h2.ui.header
+    i.paint.brush.icon
+    .content #{en ? 'Design and/or engineering projects' : 'デザインとエンジニアリングに関するプロジェクト'}
+  .ui.basic.segment
+    block private
+      p The following design and engineering projects have been conducted as part of my hobby or probono activities.
+    .ui.divided.items.projects#private-projects-list
+      - for (const p of projects) {
+      //- skip research projects
+      - if (p.category !== 'private') continue;
+      +render-project-item(p)
+      - }
