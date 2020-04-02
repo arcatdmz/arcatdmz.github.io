@@ -20,13 +20,13 @@ mixin head()
   title !{stripTags(title)} | junkato.jp
   meta(name='author', content=author)
   meta(name='description', content=description)
-  // for SEO
+  //- for SEO
   meta(itemprop='name', content=stripTags(title))
   meta(itemprop='description', content=description)
   - if (imageUrl) {
   meta(itemprop='image', content=imageUrl)
   - }
-  // for Facebook
+  //- for Facebook
   meta(property='fb:admins', content='503220390')
   meta(property='og:url', content=`${protocol}://${domain}${basePath}${me}`)
   meta(property='og:type', content='website')
@@ -35,7 +35,7 @@ mixin head()
   - if (imageUrl) {
   meta(property='og:image', content=imageUrl)
   - }
-  // for Twitter
+  //- for Twitter
   - if (imageUrl) {
   meta(name='twitter:card', content='summary_large_image')
   meta(name='twitter:image', content=imageUrl)
