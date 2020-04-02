@@ -140,7 +140,9 @@ block main
           | .
   .ui.hidden.divider
   section#revision
-    h2 #{en ? 'Revision history' : '更新履歴'}
+    h2
+      i.announcement.icon
+      | #{en ? 'Revision history' : '更新履歴'}
     .ui.basic.segment: .ui.divided.feed
       .event: .content
         .date 7/16/2016

@@ -145,7 +145,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
       // $list.append(`<div class="item">${p.getTitle(lang)}</div>`);
       continue;
     }
-    $list.append(`<a class="item" href="${basePath}#projects-${p.project}">${p.getTitle(lang)}</a>`);
+    $list.append(`<a class="item" href="${basePath}projects/#projects-${p.project}">${p.getTitle(lang)}</a>`);
     count ++;
   }
 

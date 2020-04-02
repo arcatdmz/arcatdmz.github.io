@@ -19,6 +19,13 @@
       "title": "Programming with Examples",
       "label": "<abbr title=\"Programming with Examples\">PwE</abbr>"
     },
+    "programming-as-communication": {
+      "title": "Programming as Communication",
+      "label": "<abbr title=\"Programming as Communication\">Communication</abbr>",
+      "ja": {
+        "title": "<abbr title=\"コミュニケーションとしてのプログラミング\">コミュニケーション</a>"
+      }
+    },
     "ide": {
       "label": "<abbr title=\"Integrated Development Environment\">IDE</abbr>",
       "ja": {
@@ -169,6 +176,15 @@
       "ja": {
         "title": "デザイン",
         "description": "<p>研究者ですが、仕事柄、人がすぐに触れられる具体的なもののデザインにも興味があります。このページでは、これまでにデザインしたものを紹介しています。</p>"
+      }
+    },
+    {
+      "project": "programming-as-communication",
+      "category": "concept",
+      "title": "Programming as Communication",
+      "description": "<p>Programming should be a more social activity than what it is right now. A programming environment does not need to be only for programmers. It should instead be designed for users with diverse technical backgrounds.</p><p>Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.</p>",
+      "ja": {
+        "description": "<p>プログラミングは今よりもっとソーシャルな行為であるべきです。プログラミング環境は、プログラマのためだけの環境である必要はありません。むしろ、多様な技術的背景を持つ人々のために設計されるべきです。</p><p>私は、<strong>プログラミング環境の設計を包摂的にする工夫</strong>により、プログラミングを通じたコミュニケーションが成立し、すべての人々にプログラミングによる利益──ひいてはエンパワーメントをもたらすことができると考えています。</p>"
       }
     },
     {
@@ -334,6 +350,7 @@
       "thumbnail": "user-generated-variables.jpg",
       "icon": "user-generated-variables.jpg",
       "tags": [
+        "programming-as-communication",
         "live-programming",
         "ide"
       ],
@@ -354,6 +371,7 @@
       "project": "live-tuning",
       "icon": true,
       "tags": [
+        "programming-as-communication",
         "live-programming",
         "ide"
       ],
@@ -378,6 +396,7 @@
         "physical",
         "creativity",
         "programming-with-examples",
+        "programming-as-communication",
         "live-programming",
         "ide",
         "design"
@@ -411,6 +430,7 @@
         "creativity",
         "music",
         "programming-with-examples",
+        "programming-as-communication",
         "live-programming",
         "ide",
         "design"
@@ -555,6 +575,7 @@
       },
       "tags": [
         "programming-with-examples",
+        "programming-as-communication",
         "ide",
         "robot"
       ],

@@ -1,0 +1,86 @@
+extends ../_layout
+
+block vars
+  - title = 'Programming as Communication';
+  - description = '';
+  - imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-as-communication.png`;
+  - me = 'programming-as-communication/';
+
+block main
+  section
+    h1.ui.header #{title}
+    +render-share()
+    .ui.horizontal.divided.list.project-meta-list
+      .item
+        span.ui.tiny.basic.label
+          i.calendar.icon
+          | 4/1/2020
+      .item
+        span.ui.tiny.basic.label
+          | ONGOING PROJECT
+      .item
+        span.ui.red.tiny.basic.label
+          | Convivial Computing Salon 2020
+  .ui.hidden.divider
+  section#abstract: +abstract()
+  .ui.hidden.divider
+  section#technical-effort: +technical-effort()
+  .ui.hidden.divider
+  section#social-effort: +social-effort()
+  .ui.hidden.divider
+  section#revision: +revision()
+
+mixin abstract()
+  h2.ui.header #{en ? 'Summary' : '概要'}
+  .ui.basic.segment
+    block abstract
+      p Computers have become ubiquitous in our life and work, and the way they are programmed needs 
+        a(href=`${basePath}programming-with-examples`) fundamental improvements
+        | . The prior effort often aims at improving programming experience for people with specific technical backgrounds (e.g., 
+        a(href=`${basePath}live-programming`) programmers
+        | , end-users, data scientists), respectively.
+      p In contrast, throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. &quot;A programming environment&quot; does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.
+      p Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.
+
+mixin technical-effort()
+  h2.ui.header
+    i.laptop.code.icon
+    .content #{en ? 'Technical environment design' : '技術的環境設計'}
+  .ui.basic.segment
+    block technical-effort
+      p The following projects are concrete examples that realize &quot;Programming as Communication&quot; through technical effort in designing novel interaction design for collaborations. To see them in action, 
+        a(href=`${basePath}f3js`) f3.js
+        |  implements both of them and is available at 
+        a(href="https://f3js.org") https://f3js.org
+        | .
+  .ui.segment
+    .ui.divided.items.projects
+      - let technicalProjects = ['user-generated-variables', 'live-tuning'].map(key => projectsTable[key])
+      - for (const p of technicalProjects) {
+      //- skip concept, committee, and private projects
+      - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
+      //- 
+      - if (!Array.isArray(p.tags) || p.tags.indexOf('programming-as-communication') < 0) continue;
+      +render-project-item(p)
+      - }
+
+mixin social-effort()
+  h2.ui.header
+    i.user.friends.icon
+    .content #{en ? 'Social environment design' : '社会的環境設計'}
+  .ui.basic.segment
+    block social-effort
+      img.ui.fluid.bordered.image(src=`${rootPath}programming-as-communication/programming-as-communication.png`)
+      .caption: p In the ongoing 
+        a(href="https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/") OTON GLASS
+        |  project, we have designed a programming environment consisting of not only computational artifacts (a toolkit consisting of hardware components and software <abbr title="Application Programming Interfaces">APIs</abbr>) but also an evangelist who serves as an organic aid to utilize the toolkit.
+
+mixin revision()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 4/1/2020
+        .summary Upload the initial revision.

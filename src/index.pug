@@ -5,12 +5,12 @@ block vars
   - me = '';
 
 block projects-sidebar-menu
-  a.item(href=`${basePath}#projects`)
+  a.item(href=`${basePath}projects`)
     i.lab.icon
     | #{en ? 'Projects' : 'プロジェクト'}
 
 block projects-header-menu
-  a.ui.print-hidden.mobile.hidden.item(href=`${basePath}#projects`)
+  a.ui.print-hidden.mobile.hidden.item(href=`${basePath}projects`)
     i.lab.icon
     span.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
 
@@ -27,9 +27,6 @@ block post-footer
     a.item(href=`#concepts`)
       i.idea.icon
       .content #{en ? 'Research' : '研究トピック'}
-    a.item(href=`#projects`)
-      i.lab.icon
-      .content #{en ? 'Projects' : 'プロジェクト'}
     .item
       .ui.list
         a.item(href=`${basePath}#recent-projects`)
@@ -51,7 +48,7 @@ block main
     .content #{author}
       .sub.header
         - if (en) {
-        | Human-Computer Interaction researcher, Ph.D. (Computer Science)
+        | Human-Computer Interaction researcher, Ph.D.
         - } else {
         | 博士（情報理工学）
         - }
@@ -59,8 +56,6 @@ block main
   section#history: +history()
   .ui.hidden.divider
   section#concepts: +concepts()
-  .ui.hidden.divider
-  section#projects: +projects()
   .ui.hidden.divider
   section#contact: +contact()
 
@@ -137,53 +132,21 @@ mixin concepts()
   .ui.basic.segment
     block concepts
       p While I am interested in broad area of <abbr title="Human-Computer Interaction">HCI</abbr> and have a high-level goal of supporting people's creativity, I have been especially focused on the following topics. For the list of concrete projects, see 
-        a(href='#projects')
+        a(href=`${rootPath}projects`)
           i.lab.icon
           | Projects
         | .
-    .ui.grid#concepts-list
+    #concepts-list
       - for (const p of projects) {
       - if (p.category !== 'concept') continue;
       - if (p.project === 'design') continue;
-      .sixteen.wide.tablet.eight.wide.computer.column(id=`concepts-${p.project}`)
-        .ui.fluid.card
-          a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
-          .content
-            a.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
-            .description !{p.getDescription(lang)}
-      - }
-
-mixin projects()
-  h2.ui.header
-    i.lab.icon
-    .content #{en ? 'Projects' : 'プロジェクト'}
-  .ui.basic.segment
-    block projects
-      p Below is the list of research projects, followed by the list of design and/or engineering projects. See 
-        a(href=`${rootPath}design`)
-          i.paint.brush.icon
-          | Design
-        |  for the design-oriented list of my projects.
-    h3.ui.header#recent-projects #{en ? 'Recent research projects' : '最近の研究プロジェクト'}
-    .ui.cards.projects#recent-projects-list
-      - for (const p of recentProjects) {
-      +render-project-card(p)
-      - }
-    h3.ui.header#other-projects #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
-    .ui.segment: .ui.divided.items.projects#other-projects-list
-      - for (const p of projects) {
-      //- skip recent projects
-      - if (recentProjects.indexOf(p) >= 0) continue;
-      //- skip concept, committee, and private projects
-      - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
-      +render-project-item(p)
-      - }
-    h3.ui.header#private-projects #{en ? 'Design and/or engineering projects' : 'デザインとエンジニアリングに関するプロジェクト'}
-    .ui.segment: .ui.divided.items.projects#private-projects-list
-      - for (const p of projects) {
-      //- skip research projects
-      - if (p.category !== 'private') continue;
-      +render-project-item(p)
+      .ui.divider
+      .ui.two.column.stackable.grid(id=`concepts-${p.project}`)
+        .five.wide.column
+          a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
+        .eleven.wide.column
+          a.ui.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
+          p.description !{p.getDescription(lang)}
       - }
 
 mixin contact()

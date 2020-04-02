@@ -54,13 +54,13 @@ mixin sidebar()
     i.address.card.icon
     | #{en ? 'Contact' : '連絡先'}
   block projects-sidebar-menu
-    .ui.item(href=`${basePath}#projects`)
+    .ui.item(href=`${basePath}projects`)
       i.lab.icon
       | #{en ? 'Projects' : 'プロジェクト'}
       .menu
-        a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
+        a.item(href=`${basePath}projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
         .ui.divider
-        - for (const p of recentProjects) {
+        - for (const p of products) {
         a.item(href=p.getLink(lang, basePath))
           - if (p.icon) {
           img.ui.avatar.image(src=`${rootPath}images/icons/${p.icon}`)
@@ -68,8 +68,8 @@ mixin sidebar()
           | !{p.getTitle(lang)}
         - }
         .ui.divider
-        a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
-        a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
+        a.item(href=`${basePath}projects/#research`) #{en ? 'Research projects' : '研究プロジェクト'}
+        a.item(href=`${basePath}projects/#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
   a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
     | #{en ? 'Publications' : '発表文献'}
@@ -107,14 +107,14 @@ mixin header()
       i.address.card.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Contact' : '連絡先'}
     block projects-header-menu
-      .ui.dropdown.mobile.hidden.item(href=`${basePath}#projects`)
+      .ui.dropdown.mobile.hidden.item(href=`${basePath}projects`)
         i.lab.icon
         span.print-hidden.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
         .menu
-          a.item(href=`${basePath}#projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
+          a.item(href=`${basePath}projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
           .ui.divider
           - for (const p of projects) {
-          - if (recentProjects.indexOf(p) < 0) continue;
+          - if (products.indexOf(p) < 0) continue;
           //- if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
           //- if ((p.year.to || p.year.from) < 2012) continue;
           a.item(href=p.getLink(lang, basePath))
@@ -124,8 +124,8 @@ mixin header()
             | !{p.getTitle(lang)}
           - }
           .ui.divider
-          a.item(href=`${basePath}#other-projects`) #{en ? 'Other research projects' : 'その他の研究プロジェクト'}
-          a.item(href=`${basePath}#private-projects`) #{en ? 'Private projects' : '趣味プロジェクト'}
+          a.item(href=`${basePath}projects/#research`) #{en ? 'Research projects' : '研究プロジェクト'}
+          a.item(href=`${basePath}projects/#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}

@@ -18,7 +18,7 @@ const webpackConfigFile = './webpack.config';
 const webpackDebugConfigFile = './webpack-debug.config';
 const bibtexFile = './src/junkato.bib';
 
-var website;
+let website;
 function loadConfig(){
   website = JSON.parse(fs.readFileSync('./website.json'));
 }
@@ -180,9 +180,9 @@ function setupLocals() {
   for (const entry of projects) {
     projectsTable[entry.project] = entry;
   }
-  const recentProjects = [];
-  for (const key of website.recentProjects) {
-    recentProjects.push(projectsTable[key]);
+  const products = [];
+  for (const key of website.products) {
+    products.push(projectsTable[key]);
   }
 
   // build publications table and list
@@ -202,7 +202,7 @@ function setupLocals() {
     , talks: talks
     , projects: projects
     , projectsTable: projectsTable
-    , recentProjects: recentProjects
+    , products: products
     , publications: publications
     , publicationsTable: publicationsTable
     , selectedPublications: selectedPublications
@@ -386,39 +386,38 @@ gulp.task('watch:html', function(){
     const basePath = path.resolve(__dirname, 'src');
     const relPath = path.relative(basePath, fullPath);
     const relDirPath = path.relative(basePath, path.dirname(fullPath));
+    let stream;
 
     // _layout.pug affects all pages
     if (baseName.indexOf('_layout') === 0) {
       if (relDirPath.length > 0) {
-        compilePug(gulp.src([
+        stream = compilePug(gulp.src([
             `src/${relDirPath}/**/*.pug`
           , `!src/${relDirPath}/**/_*.pug`
           , `src/ja/${relDirPath}/**/*.pug`
           , `!src/ja/${relDirPath}/**/_*.pug`
         ]));
       } else {
-        compilePug(gulp.src([
+        stream = compilePug(gulp.src([
             'src/**/*.pug'
           , '!src/**/_*.pug'
         ]));
       }
-      browserSync.reload();
-      return;
+    } else {
+
+      const jaPath = path.resolve(basePath, 'ja', relPath);
+      if (relPath.indexOf('ja' + path.sep) < 0
+          && fs.existsSync(jaPath)) {
+        // an English page that has a dependent Japanese page
+        stream = compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
+      } else {
+        // a Japanese pug page
+        // or an English page that does not have a dependent Japanese page
+        stream = compilePug(gulp.src([fullPath], { base: basePath }));
+      }
     }
 
-    // an English page that has a dependent Japanese page
-    const jaPath = path.resolve(basePath, 'ja', relPath);
-    if (relPath.indexOf('ja' + path.sep) < 0
-        && fs.existsSync(jaPath)) {
-      compilePug(gulp.src([fullPath, jaPath], { base: basePath }));
-      browserSync.reload();
-      return;
-    }
-
-    // a Japanese pug page
-    // or an English page that does not have a dependent Japanese page
-    compilePug(gulp.src([fullPath], { base: basePath }));
-    browserSync.reload();
+    stream.on("finish", browserSync.reload.bind(browserSync));
   };
   watcher.on('add', handler);
   watcher.on('change', handler);

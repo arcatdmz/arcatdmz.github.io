@@ -92,7 +92,7 @@ mixin collaborations()
 
 mixin services()
   .ui.divider#services
-  - for (const p of recentProjects) {
+  - for (const p of products) {
   .ui.fluid.card(id=`projects-${p.project}`)
     a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
     .content

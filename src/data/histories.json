@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "4/1/2020",
+      "text": "My affiliation, <abbr title=\"National Institute of Advanced Industrial Science and Technology (AIST)\">AIST</abbr>, and <a href=\"https://otonglass.jp\">OTON GLASS, Inc.</a>, a Japanese company utilizing personal fabrication technologies to create customized smart glasses, have started a collaborative research project. Please refer to &quot;<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>&quot; for more details."
+    },
+    {
       "date": "1/16/2020",
       "text": "There have been <a href=\"${rootPath}activities\">many committee roles</a> these days. I will provide an invited talk on &quot;Programming for X&quot; at <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a> which will be held as part of the preparation for <a href=\"https://chi2021.acm.org/\">CHI 2021</a>!"
     },
@@ -30,11 +34,11 @@
     },
     {
       "date": "7/7/2018",
-      "text": "My first-authored papers about <a href=\"${rootPath}#projects\">Songle Sync</a> and <a href=\"${rootPath}#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
+      "text": "My first-authored papers about <a href=\"${rootPath}projects\">Songle Sync</a> and <a href=\"${rootPath}projects/#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
     },
     {
       "date": "4/28/2018",
-      "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
+      "text": "At <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>, Ryo presented our work on <a href=\"${rootPath}projects/#projects-reactile\">the Reactile project</a>. Its <a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">demo video</a> and <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">slides</a> are available."
     },
     {
       "date": "3/7/2018",
@@ -46,7 +50,7 @@
     },
     {
       "date": "1/30/2018",
-      "text": "A co-authored paper of <a href=\"${rootPath}#projects-reactile\">the Reactile project</a> discussing how to program <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> has been accepted to <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>."
+      "text": "A co-authored paper of <a href=\"${rootPath}projects/#projects-reactile\">the Reactile project</a> discussing how to program <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> has been accepted to <a href=\"https://chi2018.acm.org\">ACM CHI 2018</a>."
     },
     {
       "date": "1/20/2018",
@@ -239,6 +243,10 @@
   ],
   "ja": [
     {
+      "date": "4/1/2020",
+      "text": "産総研と<a href=\"https://otonglass.jp\">株式会社オトングラス</a>で共同研究を始めました。私のこれまでの研究と本共同研究の関係を整理したページ「<a href=\"${rootPath}ja/programming-as-communication\">Programming as Communication</a>」を作成しました。"
+    },
+    {
       "date": "2/29/2020",
       "text": "<a href=\"https://research.archinc.jp/\">Arch Research</a>における絵コンテ制作支援プロジェクトの一環で、アイデアスケッチのためのWebアプリ「<a href=\"https://research.archinc.jp/griffith/sketch\">Griffith Sketch</a>」を公開しました。<a href=\"https://techbookfest.org/event/tbf08/circle/5768522244292608\">技術書典 8</a>開催日にあわせてのリリースです。イベント自体は新型コロナウイルス感染症の影響で中止となってしまいましたが、来週から開催される<a href=\"https://blog.techbookfest.org/2020/02/28/cheering-tbf/\">応援祭</a>で関連冊子を頒布予定です。"
     },
@@ -308,11 +316,11 @@
     },
     {
       "date": "7/7/2018",
-      "text": "<a href=\"${rootPath}ja/#projects\">Songle Sync</a>および<a href=\"${rootPath}ja/#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
+      "text": "<a href=\"${rootPath}ja/projects\">Songle Sync</a>および<a href=\"${rootPath}ja/projects/#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
     },
     {
       "date": "4/29/2018",
-      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>で<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文の登壇発表（<a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">デモ動画</a>, <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">スライド</a>）がありました。5月25日に<a href=\"https://twitter.com/Yuta_Sugiura/status/990140503076159488\">慶應大学 情報工学特別講義</a>で講演します。"
+      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>で<a href=\"${rootPath}ja/projects/#projects-reactile\">Reactile</a>に関する共著論文の登壇発表（<a href=\"https://www.youtube.com/watch?v=Gb7brajKCVE\">デモ動画</a>, <a href=\"http://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf\">スライド</a>）がありました。5月25日に<a href=\"https://twitter.com/Yuta_Sugiura/status/990140503076159488\">慶應大学 情報工学特別講義</a>で講演します。"
     },
     {
       "date": "3/16/2018",
@@ -328,7 +336,7 @@
     },
     {
       "date": "1/30/2018",
-      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>に<a href=\"${rootPath}ja/#projects-reactile\">Reactile</a>に関する共著論文がアクセプトされました。<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>の新しいプログラミング手法を提案しています。"
+      "text": "国際会議<a href=\"http://chi2018.acm.org/\">ACM CHI 2018</a>に<a href=\"${rootPath}ja/projects-reactile\">Reactile</a>に関する共著論文がアクセプトされました。<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>の新しいプログラミング手法を提案しています。"
     },
     {
       "date": "1/29/2018",
