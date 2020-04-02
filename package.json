@@ -12,11 +12,11 @@
   },
   "author": "Jun Kato",
   "devDependencies": {
-    "@babel/core": "^7.8.6",
+    "@babel/core": "^7.9.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-env": "^7.9.0",
     "@types/semantic-ui": "^2.2.7",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.1.0",
     "bibtex-parse-js": "0.0.24",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
@@ -35,16 +35,16 @@
     "moment": "^2.24.0",
     "pdfinfo": "0.0.3",
     "through2": "^2.0.5",
-    "typescript": "^2.9.2",
+    "typescript": "^3.8.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vinyl": "^2.2.0",
-    "webpack": "^4.41.6",
+    "webpack": "^4.42.1",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "clipboard": "^1.7.1",
     "devicon": "^2.2.0",
     "fomantic-ui": "^2.8.4",
-    "sharp": "^0.22.1"
+    "sharp": "^0.25.2"
   }
 }
