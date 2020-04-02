@@ -8,7 +8,7 @@ All rights on image, video, text, and related resources (e.g., including paper P
 
 - `Gulp v4`
 - `Webpack v4` + `Babel-loader v8` + `Babel v7`
-- `TypeScript v2.9`
+- `TypeScript v3.8`
 - `Pug v2` (as part of `gulp-pug` plugin)
 
 ## Directory structure
