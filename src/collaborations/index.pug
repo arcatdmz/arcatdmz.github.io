@@ -86,8 +86,8 @@ mixin collaborations()
           .item
             a.header(href='http://www.jst.go.jp/erato/kawahara/member/') JST ERATO &quot;Kawahara Universal Information Network&quot; Project
             .content Prof. Yoshihiro Kawahara, The University of Tokyo
-          //.item
-            a.header(href='https://sites.google.com/site/jstcrestproject/home') JST CREST &quot;技能獲得メカニズムの原理解明および獲得支援システムへの展開&quot;
+          .item
+            a.header(href='https://sites.google.com/site/jstcrestproject/recruiting?authuser=0') JST CREST &quot;HCI for Skill Transfer using Computer Vision, Deep Learning, and Mixed Reality&quot;
             .content Prof. Hideki Koike, Tokyo Institute of Technology
 
 mixin services()
@@ -96,7 +96,11 @@ mixin services()
   .ui.fluid.card(id=`projects-${p.project}`)
     a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
     .content
-      a.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
-      .content !{p.getDescription(lang)}
+      a.header(href=p.getLink(lang, basePath))
+        - if (p.icon) {
+        img.ui.avatar.image(src=`${rootPath}images/icons/${p.icon}`)
+        - }
+        | !{p.getTitle(lang)}
+      .description !{p.getDescription(lang)}
   - }
 
