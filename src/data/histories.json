@@ -18,7 +18,7 @@
     },
     {
       "date": "10/25/2018",
-      "text": "Presented <a href=\"${rootPath}songle-sync\">Songle Sync</a> in the &quot;Experience&quot; session at <a href=\"http://www.acmmm.org/2018/\" title=\"The 2018 ACM Multimedia Conference\">ACM Multimedia 2018</a>. Slides are available for download in <a href=\"${rootPath}songle-sync\">the project</a> page."
+      "text": "Presented <a href=\"${rootPath}songle-sync\">Songle Sync</a> in the &quot;Experience&quot; session at <a href=\"http://sigmm.org/events/acm-multimedia-2018\" title=\"The 2018 ACM Multimedia Conference\">ACM Multimedia 2018</a>. Slides are available for download in <a href=\"${rootPath}songle-sync\">the project</a> page."
     },
     {
       "date": "10/7/2018",
@@ -34,7 +34,7 @@
     },
     {
       "date": "7/7/2018",
-      "text": "My first-authored papers about <a href=\"${rootPath}projects\">Songle Sync</a> and <a href=\"${rootPath}projects/#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
+      "text": "My first-authored papers about <a href=\"${rootPath}projects\">Songle Sync</a> and <a href=\"${rootPath}projects/#projects-deployground\">DeployGround</a> are accepted to <a href=\"http://sigmm.org/events/acm-multimedia-2018\">ACM Multimedia 2018</a> and <a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>, respectively. Looking forward to attending the conferences!"
     },
     {
       "date": "4/28/2018",
@@ -70,7 +70,7 @@
     },
     {
       "date": "6/14/2017",
-      "text": "Presented <a href=\"http://f3js.org\">f3.js</a> at <a href=\"http://www.dis2017.org/\">ACM DIS 2017</a>. Slides are available for download in <a href=\"${rootPath}publications\">the publications</a> page."
+      "text": "Presented <a href=\"http://f3js.org\">f3.js</a> at <a href=\"http://web.archive.org/web/20200216101539/http://dis2017.org/\">ACM DIS 2017</a>. Slides are available for download in <a href=\"${rootPath}publications\">the publications</a> page."
     },
     {
       "date": "4/4/2017",
@@ -186,7 +186,7 @@
     },
     {
       "date": "6/24/2013",
-      "text": "Got some sort of recognition at ACM conferences, <a href=\"http://chi2013.acm.org/\">ACM CHI</a> and <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>, detailed in <a href=\"${rootPath}publications/#awards\">Awards</a> section. Will work for <a href=\"https://research.adobe.com/about-the-labs/#seattle\">Adobe Research Seattle</a> this summer."
+      "text": "Got some sort of recognition at ACM conferences, <a href=\"http://chi2013.acm.org/\">ACM CHI</a> and <a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>, detailed in <a href=\"${rootPath}publications/#awards\">Awards</a> section. Will work for <a href=\"https://research.adobe.com/research/\">Adobe Research Seattle</a> this summer."
     },
     {
       "date": "4/16/2013",
@@ -296,7 +296,7 @@
     },
     {
       "date": "10/25/2018",
-      "text": "国際会議<a href=\"http://acmmm.org/2018/\" title=\"ACM International Conference on Multimedia\">ACM Multimedia 2018</a>の <a href=\"http://www.acmmm.org/2018/full-papers/#experience1\">&quot;Experience&quot;</a> セッションで「<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>」の登壇発表とポスター発表を行いました。"
+      "text": "国際会議<a href=\"http://sigmm.org/events/acm-multimedia-2018\" title=\"ACM International Conference on Multimedia\">ACM Multimedia 2018</a>の <a href=\"https://dblp.org/db/conf/mm/mm2018#conf/mm/0001OIG18\">&quot;Experience&quot;</a> セッションで「<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>」の登壇発表とポスター発表を行いました。"
     },
     {
       "date": "10/4/2018",
@@ -316,7 +316,7 @@
     },
     {
       "date": "7/7/2018",
-      "text": "<a href=\"${rootPath}ja/projects\">Songle Sync</a>および<a href=\"${rootPath}ja/projects/#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://acmmm.org/2018/\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
+      "text": "<a href=\"${rootPath}ja/projects\">Songle Sync</a>および<a href=\"${rootPath}ja/projects/#projects-deployground\">DeployGround</a>に関する主著論文が、それぞれ<a href=\"http://sigmm.org/events/acm-multimedia-2018\">ACM Multimedia 2018</a>と<a href=\"https://vlhcc18.github.io\">IEEE <abbr title=\"Visual Languages and Human-Centric Computing\">VL/HCC 2018</abbr></a>に採択されました。いずれも初参加の会議、新しいコミュニティの人たちに会えそうです。"
     },
     {
       "date": "4/29/2018",
@@ -364,7 +364,7 @@
     },
     {
       "date": "6/21/2017",
-      "text": "国際会議<a href=\"http://dis2017.org/\">ACM DIS 2017</a>で、筐体設計とマイコンのプログラミングを同時に行えてIoTデバイスを手軽に開発でき、その内容をパラメトリックにカスタマイズして誰でも自分好みのデバイスを作れる「<a href=\"http://f3js.org\">f3.js</a>」について登壇発表しました。"
+      "text": "国際会議<a href=\"http://web.archive.org/web/20200216101539/http://dis2017.org/\">ACM DIS 2017</a>で、筐体設計とマイコンのプログラミングを同時に行えてIoTデバイスを手軽に開発でき、その内容をパラメトリックにカスタマイズして誰でも自分好みのデバイスを作れる「<a href=\"http://f3js.org\">f3.js</a>」について登壇発表しました。"
     },
     {
       "date": "5/21/2017",
@@ -544,7 +544,7 @@
     },
     {
       "date": "6/24/2013",
-      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI</a>と<a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>で<a href=\"${rootPath}ja/publications/#awards\">賞など</a>をいただきました。今年の夏は8月から<a href=\"https://research.adobe.com/about-the-labs/#seattle\">Adobe Research Seattle</a>でインターンしてきます。"
+      "text": "国際会議<a href=\"http://chi2013.acm.org/\">ACM CHI</a>と<a href=\"http://pldi2013.ucombinator.org/\">ACM PLDI</a>で<a href=\"${rootPath}ja/publications/#awards\">賞など</a>をいただきました。今年の夏は8月から<a href=\"https://research.adobe.com/research/\">Adobe Research Seattle</a>でインターンしてきます。"
     },
     {
       "date": "4/16/2013",
