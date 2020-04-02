@@ -54,7 +54,8 @@ mixin products()
   .ui.basic.segment
     block products
       p The following projects are beyond research prototypes and generally available to public.
-    .ui.two.cards.projects#products-list
+    .ui.hidden.divider
+    .ui.two.stackable.cards.projects#products-list
       - for (const p of products) {
       +render-project-card(p)
       - }
