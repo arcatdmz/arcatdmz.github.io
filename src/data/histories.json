@@ -1,7 +1,7 @@
 {
   "en": [
     {
-      "date": "2/1/2020",
+      "date": "4/1/2020",
       "text": "My affiliation, <abbr title=\"National Institute of Advanced Industrial Science and Technology (AIST)\">AIST</abbr>, and <a href=\"https://otonglass.jp\">OTON GLASS, Inc.</a>, a Japanese company utilizing personal fabrication technologies to create customized smart glasses, have started a collaborative research project. Please refer to &quot;<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>&quot; for more details."
     },
     {
@@ -243,7 +243,7 @@
   ],
   "ja": [
     {
-      "date": "3/8/2020",
+      "date": "4/1/2020",
       "text": "産総研と<a href=\"https://otonglass.jp\">株式会社オトングラス</a>で共同研究を始めました。私のこれまでの研究と本共同研究の関係を整理したページ「<a href=\"${rootPath}ja/programming-as-communication\">Programming as Communication</a>」を作成しました。"
     },
     {
