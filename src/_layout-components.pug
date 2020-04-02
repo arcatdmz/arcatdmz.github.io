@@ -124,8 +124,8 @@ mixin header()
             | !{p.getTitle(lang)}
           - }
           .ui.divider
-          a.item(href=`${basePath}#research`) #{en ? 'Research projects' : '研究プロジェクト'}
-          a.item(href=`${basePath}#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
+          a.item(href=`${basePath}projects/#research`) #{en ? 'Research projects' : '研究プロジェクト'}
+          a.item(href=`${basePath}projects/#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}
