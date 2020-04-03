@@ -17,6 +17,9 @@ block post-footer
     a.item(href='#body')
       i.chevron.circle.up.icon
       .content #{en ? 'Top' : 'トップ'}
+    a.item(href=`#science-future`)
+      i.right.triangle.icon
+      .content 科学と未来
     a.item(href=`#reproducibility`)
       i.right.triangle.icon
       .content HCIと研究再現性問題
@@ -35,11 +38,42 @@ block main
     .ui.basic.segment
       p これまで、科学技術全般に広く関心を持っていろいろな活動をしてきました。一貫しているResearch Questionは、コンピュータの力を借りたらどれだけ科学技術に関するアウトプットを効率化・最大化できるか？（科学のためのHuman-Computer Interaction）です。
   .ui.hidden.divider
+  section#science-future: +science-future()
+  .ui.hidden.divider
   section#reproducibility: +reproducibility()
   .ui.hidden.divider
   section#mitnse: +mitnse()
   .ui.hidden.divider
   section#tsemi: +tsemi()
+
+mixin science-future()
+  h2.ui.header: .content 科学と未来
+    span.ui.tiny.basic.label
+      i.calendar.icon
+      | 2018-2019
+  p 科学技術が切り拓く未来についての論考などを書いています。
+  .ui.basic.segment#canna
+    h3.ui.header: .content カンナたちの研究
+    p 情報処理学会学会誌「情報処理」2020年1月号の特集「『AIの遺電子』に学ぶ未来構想術」に短編小説「カンナたちの研究」を寄稿しました。
+    blockquote
+      p 現役の研究者が、自身がかかわる科学技術が発展し社会に浸透した未来像をScience Fiction (SF)として描いた特集。
+    p 寄稿したSF小説のあらすじは以下のとおりです。
+    blockquote
+      p Virtual Reality特区の高校に通うカンナとキリは，ふだん誰も立ち入れない旧校舎への侵入を計画する．夜半過ぎ，工事用ロボットの開錠プロセスをハックして校舎内に入り込んだ二人の眼前に，見たことのない光景が広がる．さらに予期せぬイベントが発生し，二人の侵入劇は国家プロジェクトの命運を左右する大ニュースへ発展する．プログラムを実行したまま編集するライブプログラミングが当たり前となり，ソフトウェアのみならず物理デバイスや建物までもプログラミング可能となった未来で起きる事件の顛末を描く．
+    .ui.segment
+      .ui.divided.list
+        +render-publication(publicationsTable['ipsj-v61n1-kato-canna'])
+  .ui.basic.segment#cs-in-100years
+    h3.ui.header: .content 100年後のコンピュータ科学
+    p 情報処理学会学会誌「情報処理」2019年1月号のコーナー「先生、質問です！」に回答を寄稿しました。本号の質問は以下のとおりです。
+    blockquote
+      p 100年後のコンピュータ科学はどんなことを研究しているの？
+    p 全回答は<a href="https://www.ipsj.or.jp/magazine/sensei-q/6001.html">学会の公式Webサイト</a>に掲載されています。
+    p 自分の回答は「仮想」をキーワードに未来を読み解きました。詳細は以下の補足ブログ記事をご参照ください。
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="https://junkato.jp/ja/blog/2018/12/22/computer-science-in-the-future/")
+      | 補足記事を読む
+      i.chevron.circle.right.icon
 
 mixin reproducibility()
   h2.ui.header: .content <abbr title="Human-Computer Interaction">HCI</abbr>と研究再現性問題
