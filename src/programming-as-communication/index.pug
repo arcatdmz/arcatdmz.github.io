@@ -1,28 +1,18 @@
 extends ../_layout
 
 block vars
+  - p = projectsTable['programming-as-communication'];
   - title = 'Programming as Communication';
-  - description = '';
+  - description = 'Throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. A programming environment does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.';
   - imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-as-communication.png`;
   - me = 'programming-as-communication/';
 
 block main
-  section
-    h1.ui.header #{title}
-    +render-share()
-    .ui.horizontal.divided.list.project-meta-list
-      .item
-        span.ui.tiny.basic.label
-          i.calendar.icon
-          | 4/1/2020
-      .item
-        span.ui.tiny.basic.label
-          | ONGOING PROJECT
-      .item
-        span.ui.red.tiny.basic.label
-          | Convivial Computing Salon 2020
+  +render-project-header('programming-as-communication')
   .ui.hidden.divider
   section#abstract: +abstract()
+  .ui.hidden.divider
+  section#presentation: +presentation()
   .ui.hidden.divider
   section#technical-effort: +technical-effort()
   .ui.hidden.divider
@@ -41,6 +31,35 @@ mixin abstract()
         | , end-users, data scientists), respectively.
       p In contrast, throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. &quot;A programming environment&quot; does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.
       p Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.
+
+mixin presentation()
+  h2.ui.header #{en ? 'Presentation materials' : '発表資料'}
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        h3.ui.header <abbr title="Convivial Computing Salon 2020">CCS</abbr> #{en ? 'talk': '講演動画'}
+        +embed-youtube('//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&cc_load_policy=1')
+        .caption: .ui.horizontal.list
+          .item
+            a(href='//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1')
+              i.youtube.icon
+              | YouTube
+          .item
+            a(href='//vimeo.com/416361135')
+              i.vimeo.icon
+              | Vimeo
+      .column
+        h3.ui.header <abbr title="Convivial Computing Salon 2020">CCS</abbr> #{en ? 'slides' : '発表スライド'}
+        .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}programming-as-communication/ccs2020/ccs2020-kato-slides00.jpg`, data-icon='video play outline')
+        .caption: .ui.horizontal.list
+          .item
+            a(href=publicationsTable[p.publication].entryTags.slides)
+              i.download.icon
+              | #{en ? 'Download' : 'ダウンロード'}
+    .ui.divider
+    .ui.list
+      .item YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by <a href="https://tcher.tech/">Philip Tchernavskij</a> and Q&amp;A session.
+      .item The paper is currently in press. For more details on the salon, please refer to <a href="https://2020.programming-conference.org/home/salon-2020">its website</a>.
 
 mixin technical-effort()
   h2.ui.header
@@ -81,6 +100,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 5/9/2020
+        .summary Add presentation recording and slides.
       .event: .content
         .date 4/1/2020
         .summary Upload the initial revision.
