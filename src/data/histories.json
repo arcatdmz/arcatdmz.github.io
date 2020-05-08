@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "5/9/2020",
+      "text": "Presented <a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a> in <a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>, as part of my <a href=\"${rootPath}programming-as-communication\">Programming as Communication</a> project. <a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">The recording</a> and <a href=\"https://junkato.jp/publications/ccs2020-kato-slides.pdf\">slides</a> of my talk are already available."
+    },
+    {
       "date": "4/1/2020",
       "text": "My affiliation, <abbr title=\"National Institute of Advanced Industrial Science and Technology (AIST)\">AIST</abbr>, and <a href=\"https://otonglass.jp\">OTON GLASS, Inc.</a>, a Japanese company utilizing personal fabrication technologies to create customized smart glasses, have started a collaborative research project. Please refer to &quot;<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>&quot; for more details."
     },
