@@ -20,6 +20,9 @@ block post-footer
     a.item(href=`#science-future`)
       i.right.triangle.icon
       .content 科学と未来
+    a.item(href=`#non-academic`)
+      i.right.triangle.icon
+      .content 非アカデミア駆動型研究
     a.item(href=`#reproducibility`)
       i.right.triangle.icon
       .content HCIと研究再現性問題
@@ -39,6 +42,8 @@ block main
       p これまで、科学技術全般に広く関心を持っていろいろな活動をしてきました。一貫しているResearch Questionは、コンピュータの力を借りたらどれだけ科学技術に関するアウトプットを効率化・最大化できるか？（科学のためのHuman-Computer Interaction）です。
   .ui.hidden.divider
   section#science-future: +science-future()
+  .ui.hidden.divider
+  section#non-academic: +non-academic()
   .ui.hidden.divider
   section#reproducibility: +reproducibility()
   .ui.hidden.divider
@@ -74,6 +79,26 @@ mixin science-future()
     a.ui.primary.button(href="https://junkato.jp/ja/blog/2018/12/22/computer-science-in-the-future/")
       | 補足記事を読む
       i.chevron.circle.right.icon
+
+mixin non-academic()
+  h2.ui.header: .content 非アカデミア駆動型研究
+    span.ui.tiny.basic.label
+      i.calendar.icon
+      | 2019
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        p 2019年5月27日、Japan Open Science Summitのパネルセッション「<a href="https://joss.rcos.nii.ac.jp/2019/session/0527/?id=se_93">非アカデミア駆動型研究の潮流と可能性</a>」にパネリストとして登壇しました。
+        p 私がこれまでに関わってきた非アカデミア駆動型研究を以下の2類型として紹介しました。
+        ul.ui.list
+          li.item 在野の人々による自発的活動（<a href="#tsemi">立花隆ゼミ</a>）
+          li.item 企業における放課後R&amp;D（<a href="https://research.archinc.jp/">Arch Research</a>）
+      .column
+        //- h3.ui.header #{en ? 'Presentation materials' : '発表資料'}
+        .ui.embed(data-url=publicationsTable['joss2019-kato'].entryTags.slides, data-placeholder=`${rootPath}science/joss2019-kato.png`, data-icon='video play outline')
+    .ui.segment
+      .ui.divided.list
+        +render-publication(publicationsTable['joss2019-kato'])
 
 mixin reproducibility()
   h2.ui.header: .content <abbr title="Human-Computer Interaction">HCI</abbr>と研究再現性問題
