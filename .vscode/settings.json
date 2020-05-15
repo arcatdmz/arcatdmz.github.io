@@ -4,5 +4,6 @@
   "spellright.documentTypes": [
     "latex",
     "plaintext"
-  ]
+  ],
+  "deno.enable": false
 }
