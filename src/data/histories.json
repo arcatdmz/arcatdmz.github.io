@@ -1,8 +1,12 @@
 {
   "en": [
     {
+      "date": "5/15/2020",
+      "text": "Added <a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">a preprint of the paper on Rethinking Programming &quot;Environment&quot;</a> in the <a href=\"${rootPath}programming-as-communication/#publications\">Programming as Communication</a> project page."
+    },
+    {
       "date": "5/9/2020",
-      "text": "Presented <a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a> in <a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>, as part of my <a href=\"${rootPath}programming-as-communication\">Programming as Communication</a> project. <a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">The recording</a> and <a href=\"https://junkato.jp/publications/ccs2020-kato-slides.pdf\">slides</a> of my talk are already available."
+      "text": "Presented <a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a> in <a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>, as part of my <a href=\"${rootPath}programming-as-communication\">Programming as Communication</a> project. <a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">The recording</a> and <a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf\">slides</a> of my talk are already available."
     },
     {
       "date": "4/1/2020",
@@ -246,6 +250,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "5/16/2020",
+      "text": "COVID-19のためオンライン開催となった<a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>で、<a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a>と題して発表を行いました。プログラミング環境を、プログラマだけでなく多様な人々が協調できるプラットフォームとして再定義する内容です。<a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">講演動画</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf\">発表スライド</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">論文のプレプリント</a>を「<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>」のプロジェクトページに掲載しました。"
+    },
     {
       "date": "4/1/2020",
       "text": "産総研と<a href=\"https://otonglass.jp\">株式会社オトングラス</a>で共同研究を始めました。私のこれまでの研究と本共同研究の関係を整理したページ「<a href=\"${rootPath}ja/programming-as-communication\">Programming as Communication</a>」を作成しました。"
