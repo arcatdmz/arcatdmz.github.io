@@ -18,6 +18,8 @@ block main
   .ui.hidden.divider
   section#social-effort: +social-effort()
   .ui.hidden.divider
+  +render-project-publications(p.project, p.publication)
+  .ui.hidden.divider
   section#revision: +revision()
 
 mixin abstract()
@@ -57,9 +59,11 @@ mixin presentation()
               i.download.icon
               | #{en ? 'Download' : 'ダウンロード'}
     .ui.divider
-    .ui.list
-      .item YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by <a href="https://tcher.tech/">Philip Tchernavskij</a> and Q&amp;A session.
-      .item The paper is currently in press. For more details on the salon, please refer to <a href="https://2020.programming-conference.org/home/salon-2020">its website</a>.
+    block presentation-description
+      .ui.list
+        .item YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by <a href="https://tcher.tech/">Philip Tchernavskij</a> and Q&amp;A session.
+        .item For more details on the salon, please refer to <a href="https://2020.programming-conference.org/home/salon-2020">its website</a>.
+        .item The paper can be downloaded in the <a href="#publications">Publications</a> section at the bottom of this page.
 
 mixin technical-effort()
   h2.ui.header
@@ -67,11 +71,14 @@ mixin technical-effort()
     .content #{en ? 'Technical environment design' : '技術的環境設計'}
   .ui.basic.segment
     block technical-effort
-      p The following projects are concrete examples that realize &quot;Programming as Communication&quot; through technical effort in designing novel interaction design for collaborations. To see them in action, 
-        a(href=`${basePath}f3js`) f3.js
-        |  implements both of them and is available at 
-        a(href="https://f3js.org") https://f3js.org
-        | .
+      img.ui.fluid.bordered.image(src=`${rootPath}programming-as-communication/runtime-env-as-programming-env.png`)
+      .caption
+        p We can design a runtime environment that is the same as the programming environment except for its dedicated graphical user interfaces for people who might not have prior knowledge of programming.
+        p The following projects are concrete examples of such technical programming environment-design that realize &quot;Programming as Communication.&quot; To see them in action, 
+          a(href=`${basePath}f3js`) f3.js
+          |  implements both of them and is available at 
+          a(href="https://f3js.org") https://f3js.org
+          | .
   .ui.segment
     .ui.divided.items.projects
       - let technicalProjects = ['user-generated-variables', 'live-tuning'].map(key => projectsTable[key])
@@ -89,10 +96,12 @@ mixin social-effort()
     .content #{en ? 'Social environment design' : '社会的環境設計'}
   .ui.basic.segment
     block social-effort
-      img.ui.fluid.bordered.image(src=`${rootPath}programming-as-communication/programming-as-communication.png`)
-      .caption: p In the ongoing 
-        a(href="https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/") OTON GLASS
-        |  project, we have designed a programming environment consisting of not only computational artifacts (a toolkit consisting of hardware components and software <abbr title="Application Programming Interfaces">APIs</abbr>) but also an evangelist who serves as an organic aid to utilize the toolkit.
+      img.ui.fluid.bordered.image(src=`${rootPath}programming-as-communication/evangelist-in-env.png`)
+      .caption
+        p We can design a programming environment consisting of an evangelist and computational artifacts.
+        p In the ongoing 
+          a(href="https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/") OTON GLASS
+          |  project, we have been implementing a programming environment centered on a visually impaired person, or a &quot;maker,&quot; who wants to build customized smart glasses. The programming environment consists of not only computational artifacts (a toolkit consisting of hardware components and software <abbr title="Application Programming Interfaces">APIs</abbr>) but also an evangelist who serves as an organic aid to utilize the toolkit.
 
 mixin revision()
   h2.ui.header
@@ -100,6 +109,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 5/15/2020
+        .summary Add preprint of the paper.
       .event: .content
         .date 5/9/2020
         .summary Add presentation recording and slides.

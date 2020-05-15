@@ -36,3 +36,4 @@ Redirect permanent /ugv http://junkato.digitalmuseum.jp/user-generated-variables
 Redirect permanent /pwe https://junkato.jp/programming-with-examples
 Redirect permanent /lt https://junkato.jp/live-tuning
 Redirect permanent /publications/mlse1-kato-slides.pdf https://junkato.jp/publications/mlse1-kato-hci-slides.pdf
+Redirect permanent /publications/ccs2020-kato-slides.pdf https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf

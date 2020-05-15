@@ -186,7 +186,7 @@
       "year": {
         "from": 2019
       },
-      "publication": "ccs2020-kato-rethink-programming-environment",
+      "publication": "ccs2020-kato-rethink-prog-env",
       "description": "<p>Programming should be a more social activity than what it is right now. A programming environment does not need to be only for programmers. It should instead be designed for users with diverse technical backgrounds.</p><p>Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.</p>",
       "ja": {
         "description": "<p>プログラミングは今よりもっとソーシャルな行為であるべきです。プログラミング環境は、プログラマのためだけの環境である必要はありません。むしろ、多様な技術的背景を持つ人々のために設計されるべきです。</p><p>私は、<strong>プログラミング環境の設計を包摂的にする工夫</strong>により、プログラミングを通じたコミュニケーションが成立し、すべての人々にプログラミングによる利益──ひいてはエンパワーメントをもたらすことができると考えています。</p>"
