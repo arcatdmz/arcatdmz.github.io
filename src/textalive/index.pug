@@ -14,8 +14,22 @@ block main
       h2.ui.header
         i.announcement.icon
         .content #{en ? 'News' : 'ニュース'}
-      .ui.basic.segment: .ui.divided.small.feed
-        block news
+      .ui.basic.segment: block news
+        .ui.divided.small.feed
+          .event: .content
+            .date 9/6/2019
+            .summary TextAlive was used to author 
+              a(href='https://www.youtube.com/watch?v=1ReP_Z2llig&list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo') videos
+              |  for 
+              a(href='https://www.crypton.co.jp/miku_eng') Hatsune Miku
+              | .
+          .event: .content
+            .date 8/20/2018
+            .summary Once again, TextAlive was used to author 
+              a(href='https://www.youtube.com/watch?v=yCufFSunfLc&list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo') videos
+              |  for 
+              a(href='https://www.crypton.co.jp/miku_eng') Hatsune Miku
+              | .
           .event: .content
             .date 2/10/2018
             .summary TextAlive was used to author videos for a live performance by a renowned virtual singer, 
@@ -41,6 +55,9 @@ block main
               |  after 
               a(href='http://www.aist.go.jp/aist_e/list/latest_research/2015/20160125/en20160125.html') the press release
               | . Please have it a try!
+        p For more detailed news, please refer to 
+          a(href='https://textalive.jp/events') the Japanese event page
+          | .
       .ui.hidden.divider
     .left-content: section#abstract
       h2.ui.header
@@ -102,7 +119,7 @@ block main
           +embed-youtube('https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo')
           - if (!en) {
           p.caption Web版のTextAliveは現在も開発が続けられています。この作例は、初音ミクやアイドルのライブなどで利用されたものです。 
-            a(href='http://textalive.jp') textalive.jp
+            a(href='https://textalive.jp') textalive.jp
             |  にアクセスすれば、誰でも動画を制作できます。
           - }
         .column
