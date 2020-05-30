@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "5/31/2020",
+      "text": "Appeared in the Microsoft Research article celebrating the 20th year of <abbr title=\"Microsoft Research Asia\">MSRA</abbr> Fellowship, titled <a href=\"https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/articles/a-story-that-has-lasted-twenty-years-a-fellowship-that-has-changed-a-group-of-people-2/\">&quot;A Story That Has Lasted Twenty Years, A Fellowship That Has Changed a Group of People&quot;</a>."
+    },
+    {
       "date": "5/15/2020",
       "text": "Added <a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">a preprint of the paper on Rethinking Programming &quot;Environment&quot;</a> in the <a href=\"${rootPath}programming-as-communication/#publications\">Programming as Communication</a> project page."
     },
@@ -250,6 +254,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "5/31/2020",
+      "text": "Microsoft Research Asia Fellowship 20周年を記念する記事「<a href=\"https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/articles/a-story-that-has-lasted-twenty-years-a-fellowship-that-has-changed-a-group-of-people-2/\">A Story That Has Lasted Twenty Years, A Fellowship That Has Changed a Group of People</a>」で紹介されました。これからも研究分野にとらわれず、大事な問題を解き続けていきたいです。Fellowshipについては<a href=\"https://junkato.jp/ja/blog/2014/05/16/microsoft-research-asia-fellowship/\">学生向けのブログ記事</a>もご覧ください。"
+    },
     {
       "date": "5/16/2020",
       "text": "COVID-19のためオンライン開催となった<a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>で、<a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a>と題して発表を行いました。プログラミング環境を、プログラマだけでなく多様な人々が協調できるプラットフォームとして再定義する内容です。<a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">講演動画</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf\">発表スライド</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">論文のプレプリント</a>を「<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>」のプロジェクトページに掲載しました。"
