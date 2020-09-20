@@ -260,7 +260,7 @@
   "ja": [
     {
       "date": "09/20/2020",
-      "text": "<a href=\"${rootPath}textalive\">TextAlive</a> App <abbr title=\"Application Programming Interface\">API</abbr>をリリースしました。音楽に合わせてタイミングよく歌詞が動くWebアプリケーション（リリックアプリ）を開発できるJavaScript用のライブラリです。また、<a href=\"${rootPath}songle-sync\">Songle Sync</a>が利用された<a href=\"https://events.ongaaccel.jp/mikusync2020/\">初音ミク バースデーメッセージ企画</a>に 10,000 人を超える方々に参加いただきました。<a href=\"https://tutorial.songle.jp/sync/step1?style=mikusync2020\">Songle Syncチュートリアルサイト</a>に演出を掲載しました。"
+      "text": "<a href=\"${rootPath}ja/textalive\">TextAlive</a> App <abbr title=\"Application Programming Interface\">API</abbr>をリリースしました。音楽に合わせてタイミングよく歌詞が動くWebアプリケーション（リリックアプリ）を開発できるJavaScript用のライブラリです。また、<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>が利用された<a href=\"https://events.ongaaccel.jp/mikusync2020/\">初音ミク バースデーメッセージ企画</a>に 10,000 人を超える方々に参加いただきました。<a href=\"https://tutorial.songle.jp/sync/step1?style=mikusync2020\">Songle Syncチュートリアルサイト</a>に演出を掲載しました。"
     },
     {
       "date": "5/31/2020",
