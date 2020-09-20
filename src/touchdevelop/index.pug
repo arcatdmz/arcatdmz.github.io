@@ -9,9 +9,17 @@ block main
   +render-project-header('touchdevelop')
   .ui.message
     block message
-      | The live programming feature proposed in the paper is already shipped with the curent version of TouchDevelop. Test it 
-      a(href='https://www.touchdevelop.com/docs/pages-and-boxes') in your web browser
-      | !
+      p: del
+        | The live programming feature proposed in the paper is already shipped with the curent version of TouchDevelop. Test it 
+        a(href='https://www.touchdevelop.com/docs/pages-and-boxes') in your web browser
+        | !
+      p Unfortunately, 
+        a(href='https://makecode.com/touchdevelop') Microsoft retired the TouchDevelop platform in June 2019
+        | . Its live programming techniques have been adopted by subsequent projects such as 
+        a(href='https://makecode.com/about') Microsoft MakeCode
+        |  and have impacted programming experience design of various projects such as 
+        a(href='/textalive') TextAlive
+        | . 
   .ui.hidden.divider
   section#abstract
     h2.ui.header
@@ -22,9 +30,9 @@ block main
         p This paper enables live programming for user interface programming by cleanly separating the rendering and non-rendering aspects of a UI program, allowing the display to be refreshed on a code change without restarting the program. A type and effect system formalizes this separation and provides an evaluation model that incorporates the code update step. By putting live programming on a more formal footing, we hope to enable critical and technical discussion of live programming systems.
         p
           | This work was done during my internship at Microsoft Research Redmond 
-          a(href='http://research.microsoft.com/touchdevelop/') TouchDevelop team
+          a(href='https://www.microsoft.com/en-us/research/project/touchdevelop/') TouchDevelop team
           |  of 
-          a(href='http://research.microsoft.com/rise/', title='Research in Software Engineering Group') RiSE Group
+          a(href='https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/', title='Research in Software Engineering Group') RiSE Group
           | .
   .ui.hidden.divider
   section#presentations

@@ -4,30 +4,39 @@ block lang
   - var lang = 'ja';
 
 block message
-  | この論文で提案されているLive Programmingの技術は、すでに現行のTouchDevelopに実装されています。
-  a(href='#demo') 技術デモ
-  | をお試しください！
+  p: del
+    | この論文で提案されているLive Programmingの技術は、すでに現行のTouchDevelopに実装されています。
+    a(href='#demo') 技術デモ
+    | をお試しください！
+  p 残念ながら
+    a(href='https://makecode.com/touchdevelop') MicrosoftはTouchDevelopプラットフォームを2019年6月で終了
+    | しました。採用されていた技術は
+    a(href='https://makecode.com/about') Microsoft MakeCode
+    | などに受け継がれているほか、このプログラミング体験は
+    a(href='/ja/textalive') TextAlive
+    | などの設計に大きな影響を与えています。
 
 block abstract
   p Live Programmingは、プログラムを走らせたままコードを編集し、その変更を直ちに反映させて変化を観察することを可能にする技術である。このように、伝統的な編集、コンパイル、実行というサイクルを圧縮することで、プログラムのコードと振る舞いの間を行ったり来たりする認知的なギャップを小さくできる。そうすることで、プログラミング初学者がよりよくプログラミングを学べるようになり、経験者ならば生産性を向上できることが期待される。しかしながら、Model-Viewなどの切り分けがはっきりせず抽象化の足りない命令型言語でLive Programmingを実現しようとすると、応答性が悪くなったりフィードバックが分かりにくくなったりして困難が伴う。
   p 本論文では、ユーザインタフェースを伴う一般的なプログラムの実装において、次のようにLive Programmingを実現する。すなわち、ユーザインタフェースのレンダリングを行う部分とそれ以外を綺麗に分けることによって、コードに変更があるたびに、プログラム自体を再起動せずともレンダリングだけをやりなおすことができるようにする。さらに、型(と副作用)システムを用いて、この切り分けを形式化し、コード変更時の処理手順を与える評価モデルを与える。このように、Live Programmingに対してより形式的な基盤を与えることで、Live Programmingシステムに関する本質的で技術的な議論を可能にしたい。
   p
     | 本研究は、Microsoft Research Redmond
-    a(href='http://research.microsoft.com/rise/', title='Research in Software Engineering Group') RiSE Group
+    a(href='https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/', title='Research in Software Engineering Group') RiSE Group
     | の
-    a(href='http://research.microsoft.com/touchdevelop/') TouchDevelopチーム
+    a(href='https://www.microsoft.com/en-us/research/project/touchdevelop/') TouchDevelopチーム
     | における3か月のインターンの成果物である。
-    a(href='http://research.microsoft.com/people/sburckha/') Sebastian Burckhardt
+    a(href='https://www.microsoft.com/en-us/research/people/sburckha/') Sebastian Burckhardt
     | と
-    a(href='http://research.microsoft.com/people/moskal/') Michał Moskal
+    a(href='https://moskal.me/') Michał Moskal
     | がメンターであった。Microsoft Research Asiaの
     a(href='https://scholar.google.com/citations?user=EFCqkUsAAAAJ&hl=en') Sean McDirmid
     | とも連絡を取り、MSRの2つのキャンパス間の協力体制を築いて研究を進めた。
 
 block extra
   .ui.hidden.divider
-  h2.ui.header#demo 技術デモ
+  h2.ui.header#demo: del 技術デモ
   .ui.basic.segment
+    .ui.warning.message TouchDevelopのサービス終了に伴いこのセクションのデモも動作しません。ご了承ください。
     p 本研究で扱っている技術によるLive Programmingを体験してみたい方は
       a(href='https://www.touchdevelop.com/rthv') TouchDevelop Web Appの当該機能を利用しているスクリプト
       | を開いてみてください。
@@ -43,7 +52,7 @@ block extra
     .ui.segment
       ol
         li
-          a(href='http://touchdevelop.com') TouchDevelop
+          a(href='https://touchdevelop.com') TouchDevelop
           | にログインする。
         li
           a(href='https://www.touchdevelop.com/rthv') リンク先
