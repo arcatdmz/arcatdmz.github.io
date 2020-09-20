@@ -13,13 +13,14 @@ block main-hero-unit
 block main
   //- +render-project-header('songle-sync')
   //- .ui.hidden.divider
-  .ui.positive.message
-    strong Collaborative project:
-    |  While I am credited as the first author of the ACM Multimedia 2018 paper, this project is the result of the collaborative effort in 
-    a(href="//staff.aist.go.jp/m.goto/MIG/index-j.html") Media Interaction Group
-    | . Please see 
-    a(href="//api.songle.jp/sync") the official project page
-    |  for the complete list of the contributors.
+  block message
+    .ui.positive.message
+      strong Collaborative project:
+      |  While I am credited as the first author of the ACM Multimedia 2018 paper, this project is the result of the collaborative effort in 
+      a(href="//staff.aist.go.jp/m.goto/MIG/index-j.html") Media Interaction Group
+      | . Please see 
+      a(href="//api.songle.jp/sync") the official project page
+      |  for the complete list of the contributors.
   .ui.hidden.divider
   section#abstract: +abstract()
   section#presentations: +presentations()
@@ -28,18 +29,19 @@ block main
 
 mixin abstract()
   h2.ui.header #{en ? 'Abstract' : '概要'}
-  .ui.basic.segment
-    p: img.ui.image(src="/songle-sync/mm2018-songlesync-demo.jpg")
-    block abstract
-      p This paper presents Songle Sync, a web-based platform on which hundreds of Internet-connected devices — including smartphones, computers, and other physical computing devices — can be controlled to synchronize with music playback. It uses music-understanding technologies to dynamically synthesize music-driven multimedia performances from a musical piece of choice.
-      p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
-      p To evaluate the platform, we compared latencies, jitters, and amounts of network traffic between ours and the conventional architecture. To examine use cases in the wild, we deployed the platform to drive over a hundred of a variety of devices. We also developed a web browser-based application for a multimedia performance with music playback. It provided audiences of hundreds with a bring-your-own-device experience of synchronized animations on smartphones. In addition, the development kit was used in a two-day hackathon.
-      p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
-  .ui.basic.center.aligned.segment
-    p
-      a.ui.labeled.icon.massive.green.button(href="http://tutorial.songle.jp/sync?lang=en")
-        i.external.icon
-        |  Try out Songle Sync
+  block abstract
+    .ui.basic.segment
+      p: img.ui.image(src="/songle-sync/mm2018-songlesync-demo.jpg")
+      block abstract
+        p This paper presents Songle Sync, a web-based platform on which hundreds of Internet-connected devices — including smartphones, computers, and other physical computing devices — can be controlled to synchronize with music playback. It uses music-understanding technologies to dynamically synthesize music-driven multimedia performances from a musical piece of choice.
+        p To simultaneously control hundreds of devices, a conventional architecture keeps always-on connections between them. However, it does not scale and suffers from latency and jitter issues when there are various devices with potentially unstable networks. We address this with a novel autonomous control architecture in which each device is notified of forthcoming musical events (e.g., beats and chorus sections) to automatically drive various changes in multimedia performances. Moreover, we provide a development kit of an event-driven multimedia framework for JavaScript, example programs, and an interactive tutorial.
+        p To evaluate the platform, we compared latencies, jitters, and amounts of network traffic between ours and the conventional architecture. To examine use cases in the wild, we deployed the platform to drive over a hundred of a variety of devices. We also developed a web browser-based application for a multimedia performance with music playback. It provided audiences of hundreds with a bring-your-own-device experience of synchronized animations on smartphones. In addition, the development kit was used in a two-day hackathon.
+        p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
+    .ui.basic.center.aligned.segment
+      p
+        a.ui.labeled.icon.massive.green.button(href="http://tutorial.songle.jp/sync?lang=en")
+          i.external.icon
+          |  Try out Songle Sync
   .ui.hidden.divider
 
 mixin presentations()
@@ -69,16 +71,20 @@ mixin related-projects()
     i.lab.icon
     .content #{en ? 'Related projects' : '関連プロジェクト'}
   .ui.basic.segment
-    ul
-      li Automatic music analysis of Songle Sync relies on 
-        a(href="http://songle.jp") Songle
-        |  whose research contributions have been published in multiple academic papers.
-        |  For more details, 
-        a(href="https://staff.aist.go.jp/m.goto/publications.html") search for the keyword &quot;Songle&quot; in Dr. Goto's publications
-        | .
-      li
-        a(href="http://tutorial.songle.jp/sync") Interactive coding tutorials for Songle Sync
-        |  are implemented based on the DeployGround framework.
+    block related-projects
+      ul
+        li Automatic music analysis of Songle Sync relies on 
+          a(href="http://songle.jp") Songle
+          |  whose research contributions have been published in multiple academic papers.
+          |  For more details, 
+          a(href="https://staff.aist.go.jp/m.goto/publications.html") search for the keyword &quot;Songle&quot; in Dr. Goto's publications
+          | .
+        li Songle Sync has been released as part of 
+          a(href="https://api.songle.jp/sync") Songle API
+          | .
+        li
+          a(href="http://tutorial.songle.jp/sync") Interactive coding tutorials for Songle Sync
+          |  are implemented based on the DeployGround framework.
     - dg = projectsTable['deployground'];
     .ui.divided.items.projects
       +render-project-item(dg)

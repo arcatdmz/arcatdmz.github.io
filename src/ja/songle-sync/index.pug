@@ -2,3 +2,48 @@ extends ../../songle-sync/index
 
 block lang
   - var lang = 'ja';
+
+block message
+  .ui.positive.message
+    strong 共同研究の成果:
+    |  本研究は
+    a(href="//staff.aist.go.jp/m.goto/MIG/index-j.html") メディアインタラクション研究グループ
+    | における共同プロジェクトです。
+    a(href="//api.songle.jp/sync") Songle Syncの公式サイト
+    | に関係者のクレジットが掲載されています。
+
+block abstract
+  .ui.basic.segment
+    p: img.ui.image(src="/songle-sync/songlesync-platform-ja.png")
+    p Songle Syncは、ウェブ上の音楽の再生に合わせて、インターネット接続された多種多様な機器（スマートフォン、PC、フィジカルコンピューティングデバイス）を数百台以上同時制御可能な大規模音楽連動制御プラットフォームである。音楽理解技術を利用することで、好みの音楽でマルチメディア演出を駆動できる。
+    p 数百台の機器を同時に駆動するために、既存手法では通常、機器同士を常時接続するアーキテクチャを採用してきた。しかし、常時接続による負荷にともなうスケーラビリティの問題と、多様なデバイスとの不安定な接続にともなうレイテンシとジッタの問題があった。これらの問題を解決するため、我々は音楽地図に基づく自律駆動アーキテクチャを提案する。本アーキテクチャでは、個々のデバイスがビートやサビなどのタイミング情報を保持し、自律的にマルチメディア演出を駆動する。
+    p Songle Sync API はこうしたマルチメディア演出をイベントドリブンのAPIで開発できるフレームワークであり、サンプルコードやインタラクティブなチュートリアルとともに開発者向けのキットとして公開されている。
+    p 本プラットフォームの評価実験として、既存手法と提案するアーキテクチャ間でレイテンシ、ジッタ、ネットワーク通信量の定量比較を行った。また、100台以上の多様なデバイスを駆動する実験を行った。さらに、数百名の観客が自身のスマートフォンで演出に参加する<abbr title="Bring-Your-Own-Device">BYOD</abbr>体験を提供する音楽再生に連動するWebアプリケーションを開発した。さらに、開発キットを2日間のハッカソンで実用した。これらの実験から得られた教訓を報告し、 &quot;The Internet of Musical Things (IoMT)&quot; の未来について議論した。
+  .ui.basic.center.aligned.segment
+    p
+      a.ui.labeled.icon.massive.green.button(href="http://tutorial.songle.jp/sync")
+        i.external.icon
+        |  Songle Syncを試す
+  .ui.divider
+  .ui.basic.segment
+    p 上記は ACM Multimedia 2018 向けの論文概要を翻訳したものです。その後、 <a href="https://ongaaccel.jp/">OngaACCEL</a> プロジェクトでは Songle Sync を活用した様々な実証実験を行ってきました。詳しくは <a href="https://ongaaccel.jp/symposium2020/">OngaACCELシンポジウム2020</a> 予稿集PDFをご覧ください。
+    p: a(href="https://ongaaccel.jp/wp-content/uploads/2020/09/OngaACCEL20200912proceedings.pdf"): img.ui.image(src="/songle-sync/songlesync-poster-extract.jpg")
+    .caption: .ui.horizontal.list
+      .item
+        a(href="https://ongaaccel.jp/symposium2020/")
+          i.pdf.file.icon
+          | OngaACCELシンポジウム2020予稿集
+
+block related-projects
+  ul
+    li Songle Syncの音楽理解技術は
+      a(href="http://songle.jp") Songle
+      | 由来のもので、さまざまな学術論文で発表されてきた研究成果に基づいています。詳細は
+      a(href="https://staff.aist.go.jp/m.goto/publications.html") &quot;Songle&quot; キーワードで後藤真孝氏の発表文献リストから検索
+      | してみてください。
+    li Songle Sync は
+      a(href="https://api.songle.jp/sync") Songle API
+      |  の一部としてリリースされています。
+    li
+      a(href="http://tutorial.songle.jp/sync") Songle Sync のインタラクティブチュートリアル
+      |  は DeployGround フレームワークで実装されています。

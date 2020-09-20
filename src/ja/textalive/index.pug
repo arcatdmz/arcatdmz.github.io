@@ -6,13 +6,42 @@ block lang
 block abstract
   p Kinetic Typographyは、文字を動かして見せることで意味をより深く伝えられる手法として、楽曲のプロモーションなどの動画で頻繁に利用されている。しかし、歌詞を楽曲と同期してアニメーションさせる動画を制作するためには、まず、動画制作ツールの使い方に慣れる必要があった。さらに、歌詞を文字ごとに時刻同期させて動きを手付けするため、多くの手間がかかっていた。
   p TextAliveは、ウェブ上に公開されている楽曲と歌詞の時間的対応付けを自動で推定し、Kinetic Typographyを用いた動画を自動生成する。したがって、事前にツールの使い方を学ばなくても、好みの楽曲のKinetic Typography動画を楽しむことができる。また、生成された動画をウェブ上のグラフィカルなインタフェースで編集でき、一から動画を作るより大幅に少ない手間で動画を制作できる。さらに、文字の動きを定めているアルゴリズムをその場でプログラミングでき、プリセットのテンプレートに縛られない自由な表現が可能である。
+  .ui.divider
+  p 本研究は、2015/9/8に
+    a(href='http://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html') プレスリリース
+    | と同時にWebサービス「
+    a(href='https://textalive.jp') TextAlive
+    | 」として一般公開されました。また、2020/9/18には開発者向けに「
+    a(href='https://developer.textalive.jp') TextAlive App <abbr title="Application Programming Interface">API</abbr>
+    | 」がリリースされました。最新情報は
+    a(href='https://textalive.jp/events') TextAliveの活用事例を紹介したイベントページ
+    | や
+    a(href='https://scrapbox.io/textalive/TextAlive%E3%81%AE%E9%96%8B%E7%99%BA%E5%B1%A5%E6%AD%B4') 更新履歴のページ
+    | をご覧ください。
 
 block news
   .ui.divided.small.feed
     .event: .content
+      .date 2020/9/18
+      .summary TextAliveの機能を使って音楽に合わせてタイミングよく歌詞が動くWebアプリケーション（リリックアプリ）を開発できるJavaScript用のライブラリ「
+        a(href='https://developer.textalive.jp/') TextAlive App <abbr title="Application Programming Interface">API</abbr>」
+        | がリリースされました。また、
+        a(href='https://developer.textalive.jp/events/magicalmirai2020') 初音ミク「マジカルミライ 2020」
+        | で、同APIを利用した、イベント史上初のプログラミング・コンテストの実施が発表されました。
+    .event: .content
+      .date 2019/11/13
+      .summary
+        a(href='https://www.morisawa.co.jp/about/news/4707') モリサワ株式会社のInter BEE 2019出展ブース
+        | で、TextAliveのデモ映像が展示されました。
+    .event: .content
       .date 2019/9/6
       .summary
-        a(href='https://textalive.jp/magicalmirai2019') 初音ミク「マジカルミライ 2019」
+        a(href='https://textalive.jp/magicalmirai2019') 舞台美術を手がける「シミズオクト」がプロデュースする「ジュリアナの祟り」ライブ
+        | で、アーティスト自身がTextAliveを活用して制作した歌詞アニメーションが紗幕に上映されました。
+    .event: .content
+      .date 2019/6/17
+      .summary
+        a(href='https://prtimes.jp/main/html/rd/p/000000002.000045795.html') 初音ミク「マジカルミライ 2019」
         | でTextAliveを活用して制作した歌詞アニメーションが使われ、TextAlive講座が開かれました。企画展ステージでもTextAlive制作映像が使われました。
     .event: .content
       .date 2019/2/8
@@ -47,8 +76,3 @@ block news
         | と同時に
         a(href='http://textalive.jp') Webサービスとして一般公開
         | を始めました。ぜひお試しください。
-  p 最新情報は
-    a(href='https://textalive.jp/events') TextAliveの活用事例を紹介したイベントページ
-    | や
-    a(href='https://scrapbox.io/textalive/TextAlive%E3%81%AE%E9%96%8B%E7%99%BA%E5%B1%A5%E6%AD%B4') 更新履歴のページ
-    | をご覧ください。
