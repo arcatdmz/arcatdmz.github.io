@@ -345,6 +345,7 @@
       "description": "The Songle Sync platform allows controlling numerous devices in synchrony with the songs with its <abbr title=\"Software Development Kit\">SDK</abbr>.",
       "description-design": "Created a variation of Songle Sync and Songle API logos from the existing Songle logo. Demonstrated its use on <a href=\"${rootPath}songle-sync\">the Songle Sync tutorial website</a> and <a href=\"https://github.com/SongleJp\">GitHub repositories</a>. The tutorial site is built on the Semantic UI CSS/JavaScript framework.",
       "ja": {
+        "subtitle": "大規模音楽連動制御プラットフォーム",
         "title-design": "Songle Sync ブランドデザイン",
         "description": "多種多様なデバイスを音楽と同期して制御できるアプリケーションを容易に開発できる<abbr title=\"Software Development Kit; 開発キット\">SDK</abbr>が整備されたプラットフォームです。",
         "description-design": "Songleの既存のロゴをベースに、世界観を崩さないよう、派生プロジェクトであるSongle APIとSongle Syncのブランドキットをデザインしました。<a href=\"${rootPath}ja/songle-sync\">Songle Syncチュートリアル</a>や<a href=\"https://github.com/SongleJp\">GitHubリポジトリ</a>の開設時にブランドキットを利用しました。チュートリアルサイトはSemantic UI CSS/JavaScriptフレームワークを利用して構築しました。"
