@@ -58,17 +58,17 @@ mixin related-work()
     p In the era when 
       a(href="https://www.wsj.com/articles/SB10001424053111903480904576512250915629460") &quot;software is eating the world&quot;
       | , there is a massive demand for people who can code. This has resulted in numerous coding references and tutorials available on the web [
-      a(href="http://doi.acm.org/10.1145/3017680.3017728") Kim et al., SIGCSE '17
+      a(href="https://doi.acm.org/10.1145/3017680.3017728") Kim et al., SIGCSE '17
       | ]. In the context of HCI, while there is much work on creating tutorials [
-      a(href="http://doi.acm.org/10.1145/2380116.2380130", title="MixT") Chi et al., UIST '12
+      a(href="https://doi.acm.org/10.1145/2380116.2380130", title="MixT") Chi et al., UIST '12
       | , 
-      a(href="http://doi.acm.org/10.1145/2501988.2502052", title="DemoCut") Chi et al., UIST '13
+      a(href="https://doi.acm.org/10.1145/2501988.2502052", title="DemoCut") Chi et al., UIST '13
       | , 
-      a(href="http://doi.acm.org/10.1145/2556288.2556986") Kim et al., CHI '14
+      a(href="https://doi.acm.org/10.1145/2556288.2556986") Kim et al., CHI '14
       | , 
-      a(href="http://doi.acm.org/10.1145/2470654.2466235") Lafreniere et al., CHI '13
+      a(href="https://doi.acm.org/10.1145/2470654.2466235") Lafreniere et al., CHI '13
       | ], there is only a handful of work specialized in creating interactive coding tutorials. Harms et al. explored automatic generation of interactive step-by-step tutorials by transforming each sentence of example codes into a step [
-      a(href="http://doi.acm.org/10.1145/2485760.2485764") Harms et al., IDC '13
+      a(href="https://doi.acm.org/10.1145/2485760.2485764") Harms et al., IDC '13
       | ]. Tutoron [
       a(href="http://tutorons.com") Head et al., VL/HCC '15
       | ] allows one to write micro-explanations of code and allows learners to read them automatically inserted next to example code on the web. Codepourri [
@@ -83,7 +83,7 @@ mixin related-work()
       | . However, there is an increasing number of interactive coding tutorials. Some tutorials take the form of games such as Code Hunt [
       a(href="https://ieeexplore.ieee.org/document/7202990") Bishop et al., ICSE '15
       | ] and Gidget [
-      a(href="http://doi.acm.org/10.1145/2016911.2016934") Lee et al., ICER '11
+      a(href="https://doi.acm.org/10.1145/2016911.2016934") Lee et al., ICER '11
       | ] and motivate novice programmers through the gamification of learning. These are designed to enable learners to learn the basics of programming but are not directly connected to the development of actual applications. Other web-based interactive tutorials provide code editors with which programmers can run and edit example code. In terms of the implementation, they can be roughly divided into three categories.
     .ui.hidden.divider
     .ui.stackable.three.columns.grid
@@ -110,36 +110,36 @@ mixin related-work()
   h3.ui.header B. Executable Documents
   .ui.basic.segment
     p The usability of API documentation has been extensively studied [
-      a(href="http://dx.doi.org/10.1109/MS.2009.193") Robillard, 2009
+      a(href="https://dx.doi.org/10.1109/MS.2009.193") Robillard, 2009
       | , 
       a(href="https://doi.org/10.1109/ICPC.2011.21") Hou et al., <abbr title="International Conference on Program Comprenension">ICPC</abbr> '11
       | , 
       a(href="https://doi.org/10.1007/s10664-010-9150-8") Robillard et al., 2011
       | , 
-      a(href="http://dl.acm.org/citation.cfm?id=2487085.2487100") Wang et al., MSR '13
+      a(href="https://dl.acm.org/doi/10.5555/2487085.2487100") Wang et al., MSR '13
       | ]. One of the consensuses is that concrete usage information is an important part of the documentation. Executable example codes in API documentations are especially beneficial [
-      a(href="http://doi.acm.org/10.1145/2568225.2568313") Subramanian et al., ICSE '14
+      a(href="https://doi.acm.org/10.1145/2568225.2568313") Subramanian et al., ICSE '14
       | ] because they can be executed when simply copied and pasted to the code editors. Another work enabled inserting such example codes into the code editor by augmenting the code completion user interface [
-      a(href="http://doi.acm.org/10.1145/1753326.1753402") Brandt et al., CHI '10
+      a(href="https://doi.acm.org/10.1145/1753326.1753402") Brandt et al., CHI '10
       | ]. Our framework connects the tutorial, example codes edited by the users, and the deployed applications by automatically adding links between these web pages.
     p Whereas prior work mostly focuses on how to provide better read-only documentation, recent web-based platforms for literate programming, including Jupyter Notebook (formerly known as IPython Notebook [
-      a(href="http://dx.doi.org/10.1109/MCSE.2007.53") Perez et al., 2007
+      a(href="https://dx.doi.org/10.1109/MCSE.2007.53") Perez et al., 2007
       | ]), allow writing documentation next to the source code and its execution results. Our framework is not designed for literate programming but provides a similar mixed view of documentation and executable code. The difference is that literate programming aims to provide a whole new programming experience, whereas our work aims to help a programmer learn existing programming languages and APIs and develop practical applications that run on common web servers.
     p Webstrates [
-      a(href="http://doi.acm.org/10.1145/2807442.2807446") Klokmose et al., UIST '15
+      a(href="https://doi.acm.org/10.1145/2807442.2807446") Klokmose et al., UIST '15
       | ] and its subsequent research Codestrates [
-      a(href="http://doi.acm.org/10.1145/3126594.3126642") Rädle et al., UIST '17
+      a(href="https://doi.acm.org/10.1145/3126594.3126642") Rädle et al., UIST '17
       | ] share the philosophy with us, which is about making the development process more visible and sharable as well as the implementation of creating a meta-browser layer within a web browser. While these works provide both runtime and development environments and the applications need to reside within the environments, our framework is designed for tutorials and emulates existing runtime environments so that the applications can run out of the framework.
   h3.ui.header C. Live Programming on the Web
   .ui.basic.segment
     p Live Programming is an emerging field in the intersection of HCI and programming language research with a focus on the fluid programming experience. It aims at eliminating the mental gap between writing code and executing the program to see the results. Because the way to eliminate the mental gap is heavily domain-specific, live programming systems are typically designed to serve specific purposes rather than general programming. For instance, there have been proposed web-based live programming systems for rendering graphics in a massive open online programming training course (such as in Khan Academy’s computer programming course), generating data visualization from tabular data extracted from existing web pages (DS.js [
-      a(href="http://doi.acm.org/10.1145/3126594.3126663") Zhang et al., UIST '17
+      a(href="https://doi.acm.org/10.1145/3126594.3126663") Zhang et al., UIST '17
       | ]), producing enclosure layouts for microcontroller applications (f3.js [
-      a(href="http://doi.acm.org/10.1145/3064663.3064681") Kato et al., DIS '17
+      a(href="https://doi.acm.org/10.1145/3064663.3064681") Kato et al., DIS '17
       | ]), authoring videos of lyrics animation (TextAlive [
-      a(href="http://doi.acm.org/10.1145/2702123.2702140") Kato et al., CHI '15
+      a(href="https://doi.acm.org/10.1145/2702123.2702140") Kato et al., CHI '15
       | ]), and improvising music and visual effects (Gibber [
-      a(href="http://doi.acm.org/10.1145/2647868.2654949") Roberts et al., MM '14
+      a(href="https://doi.acm.org/10.1145/2647868.2654949") Roberts et al., MM '14
       | ]).
     p Given the domain-specific nature of live programming systems, many of them share the pain of transition from managed to wild environments. For example, TextAlive and DS.js are both JavaScript-based live programming environments and applications developed in these sandboxed environments cannot be directly exported as standalone JavaScript projects. This difficulty is a side effect of being domainspecific— these systems provide convenient APIs by default, eliminate the need to write boilerplate code, and sometimes replace part of the coding tasks with GUI interactions such as sliders for parameter tuning. This work aims to retain such benefits and furthermore to provide a feature, named an adaptive boilerplate, to export the projects. The feature transforms the succinct user code into a generic JavaScript project containing boilerplate code.
   .ui.hidden.divider

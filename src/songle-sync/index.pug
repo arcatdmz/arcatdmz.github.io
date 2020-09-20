@@ -8,7 +8,7 @@ block vars
   - const slideImagePath = `${rootPath}songle-sync/mm2018-kato-songlesync-slides.jpg`;
 
 block main-hero-unit
-  +render-project-hero('songle-sync', null, 'http://tutorial.songle.jp/images/background.jpg')
+  +render-project-hero('songle-sync', null, 'https://tutorial.songle.jp/images/background.jpg')
 
 block main
   //- +render-project-header('songle-sync')
@@ -39,7 +39,7 @@ mixin abstract()
         p We report lessons learned from these studies and discuss the future of the Internet of Musical Things.
     .ui.basic.center.aligned.segment
       p
-        a.ui.labeled.icon.massive.green.button(href="http://tutorial.songle.jp/sync?lang=en")
+        a.ui.labeled.icon.massive.green.button(href="https://tutorial.songle.jp/sync?lang=en")
           i.external.icon
           |  Try out Songle Sync
   .ui.hidden.divider
@@ -74,7 +74,7 @@ mixin related-projects()
     block related-projects
       ul
         li Automatic music analysis of Songle Sync relies on 
-          a(href="http://songle.jp") Songle
+          a(href="https://songle.jp") Songle
           |  whose research contributions have been published in multiple academic papers.
           |  For more details, 
           a(href="https://staff.aist.go.jp/m.goto/publications.html") search for the keyword &quot;Songle&quot; in Dr. Goto's publications
@@ -83,7 +83,7 @@ mixin related-projects()
           a(href="https://api.songle.jp/sync") Songle API
           | .
         li
-          a(href="http://tutorial.songle.jp/sync") Interactive coding tutorials for Songle Sync
+          a(href="https://tutorial.songle.jp/sync") Interactive coding tutorials for Songle Sync
           |  are implemented based on the DeployGround framework.
     - dg = projectsTable['deployground'];
     .ui.divided.items.projects
