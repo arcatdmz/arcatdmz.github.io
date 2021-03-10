@@ -18,7 +18,7 @@
     "@types/semantic-ui": "^2.2.7",
     "babel-loader": "^8.1.0",
     "bibtex-parse-js": "0.0.24",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.14",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
