@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "03/16/2021",
+      "text": "Gave an invited talk titled &quot;Creativity Support for People with Diverse Technical Background&quot; and presented a poster on the ongoing project for Japanese animation storyboards from <a href=\"https://research.archinc.jp/en/\">Arch Research</a> at <a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, which got the Best Poster Award!"
+    },
+    {
       "date": "09/20/2020",
       "text": "Released <a href=\"${rootPath}textalive\">TextAlive</a> App <abbr title=\"Application Programming Interface\">API</abbr>, a JavaScript library for building &quot;lyric apps&quot; (cf. lyric videos) that show lyrics synchronized with the music playback. <a href=\"${rootPath}songle-sync\">Songle Sync</a> (ACM Multimedia 2018) was used to celebrate <a href=\"https://events.ongaaccel.jp/mikusync2020/\">Hatsune Miku's birthday</a> with over 10,000 participants. Thank you for <a href=\"https://tutorial.songle.jp/sync/step1?style=mikusync2020\">your birthday messages</a>!"
     },
@@ -258,6 +262,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "03/16/2021",
+      "text": "国際シンポジウム<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>で &quot;Creativity Support for People with Diverse Technical Background&quot; と題して招待講演を行いました。また、<a href=\"https://research.archinc.jp/\">Arch Research</a>としてアニメ絵コンテ研究に関するポスター発表を行い、 Best Poster Award を受賞しました。"
+    },
     {
       "date": "09/20/2020",
       "text": "<a href=\"${rootPath}ja/textalive\">TextAlive</a> App <abbr title=\"Application Programming Interface\">API</abbr>をリリースしました。音楽に合わせてタイミングよく歌詞が動くWebアプリケーション（リリックアプリ）を開発できるJavaScript用のライブラリです。また、<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>が利用された<a href=\"https://events.ongaaccel.jp/mikusync2020/\">初音ミク バースデーメッセージ企画</a>に 10,000 人を超える方々に参加いただきました。<a href=\"https://tutorial.songle.jp/sync/step1?style=mikusync2020\">Songle Syncチュートリアルサイト</a>に演出を掲載しました。"
