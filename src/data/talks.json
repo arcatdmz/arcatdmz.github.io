@@ -44,6 +44,13 @@
     "type": "domestic"
   },
   {
+    "date": "10/24/2017",
+    "text": {
+      "ja": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"https://junkato.jp/live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
+      "en": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"https://junkato.jp/live-programming/\"><i class=\"world icon\"></i>Website</a>"
+    }
+  },
+  {
     "date": "9/1/2017",
     "text": {
       "ja": "<a href=\"https://jssst2017.wordpress.com/ftd/\">日本ソフトウェア科学会第 34 回大会 Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
