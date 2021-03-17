@@ -1,5 +1,13 @@
 [
   {
+    "date": "3/15/2021",
+    "text": {
+      "ja": "<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, &quot;Creativity Support for People with Diverse Technical Background&quot;",
+      "en": "<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, &quot;Creativity Support for People with Diverse Technical Background&quot;"
+    },
+    "type": "international"
+  },
+  {
     "date": "1/22/2020",
     "text": {
       "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;",
