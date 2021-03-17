@@ -412,7 +412,8 @@
         "ui"
       ],
       "year": {
-        "from": 2015
+        "from": 2015,
+        "to": 2018
       },
       "publication": "dis2017-kato-f3js",
       "title": "f3.js",
