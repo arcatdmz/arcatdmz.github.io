@@ -50,3 +50,11 @@ Run the following command after `gulp` build will launch a new browser window.
 ```sh
 $ gulp dev
 ```
+
+## See also
+
+- [arcatdmz/blog](https://github.com/arcatdmz/blog): blog.junkato.jp source code
+
+---
+
+https://github.com/arcatdmz/arcatdmz.github.io
