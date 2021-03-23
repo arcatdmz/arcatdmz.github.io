@@ -50,6 +50,9 @@ mixin sidebar()
   a.item(href=`${basePath}`, class=getItemClass(''))
     img.ui.avatar.image(src=`${rootPath}images/junkato.jpg`)
     | #{en ? 'Top page' : 'トップ'}
+  a.item(href=`https://blog.junkato.jp/${en ? '' : 'ja'}`)
+    i.pencil.icon
+    | #{en ? 'Blog' : 'ブログ'}
   a.item(href=`${basePath}#contact`)
     i.address.card.icon
     | #{en ? 'Contact' : '連絡先'}
@@ -90,9 +93,6 @@ mixin sidebar()
     i.translate.icon
     | 日本語
   - } else {
-  a.item(href=`${rootPath}ja/blog`)
-    i.wordpress.icon
-    | ブログ
   a.item(href=`${rootPath}${me}`)
     i.translate.icon
     | English
@@ -145,14 +145,14 @@ mixin header()
       +right-header-menu()
 
 mixin right-header-menu()
+  a.item(href=`https://blog.junkato.jp/${en ? '' : 'ja'}`)
+    i.pencil.icon
+    span.print-hidden.tablet.or.lower.hidden  #{en ? 'Blog' : 'ブログ'}
   - if (en) {
   a.item(href=`${rootPath}ja/${me}`)
     i.translate.icon
     span.print-hidden 日本語
   - } else {
-  a.item(href=`${rootPath}ja/blog`)
-    i.wordpress.icon
-    span.print-hidden.tablet.or.lower.hidden ブログ
   a.item(href=`${rootPath}${me}`)
     i.translate.icon
     span.print-hidden English
