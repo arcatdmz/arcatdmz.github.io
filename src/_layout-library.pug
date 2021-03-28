@@ -7,10 +7,10 @@ mixin embed-youtube(src)
   .ui.embed: iframe(src=src, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen)
 
 mixin translate(path)
-  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/junkato.jp/blob/master/src/${path}`, data-content='翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります') 翻訳が必要
+  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/arcatdmz.github.io/blog/main/src/${path}`, data-content='翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります') 翻訳が必要
 
 mixin translate-en(path)
-  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/junkato.jp/blob/master/src/${path}`, data-content='I would really appreciate if you could translate this content and send a pull request') Translation required
+  a.ui.red.tag.with-popup.label(href=`https://github.com/arcatdmz/arcatdmz.github.io/blog/main/src/${path}`, data-content='I would really appreciate if you could translate this content and send a pull request') Translation required
 
 mixin render-share()
   .share
