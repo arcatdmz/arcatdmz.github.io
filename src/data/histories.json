@@ -263,6 +263,10 @@
   ],
   "ja": [
     {
+      "date": "04/11/2021",
+      "text": "日本音響学会誌77巻4号に「インタフェース・デザインの勘所」という記事を寄稿しました。Webで読めるのはまだ先になりそうですが、これを機に<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>を開設しました。まだ作りかけです。"
+    },
+    {
       "date": "03/28/2021",
       "text": "<a href=\"https://www.ipsj.or.jp/award/ACM-Joint-Award2021.html\">IPSJ/ACM Award for Early Career Contributions to Global Research</a>を受賞しました。<a href=\"https://blog.junkato.jp/\">ブログを改装</a>して、<a href=\"https://blog.junkato.jp/ja/posts/2021-03-28-ipsj-acm-award-programming-experience/\">受賞の経緯と、受賞に繋がった研究内容についての記事</a>を書きました。"
     },

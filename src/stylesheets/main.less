@@ -482,6 +482,17 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
   }
 }
 
+/* rail-like grid */
+.ui.stackable.two.column.divided.rail-like.grid > .row > .column:last-child {
+  color: @grey;
+}
+
+@media only screen and (max-width : @tabletBreakpoint) {
+  .ui.stackable.two.column.divided.rail-like.grid > .row > .column:last-child {
+    background:rgba(0, 0, 0, 0.03);
+  }
+}
+
 /*!
  * # Responsive utility classes
  * https://github.com/Semantic-Org/Semantic-UI/issues/1114

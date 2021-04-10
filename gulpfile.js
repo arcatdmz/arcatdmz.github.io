@@ -321,7 +321,9 @@ const pdfinfo = require('pdfinfo');
 // [lint:html]
 gulp.task('lint:html', function() {
   return gulp.src(['dist/**/*.html', '!dist/picode/docs/**/*.html'])
-    .pipe(htmlhint())
+    .pipe(htmlhint({
+      "attr-lowercase": ["viewBox"]
+    }))
 	  .pipe(htmlhint.failAfterError());
 });
 

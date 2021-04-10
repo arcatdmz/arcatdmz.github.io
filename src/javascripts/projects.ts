@@ -34,6 +34,7 @@ interface RawEntry {
   thumbnail?: string;
   icon?: string;
   hero?: string;
+  private?: boolean;
   tags?: string[];
   "tags-design"?: string[];
   year: {
@@ -51,6 +52,7 @@ interface RawEntry {
   images?: string[];
   url?: string | boolean;
   ja: {
+    private?: boolean;
     publication?: string;
     title?: string;
     "title-design"?: string;
@@ -85,6 +87,9 @@ class Entry {
   }
   get hero() {
     return this.data.hero;
+  }
+  get private() {
+    return this.data.private;
   }
   get tags() {
     return this.data.tags;
@@ -141,6 +146,9 @@ class Entry {
   isDesignProject() {
     return Array.isArray(this.data.tags)
         && this.data.tags.indexOf('design') >= 0;
+  }
+  isPrivateProject(lang?: 'en'|'ja') {
+    return lang === 'ja' ? this.data.ja.private : this.data.private;
   }
   getTags(lang?: 'en'|'ja') {
     const results = [];

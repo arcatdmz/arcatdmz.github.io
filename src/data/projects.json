@@ -79,6 +79,28 @@
   },
   "projects": [
     {
+      "project": "user-interface-design",
+      "thumbnail": "user-interface-design.png",
+      "private": true,
+      "icon": true,
+      "tags": [
+        "toolkit",
+        "design",
+        "live-programming"
+      ],
+      "year": {
+        "from": 2021
+      },
+      "publication": "asj-v77n4-kato-ui-design",
+      "title": "User Interface Design",
+      "description": "This project aims at introducing the basics of user interface design",
+      "ja": {
+        "private": false,
+        "title": "ユーザインタフェース設計",
+        "description": "ユーザインタフェース設計に関して、基礎理論からデザインの評価手法、デザインで気をつけるべきポイント、最近のホットトピックまで幅広く紹介します。"
+      }
+    },
+    {
       "project": "griffith",
       "title": "Griffith",
       "subtitle": "A Web-based Tool for Authoring Anime Storyboards",

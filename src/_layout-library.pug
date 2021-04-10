@@ -192,6 +192,10 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
               i.trophy.icon
               | #{entry.entryTags.addition}
             - }
+            - if (entry.entryTags.group) {
+            span.ui.tiny.teal.label
+              | #{entry.entryTags.group}
+            - }
             - if (withProjectLabel) {
             - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
             - const p = projectsTable[entry.entryTags.project];
