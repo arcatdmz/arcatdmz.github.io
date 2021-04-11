@@ -295,7 +295,7 @@ a:link>i.icon {
   width: 320px;
   max-width: 60vw;
 }
-@media only screen and (max-width : @tabletBreakpoint) {
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   .ui.popup {
     width: 240px;
   }
@@ -375,7 +375,7 @@ h1.ui.header {
 #concepts-list>.column>.card {
   height: 100%;
 }
-@media only screen and (max-width : @tabletBreakpoint) {
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   #concepts-list>.column>.card {
     height: auto;
   }
@@ -487,9 +487,19 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
   color: @grey;
 }
 
-@media only screen and (max-width : @tabletBreakpoint) {
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   .ui.stackable.two.column.divided.rail-like.grid > .row > .column:last-child {
     background:rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Responsive image */
+@media only screen and (max-width: (@tabletBreakpoint - 1px)) {
+  .ui.stackable.floated.image {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 1em 0;
   }
 }
 
