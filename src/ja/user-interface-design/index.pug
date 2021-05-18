@@ -75,7 +75,7 @@ mixin theory()
   h2.ui.header: .content インタフェース設計の理論
   .ui.basic.segment: .ui.stackable.two.column.divided.rail-like.grid#theory-introduction: .row
     .eleven.wide.column 
-      p ユーザインタフェース設計に有用な基礎理論の多くは、<abbr title="Graphical User Interface">GUI</abbr>が商業的に一般化する過程と並走するかたちで1980年代に確立されています。本節では、 HCI 研究をしていると必ずといってよいほど名前を聞く 3 名の研究者、 Stuart Card、 Ben Shneiderman、 Don Norman の成果を中心に紹介します。
+      p ユーザインタフェース設計に有用な基礎理論の多くは、<abbr title="Graphical User Interface">GUI</abbr>が商業的に一般化する過程と並走するかたちで1980年代に確立されています。本節では、 HCI 研究をしていると必ずといってよいほど名前を聞く 3 名の研究者、 Stuart Card、 Ben Shneiderman、 Don Norman の成果を中心に紹介します。いずれも、ユーザとシステムの間のインタラクションをモデル化した成果です。
       a.ui.left.tiny.floated.image(href="https://www.amazon.co.jp/dp/B0844T1CKC?&linkCode=li3&tag=digitalmuseum-22&linkId=9e1636a05285afb5d5e3fdd9b13e8a61&language=ja_JP&ref_=as_li_ss_il"): img(src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0844T1CKC&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP")
       p 認知心理学に関する内容をさらに網羅的に知りたい場合、和書なら「<a href="https://www.amazon.co.jp/dp/B0844T1CKC/">インタフェースデザインの教科書</a>」をおすすめします。
     .five.wide.column
@@ -83,13 +83,14 @@ mixin theory()
       p HCI 分野のトップ国際会議 <abbr title="Conference on Human Factors in Computing Systems">CHI</abbr> 初回が開催されたのが 1982 年です。（<a href="https://sigchi.org/conferences/conference-history/chi/">Conference History ─ CHI</a>）
   .ui.basic.segment
     .ui.stackable.two.column.divided.rail-like.grid#theory-cognitive-science
-      .row: +theory-cognitive-science
+      .row: +theory-cognitive-science()
     .ui.stackable.two.column.divided.rail-like.grid#theory-direct-manipulation
-      .row: +theory-direct-manipulation
+      .row: +theory-direct-manipulation()
     .ui.stackable.two.column.divided.rail-like.grid#theory-gulf-of-execution-and-evaluation
-      .row: +theory-gulf-of-execution-and-evaluation
+      .row: +theory-gulf-of-execution-and-evaluation()
+    +theory-limitation()
 
-mixin theory-cognitive-science
+mixin theory-cognitive-science()
   .eleven.wide.column
     h3.ui.header#theory-model-human-processor: .content 人間情報処理モデル（Model Human Processor; HMP）
     p Card らは 1983 年の書籍「<a href="https://dl.acm.org/doi/10.5555/578027">The Psychology of Human-Computer Interaction</a>」の中で<strong>人間情報処理モデル</strong>を提唱しました。これは、システムと対峙するユーザの中で起きることを3種類のプロセッサによる一連の情報処理過程としてモデル化するもので、それぞれ、おおむね次のとおりの処理時間がかかることが報告されています。
@@ -119,7 +120,7 @@ mixin theory-cognitive-science
     p また、 Card は生物の食物探索行動をモデル化した最適採餌理論（Optimal Foraging Theory）を人の情報の摂取行動に対して応用した<strong>情報採餌理論（Information Foraging Theory; IFT）</strong>の開拓にも深く関わっています。
     p IFT に関してはなぜか日本語の文献があまり見当たらないのですが、 <a href="https://u-site.jp/alertbox/20030630/">Nielsen Norman Group の解説記事</a> が分かりやすいです。 Web サイト上での人の情報探索行動を説明するための理論として、今でも盛んに研究されています。
 
-mixin theory-direct-manipulation
+mixin theory-direct-manipulation()
   .eleven.wide.column 
     h3.ui.header: .content ダイレクトマニピュレーション（Direct Manipulation; DM）
     p Shneiderman は<a href="https://doi.org/10.1109/MC.1983.1654471">1983 年の論文</a>で<strong>ダイレクトマニピュレーション</strong>インタフェースを提唱しています。ユーザインタフェースのなかでも、とくに以下の条件を満たすものが DM インタフェースです。
@@ -135,7 +136,7 @@ mixin theory-direct-manipulation
     a.ui.right.floated.tiny.image(href="https://www.amazon.co.jp/Designing-User-Interface-Human-Computer-Interaction/dp/013438038X?&linkCode=li3&tag=digitalmuseum-22&linkId=74398046208ff478ab54959a153fe1de&language=ja_JP&ref_=as_li_ss_il"): img(src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=013438038X&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP")
     p 版を重ねるたびに最新事情にキャッチアップしてきた分野の定番教科書「<a href="http://www.cs.umd.edu/hcil/DTUI6/">Designing the User Interface: Strategies for Effective Human-Computer Interaction</a>」を編纂している人でもあります。
 
-mixin theory-gulf-of-execution-and-evaluation
+mixin theory-gulf-of-execution-and-evaluation()
   .eleven.wide.column 
     h3.ui.header: .content 実行の溝と評価の溝（Gulf of Execution and Evaluation）
     p Norman は 1986 年に書籍「<a href="https://www.nngroup.com/books/user-centered-system-design/">User Centered System Design</a>」を編纂し、ユーザとシステムの間のインタラクションをユーザ視点（<strong>User-Centered</strong>）で 7 段階に分けてモデル化しています。
@@ -159,6 +160,11 @@ mixin theory-gulf-of-execution-and-evaluation
     .caption
       p ユーザとシステムの間の実行・評価の溝
 
+mixin theory-limitation()
+  h3.ui.header: .content モデル化手法の限界
+  p ここまで、ユーザとシステムの間のインタラクションをモデル化した成果を紹介してきました。<strong>実行の淵と評価の淵</strong>、<strong>ダイレクトマニピュレーション</strong>などの考え方は、インタフェース設計の方向性を検証するための強力な武器となります。そして、ユーザを<strong>情報処理プロセッサ</strong>に置き換えて考えることで、インタフェースの定量的な性能予測ができるだけでなく、使いやすいインタフェース設計の法則が得られることもあります。
+  p ただし、こと後者の性能予測に関しては、実際のGUIアプリケーション開発に適用できないことが少なくありません。ユーザのタスクが定型的にモデル化できないほど複雑となるためです。また、ボトムアップで性能予測を積み上げても実用精度を得られないだけでなく、そもそも熟練者の作業効率だけでインタフェースを評価することが不適切なこともあります。そこで、以降はより包括的にインタフェースのよしあしを評価する方法を紹介します。
+
 mixin usability()
   h2.ui.header: .content ユーザビリティ
   h3.ui.header: .content ヒューリスティック評価
@@ -180,6 +186,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 5/19/2021
+        .summary 執筆中の範囲への導入を追加
       .event: .content
         .date 4/12/2021
         .summary フィッツの法則について加筆; 執筆中の範囲の目次を掲載

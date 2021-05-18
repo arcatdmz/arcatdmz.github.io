@@ -488,8 +488,14 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
 }
 
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
+  .ui.stackable.two.column.divided.rail-like.grid > .row > .column:first-child {
+    padding: 0 0 1rem 0;
+  }
   .ui.stackable.two.column.divided.rail-like.grid > .row > .column:last-child {
     background:rgba(0, 0, 0, 0.03);
+  }
+  .ui.stackable.two.column.divided.rail-like.grid {
+    margin-bottom: 1rem !important;
   }
 }
 
