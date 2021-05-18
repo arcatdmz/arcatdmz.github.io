@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "05/19/2021",
+      "text": "Served as an Associate Chair for <a href=\"https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies\">the <abbr title=\"Engineering Interactive Systems and Technologies\">EIST</abbr> subcommittee</a> and the <a href=\"https://chi2021.acm.org/information/4659.html\">Student Research Competition</a> Co-chair at <a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>. Congratulations to <a href=\"https://chi2021.acm.org/for-attendees/highlights/awards\">the winners (see the bottom of the Awards page)</a>! "
+    },
+    {
       "date": "03/16/2021",
       "text": "Gave an invited talk titled &quot;Creativity Support for People with Diverse Technical Background&quot; and presented a poster on the ongoing project for Japanese animation storyboards from <a href=\"https://research.archinc.jp/en/\">Arch Research</a> at <a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, which got one of the Best Poster Awards!"
     },
@@ -262,6 +266,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "05/19/2021",
+      "text": "国際会議<a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>でプログラム委員会のAssociate ChairとStudent Research CompetitionのCo-chairを務めました。ブログ記事「<a href=\"https://blog.junkato.jp/ja/posts/2021-05-10-chi2021-student-research-competition/\">ACM CHI 2021 Student Research Competition へようこそ！</a>」で詳しく紹介しています。"
+    },
     {
       "date": "04/11/2021",
       "text": "日本音響学会誌77巻4号に「インタフェース・デザインの勘所」という記事を寄稿しました。Webで読めるのはまだ先になりそうですが、これを機に<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>を開設しました。まだ作りかけです。"
