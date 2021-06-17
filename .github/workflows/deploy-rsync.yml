@@ -26,7 +26,7 @@ jobs:
       - name: Upload pages
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzr --delete
+          switches: -avzr --delete-after --exclude-from ./rsync-excludes.txt
           path: ./dist/
           remote_host: digitalmuseum.jp
           remote_path: /home/digitalmuseum/www/jk/
