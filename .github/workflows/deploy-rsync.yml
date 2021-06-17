@@ -31,4 +31,4 @@ jobs:
           remote_host: digitalmuseum.jp
           remote_path: /home/digitalmuseum/www/jk/
           remote_user: digitalmuseum
-          remote_key: ${{ secrets.ID_ECDSA }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
