@@ -1,6 +1,5 @@
 const path = require('path');
 const glob = require('glob');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const files = glob.sync('./src/javascripts/views/!(library).js');
 
@@ -31,6 +30,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             'presets': [
+              "minify",
               ['@babel/preset-env', {
                 'targets': {
                   'browsers': ['last 2 versions']
@@ -43,10 +43,6 @@ module.exports = {
       }
     ]
   },
-
-  plugins: [
-    new UglifyJsPlugin()
-  ],
 
   resolve: {
     alias: {

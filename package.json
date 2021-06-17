@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.9.0",
     "@types/semantic-ui": "^2.2.7",
     "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1",
     "bibtex-parse-js": "0.0.24",
     "browser-sync": "^2.26.14",
     "del": "^5.1.0",
@@ -38,7 +39,7 @@
     "gulp-htmlhint": "^3.0.0",
     "gulp-less": "^4.0.1",
     "gulp-notify": "^3.2.0",
-    "gulp-pug": "^3.3.0",
+    "gulp-pug": "^5.0.0",
     "gulp-purifycss": "^0.2.0",
     "gulp-replace": "^0.6.1",
     "gulp-typescript": "^5.0.1",
@@ -46,10 +47,9 @@
     "pdfinfo": "0.0.3",
     "through2": "^2.0.5",
     "typescript": "^3.8.3",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "vinyl": "^2.2.0",
-    "webpack": "^4.42.1",
-    "webpack-stream": "^5.2.1"
+    "webpack": "^5.39.1",
+    "webpack-stream": "^6.1.2"
   },
   "dependencies": {
     "clipboard": "^1.7.1",
