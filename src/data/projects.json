@@ -102,6 +102,7 @@
     },
     {
       "project": "griffith",
+      "publication": "sas2021-kato-storyboarding-in-anime",
       "title": "Griffith",
       "subtitle": "A Web-based Tool for Authoring Anime Storyboards",
       "year": {
