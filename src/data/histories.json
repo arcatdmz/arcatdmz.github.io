@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "06/17/2021",
+      "text": "Presented <a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">Past, Present, and Future of Storyboarding in Japanese Animation</a> in the Anime session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>. This is the first full-length oral presentation as <a href=\"https://research.archinc.jp/en/\">Arch Research</a>!"
+      },
+    {
       "date": "05/19/2021",
       "text": "Served as an Associate Chair for <a href=\"https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies\">the <abbr title=\"Engineering Interactive Systems and Technologies\">EIST</abbr> subcommittee</a> and the <a href=\"https://chi2021.acm.org/information/4659.html\">Student Research Competition</a> Co-chair at <a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>. Congratulations to <a href=\"https://chi2021.acm.org/for-attendees/highlights/awards\">the winners (see the bottom of the Awards page)</a>! "
     },
@@ -272,7 +276,7 @@
     },
     {
       "date": "04/11/2021",
-      "text": "日本音響学会誌77巻4号に「インタフェース・デザインの勘所」という記事を寄稿しました。Webで読めるのはまだ先になりそうですが、これを機に<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>を開設しました。まだ作りかけです。"
+      "text": "日本音響学会誌77巻4号に「インタフェース・デザインの勘所」という記事を寄稿しました。Webで読めるのはしばらく先になりそうですが、これを機に<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>を開設しました。まだ作りかけです。"
     },
     {
       "date": "03/28/2021",
