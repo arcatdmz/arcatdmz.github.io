@@ -31,6 +31,7 @@
     "babel-preset-minify": "^0.5.1",
     "browser-sync": "^2.26.14",
     "del": "^5.1.0",
+    "glob": "^7.1.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.1",
