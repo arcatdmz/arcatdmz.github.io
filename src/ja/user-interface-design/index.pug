@@ -44,9 +44,9 @@ block main
   .ui.hidden.divider
   section#theory: +theory()
   .ui.hidden.divider
-  .ui.horizontal.divider 以降は執筆中
-  .ui.hidden.divider
   section#usability: +usability()
+  .ui.hidden.divider
+  .ui.horizontal.divider 以降は執筆中
   .ui.hidden.divider
   section#visualization: +visualization()
   .ui.hidden.divider
@@ -167,10 +167,88 @@ mixin theory-limitation()
 
 mixin usability()
   h2.ui.header: .content ユーザビリティ
-  h3.ui.header: .content ヒューリスティック評価
-  h3.ui.header: .content 定性的ユーザビリティテスト
-  h3.ui.header: .content 定量的ユーザビリティテスト
-  h3.ui.header: .content ユーザビリティテストの限界
+  .ui.basic.segment
+    a.ui.right.tiny.floated.image(href="https://www.amazon.co.jp/Usability-Engineering-Interactive-Technologies-English-ebook/dp/B0029ZBK80?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=usability+engineering&qid=1624013132&s=digital-text&sr=1-1&linkCode=li2&tag=digitalmuseum-22&linkId=24dd480fbbec4c7a2314591233e29d3b&language=ja_JP&ref_=as_li_ss_il"): img(src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0029ZBK80&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP")
+    p Nielsenが1994年に記した書籍「Usability Engineering」では、インタフェースの使いやすさをユーザビリティという言葉で表し、次の5つの特性を示しました。
+    ol
+      li 学習しやすいこと
+      li 作業効率が高いこと
+      li 覚えやすいこと
+      li エラーが発生しにくく、発生しても復帰しやすいこと
+      li 主観的な満足度が高いこと
+    p 前節で紹介したユーザモデルは 2. の観点しか考慮できていません。かといって、これだけ複合的で総体的な評価を行うのは、容易なことではありません。
+    p 本節では、ユーザビリティを評価する方法を3種類紹介します。最後に、ユーザビリティも万能ではないことを、実例を挙げながら説明します。
+  .ui.basic.segment: .ui.stackable.two.column.divided.rail-like.grid#usability-heuristics
+    .row: +usability-heuristics()
+  .ui.basic.segment: .ui.stackable.two.column.divided.rail-like.grid#usability-qualitative-test
+    .row: +usability-qualitative-test()
+  .ui.basic.segment: .ui.stackable.two.column.divided.rail-like.grid#usability-quantitative-test
+    .row: +usability-quantitative-test()
+  .ui.basic.segment: .ui.stackable.two.column.divided.rail-like.grid#usability-test-limitations
+    .row: +usability-test-limitations()
+
+mixin usability-heuristics()
+  .eleven.wide.column
+    h3.ui.header: .content ヒューリスティック評価
+    p ユーザビリティ評価の最も簡単な方法は、<strong>エキスパートが作成した経験則的なチェックリストの各項目を確認する</strong>ことです。 Nielsen の書籍では Usability Heuristics という章がこれに当たり、チェックリストは Nielsen と Norman が立ち上げた会社（<a href="https://www.nngroup.com">Nielsen Norman Group</a>）のWebサイト上に転記され継続的に更新されています。
+    p 開発しているアプリケーションが特定のプラットフォームを対象としている場合、プラットフォーム側が提供するツールキットに付随するガイドラインがこうしたチェックリストを含んでいることもあります。有名な例として Apple Human Interface Guidelines が挙げられますが、 Microsoft や Google なども同様のガイドラインを提供しています。
+    p なお、デザインのガイドラインをまとめることは、 OS を作っているプラットフォーマーでなくとも、デザイナー間の意思統一をはかれたり、複数のサービスを横断して一貫したユーザ体験を提供するために便利だったりと、いろいろなメリットがあります。本稿では詳しく取り上げませんが、こうしたガイドラインは<strong>デザインシステム（Design System）</strong>と呼ばれることがあり、とくに大規模な制作現場で開発されることが増えています。
+  .five.wide.column
+    dl
+      dt
+        a(href="https://www.nngroup.com/articles/ten-usability-heuristics/") 10 Usability Heuristics for User Interface Design
+        |  (
+        a(href="https://u-site.jp/alertbox/ten-usability-heuristics/") 日本語訳
+        | )
+      dd 2021年6月現在、全10項目あります。
+      dt: a(href="https://www.bauhausify.com/2019-07-10_UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%8E%9F%E5%89%87%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3/") UIデザインの原則 デザインガイドライン
+      dd Apple Human Interface Guidelines、 Microsoft の Windows アプリのための UX デザインガイドライン、 Google の Material Design のためのガイドラインへのリンクがまとまっています。
+      dt: a(href="https://uxmilk.jp/72387") デザインシステムの定義と作成方法、導入事例
+      dd Webサイトを開発する際にデザインシステムを作ることのメリット、具体的な方法、事例を紹介しています。
+
+mixin usability-qualitative-test()
+  .eleven.wide.column
+    h3.ui.header: .content 定性的ユーザビリティテスト
+    p 実際のターゲットユーザとなる人々にインタフェースを使ってもらい、その様子を観察できれば、ユーザビリティ上の問題を発見できます。こうした定性的テストは、開発の初期段階でまだインタフェースの要件が固まっていない場合にとくに有効です。頭に浮かんだことを随時声に出してもらう<strong>思考発話法（Thinking Aloud）</strong>を使えば、ユーザがインタフェースを試す間に何を考えているかが分かるため、さらに効果的です。なお、発話により操作効率が落ちる場合は、事後のインタビューで代替したほうがよいこともあります。
+    p もっとも重要なのは、人数は少なくてよいので、開発が進捗するごとに<strong>反復的にユーザビリティテストを実施すること</strong>です。Nielsenは、テストの参加人数と発見できる問題数の関係を調査し、5人いれば問題の9割程度が発見できることを報告しています。なお、ターゲットユーザに頼むことが難しい場合、設計者自身が試すことももちろん有用です。ユーザの身になってステップバイステップで使い方を確認していき、問題点を見つけ出していくプロセスは<strong>認知的ウォークスルー（Cognitive Walkthrough）</strong>と呼ばれています。
+  .five.wide.column
+    dl
+      dt: a(href="https://u-site.jp/alertbox/20000319/") 5人のユーザーでテストすれば十分な理由 &#8211; U-Site
+      dd ユーザビリティテストの実施回数と見つかった問題の数を調査した
+        a(href="https://dl.acm.org/doi/10.1145/169059.169166") 論文
+        | の内容を、 Nielsen 自身が分かりやすく説明した記事の日本語訳です。
+      dt: a(href="https://u-site.jp/wp-content/uploads/2015/09/persona_method.pdf") ペルソナ／シナリオ法を使ったユーザー中心のデザイン
+      dd 認知的ウォークスルーを活用したデザイン手法を紹介したスライドです。（スライド 3 枚目 Step.6 UI設計）
+
+mixin usability-quantitative-test()
+  .eleven.wide.column
+    h3.ui.header: .content 定量的ユーザビリティテスト
+    p ユーザビリティを他の案と比較したり、開発過程でどれくらい向上しているか確認したりしたい場合は、定量的な調査のほうが適しています。例えば、同じタスクを行ってもらい、タスクの達成率やエラー数などを計測すれば、統計的にユーザビリティの優劣を判断できます。すでにユーザが多数いるシステムで比較したいインタフェースが A 案 B 案のように具体的なら、ユーザをランダムにグループ分けすれば両案の計測結果を容易に比較できます。これが <strong>A/B テスト</strong>と呼ばれるものです。
+    p 一般的な定量調査の指標としては、 Brooke が提案した <strong>System Usability Scale (SUS)</strong> が挙げられます。これは、 10 の質問に 5 段階のスケール（全くそう思わない～強くそう思う）で回答してもらうものです。同様の指標は他にもあり、 <a href="https://uxpajournal.org/sus-a-retrospective/" title="SUS: A Retrospective">Brooke の後年の論文</a>で比較検討されていますが、ここでは深く触れません。
+    p より簡単に多くの回答を集めたい場合は、 1 つの質問で済む <strong>Net Promoter Score (NPS)</strong> が有効です。これは「このシステムをどれだけ友人に勧めますか？」という質問に 0-10 の 11 段階のスケールで回答してもらうものです。Webサイトやスマートフォンのアプリケーションで、一度は目にしたことがあるのではないでしょうか。
+  .five.wide.column
+    dl
+      dt: a(href="https://uxmilk.jp/83709") ユーザビリティの評価は何をどう計測すればいい？
+      dd Web サイトのユーザビリティ評価手法としてSUSを採用した場合の具体的な方法を説明した記事です。
+      dt: a(href="https://u-site.jp/lecture/customer-loyalty/") 顧客ロイヤリティ &#8211; U-Site
+      dd NPS は、正確にはユーザビリティだけでなく、ユーザがどれだけシステムに好印象を持っているか（Customer Loyalty; 顧客ロイヤリティ）を測るための手法です。この語用について、歴史的経緯も含め簡潔に紹介された記事です。
+
+mixin usability-test-limitations()
+  .eleven.wide.column
+    h3.ui.header: .content ユーザビリティテストの限界
+    p 本節では、インタフェースの使い勝手を評価するための指標としてユーザビリティを挙げ、 3 種類の評価手法を紹介してきました。こうした評価と改善を繰り返すプロトタイピングにより、使い勝手を向上できるでしょう。
+    p ただし、ユーザビリティも万能な考え方ではなく、一つの指標に過ぎないことに注意する必要があります。まず、紹介した評価手法は主に 1 人のユーザを対象とする手法が多く、複数名が共同作業する <strong>Computer-Supported Cooperative Work (CSCW)</strong> のアプリケーションにはうまく対応できません。また、ユーザビリティは語義からしてインタフェースが使いやすい（想定されているタスクを遂行しやすい）ことしか保証しません。ユーザは使いやすさ以外にも様々な観点で価値判断を行っています。例えば、ユーザに開発過程に参加してもらう <strong>Participatory Design (PD)</strong> は、ユーザの満足度を向上させ、システムへの愛着を湧かせる非常に有効な手段となります。さらに、システムが革新的な機能を実現するものである場合、開発の初期段階でユーザビリティを測ってしまうとその可能性の芽を摘んでしまう可能性があります。
+    p このように、ユーザにとっての価値を高めるために考えることは多く、デザイン手法も様々です。もっと具体的な手法を知りたい場合は、 100 手法を紹介しているカタログ的書籍がありますので、ぜひ読んでみてください。
+  .five.wide.column
+    p 「
+      a(href="https://www.billbuxton.com/usabilityHarmful.pdf") Usability Evaluation Considered Harmful (Some of the Time)
+      | 」は、ユーザビリティ評価は使い方を誤れば害になるという主旨の学術論文です。
+      a(href="https://www.slideshare.net/saul.greenberg/usability-evaluation-considered-harmful-some-of-the-time") 著者本人による発表スライド
+      | と一緒に読むと分かりやすいです。
+    a.ui.right.tiny.floated.image(href="https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&linkCode=li2&tag=digitalmuseum-22&linkId=e636a05eb62ab11181a5af2591c5dcc7&language=ja_JP&ref_=as_li_ss_il"): img(src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4861008212&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP")    
+    p 「
+      a(href="https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&linkCode=li2&tag=digitalmuseum-22&linkId=e636a05eb62ab11181a5af2591c5dcc7&language=ja_JP&ref_=as_li_ss_il") Research &amp; Design Method Index リサーチデザイン 新・100の法則
+      | 」はデザインのためのリサーチ手法を 100 個、各々見開き 2 ページで簡潔に紹介したカタログ的な書籍です。
 
 mixin visualization()
   h2.ui.header: .content 情報提示のデザイン
@@ -186,6 +264,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 6/19/2021
+        .summary ユーザビリティのセクションを追加
       .event: .content
         .date 5/19/2021
         .summary 執筆中の範囲への導入を追加
