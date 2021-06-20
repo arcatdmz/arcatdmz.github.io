@@ -3,7 +3,7 @@
     {
       "date": "06/17/2021",
       "text": "Presented <a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">Past, Present, and Future of Storyboarding in Japanese Animation</a> in the Anime session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>. This is the first full-length oral presentation as <a href=\"https://research.archinc.jp/en/\">Arch Research</a>!"
-      },
+    },
     {
       "date": "05/19/2021",
       "text": "Served as an Associate Chair for <a href=\"https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies\">the <abbr title=\"Engineering Interactive Systems and Technologies\">EIST</abbr> subcommittee</a> and the <a href=\"https://chi2021.acm.org/information/4659.html\">Student Research Competition</a> Co-chair at <a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>. Congratulations to <a href=\"https://chi2021.acm.org/for-attendees/highlights/awards\">the winners (see the bottom of the Awards page)</a>! "
@@ -271,6 +271,10 @@
   ],
   "ja": [
     {
+      "date": "06/20/2021",
+      "text": "国際会議<a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>のセッション「Anime」で「<a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">Past, Present, and Future of Storyboarding in Japanese Animation</a>」と題して発表を行いました。発表までの経緯をブログ記事「<a href=\"https://blog.junkato.jp/ja/posts/2021-06-20-research-knowledge-and-paper/\">研究の知と論文</a>」に書きました。"
+    },
+    {
       "date": "05/19/2021",
       "text": "国際会議<a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>でプログラム委員会のAssociate ChairとStudent Research CompetitionのCo-chairを務めました。ブログ記事「<a href=\"https://blog.junkato.jp/ja/posts/2021-05-10-chi2021-student-research-competition/\">ACM CHI 2021 Student Research Competition へようこそ！</a>」で詳しく紹介しています。"
     },
@@ -284,7 +288,7 @@
     },
     {
       "date": "03/16/2021",
-      "text": "国際シンポジウム<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>で &quot;Creativity Support for People with Diverse Technical Background&quot; と題して招待講演を行いました。また、<a href=\"https://research.archinc.jp/\">Arch Research</a>としてアニメ絵コンテ研究に関するポスター発表を行い、 Best Poster Award を受賞しました。"
+      "text": "国際シンポジウム<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>で「Creativity Support for People with Diverse Technical Background」と題して招待講演を行いました。また、<a href=\"https://research.archinc.jp/\">Arch Research</a>としてアニメ絵コンテ研究に関するポスター発表を行い、 Best Poster Award を受賞しました。"
     },
     {
       "date": "09/20/2020",
@@ -296,7 +300,7 @@
     },
     {
       "date": "5/16/2020",
-      "text": "COVID-19のためオンライン開催となった<a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>で、<a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a>と題して発表を行いました。プログラミング環境を、プログラマだけでなく多様な人々が協調できるプラットフォームとして再定義する内容です。<a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">講演動画</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf\">発表スライド</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">論文のプレプリント</a>を「<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>」のプロジェクトページに掲載しました。"
+      "text": "COVID-19のためオンライン開催となった<a href=\"https://2020.programming-conference.org/home/salon-2020\">Convivial Computing Salon 2020</a>で、「<a href=\"https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar\">Rethinking Programming &quot;Environment&quot;</a>」と題して発表を行いました。プログラミング環境を、プログラマだけでなく多様な人々が協調できるプラットフォームとして再定義する内容です。<a href=\"https://www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1\">講演動画</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env-slides.pdf\">発表スライド</a>、<a href=\"https://junkato.jp/publications/ccs2020-kato-rethink-prog-env.pdf\">論文のプレプリント</a>を「<a href=\"${rootPath}programming-as-communication\">Programming as Communication</a>」のプロジェクトページに掲載しました。"
     },
     {
       "date": "4/1/2020",
@@ -308,7 +312,7 @@
     },
     {
       "date": "1/16/2020",
-      "text": "いろいろと<a href=\"${rootPath}ja/activities\">委員のお仕事</a>が多い今日この頃ですが、<a href=\"https://chi2021.acm.org/\">CHI 2021</a> の準備の一環で開催される <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a>で &quot;Programming for X&quot; と題して講演します。直近では、芝浦工業大学でも異なる内容で講演させていただく予定です。"
+      "text": "いろいろと<a href=\"${rootPath}ja/activities\">委員のお仕事</a>が多い今日この頃ですが、<a href=\"https://chi2021.acm.org/\">CHI 2021</a> の準備の一環で開催される <a href=\"https://sites.google.com/view/riec-sigchi-symposium/\">RIEC International Symposium on Human-Computer Interaction</a>で「Programming for X」と題して講演します。直近では、芝浦工業大学でも異なる内容で講演させていただく予定です。"
     },
     {
       "date": "12/5/2019",
@@ -348,15 +352,15 @@
     },
     {
       "date": "11/3/2018",
-      "text": "日本ソフトウェア科学会 <a href=\"https://sites.google.com/view/sig-mlse/\">機械学習工学研究会（MLSE）</a>の論文読み会 <a href=\"https://mlxse.connpass.com/event/102910/\">&quot;XX for ML #1&quot;</a> で<a href=\"https://blog.junkato.jp/ja/posts/2018-12-19-hci-for-machine-learning/\">Human-Computer Interaction分野における機械学習支援研究を紹介する発表</a>を行いました。"
+      "text": "日本ソフトウェア科学会 <a href=\"https://sites.google.com/view/sig-mlse/\">機械学習工学研究会（MLSE）</a>の論文読み会「<a href=\"https://mlxse.connpass.com/event/102910/\">XX for ML #1</a>」で<a href=\"https://blog.junkato.jp/ja/posts/2018-12-19-hci-for-machine-learning/\">Human-Computer Interaction分野における機械学習支援研究を紹介する発表</a>を行いました。"
     },
     {
       "date": "10/25/2018",
-      "text": "国際会議<a href=\"http://sigmm.org/events/acm-multimedia-2018\" title=\"ACM International Conference on Multimedia\">ACM Multimedia 2018</a>の <a href=\"https://dblp.org/db/conf/mm/mm2018#conf/mm/0001OIG18\">&quot;Experience&quot;</a> セッションで「<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>」の登壇発表とポスター発表を行いました。"
+      "text": "国際会議<a href=\"http://sigmm.org/events/acm-multimedia-2018\" title=\"ACM International Conference on Multimedia\">ACM Multimedia 2018</a>の「<a href=\"https://dblp.org/db/conf/mm/mm2018#conf/mm/0001OIG18\">Experience</a>」セッションで「<a href=\"${rootPath}ja/songle-sync\">Songle Sync</a>」の登壇発表とポスター発表を行いました。"
     },
     {
       "date": "10/4/2018",
-      "text": "国際会議<a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>の &quot;APIs and Use of Programming Languages&quot; セッションでプログラミングチュートリアルの作り方についての研究「<a href=\"${rootPath}ja/deployground\">DeployGround</a>」の登壇発表を行いました。"
+      "text": "国際会議<a href=\"https://vlhcc18.github.io/\" title=\"IEEE Symposium on Visual Languages and Human-Centric Computing\">IEEE VL/HCC 2018</a>の「APIs and Use of Programming Languages」セッションでプログラミングチュートリアルの作り方についての研究「<a href=\"${rootPath}ja/deployground\">DeployGround</a>」の登壇発表を行いました。"
     },
     {
       "date": "8/20/2018",
