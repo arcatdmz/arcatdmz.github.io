@@ -88,7 +88,7 @@ gulp.task('js:debug', function(){
 });
 
 // Copy & replace
-const bibtexParse = require('bibtex-parse-js');
+const bibtexParse = require('@orcid/bibtex-parse-js');
 
 // [bibtex]
 gulp.task('bibtex', function(callback) {

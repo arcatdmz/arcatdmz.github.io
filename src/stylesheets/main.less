@@ -295,6 +295,9 @@ a:link>i.icon {
   width: 320px;
   max-width: 60vw;
 }
+.ui.popup>.ui.divided.list>.item>i.icon {
+  vertical-align: middle;
+}
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
   .ui.popup {
     width: 240px;
@@ -449,6 +452,10 @@ body.with-rail #main>.left-rail {
   body.with-rail #main>.right-content {
     margin-left: @railWidth + @railMargin;
   }
+}
+
+#post-footer .popup-menu.popup.visible {
+  inset: auto auto 54.925px 12px !important;
 }
 
 .popup-menu.popup .ui.list>a.item,
