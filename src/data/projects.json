@@ -286,7 +286,7 @@
       "publication": "chi2018-suzuki-reactile",
       "title": "Reactile",
       "description": "Reactile is an exploratory research project that investigates and proposes a new approach to programming <abbr title=\"Swarm User Interfaces\">Swarm UI</abbr> by leveraging direct physical manipulation.",
-      "url": "http://ryosuzuki.org",
+      "url": "https://ryosuzuki.org/reactile",
       "ja": {
         "description": "<abbr title=\"Swarm User Interfaces\">Swarm UI</abbr>のアプリケーション開発において、直接Swarmを操作することでSwarmの振る舞いをプログラミングできる手法(direct physical manipulation)を提案した研究です。"
       }
