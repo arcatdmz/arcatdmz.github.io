@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "09/04/2021",
+      "text": "Participated in the German anime and manga convention <a href=\"https://www.connichi.de/en\">Connichi</a> and presented in the panel session <a href=\"https://www.connichi.de/conline-2021/programmplan\">&quot;How Academics Contribute to Anime's Future&quot;</a> -- glad to be in Germany (virtually), my country of birth!"
+    },
+    {
       "date": "06/17/2021",
       "text": "Presented <a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">Past, Present, and Future of Storyboarding in Japanese Animation</a> in the Anime session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>. This is the first full-length oral presentation as <a href=\"https://research.archinc.jp/en/\">Arch Research</a>!"
     },
@@ -270,6 +274,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "09/04/2021",
+      "text": "ドイツのアニメ・マンガに関する大規模なコンベンション<a href=\"https://www.connichi.de/en\">「Connichi」</a>でパネルセッション<a href=\"https://www.connichi.de/conline-2021/programmplan\">「How Academics Contribute to Anime's Future」</a>に参加して発表と議論を行いました。"
+    },
     {
       "date": "09/01/2021",
       "text": "<a href=\"https://magicalmirai.com/2021/\">初音ミク「マジカルミライ 2021」</a>で昨年に続き、<a href=\"${rootPath}ja/textalive\">TextAlive</a> App <abbr title=\"Application Programming Interface\">API</abbr>を活用した<a href=\"https://magicalmirai.com/2021/procon/\">プログラミング・コンテスト</a>が開催されています。<a href=\"http://www.seidosha.co.jp/book/index.php?id=3602\">ユリイカ2021年9月号　特集＝立花隆</a>に「立花先生と情報技術」を寄稿しました。"
