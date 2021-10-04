@@ -63,12 +63,12 @@ mixin asj()
       | 2021
   .ui.basic.segment
     p このWebページは、日本音響学会 学会誌 77 巻 4 号（2021）に掲載されている「やさしい解説」の記事「インタフェース・デザインの勘所」の補足資料を兼ねています。本誌記事では、このページでカバーしているテーマの他に、<abbr title="Graphical User Interface">GUI</abbr>プログラミングの2類型（Retained GUI、Immediate-mode GUI）などについても紹介しています。
-    p また、本誌では、音響アプリケーションのユーザインタフェース開発事例を紹介する記事が続けて掲載されています。日本音響学会の猛者の方々による、MATLAB、Python（PyQt）、Maxというかなり性質の異なる環境での開発事例紹介となっており、<a href="https://sigpx.org"><abbr title="Programming Experience">PX</abbr></a>の観点でも非常に興味深い内容です。ぜひ併せてご覧ください。
+    p また、本誌では、音響アプリケーションのユーザインタフェース開発事例を紹介する記事が続けて掲載されています。日本音響学会の猛者の方々による、MATLAB、Python（PyQt）、Maxというかなり性質の異なる環境での開発事例紹介となっており、<a href="https://sigpx.org"><abbr title="Programming Experience">PX</abbr></a>の観点でも非常に興味深い内容です。刊行から半年が経ち、無料で全文公開されました。ぜひ併せてご覧ください。
     .ui.top.attached.segment: .ui.divided.list
       +render-publication(publicationsTable['asj-v77n4-kato-ui-design'])
     .ui.basic.right.aligned.bottom.attached.secondary.segment
-      a.ui.primary.disabled.button
-        | 学会誌 記事を読む（未公開）
+      a.ui.primary.disabled.button(href="https://doi.org/10.20697/jasj.77.4_231")
+        | 学会誌 記事を読む
         i.chevron.circle.right.icon
 
 mixin theory()
