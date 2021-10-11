@@ -275,8 +275,12 @@
   ],
   "ja": [
     {
+      "date": "10/10/2021",
+      "text": "立花隆先生の訃報を受けて制作した公式Webサイト <a href=\"https://tachibana.rip\" title=\"Chez TACHIBANA 立花隆公式サイト\">tachibana.rip</a> を<a href=\"https://github.com/ChezTachibana/website\">オープンソース化</a>し、<a href=\"https://blog.junkato.jp/ja/posts/2021-10-11-chez-tachibana-website/\">ブログ記事</a>を書きました。"
+    },
+    {
       "date": "10/05/2021",
-      "text": "日本音響学会誌77巻4号に掲載された記事<a href=\"https://doi.org/10.20697/jasj.77.4_231\">「インタフェース・デザインの勘所」</a>が無料で全文公開されました。<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>と併せてご笑覧ください。"
+      "text": "日本音響学会誌77巻4号に掲載された記事<a href=\"https://doi.org/10.20697/jasj.77.4_231\">「インタフェース・デザインの勘所」</a>が無料で全文公開されました。<a href=\"${rootPath}ja/user-interface-design\">ユーザインタフェース設計の基礎的なことがらについてまとめたWebページ</a>と併せてご覧ください。"
     },
     {
       "date": "09/04/2021",
