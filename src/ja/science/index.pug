@@ -40,6 +40,9 @@ block main
     h2.ui.header: .content #{en ? 'Abstract' : '概要'}
     .ui.basic.segment
       p これまで、科学技術全般に広く関心を持っていろいろな活動をしてきました。一貫しているResearch Questionは、コンピュータの力を借りたらどれだけ科学技術に関するアウトプットを効率化・最大化できるか？（科学のためのHuman-Computer Interaction）です。
+      p また、ブログでも関連する話題を扱ってきました。記事は 
+        a(href="https://blog.junkato.jp/ja/tags/science/") science 
+        |  タグで辿ることができます。
   .ui.hidden.divider
   section#science-future: +science-future()
   .ui.hidden.divider
@@ -77,7 +80,7 @@ mixin science-future()
     p 自分の回答は「仮想」をキーワードに未来を読み解きました。詳細は以下の補足ブログ記事をご参照ください。
   .ui.basic.right.aligned.segment
     a.ui.primary.button(href="https://blog.junkato.jp/ja/posts/2018-12-22-computer-science-in-the-future/")
-      | 補足記事を読む
+      | 補足記事
       i.chevron.circle.right.icon
 
 mixin non-academic()
@@ -166,6 +169,9 @@ mixin tsemi()
     span.ui.tiny.basic.label
       i.calendar.icon
       | 2005-2007
+    span.ui.tiny.basic.label
+      i.calendar.icon
+      | 2021
   .ui.basic.segment
     p ジャーナリストの立花隆氏が開講していた東京大学教養学部 全学自由研究ゼミナール「先端研究現場へ行こう」で幹事などを務めました。このゼミの目的は、<a href="https://sci.digitalmuseum.jp">科学技術総合メディアサイト「SCI(サイ)──サイエンスの、最先端を。──」</a>を作ることでした。
     p SCI(サイ)は、立花氏の言うところの「巨大Q&amp;Aサイトと巨大リンク集」を目指していました。詳しくは、<a href="https://sci.digitalmuseum.jp/site/tsemi.php">立花氏の文章</a>をご一読ください。学生は、それぞれに対応する以下の2つの活動に取り組むことになります。（TogetterはおろかTwitterも存在しない2004年当時からキュレーションに着目していた点は、立花氏の先見の明だと思います。）
@@ -173,9 +179,15 @@ mixin tsemi()
       li 学部生が「Q」を発し、研究者の方々に「A」を提供していただく、<strong>取材をベースに記事を執筆する活動</strong>
       li すでに各研究機関やニュースサイトが掲載している<strong>さまざまな情報をキュレーションする活動</strong>
     p 私は、このゼミの幹事を務めながら、ゼミ生のアウトプットをなるべく最大化できる仕組み作りに尽力しました。
+    p また、立花氏が2021年に逝去されたことを受け、
+      a(href="https://blog.junkato.jp/ja/posts/2021-10-11-chez-tachibana-website/") 立花隆公式サイトを新しく作り直し、オープンソース化
+      | しました。
   .ui.basic.right.aligned.segment
     a.ui.primary.button(href="https://sci.digitalmuseum.jp")
       | SCI(サイ) アーカイブ
+      i.chevron.circle.right.icon
+    a.ui.primary.button(href="https://tachibana.rip")
+      | 立花隆公式サイト
       i.chevron.circle.right.icon
   .ui.basic.segment
     h3.ui.header#tsemi-cms: .content コンテンツ管理システム（<abbr title="Contents Management System">CMS</abbr>）開発
