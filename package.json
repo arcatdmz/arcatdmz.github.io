@@ -5,10 +5,11 @@
   "description": "Source code of https://junkato.jp",
   "main": "index.js",
   "scripts": {
+    "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments src/junkato.bib",
+    "blc": "broken-link-checker http://localhost:8080/ -ro",
     "build": "gulp",
-    "test": "gulp test",
     "dev": "gulp dev",
-    "blc": "broken-link-checker http://localhost:8080/ -ro"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@types/semantic-ui": "^2.2.7",
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
+    "bibtex-tidy": "^1.7.1",
     "browser-sync": "^2.26.14",
     "del": "^5.1.0",
     "glob": "^7.1.7",
