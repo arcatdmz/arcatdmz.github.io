@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "12/7/2021",
+      "text": "Will lead the featured session titled <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2021/\">R&amp;D for Anime Production: State-of-the-Art and Future Prospects</a> and also serve as the Real-Time Live! Chair at <a href=\"https://sa2021.siggraph.org/\" title=\"The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia\">ACM SIGGRAPH Asia 2021</a>."
+    },
+    {
       "date": "09/04/2021",
       "text": "Participated in the German anime and manga convention <a href=\"https://www.connichi.de/en\">Connichi</a> and presented in the panel session <a href=\"https://www.connichi.de/conline-2021/programmplan\">&quot;How Academics Contribute to Anime's Future&quot;</a> -- glad to be in Germany (virtually), my country of birth!"
     },
@@ -274,6 +278,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "12/7/2021",
+      "text": "国際会議<a href=\"https://sa2021.siggraph.org/\" title=\"The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia\">ACM SIGGRAPH Asia 2021</a>で「Featured Sessions」の一つである「<a href=\"https://research.archinc.jp/events/siggraph-asia-2021/\">R&amp;D for Anime Production: State-of-the-Art and Future Prospects</a>」にセッション企画立案者として登壇する他、 Real-Time Live! (RTL) Chair として RTL セッションの司会進行を務めます。"
+    },
     {
       "date": "10/24/2021",
       "text": "初音ミク「<a href=\"https://magicalmirai.com/2021/\">マジカルミライ 2021</a>」大阪会場の企画展ステージ「<a href=\"https://magicalmirai.com/2021/osaka_exstage.html#osaka_exstage_03\">TextAlive講座 / プログラミング・コンテスト入選作品紹介</a>」に登壇しました。初音ミク公式YouTube「<a href=\"https://www.youtube.com/user/HatsuneMiku\">39チャンネル</a>」でも生放送されたステージの模様は、<a href=\"https://www.youtube.com/watch?v=hvmDxCeyWU8\">アーカイブ動画で視聴</a>できます。"
