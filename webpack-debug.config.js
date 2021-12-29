@@ -1,5 +1,5 @@
-var config = require('./webpack.config');
+var config = require("./webpack.config");
 delete config.plugins;
-config.mode = 'development';
+config.mode = "development";
 
 module.exports = config;

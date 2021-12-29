@@ -1,4 +1,3 @@
-
 /* Semantic UI */
 @import "../../semantic/src/semantic.less";
 @import "../../semantic/src/themes/default/globals/site.variables";
@@ -35,36 +34,37 @@ body.without-header-menu #body {
 }
 
 #body .caption {
-  margin-top: .3em;
+  margin-top: 0.3em;
   border-top: 1px solid @borderColor;
-  padding-top: .5em;
+  padding-top: 0.5em;
 }
 
 #body .share {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
-#body .share>* {
-  margin-right: .4em;
+#body .share > * {
+  margin-right: 0.4em;
 }
 
-#body .share>.twitter-share-button {
+#body .share > .twitter-share-button {
   font-size: small;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
-#body .share>iframe, .share>.fb-share-button>span {
-	vertical-align: top !important;
+#body .share > iframe,
+.share > .fb-share-button > span {
+  vertical-align: top !important;
 }
 
 /* /index history */
 
-#main>h1.ui.header>.ui.circular.image {
-  margin-bottom: .75rem;
+#main > h1.ui.header > .ui.circular.image {
+  margin-bottom: 0.75rem;
 }
 
-#main>h1.ui.header>.ui.circular.image+.content {
-  margin-bottom: .25rem;
+#main > h1.ui.header > .ui.circular.image + .content {
+  margin-bottom: 0.25rem;
 }
 
 /* /index history */
@@ -80,43 +80,43 @@ body.without-header-menu #body {
 
 /* /projects products */
 
-.ui.cards.projects>.card>.content>.meta {
-  margin-top: .3em;
+.ui.cards.projects > .card > .content > .meta {
+  margin-top: 0.3em;
   overflow-x: auto;
 }
 
 /* /projects research/private projects */
 
-.ui.items.projects>.item>.content>div {
-  margin-top: .3em;
+.ui.items.projects > .item > .content > div {
+  margin-top: 0.3em;
 }
 
-.ui.items.projects>.item>.content>.header {
+.ui.items.projects > .item > .content > .header {
   margin-top: 0;
   font-size: 1em;
 }
 
-.ui.items.projects>.item>.content>.extra>span {
+.ui.items.projects > .item > .content > .extra > span {
   margin-top: 0rem;
   margin-bottom: 0rem;
 }
 
-.ui.items.projects>.item>.content>.extra>.meta>*,
-.ui.cards.projects>.card>.content>.meta>* {
+.ui.items.projects > .item > .content > .extra > .meta > *,
+.ui.cards.projects > .card > .content > .meta > * {
   margin-right: 0.3em;
 }
 
-.ui.items.projects>.item>.content>.extra>.meta>*>*,
-.ui.cards.projects>.card>.content>.meta>*>* {
+.ui.items.projects > .item > .content > .extra > .meta > * > *,
+.ui.cards.projects > .card > .content > .meta > * > * {
   margin-right: 0;
 }
 
-.ui.items.projects>.item>.bordered.image>img {
-  border: 1px solid rgba(0,0,0,.1);
+.ui.items.projects > .item > .bordered.image > img {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
-  .ui.items.projects>.item>.image+.content {
+  .ui.items.projects > .item > .image + .content {
     padding-top: 0;
     padding-left: 0;
   }
@@ -132,14 +132,14 @@ body.without-header-menu #body {
   position: relative;
 }
 
-.hero-unit>.ui.container {
+.hero-unit > .ui.container {
   z-index: 3;
   position: relative;
   left: 0;
   right: 0;
 }
 
-.hero-unit>.background-wrapper {
+.hero-unit > .background-wrapper {
   z-index: 1;
   position: absolute;
   top: 0;
@@ -149,7 +149,7 @@ body.without-header-menu #body {
   overflow: hidden;
 }
 
-.hero-unit>.background-wrapper>.background {
+.hero-unit > .background-wrapper > .background {
   z-index: 2;
   position: absolute;
   top: -5px;
@@ -165,8 +165,8 @@ body.without-header-menu #body {
   background-position: center;
 }
 
-.hero-unit>.background-wrapper>.background:after {
-  content: '';
+.hero-unit > .background-wrapper > .background:after {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -175,11 +175,12 @@ body.without-header-menu #body {
   background: rgba(0, 0, 0, 0.35);
 }
 
-.hero-unit .ui.horizontal.list>.item {
+.hero-unit .ui.horizontal.list > .item {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-.hero-unit .ui.header, .hero-unit .ui.header .sub.header {
+.hero-unit .ui.header,
+.hero-unit .ui.header .sub.header {
   color: #fff;
   text-shadow: 1px 1px 6px #000;
 }
@@ -203,8 +204,8 @@ body.without-header-menu #body {
   text-shadow: 1px 1px 3px hsl(191, 65%, 20%);
 }
 
-.ui.horizontal.divided.list.project-meta-list>.item {
-  margin-bottom: .3em !important;
+.ui.horizontal.divided.list.project-meta-list > .item {
+  margin-bottom: 0.3em !important;
   line-height: 1em;
 }
 
@@ -214,63 +215,63 @@ body.without-header-menu #body {
   color: @red;
 }
 
-.item.publication:not(:first-child)>.content>h4.ui.header {
-  margin-top: .3em;
+.item.publication:not(:first-child) > .content > h4.ui.header {
+  margin-top: 0.3em;
 }
 
-.item.publication>.content>.description>.authors {
+.item.publication > .content > .description > .authors {
   margin-bottom: 0.1em;
 }
 
 .major-publication h4.ui.header {
-  margin-top: calc(1.2rem - .14285714em);
+  margin-top: calc(1.2rem - 0.14285714em);
 }
 .major-publication .ui.ribbon.label {
   margin-right: -1.5em;
 }
 
-.major-publication .labels>.ui.label,
-.item.labels>.content>.ui.label {
-  margin-right: .35em;
+.major-publication .labels > .ui.label,
+.item.labels > .content > .ui.label {
+  margin-right: 0.35em;
 }
-.major-publication .labels>.ui.label:last-child,
-.item.labels>.content>.ui.label:last-child {
+.major-publication .labels > .ui.label:last-child,
+.item.labels > .content > .ui.label:last-child {
   margin-right: 0;
 }
 
-.major-publication .ui.form>.field.bibtex>textarea {
+.major-publication .ui.form > .field.bibtex > textarea {
   height: 5em;
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.major-publication .ui.form>.field.bibtex>a {
+.major-publication .ui.form > .field.bibtex > a {
   margin-left: 1px;
   margin-right: 1px;
 }
 .major-publication .ui.list.meta {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
-.major-publication .ui.horizontal.divided.list.extra>.item>* {
+.major-publication .ui.horizontal.divided.list.extra > .item > * {
   line-height: 1em;
 }
-.major-publication .ui.horizontal.divided.list.extra>.item {
+.major-publication .ui.horizontal.divided.list.extra > .item {
   margin-bottom: 1em;
 }
-.major-publication .ui.horizontal.divided.list.extra>.item>i.icon {
-  margin-top: -.2em !important;
+.major-publication .ui.horizontal.divided.list.extra > .item > i.icon {
+  margin-top: -0.2em !important;
 }
 
 /* activities */
 
 .ui.horizontal.divided.list.reviewers-list {
-  margin-bottom: -.3em;
+  margin-bottom: -0.3em;
 }
-.ui.horizontal.divided.list.reviewers-list>.item>* {
+.ui.horizontal.divided.list.reviewers-list > .item > * {
   line-height: 1em;
 }
-.ui.horizontal.divided.list.reviewers-list>.item {
-  margin-bottom: .3em;
+.ui.horizontal.divided.list.reviewers-list > .item {
+  margin-bottom: 0.3em;
 }
 
 /* overriding default styles */
@@ -280,17 +281,17 @@ body.without-header-menu #body {
   background: none #fff !important;
 }
 
-.ui.horizontal.list>.item:first-child {
+.ui.horizontal.list > .item:first-child {
   /* this rule is somehow filtered out by purifyCSS, so we declare it here */
   margin-left: 0 !important;
   padding-left: 0 !important;
 }
 
-a:link>i.icon {
+a:link > i.icon {
   text-decoration: none;
 }
 
-.ui.list>.item>i.icon {
+.ui.list > .item > i.icon {
   vertical-align: middle !important;
 }
 
@@ -310,31 +311,32 @@ h1.ui.header {
 }
 
 .ui.list .list {
-  padding-top: .25em;
-  padding-bottom: .25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
 
-.ui.list .ui.popup>.ui.divided.list>.item {
+.ui.list .ui.popup > .ui.divided.list > .item {
   border-top: 1px solid @borderColor;
-  padding-top: .25em;
-  padding-bottom: .25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
-.ui.list .ui.popup>.ui.divided.list>.item:first-child {
+.ui.list .ui.popup > .ui.divided.list > .item:first-child {
   border-top: none;
 }
 
-.ui.items .ui.horizontal.list>.item>i.icon {
+.ui.items .ui.horizontal.list > .item > i.icon {
   margin-top: 0 !important;
-  margin-right: .2em;
+  margin-right: 0.2em;
 }
 
-.ui.corner.label:after, .ui.ribbon.label:after {
+.ui.corner.label:after,
+.ui.ribbon.label:after {
   // somehow this gets overwritten by other rules, so mark it as important
   border-right-color: inherit !important;
 }
 
 .ui.page.dimmer {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   right: 0;
@@ -343,11 +345,11 @@ h1.ui.header {
   z-index: 102;
 }
 
-.ui.page.dimmer>.ui.modal>.image.content {
+.ui.page.dimmer > .ui.modal > .image.content {
   display: block;
   text-align: center;
 }
-.ui.page.dimmer>.ui.modal>.image.content>img {
+.ui.page.dimmer > .ui.modal > .image.content > img {
   display: inline;
   max-width: 100%;
 }
@@ -357,11 +359,11 @@ h1.ui.header {
 @dividedBorder: @dividedBorderWidth solid @borderColor;
 
 .ui.divided.feed > .event {
-  padding-top: .7em;
+  padding-top: 0.7em;
   border-top: @dividedBorder;
 }
 .ui.divided.feed > .event:first-child {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   border-top: none;
 }
 .ui.basic.segment > .ui.divided.feed > .event:first-child {
@@ -373,24 +375,24 @@ h1.ui.header {
 // @import "../../semantic/src/themes/default/views/card.variables";
 @cardWidth: 290px;
 @cardHorizontalSpacing: @fontSize;
-.ui.cards>.card {
+.ui.cards > .card {
   width: calc(~"33.3333% - " @cardHorizontalSpacing);
 }
-#concepts-list>.column>.card {
+#concepts-list > .column > .card {
   height: 100%;
 }
 @media only screen and (max-width: (@tabletBreakpoint - 1px)) {
-  #concepts-list>.column>.card {
+  #concepts-list > .column > .card {
     height: auto;
   }
 }
-@media only screen and (max-width : @computerBreakpoint) {
-  .ui.cards>.card {
+@media only screen and (max-width: @computerBreakpoint) {
+  .ui.cards > .card {
     width: calc(~"50% - " @cardHorizontalSpacing);
   }
 }
-@media only screen and (max-width : (@cardHorizontalSpacing * 3 + @cardWidth * 2)) {
-  .ui.cards>.card {
+@media only screen and (max-width: (@cardHorizontalSpacing * 3 + @cardWidth * 2)) {
+  .ui.cards > .card {
     width: 100%;
   }
 }
@@ -400,10 +402,10 @@ h1.ui.header {
 // @import "../../semantic/src/themes/default/views/item.variables";
 @metaLinkColor: @lightTextColor;
 @metaLinkHoverColor: @textColor;
-.ui.items>.item>.content>.extra>.meta>a {
+.ui.items > .item > .content > .extra > .meta > a {
   color: @metaLinkColor;
 }
-.ui.items>.item>.content>.extra>.meta>a:hover {
+.ui.items > .item > .content > .extra > .meta > a:hover {
   color: @metaLinkHoverColor;
 }
 
@@ -424,7 +426,7 @@ h1.ui.header {
   position: fixed !important;
 }
 
-body.with-rail #main>.left-rail {
+body.with-rail #main > .left-rail {
   display: none;
 }
 
@@ -434,7 +436,7 @@ body.with-rail #main>.left-rail {
   }
 }
 
-@media only screen and (min-width : @tabletBreakpoint) {
+@media only screen and (min-width: @tabletBreakpoint) {
   .ui.popup-menu.mobile-only.button {
     display: none;
   }
@@ -442,15 +444,15 @@ body.with-rail #main>.left-rail {
   body.with-rail #main {
     position: relative;
   }
-  
-  body.with-rail #main>.left-rail,
-  body.with-rail #main>.left-rail>.ui.list {
+
+  body.with-rail #main > .left-rail,
+  body.with-rail #main > .left-rail > .ui.list {
     width: @railWidth;
     position: fixed;
     display: block;
   }
-  
-  body.with-rail #main>.right-content {
+
+  body.with-rail #main > .right-content {
     margin-left: @railWidth + @railMargin;
   }
 }
@@ -459,25 +461,25 @@ body.with-rail #main>.left-rail {
   inset: auto auto 54.925px 12px !important;
 }
 
-.popup-menu.popup .ui.list>a.item,
-body.with-rail #main>.left-rail .ui.list>a.item {
-  padding: .4em 0;
+.popup-menu.popup .ui.list > a.item,
+body.with-rail #main > .left-rail .ui.list > a.item {
+  padding: 0.4em 0;
   text-decoration: none;
 }
 
-.popup-menu.popup .ui.list .ui.list>a.item,
-body.with-rail #main>.left-rail .ui.list .ui.list>a.item {
-  padding: .2em 0;
+.popup-menu.popup .ui.list .ui.list > a.item,
+body.with-rail #main > .left-rail .ui.list .ui.list > a.item {
+  padding: 0.2em 0;
 }
 
-.popup-menu.popup .ui.list>a.item>.content,
-body.with-rail #main>.left-rail .ui.list>a.item>.content {
+.popup-menu.popup .ui.list > a.item > .content,
+body.with-rail #main > .left-rail .ui.list > a.item > .content {
   text-decoration: underline;
 }
 
 /* float rail */
-@media only screen and (min-width : @tabletBreakpoint) {
-  .with-rail>.right-rail {
+@media only screen and (min-width: @tabletBreakpoint) {
+  .with-rail > .right-rail {
     width: @railWidth * 3;
     padding-left: @railMargin;
     margin-left: @railMargin;
@@ -485,7 +487,7 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
     float: right;
     border-left: @dividedBorder;
   }
-  .with-rail>.left-content {
+  .with-rail > .left-content {
     margin-right: @railWidth * 3 + @railMargin;
   }
 }
@@ -500,7 +502,7 @@ body.with-rail #main>.left-rail .ui.list>a.item>.content {
     padding: 0 0 1rem 0;
   }
   .ui.stackable.two.column.divided.rail-like.grid > .row > .column:last-child {
-    background:rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.03);
   }
   .ui.stackable.two.column.divided.rail-like.grid {
     margin-bottom: 1rem !important;

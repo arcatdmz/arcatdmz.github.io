@@ -1,13 +1,12 @@
-
 /*!
  * # DEVICON v2.2
  */
-@import (inline,optional) "../../build/stylesheets/devicon.css";
-@import (inline,optional) "../../build/stylesheets/devicon-colors.css";
+@import (inline, optional) "../../build/stylesheets/devicon.css";
+@import (inline, optional) "../../build/stylesheets/devicon-colors.css";
 
 i[class*=" devicon-"],
-i[class^=devicon-] {
-  font-family: 'devicon' !important;
+i[class^="devicon-"] {
+  font-family: "devicon" !important;
   line-height: inherit !important;
 }
 
@@ -16,98 +15,103 @@ i[class^=devicon-] {
  */
 
 /* /design */
-body.design>.ui.text.fixed.menu {
+body.design > .ui.text.fixed.menu {
   pointer-events: none;
 }
-body.design>.ui.text.fixed.menu>.menu {
+body.design > .ui.text.fixed.menu > .menu {
   pointer-events: initial;
-  margin-top: .5em;
-  margin-left: .7em;
+  margin-top: 0.5em;
+  margin-left: 0.7em;
 }
 
-body.design>.ui.text.fixed.menu>.right.menu {
+body.design > .ui.text.fixed.menu > .right.menu {
   margin-left: 0;
-  margin-right: .7em;
+  margin-right: 0.7em;
 }
 
-body.design>.ui.text.fixed.menu>.menu>.item {
+body.design > .ui.text.fixed.menu > .menu > .item {
   background: rgba(255, 255, 255, 0.9);
-  padding: .7em .8em;
+  padding: 0.7em 0.8em;
   margin-left: 1px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(7px);
 }
 
-body.design>.ui.text.fixed.menu>.menu>.item:first-child {
-  padding: .7em .5em .7em .8em;
+body.design > .ui.text.fixed.menu > .menu > .item:first-child {
+  padding: 0.7em 0.5em 0.7em 0.8em;
   margin-left: 0;
-  border-top-left-radius: .4em !important;
-  border-bottom-left-radius: .4em !important;
+  border-top-left-radius: 0.4em !important;
+  border-bottom-left-radius: 0.4em !important;
 }
 
-body.design>.ui.text.fixed.menu>.menu>.item:last-child {
-  border-top-right-radius: .4em !important;
-  border-bottom-right-radius: .4em !important;
+body.design > .ui.text.fixed.menu > .menu > .item:last-child {
+  border-top-right-radius: 0.4em !important;
+  border-bottom-right-radius: 0.4em !important;
 }
 
-body.design #body>.hero-unit {
-  padding: 5em .7em 2em .7em;
+body.design #body > .hero-unit {
+  padding: 5em 0.7em 2em 0.7em;
 }
 
-body.design #body>.hero-unit,
-body.design #body>.hero-unit .ui.header {
+body.design #body > .hero-unit,
+body.design #body > .hero-unit .ui.header {
   background: #eee;
   color: #000;
   text-shadow: none !important;
 }
 
-body.design #body>.ui.container {
+body.design #body > .ui.container {
   padding-top: 1em;
 }
 
-body.design #body>.ui.container>section {
+body.design #body > .ui.container > section {
   padding-top: 2em;
 }
 
-body.design #body>.ui.container>#portfolio>.ui.segment {
+body.design #body > .ui.container > #portfolio > .ui.segment {
   margin-top: 2rem;
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
 }
-body.design #body>.ui.container>#portfolio>.ui.segment>.ui.clearing.divider {
+body.design
+  #body
+  > .ui.container
+  > #portfolio
+  > .ui.segment
+  > .ui.clearing.divider {
   margin-top: 2rem;
   margin-bottom: 0;
 }
 
-body.design #body>.ui.container .ui.segment>.image+h3.ui.header {
+body.design #body > .ui.container .ui.segment > .image + h3.ui.header {
   font-size: 1.2em;
   margin: 0 0 1rem 0;
 }
 
-#portfolio .ui.horizontal.list>.item {
-  margin: 0 0 0 .3em;
+#portfolio .ui.horizontal.list > .item {
+  margin: 0 0 0 0.3em;
 }
 
-#portfolio .ui.images>a.ui.image {
+#portfolio .ui.images > a.ui.image {
   cursor: pointer;
   width: auto;
   height: auto;
 }
 
-#portfolio .ui.images>.ui.image>img {
+#portfolio .ui.images > .ui.image > img {
   width: auto;
   height: 70px;
 }
 
-#skillset .ui.list>.item>i.ellipsis.icon {
+#skillset .ui.list > .item > i.ellipsis.icon {
   color: #999;
 }
 
-#skillset .ui.list>.item>i.ellipsis.icon {
-  padding-top: .054em;
+#skillset .ui.list > .item > i.ellipsis.icon {
+  padding-top: 0.054em;
 }
-#skillset .ui.list>.item>i.icon[class*=" devicon-"],
-#skillset .ui.list>.item>i.icon[class^=devicon-] {
+#skillset .ui.list > .item > i.icon[class*=" devicon-"],
+#skillset .ui.list > .item > i.icon[class^="devicon-"] {
   line-height: 1.4 !important;
 }

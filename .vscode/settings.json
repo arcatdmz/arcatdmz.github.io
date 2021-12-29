@@ -1,9 +1,6 @@
 {
   "editor.tabSize": 2,
   "spellright.language": ["en"],
-  "spellright.documentTypes": [
-    "latex",
-    "plaintext"
-  ],
+  "spellright.documentTypes": ["latex", "plaintext"],
   "deno.enable": false
 }

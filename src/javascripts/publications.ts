@@ -1,4 +1,3 @@
-
 interface BibTexEntry {
   citationKey: string;
   entryType: string;
@@ -22,11 +21,10 @@ class Entry implements BibTexEntry {
     if (!this.entryTags) {
       return undefined;
     }
-    return this.entryTags.language === 'japanese'
-      ? 'circle' : 'world';
+    return this.entryTags.language === "japanese" ? "circle" : "world";
   }
   public getAuthors() {
-    if (!this.entryTags || typeof this.entryTags.author !== 'string') {
+    if (!this.entryTags || typeof this.entryTags.author !== "string") {
       return [];
     }
     return parseNames(this.entryTags.author);
@@ -35,7 +33,7 @@ class Entry implements BibTexEntry {
     return namesToHTML(this.getAuthors());
   }
   public getEditors() {
-    if (!this.entryTags || typeof this.entryTags.editor !== 'string') {
+    if (!this.entryTags || typeof this.entryTags.editor !== "string") {
       return [];
     }
     return parseNames(this.entryTags.editor);
@@ -44,22 +42,20 @@ class Entry implements BibTexEntry {
     return namesToHTML(this.getEditors());
   }
   public getBibTeX() {
-    const entrysep = ',\n', indent = '  ';
+    const entrysep = ",\n",
+      indent = "  ";
     var out = "@" + this.entryType;
-    out += '{';
-    if (this.citationKey)
-      out += this.citationKey + entrysep;
+    out += "{";
+    if (this.citationKey) out += this.citationKey + entrysep;
     if (this.entryTags) {
       var tags = indent;
       for (const jdx in this.entryTags) {
-        if (tags.trim().length != 0)
-          tags += entrysep + indent;
-        tags += jdx + ' = {' + 
-          this.entryTags[jdx] + '}';
+        if (tags.trim().length != 0) tags += entrysep + indent;
+        tags += jdx + " = {" + this.entryTags[jdx] + "}";
       }
       out += tags;
     }
-    out += '\n}';
+    out += "\n}";
     return out;
   }
   public getSeries() {
@@ -69,7 +65,7 @@ class Entry implements BibTexEntry {
     return this.getSeries();
   }
   public getBook() {
-    if (!this.entryTags) return '';
+    if (!this.entryTags) return "";
     var book: string;
     if (this.entryTags.booktitle) {
       book = this.entryTags.booktitle;
@@ -80,16 +76,17 @@ class Entry implements BibTexEntry {
         book = this.entryTags.journal;
       }
     } else {
-      book = '';
+      book = "";
     }
     return book;
   }
   public getBookWithPages() {
-    if (!this.entryTags) return '';
-    var book = this.getBook(), pages = this.entryTags.pages;
+    if (!this.entryTags) return "";
+    var book = this.getBook(),
+      pages = this.entryTags.pages;
     if (pages) {
-      if (pages.indexOf('-') >= 0) {
-        pages = pages.replace(/-+/, '-');
+      if (pages.indexOf("-") >= 0) {
+        pages = pages.replace(/-+/, "-");
         book = `${book}, pp.${pages}`;
       } else {
         book = `${book}, p.${pages}`;
@@ -98,14 +95,13 @@ class Entry implements BibTexEntry {
     return book;
   }
   public isUrlDOIResolver() {
-    return this.entryTags.url
-      && /[\./]doi[\./]/.exec(this.entryTags.url);
+    return this.entryTags.url && /[\./]doi[\./]/.exec(this.entryTags.url);
   }
   public hasDOIUrl() {
     return this.entryTags.doi || this.isUrlDOIResolver();
   }
   public getDOIUrl() {
-    if (!this.entryTags) return '';
+    if (!this.entryTags) return "";
     if (this.isUrlDOIResolver()) {
       return this.entryTags.url;
     }
@@ -115,7 +111,7 @@ class Entry implements BibTexEntry {
       }
       return `http://dx.doi.org/${this.entryTags.doi}`;
     }
-    return '';
+    return "";
   }
 }
 
@@ -124,16 +120,19 @@ export function parseNames(names: string) {
   for (const key in namesArr) {
     const arr = namesArr[key].split(/\s*,\s*/);
     if (arr.length > 1) {
-      namesArr[key] = arr.reverse().join(' ');
+      namesArr[key] = arr.reverse().join(" ");
     }
   }
   return namesArr;
 }
 
 export function namesToHTML(namesArr: string[]) {
-  var i = -1, j = -1;
-  if ((i = namesArr.indexOf('Jun Kato')) >= 0
-      || (j = namesArr.indexOf('加藤 淳')) >= 0) {
+  var i = -1,
+    j = -1;
+  if (
+    (i = namesArr.indexOf("Jun Kato")) >= 0 ||
+    (j = namesArr.indexOf("加藤 淳")) >= 0
+  ) {
     const k = Math.max(i, j);
     namesArr[k] = `<u>${namesArr[k]}</u>`;
   }

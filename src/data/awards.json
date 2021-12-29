@@ -44,8 +44,7 @@
   },
   {
     "date": "4/1/2015",
-    "text":
-      "ACM <a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">CHI '15 Best Paper Honorable Mention Award</a>"
+    "text": "ACM <a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">CHI '15 Best Paper Honorable Mention Award</a>"
   },
   {
     "date": "11/1/2014",
@@ -88,13 +87,11 @@
   },
   {
     "date": "6/1/2013",
-    "text":
-      "ACM <a href=\"http://www.cs.utexas.edu/~isil/pldi13-src/\">PLDI '13 Student Research Competition</a> Finalist"
+    "text": "ACM <a href=\"http://www.cs.utexas.edu/~isil/pldi13-src/\">PLDI '13 Student Research Competition</a> Finalist"
   },
   {
     "date": "4/1/2013",
-    "text":
-      "ACM <a href=\"http://chi2013.acm.org/program/best-of-chi/#NTQ\">CHI '13 Best Paper Honorable Mention Award</a>"
+    "text": "ACM <a href=\"http://chi2013.acm.org/program/best-of-chi/#NTQ\">CHI '13 Best Paper Honorable Mention Award</a>"
   },
   {
     "date": "2012",
@@ -104,13 +101,15 @@
     }
   },
   {
-    "date": "4/1/2011-3/31/2012", "text": {
+    "date": "4/1/2011-3/31/2012",
+    "text": {
       "en": "Microsoft Research <a href=\"http://research.microsoft.com/en-us/collaboration/global/asia-pacific/regions/japan-core.aspx\">7th Collaborative Research (CORE7) Program</a> Principal Investigator",
       "ja": "Microsoft Research <a href=\"http://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx\">第7回連携研究(CORE7)プログラム</a> 採択"
     }
   },
   {
-    "date": "4/1/2011-3/31/2014", "text": {
+    "date": "4/1/2011-3/31/2014",
+    "text": {
       "en": "JSPS <a href=\"http://www.jsps.go.jp/english/e-pd/pddc.htm\">Research Fellowships for Young Scientists (DC1)</a>",
       "ja": "日本学術振興会 <a href=\"http://www.jsps.go.jp/j-pd/\">特別研究員(DC1)</a> 採択"
     },
@@ -125,19 +124,20 @@
     "type": "domestic"
   },
   {
-    "date": "2010", "text":
-      "ACM <a href=\"https://src.acm.org/candidates/2010\">Student Research Competition Grand Finals</a> Finalist"
+    "date": "2010",
+    "text": "ACM <a href=\"https://src.acm.org/candidates/2010\">Student Research Competition Grand Finals</a> Finalist"
   },
   {
-    "date": "8/1/2009", "text":
-      "ACM <a href=\"http://mi-lab.org/projects/cristal/\">SIGGRAPH '09 Laval Virtual Award</a> (Best of Emerging Technologies)"
+    "date": "8/1/2009",
+    "text": "ACM <a href=\"http://mi-lab.org/projects/cristal/\">SIGGRAPH '09 Laval Virtual Award</a> (Best of Emerging Technologies)"
   },
   {
-    "date": "4/1/2009", "text":
-      "ACM <a href=\"https://src.acm.org/winners/2010\">CHI '09 Student Research Competition</a> 1st Place"
+    "date": "4/1/2009",
+    "text": "ACM <a href=\"https://src.acm.org/winners/2010\">CHI '09 Student Research Competition</a> 1st Place"
   },
   {
-    "date": "12/1/2008-8/1/2009", "text": {
+    "date": "12/1/2008-8/1/2009",
+    "text": {
       "en": "IPA <a href=\"http://www.ipa.go.jp/english/humandev/third.html\">Exploratory IT Human Resources Project (MITOH)</a>",
       "ja": "IPA <a href=\"http://www.ipa.go.jp/jinzai/mitou/2008/2008_2/hontai/gaiyou/1.html\">2008年度下期未踏IT人材育成発掘事業(未踏本体)</a> 採択"
     },

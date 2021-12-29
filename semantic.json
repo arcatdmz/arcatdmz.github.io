@@ -15,7 +15,15 @@
     },
     "clean": "../dist/semantic/"
   },
-  "components": ["sidebar", "transition", "embed", "dropdown", "popup", "modal", "dimmer"],
+  "components": [
+    "sidebar",
+    "transition",
+    "embed",
+    "dropdown",
+    "popup",
+    "modal",
+    "dimmer"
+  ],
   "permission": false,
   "autoInstall": false,
   "rtl": false,

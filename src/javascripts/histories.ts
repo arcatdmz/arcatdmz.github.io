@@ -11,9 +11,9 @@ class Entry {
   }
   public getDateString(lang: string) {
     const d = this.date;
-    return lang === 'en'
-      ? `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`
-      : `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`;
+    return lang === "en"
+      ? `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
+      : `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
   }
 }
 
