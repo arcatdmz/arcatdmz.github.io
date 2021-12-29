@@ -37,7 +37,10 @@ module.exports = {
                 }
               }]
             ],
-            'plugins': [require('@babel/plugin-syntax-dynamic-import')]
+            'plugins': [
+              require('@babel/plugin-proposal-class-properties'),
+              require('@babel/plugin-syntax-dynamic-import')
+            ]
           }
         }
       }
