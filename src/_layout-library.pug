@@ -341,9 +341,11 @@ mixin render-project-label(p)
   - if (p.hasPublication(lang)) {
   - const pubKey = p.getPublication(lang);
   - const pub = publicationsTable[pubKey];
+  - if (pub && pub.getSeriesTag()) {
   span.ui.green.tiny.basic.label
     i.student.icon
-    | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
+    | !{pub.getSeriesTag()}
+  - }
   - } else {
   span #{en ? '(Work in progress)' : '(文献未発表)'}
   - }
