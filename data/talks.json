@@ -1,5 +1,12 @@
 [
   {
+    "date": "1/19/2022",
+    "text": {
+      "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
+    },
+    "type": "domestic"
+  },
+  {
     "date": "3/15/2021",
     "text": {
       "ja": "<a href=\"https://www.jaist.ac.jp/whatsnew/event/2021/03/04-1.html\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, &quot;Creativity Support for People with Diverse Technical Background&quot;",
@@ -10,12 +17,12 @@
   {
     "date": "1/20/2021",
     "text": {
-      "ja": "芝浦工業大学 高度情報演習 ゲスト講義「プログラミング体験（PX）概論」"
+      "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
     },
     "type": "domestic"
   },
   {
-    "date": "1/22/2020",
+    "date": "1/24/2020",
     "text": {
       "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;",
       "en": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;"
@@ -25,7 +32,14 @@
   {
     "date": "1/22/2020",
     "text": {
-      "ja": "芝浦工業大学 高度情報演習 ゲスト講義「プログラミング体験（PX）概論」"
+      "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "1/20/2020",
+    "text": {
+      "ja": "慶應義塾大学 デザイン戦略（オープンデザイン） ゲストクリティーク"
     },
     "type": "domestic"
   },
@@ -89,6 +103,13 @@
     "date": "3/1/2016",
     "text": {
       "ja": "<a href=\"http://ipsj-one.org\">情報処理学会全国大会 第78回全国大会 IPSJ-ONE</a> 「コンピュータを変幻自在の道具にするためのプログラミング環境技術」, <a href=\"https://docs.com/junkato/3910\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "type": "domestic"
+  },
+  {
+    "date": "12/9/2015",
+    "text": {
+      "ja": "明治大学 コンテンツ・エンタテインメント概論（CE概論）ゲスト講義「* as a Code -- コンテンツをプログラミングする方法」"
     },
     "type": "domestic"
   },
