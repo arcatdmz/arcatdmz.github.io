@@ -42,7 +42,7 @@
     "gulp-copy": "^4.0.1",
     "gulp-gzip": "^1.4.2",
     "gulp-htmlhint": "^4.0.1",
-    "gulp-less": "^4.0.1",
+    "gulp-less": "^5.0.0",
     "gulp-notify": "^4.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-purifycss": "^0.2.0",
