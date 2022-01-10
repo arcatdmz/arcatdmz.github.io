@@ -83,11 +83,7 @@
       "thumbnail": "user-interface-design.png",
       "private": true,
       "icon": true,
-      "tags": [
-        "toolkit",
-        "design",
-        "live-programming"
-      ],
+      "tags": ["toolkit", "design", "live-programming"],
       "year": {
         "from": 2021
       },
@@ -108,9 +104,7 @@
       "year": {
         "from": 2019
       },
-      "tags": [
-        "creativity"
-      ],
+      "tags": ["creativity"],
       "thumbnail": "griffith.jpg",
       "icon": true,
       "hero": "griffith.png",
@@ -130,12 +124,8 @@
         "from": 2018,
         "to": 2018
       },
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic"],
       "category": "private",
       "icon": "magicalmirai2018.jpg",
       "thumbnail": "magicalmirai2018.jpg",
@@ -166,10 +156,7 @@
         "from": 2018,
         "to": 2018
       },
-      "tags": [
-        "live-programming",
-        "ide"
-      ],
+      "tags": ["live-programming", "ide"],
       "ja": {
         "description": "<abbr title=\"Application Programming Interfaces\">API</abbr>チュートリアルに開発環境の機能を組み込み、サンプルプログラムの開発からデプロイまで支援するフレームワークです。"
       }
@@ -242,12 +229,8 @@
         "from": 2018,
         "to": 2018
       },
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic"],
       "category": "private",
       "icon": true,
       "description": "Authored lyrics animation for a live performance by a renowned virtual idol singer - Hatsune Miku!",
@@ -300,13 +283,8 @@
       },
       "category": "private",
       "icon": true,
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic",
-        "ui"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic", "ui"],
       "description": "This portfolio website is built with various <abbr title=\"Open-Source Software\">OSS</abbr> and itself is open-sourced on GitHub.",
       "description-design": "Created a website with the focus on usability and maintainability. Built an automated pipeline that compiles various data sources into a set of static HTML/CSS/JavaScript files. The website is built on the Semantic UI CSS/JavaScript framework and implements a dedicated responsive view. More technical details can be found <a href=\"${rootPath}website\">here</a>.",
       "ja": {
@@ -348,16 +326,8 @@
       "project": "songle-sync",
       "thumbnail": "songle-sync.jpg",
       "icon": true,
-      "tags": [
-        "creativity",
-        "music",
-        "ide",
-        "design"
-      ],
-      "tags-design": [
-        "graphic",
-        "ui"
-      ],
+      "tags": ["creativity", "music", "ide", "design"],
+      "tags-design": ["graphic", "ui"],
       "year": {
         "from": 2017
       },
@@ -378,11 +348,7 @@
       "project": "user-generated-variables",
       "thumbnail": "user-generated-variables.jpg",
       "icon": "user-generated-variables.jpg",
-      "tags": [
-        "programming-as-communication",
-        "live-programming",
-        "ide"
-      ],
+      "tags": ["programming-as-communication", "live-programming", "ide"],
       "year": {
         "from": 2017,
         "to": 2017
@@ -399,11 +365,7 @@
     {
       "project": "live-tuning",
       "icon": true,
-      "tags": [
-        "programming-as-communication",
-        "live-programming",
-        "ide"
-      ],
+      "tags": ["programming-as-communication", "live-programming", "ide"],
       "year": {
         "from": 2016,
         "to": 2016
@@ -430,10 +392,7 @@
         "ide",
         "design"
       ],
-      "tags-design": [
-        "graphic",
-        "ui"
-      ],
+      "tags-design": ["graphic", "ui"],
       "year": {
         "from": 2015,
         "to": 2018
@@ -465,10 +424,7 @@
         "ide",
         "design"
       ],
-      "tags-design": [
-        "graphic",
-        "ui"
-      ],
+      "tags-design": ["graphic", "ui"],
       "year": {
         "from": 2014
       },
@@ -478,28 +434,18 @@
       "subtitle": "An Integrated Design Environment for kinetic typography",
       "description": "An integrated design environment for kinetic typography; desktop app revamped as a web service in 2015.",
       "description-design": "Built a brand kit for <a href=\"${rootPath}textalive\"> the TextAlive research project</a>. Built its main website with Node.js and MySQL and the documentation website with WordPress. Used the Bootstrap CSS framework.",
-      "members": [
-        "Jun Kato",
-        "Tomoyasu Nakano",
-        "Masataka Goto"
-      ],
+      "members": ["Jun Kato", "Tomoyasu Nakano", "Masataka Goto"],
       "ja": {
         "subtitle": "ウェブ上の楽曲と歌詞を用いたKinetic Typographyのための統合制作環境",
         "title-design": "TextAlive ブランドデザイン",
         "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。",
         "description-design": "研究プロジェクト<a href=\"${rootPath}ja/textalive\">TextAlive</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはBootstrap CSSフレームワークを利用しました。",
-        "members": [
-          "加藤 淳",
-          "中野 倫靖",
-          "後藤真孝"
-        ]
+        "members": ["加藤 淳", "中野 倫靖", "後藤真孝"]
       }
     },
     {
       "project": "crosssong",
-      "tags": [
-        "music"
-      ],
+      "tags": ["music"],
       "year": {
         "from": 2015,
         "to": 2017
@@ -516,9 +462,7 @@
     {
       "project": "sharedo",
       "thumbnail": "sharedo.jpg",
-      "tags": [
-        "robot"
-      ],
+      "tags": ["robot"],
       "year": {
         "from": 2011,
         "to": 2014
@@ -540,12 +484,7 @@
         "from": 2013,
         "to": 2014
       },
-      "tags": [
-        "programming-with-examples",
-        "live-programming",
-        "ide",
-        "nui"
-      ],
+      "tags": ["programming-with-examples", "live-programming", "ide", "nui"],
       "publication": "gi2014-kato-visionsketch",
       "thumbnail": "visionsketch.jpg",
       "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> for example-centric programming of image processing applications, enabling fluid transition between abstract text-based coding and concrete direct manipulation.",
@@ -561,11 +500,7 @@
         "from": 2012,
         "to": 2014
       },
-      "tags": [
-        "programming-with-examples",
-        "live-programming",
-        "ide"
-      ],
+      "tags": ["programming-with-examples", "live-programming", "ide"],
       "category": "collaboration",
       "publication": "chi2014-fukahori-capstudio",
       "thumbnail": "capstudio.jpg",
@@ -584,10 +519,7 @@
         "from": 2012,
         "to": 2013
       },
-      "tags": [
-        "live-programming",
-        "ide"
-      ],
+      "tags": ["live-programming", "ide"],
       "publication": "pldi2013-kato-alive",
       "thumbnail": "touchdevelop.jpg",
       "description": "The TouchDevelop <abbr title=\"Integrated Development Environment\">IDE</abbr> enables live programming for user interface programming by cleanly separating the rendering and non-rendering aspects of a UI program, allowing the display to be refreshed on a code change without restarting the program.",
@@ -625,10 +557,7 @@
         "from": 2012,
         "to": 2013
       },
-      "tags": [
-        "toolkit",
-        "nui"
-      ],
+      "tags": ["toolkit", "nui"],
       "publication": "gcce2013-kato-openpool",
       "thumbnail": "openpool.jpg",
       "description": "An open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the &quot;super-billiard&quot; experience.",
@@ -644,12 +573,7 @@
         "from": 2012,
         "to": 2012
       },
-      "tags": [
-        "programming-with-examples",
-        "live-programming",
-        "ide",
-        "nui"
-      ],
+      "tags": ["programming-with-examples", "live-programming", "ide", "nui"],
       "publication": "uist2012-kato-dejavu",
       "description": "An <abbr title=\"Integrated Development Environment\">IDE</abbr> that eases the iterative development of interactive camera-based programs with support for monitoring, recording, reviewing, and reprocess temporal data",
       "ja": {
@@ -664,11 +588,7 @@
         "from": 2009,
         "to": 2012
       },
-      "tags": [
-        "toolkit",
-        "physical",
-        "robot"
-      ],
+      "tags": ["toolkit", "physical", "robot"],
       "publication": "dis2012-kato-phybots",
       "thumbnail": "phybots.jpg",
       "description": "A toolkit that allows researchers and interaction designers to rapidly prototype applications with locomotive robotic things.",
@@ -685,9 +605,7 @@
         "from": 2010,
         "to": 2010
       },
-      "tags": [
-        "nui"
-      ],
+      "tags": ["nui"],
       "publication": "uist2010-kato-surfboard",
       "thumbnail": "surfboard.jpg",
       "description": "A technique to detect simple gestures of &quot;surfing&quot; (moving a hand horizontally) on a standard keyboard by analyzing recorded sounds in real-time with a microphone attached close to the keyboard.",
@@ -703,11 +621,7 @@
         "from": 2009,
         "to": 2009
       },
-      "tags": [
-        "live-programming",
-        "ide",
-        "nui"
-      ],
+      "tags": ["live-programming", "ide", "nui"],
       "publication": "interaction2010-kato-pressing",
       "thumbnail": "pressing.jpg",
       "description": "A &quot;pressure-sensitive&quot; programming environment with visual feedbacks of the built-in 2D physical simulator.",
@@ -724,10 +638,7 @@
         "from": 2009,
         "to": 2009
       },
-      "tags": [
-        "robot",
-        "nui"
-      ],
+      "tags": ["robot", "nui"],
       "category": "collaboration",
       "publication": "siggraph2009-kato-cristal",
       "thumbnail": "cristal.jpg",
@@ -745,10 +656,7 @@
         "from": 2008,
         "to": 2009
       },
-      "tags": [
-        "robot",
-        "nui"
-      ],
+      "tags": ["robot", "nui"],
       "publication": "chi2009-kato-multirobot",
       "thumbnail": "multirobot.jpg",
       "description": "A multi-touch interface with a top-down view from a ceiling-mounted camera for simultaneously controlling multiple mobile robots.",
@@ -765,12 +673,8 @@
         "from": 2017,
         "to": 2017
       },
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic"],
       "category": "private",
       "thumbnail": "tenju.jpg",
       "icon": "tenju.jpg",
@@ -791,12 +695,8 @@
         "from": 2016,
         "to": 2016
       },
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic"],
       "category": "private",
       "thumbnail": "ongacrest-flyers.jpg",
       "icon": "ongacrest-flyers.jpg",
@@ -816,9 +716,7 @@
       "year": {
         "from": 2011
       },
-      "tags": [
-        "nui"
-      ],
+      "tags": ["nui"],
       "category": "private",
       "thumbnail": "homehack.jpg",
       "description": "Have been hacking my home to automate various tasks.",
@@ -851,10 +749,7 @@
         "from": 2010,
         "to": 2010
       },
-      "tags": [
-        "ide",
-        "nui"
-      ],
+      "tags": ["ide", "nui"],
       "category": "private",
       "thumbnail": "intelliviewer.jpg",
       "description": "A user interface for helping navigation of source code in <abbr title=\"Integrated Development Environment\">IDE</abbr>s. For each row of the keyboard, available namespaces, classes, member variables and methods are shown on the keytops.",
@@ -870,12 +765,8 @@
         "from": 2007,
         "to": 2008
       },
-      "tags": [
-        "design"
-      ],
-      "tags-design": [
-        "graphic"
-      ],
+      "tags": ["design"],
+      "tags-design": ["graphic"],
       "category": "private",
       "thumbnail": "cd-jackets.jpg",
       "icon": "cd-jackets.jpg",
@@ -904,13 +795,8 @@
         "from": 2006,
         "to": 2008
       },
-      "tags": [
-        "design",
-        "toolkit"
-      ],
-      "tags-design": [
-        "ui"
-      ],
+      "tags": ["design", "toolkit"],
+      "tags-design": ["ui"],
       "category": "private",
       "thumbnail": "chippie.png",
       "icon": "chippie.png",
