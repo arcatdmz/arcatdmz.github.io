@@ -38,8 +38,7 @@ block main
   .ui.hidden.divider
   section#abstract
     h2.ui.header: .content #{en ? 'Abstract' : '概要'}
-    .ui.basic.segment
-      p これまで、科学技術全般に広く関心を持っていろいろな活動をしてきました。一貫しているResearch Questionは、コンピュータの力を借りたらどれだけ科学技術に関するアウトプットを効率化・最大化できるか？（科学のためのHuman-Computer Interaction）です。
+    .ui.basic.segment !{p.getDescription(lang)}
       p また、ブログでも関連する話題を扱ってきました。記事は 
         a(href="https://blog.junkato.jp/ja/tags/science/") science 
         |  タグで辿ることができます。
