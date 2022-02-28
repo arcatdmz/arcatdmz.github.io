@@ -58,7 +58,7 @@ mixin sidebar()
     | #{en ? 'Contact' : '連絡先'}
   block projects-sidebar-menu
     .ui.item(href=`${basePath}projects`)
-      i.lab.icon
+      i.gift.icon
       | #{en ? 'Projects' : 'プロジェクト'}
       .menu
         a.item(href=`${basePath}projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
@@ -72,7 +72,7 @@ mixin sidebar()
         - }
         .ui.divider
         a.item(href=`${basePath}projects/#research`) #{en ? 'Research projects' : '研究プロジェクト'}
-        a.item(href=`${basePath}projects/#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
+        a.item(href=`${basePath}projects/#design-and-engineering`) #{en ? 'Design and Engineering projects' : 'デザイン・開発プロジェクト'}
   a.item(href=`${basePath}publications`, class=getItemClass('publications/'))
     i.text.file.icon
     | #{en ? 'Publications' : '発表文献'}
@@ -103,12 +103,9 @@ mixin header()
     a.item(href=basePath, class=getItemClass(''))
       span.mobile.hidden #{author}
       span.print-hidden.mobile.only: i.user.icon
-    a.mobile.hidden.item(href=`${basePath}#contact`)
-      i.address.card.icon
-      span.print-hidden.tablet.or.lower.hidden #{en ? 'Contact' : '連絡先'}
     block projects-header-menu
       .ui.dropdown.mobile.hidden.item(href=`${basePath}projects`)
-        i.lab.icon
+        i.gift.icon
         span.print-hidden.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
         .menu
           a.item(href=`${basePath}projects`) #{en ? 'List of projects' : 'プロジェクト一覧'}
@@ -124,8 +121,8 @@ mixin header()
             | !{p.getTitle(lang)}
           - }
           .ui.divider
-          a.item(href=`${basePath}projects/#research`) #{en ? 'Research projects' : '研究プロジェクト'}
-          a.item(href=`${basePath}projects/#private`) #{en ? 'Private projects' : 'その他のプロジェクト'}
+          a.item(href=`${basePath}projects/#research`) #{en ? 'Research' : '研究'}
+          a.item(href=`${basePath}projects/#design-and-engineering`) #{en ? 'Design and engineering' : 'デザイン・開発'}
     a.mobile.hidden.item(href=`${basePath}publications`, class=getItemClass('publications/'))
       i.text.file.icon
       span.print-hidden.tablet.or.lower.hidden #{en ? 'Publications' : '発表文献'}

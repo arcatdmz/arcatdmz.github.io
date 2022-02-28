@@ -6,12 +6,12 @@ block vars
 
 block projects-sidebar-menu
   a.item(href=`${basePath}projects`)
-    i.lab.icon
+    i.gift.icon
     | #{en ? 'Projects' : 'プロジェクト'}
 
 block projects-header-menu
   a.ui.print-hidden.mobile.hidden.item(href=`${basePath}projects`)
-    i.lab.icon
+    i.gift.icon
     span.tablet.or.lower.hidden #{en ? 'Projects' : 'プロジェクト'}
 
 block post-footer
@@ -21,12 +21,15 @@ block post-footer
     a.item(href='#body')
       i.chevron.circle.up.icon
       .content #{en ? 'Top' : 'トップ'}
-    a.item(href=`#history`)
+    a.item(href='#history')
       i.history.icon
       .content #{en ? 'Updates' : '近況'}
-    a.item(href=`#concepts`)
-      i.idea.icon
-      .content #{en ? 'Research' : '研究トピック'}
+    a.item(href='#products')
+      i.gift.icon
+      .content #{en ? 'Products' : 'プロダクト'}
+    a.item(href='#topics')
+      i.lightbulb.icon
+      .content #{en ? 'Research topics' : '研究トピック'}
     a.item(href='#contact')
       i.address.card.icon
       .content #{en ? 'Contact' : '連絡先'}
@@ -44,7 +47,7 @@ block main
   +about()
   section#history: +history()
   .ui.hidden.divider
-  section#concepts: +concepts()
+  section#projects: +projects()
   .ui.hidden.divider
   section#contact: +contact()
 
@@ -58,6 +61,7 @@ mixin about()
         .eight.wide.column
           h5.ui.header Research area
           p I am interested in broad area of <strong>Human-Computer Interaction (HCI)</strong>, and have been especially focused on designing <strong>user interfaces</strong> and <strong>integrated environments</strong> for <strong>creativity support</strong>. Improving <strong>Programming Experience (PX)</strong> is an important subgoal to support the creativity of people with diverse technical backgrounds.
+          //- While I am interested in broad area of <abbr title="Human-Computer Interaction">HCI</abbr> and have a high-level goal of supporting people's creativity, I have been especially focused on the following topics. 
         .eight.wide.column
           h5.ui.header Bio
           p Jun Kato is a <abbr title="Human-Computer Interaction">HCI</abbr> senior researcher at 
@@ -72,6 +76,9 @@ mixin about()
             | , and regularly gained academic recognition such as ACM <abbr title="The SIGCHI conference on Human Factors in Computing Systems">CHI</abbr> 2013/2015 Best Paper Honorable Mention.
     .ui.basic.segment#sns
       .ui.horizontal.list
+        .item
+          i.address.card.icon
+          .content: a(href='#contact') #{en ? "Contact" : "連絡先"}
         .item
           i.file.icon
           .content: a(href=`${rootPath}resume.html`) !{en ? 'Resume/<abbr title="Curriculum Vitae">CV</abbr>' : 'レジュメ (<abbr title="Curriculum Vitae">CV</abbr>)'}
@@ -114,29 +121,48 @@ mixin history()
       | #{en ? 'Show all' : '全部見る'}
   - }
 
-mixin concepts()
+mixin projects()
   h2.ui.header
-    i.idea.icon
+    i.gift.icon
+    .content #{en ? 'Projects' : 'プロジェクト'}
+  +products()
+  +topics()
+
+mixin products()
+  h3.ui.header#products
+    i.star.icon
+    .content #{en ? 'Products' : 'プロダクト'}
+  .ui.basic.segment
+    block products
+      p The following products are beyond research prototypes and generally available to public.
+    .ui.hidden.divider
+    .ui.two.stackable.cards.projects#products-list
+      - for (const p of products) {
+      +render-project-card(p)
+      - }
+
+mixin topics()
+  h3.ui.header#topics
+    i.lightbulb.icon
     .content #{en ? 'Research topics' : '研究トピック'}
   .ui.basic.segment
-    block concepts
-      p While I am interested in broad area of <abbr title="Human-Computer Interaction">HCI</abbr> and have a high-level goal of supporting people's creativity, I have been especially focused on the following topics. For the list of concrete projects, see 
+    - for (const p of selectedProjects) {
+    - if (p.isPrivateProject(lang)) continue;
+    - if (!p.getLink(lang, basePath)) continue;
+    .ui.two.column.stackable.grid(id=`topics-${p.project}`)
+      .five.wide.column
+        a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
+      .eleven.wide.column
+        a.ui.header(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
+        .description !{p.getDescription(lang)}
+    .ui.divider
+    - }
+    block projects
+      p For the exhaustive list of projects, see 
         a(href=`${rootPath}projects`)
           i.lab.icon
           | Projects
         | .
-    #concepts-list
-      - for (const p of projects) {
-      - if (p.category !== 'concept') continue;
-      - if (p.project === 'design') continue;
-      .ui.divider
-      .ui.two.column.stackable.grid(id=`concepts-${p.project}`)
-        .five.wide.column
-          a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
-        .eleven.wide.column
-          a.ui.header(href=p.getLink(lang, basePath)) #{p.getTitle(lang)}
-          p.description !{p.getDescription(lang)}
-      - }
 
 mixin contact()
   h2.ui.header
