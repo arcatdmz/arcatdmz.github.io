@@ -118,6 +118,9 @@ mixin talks()
 
 mixin publications()
   block publications
+    p The following publications list is automatically generated from 
+      a(href='/junkato.bib') the BibTeX file
+      | .
     h2.ui.header#selected-publications Selected peer-reviewed publications
     .ui.divided.list
       - for (const entry of selectedPublications) {

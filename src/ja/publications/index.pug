@@ -17,6 +17,9 @@ block left-rail-list
         .content 学位論文
 
 block publications
+  p 以下の発表文献リストは
+    a(href='/junkato.bib') BibTeX ファイル
+    | から自動生成されています。
   h2.ui.header#international-publications 国際会議・ジャーナル
   .ui.divided.list
     - for (const entry of publications) {
