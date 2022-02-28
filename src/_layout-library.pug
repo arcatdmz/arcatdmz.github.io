@@ -282,7 +282,12 @@ mixin render-project-card(p)
         - }
         | !{p.getTitle(lang)}
       .meta !{p.getTags(lang).join('')}
+      - let desc = p.getDescription(lang)
+      - if (desc.length > 3 && desc.substring(0, 3) === "<p>") {
       .description !{p.getDescription(lang)}
+      - } else {
+      p.description !{p.getDescription(lang)}
+      - }
     .extra.content
       span.right.floated
         i.calendar.icon
@@ -320,7 +325,12 @@ mixin render-project-item(p)
         - }
         | !{p.getTitle(lang)}
       - }
+      - let desc = p.getDescription(lang)
+      - if (desc.length > 3 && desc.substring(0, 3) === "<p>") {
       .description !{p.getDescription(lang)}
+      - } else {
+      p.description !{p.getDescription(lang)}
+      - }
       - if (p.category !== 'concept') {
       .extra
         span.right.floated
@@ -341,9 +351,11 @@ mixin render-project-label(p)
   - if (p.hasPublication(lang)) {
   - const pubKey = p.getPublication(lang);
   - const pub = publicationsTable[pubKey];
+  - if (pub && pub.getSeriesTag()) {
   span.ui.green.tiny.basic.label
     i.student.icon
-    | !{pub ? pub.getSeriesTag() : (pubKey ? pubKey : 'undefined')}
+    | !{pub.getSeriesTag()}
+  - }
   - } else {
   span #{en ? '(Work in progress)' : '(文献未発表)'}
   - }

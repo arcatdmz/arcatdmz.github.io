@@ -218,6 +218,10 @@ function setupLocals() {
   for (const key of website.products) {
     products.push(projectsTable[key]);
   }
+  const selectedProjects = [];
+  for (const key of website.selectedProjects) {
+    selectedProjects.push(projectsTable[key]);
+  }
 
   // build publications table and list
   const publicationsTable = {};
@@ -237,6 +241,7 @@ function setupLocals() {
     projects: projects,
     projectsTable: projectsTable,
     products: products,
+    selectedProjects: selectedProjects,
     publications: publications,
     publicationsTable: publicationsTable,
     selectedPublications: selectedPublications,
