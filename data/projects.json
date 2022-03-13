@@ -327,7 +327,8 @@
       "title": "Indescribable Tea Party",
       "subtitle": "An annual gathering for creators and their supporters interested in cutting-edge research.",
       "year": {
-        "from": 2012
+        "from": 2012,
+        "to": 2020
       },
       "category": "committee",
       "thumbnail": "teaparty.jpg",
