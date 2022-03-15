@@ -1,6 +1,14 @@
 {
   "en": [
     {
+      "date": "3/15/2022",
+      "text": "Gave a poster presentation titled <a href=\"https://research.archinc.jp/static/files/isid2022-kato-griffith-prototype.pdf\">Griffith: Prototype of A Web-based Tool for Authoring Japanese Anime Storyboards</a> at <a href=\"https://www.jaist.ac.jp/event/design2022/\"><abbr title=\"2nd International Symposium on Intelligence Design\">ISID</abbr> 2022</a> and received one of the Best Poster Awards."
+    },
+    {
+      "date": "2/16/2022",
+      "text": "Participated in the art exhibition titled <a href=\"https://www.d-lab.kit.ac.jp/events/2022/shimakage_na/\">Design Alternative Realities</a> and discussed &quot;Democratization of the Process and Outcome of Computer Science Research.&quot;"
+    },
+    {
       "date": "12/7/2021",
       "text": "Will lead the featured session titled <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2021/\">R&amp;D for Anime Production: State-of-the-Art and Future Prospects</a> and also serve as the Real-Time Live! Chair at <a href=\"https://sa2021.siggraph.org/\" title=\"The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia\">ACM SIGGRAPH Asia 2021</a>."
     },
@@ -278,6 +286,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "3/15/2022",
+      "text": "国際ワークショップ<a href=\"https://www.jaist.ac.jp/event/design2022/\"><abbr title=\"2nd International Symposium on Intelligence Design\">ISID</abbr> 2022</a>で絵コンテ制作支援ツール「<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>」の最新の成果に関するポスター発表「<a href=\"https://research.archinc.jp/static/files/isid2022-kato-griffith-prototype.pdf\">Griffith: Prototype of A Web-based Tool for Authoring Japanese Anime Storyboards</a>」を行い、 Best Poster Award を受賞しました。"
+    },
     {
       "date": "3/11/2022",
       "text": "N&amp;A Art SITE <a href=\"https://bijutsutecho.com/exhibitions/9485\">“現実”の自給自足展</a>で「情報工学“研究”の民主化」という演目の公開インタビュー取材を受けました。その模様を振り返る<a href=\"https://blog.junkato.jp/ja/posts/2022-03-06-conviviality-creativity-research/\">ブログ記事</a>を書きました。"
