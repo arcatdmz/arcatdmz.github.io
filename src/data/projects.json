@@ -89,6 +89,43 @@
   },
   "projects": [
     {
+      "project": "oden",
+      "thumbnail": "oden.png",
+      "icon": true,
+      "tags": [
+        "live-programming",
+        "ide"
+      ],
+      "year": {
+        "from": 2022,
+        "to": 2022
+      },
+      "category": "collaboration",
+      "publication": "iui2022-zhao-oden",
+      "title": "ODEN",
+      "subtitle": "Live Programming for Neural Network Architecture Editing",
+      "description": "ODEN seamlessly supports the edit and experiment repetition in deep learning application development by allowing the user to construct the neural network (NN) with the live visualization and transits into experimentation to instantly train and test the NN architecture.",
+      "url": "https://haremi.xyz/projects/oden/oden.html"
+    },
+    {
+      "project": "rolypoly",
+      "thumbnail": "rolypoly.png",
+      "icon": true,
+      "tags": [
+        "live-programming",
+        "ide"
+      ],
+      "year": {
+        "from": 2021,
+        "to": 2021
+      },
+      "category": "collaboration",
+      "publication": "vlhcc2021-ikarashi-rolypoly",
+      "title": "Guided Optimization for Image Processing Pipelines",
+      "description": "&quot;Guided optimization&quot; provides programmers a set of valid optimization options and interactive feedback about their current choices, which enables them to comprehend and efficiently optimize the image processing code without the time-consuming process of trial-and-error in traditional text editors.",
+      "url": "https://conf.researchr.org/details/vlhcc-2021/vlhcc-2021-vl-hcc-main-conference/22/Guided-Optimization-for-Image-Processing-Pipelines"
+    },
+    {
       "project": "user-interface-design",
       "thumbnail": "user-interface-design.png",
       "private": true,
@@ -104,20 +141,6 @@
         "private": false,
         "title": "ユーザインタフェース設計",
         "description": "<p>ユーザインタフェース設計に関して、基礎理論からデザインの評価手法、デザインで気をつけるべきポイント、最近のホットトピックまで幅広く紹介します。</p>"
-      }
-    },
-    {
-      "project": "programming-as-communication",
-      "tags": ["programming-as-communication"],
-      "year": {
-        "from": 2019
-      },
-      "publication": "ccs2020-kato-rethink-prog-env",
-      "title": "Programming as Communication",
-      "description": "<p>Programming should be a more social activity than what it is right now. A programming environment does not need to be only for programmers. It should instead be designed for users with diverse technical backgrounds.</p><p>Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.</p>",
-      "ja": {
-        "title": "コミュニケーションとしてのプログラミング",
-        "description": "<p>プログラミングは今よりもっとソーシャルな行為であるべきです。プログラミング環境は、プログラマのためだけの環境である必要はありません。むしろ、多様な技術的背景を持つ人々のために設計されるべきです。</p><p>私は、<strong>プログラミング環境の設計を包摂的にする工夫</strong>により、プログラミングを通じたコミュニケーションが成立し、すべての人々にプログラミングによる利益──ひいてはエンパワーメントをもたらすことができると考えています。</p>"
       }
     },
     {
@@ -138,6 +161,20 @@
         "subtitle": "Webベースのアニメ用絵コンテ制作支援ツール",
         "description": "Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。",
         "url": "https://research.archinc.jp/griffith/"
+      }
+    },
+    {
+      "project": "programming-as-communication",
+      "tags": ["programming-as-communication"],
+      "year": {
+        "from": 2019
+      },
+      "publication": "ccs2020-kato-rethink-prog-env",
+      "title": "Programming as Communication",
+      "description": "<p>Programming should be a more social activity than what it is right now. A programming environment does not need to be only for programmers. It should instead be designed for users with diverse technical backgrounds.</p><p>Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them.</p>",
+      "ja": {
+        "title": "コミュニケーションとしてのプログラミング",
+        "description": "<p>プログラミングは今よりもっとソーシャルな行為であるべきです。プログラミング環境は、プログラマのためだけの環境である必要はありません。むしろ、多様な技術的背景を持つ人々のために設計されるべきです。</p><p>私は、<strong>プログラミング環境の設計を包摂的にする工夫</strong>により、プログラミングを通じたコミュニケーションが成立し、すべての人々にプログラミングによる利益──ひいてはエンパワーメントをもたらすことができると考えています。</p>"
       }
     },
     {
