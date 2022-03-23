@@ -144,7 +144,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
     if (!Array.isArray(p.tags) || p.tags.indexOf(tag) < 0) {
       continue;
     }
-    if (p.project === currentProject) {
+    if (p.project === currentProject || p.project === tag) {
       // $list.append(`<div class="item">${p.getTitle(lang)}</div>`);
       continue;
     }

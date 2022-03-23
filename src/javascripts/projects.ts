@@ -151,7 +151,7 @@ class Entry {
     );
   }
   isPrivateProject(lang?: "en" | "ja") {
-    return lang === "ja" ? this.data.ja.private : this.data.private;
+    return lang === "ja" && this.data.ja ? this.data.ja.private : this.data.private;
   }
   getTags(lang?: "en" | "ja") {
     const results = [];
@@ -205,6 +205,11 @@ class Entry {
       return this.data.ja.title;
     }
     return this.data.title;
+  }
+  getLongTitle(lang?: "en" | "ja") {
+    const t = this.getTitle(lang);
+    const st = this.getSubtitle(lang);
+    return st ? `${t}: ${st}` : t;
   }
   hasDesignTitle(lang?: "en" | "ja") {
     return (

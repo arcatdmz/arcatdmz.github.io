@@ -319,7 +319,7 @@ mixin render-project-item(p)
         - }
         | !{p.getTitle(lang)}
       - } else {
-      a.header(href=link)
+      a.header(href=link, title=p.subtitle ? p.getLongTitle(lang) : undefined)
         - if (p.icon) {
         img.ui.avatar.image.mobile.only(src=`${rootPath}images/icons/${p.icon}`)
         - }
