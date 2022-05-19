@@ -27,7 +27,7 @@ block publications
     - if (entry.entryType === 'phdthesis') continue;
     +render-publication(entry)
     - }
-  h2.ui.header#domestic-publications 国内会議・ジャーナル
+  h2.ui.header#domestic-publications 国内会議・ジャーナル・商業誌
   .ui.divided.list
     - for (const entry of publications) {
     - if (!entry.entryTags || entry.entryTags.language !== 'japanese') continue;
