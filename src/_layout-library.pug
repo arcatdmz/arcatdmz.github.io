@@ -167,6 +167,11 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             i.barcode.icon
             | #{en ? 'Resolve DOI' : 'DOIを照会'}
           - }
+          - if (!entry.hasDOIUrl() && (entry.entryTags.projectsite || entry.entryTags.url)) {
+          a.item(href=(entry.entryTags.projectsite || entry.entryTags.url))
+            i.barcode.icon
+            | #{en ? 'Related link' : '関連リンク'}
+          - }
           a.bibtex.item(data-clipboard-text=entry.getBibTeX())
             i.book.icon
             | #{en ? 'Copy BibTeX' : 'BibTeXをコピー'}
