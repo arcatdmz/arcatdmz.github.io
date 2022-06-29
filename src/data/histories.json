@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "06/30/2022",
+      "text": "Presented <a href=\"https://research.archinc.jp/static/files/sas2022-kato-toolsmiths-in-anime.pdf\">Past, Present, and Future of &quot;Toolsmiths&quot; in Japanese Animation</a> in the &quot;Machine Learning and AI in animation&quot; session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2022</a>. This is a follow-up work to <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2021/\">the SIGGRAPH Asia 2021 panel session</a> and <a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">last year's presentation at <abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>."
+    },
+    {
       "date": "3/15/2022",
       "text": "Gave a poster presentation titled <a href=\"https://research.archinc.jp/static/files/isid2022-kato-griffith-prototype.pdf\">Griffith: Prototype of A Web-based Tool for Authoring Japanese Anime Storyboards</a> at <a href=\"https://www.jaist.ac.jp/event/design2022/\"><abbr title=\"2nd International Symposium on Intelligence Design\">ISID</abbr> 2022</a> and received one of the Best Poster Awards."
     },
@@ -286,6 +290,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "06/30/2022",
+      "text": "国際会議<a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2022</a>のセッション「Panel 21 (G0.57): Machine Learning and AI in animation」で「<a href=\"https://research.archinc.jp/static/files/sas2022-kato-toolsmiths-in-anime.pdf\">Past, Present, and Future of &quot;Toolsmiths&quot; in Japanese Animation</a>」と題して発表を行いました。"
+    },
     {
       "date": "3/15/2022",
       "text": "国際ワークショップ<a href=\"https://www.jaist.ac.jp/event/design2022/\"><abbr title=\"2nd International Symposium on Intelligence Design\">ISID</abbr> 2022</a>で絵コンテ制作支援ツール「<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>」の最新の成果に関するポスター発表「<a href=\"https://research.archinc.jp/static/files/isid2022-kato-griffith-prototype.pdf\">Griffith: Prototype of A Web-based Tool for Authoring Japanese Anime Storyboards</a>」を行い、 Best Poster Award を受賞しました。"
