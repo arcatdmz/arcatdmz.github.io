@@ -1,6 +1,14 @@
 {
   "en": [
     {
+      "date": "09/30/2022",
+      "text": "Is serving as an Associate Chair for <a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">the <abbr title=\"Blending Interaction: Engineering Interactive Systems &amp; Tools\">EIST</abbr> subcommittee</a> at <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>."
+    },
+    {
+      "date": "07/01/2022",
+      "text": "Participated in <a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">the Dagstuhl Seminar #22231 on &quot;Theories of Programming&quot;</a> with amazing fellow researchers and had great discussions last month -- will need more time to digest what I got."
+    },
+    {
       "date": "06/30/2022",
       "text": "Presented <a href=\"https://research.archinc.jp/static/files/sas2022-kato-toolsmiths-in-anime.pdf\">Past, Present, and Future of &quot;Toolsmiths&quot; in Japanese Animation</a> in the &quot;Machine Learning and AI in animation&quot; session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2022</a>. This is a follow-up work to <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2021/\">the SIGGRAPH Asia 2021 panel session</a> and <a href=\"https://research.archinc.jp/static/files/sas2021-kato-storyboarding-in-anime.pdf\">last year's presentation at <abbr title=\"Society for Animation Studies\">SAS</abbr> 2021</a>."
     },
@@ -26,7 +34,7 @@
     },
     {
       "date": "05/19/2021",
-      "text": "Served as an Associate Chair for <a href=\"https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies\">the <abbr title=\"Engineering Interactive Systems and Technologies\">EIST</abbr> subcommittee</a> and the <a href=\"https://chi2021.acm.org/information/4659.html\">Student Research Competition</a> Co-chair at <a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>. Congratulations to <a href=\"https://chi2021.acm.org/for-attendees/highlights/awards\">the winners (see the bottom of the Awards page)</a>! "
+      "text": "Served as an Associate Chair for <a href=\"https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies\">the <abbr title=\"Engineering Interactive Systems and Technologies\">EIST</abbr> subcommittee</a> and the <a href=\"https://chi2021.acm.org/information/4659.html\">Student Research Competition</a> Co-chair at <a href=\"https://chi2021.acm.org/\">ACM CHI 2021</a>. Congratulations to <a href=\"https://chi2021.acm.org/for-attendees/highlights/awards\">the winners (see the bottom of the Awards page)</a>!"
     },
     {
       "date": "03/16/2021",
@@ -290,6 +298,14 @@
     }
   ],
   "ja": [
+    {
+      "date": "09/30/2022",
+      "text": "国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>の<a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">Associate Chair (<abbr title=\"Blending Interaction: Engineering Interactive Systems &amp; Tools\">EIST</abbr> subcommittee)</a>を務めます。"
+    },
+    {
+      "date": "07/01/2022",
+      "text": "<a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">Dagstuhl Seminar #22231 &quot;Theories of Programming&quot;</a> に参加しました。コロナ禍になって以来初めて対面での国際イベント参加となり、インタラクティブな議論を楽しみました。"
+    },
     {
       "date": "06/30/2022",
       "text": "国際会議<a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr> 2022</a>のセッション「Panel 21 (G0.57): Machine Learning and AI in animation」で「<a href=\"https://research.archinc.jp/static/files/sas2022-kato-toolsmiths-in-anime.pdf\">Past, Present, and Future of &quot;Toolsmiths&quot; in Japanese Animation</a>」と題して発表を行いました。"
