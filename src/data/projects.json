@@ -89,6 +89,22 @@
   },
   "projects": [
     {
+      "project": "creativity-support-environments",
+      "thumbnail": "creativity-support-environments.png",
+      "icon": "science.jpg",
+      "title": "Creativity Support Environments",
+      "description": "<p>To realize a creative society in which people want to create content with the help of AI technologies, a sustainable ecosystem in which content inspires the next creation serves a critical role.</p><p>I shed light on the creative culture in such an ecosystem, build a &quot;creativity support environment (CSE)&quot; that supports the content creation and distribution process, and aim to establish Human-Computer Interaction (HCI) technologies that engineer, nurture, and maintain the creative culture.</p>",
+      "year": {
+        "from": 2022
+      },
+      "url": false,
+      "ja": {
+        "title": "創造性支援環境",
+        "description": "<p>人々がAIを活用しながらコンテンツ創作を行いたいと思える創造的な社会を実現するためには、コンテンツが次の創作を触発する持続可能なエコシステムの形成が重要です。</p><p>私は、そうしたエコシステムにおいて人々とコンテンツが織りなす創作文化が果たす役割に着目し、コンテンツの創作・流通過程を支援する<strong>創造性支援環境 (Creativity Support Environments)</strong>を実現することで、創作文化を工学的につくり支えるインタラクション技術の確立を目指しています。</p>",
+        "url": "/ja/creativity-support-environments"
+      }
+    },
+    {
       "project": "oden",
       "thumbnail": "oden.png",
       "icon": true,

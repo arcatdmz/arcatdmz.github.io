@@ -1,0 +1,39 @@
+extends ../../_layout
+
+block vars
+  - p = projectsTable['creativity-support-environments'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+block lang
+  - var lang = 'ja';
+
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup: .ui.divided.list
+    a.item(href='#body')
+      i.chevron.circle.up.icon
+      .content #{en ? 'Top' : 'トップ'}
+
+block main
+  +render-project-header('creativity-support-environments')
+  .ui.hidden.divider
+  section#abstract
+    h2.ui.header: .content #{en ? 'Abstract' : '概要'}
+    .ui.basic.segment !{p.getDescription(lang)}
+      p: img.ui.image(src="/ja/creativity-support-environments/creativity-support-environments.png")
+  //- .ui.hidden.divider
+  //- section 
+  .ui.divider
+  section#revision: +revision()
+
+mixin revision()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 10/23/2022
+        .summary プロジェクトページを仮公開
