@@ -7,7 +7,7 @@
   "scripts": {
     "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments src/junkato.bib",
     "blc": "broken-link-checker http://localhost:8080/ -ro",
-    "build": "npm run gulp && npm run build:redirections",
+    "build": "npm run build:gulp && npm run build:redirections",
     "build:gulp": "gulp",
     "build:redirections": "node scripts/add-redirections.mjs",
     "dev": "gulp dev",
