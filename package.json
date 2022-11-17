@@ -7,7 +7,9 @@
   "scripts": {
     "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments src/junkato.bib",
     "blc": "broken-link-checker http://localhost:8080/ -ro",
-    "build": "gulp",
+    "build": "npm run gulp && npm run build:redirections",
+    "build:gulp": "gulp",
+    "build:redirections": "node scripts/add-redirections.mjs",
     "dev": "gulp dev",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
     "test": "gulp test"
@@ -48,7 +50,9 @@
     "gulp-purifycss": "^0.2.0",
     "gulp-replace": "^0.6.1",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "mkdirp": "^1.0.4",
     "moment": "^2.24.0",
+    "node-fetch": "^3.3.0",
     "pdfinfo": "0.0.3",
     "prettier": "^2.5.1",
     "through2": "^2.0.5",
