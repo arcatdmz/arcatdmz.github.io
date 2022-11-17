@@ -1,7 +1,7 @@
 {
   "name": "junkato.jp",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Source code of https://junkato.jp",
   "main": "index.js",
   "scripts": {
