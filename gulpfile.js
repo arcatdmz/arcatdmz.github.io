@@ -366,7 +366,7 @@ const pdfinfo = require("pdfinfo");
 // [lint:html]
 gulp.task("lint:html", function () {
   return gulp
-    .src(["dist/**/*.html", "!dist/picode/docs/**/*.html"])
+    .src(["dist/**/*.html", "!dist/picode/docs/**/*.html", "!dist/ja/blog/**/*.html"])
     .pipe(
       htmlhint({
         "attr-lowercase": ["viewBox"],
