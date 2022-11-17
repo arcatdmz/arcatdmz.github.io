@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-optional && npm i -g gulp-cli
       - name: Build pages
-        run: gulp && gulp test
+        run: npm run build && npm run test
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         with:
