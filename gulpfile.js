@@ -128,7 +128,7 @@ gulp.task("copy:fonts", function () {
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("dist/stylesheets"));
 });
 
 // [copy:default]
