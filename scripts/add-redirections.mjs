@@ -12,8 +12,9 @@ mkdirp("dist/ja/blog/").then(() => {
 fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
   const redirections = await res.json();
 
-  async function traverseCategories(cat, basePath) {
-    return Object.entries(cat, ([key, value]) => {
+  const traverseCategories = (cat, basePath) => {
+    const promises = [];
+    Object.entries(cat, ([key, value]) => {
       const dirPath = `${basePath}${key}`;
       const url = `https://blog.junkato.jp/ja/tags/${key}/`;
       const promise = (async function () {
@@ -23,14 +24,14 @@ fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
           `<html><head><link rel="canonical" href="${url}"><meta http-equiv="refresh" content="0;URL='${url}'" /></head></html>`
         );
       })();
+      promises.push(promise);
       if (typeof value === "boolean") {
-        return promise;
+        return;
       }
-      const promises = traverseCategories(value, `${dirPath}/`);
-      promises.unshift(promise);
-      return promises;
+      promises.push(...traverseCategories(value, `${dirPath}/`));
     });
-  }
+    return promises;
+  };
 
   return Promise.all([
     ...redirections.articles.map(async (redirection) => {
