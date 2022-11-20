@@ -15,11 +15,12 @@ fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
   async function traverseCategories(cat, basePath) {
     return Object.entries(cat, ([key, value]) => {
       const dirPath = `${basePath}${key}`;
+      const url = `https://blog.junkato.jp/ja/tags/${key}/`;
       const promise = (async function () {
         await mkdirp(dirPath);
         fs.writeFileSync(
           `${dirPath}/index.html`,
-          `<html><head><meta http-equiv="refresh" content="0;URL='https://blog.junkato.jp/ja/tags/${key}/'" /></head></html>`
+          `<html><head><link rel="canonical" href="${url}"><meta http-equiv="refresh" content="0;URL='${url}'" /></head></html>`
         );
       })();
       if (typeof value === "boolean") {
@@ -34,10 +35,11 @@ fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
   return Promise.all([
     ...redirections.articles.map(async (redirection) => {
       const dirPath = `dist/ja/blog/${redirection.old}`;
+      const url = `https://blog.junkato.jp/ja/posts/${redirection.new}/`;
       await mkdirp(dirPath);
       fs.writeFileSync(
         `${dirPath}/index.html`,
-        `<html><head><meta http-equiv="refresh" content="0;URL='https://blog.junkato.jp/ja/posts/${redirection.new}/'" /></head></html>`
+        `<html><head><link rel="canonical" href="${url}"><meta http-equiv="refresh" content="0;URL='${url}'" /></head></html>`
       );
     }),
     ...traverseCategories(redirections.categories, "dist/ja/blog/category/")
