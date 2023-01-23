@@ -67,80 +67,81 @@ block main
           a(href='https://textalive.jp/events') the Japanese event page
           | .
       .ui.hidden.divider
-    .left-content: section#abstract
-      h2.ui.header
-        .content #{en ? 'Abstract' : '概要'}
-      .ui.basic.segment
-        block abstract
-          p This paper presents TextAlive, a graphical tool that allows interactive editing of kinetic typography videos in which lyrics or transcripts are animated in synchrony with the corresponding music or speech.
-          p While existing systems have allowed the designer and casual user to create animations, most of them do not take into account synchronization with audio signals. They allow predefined motions to be applied to objects and parameters to be tweaked, but it is usually impossible to extend the predefined set of motion algorithms within these systems.
-          p We therefore propose an integrated design environment featuring
-          ul
-            li GUIs that designers can use to create and edit animations synchronized with audio signals,
-            li integrated tools that programmers can use to implement animation algorithms, and
-            li a framework for bridging the interfaces for designers and programmers.
-          p A preliminary user study with designers, programmers, and casual users demonstrated its capability in authoring various kinetic typography videos.
+    .left-content
+      section#abstract
+        h2.ui.header
+          .content #{en ? 'Abstract' : '概要'}
+        .ui.basic.segment
+          block abstract
+            p This paper presents TextAlive, a graphical tool that allows interactive editing of kinetic typography videos in which lyrics or transcripts are animated in synchrony with the corresponding music or speech.
+            p While existing systems have allowed the designer and casual user to create animations, most of them do not take into account synchronization with audio signals. They allow predefined motions to be applied to objects and parameters to be tweaked, but it is usually impossible to extend the predefined set of motion algorithms within these systems.
+            p We therefore propose an integrated design environment featuring
+            ul
+              li GUIs that designers can use to create and edit animations synchronized with audio signals,
+              li integrated tools that programmers can use to implement animation algorithms, and
+              li a framework for bridging the interfaces for designers and programmers.
+            p A preliminary user study with designers, programmers, and casual users demonstrated its capability in authoring various kinetic typography videos.
       .ui.hidden.divider
-  section#presentations
-    h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
-    .ui.basic.segment
-      .ui.stackable.two.columns.grid
-        .column
-          h3.ui.header CHI 2015 Fast-forward
-          +embed-youtube('//www.youtube.com/embed/lOdt-pf5U8Q')
-          .caption: .ui.horizontal.list
-            .item
-              a(href='//www.youtube.com/watch?v=lOdt-pf5U8Q')
-                i.youtube.icon
-                | Fast-forward
-            .item
-              a(href='//www.youtube.com/watch?v=ofczPQZaWMk')
-                i.youtube.icon
-                | Full version
-        .column
-          h3.ui.header CHI 2015 #{en ? 'Slides' : '発表スライド'}
-          .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
-          .caption: .ui.horizontal.list
-            .item
-              a(href=publicationsTable[p.publication].entryTags.slides)
-                i.download.icon
-                | #{en ? 'Download' : 'ダウンロード'}
-          - if (!en) {
-          p.caption 日本語の発表スライドは
-            a(href='#publications')
-              i.book.icon
-              | 発表文献
-            | で日本語文献の 
-            i.sidebar.fitted.icon
-            |  をクリックすると閲覧できます。
-          - }
-  .ui.hidden.divider
-  section#examples
-    h2.ui.header #{en ? 'Example videos' : '作例'}
-    .ui.basic.segment
-      .ui.stackable.two.columns.grid
-        .column
-          h3.ui.header #{en ? 'TextAlive Online' : 'Web版'}
-            .ui.tiny.label
-              i.calendar.icon
-              span 2015-
-          +embed-youtube('https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo')
-          - if (!en) {
-          p.caption Web版のTextAliveは現在も開発が続けられています。この作例は、初音ミクやアイドルのライブなどで利用されたものです。 
-            a(href='https://textalive.jp') textalive.jp
-            |  にアクセスすれば、誰でも動画を制作できます。
-          - }
-        .column
-          h3.ui.header #{en ? 'TextAlive Desktop' : 'デスクトップ版'}
-            .ui.tiny.label
-              i.calendar.icon
-              span 2014-2015
-          +embed-youtube('https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe')
-          - if (!en) {
-          p.caption デスクトップ版のTextAliveは研究用プロトタイプとして開発されました。この作例は、プログラマや音楽動画制作者の方々を対象としたユーザスタディなどで制作されたものです。
-          - }
-        //.column: .ui.embed
-          iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
-        //.column: .ui.embed(data-url="sigmus104-kato-textalive-example-1.mp4")
+      section#presentations
+        h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+        .ui.basic.segment
+          .ui.stackable.two.columns.grid
+            .column
+              h3.ui.header CHI 2015 Fast-forward
+              +embed-youtube('//www.youtube.com/embed/lOdt-pf5U8Q')
+              .caption: .ui.horizontal.list
+                .item
+                  a(href='//www.youtube.com/watch?v=lOdt-pf5U8Q')
+                    i.youtube.icon
+                    | Fast-forward
+                .item
+                  a(href='//www.youtube.com/watch?v=ofczPQZaWMk')
+                    i.youtube.icon
+                    | Full version
+            .column
+              h3.ui.header CHI 2015 #{en ? 'Slides' : '発表スライド'}
+              .ui.embed(data-url=publicationsTable[p.publication].entryTags.slides, data-placeholder=`${rootPath}images/background-eee.png`, data-icon='video play outline')
+              .caption: .ui.horizontal.list
+                .item
+                  a(href=publicationsTable[p.publication].entryTags.slides)
+                    i.download.icon
+                    | #{en ? 'Download' : 'ダウンロード'}
+              - if (!en) {
+              p.caption 日本語の発表スライドは
+                a(href='#publications')
+                  i.book.icon
+                  | 発表文献
+                | で日本語文献の 
+                i.sidebar.fitted.icon
+                |  をクリックすると閲覧できます。
+              - }
+      .ui.hidden.divider
+      section#examples
+        h2.ui.header #{en ? 'Example videos' : '作例'}
+        .ui.basic.segment
+          .ui.stackable.two.columns.grid
+            .column
+              h3.ui.header #{en ? 'TextAlive Online' : 'Web版'}
+                .ui.tiny.label
+                  i.calendar.icon
+                  span 2015-
+              +embed-youtube('https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo')
+              - if (!en) {
+              p.caption Web版のTextAliveは現在も開発が続けられています。この作例は、初音ミクやアイドルのライブなどで利用されたものです。 
+                a(href='https://textalive.jp') textalive.jp
+                |  にアクセスすれば、誰でも動画を制作できます。
+              - }
+            .column
+              h3.ui.header #{en ? 'TextAlive Desktop' : 'デスクトップ版'}
+                .ui.tiny.label
+                  i.calendar.icon
+                  span 2014-2015
+              +embed-youtube('https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvynuorZNBLnciakayGToDe')
+              - if (!en) {
+              p.caption デスクトップ版のTextAliveは研究用プロトタイプとして開発されました。この作例は、プログラマや音楽動画制作者の方々を対象としたユーザスタディなどで制作されたものです。
+              - }
+            //.column: .ui.embed
+              iframe(src='https://www.youtube.com/embed/videoseries?list=PL1B4fGaIHgNvsugta-O1FPbW6hzaP8jXe', frameborder='0', allowfullscreen='')
+            //.column: .ui.embed(data-url="sigmus104-kato-textalive-example-1.mp4")
   .ui.hidden.divider
   +render-project-publications('textalive', 'chi2015-kato-textalive')
