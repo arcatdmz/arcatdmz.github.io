@@ -135,7 +135,7 @@ mixin products()
     .content #{en ? 'Products' : 'プロダクト'}
   .ui.basic.segment
     block products
-      p The following products are beyond research prototypes and generally available to public.
+      p The following services and tools are beyond research prototypes and used in production.
     .ui.hidden.divider
     .ui.two.stackable.cards.projects#products-list
       - for (const p of products) {
