@@ -148,7 +148,8 @@
       "icon": true,
       "tags": ["user-interface-design", "toolkit", "design", "live-programming"],
       "year": {
-        "from": 2021
+        "from": 2021,
+        "to": 2021
       },
       "publication": "asj-v77n4-kato-ui-design",
       "title": "User Interface Design",

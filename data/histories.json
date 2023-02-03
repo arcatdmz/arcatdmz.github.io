@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "02/04/2023",
+      "text": "<a href=\"https://2022.splashcon.org/home/live-2022\">LIVE 2022</a> in Auckland (NZ) was a big success, thank you! One paper and one <abbr title=\"Special Interest Group\">SIG</abbr> proposal were conditionally accepted to <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>, while one paper was accepted to <a href=\"https://www.sas34.org\"><abbr title=\"Society for Animation Studies\">SAS</abbr> Conference 2023</a>. I'm resuming (physical) travels this year, looking forward to seeing you somewhere."
+    },
+    {
       "date": "09/30/2022",
       "text": "Is serving as a Co-chair of <a href=\"https://2022.splashcon.org/home/live-2022\">LIVE 2022</a> (co-located with <a href=\"https://2022.splashcon.org\">SPLASH 2022</a>) and an Associate Chair of <a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">the <abbr title=\"Blending Interaction: Engineering Interactive Systems &amp; Tools\">EIST</abbr> subcommittee</a> at <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>."
     },
@@ -298,6 +302,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "02/04/2023",
+      "text": "ニュージーランドとオンラインで無事<a href=\"https://2022.splashcon.org/home/live-2022\">LIVE 2022</a>を開催できました。国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>に論文と<abbr title=\"Special Interest Group\">SIG</abbr>提案が条件付採択されました。また、国際会議<a href=\"https://www.sas34.org\"><abbr title=\"Society for Animation Studies\">SAS</abbr> Conference 2023</a>に論文が採択されました。"
+    },
     {
       "date": "09/30/2022",
       "text": "国際会議<a href=\"https://2022.splashcon.org\">SPLASH 2022</a>併催ワークショップ<a href=\"https://2022.splashcon.org/home/live-2022\">LIVE 2022</a>で運営委員長を、国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>の<a href=\"https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction\">Associate Chair (<abbr title=\"Blending Interaction: Engineering Interactive Systems &amp; Tools\">EIST</abbr> subcommittee)</a>を務めています。"
