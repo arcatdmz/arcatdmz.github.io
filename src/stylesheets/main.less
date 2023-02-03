@@ -215,12 +215,17 @@ body.without-header-menu #body {
   color: @red;
 }
 
+.ui.divided.list > .item.publication:not(:first-child) {
+  padding: 0.4em 0.2em;
+}
+
 .item.publication:not(:first-child) > .content > h4.ui.header {
   margin-top: 0.3em;
 }
 
-.item.publication > .content > .description > .authors {
-  margin-bottom: 0.1em;
+.item.publication > .content > .description > .ui.list:first-child {
+  padding-top: .5em;
+  clear: none;
 }
 
 .major-publication h4.ui.header {
