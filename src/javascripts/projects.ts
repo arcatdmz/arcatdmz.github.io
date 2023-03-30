@@ -73,7 +73,7 @@ class Entry {
     return this.data.project;
   }
   get thumbnail() {
-    if (this.data.thumbnail) {
+    if (typeof this.data.thumbnail === "string") {
       return this.data.thumbnail;
     }
     return `${this.data.project}.${defaultImageType}`;
@@ -86,7 +86,11 @@ class Entry {
     return `${this.data.project}.${defaultImageType}`;
   }
   get hero() {
-    return this.data.hero;
+    if (!this.data.hero) return this.data.hero;
+    if (typeof this.data.hero === "string") {
+      return this.data.hero;
+    }
+    return `${this.data.project}.${defaultImageType}`;
   }
   get private() {
     return this.data.private;
