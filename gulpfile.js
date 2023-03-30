@@ -42,8 +42,13 @@ gulp.task("del:node", function () {
   return del("build/**/*.js");
 });
 
+// [del:gzip]
+gulp.task("del:gzip", function () {
+  return del("dist/**/*.gz");
+});
+
 // [del]
-gulp.task("del", gulp.parallel("del:js", "del:node"));
+gulp.task("del", gulp.parallel("del:js", "del:node", "del:gzip"));
 
 // TypeScript & JavaScript compilation
 const ts = require("gulp-typescript");
@@ -182,6 +187,12 @@ gulp.task("html", function () {
 // [html:debug] should be called after ts:node, replace:node, copy:bibtex
 gulp.task("html:debug", function () {
   return compilePug(gulp.src(["src/**/*.pug", "!src/**/_*.pug"]), true);
+});
+
+// [html:histories] should be called after replace:node
+// gulp.series('replace:node')
+gulp.task("html:histories", function () {
+  return compilePug(gulp.src(["src/{index.pug,timeline/index.pug,ja/index.pug,ja/timeline/index.pug}"]), false);
 });
 
 function compilePug(stream, pretty) {
@@ -569,3 +580,4 @@ gulp.task(
   gulp.series(gulp.parallel("ts", "ts:node", "replace:node"), "js")
 );
 gulp.task("dev", gulp.parallel("browser-sync", "watch:html", "watch:css"));
+gulp.task("histories", gulp.series("replace:node", "html:histories"));

@@ -11,6 +11,7 @@
     "build:gulp": "gulp",
     "build:redirections": "node scripts/add-redirections.mjs",
     "dev": "gulp dev",
+    "dev:histories": "gulp histories",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
     "test": "gulp test"
   },
@@ -35,7 +36,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "bibtex-tidy": "^1.7.1",
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.29.1",
     "del": "^5.1.0",
     "glob": "^7.1.7",
     "gulp": "^4.0.2",
