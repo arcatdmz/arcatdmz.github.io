@@ -1,5 +1,21 @@
 [
   {
+    "date": "2/18/2023",
+    "text": {
+      "ja": "Japan ACM SIGCHI Chapter <a href=\"https://sites.google.com/view/riec-hci-symposium-2023\">International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;The HCI researcher as toolsmith,&quot; 2023 Japan ACM SIGCHI Chapter 優秀若手研究者賞授賞記念講演, <a href=\"https://www.youtube.com/watch?v=fDwCDlntmRI\"><i class=\"youtube icon\"></i>YouTube</a>",
+      "en": "Japan ACM SIGCHI Chapter <a href=\"https://sites.google.com/view/riec-hci-symposium-2023\">International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;The HCI researcher as toolsmith,&quot; award talk for 2023 Japan ACM SIGCHI Chapter Distinguished Young Researcher Award, <a href=\"https://www.youtube.com/watch?v=fDwCDlntmRI\"><i class=\"youtube icon\"></i>YouTube</a>"
+    },
+    "type": "international"
+  },
+  {
+    "date": "2/8/2023",
+    "text": {
+      "ja": "<a href=\"https://future.mozilla.org/mieco/\">Mozilla <abbr title=\"The Mozilla Internet Ecosystem\">MIECO</abbr></a> 定例会議, &quot;A Toolsmith for Programmers, Musicians, and Anime Creators&quot;",
+      "en": "<a href=\"https://future.mozilla.org/mieco/\">Mozilla <abbr title=\"The Mozilla Internet Ecosystem\">MIECO</abbr></a> weekly meeting, &quot;A Toolsmith for Programmers, Musicians, and Anime Creators&quot;"
+    },
+    "type": "international"
+  },
+  {
     "date": "2/16/2022",
     "text": {
       "ja": "N&amp;A Art SITE <a href=\"https://bijutsutecho.com/exhibitions/9485\">“現実”の自給自足展</a>「情報工学“研究”の民主化」公開インタビュー収録, <a href=\"https://blog.junkato.jp/ja/posts/2022-03-06-conviviality-creativity-research//\"><i class=\"world icon\"></i>ブログ記事</a>"
