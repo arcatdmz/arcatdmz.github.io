@@ -11,7 +11,7 @@
     "build:gulp": "gulp",
     "build:redirections": "node scripts/add-redirections.mjs",
     "dev": "gulp dev",
-    "dev:histories": "gulp histories",
+    "dev:meta": "gulp dev:meta",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
     "test": "gulp test"
   },
