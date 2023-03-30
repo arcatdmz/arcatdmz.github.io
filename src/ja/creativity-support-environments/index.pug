@@ -1,4 +1,4 @@
-extends ../../_layout
+extends ../../creativity-support-environments/index
 
 block vars
   - p = projectsTable['creativity-support-environments'];
@@ -8,32 +8,21 @@ block vars
 block lang
   - var lang = 'ja';
 
-block post-footer
-  a.ui.circular.icon.popup-menu.large.grey.hidden.button
-    i.sidebar.icon
-  .ui.hidden.popup-menu.popup: .ui.divided.list
-    a.item(href='#body')
-      i.chevron.circle.up.icon
-      .content #{en ? 'Top' : 'トップ'}
+block sigccc-content
+  p ACM CHI 2023 で Special Interest Group （カジュアルな研究会合）を主催します。ぜひ 
+    a(href='https://programs.sigchi.org/chi/2023/program/session/99391') 4月24日（月）午後16:35 Room Y09
+    |  へお越しください。
+  +sigccc-abstract()
+  p また、産業技術総合研究所として 
+    a(href='https://chci.pages.dev/aist-seminar') AIST Creative HCI Seminar 
+    |  というセミナーシリーズを開講しています。
+    | 初回のテーマが「創造性支援」で上記 SIGCCC 提案者ともメンバーが重複しておりますので、ぜひアーカイブ配信をご覧ください。
 
-block main
-  +render-project-header('creativity-support-environments')
-  .ui.hidden.divider
-  section#abstract
-    h2.ui.header: .content #{en ? 'Abstract' : '概要'}
-    .ui.basic.segment !{p.getDescription(lang)}
-      p: img.ui.image(src="/ja/creativity-support-environments/creativity-support-environments.png")
-  //- .ui.hidden.divider
-  //- section 
-  .ui.divider
-  section#revision: +revision()
 
-mixin revision()
-  h2.ui.header
-    i.announcement.icon
-    | #{en ? 'Revision history' : '更新履歴'}
-  .ui.basic.segment: .ui.divided.feed
-    block news
-      .event: .content
-        .date 10/23/2022
-        .summary プロジェクトページを仮公開
+block news
+  .event: .content
+    .date 3/31/2023
+    .summary <a href="https://programs.sigchi.org/chi/2023/program/session/99391" title="Special Interest Group on Creativity and Cultures in Computing">SIGCCC</a> および <a href="https://chci.pages.dev/aist-seminar">AIST Creative HCI Seminar</a> について追記
+  .event: .content
+    .date 10/23/2022
+    .summary プロジェクトページを仮公開
