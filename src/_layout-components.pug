@@ -10,7 +10,7 @@ mixin head()
   - description = description.replace(/(<([^>]+)>)/ig,"");
   - if (!imageUrl) {
   - if (p) {
-  - imageUrl = `${protocol}://${domain}${rootPath}images/thumbnails/${p.thumbnail}`;
+  - imageUrl = `${protocol}://${domain}${rootPath}images/thumbnails/${p.getThumbnail(lang)}`;
   - } else {
   - imageUrl = defaultImageUrl;
   - }

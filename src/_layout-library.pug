@@ -279,7 +279,7 @@ mixin render-major-publication(entry)
 
 mixin render-project-card(p)
   .card(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
-    a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
+    a.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`)
     .content
       a.header(href=p.getLink(lang, basePath))
         - if (p.icon) {
@@ -312,9 +312,9 @@ mixin render-project-item(p)
   - const link = p.getLink(lang, basePath);
   .item(id=p.project ? `projects-${p.project}` : undefined, data-project=p.project)
     - if (link === false) {
-    .mobile.hidden.bordered.image: img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
+    .mobile.hidden.bordered.image: img(src=`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`)
     - } else {
-    a.mobile.hidden.bordered.image(href=link): img(src=`${rootPath}images/thumbnails/${p.thumbnail}`)
+    a.mobile.hidden.bordered.image(href=link): img(src=`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`)
     - }
     .content
       - if (link === false) {

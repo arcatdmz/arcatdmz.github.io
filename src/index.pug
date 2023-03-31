@@ -155,7 +155,7 @@ mixin topics()
     - if (!p.getLink(lang, basePath)) continue;
     .ui.two.column.stackable.grid(id=`topics-${p.project}`)
       .five.wide.column
-        a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.thumbnail}`)
+        a.ui.fluid.bordered.image(href=p.getLink(lang, basePath)): img(src=`${rootPath}images/panels/${p.getThumbnail(lang)}`)
       .eleven.wide.column
         a.ui.header(href=p.getLink(lang, basePath)) !{p.getTitle(lang)}
         .description !{p.getDescription(lang)}

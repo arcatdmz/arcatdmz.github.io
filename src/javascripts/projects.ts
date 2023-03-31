@@ -53,6 +53,7 @@ interface RawEntry {
   url?: string | boolean;
   ja: {
     private?: boolean;
+    thumbnail?: string;
     publication?: string;
     title?: string;
     "title-design"?: string;
@@ -156,6 +157,14 @@ class Entry {
   }
   isPrivateProject(lang?: "en" | "ja") {
     return lang === "ja" && this.data.ja ? this.data.ja.private : this.data.private;
+  }
+  getThumbnail(lang?: "en" | "ja") {
+    if (lang === "ja" && this.data.ja) {
+      if (typeof this.data.ja.thumbnail === "string") {
+        return this.data.ja.thumbnail;
+      }
+    }
+    return this.thumbnail;
   }
   getTags(lang?: "en" | "ja") {
     const results = [];
