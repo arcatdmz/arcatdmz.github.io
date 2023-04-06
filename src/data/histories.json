@@ -206,7 +206,7 @@
     },
     {
       "date": "3/2/2015",
-      "text": "My paper about <a href=\"${rootPath}textalive/\">TextAlive</a>, an <abbr title=\"Integrated Design Environment\">IDE</abbr> to create Kinetic Typography videos with live programming, is accepted to <a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">ACM CHI 2015</a>. It wins <abbr title=\"Best of CHI Honorable Mention award\">a silver medal</abbr>! See you in Korea :)"
+      "text": "My paper about <a href=\"${rootPath}textalive/\">TextAlive</a>, an <abbr title=\"Integrated Design Environment\">IDE</abbr> to create Kinetic Typography videos with live programming, is accepted to <a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">ACM CHI 2015</a>. It wins <abbr title=\"Honorable Mention Award (Best of CHI)\">a silver medal</abbr>! See you in Korea :)"
     },
     {
       "date": "12/6/2014",
@@ -620,7 +620,7 @@
     },
     {
       "date": "3/2/2015",
-      "text": "国際会議<a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">ACM CHI 2015</a>に、<a href=\"https://staff.aist.go.jp/jun.kato/TextAlive/\">TextAlive</a>に関する論文がアクセプトされました。また、本論文がBest Paper Honorable Mention Awardに選ばれました。"
+      "text": "国際会議<a href=\"http://chi2015.acm.org/program/full-schedule/?id=pn160\">ACM CHI 2015</a>に、<a href=\"https://staff.aist.go.jp/jun.kato/TextAlive/\">TextAlive</a>に関する論文がアクセプトされました。また、本論文がHonorable Mention Awardに選ばれました。"
     },
     {
       "date": "12/7/2014",
