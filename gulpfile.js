@@ -303,7 +303,12 @@ function compileCSS(stream) {
 
 // Post-process
 const gzip = require("gulp-gzip");
-const sharp = require("sharp");
+let sharp;
+try {
+  sharp = require("sharp");
+} catch (e) {
+  console.error("npm module \"sharp\" not found -- images won't be resized.")
+}
 const File = require("vinyl");
 
 // [gzip] should be called after js, css
@@ -319,7 +324,11 @@ gulp.task("gzip:debug", function () {
 });
 
 // [sharp]
-gulp.task("sharp", function () {
+gulp.task("sharp", function (cb) {
+  if (!sharp) {
+    cb();
+    return;
+  }
   return gulp
     .src("dist/images/**/*.jpg")
     .pipe(
