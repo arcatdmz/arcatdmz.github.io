@@ -21,6 +21,8 @@ block main
     .ui.basic.segment
       p !{p.getDescription(lang)}
       p: img.ui.bordered.image(src="/images/thumbnails/lyric-app-framework.png")
+      +embed-youtube('//www.youtube.com/embed/7XpDPghxdCE')
+      p.caption #{en ? 'CHI 2023 Video Preview (30s)' : 'CHI 2023 Video Preview（30秒）'}
   .ui.hidden.divider
   +render-project-publications(p.project, 'chi2023-kato-lyric-app-framework')
   .ui.divider
@@ -32,6 +34,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 04/16/2023
+        .summary #{en ? 'Added a video preview' : 'Video Preview を追加'}
       .event: .content
         .date 03/31/2023
         .summary #{en ? 'Added a project page' : 'プロジェクトページを仮公開'}
