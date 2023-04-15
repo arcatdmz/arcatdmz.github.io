@@ -89,6 +89,20 @@
   },
   "projects": [
     {
+      "project": "aist-creative-hci-seminar",
+      "title": "AIST Creative HCI Seminar",
+      "year": {
+        "from": 2023
+      },
+      "category": "committee",
+      "description": "This seminar series is organized by AIST and will invite rising stars in the Human-Computer Interaction field and cover diverse topics which are directly/indirectly connected to creativity support research.",
+      "url": "https://chci.pages.dev/aist-seminar/en",
+      "ja": {
+        "description": "産総研として主催するセミナーシリーズで、国際的に活躍する Human-Computer Interaction 分野の新星を招き、創造性支援研究に直接/間接に関わる多様なトピックを取り上げます。",
+        "url": "https://chci.pages.dev/aist-seminar"
+      }
+    },
+    {
       "project": "lyric-app-framework",
       "title": "Lyric App Framework",
       "subtitle": "A Web-based Framework for Developing Interactive Lyric-driven Musical Applications",
@@ -131,7 +145,6 @@
     },
     {
       "project": "oden",
-      "icon": true,
       "tags": [
         "live-programming",
         "ide"
@@ -149,7 +162,6 @@
     },
     {
       "project": "rolypoly",
-      "icon": true,
       "tags": [
         "live-programming",
         "ide"
