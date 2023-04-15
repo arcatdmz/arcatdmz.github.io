@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "04/16/2023",
+      "text": "Will organize <a href=\"https://chci.pages.dev/chi2023\" title=\"SIGCCC\">Special Interest Group on Creativity and Cultures in Computing</a> from 16:35 Mon, Apr 24 and present <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications</a> (Honorable Mention Award) in the &quot;Creative Applications&quot; session from 9:00 Thu, Apr 27 at <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>."
+    },
+    {
       "date": "03/31/2023",
       "text": "Started a seminar series titled <a href=\"https://chci.pages.dev/aist-seminar/en\">&quot;AIST Creative HCI Seminar&quot;</a> and held <a href=\"https://chci.pages.dev/aist-seminar/en/1\">its first edition</a> on 3/7/2023. It focused on &quot;creativity support&quot; and invited Jonas Frich and Zhicong Lu. The second edition will be held online on 4/14/2023 with focus on &quot;AI for HCI&quot; and invite Amy Pavel and Xingyu Bruce Liu. We are <a href=\"https://chci.pages.dev/aist-seminar/en\">calling for participation</a>!"
     },
@@ -311,6 +315,10 @@
   ],
   "ja": [
     {
+      "date": "04/16/2023",
+      "text": "国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>で「<a href=\"https://chci.pages.dev/chi2023\" title=\"SIGCCC\">Special Interest Group on Creativity and Cultures in Computing</a>」（16:35 Mon, Apr 24）を開催し、「Creative Applications」セッションで「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications</a>」（9:00 Thu, Apr 27; Honorable Mention Award）を登壇発表します。"
+    },
+    {
       "date": "03/31/2023",
       "text": "セミナーシリーズ「<a href=\"https://chci.pages.dev/aist-seminar\">AIST Creative HCI Seminar</a>」を開講しました。<a href=\"https://chci.pages.dev/aist-seminar/1\">初回</a>は3/7/2023に「創造性支援」をテーマにJonas FrichとZhicong Luを招いてハイブリッド開催しました。次回は4/14/2023に「HCIのためのAI」をテーマにAmy PavelとXingyu Bruce Liuを招いてオンライン開催の予定で<a href=\"https://chci.pages.dev/aist-seminar\">参加登録</a>を受付中です。"
     },
@@ -364,7 +372,7 @@
     },
     {
       "date": "09/04/2021",
-      "text": "ドイツのアニメ・マンガに関する大規模なコンベンション「<a href=\"https://www.connichi.de/en\">Connichi」</a>でパネルセッション<a href=\"https://www.connichi.de/conline-2021/programmplan\">「How Academics Contribute to Anime's Future</a>」に参加して発表と議論を行いました。"
+      "text": "ドイツのアニメ・マンガに関する大規模なコンベンション「<a href=\"https://www.connichi.de/en\">Connichi</a>」でパネルセッション「<a href=\"https://www.connichi.de/conline-2021/programmplan\">How Academics Contribute to Anime's Future</a>」に参加して発表と議論を行いました。"
     },
     {
       "date": "09/01/2021",
