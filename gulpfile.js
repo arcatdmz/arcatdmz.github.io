@@ -192,7 +192,7 @@ gulp.task("html:debug", function () {
 // [html:meta] should be called after replace:node
 // gulp.series('replace:node')
 gulp.task("html:meta", function () {
-  return compilePug(gulp.src(["src/{index.pug,timeline/index.pug,publications/index.pug,ja/index.pug,ja/timeline/index.pug,ja/publications/index.pug}"]), false);
+  return compilePug(gulp.src(["src/{index.pug,activities/index.pug,timeline/index.pug,publications/index.pug,ja/index.pug,ja/activities/index.pug,ja/timeline/index.pug,ja/publications/index.pug}"]), false);
 });
 
 function compilePug(stream, pretty) {
