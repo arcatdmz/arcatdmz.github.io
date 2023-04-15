@@ -47,9 +47,9 @@ mixin meetups()
     i.users.icon
     | #{en ? 'Meetups' : '勉強会'}
   - if (en) {
-  p I have founded and regularly held meetups for researchers and creators.
+  p I have founded and regularly held seminars and meetups for researchers and creators.
   - } else {
-  p 年に数回、研究者とクリエータのための勉強会を運営しています。
+  p 研究者とクリエータのための講演会や勉強会を運営しています。
   - }
   .ui.divided.items.projects#meetups-list
     - for (const p of projects) {
@@ -258,10 +258,10 @@ mixin services-oc-misc()
 mixin services-reviewers()
   .item
     .header: abbr(title='The SIGCHI Conference on Human Factors in Computing Systems') CHI
-    .meta 2010, 2015-2022
+    .meta 2010, 2015-2023
   .item
     .header: abbr(title='The Annual ACM symposium on User Interface Software and Technology') UIST
-    .meta 2014-2022
+    .meta 2014-2023
   .item
     .header: abbr(title='ACM SIGCHI Conference on Designing Interactive Systems') DIS
     .meta 2017
@@ -323,7 +323,8 @@ mixin services-miscellaneous()
       //- https://twitter.com/arcatdmz/status/1219188243125522432
     .item
       .header #{en ? 'Organizer of a joint seminar on "Reading All CHI Papers in One Day"' : 'CHI勉強会 幹事'}
-      .meta 2011, 2015-<a href="https://sigchi.jp/seminar/chi2018/">2018</a>
+      .meta 2011, 2015-
+        a(href='https://sigchi.jp/seminar/chi2023/') 2023
     .item
       .header !{en ? 'Guest lecture in the &quot;Special Lectures in Information Engineering&quot; course' : '情報工学特別講義 ゲスト講義'}
       .meta 2018/05/25 #{en ? '"User Interfaces for Programming & The Future of Creativity Support" (Keio University)' : '「プログラミングのためのユーザインタフェースと創作支援の未来」 (慶應義塾大学)'}
