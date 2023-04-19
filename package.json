@@ -9,6 +9,7 @@
     "blc": "broken-link-checker http://localhost:8080/ -ro",
     "build": "npm run build:gulp && npm run build:redirections",
     "build:gulp": "gulp",
+    "build:semantic": "gulp semantic",
     "build:redirections": "node scripts/add-redirections.mjs",
     "dev": "gulp dev",
     "dev:meta": "gulp dev:meta",
