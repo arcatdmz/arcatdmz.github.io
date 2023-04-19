@@ -21,8 +21,33 @@ block main
     .ui.basic.segment
       p !{p.getDescription(lang)}
       p: img.ui.bordered.image(src="/images/thumbnails/lyric-app-framework.png")
-      +embed-youtube('//www.youtube.com/embed/7XpDPghxdCE')
-      p.caption #{en ? 'CHI 2023 Video Preview (30s)' : 'CHI 2023 Video Preview（30秒）'}
+  .ui.hidden.divider
+  section#presentation
+    h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
+    .ui.basic.segment 
+      table.ui.striped.very.basic.table: tbody
+        tr
+          td.three.wide #{en ? 'Where?' : '会場'}
+          td.thirteen.wide: .ui.list: .item
+            i.map.pin.icon
+            .content Room Y07 + Y08, Congress Center Hamburg (CCH)
+        tr
+          td.three.wide #{en ? 'When?' : '日時'}
+          td.thirteen.wide: .ui.list: .item
+            i.clock.icon
+            .content: a(href='https://www.timeanddate.com/worldclock/fixedtime.html?msg=ACM+CHI+2023%3A+Lyric+App+Framework+paper+presentation&iso=20230427T09&p1=307&am=14') Thu, Apr 27 | 09:00 - 09:14
+        tr
+          td.three.wide CHI '23 Program
+          td.thirteen.wide: .ui.list: .item
+            i.book.icon
+            .content: a(href='https://programs.sigchi.org/chi/2023/program/content/96444') Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications - CHI '23
+    .ui.two.columns.grid: .stackable.row
+      .column: .ui.basic.segment
+        +embed-youtube('//www.youtube.com/embed/7XpDPghxdCE')
+        p.caption #{en ? 'CHI 2023 Video Preview (30s)' : 'CHI 2023 Video Preview（30秒）'}
+      .column: .ui.basic.segment
+        +embed-youtube('//www.youtube.com/embed/sX4Cdcljqd0')
+        p.caption CHI 2023 Pre-recorded Presentation Video
   .ui.hidden.divider
   +render-project-publications(p.project, 'chi2023-kato-lyric-app-framework')
   .ui.divider
@@ -34,6 +59,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 04/19/2023
+        .summary #{en ? 'Added a pre-recorded presentation video' : '事前録画のプレゼンテーション動画を追加'}
       .event: .content
         .date 04/16/2023
         .summary #{en ? 'Added a video preview' : 'Video Preview を追加'}
