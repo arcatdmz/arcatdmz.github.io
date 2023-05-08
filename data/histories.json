@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "05/08/2023",
+      "text": "Was featured in <a href=\"https://www.acm.org/articles/people-of-acm/2023/jun-kato\">People of ACM</a> while attending <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a> &mdash; such excellent timing!"
+    },
+    {
       "date": "04/16/2023",
       "text": "Will organize <a href=\"https://chci.pages.dev/chi2023\" title=\"SIGCCC\">Special Interest Group on Creativity and Cultures in Computing</a> from 16:35 Mon, Apr 24 and present <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications</a> (Honorable Mention Award) in the &quot;Creative Applications&quot; session from 9:00 Thu, Apr 27 at <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>."
     },
@@ -314,6 +318,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "05/08/2023",
+      "text": "タイミングのよいことに、<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>参加中に、注目の？メンバーを紹介する「<a href=\"https://www.acm.org/articles/people-of-acm/2023/jun-kato\">People of ACM</a>」に掲載されました。"
+    },
     {
       "date": "04/16/2023",
       "text": "国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>で「<a href=\"https://chci.pages.dev/chi2023\" title=\"SIGCCC\">Special Interest Group on Creativity and Cultures in Computing</a>」（16:35 Mon, Apr 24）を開催し、「Creative Applications」セッションで「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications</a>」（9:00 Thu, Apr 27; Honorable Mention Award）を登壇発表します。"
