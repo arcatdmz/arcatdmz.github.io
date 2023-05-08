@@ -25,7 +25,7 @@ block main
       p: img.ui.image(src=`${basePath}creativity-support-environments/creativity-support-environments.png`)
   //- .ui.hidden.divider
   //- section 
-  .ui.divider
+  .ui.hidden.divider
   section#sigccc: +sigccc()
   .ui.hidden.divider
   +render-project-publications(p.project, 'chi2023-kato-sigccc')
@@ -36,9 +36,12 @@ mixin sigccc()
   h2.ui.header Special Interest Group on Creativity and Cultures in Computing (SIGCCC)
   .ui.basic.segment
     block sigccc-content
-      p We are holding a Special Interest Group meeting at ACM CHI 2023! Please drop by 
-        a(href='https://programs.sigchi.org/chi/2023/program/session/99391') Room Y09 at 16:35 on Monday.
+      p With the help of the researchers working on creativity support whom I respect and admire, a Special Interest Group meeting was held at ACM CHI 2023. Please refer to the event page for more details.
       +sigccc-abstract()
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="http://chci.pages.dev/chi2023")
+      | #{en ? 'Event page' : 'イベントページ'}
+      i.chevron.circle.right.icon
 
 mixin sigccc-abstract()
   .ui.message
