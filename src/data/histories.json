@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "06/20/2023",
+      "text": "Presented <a href=\"https://junkato.jp/publications/sas34-kato-lights-animation-interaction.pdf\">Lights, Animation, Interaction! – Synchronizing Music with Computer-controlled Visuals in Live Performances</a> in the &quot;Sound and Motion&quot; session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr>34</a>. In this talk, I discussed how the &quot;animating lights&quot; contribute to the stage performances from my experience helping creators author lyric videos projected on the stages."
+    },
+    {
       "date": "05/08/2023",
       "text": "Was featured in <a href=\"https://www.acm.org/articles/people-of-acm/2023/jun-kato\">People of ACM</a> while attending <a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a> &mdash; such excellent timing!"
     },
@@ -318,6 +322,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "06/20/2023",
+      "text": "国際会議<a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr>34</a>のセッション「Panel C3. Sound and Motion」で「<a href=\"https://junkato.jp/publications/sas34-kato-lights-animation-interaction.pdf\">Lights, Animation, Interaction! – Synchronizing Music with Computer-controlled Visuals in Live Performances</a>」と題して発表しました。研究の一環で音楽ライブのステージ演出をお手伝いしたり、クリエータの作る演出を間近で見てきたりした経験をもとに講演しました。"
+    },
     {
       "date": "05/08/2023",
       "text": "タイミングのよいことに、<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>参加中に、注目の？メンバーを紹介する「<a href=\"https://www.acm.org/articles/people-of-acm/2023/jun-kato\">People of ACM</a>」に掲載されました。"
