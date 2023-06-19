@@ -15,6 +15,9 @@ block post-footer
     a.item(href='#sigccc')
       i.right.triangle.icon
       .content SIGCCC
+    a.item(href='#xrds')
+      i.right.triangle.icon
+      .content ACM XRDS
 
 block main
   +render-project-header('creativity-support-environments')
@@ -27,6 +30,8 @@ block main
   //- section 
   .ui.hidden.divider
   section#sigccc: +sigccc()
+  .ui.hidden.divider
+  section#xrds: +xrds()
   .ui.hidden.divider
   +render-project-publications(p.project, 'chi2023-kato-sigccc')
   .ui.divider
@@ -48,6 +53,25 @@ mixin sigccc-abstract()
     p Research on creativity support tools (CSTs) has a long history in Human-Computer Interaction (HCI); however, researchers often focus on developing novel CSTs and verifying them in a controlled lab setting, rather than on capturing the creative process in the wild.
     p In reality, creative activity is exploratory, laborious, and involves multiple CSTs; which together form a creativity support environment or ecology. Creative activity is also social, cultural, and collaborative with people distributing, modifying, and reacting to the creations of others. This process can inspire subsequent iterations. To understand and support open-ended, culturally embedded, collaborative creativity, HCI researchers are seeking new methods to study the sociocultural aspects of creativity support.
     p This Special Interest Group on Creativity and Cultures in Computing (SIGCCC) invites diverse researchers to provide a forum for CST discussions from a wide sociocultural lens. The participants will identify and discuss the state-of-the-art and conceptualize future directions for creativity support research.
+
+mixin xrds()
+  h2.ui.header On the Relationship between HCI Researchers and Creators
+    .sub.header &mdash; or How I Became a Toolsmith
+  .ui.basic.segment
+    block xrds-content
+      p <i>XRDS</i> is the ACM's quarterly magazine for students. As part of its featured edition exploring the horizon of computation for creativity, I contributed an article that discusses the importance of helping creative activities &quot;in the wild,&quot; reflecting my research experience.
+      +xrds-abstract()
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="https://xrds.acm.org/article.cfm?aid=3596927&doi=10.1145%2F3596927")
+      | #{en ? 'Online article' : 'オンライン版の記事ページ'}
+      i.chevron.circle.right.icon
+
+mixin xrds-abstract()
+  .ui.message
+    p Research on creativity support tools in Human-Computer Interaction often focuses on novel interaction design, but that is just the tip of the iceberg.
+    p This article discusses the importance of helping creative activities &quot;in the wild&quot; through the author's experience of immersing himself in the creators' environment, talking to them to understand their needs, and revealing the rich history via multidisciplinary studies.
+    p It highlights two case studies: TextAlive, developing an AI-enabled creativity support environment for authoring and distributing lyric videos and apps, and Griffith, developing a web-based storyboarding tool.
+    p These examples emphasize the need for a slow-paced yet in-depth research process that blends technological innovation with a deep appreciation of the cultural contexts of the creative process. 
 
 mixin revision()
   h2.ui.header
