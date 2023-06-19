@@ -128,7 +128,7 @@ mixin publications()
       - }
     .ui.hidden.divider
     h2.ui.header#reviewed-publications Journal/conference/workshop publications
-    p All of these publications went through a review process; most of these publications are considered either archival or semi-archival.
+    p All of these publications, except those explicitly marked as the invited articles, underwent a review process; most of these publications are considered either archival or semi-archival.
     .ui.divided.list
       - for (const entry of publications) {
       - if (selectedPublications.indexOf(entry) >= 0) continue;

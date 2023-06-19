@@ -83,7 +83,9 @@ mixin render-project-header(project, additionalLabels)
       - for (const award of projectAwards) {
       .item
         span.ui.red.tiny.basic.label
+          - if (award.indexOf('Invited') < 0) {
           i.trophy.icon
+          - }
           | #{award}
       - }
       - if (typeof additionalLabels === 'string') {
@@ -194,7 +196,9 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - }
             - if (entry.entryTags.addition) {
             span.ui.tiny.red.label
+              - if (entry.entryTags.addition.indexOf('Invited') < 0) {
               i.trophy.icon
+              - }
               | #{entry.entryTags.addition}
             - }
             - if (entry.entryTags.group) {
@@ -246,7 +250,9 @@ mixin render-major-publication(entry)
       .content #{entry.getBookWithPages()}
     - if (entry.entryTags.addition) {
     .item.award
+      - if (entry.entryTags.addition.indexOf('Invited') < 0) {
       i.trophy.icon
+      - }
       .content: strong #{entry.entryTags.addition}
     - }
   .ui.horizontal.divided.list.extra
