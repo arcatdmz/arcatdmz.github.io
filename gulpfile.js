@@ -589,4 +589,10 @@ gulp.task(
   gulp.series(gulp.parallel("ts", "ts:node", "replace:node"), "js")
 );
 gulp.task("dev", gulp.parallel("browser-sync", "watch:html", "watch:css"));
-gulp.task("dev:meta", gulp.series("replace:node", "html:meta"));
+gulp.task(
+  "dev:meta",
+  gulp.series(
+    gulp.parallel(gulp.series("bibtex", "copy:bibtex"), "replace:node"),
+    "html:meta"
+  )
+);
