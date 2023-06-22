@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "06/23/2023",
+      "text": "The Summer 2023 issue of ACM XRDS (Crossroads) is dedicated to <a href=\"\">&quot;Exploring the Horizon of Computation for Creativity&quot;</a>, to which I contributed <a href=\"https://doi.org/10.1145/3596927\">an article</a>. It discusses the role of computer scientists in helping creative and cultural activities &quot;in the wild.&quot; For more details, please refer to <a href=\"https://blog.junkato.jp/posts/2023-06-22-acm-xrds-computation-for-creativity\">my blog article</a>."
+    },
+    {
       "date": "06/20/2023",
       "text": "Presented <a href=\"https://junkato.jp/publications/sas34-kato-lights-animation-interaction.pdf\">Lights, Animation, Interaction! – Synchronizing Music with Computer-controlled Visuals in Live Performances</a> in the &quot;Sound and Motion&quot; session of <a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr>34</a>. In this talk, I discussed how the &quot;animating lights&quot; contribute to the stage performances from my experience helping creators author lyric videos projected on the stages."
     },
@@ -322,6 +326,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "06/23/2023",
+      "text": "ACM 発行の学生向け季刊雑誌 XRDS で特集 <a href=\"https://doi.org/10.1145/3596921\">&quot;Exploring the Horizon of Computation for Creativity&quot;</a> が組まれ、<a href=\"https://doi.org/10.1145/3596927\">創造性支援研究に関する記事</a>を寄稿しました。人々の創造的活動に寄り添い研究開発してきた経験をもとに書いたもので、この豊穣な世界が伝わるといいなと思います。詳細は<a href=\"https://blog.junkato.jp/ja/posts/2023-06-22-acm-xrds-computation-for-creativity\">ブログ記事</a>をご覧ください。"
+    },
     {
       "date": "06/20/2023",
       "text": "国際会議<a href=\"https://www.animationstudies.org/\"><abbr title=\"Society for Animation Studies\">SAS</abbr>34</a>のセッション「Panel C3. Sound and Motion」で「<a href=\"https://junkato.jp/publications/sas34-kato-lights-animation-interaction.pdf\">Lights, Animation, Interaction! – Synchronizing Music with Computer-controlled Visuals in Live Performances</a>」と題して発表しました。研究の一環で音楽ライブのステージ演出をお手伝いしたり、クリエータの作る演出を間近で見てきたりした経験をもとに講演しました。"
