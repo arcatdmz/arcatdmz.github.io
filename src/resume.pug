@@ -9,7 +9,7 @@ html(lang='en')
     style.
       @import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic&amp;subset=latin,latin-ext);
 
-      body { margin: 0; padding: 0; font-size: 10.5pt; font-family: 'Merriweather', serif; line-height: 160%; }
+      body { margin: 0; padding: 0; font-size: 10pt; font-family: 'Merriweather', serif; line-height: 160%; }
       #menu { position: fixed; bottom: 0; width: 100%; background: #f6f6f6; border: solid #000; border-width: 1px 0 0 0; }
       #menu ul { height: 1em; margin: 0 auto; padding: 0 5px; }
       #menu li { float: left; margin: 5px 0; padding: 2px 7px; border: #ccc solid; border-width: 0 0 0 1px; }
@@ -20,33 +20,40 @@ html(lang='en')
       #container { margin: .5cm auto; padding-bottom: 2em; width: 180mm; }
       #updated { text-align: right; }
 
-      h1, h2, hr { border: solid #000; border-width: 0 0 .75pt 0; }
-      h1, h2 { margin: 1em 0 .5em 0; font-size: 21pt; }
-      h1 { padding: 0 0 .6em 0; }
-      h2 { padding: .4em 0; }
-      h2 { font-size: 16pt; }
+      hr { border: solid #000; border-width: 0 0 .75pt 0; }
+      h1, h2 { margin: 1em 0 .5em 0; }
+      h1 { padding: 0 0 .6em 0; font-size: 18pt; }
+      h2 { margin-bottom: 0; padding: .4em 0; font-size: 12pt; }
 
-      h3 { margin: .4em 0 .2em 0; font-size: 12pt; }
-      h3.papers { margin: .4em 0; padding-bottom: .2em; border: solid #999; border-width: 0 0 1px 0; }
+      h3 { margin: .3em 0 .2em 0; font-size: 11pt; }
+      h3.papers { margin: .3em 0; padding-bottom: .2em; border: solid #999; border-width: 0 0 1px 0; }
       h4 { margin: .1em 0; font-size: 11pt; }
 
       h4.wp { margin: .3em 0 0 0; }
-      h4.wp p { margin: .3em 0; color: #999; font-size: 10.5pt; }
+      h4.wp p { margin: .3em 0; color: #999; font-size: 10pt; }
 
       p, ul, dl { margin: .3em 0 .8em 0; padding: 0; }
       ul { margin-left: 2em; }
 
-      a { color: #069; text-decoration: none; border-bottom: .75pt dashed #069; }
-      a:hover { color: #c00; border-bottom-style: solid; border-bottom-color: #c00; }
+      a { color: #000; text-decoration: none; }
+      a:hover { color: #c00; text-decoration: underline; }
+
+      abbr { text-decoration: none; }
 
       dt, dd, .left, .right { margin: 0; padding: 0; }
       dt, .left { float: left; }
       dd, .right { margin: .3em 0; }
 
-      dt { width: 15%; }
-      dd { margin-left: 15%; }
+      dt { width: 18%; padding-right: 0.3em; text-align: right; font-size: 9pt; }
+      dd { margin-left: 18%; }
       dt::after { content: ":"; }
 
+      .row { display: flex; }
+      .row > .year { width: 18%; padding-right: 0.3em; text-align: right; font-size: 9pt; }
+      .row > .content { width: 82%; }
+
+      p.small { font-size: 9pt; }
+    
       span.award { color: #e99; }
       .left { width: 50%; }
       .right { margin-left: 50%; }
@@ -105,55 +112,66 @@ html(lang='en')
     #container
       p#updated Updated: 4/6/2023
       h1 Jun Kato
-      p
-        | Jun Kato is a senior researcher at 
-        a(href='https://www.aist.go.jp/index_en.html')
-          abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
-        | , where he works on Human-Computer Interaction research, more specifically, designing user interfaces and integrated environments for creativity support. He also serves as a technical advisor at 
-        a(href='https://archinc.jp/en') Arch Inc.
-        | , a Japanese animation production company, and leads 
-        a(href='https://research.archinc.jp/en') Arch Research
-        | . He received a Ph.D. from the Department of Computer Science, The University of Tokyo in March 2014. Prior to graduation, he worked as a research intern at Microsoft Research Asia, Redmond, and Adobe Research Seattle.
-      p
-        | He has regularly gained academic recognition such as Microsoft Research Asia Fellowship 2012, ACM 
-        abbr(title='The SIGCHI conference on Human Factors in Computing Systems') CHI
-        |  2013/2015/2023 Honorable Mention, and 
-        abbr(title='Human-Agent Interaction') HAI
-        |  2014 Best Paper Nominee.
-        
       dl
         dt E-mail
         dd i@junkato.jp
         dt URL
         dd 
           a(href='https://junkato.jp') https://junkato.jp
-      h2#interest Research Interest and Expertise
-      p Human-Computer Interaction, Programming Experience, Creativity Support, Physical Computing, Human-Robot Interaction (typical research approach: building prototyping toolkits and integrated development/design environments for programming interactive media content, evaluating and improving them with real users, and reporting insights gained in academic papers)
-      h2#work Work Experience
-      h3
-        | Senior Researcher, 
-        a(href='https://unit.aist.go.jp/hiiri/meirg/') Media Interaction Group
-        | , 
-        a(href='https://unit.aist.go.jp/hiiri/index-en.html') Human Informatics and Interaction Research Institute (HIIRI)
-        | , 
-        a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
-        |  (September 2018 - present)
-      p Leading research projects to be published as academic papers and deployed as demonstration experiments and collaborating with companies to impact society.
-      h3
-        | Technical Advisor, 
-        a(href='https://archinc.jp/en') Arch Inc.
-        |  
-        a(href='https://research.archinc.jp') (Arch Research)
-        |  (July 2018 - present)
-      p Leading research projects to be deployed in the industry and published as academic papers.
-      h3
-        | Researcher, 
-        a(href='https://unit.aist.go.jp/hiiri/meirg/') Media Interaction Group
-        | , 
-        | Information Technology Research Institute (ITRI), 
-        a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
-        |  (April 2014 - September 2018)
-      p Leading research projects to be published as academic papers and collaborating with companies to impact society.
+      .row
+        .year
+        .content
+          p
+            | Jun Kato is a senior researcher at 
+            a(href='https://www.aist.go.jp/index_en.html')
+              abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
+            | , where he works on Human-Computer Interaction research, more specifically, designing user interfaces and integrated environments for creativity support. He also serves as a technical advisor at 
+            a(href='https://archinc.jp/en') Arch Inc.
+            | , a Japanese animation production company, and leads 
+            a(href='https://research.archinc.jp/en') Arch Research
+            | . He received a Ph.D. from the Department of Computer Science, The University of Tokyo in March 2014. Prior to graduation, he worked as a research intern at Microsoft Research Asia, Redmond, and Adobe Research Seattle.
+          p
+            | He has regularly gained academic recognition such as Microsoft Research Asia Fellowship 2012, ACM 
+            abbr(title='The SIGCHI conference on Human Factors in Computing Systems') CHI
+            |  2013/2015/2023 Honorable Mention, and 
+            abbr(title='Human-Agent Interaction') HAI
+            |  2014 Best Paper Nominee.
+          h2#interest Research Interests
+          p Human-computer interaction, creativity support, programming experience, animation studies
+      .row
+        .year
+        .content
+          h2#work Work Experience
+      section#work-aist
+        .row
+          .year
+          .content: h3: a(href='https://www.aist.go.jp/index_en.html') National Institute of Advanced Industrial Science and Technology (AIST)
+        .row
+          .year September 2018-
+          .content Senior Researcher, 
+            a(href='https://unit.aist.go.jp/hiiri/meirg/') Media Interaction Group
+            | , 
+            a(href='https://unit.aist.go.jp/hiiri/index-en.html') Human Informatics and Interaction Research Institute (HIIRI)
+        .row
+          .year April 2014-
+          .content Researcher, 
+            a(href='https://unit.aist.go.jp/hiiri/meirg/') Media Interaction Group
+            | , 
+            | Information Technology Research Institute (ITRI)
+        .row
+          .year
+          .content: p.small Leading research projects to be published as academic papers and deployed as demonstration experiments and collaborating with companies to impact society.
+      section#work-arch
+        .row
+          .year
+          .content: h3: a(href='https://archinc.jp/en') Arch Inc.
+        .row
+          .year July 2018-
+          .content Technical Advisor, Principal Investigator at 
+            a(href='https://research.archinc.jp') Arch Research
+        .row
+          .year
+          .content: p.small Leading research projects to be deployed in the industry and published as academic papers.
       h3
         | Research Intern, 
         a(href='https://research.adobe.com/')
