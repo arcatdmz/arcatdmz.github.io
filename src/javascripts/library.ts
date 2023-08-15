@@ -27,14 +27,12 @@ export enum EntryDateType {
 export class Entry {
   public dateType: EntryDateType;
   public date: Date;
-  public endDate: Date | undefined;
+  public endDate?: Date;
   public text: string | I18nText;
-  public entryType: string | undefined;
-  constructor(
-    date: string,
-    text: string | I18nText,
-    entryType: string | undefined
-  ) {
+  public entryType?: string;
+  constructor({
+    date, text, entryType
+  }: RawEntry) {
     if (date.indexOf("/") < 0) {
       this.date = new Date("1/1/" + date);
       this.dateType = EntryDateType.Year;
@@ -84,5 +82,5 @@ export class Entry {
 export interface RawEntry {
   date: string;
   text: string | I18nText;
-  type?: string;
+  entryType?: string;
 }
