@@ -5,7 +5,7 @@
       "ja": "Japan ACM SIGCHI Chapter <a href=\"https://sites.google.com/view/riec-hci-symposium-2023\">International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;The HCI researcher as toolsmith,&quot; 2023 Japan ACM SIGCHI Chapter 優秀若手研究者賞授賞記念講演, <a href=\"https://www.youtube.com/watch?v=fDwCDlntmRI\"><i class=\"youtube icon\"></i>YouTube</a>",
       "en": "Japan ACM SIGCHI Chapter <a href=\"https://sites.google.com/view/riec-hci-symposium-2023\">International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;The HCI researcher as toolsmith,&quot; award talk for 2023 Japan ACM SIGCHI Chapter Distinguished Young Researcher Award, <a href=\"https://www.youtube.com/watch?v=fDwCDlntmRI\"><i class=\"youtube icon\"></i>YouTube</a>"
     },
-    "type": "international"
+    "entryType": "international"
   },
   {
     "date": "2/8/2023",
@@ -13,21 +13,21 @@
       "ja": "<a href=\"https://future.mozilla.org/mieco/\">Mozilla <abbr title=\"The Mozilla Internet Ecosystem\">MIECO</abbr></a> 定例会議, &quot;A Toolsmith for Programmers, Musicians, and Anime Creators&quot;",
       "en": "<a href=\"https://future.mozilla.org/mieco/\">Mozilla <abbr title=\"The Mozilla Internet Ecosystem\">MIECO</abbr></a> weekly meeting, &quot;A Toolsmith for Programmers, Musicians, and Anime Creators&quot;"
     },
-    "type": "international"
+    "entryType": "international"
   },
   {
     "date": "2/16/2022",
     "text": {
       "ja": "N&amp;A Art SITE <a href=\"https://bijutsutecho.com/exhibitions/9485\">“現実”の自給自足展</a>「情報工学“研究”の民主化」公開インタビュー収録, <a href=\"https://blog.junkato.jp/ja/posts/2022-03-06-conviviality-creativity-research//\"><i class=\"world icon\"></i>ブログ記事</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "1/19/2022",
     "text": {
       "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "3/15/2021",
@@ -35,14 +35,14 @@
       "ja": "<a href=\"https://www.jaist.ac.jp/whatsnew/event/2021/03/04-1.html\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, &quot;Creativity Support for People with Diverse Technical Background&quot;",
       "en": "<a href=\"https://www.jaist.ac.jp/event/design2021/\"><abbr title=\"1st International Symposium on Intelligence Design\">ISID</abbr> 2021</a>, &quot;Creativity Support for People with Diverse Technical Background&quot;"
     },
-    "type": "international"
+    "entryType": "international"
   },
   {
     "date": "1/20/2021",
     "text": {
       "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "1/24/2020",
@@ -50,42 +50,42 @@
       "ja": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;",
       "en": "<a href=\"https://sites.google.com/view/riec-sigchi-symposium\"><abbr title=\"Research Institute of Electrical Communication, Tohoku University\">RIEC</abbr> International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;Programming for X: Programming Experience Research for Convivial Computing&quot;"
     },
-    "type": "international"
+    "entryType": "international"
   },
   {
     "date": "1/22/2020",
     "text": {
       "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "1/20/2020",
     "text": {
       "ja": "慶應義塾大学 デザイン戦略（オープンデザイン） ゲストクリティーク"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "12/23/2019",
     "text": {
       "ja": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/dbs170.html\">情報処理学会 第170回データベースシステム研究発表会</a>/<a href=\"https://www.ieice.org/ken/program/index.php?tgs_regid=abed63bc529af3a3885b0721e912ca90b17fc69c5bec01f73c25fda12290ef49&tgid=IEICE-DE\">電子情報通信学会 データ工学研究会</a>/<a href=\"http://www.sigmodj.org/conf/detail.php?conf_no=72\">ACM SIGMOD-J</a>共催 「データ指向時代のプログラミング体験」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "12/6/2019",
     "text": {
       "ja": "<a href=\"https://www.facebook.com/events/3279161965487156/\">サイエンスビアバー vol.5</a> 「すべてがプログラミングになる未来」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "5/25/2018",
     "text": {
       "ja": "慶応義塾大学 情報工学特別講義 ゲスト講義「プログラミングのためのユーザインタフェースと創作支援の未来」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "10/24/2017",
@@ -99,7 +99,7 @@
     "text": {
       "ja": "<a href=\"https://jssst2017.wordpress.com/ftd/\">日本ソフトウェア科学会第 34 回大会 Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "6/1/2017",
@@ -127,21 +127,21 @@
     "text": {
       "ja": "<a href=\"http://ipsj-one.org\">情報処理学会全国大会 第78回全国大会 IPSJ-ONE</a> 「コンピュータを変幻自在の道具にするためのプログラミング環境技術」, <a href=\"https://docs.com/junkato/3910\"><i class=\"video play icon\"></i>スライド</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "12/9/2015",
     "text": {
       "ja": "明治大学 コンテンツ・エンタテインメント概論（CE概論）ゲスト講義「* as a Code -- コンテンツをプログラミングする方法」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "9/1/2015",
     "text": {
       "ja": "<a href=\"http://wakate.org/2015/09/22/48threport/\">情報処理学会 第48回 情報科学若手の会</a> 「ぼくらのプログラミングから、みんなのプログラミングへ」, <a href=\"http://junkato.jp/ja/talks/people-are-programmers/\"><i class=\"video play icon\"></i>インタラクティブ講演資料</a>, <a href=\"${rootPath}publications/wakate2015-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "7/1/2015",
@@ -169,14 +169,14 @@
     "text": {
       "ja": "<a href=\"http://www.sighci.jp/events/view/29\">IPSJ 第157回 HCI研究会</a> 「プログラマだって人である─統合開発環境におけるHCI」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "12/1/2013",
     "text": {
       "ja": "Microsoft Research Forum in The University of Tokyo 2013, &quot;My Internship Experience&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "10/1/2013",
@@ -190,56 +190,56 @@
     "text": {
       "ja": "<a href=\"http://conference.vrsj.org/ac2013/\" title=\"第18回 日本バーチャルリアリティ学会大会\">VRSJ 2013</a> 「<a href=\"http://conference.vrsj.org/ac2013/program/252/\" title=\"Picode: ソースコードに姿勢データを表す写真を貼り込める統合開発環境\">世界を目指せ！ ～トップコンファレンス採択論文紹介～</a>」, <a href=\"${rootPath}publications/vrsj2013-kato-topconf.pdf\"><i class=\"video play icon\"></i>スライド</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "7/1/2013",
     "text": {
       "ja": "IBM Research Tokyo 「実世界入出力を伴うプログラム開発の視覚表現を用いた支援手法」"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "5/1/2013",
     "text": {
       "ja": "Concent「Human-Computer Interaction研究について」</a>"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "12/1/2012",
     "text": {
       "ja": "<a href=\"http://www.i.u-tokyo.ac.jp/edu/indus/aboutus.shtml\">東京大学R2P/ISTリーディング・リサーチャー・カフェ</a> 「実世界指向アプリケーションのための開発環境の提案」, <a href=\"${rootPath}publications/r2pist-kato-poster.pdf\"><i class=\"file icon\"></i>ポスター</a>"
     },
-    "type": "domestic"
+    "entryType": "domestic"
   },
   {
     "date": "11/1/2012",
     "text": {
       "ja": "Exvision, Tokyo, &quot;Self Introduction (Talk at Exvision)&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "10/1/2012",
     "text": {
       "ja": "Rakuten Institute of Technology - New York, &quot;Tools for Programming in the Real World&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "7/1/2012",
     "text": {
       "ja": "Berkeley Institute of Design, University of California Berkeley, &quot;Tools for Programming in the Real World&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "6/1/2011",
     "text": {
       "ja": "東京大学 Interaction Technology Laboratory, &quot;Self Introduction (Talk at ITL)&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "5/1/2011",
@@ -253,13 +253,13 @@
     "text": {
       "ja": "Sony CSL, &quot;Self Introduction (Talk at Sony CSL)&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   },
   {
     "date": "10/1/2010",
     "text": {
       "ja": "CG/UI Lab, Columbia University, &quot;Self Introduction (Talk at CG/UI @ Columbia University)&quot;"
     },
-    "type": "private"
+    "entryType": "private"
   }
 ]
