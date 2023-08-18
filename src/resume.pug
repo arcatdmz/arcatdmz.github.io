@@ -5,8 +5,8 @@ include ./resume/_work
 include ./resume/_grants
 include ./resume/_education
 include ./resume/_honors
-include ./resume/_techtransfer
 include ./resume/_publications
+include ./resume/_innovations
 
 doctype html
 html(lang='en')
@@ -20,20 +20,14 @@ html(lang='en')
   body
     #menu: +menu()
     #container
-      p#updated Updated: 4/6/2023
-      h1 Jun Kato
-      dl
-        dt E-mail
-        dd i@junkato.jp
-        dt URL
-        dd: a(href='https://junkato.jp') https://junkato.jp
+      p#updated Updated: 8/19/2023
       #profile: +profile()
       #work: +work()
       #grants: +grants()
       #education: +education()
       #honors: +honors()
-      #techtransfer: +techtransfer()
       #publications: +publications()
+      #innovations: +innovations()
       h2#services.page-break Academic Services
       p Information on domestic academic services is omitted. Send an inquiry to me for the details.
       ul
