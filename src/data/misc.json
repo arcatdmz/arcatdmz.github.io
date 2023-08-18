@@ -10,5 +10,56 @@
     "UIST '12": "acceptance rate: 22%",
     "DIS '12": "acceptance rate: 20%",
     "Special Issue on 21st User Interfaces": "IF 1.115"
+  },
+  "services": {
+    "members": [
+      {
+        "name": "Workshop on Live Programming (LIVE)",
+        "url": "https://liveprog.org",
+        "role": [
+          {
+            "title": "Steering Committee",
+            "from": 2020
+          }
+        ]
+      },
+      {
+        "name": "Japan ACM SIGCHI Chapter",
+        "url": "https://sigchi.jp",
+        "role": [
+          {
+            "title": "Board Member",
+            "from": 2021
+          },
+          {
+            "title": "Treasurer",
+            "from": 2022
+          }
+        ]
+      },
+      {
+        "name": "Special Interest Group in Programming Experience (PX)",
+        "url": "https://sigpx.org/en",
+        "role": [
+          {
+            "title": "Founder, organizer",
+            "from": 2016
+          }
+        ]
+      }
+    ],
+    "organizers": [
+      {
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Blending Interaction: Engineering Interactive Systems & Tools",
+        "url": "https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction",
+        "conference": {
+          "name": "ACM CHI '23",
+          "url": "https://chi2023.acm.org/"
+        },
+        "year": 2023
+      }
+    ]
   }
 }
