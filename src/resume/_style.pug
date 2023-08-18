@@ -11,22 +11,22 @@ mixin style
     #menu ul, #menu li { list-style-type: none; }
     #menu a { border: none; }
 
-    #container { margin: .5cm auto; padding-bottom: 2em; width: 180mm; }
+    #container { margin: 0.5cm auto; padding-bottom: 2em; width: 180mm; }
     #updated { text-align: right; }
 
-    hr { border: solid #000; border-width: 0 0 .75pt 0; }
-    h1, h2 { margin: 1em 0 .5em 0; }
-    h1 { padding: 0 0 .6em 0; font-size: 18pt; }
-    h2 { margin-bottom: 0; padding: .4em 0; font-size: 12pt; }
+    hr { border: solid #000; border-width: 0 0 0.75pt 0; }
+    h1, h2 { margin: 1em 0 0.5em 0; }
+    h1 { padding: 0 0 0.6em 0; font-size: 18pt; }
+    h2 { margin-bottom: 0; padding: 0.4em 0; font-size: 10pt; text-transform: uppercase; }
+    h2:first-letter { font-size: 12pt; }
 
-    h3 { margin: .3em 0 .2em 0; font-size: 11pt; }
-    h3.papers { margin: .3em 0; padding-bottom: .2em; border: solid #999; border-width: 0 0 1px 0; }
-    h4 { margin: .1em 0; font-size: 11pt; }
+    h3 { margin: 0.3em 0 0.2em 0; padding: 0.3em 0 0 0; font-size: 10pt; }
+    h4 { margin: 0.1em 0; font-size: 11pt; }
 
-    h4.wp { margin: .3em 0 0 0; }
-    h4.wp p { margin: .3em 0; color: #999; font-size: 10pt; }
+    h4.wp { margin: 0.3em 0 0 0; }
+    h4.wp p { margin: 0.3em 0; color: #999; font-size: 10pt; }
 
-    p, ul, dl { margin: .3em 0 .8em 0; padding: 0; }
+    p, ul, dl { margin: 0.3em 0 0.8em 0; padding: 0; }
     ul { margin-left: 2em; }
 
     a { color: #000; text-decoration: none; }
@@ -36,7 +36,7 @@ mixin style
 
     dt, dd, .left, .right { margin: 0; padding: 0; }
     dt, .left { float: left; }
-    dd, .right { margin: .3em 0; }
+    dd, .right { margin: 0.3em 0; }
 
     dt { width: 18%; padding-right: 0.3em; text-align: right; font-size: 9pt; }
     dd { margin-left: 18%; }
@@ -46,12 +46,18 @@ mixin style
     .row > .year { width: calc(18% - 0.5em); margin-right: 0.5em; padding-top: 0.2em; text-align: right; font-size: 9pt; line-height: 120%; }
     .row > .content { width: 82%; }
     .row > .content > p:first-child,
-    .row > .content > p.small { margin-top: 0; margin-bottom: .2em; }
+    .row > .content > p.small { margin-top: 0; margin-bottom: 0.2em; }
+
+    .row.header { margin-bottom: 0.7em; }
+    .row.header > .content { border-bottom: 0.7mm solid #eee; }
+    h3.first { margin-top: 0.1em; padding-top: 0; }
 
     p.small { font-size: 9pt; line-height: 130%; }
 
     strong.addition { color: #c33; }
     span.highlight { background: #fee; }
+
+    #publications-all .entry { font-size: 9pt; }
 
     .left { width: 50%; }
     .right { margin-left: 50%; }
@@ -66,7 +72,7 @@ mixin style
       #menu li:first-child { padding-left: 0; }
       #menu li:first-child::before { content: "Table of Contents: "; }
       #container { padding-bottom: 0; }
-      #updated { clear: left; margin-top: 0; padding-top: .3em; }
+      #updated { clear: left; margin-top: 0; padding-top: 0.3em; }
       dt { width: 25%; }
       dd { margin-left: 25%; }
     }
