@@ -5,6 +5,7 @@ include ./resume/_work
 include ./resume/_grants
 include ./resume/_education
 include ./resume/_honors
+include ./resume/_publications
 
 doctype html
 html(lang='en')
@@ -31,6 +32,17 @@ html(lang='en')
       #grants: +grants()
       #education: +education()
       #honors: +honors()
+      #publications
+        .row
+          .year
+          .content: h2 Selected Publications
+        section#publications-selected
+          - for (const entry of selectedPublications) {
+          .row(class=entry.entryType, id=entry.citationKey)
+            .year
+            .content: +print-resume-publication(entry)
+          - }
+        //-  !{JSON.stringify(misc)}
       h2#publications.page-break Publications
       h3.papers Refereed international conference and workshop papers
       h4#iui2022-zhao-oden.wp

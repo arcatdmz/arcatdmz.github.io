@@ -1,0 +1,35 @@
+mixin print-resume-publication(entry)
+  | !{entry.getAuthorsTags().join(', ')}
+  - if (entry.entryTags.editor) {
+  |  (Eds. !{entry.getEditorsTags().join(', ')})
+  - }
+  | . #{entry.entryTags.year}.
+  | #{entry.entryTags.title}. 
+  - let book = entry.getBook(), series = entry.getSeries(), pages = entry.getPages()
+  - if (book.indexOf('Proceedings of') >= 0) {
+  | In 
+  - }
+  i #{book}
+  - let memo = misc.publications[series]
+  - if (series) {
+  |  
+  - if (memo) {
+  i (#{series}; 
+    span.highlight #{memo}
+    | )
+  - } else {
+  i (#{series})
+  - }
+  - }
+  - if (pages) {
+  | , #{entry.getPages()}.
+  - }
+  - if (entry.hasDOIUrl()) {
+  |  
+  a.item(href=entry.getDOIUrl()) DOI: #{entry.entryTags.doi}
+  | .
+  - }
+  - if (entry.entryTags.addition) {
+  |  
+  strong.addition #{entry.entryTags.addition}
+  - }
