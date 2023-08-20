@@ -33,6 +33,7 @@ mixin style
     ul { margin-left: 2em; }
 
     a { color: #000; text-decoration: none; }
+    a.link { text-decoration: underline; }
     a:hover { color: #c00; text-decoration: underline; }
 
     abbr { text-decoration: none; }
@@ -65,6 +66,8 @@ mixin style
     strong.addition { color: #c33; }
     span.highlight { background: #fee; }
 
+    span.year { background: #eee; }
+
     #publications-all .entry { font-size: 9pt; }
     #references .column p a { overflow-wrap: break-word; word-break: break-all; }
 
@@ -90,4 +93,5 @@ mixin style
       h4 { font-size: 10pt; }
       section { break-inside: avoid; }
       */
+      .row { break-inside: avoid; }
     }

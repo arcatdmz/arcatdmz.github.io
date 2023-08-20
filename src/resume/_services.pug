@@ -47,13 +47,13 @@ mixin services
           - let role = member.role[i]
           | #{role.title}
           | 
-          span.highlight #{role.from}-#{role.to}
+          span.year #{role.from}-#{role.to}
           - if (i < member.role.length - 1) {
           | , 
           - }
           - }
         - } else if (member.from) {
-        p.small: span.highlight  #{member.from}-#{member.to}
+        p.small: span.year  #{member.from}-#{member.to}
         - }
     - }
   - let year;
@@ -70,7 +70,7 @@ mixin services
     .row
       .year
       .content
-        h3 Program Committee
+        h3 Conference/Workshop Program Committee Members
     - year = null;
     - for (let organizer of misc.services.organizers) {
     - if (organizer.class === "chair" || organizer.class === "oc") continue;
@@ -78,6 +78,6 @@ mixin services
     - }
     .row
       .year
-      .content: p.small More (regular) reviewing activities can be found at 
-        a(href='https://junkato.jp/activities/') https://junkato.jp/activities/
+      .content: p.small *Minor reviewing activities are omitted and can be found at 
+        a.link(href='https://junkato.jp/activities') https://junkato.jp/activities
         | .
