@@ -57,24 +57,49 @@
             "from": 2016
           }
         ]
+      },
+      {
+        "name": "Society for Animation Studies (SAS)",
+        "url": "https://v4.animationstudies.org",
+        "from": 2020
+      },
+      {
+        "name": "Association for Computing Machinery (ACM)",
+        "url": "https://www.acm.org/",
+        "from": 2009
       }
     ],
     "organizers": [
-    {
-      "class": "chair",
-      "title": "Co-chair",
-      "url": "https://liveprog.org",
-      "event": {
-        "name": "LIVE '23",
-        "fullname": "The Ninth Workshop on Live Programming"
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://liveprog.org",
+        "event": {
+          "name": "LIVE '23",
+          "fullname": "The Ninth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '23",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2023.splashcon.org"
+        },
+        "year": 2023
       },
-      "conference": {
-        "name": "ACM SPLASH '23",
-        "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
-        "url": "https://2023.splashcon.org"
+      {
+        "class": "oc",
+        "title": "Organizer",
+        "url": "https://chci.pages.dev/chi2023",
+        "event": {
+          "name": "SIGCCC",
+          "fullname": "Special Interest Group on Creativity and Cultures in Computing"
+        },
+        "conference": {
+          "name": "ACM CHI '23",
+          "fullname": "The 2023 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2023.acm.org"
+        },
+        "year": 2023
       },
-      "year": 2023
-    },
       {
         "class": "pc",
         "title": "Associate Chair",
@@ -101,6 +126,21 @@
           "url": "https://2022.splashcon.org"
         },
         "year": 2022
+      },
+      {
+        "class": "chair",
+        "title": "Chair",
+        "url": "https://sa2021.siggraph.org/en/about-us/siggraph-asia-2021-committee/real-time-live-committee",
+        "track": {
+          "name": "Real-Time Live!",
+          "url": "https://sa2021.siggraph.org/en/attend/real-time-live"
+        },
+        "event": {
+          "name": "ACM SIGGRAPH Asia '21",
+          "fullname": "The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+          "url": "https://sa2021.siggraph.org/en"
+        },
+        "year": 2018
       },
       {
         "class": "chair",
@@ -211,6 +251,21 @@
       {
         "class": "pc",
         "title": "Program Committee",
+        "url": "https://sa2018.siggraph.org/en/about-us/siggraph-asia-2018-committee/real-time-live-committee.htm",
+        "track": {
+          "name": "Real-Time Live!",
+          "url": "https://sa2018.siggraph.org/en/attendees/real-time-live.htm"
+        },
+        "event": {
+          "name": "ACM SIGGRAPH Asia '18",
+          "fullname": "The 11th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+          "url": "https://sa2018.siggraph.org/en.htm"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
         "url": "https://2018.splashcon.org/home/live-2018",
         "event": {
           "name": "LIVE '18",
@@ -239,7 +294,7 @@
         "title": "Organizing Committee",
         "url": "https://sigchi.jp/symposium/chi2018",
         "event": {
-          "name": "Asian CHI Symposium",
+          "name": "Asian CHI Symposium: Emerging HCI Research Collection",
           "url": "https://chi2018.acm.org/accepted-workshops"
         },
         "conference": {
@@ -350,14 +405,11 @@
         "year": 2017
       },
       {
-        "class": "oc",
-        "title": "Organizing Committee",
-        "url": "https://sigchi.jp/symposium/chi2017",
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Engineering Interactive Systems & Technologies",
+        "url": "https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems",
         "event": {
-          "name": "Asian CHI Symposium on Emerging HCI Research Collection",
-          "url": "https://chi2017.acm.org/workshops.html"
-        },
-        "conference": {
           "name": "ACM CHI '17",
           "fullname": "The 2017 ACM CHI Conference on Human Factors in Computing Systems",
           "url": "https://chi2017.acm.org"
@@ -365,11 +417,14 @@
         "year": 2017
       },
       {
-        "class": "pc",
-        "title": "Associate Chair",
-        "subtitle": "Engineering Interactive Systems & Technologies",
-        "url": "https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems",
+        "class": "oc",
+        "title": "Organizing Committee",
+        "url": "https://sigchi.jp/symposium/chi2017",
         "event": {
+          "name": "Asian CHI Symposium: Emerging HCI Research Collection",
+          "url": "https://chi2017.acm.org/workshops.html"
+        },
+        "conference": {
           "name": "ACM CHI '17",
           "fullname": "The 2017 ACM CHI Conference on Human Factors in Computing Systems",
           "url": "https://chi2017.acm.org"

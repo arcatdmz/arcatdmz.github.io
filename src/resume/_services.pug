@@ -1,4 +1,83 @@
+mixin print-service-organizer-title(organizer)
+  - if (organizer.track) {
+  | #{organizer.track.fullname || organizer.track.name} 
+  - }
+  | #{organizer.title}
+  - if (organizer.subtitle) {
+  |  (#{organizer.subtitle})
+  - }
+
+mixin print-service-organizer(organizer)
+  .row
+    .year
+      - if (!year || year !== organizer.year) {
+      - year = organizer.year
+      | #{organizer.year}
+      - }
+    .content
+      a(href=organizer.event.url || organizer.url): abbr(title=organizer.event.fullname) #{organizer.event.name}
+      p.small
+        - if (organizer.event.url) {
+        a(href=organizer.url)
+          +print-service-organizer-title(organizer)
+        - } else {
+        +print-service-organizer-title(organizer)
+        - }
+        - if (organizer.conference) {
+        | ; held as part of  
+        a(href=organizer.conference.url) #{organizer.conference.name}
+        - }
+
 mixin services
   .row.header
     .year
     .content: h2 Academic Services
+  section#services-members
+    .row
+      .year
+      .content: h3 Memberships
+    - for (let member of misc.services.members) {
+    .row
+      .year
+      .content
+        a(href=member.url) #{member.name}
+        - if (member.role && member.role.length >= 1) {
+        p.small
+          - for (let i = 0; i < member.role.length; i ++) {
+          - let role = member.role[i]
+          | #{role.title}
+          | 
+          span.highlight #{role.from}-#{role.to}
+          - if (i < member.role.length - 1) {
+          | , 
+          - }
+          - }
+        - } else if (member.from) {
+        p.small: span.highlight  #{member.from}-#{member.to}
+        - }
+    - }
+  - let year;
+  section#services-oc
+    .row
+      .year
+      .content: h3 Conference/Workshop Organizers
+    - year = null;
+    - for (let organizer of misc.services.organizers) {
+    - if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+    +print-service-organizer(organizer)
+    - }
+  section#services-pc
+    .row
+      .year
+      .content
+        h3 Program Committee
+    - year = null;
+    - for (let organizer of misc.services.organizers) {
+    - if (organizer.class === "chair" || organizer.class === "oc") continue;
+    +print-service-organizer(organizer)
+    - }
+    .row
+      .year
+      .content: p.small More (regular) reviewing activities can be found at 
+        a(href='https://junkato.jp/activities/') https://junkato.jp/activities/
+        | .

@@ -8,6 +8,7 @@ include ./resume/_honors
 include ./resume/_publications
 include ./resume/_innovations
 include ./resume/_services
+include ./resume/_references
 
 doctype html
 html(lang='en')
@@ -16,12 +17,13 @@ html(lang='en')
     meta(name='author', content='Jun Kato')
     meta(name='viewport', content='width=device-width,user-scalable=yes')
     link(rev='made', href='mailto:i@junkato.jp')
-    title Resume of Jun Kato
+    title Resume of Dr. Jun Kato
     +style()
   body
+    - let updated = "8/19/2023"
     #menu: +menu()
     #container
-      p#updated Updated: 8/19/2023
+      p#updated Updated: #{updated}
       #profile: +profile()
       #work: +work()
       #grants: +grants()
@@ -29,19 +31,8 @@ html(lang='en')
       #honors: +honors()
       #publications: +publications()
       #innovations: +innovations()
-      #services
-        +services()
-        section#services-oc
-          .row
-            .year
-            .content: h3 Organizing Committee
-          - for (let member of misc.services.members) {
-          .row
-            .year
-            .content
-              - for (let role of member.role) {
-              | #{role.title}
-              | (#{role.from}-#{role.to}), 
-              - }
-              a(href=member.url): strong #{member.name}
-          - }
+      #services: +services()
+      #references: +references()
+      footer
+        hr
+        p &copy; Jun Kato #{/[0-9]+$/.exec(updated)}
