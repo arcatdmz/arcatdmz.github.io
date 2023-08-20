@@ -251,6 +251,17 @@
       {
         "class": "pc",
         "title": "Program Committee",
+        "url": "https://iui.acm.org/2019/current_pcs.html",
+        "event": {
+          "name": "ACM IUI '19",
+          "fullname": "The 2019 ACM International Conference on Intelligent User Interfaces",
+          "url": "https://iui.acm.org/2019"
+        },
+        "year": 2019
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
         "url": "https://sa2018.siggraph.org/en/about-us/siggraph-asia-2018-committee/real-time-live-committee.htm",
         "track": {
           "name": "Real-Time Live!",
@@ -328,6 +339,17 @@
           "name": "‹Programming› '18",
           "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
           "url": "https://2018.programming-conference.org"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://iui.acm.org/2018/current_pcs.html",
+        "event": {
+          "name": "ACM IUI '18",
+          "fullname": "The 2018 ACM International Conference on Intelligent User Interfaces",
+          "url": "https://iui.acm.org/2018"
         },
         "year": 2018
       },
@@ -565,7 +587,7 @@
           "name": "Publicity"
         },
         "event": {
-          "name": "ACM UIST '14",
+          "name": "ACM UIST '13",
           "fullname": "The 26th annual ACM symposium on User Interface Software and Technology",
           "url": "https://uist.acm.org/uist2013"
         },

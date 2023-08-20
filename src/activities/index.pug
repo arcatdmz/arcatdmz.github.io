@@ -3,6 +3,10 @@ extends ../_layout
 block vars
   - title = en ? 'Professional Activities' : '職務活動';
   - me = 'activities/';
+  - hciArr = ['CHI', 'UIST', 'IUI'];
+  - pxArr = ['LIVE', 'SPLASH', 'VL/HCC', 'Programming', 'ECOOP', 'PX/'];
+  - rf = (organizer) => (( p, c) => p && organizer.event.name.indexOf(c) < 0 && (!organizer.conference || organizer.conference.name.indexOf(c) < 0));
+  - rfx = (organizer) => ((p, c) => p || organizer.event.name.indexOf(c) >= 0 || (organizer.conference && organizer.conference.name.indexOf(c) >= 0));
 
 block post-footer
   a.ui.circular.icon.popup-menu.large.grey.hidden.button
@@ -61,27 +65,35 @@ mixin services()
   h2.ui.header
     i.lab.icon
     | #{en ? 'Academic services' : '学会活動'}
-  h3.ui.header #{en ? 'Program committee' : 'プログラム委員'}
-  - if (en) {
-  p I have served as program committee members for academic conferences and journals.
-  - } else {
-  p 国際会議、ワークショップやジャーナルなどのプログラム委員を務めてきました。
-  - }
-  .ui.stackable.two.columns.grid
-    .column: +services-pc-hci()
-    .column: +services-pc-px()
-  .ui.stackable.two.columns.grid
-    +services-pc-misc()
+  section#oc
+    h3.ui.header #{en ? 'Organizing committee' : '運営委員'}
+    - if (en) {
+    p I have served as organizing committee members for academic conferences and workshops.
+    - } else {
+    p 国際会議やワークショップなどを運営してきました。
+    - }
+    .ui.stackable.two.columns.grid
+      .column
+        +services-oc-hci()
+      .column
+        +services-oc-misc()
+        +services-oc-px()
+        +services-oc-domestic()
   .ui.divider
-  h3.ui.header #{en ? 'Organizing committee' : '運営委員'}
-  - if (en) {
-  p I have served as organizing committee members for academic conferences and workshops.
-  - } else {
-  p 国際会議やワークショップなどの運営委員を務めてきました。
-  - }
-  .ui.stackable.two.columns.grid
-    .column: +services-oc-hci()
-    .column: +services-oc-misc()
+  section#pc
+    h3.ui.header #{en ? 'Program committee' : 'プログラム委員'}
+    - if (en) {
+    p I have served as program committee members for academic conferences and journals.
+    - } else {
+    p 国際会議、ワークショップやジャーナルなどのプログラム委員を務めてきました。
+    - }
+    .ui.stackable.two.columns.grid
+      .column
+        +services-pc-hci()
+        +services-pc-misc()
+      .column
+        +services-pc-px()
+        +services-pc-domestic()
   .ui.divider
   h3.ui.header #{en ? 'Reviewer' : '査読'}
   - if (en) {
@@ -94,152 +106,86 @@ mixin services()
   .ui.hidden.divider
   section#miscellaneous: +services-miscellaneous()
 
+mixin print-service-organizer(organizer)
+  .ui.item
+    .header: a(href=organizer.event.url || organizer.url): abbr(title=organizer.event.fullname) #{organizer.event.name}
+    .meta
+      - if (organizer.track) {
+      | #{organizer.track.fullname || organizer.track.name} 
+      - }
+      | #{organizer.title}
+      - if (organizer.subtitle) {
+      |  (#{organizer.subtitle})
+      - }
+
 mixin services-pc-hci()
   h4.ui.header Human-Computer Interaction
   .ui.list
-    .ui.item
-      .header <a href="https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction" title="The 2023 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2023</a>
-      .meta Associate Chair (Blending Interaction: Engineering Interactive Systems &amp; Tools)
-    .ui.item
-      .header <a href="https://chi2021.acm.org" title="The 2021 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2021</a>
-      .meta Student Research Competition Chair<br />Associate Chair (Engineering Interactive Systems and Technologies)
-    .ui.item
-      .header <a href="https://chi2020.acm.org/authors/papers/selecting-a-subcommittee/#Engineering-Interactive-Systems-and-Technologies" title="The 2020 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2020</a>
-      .meta Associate Chair (Engineering Interactive Systems and Technologies)
-    .ui.item
-      .header <a href="https://uist.acm.org/uist2019/organizers/" title="The 32nd Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2019</a>
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://uist.acm.org/uist2018/organizers" title="The 31st Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2018</a>
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://iui.acm.org/2018/current_pcs.html" title="The 23nd International Conference on Intelligent User Interfaces">ACM IUI 2018</a>, <a href="https://iui.acm.org/2019/" title="The 24th International Conference on Intelligent User Interfaces">2019</a>
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://uist.acm.org/uist2017/#program-committee" title="The 30th Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2017</a>
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems" title="The 2017 ACM CHI Conference on Human Factors in Computing Systems">ACM CHI 2017</a>
-      .meta Associate Chair (Engineering Interactive Systems and Technologies)
-    .ui.item
-      .header <a href="https://www.acm.org/uist/uist2014/organizers.php" title="The 27th Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2014</a>
-      .meta Program Committee
-    .ui.item
-      .header ACM CHI Symposium on Emerging Japanese HCI Research Collection
-      .meta Program Committee (
-        a(href="http://hci.tokyo/chi2015/") 2015
-        | , 
-        a(href="http://hci.tokyo/chi2016/") 2016
-        | )
-    .ui.item
-      .header Asian CHI Symposium: Emerging HCI Research Collection
-      .meta Program Committee (
-        a(href="http://hci.tokyo/chi2017/") 2017
-        | , 
-        a(href="http://hci.tokyo/chi2018/") 2018
-        | )
+    - for (let organizer of misc.services.organizers) {
+    - if (hciArr.reduce(rf(organizer), true)) continue;
+    - if (organizer.class === "chair" || organizer.class === "oc") continue;
+    +print-service-organizer(organizer)
+    - }
 
 mixin services-pc-px()
   h4.ui.header !{en ? 'Programming Experience': 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'}
   .ui.list
-    .ui.item
-      .header <a href="https://liveprog.org" title="Workshop on Live Programming">LIVE workshop</a>
-      .meta Steering Committee
-    .ui.item
-      .header <a href="https://2022.splashcon.org/home" title="The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity">ACM SPLASH 2022</a> <a href="https://2022.splashcon.org/home/live-2022">LIVE</a> workshop
-      .meta Co-chair
-    .ui.item
-      .header <a href="https://conf.researchr.org/home/vlhcc2020" title="The 2020 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)">IEEE VL/HCC 2020</a>
-      .meta Program Committee &amp; Showpieces Chair
-    .ui.item
-      .header <a href="https://2020.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2020</a>
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2019.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2019</a> main conference and its co-located <a href="https://2019.programming-conference.org/track/px-2018/" title="The fifth edition of the Programming Experience workshop">PX/19</a> workshop
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2018.splashcon.org/home" title="The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity">ACM SPLASH 2018</a> <a href="https://2018.splashcon.org/track/live-2018-papers">LIVE</a> workshop
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2018.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2018</a> main conference and its co-located <a href="https://2018.programming-conference.org/track/px-2018/" title="The forth edition of the Programming Experience workshop">PX/18</a> workshop
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2017.splashcon.org/home" title="The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity">ACM SPLASH 2017</a> <a href="https://2017.splashcon.org/track/px-17-2">PX/17.2</a> and <a href="https://2017.splashcon.org/track/live-2017">LIVE</a> workshops
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2017.programming-conference.org" title="The International Conference on the Art, Science, and Engineering of Programming">&lt;Programming&gt; 2017</a> <a href="https://2017.programming-conference.org/track/px-2017/" title="The second edition of the Programming Experience workshop">PX/17.1</a> workshop
-      .meta Program Committee
-    .ui.item
-      .header <a href="https://2016.ecoop.org/home" title="The 30th European Conference on Object-Oriented Programming">ECOOP 2016</a> <a href="https://2016.ecoop.org/track/PX-2016" title="The first edition of the Programming Experience workshop">PX</a> and <a href="https://2016.ecoop.org/track/LIVE-2016" title="The second workshop on Live Programming systems">LIVE</a> workshops
-      .meta Program Committee
+    - for (let organizer of misc.services.organizers) {
+    - if (pxArr.reduce(rf(organizer), true)) continue;
+    - if (organizer.class === "chair" || organizer.class === "oc") continue;
+    +print-service-organizer(organizer)
+    - }
 
 mixin services-pc-misc()
-  .column
-    h4.ui.header #{en ? 'Computer Graphics, Human-Robot Interaction, etc.' : 'Computer Graphics, Human-Robot Interaction など'}
-    .ui.list
-      .ui.item
-        .header <a href="https://sa2021.siggraph.org/en/about-us/siggraph-asia-2021-committee" title="The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia">SIGGRAPH Asia 2021 Real-Time Live!</a>
-        .meta Program Chair
-      .ui.item
-        .header <a href="https://humanrobotinteraction.org/2017/" title="The 2017 Conference on Human-Robot Interaction">IEEE/ACM HRI 2017</a>
-        .meta Demo &amp; Video Co-chair
-      .ui.item
-        .header <a href="http://hai-conference.net/hai2014/" title="2nd International Conference on Human-Agent Interaction">HAI 2014</a>
-        .meta Program Committee
-      .ui.item
-        .header <a href="https://sa2018.siggraph.org/en/about-us/siggraph-asia-2018-committee" title="The 11th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia">SIGGRAPH Asia 2018 Real-Time Live!</a>
-        .meta Program Committee
+  h4.ui.header #{en ? 'Computer Graphics, Human-Robot Interaction, etc.' : 'Computer Graphics, Human-Robot Interaction など'}
+  .ui.list
+    - for (let organizer of misc.services.organizers) {
+    - if ([...hciArr, ...pxArr].reduce(rfx(organizer), false)) continue;
+    - if (organizer.class === "chair" || organizer.class === "oc") continue;
+    +print-service-organizer(organizer)
+    - }
+
+mixin services-pc-domestic()
   - if (!en) {
-  .column
-    h4.ui.header 国内会議
-    .ui.list
-      .ui.item
-        .header 情報処理学会シンポジウム <a href="https://www.interaction-ipsj.org">インタラクション</a>
-        .meta プログラム委員 (2017-#{new Date().getFullYear()})
-      .ui.item
-        .header 日本ソフトウェア科学会 <a href="https://wiss.org/" title="インタラクティブシステムとソフトウェアに関するワークショップ">WISS</a>
-        .meta プログラム委員 (2015-2019)
+  h4.ui.header 国内会議
+  .ui.list
+    .ui.item
+      .header 情報処理学会シンポジウム <a href="https://www.interaction-ipsj.org">インタラクション</a>
+      .meta プログラム委員 (2017-#{new Date().getFullYear()})
+    .ui.item
+      .header 日本ソフトウェア科学会 <a href="https://wiss.org/" title="インタラクティブシステムとソフトウェアに関するワークショップ">WISS</a>
+      .meta プログラム委員 (2015-2019)
   - }
 
 
 mixin services-oc-hci()
   h4.ui.header Human-Computer Interaction
   .ui.list
-    .ui.item
-      .header <a href="https://iui.acm.org/2018/call_for_studentconsortium.html" title="The 23nd International Conference on Intelligent User Interfaces">ACM IUI 2018</a>
-      .meta Student Consortium Committee
-    .ui.item
-      .header <a href="https://uist.acm.org/uist2016/organizers" title="The 29th Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2016</a>
-      .meta Student Volunteer Chair
-    .ui.item
-      .header <a href="https://www.acm.org/uist/uist2013/organizers.php" title="The 26th Annual ACM Symposium on User Interface Software and Technology">ACM UIST 2013</a>
-      .meta Publicity Co-chair
-  h4.ui.header #{en ? 'HCI regional committees' : 'HCI 地域委員'}
+    - for (let organizer of misc.services.organizers) {
+    - if (hciArr.reduce(rf(organizer), true)) continue;
+    - if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+    +print-service-organizer(organizer)
+    - }
+
+mixin services-oc-px()
+  h4.ui.header !{en ? 'Programming Experience': 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'}
   .ui.list
-    .ui.item
-      .header <a href="https://sigchi.jp/">Japan ACM SIGCHI Chapter</a>
-      .meta Board Member (2016-#{new Date().getFullYear()})
-    .ui.item
-      .header ACM CHI Symposium on Emerging Japanese HCI Research Collection
-      .meta Organizing Committee (
-        a(href="http://hci.tokyo/chi2015/") 2015
-        | , 
-        a(href="http://hci.tokyo/chi2016/") 2016
-        | )
-    .ui.item
-      .header Asian CHI Symposium: Emerging HCI Research Collection
-      .meta Organizing Committee (
-        a(href="http://hci.tokyo/chi2017/") 2017
-        | , 
-        a(href="http://hci.tokyo/chi2018/") 2018
-        | )
+    - for (let organizer of misc.services.organizers) {
+    - if (pxArr.reduce(rf(organizer), true)) continue;
+    - if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+    +print-service-organizer(organizer)
+    - }
 
 mixin services-oc-misc()
-  h4.ui.header Human-Robot Interaction #{en ? 'etc.' : 'など'}
+  h4.ui.header #{en ? 'Computer Graphics, Human-Robot Interaction, etc.' : 'Computer Graphics, Human-Robot Interaction など'}
   .ui.list
-    .ui.item
-      .header <a href="https://iss2016.acm.org/" title="The 2016 ACM International Conference on Interactive Surfaces and Spaces">ACM ISS 2016</a>
-      .meta Publicity Co-chair
+    - for (let organizer of misc.services.organizers) {
+    - if ([...hciArr, ...pxArr].reduce(rfx(organizer), false)) continue;
+    - if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+    +print-service-organizer(organizer)
+    - }
+
+mixin services-oc-domestic()
   - if (!en) {
   h4.ui.header 国内会議
   .ui.list

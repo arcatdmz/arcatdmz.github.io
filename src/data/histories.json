@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "08/20/2023",
+      "text": "My resume has been outdated for a while, and I finally managed to update <a href=\"/resume.html\">it</a>."
+    },
+    {
       "date": "06/23/2023",
       "text": "The Summer 2023 issue of ACM XRDS (Crossroads) is dedicated to <a href=\"\">&quot;Exploring the Horizon of Computation for Creativity&quot;</a>, to which I contributed <a href=\"https://doi.org/10.1145/3596927\">an article</a>. It discusses the role of computer scientists in helping creative and cultural activities &quot;in the wild.&quot; For more details, please refer to <a href=\"https://blog.junkato.jp/posts/2023-06-22-acm-xrds-computation-for-creativity\">my blog article</a>."
     },
@@ -326,6 +330,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "08/21/2023",
+      "text": "レジュメが長いこと古いままだったのですが、ようやく<a href=\"/resume.html\">キャッチアップできました</a>。"
+    },
     {
       "date": "06/23/2023",
       "text": "ACM 発行の学生向け季刊雑誌 XRDS で特集 <a href=\"https://doi.org/10.1145/3596921\">&quot;Exploring the Horizon of Computation for Creativity&quot;</a> が組まれ、<a href=\"https://doi.org/10.1145/3596927\">創造性支援研究に関する記事</a>を寄稿しました。人々の創造的活動に寄り添い研究開発してきた経験をもとに書いたもので、この豊穣な世界が伝わるといいなと思います。詳細は<a href=\"https://blog.junkato.jp/ja/posts/2023-06-22-acm-xrds-computation-for-creativity\">ブログ記事</a>をご覧ください。"
