@@ -80,17 +80,24 @@ class Entry implements BibTexEntry {
     }
     return book;
   }
+  public getPages() {
+    if (!this.entryTags) return "";
+    var pages = this.entryTags.pages;
+    if (!pages) {
+      return "";
+    }
+    if (pages.indexOf("-") >= 0) {
+      pages = pages.replace(/-+/, "-");
+      return `pp.${pages}`;
+    }
+    return `p.${pages}`;
+  }
   public getBookWithPages() {
     if (!this.entryTags) return "";
     var book = this.getBook(),
       pages = this.entryTags.pages;
     if (pages) {
-      if (pages.indexOf("-") >= 0) {
-        pages = pages.replace(/-+/, "-");
-        book = `${book}, pp.${pages}`;
-      } else {
-        book = `${book}, p.${pages}`;
-      }
+      book = `${book}, ${this.getPages()}`;
     }
     return book;
   }

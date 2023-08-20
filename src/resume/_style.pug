@@ -1,0 +1,97 @@
+mixin style
+  style.
+    @import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic&amp;subset=latin,latin-ext);
+
+    body { margin: 0; padding: 0; font-size: 10pt; font-family: 'Merriweather', serif; line-height: 150%; }
+    code { font-family: 'Merriweather', serif; font-size: inherit; background: #eee; }
+    #menu { position: fixed; right: 0; bottom: 0; left: 0; background: #f6f6f6; border: solid #000; border-width: 1px 0 0 0; }
+    #menu ul { margin: 0 auto; padding: 0 5px 5px 5px; }
+    #menu li { display: inline-block; margin: 5px 0 0 0; padding: 2px 7px; border: #ccc solid; border-width: 0 0 0 1px; }
+    #menu li:first-child { border: none; }
+    #menu ul, #menu li { list-style-type: none; }
+    #menu a { border: none; }
+
+    #container { margin: 0.5cm auto; padding-bottom: 2em; width: 180mm; }
+    #updated { text-align: right; }
+    footer { text-align: center; }
+
+    h1, hr { border: solid #eee; border-width: 0 0 0.75pt 0; }
+    h1, h2 { margin: 1em 0 0 0; }
+    h1 { margin-bottom: 1em; padding: 0 0 0.4em 0; font-size: 18pt; }
+    h2 { margin-bottom: 0; padding: 0.4em 0; font-size: 10pt; text-transform: uppercase; }
+    h2:first-letter { font-size: 12pt; }
+    hr { margin: 1em 0; padding: 0; }
+
+    h3 { margin: 0.3em 0 0.2em 0; padding: 0.3em 0 0 0; font-size: 10pt; }
+    h4 { margin: 0.1em 0; font-size: 11pt; }
+
+    h4.wp { margin: 0.3em 0 0 0; }
+    h4.wp p { margin: 0.3em 0; color: #999; font-size: 10pt; }
+
+    p, ul, dl { margin: 0.3em 0 0.8em 0; padding: 0; }
+    dl { margin: 0; }
+    ul { margin-left: 2em; }
+
+    a { color: #000; text-decoration: none; }
+    a.link { text-decoration: underline; }
+    a:hover { color: #c00; text-decoration: underline; }
+
+    abbr { text-decoration: none; }
+
+    dt, dd, .left, .right { margin: 0; padding: 0; }
+    dt, .left { float: left; }
+    dd, .right { margin: 0.3em 0; }
+
+    dt { width: 18%; padding-right: 0.3em; text-align: right; font-size: 9pt; }
+    dd { margin-left: 18%; }
+    dt::after { content: ":"; }
+
+    .row { display: flex; margin-bottom: 0.5em; }
+    .row > .year { width: calc(18% - 0.5em); margin-right: 0.5em; padding-top: 0.2em; text-align: right; font-size: 9pt; line-height: 120%; color: #999; }
+    .row > .content { width: 82%; }
+    .row > .content > p:first-child,
+    .row > .content > p.small { margin-top: 0; margin-bottom: 0.2em; }
+
+    .row.header { margin-bottom: 0.7em; }
+    .row.header > .content { border-bottom: 0.7mm solid #eee; }
+    h3.first { margin-top: 0.1em; padding-top: 0; }
+
+    .column-host { display: flex; flex-wrap: wrap; }
+    .column-host > .column { width: calc(50% - 0.25em); }
+    .column-host > .column:nth-child(odd) { margin-right: 0.25em; }
+    .column-host > .column:nth-child(even) { margin-left: 0.25em; }
+
+    p.small { font-size: 9pt; line-height: 140%; }
+
+    strong.addition { color: #c33; }
+    span.highlight { background: #fee; }
+
+    span.year { background: #eee; }
+
+    #publications-all .entry { font-size: 9pt; }
+    #references .column p a { overflow-wrap: break-word; word-break: break-all; }
+
+    @media only screen and (max-width: 960px) {
+      body { padding: 0 10px; }
+      #menu { position: static; margin: 0 -10px; border-width: 0 0 1px 0; }
+      #menu li:first-child { padding-left: 0; }
+      #menu li:first-child::before { content: "Table of Contents: "; }
+      #container { padding-bottom: 0; }
+      #updated { clear: left; margin-top: 0; padding-top: 0.3em; }
+      dt { width: 25%; }
+      dd { margin-left: 25%; }
+    }
+    @media only screen and (max-width: 180mm) {
+      #container { width: inherit; }
+    }
+    @media print {
+      #menu { display: none; }
+      /*
+      body { font-size: 9pt; }
+      h2 { font-size: 12pt; }
+      h3 { font-size: 10.5pt; }
+      h4 { font-size: 10pt; }
+      section { break-inside: avoid; }
+      */
+      .row { break-inside: avoid; }
+    }

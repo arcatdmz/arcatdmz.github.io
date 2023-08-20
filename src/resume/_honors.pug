@@ -1,0 +1,21 @@
+mixin honors
+  - let honorsText = {}
+  - honorsText["2023 Japan ACM SIGCHI Chapter Distinguished Young Researcher Award"] = "Awarded for substantial academic contributions in the field of human-computer interaction (HCI), pioneering the programming experience domain, organizing major international conferences in HCI, and turning academic achievements into multiple practical services to contribute to the industry."
+  - honorsText["IPSJ/ACM Award for Early Career Contributions to Global Research"] = "Awarded for pioneering work in programming experience research for creativity support of both programmers and non-programmers."
+  .row.header
+    .year
+    .content: h2 Awards and Honors
+  - for (const entry of awards) {
+  - if (entry.entryType !== 'domestic' && !entry.data?.funding) {
+  - let text = entry.getText('en'), ti = text.indexOf(' for the co-authored ')
+  - if (ti >= 0) text = text.substring(0, ti)
+  .row
+    .year #{entry.getDateString('en', true)}
+    .content
+      | !{text}
+      - let key = Object.keys(honorsText).find(t => text.indexOf(t) >= 0)
+      - if (key) {
+      p.small #{honorsText[key]}
+      - }
+  - }
+  - }

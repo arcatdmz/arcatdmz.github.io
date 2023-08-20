@@ -1,0 +1,83 @@
+mixin print-resume-publication(entry)
+  | !{entry.getAuthorsTags().join(', ')}
+  - if (entry.entryTags.editor) {
+  |  (Eds. !{entry.getEditorsTags().join(', ')})
+  - }
+  | . #{entry.entryTags.year}.
+  | #{entry.entryTags.title}. 
+  - let book = entry.getBook(), series = entry.getSeries(), pages = entry.getPages()
+  - if (book.indexOf('Proceedings of') >= 0) {
+  | In 
+  - }
+  i #{book}
+  - let memo = misc.publications[series]
+  - if (series) {
+  |  
+  - if (memo) {
+  i (#{series}; 
+    span.highlight #{memo}
+    | )
+  - } else {
+  i (#{series})
+  - }
+  - }
+  - if (pages) {
+  | , #{entry.getPages()}.
+  - } else {
+  | .
+  - }
+  - if (entry.hasDOIUrl()) {
+  |  
+  a.item(href=entry.getDOIUrl()) DOI: #{entry.entryTags.doi}
+  | .
+  - }
+  - if (entry.entryTags.addition) {
+  |  
+  strong.addition 🌟#{entry.entryTags.addition}
+  - }
+
+mixin publications()
+  - let year = null;
+  .row.header
+    .year
+    .content: h2 Publications
+  section#publications-selected
+    .row
+      .year
+      .content: h3.first Selected Full Papers and Journal Articles
+    //- - year = null
+    - for (const entry of selectedPublications) {
+    .row.entry(class=entry.entryType, id=entry.citationKey)
+      .year
+        //- - if (year !== entry.entryTags.year) {
+        //- - year = entry.entryTags.year
+        //- | #{year}
+        //- - }
+      .content: +print-resume-publication(entry)
+    - }
+  section#publications-all
+    .row
+      .year
+      .content: h3 Other Publications
+    - year = null;
+    - for (const entry of publications) {
+    - let entryType = entry.entryType.toLowerCase();
+    - if (entryType === "comment" || entryType === 'phdthesis') continue;
+    - if (selectedPublications.indexOf(entry) >= 0) continue;
+    - if (entry.entryTags.language === 'japanese') continue; // skip Japanese publications
+    - if (!entry.entryTags.numpages) continue; // skip non-archival publications
+    .row.entry(class=entry.entryType, id=entry.citationKey)
+      .year
+        - if (year !== entry.entryTags.year) {
+        - year = entry.entryTags.year
+        | #{year}
+        - }
+      .content: +print-resume-publication(entry)
+    - }
+    .row
+      .year
+      .content: p.small *Non-archival publications and domestic (Japanese) publications are unlisted and can be found at 
+        a.link(href='https://junkato.jp/publications') https://junkato.jp/publications
+        |  and 
+        a.link(href='https://junkato.jp/ja/publications') /ja/publications
+        | .

@@ -13,6 +13,21 @@ export const months = [
   "Dec",
 ];
 
+export const fullMonths = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export interface I18nText {
   en: string;
   ja: string;
@@ -25,14 +40,17 @@ export enum EntryDateType {
 }
 
 export class Entry {
+  public data: any;
   public dateType: EntryDateType;
   public date: Date;
   public endDate?: Date;
   public text: string | I18nText;
   public entryType?: string;
-  constructor({
-    date, text, entryType
-  }: RawEntry) {
+  constructor(data: RawEntry) {
+    this.data = data;
+    const {
+      date, text, entryType
+    } = data;
     if (date.indexOf("/") < 0) {
       this.date = new Date("1/1/" + date);
       this.dateType = EntryDateType.Year;
@@ -48,7 +66,7 @@ export class Entry {
     this.text = text;
     this.entryType = entryType;
   }
-  public getDateString(lang: string) {
+  public getDateString(lang: string, full?: boolean) {
     const d = this.date,
       ed = this.endDate || new Date();
     switch (this.dateType) {
@@ -56,13 +74,13 @@ export class Entry {
         return lang === "en" ? `${d.getFullYear()}` : `${d.getFullYear()}年`;
       case EntryDateType.Month:
         return lang === "en"
-          ? `${months[d.getMonth()]}. ${d.getFullYear()}`
+          ? `${(full ? fullMonths: months)[d.getMonth()]}${full ? '' : '.'} ${d.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月`;
       case EntryDateType.Range:
         return lang === "en"
-          ? `${months[d.getMonth()]}. ${d.getFullYear()} - ${
-              months[ed.getMonth()]
-            }. ${ed.getFullYear()}`
+          ? `${(full ? fullMonths: months)[d.getMonth()]}${full ? '' : '.'} ${d.getFullYear()} - ${
+            (full ? fullMonths: months)[ed.getMonth()]
+            }${full ? '' : '.'} ${ed.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月-${ed.getFullYear()}年${
               ed.getMonth() + 1
             }月`;

@@ -223,7 +223,8 @@ function setupLocals() {
     projects = require("./build/javascripts/projects").default,
     publications = require("./build/javascripts/publications").parse(
       JSON.parse(fs.readFileSync("./build/data/publications.json"))
-    );
+    ),
+    misc = JSON.parse(fs.readFileSync("./build/data/misc.json"));
 
   // build projects table and list
   const projectsTable = {};
@@ -261,6 +262,7 @@ function setupLocals() {
     publications: publications,
     publicationsTable: publicationsTable,
     selectedPublications: selectedPublications,
+    misc: misc,
     moment: moment,
   };
   for (var key in website) {
