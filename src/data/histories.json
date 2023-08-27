@@ -331,6 +331,10 @@
   ],
   "ja": [
     {
+      "date": "08/23/2023",
+      "text": "<abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023の招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」に登壇し、絵コンテ制作ツール<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>とその研究開発プロセスを紹介しました。"
+    },
+    {
       "date": "08/21/2023",
       "text": "レジュメが長いこと古いままだったのですが、ようやく<a href=\"/resume.html\">キャッチアップできました</a>。"
     },
