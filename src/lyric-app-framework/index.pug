@@ -59,6 +59,11 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      - if (!en) {
+      .event: .content
+        .date 08/27/2023
+        .summary 第138回音楽情報科学研究発表会での発表資料を追加
+      - }
       .event: .content
         .date 04/19/2023
         .summary #{en ? 'Added a pre-recorded presentation video' : '事前録画のプレゼンテーション動画を追加'}
