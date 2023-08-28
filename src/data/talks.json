@@ -1,5 +1,12 @@
 [
   {
+    "date": "8/23/2023",
+    "text": {
+      "ja": "<a href=\"https://cedec.cesa.or.jp/2023\"><abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023</a> 招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2/18/2023",
     "text": {
       "ja": "Japan ACM SIGCHI Chapter <a href=\"https://sites.google.com/view/riec-hci-symposium-2023\">International Symposium on <abbr title=\"Human-Computer Interaction\">HCI</abbr></a>, &quot;The HCI researcher as toolsmith,&quot; 2023 Japan ACM SIGCHI Chapter 優秀若手研究者賞授賞記念講演, <a href=\"https://www.youtube.com/watch?v=fDwCDlntmRI\"><i class=\"youtube icon\"></i>YouTube</a>",
