@@ -20,7 +20,20 @@ block main
     h2.ui.header: .content #{en ? 'Abstract' : '概要'}
     .ui.basic.segment
       p !{p.getDescription(lang)}
+      - if (en) {
       p: img.ui.bordered.image(src="/images/thumbnails/lyric-app-framework.png")
+      - } else {
+      - let images = [3, 4, 9, 14, 17, 19, 24, 25, 29, 31, 41]
+      .ui.stackable.four.columns.grid
+        .column: a(href=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`): img.ui.bordered.image(src=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`)
+        - for (let image of images) {
+        .column: a(href=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides-p${image}.png`): img.ui.bordered.image(src=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides-p${image}_thumbnail.png`)
+        - }
+      - }
+    .ui.basic.right.aligned.segment
+      a.ui.primary.button(href='//developer.textalive.jp')
+        i.external.icon
+        | #{en ? 'Framework Website' : 'フレームワークのWebサイトへ'}
   .ui.hidden.divider
   section#presentation
     h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
