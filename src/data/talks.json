@@ -81,6 +81,13 @@
     "entryType": "domestic"
   },
   {
+    "date": "3/8/2019",
+    "text": {
+      "ja": "<a href=\"https://www.meiji.ac.jp/koho/press/2018/6t5h7p00000u2st3.html\">明治大学総合数理学部 渡邊研究室 展示会</a>併催特別シンポジウム「さよならメインストリーム　～解なきダイバーシティ時代におけるデベロッパー中心で切り開くエコシステム～」セッション「DEVELOPER EXPERIENCE」パネル登壇, <a href=\"${rootPath}publications/pdu-design-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "5/25/2018",
     "text": {
       "ja": "慶応義塾大学 情報工学特別講義 ゲスト講義「プログラミングのためのユーザインタフェースと創作支援の未来」"
@@ -90,8 +97,8 @@
   {
     "date": "10/24/2017",
     "text": {
-      "ja": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"https://junkato.jp/live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
-      "en": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"https://junkato.jp/live-programming/\"><i class=\"world icon\"></i>Website</a>"
+      "ja": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
+      "en": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Website</a>"
     }
   },
   {
