@@ -25,6 +25,29 @@ block main
   section#presentation
     h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
     .ui.basic.segment 
+      - if (!en) {
+      h3.ui.header#sigmus138: .content 第138回音楽情報科学研究発表会
+
+      table.ui.striped.very.basic.table: tbody
+        tr
+          td.three.wide 会場
+          td.thirteen.wide: .ui.list: .item
+            i.map.pin.icon
+            .content 明治大学 中野キャンパス
+        tr
+          td.three.wide 日時
+          td.thirteen.wide: .ui.list: .item
+            i.clock.icon
+            .content: a(href='https://www.ipsj.or.jp/kenkyukai/event/mus138.html') 2023/8/27 (日) 13:30-13:55
+      .ui.embed(data-url=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides, data-placeholder=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`, data-icon='video play outline')
+      .caption: .ui.horizontal.list
+        .item
+          a(href=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides)
+            i.download.icon
+            | #{en ? 'Download' : 'ダウンロード'}
+      .ui.hidden.divider
+      h3.ui.header#chi2023: .content ACM CHI 2023
+      - }
       table.ui.striped.very.basic.table: tbody
         tr
           td.three.wide #{en ? 'Where?' : '会場'}
