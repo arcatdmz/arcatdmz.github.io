@@ -331,6 +331,10 @@
   ],
   "ja": [
     {
+      "date": "09/02/2023",
+      "text": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/mus138.html\">第138回音楽情報科学研究発表会</a>で論文発表「<a href=\"${rootPath}ja/lyric-app-framework\">TextAlive App API: 『リリックアプリ』の提案とプログラミング・コンテストでの実証実験</a>」を行い、ベストプレゼンテーション賞（Best Research部門）を受賞しました。"
+    },
+    {
       "date": "08/23/2023",
       "text": "<abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023の招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」に登壇し、絵コンテ制作ツール<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>とその研究開発プロセスを紹介しました。"
     },

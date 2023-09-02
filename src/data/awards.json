@@ -1,5 +1,13 @@
 [
   {
+    "date": "8/28/2023",
+    "text": {
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> <abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr> Best Presentation Award (&quot;Best Research&quot; category)",
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/kenkyukai/event/mus138.html\">第138回 <abbr title=\"音楽情報科学研究会(SIGMUS)\">音情研</abbr></a> <a href=\"https://www.ipsj.or.jp/award/mus-award1.html\">ベストプレゼンテーション賞</a> 受賞"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "4/23/2023",
     "text": "<a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">ACM CHI '23 Honorable Mention Award</a>"
   },
@@ -83,7 +91,7 @@
     "date": "8/1/2014",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> <abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr> Best Presentation Award",
-      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"http://www.sigmus.jp/?page_id=2780\">第104回 <abbr title=\"音楽情報科学研究会(SIGMUS)\">音情研</abbr></a> <a href=\"http://www.sigmus.jp/?page_id=61\">ベストプレゼンテーション賞</a> 受賞"
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"http://www.sigmus.jp/?page_id=2780\">第104回 <abbr title=\"音楽情報科学研究会(SIGMUS)\">音情研</abbr></a> <a href=\"https://www.ipsj.or.jp/award/mus-award1.html\">ベストプレゼンテーション賞</a> 受賞"
     },
     "entryType": "domestic"
   },
