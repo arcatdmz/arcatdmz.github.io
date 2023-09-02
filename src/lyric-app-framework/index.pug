@@ -12,10 +12,26 @@ block post-footer
     a.item(href='#body')
       i.chevron.circle.up.icon
       .content #{en ? 'Top' : 'トップ'}
+    a.item(href='#abstract')
+      i.right.triangle.icon
+      .content #{en ? 'Abstract' : '概要'}
+    a.item(href='#presentations')
+      i.right.triangle.icon
+      .content #{en ? 'Presentations' : '発表内容'}
+    a.item(href='#publications')
+      i.right.triangle.icon
+      .content #{en ? 'Publications' : '発表文献'}
+    a.item(href='#revisions')
+      i.right.triangle.icon
+      .content #{en ? 'Revisions' : '更新履歴'}
+    a.item(href='#further-readings')
+      i.right.triangle.icon
+      .content #{en ? 'Relevant project' : '関連プロジェクト'}
+
+block main-hero-unit
+  +render-project-hero('lyric-app-framework')
 
 block main
-  +render-project-header('lyric-app-framework')
-  .ui.hidden.divider
   .ui.two.columns.grid: .stackable.row
     .column: section#abstract
       h2.ui.header: .content #{en ? 'Abstract' : '概要'}
@@ -62,82 +78,86 @@ block main
       i.external.icon
       | #{en ? 'Framework Website' : 'フレームワークのWebサイトへ'}
   .ui.hidden.divider
-  section#presentation
-    h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
-    .ui.basic.segment 
-      - if (!en) {
-      h3.ui.header#sigmus138
-        .content
-          | 第138回音楽情報科学研究発表会 (SIGMUS)
-          .sub.header
-            i.ui.trophy.icon
-            | ベストプレゼンテーション賞 (Best Research部門)
-      table.ui.striped.very.basic.table: tbody
-        tr
-          td.three.wide 会場
-          td.thirteen.wide: .ui.list: .item
-            i.map.pin.icon
-            .content 明治大学 中野キャンパス
-        tr
-          td.three.wide 日時
-          td.thirteen.wide: .ui.list: .item
-            i.clock.icon
-            .content: a(href='https://www.ipsj.or.jp/kenkyukai/event/mus138.html') 2023/8/27 (日) 13:30-13:55
-        tr
-          td.three.wide 論文
-          td.thirteen.wide: .ui.list: .item
-            i.text.file.icon
-            .content: a(href=`${rootPath}publications/sigmus138-kato-lyric-apps.pdf`) TextAlive App API:「リリックアプリ」の提案とプログラミング・コンテストでの実証実験
-      .ui.two.columns.grid: .stackable.row
-        .column: .ui.basic.segment
-          +embed-youtube('//www.youtube.com/embed/yTS5600B4pg')
-          p.caption プレゼンテーション再録
-        .column: .ui.basic.segment
-          .ui.embed(data-url=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides, data-placeholder=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`, data-icon='video play outline')
-          .caption: .ui.horizontal.list
-            .item
-              a(href=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides)
-                i.download.icon
-                | #{en ? 'Download' : 'ダウンロード'}
-      .ui.hidden.divider
-      h3.ui.header#chi2023
-        .content
-          | ACM CHI 2023
-          - if (!en) {
-          .sub.header
-            i.ui.trophy.icon
-            | Honorable Mention Award
-          - }
-      - }
-      table.ui.striped.very.basic.table: tbody
-        tr
-          td.three.wide #{en ? 'Where?' : '会場'}
-          td.thirteen.wide: .ui.list: .item
-            i.map.pin.icon
-            .content Room Y07 + Y08, Congress Center Hamburg (CCH)
-        tr
-          td.three.wide #{en ? 'When?' : '日時'}
-          td.thirteen.wide: .ui.list: .item
-            i.clock.icon
-            .content: a(href='https://www.timeanddate.com/worldclock/fixedtime.html?msg=ACM+CHI+2023%3A+Lyric+App+Framework+paper+presentation&iso=20230427T09&p1=307&am=14') Thu, Apr 27 | 09:00 - 09:14
-        tr
-          td.three.wide CHI '23 Program
-          td.thirteen.wide: .ui.list: .item
-            i.book.icon
-            .content: a(href='https://programs.sigchi.org/chi/2023/program/content/96444') Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications - CHI '23
-    .ui.two.columns.grid: .stackable.row
-      .column: .ui.basic.segment
-        +embed-youtube('//www.youtube.com/embed/7XpDPghxdCE')
-        p.caption #{en ? 'CHI 2023 Video Preview (30s)' : 'CHI 2023 Video Preview（30秒）'}
-      .column: .ui.basic.segment
-        +embed-youtube('//www.youtube.com/embed/sX4Cdcljqd0')
-        p.caption CHI 2023 Pre-recorded Presentation Video
+  section#presentations: +presentations()
   .ui.hidden.divider
   +render-project-publications(p.project, 'chi2023-kato-lyric-app-framework')
-  .ui.divider
-  section#revision: +revision()
+  .ui.hidden.divider
+  section#revisions: +revisions()
+  .ui.hidden.divider
+  section#further-readings: +further-readings()
 
-mixin revision()
+mixin presentations()
+  h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
+  .ui.basic.segment 
+    - if (!en) {
+    h3.ui.header#sigmus138
+      .content
+        | 第138回音楽情報科学研究発表会 (SIGMUS)
+        .sub.header
+          i.ui.trophy.icon
+          | ベストプレゼンテーション賞 (Best Research部門)
+    table.ui.striped.very.basic.table: tbody
+      tr
+        td.three.wide 会場
+        td.thirteen.wide: .ui.list: .item
+          i.map.pin.icon
+          .content 明治大学 中野キャンパス
+      tr
+        td.three.wide 日時
+        td.thirteen.wide: .ui.list: .item
+          i.clock.icon
+          .content: a(href='https://www.ipsj.or.jp/kenkyukai/event/mus138.html') 2023/8/27 (日) 13:30-13:55
+      tr
+        td.three.wide 論文
+        td.thirteen.wide: .ui.list: .item
+          i.text.file.icon
+          .content: a(href=`${rootPath}publications/sigmus138-kato-lyric-apps.pdf`) TextAlive App API:「リリックアプリ」の提案とプログラミング・コンテストでの実証実験
+    .ui.two.columns.grid: .stackable.row
+      .column: .ui.basic.segment
+        +embed-youtube('//www.youtube.com/embed/yTS5600B4pg')
+        p.caption プレゼンテーション再録
+      .column: .ui.basic.segment
+        .ui.embed(data-url=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides, data-placeholder=`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`, data-icon='video play outline')
+        .caption: .ui.horizontal.list
+          .item
+            a(href=publicationsTable['sigmus138-kato-lyric-app-framework'].entryTags.slides)
+              i.download.icon
+              | #{en ? 'Download' : 'ダウンロード'}
+    .ui.hidden.divider
+    h3.ui.header#chi2023
+      .content
+        | ACM CHI 2023
+        - if (!en) {
+        .sub.header
+          i.ui.trophy.icon
+          | Honorable Mention Award
+        - }
+    - }
+    table.ui.striped.very.basic.table: tbody
+      tr
+        td.three.wide #{en ? 'Where?' : '会場'}
+        td.thirteen.wide: .ui.list: .item
+          i.map.pin.icon
+          .content Room Y07 + Y08, Congress Center Hamburg (CCH)
+      tr
+        td.three.wide #{en ? 'When?' : '日時'}
+        td.thirteen.wide: .ui.list: .item
+          i.clock.icon
+          .content: a(href='https://www.timeanddate.com/worldclock/fixedtime.html?msg=ACM+CHI+2023%3A+Lyric+App+Framework+paper+presentation&iso=20230427T09&p1=307&am=14') Thu, Apr 27 | 09:00 - 09:14
+      tr
+        td.three.wide CHI '23 Program
+        td.thirteen.wide: .ui.list: .item
+          i.book.icon
+          .content: a(href='https://programs.sigchi.org/chi/2023/program/content/96444') Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications - CHI '23
+  .ui.two.columns.grid: .stackable.row
+    .column: .ui.basic.segment
+      +embed-youtube('//www.youtube.com/embed/7XpDPghxdCE')
+      p.caption #{en ? 'CHI 2023 Video Preview (30s)' : 'CHI 2023 Video Preview（30秒）'}
+    .column: .ui.basic.segment
+      +embed-youtube('//www.youtube.com/embed/sX4Cdcljqd0')
+      p.caption CHI 2023 Pre-recorded Presentation Video
+
+mixin revisions()
   h2.ui.header
     i.announcement.icon
     | #{en ? 'Revision history' : '更新履歴'}
@@ -164,3 +184,11 @@ mixin revision()
       .event: .content
         .date 03/31/2023
         .summary #{en ? 'Added a project page' : 'プロジェクトページを仮公開'}
+
+mixin further-readings()
+  h2.ui.header
+    i.gift.icon
+    .content #{en ? 'Relevant project' : '関連プロジェクト'}
+  .ui.basic.segment
+    .ui.segment: .ui.divided.items.projects
+      +render-project-item(projectsTable['textalive'])
