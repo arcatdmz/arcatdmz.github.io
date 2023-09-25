@@ -2,3 +2,40 @@ extends ../../live-programming/index
 
 block lang
   - var lang = 'ja';
+  - title = 'ライブプログラミングのためのユーザインタフェース';
+  - description = 'ライブプログラミングはコーディングと実行・デバッグの間の溝をなくす試みです。ライブプログラミングをサポートするシステムを設計するためには、まず何を開発しようとしているのかについての理解が必要です。開発対象のアプリケーションに関するドメイン固有の知識を得たら、次は、実行中のアプリケーションを編集するためのユーザインタフェースを作ります。それは、例えばスライダーだったり、カラーパレットだったり、タイムラインインタフェースだったりするでしょう。ライブプログラミングにおいてなめらかなプログラミング体験を提供する鍵となるのは、開発対象のアプリケーションに関する深い理解と、インタラクティブなユーザインタフェースの採用です。';
+
+block introduction
+  .ui.stackable.two.columns.grid
+    .column
+      p 
+        a(href='https://jssst2023.wordpress.com/tutorial') 第40回日本ソフトウェア科学会大会 チュートリアル
+        | では、ビジュアルアーティストの
+        a(href='https://baku89.com') 橋本麦
+        | 氏と共に講師を務め、ライブプログラミング研究の概略史紹介と、ライブプログラミング環境を開発するハンズオンを行いました。「ライブネス（Liveness）」に着目したプログラミング環境はビジュアルプログラミングやSmalltalk処理系など古くからありましたが、近年、滑らかなプログラミング体験を提供するキーアイデアの一つとして改めて注目されています。研究者とアーティスト双方の観点から状況整理を試みました。
+    .column
+      p
+        a(href='https://2017.splashcon.org/details/live-2017/7/Keynote-User-Interfaces-for-Live-Programming') LIVE 2017 基調講演
+        | では、ユーザインターフェース設計の観点からプログラミング環境の「ライブネス（Liveness）」について議論しました。プログラミングのためのユーザインターフェースを紹介し、画像表現をプログラミング環境に統合することの重要性を論じました。物理的なインタラクションと、開発者・ユーザ間のインタラクションという2種類のインタラクションを具体的な研究事例と共に紹介し、「ライブネス」の定義を拡大して、将来のライブプログラミング・システムの設計に関して示唆を提供しました。
+
+block presentations 
+  section#presentation-jssst2023
+    +presentation-jssst2023()
+  section#presentation-live2017
+    +presentation-live2017()
+
+mixin presentation-jssst2023
+  h2.ui.header 第40回日本ソフトウェア科学会大会
+  .ui.basic.segment: .ui.message
+    i.info.circle.icon
+    | コンテンツを準備中です。
+    a(href='https://scrapbox.io/ProgrammingExperience/JSSST2023_%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB') Scrapboxのチュートリアル準備ページ
+    | および
+    a(href='https://github.com/baku89/jssst40-tuts#40th-jssst-tutorial') GitHub のハンズオン資料
+    | をご覧ください。
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="https://jssst2023.wordpress.com/tutorial")
+      | 大会公式ページ
+      i.chevron.circle.right.icon
+  
+  .ui.hidden.divider

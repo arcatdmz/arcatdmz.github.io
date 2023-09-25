@@ -1,12 +1,41 @@
 extends ../_layout
 
 block vars
-  - title = 'User Interfaces for Live Programming';
-  - description = 'Live programming eliminates the gulf between code and execution. To design live programming systems, we first need to understand what we are developing. Once we gain domain-specific knowledge of the target applications, we create user interfaces to edit the running application, such as scrubbing sliders, color palettes, and timeline interfaces. The key to the fluid programming experience of live programming is the combination of deep understanding of the target applications and adoption of interactive user interfaces.';
+  - title = title || 'User Interfaces for Live Programming';
+  - description = description || 'Live programming eliminates the gulf between code and execution. To design live programming systems, we first need to understand what we are developing. Once we gain domain-specific knowledge of the target applications, we create user interfaces to edit the running application, such as scrubbing sliders, color palettes, and timeline interfaces. The key to the fluid programming experience of live programming is the combination of deep understanding of the target applications and adoption of interactive user interfaces.';
   - imageUrl = `${protocol}://${domain}${rootPath}images/panels/live-programming.jpg`;
   - me = 'live-programming/';
   - const slideUrl = `${protocol}://${domain}${rootPath}publications/live2017-kato-keynote-slides.pdf`;
   - const slideImagePath = `${rootPath}live-programming/live2017/live2017-kato-keynote-slides`;
+
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup: .ui.divided.list
+    a.item(href='#body')
+      i.chevron.circle.up.icon
+      .content #{en ? 'Top' : 'トップ'}
+    a.item(href='#abstract')
+      i.right.triangle.icon
+      .content #{en ? 'Abstract' : '概要'}
+    - if (en) {
+    a.item(href='#presentations')
+      i.right.triangle.icon
+      .content Presentation materials
+    - } else {
+    a.item(href='#presentation-jssst2023')
+      i.right.triangle.icon
+      .content 第40回日本ソフトウェア科学会 チュートリアル
+    a.item(href='#presentation-live2017')
+      i.right.triangle.icon
+      .content LIVE 2017 基調講演
+    - }
+    a.item(href='#further-readings')
+      i.right.triangle.icon
+      .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+    a.item(href='#revisions')
+      i.right.triangle.icon
+      .content #{en ? 'Revision history' : '更新履歴'}
 
 block main
   section
@@ -14,12 +43,12 @@ block main
     +render-share()
     .ui.horizontal.divided.list.project-meta-list
       .item
-        span.ui.tiny.basic.label
-          i.calendar.icon
-          | 10/24/2017
+        span.ui.red.tiny.basic.label
+          | #{en ? 'Keynote Talk at LIVE \'17' : "LIVE \'17 基調講演"}
       .item
         span.ui.red.tiny.basic.label
-          | Keynote Talk at LIVE '17
+          | #{en ? 'Tutorial course at JSSST \'23' : "第40回日本ソフトウェア科学会大会 チュートリアル"}
+    - if (en) {
     .ui.message
       p The page provides summary for 
         a(href='https://2017.splashcon.org/event/live-2017-keynote-a') the keynote talk at LIVE '17 workshop
@@ -28,35 +57,36 @@ block main
         |  and 
         a(href=`${basePath}user-generated-variables/`) User-Generated Variables
         | .
-      - if (!en) {
-      p: +translate('live-programming/index.pug')
-      - }
+    - }
     .ui.hidden.divider
   section#abstract: +abstract()
   .ui.hidden.divider
-  section#presentations: +presentations()
+  block presentations
+    section#presentations
+      +presentation-live2017()
   .ui.hidden.divider
-  section#further-reading: +further-reading()
+  section#further-readings: +further-readings()
   .ui.hidden.divider
-  section#revision: +revision()
+  section#revisions: +revisions()
 
 mixin abstract()
   h2.ui.header #{en ? 'Summary' : '概要'}
   .ui.basic.segment
-    p Live programming has attracted much attention for eliminating the gulf between code and execution. To design live programming systems, we first need to understand what we are developing. Once we gain domain-specific knowledge of the target applications, we create user interfaces to edit the running application, such as scrubbing sliders, color palettes, and timeline interfaces. The key to the fluid programming experience of live programming is the combination of deep understanding of the target applications and adoption of interactive user interfaces.
-    p In the keynote talk at LIVE '17, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
-    p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
-      a(href=`${basePath}live-tuning/`) Live Tuning
-      |  and 
-      a(href=`${basePath}user-generated-variables/`) User-Generated Variables
-      | .
+    p #{description}
+    block introduction
+      p In the keynote talk at LIVE '17, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
+      p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
+        a(href=`${basePath}live-tuning/`) Live Tuning
+        |  and 
+        a(href=`${basePath}user-generated-variables/`) User-Generated Variables
+        | .
 
-mixin presentations()
-  h2.ui.header #{en ? 'Presentation materials' : '発表内容'}
+mixin presentation-live2017()
+  h2.ui.header #{en ? 'Presentation materials' : 'LIVE 2017 基調講演'}
   .ui.basic.segment
     .ui.stackable.two.columns.grid
       .column
-        h3.ui.header LIVE 2017 #{en ? 'Slides' : '発表スライド'}
+        h3.ui.header #{en ? 'LIVE 2017 Keynote Slides' : '発表スライド'}
         .ui.embed(data-url=slideUrl, data-placeholder=`${slideImagePath}00.jpg`, data-icon='video play outline')
         .caption: .ui.horizontal.list
           .item
@@ -64,11 +94,15 @@ mixin presentations()
               i.download.icon
               | #{en ? 'Download' : 'ダウンロード'}
       .column
-        h3.ui.header What is Live Programming?
+        h3.ui.header #{en ? 'What is Live Programming?' : 'ライブプログラミングとは？'}
         a.ui.fluid.bordered.image(href=`${slideImagePath}05.jpg`)
           img(src=`${slideImagePath}05.jpg`)
         .caption
+          - if (en) {
           p Live Programming refers to a <abbr title="Programming Experience">PX</abbr> that provides continuous feedback to the programmer about the program being developed.
+          - } else {
+          p ライブプログラミングとは、開発中のプログラムについてプログラマに継続的なフィードバックを提供する<abbr title="Programming Experience（プログラミング体験）">PX</abbr>を指します。
+          - }
   .ui.basic.segment
     p Live Programming systems provide concrete information about how the program behaves when it is executed. With help of this concrete information, programmers can easily iterate on editing and testing the program behavior.
     p Please note that the origin of Live Programming is not new as you can see early examples in visual programming and object-oriented programming environments. Then, why is it attracting much attention these days? In short, I consider it is because of its focus on the user experience.
@@ -118,7 +152,7 @@ mixin presentations()
         a(href='https://sigpx.org/en') SIGPX
         |  are such an attempt to attract people from all of these research fields.
 
-mixin further-reading()
+mixin further-readings()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Relevant projects' : '関連プロジェクト'}
@@ -134,15 +168,29 @@ mixin further-reading()
       +render-project-item(p)
       - }
 
-mixin revision()
+mixin revisions()
   h2.ui.header
     i.announcement.icon
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
       .event: .content
+        .date 9/25/2023
+        .summary
+          - if (en) {
+          | Add introduction to the tutorial course held as part of 
+          a(href='https://jssst2023.wordpress.com/tutorial') The 40th 
+            abbr(title='Japan Society for Software Science and Technology') JSSST
+            |  Annual Conference
+          |  (only available in 
+          a(href=`${rootPath}ja/live-programming`) the Japanese page
+          | ).
+          - } else {
+          | 第40回日本ソフトウェア科学会大会チュートリアルのコンテンツ追加を開始
+          - }
+      .event: .content
         .date 2/15/2018
-        .summary Replace &quot;Further reading&quot; with the list of relevant projects. Please visit each project page for further readings.
+        .summary #{en ? 'Replace &quot;Further reading&quot; with the list of relevant projects. Please visit each project page for further readings.' : '関連プロジェクトの一覧を公開'}
       .event: .content
         .date 1/21/2018
-        .summary Upload the initial prototype version.
+        .summary #{en ? 'Upload the initial prototype version.' : '初版を公開'}
