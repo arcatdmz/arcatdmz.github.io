@@ -331,6 +331,10 @@
   ],
   "ja": [
     {
+      "date": "09/25/2023",
+      "text": "<a href=\"https://www.youtube.com/live/69pByl5RCBU?si=I1bBCHjAxcvbyTxC&t=1091\">xDiversity 第31回xTalk 加藤淳×落合陽一×菅野裕介</a>に呼んでいただきました。また、有志で初音ミク「マジカルミライ 2023」プログラミング・コンテストを振り返る<a href=\"https://twitter.com/TextAliveJp/status/1705410915443814523\">リリックアプリ座談会</a>にも呼んでいただきました。"
+    },
+    {
       "date": "09/02/2023",
       "text": "<a href=\"https://www.ipsj.or.jp/kenkyukai/event/mus138.html\">第138回音楽情報科学研究発表会</a>で論文発表「<a href=\"${rootPath}ja/lyric-app-framework\">TextAlive App API: 『リリックアプリ』の提案とプログラミング・コンテストでの実証実験</a>」を行い、ベストプレゼンテーション賞（Best Research部門）を受賞しました。"
     },
