@@ -7,6 +7,13 @@
     "entryType": "domestic"
   },
   {
+    "date": "9/11/2023",
+    "text": {
+      "ja": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル「<a href=\"https://jssst2023.wordpress.com/tutorial\">試して作って知る ライブプログラミング入門</a>」, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "8/23/2023",
     "text": {
       "ja": "<a href=\"https://cedec.cesa.or.jp/2023\"><abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023</a> 招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」"
@@ -118,7 +125,7 @@
   {
     "date": "9/1/2017",
     "text": {
-      "ja": "<a href=\"https://jssst2017.wordpress.com/ftd/\">日本ソフトウェア科学会第 34 回大会 Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
+      "ja": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2017.wordpress.com\">第34回大会</a> <a href=\"https://jssst2017.wordpress.com/ftd/\">Future, Technology, Design (FTD)</a> 「データドリブンな時代、プログラミング体験の未来」, <a href=\"${rootPath}publications/jssst2017-kato-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>"
     },
     "entryType": "domestic"
   },
