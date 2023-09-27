@@ -104,8 +104,13 @@ mixin presentation-live2017()
           p ライブプログラミングとは、開発中のプログラムについてプログラマに継続的なフィードバックを提供する<abbr title="Programming Experience（プログラミング体験）">PX</abbr>を指します。
           - }
   .ui.basic.segment
+    - if (en) {
     p Live Programming systems provide concrete information about how the program behaves when it is executed. With help of this concrete information, programmers can easily iterate on editing and testing the program behavior.
     p Please note that the origin of Live Programming is not new as you can see early examples in visual programming and object-oriented programming environments. Then, why is it attracting much attention these days? In short, I consider it is because of its focus on the user experience.
+    - } else {
+    p ライブプログラミングのシステムは、プログラムが実行されたときどう振る舞うかについて、具体的な情報を提供します。この具体的な情報の助けを借りて、プログラマはプログラムの編集やデバッグを簡単に繰り返すことができます。
+    p ライブプログラミングの起源は、ビジュアルプログラミングやオブジェクト指向プログラミングのための環境の初期の事例まで辿ることができ、決して新しいものではありません。では、なぜ最近、改めて注目を集めているのでしょうか？一言で言えば、ユーザ体験への注力があるからだと私は考えています。
+    - }
   .ui.basic.segment
     .ui.stackable.two.columns.grid
       .column
@@ -113,51 +118,98 @@ mixin presentation-live2017()
           img(src=`${slideImagePath}13.jpg`)
       .column
         .caption
+          - if (en) {
           p Live Programming requires decent user interfaces for exploring the problem space.
           p As such, building decent Live Programming systems requires deep understanding on the target application domains; e.g. avoid sudden changes in the program behavior, keep the program and its output relevant, and allow continuously exploring the problem space.
+          - } else {
+          p ライブプログラミングを実現するには、問題空間を探索するための適切なユーザインタフェースが必要です。
+          p そのため、適切なライブプログラミングのシステムを構築するには、対象となるアプリケーションのドメインについて深く理解する必要があります。例えば、プログラムの動作がとつぜん大きく変化しないようにしたり、プログラムと出力の間の関連付けが失われないようにしたり、問題空間を継続的に探索できるようにしたりといったことが重要です。
+          - }
   .ui.basic.segment
+    - if (en) {
     p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
+    - } else {
+    p ここからは、ライブプログラミングのためのユーザインタフェース設計について考えるための三つの観点を紹介していきます。
+    - }
     .ui.stackable.three.columns.grid
       .column
-        h4.ui.header Programming with End-users
+        h4.ui.header #{en ? 'Programming with End-users' : 'エンドユーザとプログラミングする'}
         a.ui.fluid.bordered.image(href=`${slideImagePath}18.jpg`)
           img(src=`${slideImagePath}18.jpg`)
         .caption
+          - if (en) {
           p As Live Programming systems provide interactive and intuitive user interfaces for debugging and editing programs, some of the user interfaces can be exposed to the end-users so that they can customize the programs as they wish. [
             a(href=`${basePath}live-tuning/`) Live Tuning
             | ]
           p When the provided user interfaces cannot satisfy their needs, they can still submit requests to programmers with rich contextual information provided by the Live Programming systems. [
             a(href=`${basePath}user-generated-variables/`) User-Generated Variables
             | ]
+          p Live Programming techniques benefit not only programmers, but also end-users, and enable 
+            a(href=`${basePath}programming-as-communication/`) Programming as Communication
+            | .
+          - } else {
+          p ライブプログラミングのシステムは、プログラムのデバッグや編集のためのインタラクティブで直感的なユーザインタフェースを提供します。こうしたインタフェースの一部をエンドユーザに解放すれば、プログラムの振る舞いを容易にカスタマイズできるようになります。 [
+            a(href=`${basePath}live-tuning/`) Live Tuning
+            | ]
+          p また、エンドユーザがプログラムの既存のユーザインタフェースで満足できない場合にも、ライブプログラミングのシステムが提供する豊富なコンテクスト情報を用いて、プログラマに機能リクエストを送ることが容易になります。 [
+            a(href=`${basePath}user-generated-variables/`) User-Generated Variables
+            | ]
+          p ライブプログラミングの技術はプログラマだけでなくエンドユーザにも恩恵のあるもので、「
+            a(href=`${basePath}programming-as-communication`) コミュニケーションとしてのプログラミング
+            | 」という新しい考え方をもたらします。
+          - }
       .column
-        h4.ui.header Programming this Material World
+        h4.ui.header #{en ? 'Programming this Material World' : '実世界をプログラミングする'}
         a.ui.fluid.bordered.image(href=`${slideImagePath}27.jpg`)
           img(src=`${slideImagePath}27.jpg`)
         .caption
-          p Live Programming often targets simple applications such as drawing graphics. In contrast, &quot;software is eating the world&quot; and there are interesting applications such as physical computing and virtual reality.
-          p Their actual &quot;framerate&quot; can be very slow; e.g. printing device enclosures and producing scent. Emulating, or sometimes even pretending, is needed to provide the continuous feedback. Making full use of five senses in programming environments would be crucial in the near future.
+          - if (en) {
+          p Live Programming often targets simple applications such as drawing graphics. In contrast, &quot;software is eating the world&quot; and there are complex and interesting applications such as physical computing and virtual reality.
+          p Their actual &quot;framerate&quot; can be very slow; e.g. printing device enclosures and producing scent. Emulating, or sometimes even pretending, is needed to provide the continuous feedback.
+          p Making full use of five senses in programming environments would be crucial in the near future.
+          - } else {
+          p ライブプログラミングのシステムの事例には、グラフィックを描画する単純なアプリケーションを対象とするものが多く見られます。しかし、それとは対照的に、「Software is eating the world」とも言われる現在、フィジカルコンピューティングやバーチャルリアリティなどの複雑で興味深いアプリケーションが多数現れています。
+          p そうしたアプリケーションにおける「フレームレート」は、例えばデバイス筐体の印刷や香りの生成などの場合、非常に遅いです。継続的なフィードバックを提供するためには、情報をエミュレートすること、（ないものがあたかもそこにあるかのような）フリをすることが必要になります。
+          p プログラミング環境において五感をフルに活用することは、近い将来、非常に重要になってくるはずです。
+          - }
       .column
-        h4.ui.header Programming with Time Travel
+        h4.ui.header #{en ? 'Programming with Time Travel' : '時間旅行しながらプログラミングする'}
         a.ui.fluid.bordered.image(href=`${slideImagePath}39.jpg`)
           img(src=`${slideImagePath}39.jpg`)
         .caption
+          - if (en) {
           p Live Programming puts focus on providing live feedback to the programmer, but it does not always mean providing realtime information of the running program.
           p The timeline interface and record and replay features together provide time traveling experience and play an important role to find critical timings in the history. Once the timing of interest is found, editing the code and program input would update the program output, allowing the programmer to explore future&quot;s.&quot;
+          - } else {
+          p ライブプログラミングは、プログラマに「ライブ」なフィードバックを提供することを重視しますが、それは必ずしも、実行中のプログラムに関する情報をリアルタイムに提供することを意味しません。
+          p プログラムの振る舞いを記録・再生する機能を備えたタイムラインインタフェースは、時間旅行のような体験を通して、プログラムの実行履歴の中から興味深いタイミングを見つけるために重要な役割を果たします。特定のタイミングを見つけたら、コードまたはプログラム入力、あるいはその両方を編集することで、プログラムの出力を更新し、ありえたかもしれない未来を自由に探索することができます。
+          - }
   .ui.basic.segment
     a.ui.fluid.bordered.image(href=`${slideImagePath}47.jpg`)
       img(src=`${slideImagePath}47.jpg`)
     .caption
-      p As a summary, Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction.
-      p LIVE, PX workshops and 
+      - if (en) {
+      p Designing Live Programming systems is not just about language design, a single user, a single UI, it is about designing the whole experience.
+      p Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction. LIVE, PX workshops and 
         a(href='https://sigpx.org/en') SIGPX
         |  are such an attempt to attract people from all of these research fields.
+      - } else {
+      p ライブプログラミングのシステム設計は、プログラミング言語の設計、一人のユーザのための設計、単一のユーザインタフェースの設計に留まらず、全体としての体験設計に他なりません。
+      p ライブプログラミングは非常に学際的なトピックであり、プログラミング言語、ソフトウェア工学、Human-Computer Interactionのすべてにまたがる研究分野です。こうした多分野の人々を惹きつける試みとして、LIVE、PX、
+        a(href='https://sigpx.org') SIGPX
+        | といった集まりがあります。
+      - }
 
 mixin further-readings()
   h2.ui.header
     i.lab.icon
     .content #{en ? 'Relevant projects' : '関連プロジェクト'}
   .ui.basic.segment
-    p The following projects are highly relevant to the topic.
+    - if (en) {
+    p The following projects implement or discuss Live Programming experiences.
+    - } else {
+    p ライブプログラミング体験を実装したり議論したりしているプロジェクトが表示されています。
+    - }
   .ui.segment
     .ui.divided.items.projects
       - for (const p of projects) {
@@ -174,6 +226,11 @@ mixin revisions()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      - if (!en) {
+      .event: .content
+        .date 9/27/2023
+        .summary LIVE 2017基調講演の内容を和訳
+      - }
       .event: .content
         .date 9/25/2023
         .summary
