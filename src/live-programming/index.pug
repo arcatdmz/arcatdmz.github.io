@@ -17,19 +17,13 @@ block post-footer
       .content #{en ? 'Top' : 'トップ'}
     a.item(href='#abstract')
       i.right.triangle.icon
-      .content #{en ? 'Abstract' : '概要'}
-    - if (en) {
-    a.item(href='#presentations')
-      i.right.triangle.icon
-      .content Presentation materials
-    - } else {
+      .content #{en ? 'Summary' : '概要'}
     a.item(href='#presentation-jssst2023')
       i.right.triangle.icon
-      .content 日本ソフトウェア科学会 第40回大会 チュートリアル
+      .content #{en ? 'JSSST 2023 Tutorial' : '日本ソフトウェア科学会 第40回大会 チュートリアル'}
     a.item(href='#presentation-live2017')
       i.right.triangle.icon
-      .content LIVE 2017 基調講演
-    - }
+      .content #{en ? 'LIVE 2017 Keynote' : 'LIVE 2017 基調講演'}
     a.item(href='#further-readings')
       i.right.triangle.icon
       .content #{en ? 'Relevant projects' : '関連プロジェクト'}
@@ -37,33 +31,22 @@ block post-footer
       i.right.triangle.icon
       .content #{en ? 'Revision history' : '更新履歴'}
 
+block main-hero-unit
+  -
+    let additionalLabels = [
+      '<span class="ui tiny red basic label">'
+        + (en ? 'Tutorial course at JSSST \'23' : '日本ソフトウェア科学会大会 第40回大会 チュートリアル')
+        + '</span>'
+    ];
+  +render-project-hero('live-programming', additionalLabels)
+
 block main
-  section
-    h1.ui.header #{title}
-    +render-share()
-    .ui.horizontal.divided.list.project-meta-list
-      .item
-        span.ui.red.tiny.basic.label
-          | #{en ? 'Keynote Talk at LIVE \'17' : "LIVE \'17 基調講演"}
-      .item
-        span.ui.red.tiny.basic.label
-          | #{en ? 'Tutorial course at JSSST \'23' : "日本ソフトウェア科学会大会 第40回大会 チュートリアル"}
-    - if (en) {
-    .ui.message
-      p The page provides summary for 
-        a(href='https://2017.splashcon.org/event/live-2017-keynote-a') the keynote talk at LIVE '17 workshop
-        |  and links to relevant sub-projects including 
-        a(href=`${basePath}live-tuning/`) Live Tuning
-        |  and 
-        a(href=`${basePath}user-generated-variables/`) User-Generated Variables
-        | .
-    - }
-    .ui.hidden.divider
   section#abstract: +abstract()
   .ui.hidden.divider
-  block presentations
-    section#presentations
-      +presentation-live2017()
+  section#presentation-jssst2023
+    +presentation-jssst2023()
+  section#presentation-live2017
+    +presentation-live2017()
   .ui.hidden.divider
   section#further-readings: +further-readings()
   .ui.hidden.divider
@@ -73,26 +56,147 @@ mixin abstract()
   h2.ui.header #{en ? 'Summary' : '概要'}
   .ui.basic.segment
     p #{description}
-    block introduction
-      p In the keynote talk at LIVE '17, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
-      p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
-        a(href=`${basePath}live-tuning/`) Live Tuning
-        |  and 
-        a(href=`${basePath}user-generated-variables/`) User-Generated Variables
-        | .
+    .ui.stackable.two.columns.grid
+      .column
+        - if (en) {
+        p At 
+          a(href='https://jssst2023.wordpress.com/tutorial') the tutorial course as part of The 40th 
+            abbr(title='Japan Society for Software Science and Technology') JSSST
+            |  Annual Conference (Japanese)
+          | , me and visual artist Baku Hashimoto served as lecturers, presenting a brief history of Live Programming research and providing a hands-on opportunity to develop a web-based Live Programming system.
+        p Programming environments that focus on "liveness" have been around for a long time, like visual programming and Smalltalk-based systems, but they have recently attracted renewed attention as a key idea to realize a fluid programming experience. We attempted to review the situation from the point of view of both researchers and artists.
+        - } else {
+        p 
+          a(href='https://jssst2023.wordpress.com/tutorial') 日本ソフトウェア科学会 第40回大会 チュートリアル
+          | では、ビジュアルアーティストの
+          a(href='https://baku89.com') 橋本麦
+          | 氏と共に講師を務め、ライブプログラミング研究の概略史紹介と、ライブプログラミング環境を開発するハンズオンを行いました。「ライブネス（Liveness）」に着目したプログラミング環境はビジュアルプログラミングやSmalltalk処理系など古くからありましたが、近年、滑らかなプログラミング体験を提供するキーアイデアの一つとして改めて注目されています。研究者とアーティスト双方の観点から状況整理を試みました。
+        - }
+      .column
+        - if (en) {
+        p In the keynote talk at LIVE '17, I discussed the liveness of programming systems in light of user interface design. I introduced user interfaces for programming and discussed the importance of integrating graphical representations into programming environments. I extended the scope of &quot;liveness&quot; by describing two kinds of interactions, physical and developer-user, and provided insights on designing future live programming systems.
+        p In particular, regarding the user interfaces for enhancing developer-user interactions, there are two sub-projects called 
+          a(href=`${basePath}live-tuning/`) Live Tuning
+          |  and 
+          a(href=`${basePath}user-generated-variables/`) User-Generated Variables
+          | .
+        - } else {
+        p
+          a(href='https://2017.splashcon.org/details/live-2017/7/Keynote-User-Interfaces-for-Live-Programming') LIVE 2017 基調講演
+          | では、ユーザインターフェース設計の観点からプログラミング環境の「ライブネス（Liveness）」について議論しました。プログラミングのためのユーザインターフェースを紹介し、画像表現をプログラミング環境に統合することの重要性を論じました。物理的なインタラクションと、開発者・ユーザ間のインタラクションという2種類のインタラクションを具体的な研究事例と共に紹介し、「ライブネス」の定義を拡大して、将来のライブプログラミング・システムの設計に関して示唆を提供しました。
+        - }
 
-mixin presentation-live2017()
-  h2.ui.header #{en ? 'Presentation materials' : 'LIVE 2017 基調講演'}
+mixin presentation-jssst2023
+  h2.ui.header
+    - if (en) {
+    | The 40th 
+    abbr(title='Japan Society for Software Science and Technology') JSSST
+    |  Annual Conference
+    - } else {
+    | 日本ソフトウェア科学会 第40回大会 チュートリアル
+    - }
   .ui.basic.segment
     .ui.stackable.two.columns.grid
       .column
-        h3.ui.header #{en ? 'LIVE 2017 Keynote Slides' : '発表スライド'}
+        h3.ui.header #{en ? 'Presentation Slides (Japanese)' : '発表スライド'}
+        .ui.embed(data-url='https://docs.google.com/presentation/d/e/2PACX-1vSFvd9_lLppM-CnW9Qr2TXxPCETq9WAedQPIvgTebXe328vTvSP3-SUIJNGtimZR7ygSSb4LOHheLYq/embed', data-placeholder=`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial.jpg`, data-icon='video play outline')
+        .caption
+          h4.ui.header #{en ? 'Introduction to Live Programming: Try It, Make It, Know It' : '試して作って知る Live Programming入門'}
+          .ui.horizontal.divided.list
+            .item
+              a(href='https://docs.google.com/presentation/d/1MIDPeccko-oce83eaWLKuEctzjt2NF_R9b-ouhc_yCI/edit?usp=sharing')
+                i.external.icon
+                | Google Slides
+            .item
+              a(href='https://jssst2023.wordpress.com/tutorial')
+                i.external.icon
+                | #{en ? 'Tutorial official page (Japanese)' : '大会公式ページ'}
+      .column
+        h3.ui.header #{en ? 'What is Live Programming?' : 'ライブプログラミングとは？'}
+        a.ui.fluid.bordered.image(href=`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`)
+          img(src=`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`)
+        .caption
+          - if (en) {
+          p Live Programming has the clear advantage of 
+            strong not
+            |  forcing programmers to bet on a single shot, a feature captured in 
+            a(href='https://dspace.mit.edu/handle/1721.1/61549') Chris Hancook's dissertation
+            |  by the metaphor of the bow and the watering hose.
+          - } else {
+          p ライブプログラミングには一発必中をプログラマに
+            strong 強いない
+            | 特長があります。
+            a(href='https://dspace.mit.edu/handle/1721.1/61549') Chris Hancook氏の博士論文
+            | ではこれを弓とホースの比喩で表しました。
+          - }
+  .ui.basic.segment
+    - if (en) {
+    p This tutorial introduced the history of live programming research and examined its significance from different perspectives by reviewing related tools and practices proposed in research and used in visual art.
+    p Technically speaking, the pursuit of &quot;liveness&quot; in programming systems reached a milestone in the 1990s, when many visual programming systems employing dataflow languages and environments, including 
+      a(href='https://doi.org/10.1016/S1045-926X(05)80012-6') VIVA
+      | , were researched and developed to allow interactive editing of programs, and a framework for user interface development in Smalltalk-based systems, 
+      a(href='http://dx.doi.org/10.1145/215585.215636') Morphic
+      | , appeared. However, with the exception of Spreadsheet, visual programming did not become mainstream, and general-purpose object-oriented languages and integrated development environments, which were in some ways degraded from Smalltalk, gained popularity.
+    p We had to wait until the 2010s to see a renewed interest in &quot;liveness&quot; in the programming experience, when 
+      a(href='https://archive.org/details/vimeo-36579366') Bret Victor's &quot;Inventing on Principle&quot; talk
+      |  with many appealing demonstrations took place and 
+      a(href='https://liveprog.org') the Workshop on Live Programming
+      |  was held for the first time. Here I see &quot;liveness&quot; as a kind of user experience that can be achieved by building 
+      a(href='http://worrydream.com/LadderOfAbstraction/') a ladder of abstraction
+      |  from an abstract programming language to a concrete program execution state, and individual technical components such as a single programming language design or a single tool design do not seem to be sufficient. At the heart of the design of live programming systems is the design of the user interface, which is tailored to the domain-specificity of the applications to be developed in the programming system. From this perspective, visual programming environments for designers and tools for the visual arts have been successful for a long time, and more recently, there have been an increasing number of live programming systems specialized for diverse application domains.
+    p For this tutorial, please also see 
+      a(href='https://scrapbox.io/ProgrammingExperience/JSSST2023_%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB') the corresponding page on Scrapbox (Wiki site; Japanese)
+      |  and 
+      a(href='https://github.com/baku89/jssst40-tuts#40th-jssst-tutorial') the hands-on documentation on GitHub (Japanese)
+      | . Also, for future perspectives not covered in depth in the tutorial, please refer to 
+      a(href='#presentation-live2017') my keynote at LIVE 2017
+      | .
+    - } else {
+    p 本チュートリアルでは、ライブプログラミング（Live Programming）に関する研究の歴史を紹介するとともに、ビジュアルアートの実践において使われてきた関連ツールや表現を振り返ることで、その意義を多角的に検証しました。
+    p 技術的には、ビジュアルプログラミング（Visual Programming）においてプログラムのインタラクティブな編集が可能なデータフロー言語・環境が 
+      a(href='https://doi.org/10.1016/S1045-926X(05)80012-6') VIVA
+      |  をはじめ多数研究開発され、Smalltalk処理系においてユーザインタフェース開発用フレームワーク 
+      a(href='http://dx.doi.org/10.1145/215585.215636') Morphic
+      |  が登場した1990年代で、プログラミングにおけるライブネス（Liveness）を追求する取り組みは、いったんの節目を迎えたと考えてよいでしょう。しかし、ビジュアルプログラミングはSpreadsheetを除いてなかなかメインストリームにならず、Smalltalk処理系よりもある意味でデグレードした汎用オブジェクト指向言語や統合開発環境が人気を博します。
+    p プログラミング体験におけるライブネスが再度注目を集めるには 
+      a(href='https://archive.org/details/vimeo-36579366') Bret Victor氏のデモを交えた講演 &quot;Inventing on Principle&quot;
+      |  や 
+      a(href='https://liveprog.org') Workshop on Live Programming
+      |  が初めて開催される2010年代まで待つ必要があります。ライブネスとは、抽象的なプログラミング言語から具体的なプログラムの実行状態に至るまでの
+      a(href='http://worrydream.com/LadderOfAbstraction/') 抽象度のはしご（Ladder of abstraction）
+      | を掛けることで実現できるユーザ体験であり、単一の言語設計、単一のツール設計に還元できる要素技術は本質ではなさそうです。その代わり、開発対象のアプリケーションの特性に寄り添ったユーザインタフェース設計こそが鍵なのではないでしょうか。そうした観点で黎明期から成功してきたのがデザイナ向けのビジュアルプログラミング環境やビジュアルアート向けのツール群であり、さらに近年、さまざまなドメインに特化したライブプログラミングのシステムが増えてきているという状況だと思います。
+    p 本チュートリアルに関しては、
+      a(href='https://scrapbox.io/ProgrammingExperience/JSSST2023_%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB') Scrapboxの該当ページ
+      | と
+      a(href='https://github.com/baku89/jssst40-tuts#40th-jssst-tutorial') GitHub のハンズオン資料
+      | もご覧ください。また、チュートリアルでは深く触れなかった将来展望については、
+      a(href='#presentation-live2017') LIVE 2017での基調講演
+      | をご参照ください。
+    - }
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href='https://jssst2023.wordpress.com/tutorial')
+      | #{en ? 'Tutorial official page (Japanese)' : '大会公式ページ'}
+      i.chevron.circle.right.icon
+  .ui.hidden.divider
+
+mixin presentation-live2017()
+  h2.ui.header #{en ? 'LIVE 2017 Keynote' : 'LIVE 2017 基調講演'}
+  .ui.basic.segment
+    .ui.stackable.two.columns.grid
+      .column
+        h3.ui.header #{en ? 'Presentation Slides' : '発表スライド'}
         .ui.embed(data-url=slideUrl, data-placeholder=`${slideImagePath}00.jpg`, data-icon='video play outline')
-        .caption: .ui.horizontal.list
-          .item
-            a(href=slideUrl)
-              i.download.icon
-              | #{en ? 'Download' : 'ダウンロード'}
+        .caption
+          h4.ui.header #{en ? 'User Interfaces for Live Programming' : 'ライブプログラミングのためのユーザインタフェース'}
+          .ui.horizontal.divided.list
+            .item
+              a(href=slideUrl)
+                i.download.icon
+                | #{en ? 'Download' : 'ダウンロード'}
+            .item
+              a(href='https://2017.splashcon.org/event/live-2017-keynote-a')
+                i.external.icon
+                | #{en ? 'LIVE 2017 Website' : 'LIVE 2017 Webサイト'}
       .column
         h3.ui.header #{en ? 'What is Live Programming?' : 'ライブプログラミングとは？'}
         a.ui.fluid.bordered.image(href=`${slideImagePath}05.jpg`)
@@ -127,9 +231,9 @@ mixin presentation-live2017()
           - }
   .ui.basic.segment
     - if (en) {
-    p From now on, I will discuss three perspectives on user interface design of Live Programming systems.
+    p From now on, I will discuss three perspectives on user interface design of Live Programming systems and interesting directions to explore in each.
     - } else {
-    p ここからは、ライブプログラミングのためのユーザインタフェース設計について考えるための三つの観点を紹介していきます。
+    p ここからは、ライブプログラミングのためのユーザインタフェース設計について考えるための三つの観点を紹介し、それぞれに関する将来展望を議論します。
     - }
     .ui.stackable.three.columns.grid
       .column
@@ -190,15 +294,27 @@ mixin presentation-live2017()
     .caption
       - if (en) {
       p Designing Live Programming systems is not just about language design, a single user, a single UI, it is about designing the whole experience.
-      p Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction. LIVE, PX workshops and 
+      p Live Programming is a very interdisciplinary topic and involves all of Programming Language design, Software Engineering, and designing Human-Computer Interaction. 
+        a(href='https://liveprog.org') LIVE
+        | , 
+        a(href='http://programming-experience.org') PX
+        |  workshops and 
         a(href='https://sigpx.org/en') SIGPX
         |  are such an attempt to attract people from all of these research fields.
       - } else {
       p ライブプログラミングのシステム設計は、プログラミング言語の設計、一人のユーザのための設計、単一のユーザインタフェースの設計に留まらず、全体としての体験設計に他なりません。
-      p ライブプログラミングは非常に学際的なトピックであり、プログラミング言語、ソフトウェア工学、Human-Computer Interactionのすべてにまたがる研究分野です。こうした多分野の人々を惹きつける試みとして、LIVE、PX、
+      p ライブプログラミングは非常に学際的なトピックであり、プログラミング言語、ソフトウェア工学、Human-Computer Interactionのすべてにまたがる研究分野です。こうした多分野の人々を惹きつける試みとして、
+        a(href='https://liveprog.org') LIVE
+        | 、
+        a(href='http://programming-experience.org') PX
+        | 、
         a(href='https://sigpx.org') SIGPX
         | といった集まりがあります。
       - }
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href='https://2017.splashcon.org/event/live-2017-keynote-a')
+      | #{en ? 'LIVE 2017 Website' : 'LIVE 2017 Webサイト'}
+      i.chevron.circle.right.icon
 
 mixin further-readings()
   h2.ui.header
@@ -228,23 +344,21 @@ mixin revisions()
     block news
       - if (!en) {
       .event: .content
+        .date 9/28/2023
+        .summary 日本ソフトウェア科学会 第40回大会 チュートリアルの概要を追加
+      .event: .content
         .date 9/27/2023
         .summary LIVE 2017基調講演の内容を和訳
-      - }
+      - } else {
       .event: .content
-        .date 9/25/2023
+        .date 9/28/2023
         .summary
-          - if (en) {
           | Add introduction to the tutorial course held as part of 
           a(href='https://jssst2023.wordpress.com/tutorial') The 40th 
             abbr(title='Japan Society for Software Science and Technology') JSSST
             |  Annual Conference
-          |  (only available in 
-          a(href=`${rootPath}ja/live-programming`) the Japanese page
-          | ).
-          - } else {
-          | 日本ソフトウェア科学会 第40回大会 チュートリアルのコンテンツ追加を開始
-          - }
+          |  (content in Japanese).
+      - }
       .event: .content
         .date 2/15/2018
         .summary #{en ? 'Replace &quot;Further reading&quot; with the list of relevant projects. Please visit each project page for further readings.' : '関連プロジェクトの一覧を公開'}

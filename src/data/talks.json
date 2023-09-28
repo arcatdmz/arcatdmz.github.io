@@ -9,7 +9,7 @@
   {
     "date": "9/11/2023",
     "text": {
-      "ja": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル「<a href=\"https://jssst2023.wordpress.com/tutorial\">試して作って知る ライブプログラミング入門</a>」, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>"
+      "ja": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル「<a href=\"https://jssst2023.wordpress.com/tutorial\">試して作って知る ライブプログラミング入門</a>」, <a href=\"${rootPath}ja/live-programming/\"><i class=\"world icon\"></i>Webページ</a>"
     },
     "entryType": "domestic"
   },

@@ -431,7 +431,7 @@
       "project": "songle-sync",
       "thumbnail": "songle-sync.jpg",
       "icon": true,
-      "tags": ["creativity", "music", "ide", "design"],
+      "tags": ["creativity", "music", "toolkit", "design"],
       "tags-design": ["graphic", "ui"],
       "year": {
         "from": 2017
