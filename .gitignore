@@ -64,3 +64,6 @@ typings/
 
 # Windows Thumbnail
 Thumbs.db
+
+# macOS Thumbnail
+.DS_Store
