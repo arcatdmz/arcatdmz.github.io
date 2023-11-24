@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import mkdirp from "mkdirp";
+import { mkdirp } from "mkdirp";
 import fs from "fs";
 
 mkdirp("dist/ja/blog/").then(() => {

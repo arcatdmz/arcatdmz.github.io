@@ -30,20 +30,22 @@ gulp.task("semantic:assets", require("./semantic/tasks/build/assets"));
 gulp.task("semantic", gulp.parallel("semantic:js", "semantic:assets"));
 
 // Clean up
-const del = require("del");
 
 // [del:js]
-gulp.task("del:js", function () {
+gulp.task("del:js", async function () {
+  const { deleteAsync: del } = await import("del");
   return del(["src/javascripts/**/*.js", "dist/javascripts/**/*.js"]);
 });
 
 // [del:node]
-gulp.task("del:node", function () {
+gulp.task("del:node", async function () {
+  const { deleteAsync: del } = await import("del");
   return del("build/**/*.js");
 });
 
 // [del:gzip]
-gulp.task("del:gzip", function () {
+gulp.task("del:gzip", async function () {
+  const { deleteAsync: del } = await import("del");
   return del("dist/**/*.gz");
 });
 

@@ -5,7 +5,7 @@ const files = glob.sync("./src/javascripts/views/!(library).js");
 
 const filesMap = {};
 for (const file of files) {
-  filesMap[path.basename(file, ".js")] = file;
+  filesMap[path.basename(file, ".js")] = `./${file}`;
 }
 
 module.exports = {
