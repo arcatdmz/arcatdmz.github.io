@@ -1,5 +1,26 @@
 [
   {
+    "date": "1/17/2024",
+    "text": {
+      "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
+    },
+    "entryType": "domestic"
+  },
+  {
+    "date": "12/14/2023",
+    "text": {
+      "ja": "拓殖大学 情報工学特講A ゲスト講義「変幻自在の道具をつくる研究」"
+    },
+    "entryType": "domestic"
+  },
+  {
+    "date": "11/30/2023",
+    "text": {
+      "ja": "はこだて未来大学 データ可視化 ゲスト講義「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "9/22/2023",
     "text": {
       "ja": "<a href=\"https://xdiversity.org/projects/xtalk\">xDiversity xTalk</a> 第31回「<a href=\"https://www.youtube.com/live/69pByl5RCBU?si=I1bBCHjAxcvbyTxC&t=1091\">加藤淳×落合陽一×菅野裕介</a>」"
@@ -42,6 +63,13 @@
       "en": "<a href=\"https://future.mozilla.org/mieco/\">Mozilla <abbr title=\"The Mozilla Internet Ecosystem\">MIECO</abbr></a> weekly meeting, &quot;A Toolsmith for Programmers, Musicians, and Anime Creators&quot;"
     },
     "entryType": "international"
+  },
+  {
+    "date": "1/18/2023",
+    "text": {
+      "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」"
+    },
+    "entryType": "domestic"
   },
   {
     "date": "2/16/2022",
