@@ -204,7 +204,7 @@ mixin services-oc-domestic()
 mixin services-reviewers()
   .item
     .header: abbr(title='The SIGCHI Conference on Human Factors in Computing Systems') CHI
-    .meta 2010, 2015-2023
+    .meta 2010, 2015-2024
   .item
     .header: abbr(title='The Annual ACM symposium on User Interface Software and Technology') UIST
     .meta 2014-2023
@@ -260,22 +260,29 @@ mixin services-miscellaneous()
       .header #{en ? 'User interface design consultant for an animation TV series' : 'アニメ地上波放映シリーズのユーザインタフェース考証'}
       .meta !{en ? '2011 "<a href="http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet">Gargantia on the Verdurous Planet</a>"' : '2011 「<a href="https://gargantia.jp">翠星のガルガンティア</a>」'}
     .item
+      .header !{en ? 'Guest lecture in the &quot;Special Lecture on Information Technology (A)n&quot; course' : '情報工学特講A ゲスト講義'}
+      .meta 2023/12/14 #{en ? '"Research on Making Malleable Tools" (Takushoku University)' : '「変幻自在の道具をつくる研究」 (拓殖大学)'}
+    .item
+      .header !{en ? 'Guest lecture in the &quot;Data Visualization&quot; course' : 'データ可視化 ゲスト講義'}
+      .meta 2023/11/30 #{en ? '"Toward Tools that Provide a Better View" (Future University Hakodate)' : '「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」 (はこだて未来大学)'}
+      //- https://twitter.com/arcatdmz/status/1729845616044318987
+    .item
       .header !{en ? 'Guest lecture in the &quot;Advanced Information Science Exercise&quot; course' : '高度情報演習2C ゲスト講義'}
-      .meta 2020/01/22, 2021/01/20, 2022/01/19, 2023/01/18 #{en ? '"Introduction to Programming Experience Research" (Shibaura Institute of Technology)' : '「プログラミング体験 (PX) 概論」 (芝浦工業大学)'}
+      .meta 2020/01/22, 2021/01/20, 2022/01/19, 2023/01/18, 2024/1/17 #{en ? '"Introduction to Programming Experience Research" (Shibaura Institute of Technology)' : '「プログラミング体験 (PX) 概論」 (芝浦工業大学)'}
       //- https://twitter.com/arcatdmz/status/1220711563360759808
     .item
       .header !{en ? 'Guest critique in the &quot;Open Design Strategy&quot; course' : 'デザイン戦略（オープンデザイン） ゲストクリティーク'}
       .meta 2020/01/20 #{en ? '(Keio University)' : '(慶應義塾大学)'}
       //- https://twitter.com/arcatdmz/status/1219188243125522432
     .item
-      .header #{en ? 'Organizer of a joint seminar on "Reading All CHI Papers in One Day"' : 'CHI勉強会 幹事'}
-      .meta 2011, 2015-
-        a(href='https://sigchi.jp/seminar/chi2023/') 2023
-    .item
       .header !{en ? 'Guest lecture in the &quot;Special Lectures in Information Engineering&quot; course' : '情報工学特別講義 ゲスト講義'}
       .meta 2018/05/25 #{en ? '"User Interfaces for Programming & The Future of Creativity Support" (Keio University)' : '「プログラミングのためのユーザインタフェースと創作支援の未来」 (慶應義塾大学)'}
       //- https://twitter.com/yuta_sugiura/status/990140503076159488
       //- https://www.ics.keio.ac.jp/for_students/%E6%83%85%E5%A0%B1%E5%B7%A5%E5%AD%A6%E7%89%B9%E5%88%A5%E8%AC%9B%E7%BE%A9%E3%80%80%E9%87%91%E6%9B%9C%E6%97%A5%E3%80%801630-1800-14-201%E6%95%99%E5%AE%A4%E3%80%80%E7%AC%AC4%E5%9B%9E%E3%81%8B%E3%82%89-2/
+    .item
+      .header #{en ? 'Organizer of a joint seminar on "Reading All CHI Papers in One Day"' : 'CHI勉強会 幹事'}
+      .meta 2011, 2015-
+        a(href='https://sigchi.jp/seminar/chi2023/') 2023
     .item
       .header !{en ? 'Teaching assistant of the &quot;Media Informatics&quot; course' : 'メディア情報学<abbr title="ティーチングアシスタント">TA</abbr>'}
       .meta #{en ? 'Winter 2008, Summer 2016 (The University of Tokyo)' : '2008年冬学期, 2016年夏学期 (東京大学大学院)'}
@@ -305,7 +312,9 @@ mixin places()
             a(href="https://chi2015.acm.org/") 2015
             |  (Seoul, Korea), 
             a(href="https://chi2016.acm.org/") 2016
-            |  (San Jose, CA)
+            |  (San Jose, CA),
+            a(href="https://chi2023.acm.org/") 2023
+            |  (Hamburg, Germany)
         .item
           .header: abbr(title="The Annual ACM Symposium on User Interface Software and Technology") ACM UIST
           .meta
@@ -358,4 +367,7 @@ mixin places()
             a(href="http://sigmm.org/events/acm-multimedia-2018") ACM Multimedia 2018
             |  (Seoul, Korea), 
             a(href="https://2022.splashcon.org/") SPLASH 2022
-            |  (Auckland, New Zealand)
+            |  (Auckland, New Zealand), 
+            a(href="https://2023.splashcon.org/") SPLASH 2023
+            |  (Cascais, Portugal)
+
