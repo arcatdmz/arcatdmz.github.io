@@ -1,0 +1,35 @@
+include ./resume/_style
+include ./resume/_menu
+include ./resume/_profile
+include ./resume/_work
+include ./resume/_grants
+include ./resume/_education
+include ./resume/_honors
+include ./resume/_publications
+include ./resume/_innovations
+include ./resume/_services
+include ./resume/_references
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='author', content='Jun Kato')
+    meta(name='viewport', content='width=device-width,user-scalable=yes')
+    link(rev='made', href='mailto:i@junkato.jp')
+    title Resume of Dr. Jun Kato
+    +style()
+  body
+    - let updated = "2/1/2024"
+    #menu: +menu()
+    #container
+      p#updated Updated: #{updated}
+      #profile: +profile()
+      #education: +education("Degrees")
+      #work: +work()
+      #grants: +grants()
+      #honors: +honors()
+      #innovations: +innovations()
+      footer
+        hr
+        p &copy; Jun Kato #{/[0-9]+$/.exec(updated)}

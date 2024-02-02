@@ -1,7 +1,7 @@
-mixin education
+mixin education(title)
   .row.header
     .year
-    .content: h2 Education
+    .content: h2 #{title || "Education"}
   .row
     .year
     .content: h3.first The University of Tokyo, Tokyo, Japan
