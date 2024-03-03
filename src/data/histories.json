@@ -343,6 +343,18 @@
   ],
   "ja": [
     {
+      "date": "03/04/2024",
+      "text": "コンテンツ産業の研究開発に携わる方々をお呼びするワークショップ「<a href=\"https://chci.pages.dev/aist-seminar/workshop\">AIST Creative HCI Workshop</a>」を3月5日（火）に東京大学本郷キャンパスで開催します。奮ってご参加ください。"
+    },
+    {
+      "date": "12/13/2023",
+      "text": "セミナーシリーズ「<a href=\"https://chci.pages.dev/aist-seminar\">AIST Creative HCI Seminar series</a>」全六回で完結しました。最終回は「<a href=\"https://chci.pages.dev/aist-seminar/6\">HCI research in the wild</a>」をテーマにKoya Narumiと、海外からJennifer Jacobsを招いて開催しました。"
+    },
+    {
+      "date": "10/23/2023",
+      "text": "国際ワークショップ<a href=\"https://2023.splashcon.org/home/live-2023\">LIVE 2023</a>の副委員長を務めました。とてもいい雰囲気で盛り上がり、企画・運営した者として冥利に尽きます。ご参加いただいたみなさま、ありがとうございました。"
+    },
+    {
       "date": "09/28/2023",
       "text": "9月11日に講師を務めた<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル「<a href=\"https://jssst2023.wordpress.com/tutorial\">試して作って知る ライブプログラミング入門</a>」のフォローアップコンテンツを「<a href=\"${rootPath}ja/live-programming/\">ライブプログラミングのためのユーザインタフェース</a>」で公開しました。あわせて、同ページの国際ワークショップ<a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>基調講演の内容を和訳しました。"
     },
