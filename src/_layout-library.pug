@@ -63,7 +63,9 @@ mixin render-project-header(project, additionalLabels)
           && pub.entryTags.project && pub.entryTags.project.indexOf(project) >= 0
           && pub.entryTags.addition
           && (!pub.entryTags.language || (!en && pub.entryTags.language === 'japanese'))) {
-        projectAwards.push(pub.entryTags.addition);
+        const { addition } = pub.entryTags;
+        const additions = addition.split(/;\s*/g);
+        projectAwards.push(...additions);
       }
     }
   section
@@ -195,11 +197,15 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
               | #{entry.entryTags.series}
             - }
             - if (entry.entryTags.addition) {
+            -   const { addition } = entry.entryTags;
+            -   const additions = addition.split(/;\s*/g);
+            -   for (const a of additions) {
             span.ui.tiny.red.label
-              - if (entry.entryTags.addition.indexOf('Invited') < 0) {
+              - if (a.indexOf('Invited') < 0) {
               i.trophy.icon
               - }
-              | #{entry.entryTags.addition}
+              | #{a}
+            -   }
             - }
             - if (entry.entryTags.group) {
             span.ui.tiny.teal.label
@@ -249,11 +255,15 @@ mixin render-major-publication(entry)
       i.book.icon
       .content #{entry.getBookWithPages()}
     - if (entry.entryTags.addition) {
+    -   const { addition } = entry.entryTags;
+    -   const additions = addition.split(/;\s*/g);
+    -   for (const a of additions) {
     .item.award
-      - if (entry.entryTags.addition.indexOf('Invited') < 0) {
+      - if (a.indexOf('Invited') < 0) {
       i.trophy.icon
       - }
-      .content: strong #{entry.entryTags.addition}
+      .content: strong #{a}
+    -   }
     - }
   .ui.horizontal.divided.list.extra
     - if (entry.entryTags.pdf) {
