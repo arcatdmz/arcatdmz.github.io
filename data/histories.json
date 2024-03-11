@@ -343,6 +343,10 @@
   ],
   "ja": [
     {
+      "date": "03/11/2024",
+      "text": "情報処理学会 <a href=\"http://www.interaction-ipsj.org/2024/\">インタラクション2024</a>で「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework: インタラクティブな歌詞駆動型視覚表現の開発用フレームワーク</a>」と題して登壇・インタラクティブ発表を行い、それぞれ最優秀論文賞とインタラクティブ発表賞（一般投票）を受賞しました。"
+    },
+    {
       "date": "03/04/2024",
       "text": "コンテンツ産業の研究開発に携わる方々をお呼びするワークショップ「<a href=\"https://chci.pages.dev/aist-seminar/workshop\">AIST Creative HCI Workshop</a>」を3月5日（火）に東京大学本郷キャンパスで開催します。奮ってご参加ください。"
     },
