@@ -67,7 +67,10 @@ mixin about()
             a(href='https://www.aist.go.jp/index_en.html'): abbr(title='National Institute of Advanced Industrial Science and Technology') AIST
             |  and the Technical Advisor (<abbr title="Principal Investigator">PI</abbr>) at 
             a(href='https://research.archinc.jp/en') Arch Research
-            |  with a focus on <abbr title="Programming Experience">PX</abbr> and creativity support research.
+            |  with a focus on <abbr title="Programming Experience">PX</abbr> and creativity support research. 
+            | Since April 2024, he has been a Visiting Scientist at 
+            a(href='https://ex-situ.lri.fr/about') Ex-Situ
+            |  group, LISN, Université Paris-Saclay. 
             | He received a Ph.D. from 
             a(href='https://www-ui.is.s.u-tokyo.ac.jp/en/', title='Prof. Takeo Igarashi (User Interface Research Lab)') The University of Tokyo
             |  (2014) and has regularly gained 
@@ -181,6 +184,19 @@ mixin contact()
           .item
             i.building.icon
             .content
+              a(href='https://ex-situ.lri.fr/about') Ex-Situ Group
+              | , 
+              a(href='https://www.lisn.upsaclay.fr/') Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)
+              | , 
+              a(href='https://www.universite-paris-saclay.fr/en') Université Paris-Saclay
+          .item
+            i.marker.icon
+            .content Bâtiment 650, Université Paris-Saclay, 91405 ORSAY Cedex, France
+        hr.ui.divider
+        .ui.list.grey
+          .item
+            i.building.icon
+            .content
               - if (en) {
               a(href='https://staff.aist.go.jp/masahiro.hamasaki/mig/') Media Interaction Group
               | , 
@@ -197,6 +213,7 @@ mixin contact()
           .item
             i.marker.icon
             .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '305-8568 茨城県つくば市梅園1-1-1 中央第2'}
+        hr.ui.divider
         .ui.horizontal.list
           .item
             i.mail.icon
