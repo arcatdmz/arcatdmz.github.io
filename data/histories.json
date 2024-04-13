@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "04/12/2024",
+      "text": "Started my sabbatical-like year as a Visiting Scientist at Université Paris-Saclay. I belong to <a href=\"https://ex-situ.lri.fr/about\">Ex-Situ</a> and conduct research on methods and tools for creativity support."
+    },
+    {
       "date": "12/13/2023",
       "text": "Concluded the <a href=\"https://chci.pages.dev/aist-seminar/en\">&quot;AIST Creative HCI Seminar series&quot;</a> with the sixth edition, focusing on <a href=\"https://chci.pages.dev/aist-seminar/en/6\">&quot;HCI research in the wild&quot;</a>, inviting Jennifer Jacobs and Koya Narumi."
     },
@@ -342,6 +346,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "04/12/2024",
+      "text": "パリ＝サクレ大学でVisiting Scientistとして在外研究を始めました。<a href=\"https://ex-situ.lri.fr/about\">Ex-Situ</a>という研究グループで、創造性支援のための理論と実践について研究します。"
+    },
     {
       "date": "03/11/2024",
       "text": "情報処理学会 <a href=\"http://www.interaction-ipsj.org/2024/\">インタラクション2024</a>で「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework: インタラクティブな歌詞駆動型視覚表現の開発用フレームワーク</a>」と題して登壇・インタラクティブ発表を行い、それぞれ最優秀論文賞とインタラクティブ発表賞（一般投票）を受賞しました。"
