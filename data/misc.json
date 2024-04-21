@@ -1,5 +1,6 @@
 {
   "publications": {
+    "CHI '24": "acceptance rate: 26.4%",
     "CHI '23": "acceptance rate: 27.6%",
     "MM '18": "acceptance rate: 27.5%; oral presentation: 8.5%",
     "CHI '18": "acceptance rate: 25%",
@@ -70,6 +71,21 @@
       }
     ],
     "organizers": [
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2024.splashcon.org/home/live-2024",
+        "event": {
+          "name": "LIVE '24",
+          "fullname": "The Tenth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '24",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2024.splashcon.org"
+        },
+        "year": 2024
+      },
       {
         "class": "chair",
         "title": "Co-chair",
