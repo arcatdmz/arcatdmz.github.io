@@ -1,5 +1,5 @@
 import(/* webpackChunkName: "library" */ "./library").then((Library) => {
-  $("a.ui.for-modal.image").click(function () {
+  $("a.ui.for-modal.image").on("click touch", function () {
     const $a = $(this),
       $title = $a.parents(".ui.segment").find("h3.ui.header"),
       $img = $a.find("img"),

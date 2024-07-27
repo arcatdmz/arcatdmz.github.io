@@ -217,7 +217,7 @@ new Clipboard("a.bibtex");
 
 export function setSmoothScroll($e: JQuery) {
   $e.on("click touch", function (ev) {
-    return doSmoothScroll(<HTMLAnchorElement>this, ev);
+    doSmoothScroll(<HTMLAnchorElement>this, ev);
   });
 }
 
