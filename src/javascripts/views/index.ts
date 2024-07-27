@@ -1,13 +1,18 @@
 const lang: "en" | "ja" = (<any>self)["lang"];
 
-$("a.sns").on("click touch", (ev) => {
+const $avatar = $("#avatar");
+if (Math.random() > 0.5) {
+  const altSrc = <string>$avatar.attr("data-alt-src");
+  $avatar.attr("src", altSrc);
+}
+
+$("a.sns").on("click touch", (_ev) => {
   setTimeout(() => $("#sns").transition("jiggle"), 700);
-  return true;
 });
 
 import(/* webpackChunkName: "library" */ "./library").then((Library) => {
   var anchor: HTMLAnchorElement | null = null;
-  console.log("dynamically loaded library: ", new Library.default());
+
   Library.setSidebarHiddenListener(function () {
     // console.log('sidebar is hidden', this);
     if (anchor) {
@@ -16,17 +21,22 @@ import(/* webpackChunkName: "library" */ "./library").then((Library) => {
     }
     anchor = null;
   });
+
   $(".ui.sidebar.menu a").on("click touch", function (ev) {
     const a = <HTMLAnchorElement>this;
     if (!Library.checkSmoothScrollable(a)) {
       // console.log('anchor unscrollable', a);
-      return true;
+      return;
     }
     ev.preventDefault();
     anchor = a;
     $(".ui.sidebar").sidebar("hide");
     // console.log('anchor scrollable', a);
-    return false;
+  });
+
+  $avatar.on("click touch", function () {
+    const $modal = $(".ui.modal");
+    $modal.modal("refresh").modal("show");
   });
 });
 

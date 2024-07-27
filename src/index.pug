@@ -33,10 +33,35 @@ block post-footer
     a.item(href='#contact')
       i.address.card.icon
       .content #{en ? 'Contact' : '連絡先'}
+  .ui.modal
+    .header #{en ? 'Profile photo' : '著者近影'}
+    .scrolling.content: .ui.stackable.columns.grid: .row
+      .four.wide.column
+        a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.highres.jpg`): img(src=`${rootPath}images/junkato.jpg`)
+      .four.wide.column
+        a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.comics.highres.png`): img(src=`${rootPath}images/junkato.comics.png`)
+      .four.wide.column
+        a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.alt.highres.jpg`): img(src=`${rootPath}images/junkato.alt.jpg`)
+      .four.wide.column
+        a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.alt2.jpg`): img(src=`${rootPath}images/junkato.alt2.jpg`)
+    .content
+      - if (en) {
+      ul
+        li Click to download full resolution images.
+        li The comic version was drawn by Akira Shinohara as part of the 
+          a(href="https://www.aist.go.jp/aist_j/magazine/20240415.html") AIST magazine
+          | .
+      - } else {
+      ul
+        li クリックでフル解像度をダウンロードできます
+        li 漫画版は
+          a(href="https://www.aist.go.jp/aist_j/magazine/20240415.html") 産総研マガジン
+          | に掲載された篠原 彬氏の手によるものです
+      - }
 
 block main
   h1.ui.header
-    img.ui.circular.image(src=`${rootPath}images/junkato.jpg`)
+    img.ui.circular.image#avatar(src=`${rootPath}images/junkato.jpg`, data-alt-src=`${rootPath}images/junkato.comics.png`)
     .content #{author}
       .sub.header
         - if (en) {
