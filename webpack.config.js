@@ -39,7 +39,7 @@ module.exports = {
               ],
             ],
             plugins: [
-              require("@babel/plugin-proposal-class-properties"),
+              require("@babel/plugin-transform-class-properties"),
               require("@babel/plugin-syntax-dynamic-import"),
             ],
           },
