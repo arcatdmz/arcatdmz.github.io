@@ -131,7 +131,7 @@ gulp.task("copy:bibtex", function () {
 // [copy:fonts]
 gulp.task("copy:fonts", function () {
   return gulp
-    .src("node_modules/devicon/fonts/*", { base: "node_modules/devicon" })
+    .src("node_modules/devicon/fonts/*", { base: "node_modules/devicon", encoding: false })
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
@@ -139,11 +139,24 @@ gulp.task("copy:fonts", function () {
 });
 
 // [copy:default]
-gulp.task("copy:default", function () {
+gulp.task("copy:default-binary", function () {
   return gulp
     .src(
       [
-        "src/**/*.{pdf,png,jpg,bib,json,html,css,txt,package-list}",
+        "src/**/*.{pdf,png,jpg}"
+      ],
+      { base: "src", encoding: false }
+    )
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
+    .pipe(gulp.dest("dist"));
+});
+gulp.task("copy:default-text", function () {
+  return gulp
+    .src(
+      [
+        "src/**/*.{bib,json,html,css,txt,package-list}",
         "src/.htaccess",
       ],
       { base: "src" }
@@ -153,6 +166,7 @@ gulp.task("copy:default", function () {
     )
     .pipe(gulp.dest("dist"));
 });
+gulp.task("copy:default", gulp.parallel("copy:default-binary", "copy:default-text"));
 
 // [copy]
 gulp.task("copy", gulp.parallel("copy:bibtex", "copy:fonts", "copy:default"));
