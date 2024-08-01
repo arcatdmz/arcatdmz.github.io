@@ -1,5 +1,21 @@
 [
   {
+    "date": "7/31/2024",
+    "text": {
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Yamashita <abbr title=\"Special Interest Group\">SIG</abbr> Research Award (<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>)",
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度（令和6年度）山下記念研究賞</a> 受賞（<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>推薦: インタラクション2024）"
+    },
+    "entryType": "domestic"
+  },
+  {
+    "date": "7/31/2024",
+    "text": {
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Yamashita <abbr title=\"Special Interest Group\">SIG</abbr> Research Award (<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>)",
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度（令和6年度）山下記念研究賞</a> 受賞（<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>推薦: 2023-MUS-138）"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "3/6/2024",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Symposium Interaction 2024 Best Paper Award and Interactivity Award (&quot;People's Choice&quot; category)",
@@ -37,7 +53,7 @@
     "date": "10/13/2021",
     "text": {
       "en": "<a href=\"https://conf.researchr.org/home/vlhcc-2021\">IEEE VL/HCC '21</a> <a href=\"https://conf.researchr.org/attending/vlhcc-2021/awards\">Best Short Paper Award</a> for the co-authored Roly-poly short paper",
-      "ja": "<a href=\"https://conf.researchr.org/home/vlhcc-2021\">IEEE VL/HCC '21</a> <a href=\"https://conf.researchr.org/attending/vlhcc-2021/awards\">Best Short Paper Award</a> (Roly-polyの共著発表に対して)"
+      "ja": "<a href=\"https://conf.researchr.org/home/vlhcc-2021\">IEEE VL/HCC '21</a> <a href=\"https://conf.researchr.org/attending/vlhcc-2021/awards\">Best Short Paper Award</a> 受賞 (Roly-polyの共著発表に対して)"
     }
   },
   {
@@ -58,7 +74,7 @@
     "date": "4/12/2018",
     "text": {
       "en": "<a href=\"http://itolab.is.ocha.ac.jp/pvis2018/\">IEEE PacificVis '18</a> <a href=\"http://itolab.is.ocha.ac.jp/pvis2018/#honorable-mention-poster-awards\">Honorable Mention Poster Award</a> for the co-authored TextTimeline poster",
-      "ja": "<a href=\"http://itolab.is.ocha.ac.jp/pvis2018/\">IEEE PacificVis '18</a> <a href=\"http://itolab.is.ocha.ac.jp/pvis2018/#honorable-mention-poster-awards\">Honorable Mention Poster Award</a> (TextTimelineの共著発表に対して)"
+      "ja": "<a href=\"http://itolab.is.ocha.ac.jp/pvis2018/\">IEEE PacificVis '18</a> <a href=\"http://itolab.is.ocha.ac.jp/pvis2018/#honorable-mention-poster-awards\">Honorable Mention Poster Award</a> 受賞 (TextTimelineの共著発表に対して)"
     }
   },
   {
@@ -162,7 +178,10 @@
   },
   {
     "date": "2010",
-    "text": "<a href=\"https://src.acm.org/candidates/2010\">ACM Student Research Competition Grand Finals</a> Finalist"
+    "text": {
+      "en": "<a href=\"https://src.acm.org/candidates/2010\">ACM Student Research Competition Grand Finals</a> Finalist",
+      "ja": "<a href=\"https://src.acm.org/candidates/2010\">ACM Student Research Competition Grand Finals</a> Finalist"
+    }
   },
   {
     "date": "8/1/2009",
