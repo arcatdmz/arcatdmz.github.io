@@ -12,7 +12,7 @@ block main
     section#awards
       h1.ui.header
         i.trophy.icon
-        .content #{en ? 'Awards' : '受賞歴'}
+        .content #{en ? 'Awards and Honors' : '受賞歴'}
       +awards()
     .ui.hidden.divider
     section#talks
@@ -64,15 +64,19 @@ mixin publications-menu()
       .content #{en ? 'Timeline' : '活動履歴'}
 
 mixin awards()
+  - const numInternationalAwards = awards.reduce((p, c) => p + (c.entryType !== "domestic" && c.getText('ja').indexOf('受賞') >= 0 ? 1 : 0), 0);
+  - const numDomesticAwards = awards.reduce((p, c) => p + (c.entryType === "domestic" && c.getText('ja').indexOf('受賞') >= 0 ? 1 : 0), 0);
+  block awards
+    p I have received <strong>#{numInternationalAwards}</strong> international and <strong>#{numDomesticAwards}</strong> domestic awards.
   .ui.segments
     .ui.secondary.segment
       .ui.horizontal.list
         .item
           i.circle.icon
-          .content #{en ? 'Domestic awards' : '国内'}
+          .content #{en ? 'Domestic' : '国内'}
         .item
           i.world.icon
-          .content #{en ? 'International awards' : '国際'}
+          .content #{en ? 'International' : '国際'}
     .ui.segment
       .ui.divided.list
         - for (const entry of awards) {
