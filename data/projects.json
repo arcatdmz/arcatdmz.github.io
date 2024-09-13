@@ -89,6 +89,24 @@
   },
   "projects": [
     {
+      "project": "griffith",
+      "publication": "chi2024-kato-griffith",
+      "title": "Griffith",
+      "subtitle": "A Web-based Tool for Authoring Anime Storyboards",
+      "year": {
+        "from": 2019
+      },
+      "tags": ["creativity"],
+      "thumbnail": "griffith.jpg",
+      "icon": true,
+      "hero": "griffith.jpg",
+      "description": "Griffith is a web-based authoring tool for Japanese animation (anime) storyboards.",
+      "ja": {
+        "subtitle": "Webベースのアニメ用絵コンテ制作支援ツール",
+        "description": "Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。"
+      }
+    },
+    {
       "project": "aist-creative-hci-seminar",
       "title": "AIST Creative HCI Seminar",
       "year": {
@@ -193,26 +211,6 @@
         "private": false,
         "title": "ユーザインタフェース設計",
         "description": "<p>ユーザインタフェース設計に関して、基礎理論からデザインの評価手法、デザインで気をつけるべきポイント、最近のホットトピックまで幅広く紹介します。</p>"
-      }
-    },
-    {
-      "project": "griffith",
-      "publication": "chi2024-kato-griffith",
-      "title": "Griffith",
-      "subtitle": "A Web-based Tool for Authoring Anime Storyboards",
-      "year": {
-        "from": 2019
-      },
-      "tags": ["creativity"],
-      "thumbnail": "griffith.jpg",
-      "icon": true,
-      "hero": true,
-      "description": "Griffith is a web-based authoring tool for Japanese animation (anime) storyboards.",
-      "url": "https://research.archinc.jp/en/griffith/",
-      "ja": {
-        "subtitle": "Webベースのアニメ用絵コンテ制作支援ツール",
-        "description": "Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。",
-        "url": "https://research.archinc.jp/griffith/"
       }
     },
     {
