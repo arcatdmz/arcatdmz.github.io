@@ -1,0 +1,74 @@
+extends ../_layout
+
+block vars
+  - p = projectsTable['griffith'];
+  - title = p.getTitle(lang);
+  - me = p.project + '/';
+
+
+block main-hero-unit
+  +render-project-hero('griffith')
+
+block main
+  section#abstract
+    h2.ui.header
+      .content #{en ? 'Project summary' : '概要'}
+    .ui.basic.segment
+      block abstract
+        p The &quot;E-conte,&quot; storyboard in English, is commonly referred to as the &quot;blueprint&quot; in Japanese animation (anime) production, serving as a communication medium with a prominent role in anime production. Griffith is a web-based E-conte authoring tool designed with Japanese animation professionals, as part of our long-term effort to intertwine artistic practice and scientific research.
+    .ui.basic.right.aligned.segment
+      a.ui.primary.button(href=en ? 'https://research.archinc.jp/en/griffith/' : 'https://research.archinc.jp/griffith/')
+        | Arch Research #{en ? 'project page' : 'プロジェクトページ'}
+        i.chevron.circle.right.icon
+  .ui.hidden.divider
+  section#presentations: +presentations()
+  .ui.hidden.divider
+  +render-project-publications(p.project, 'chi2024-kato-griffith')
+  .ui.hidden.divider
+  section#revisions: +revisions()
+  .ui.hidden.divider
+  section#further-readings: +further-readings()
+
+mixin presentations()
+  h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
+  table.ui.striped.very.basic.table: tbody
+    tr
+      td.three.wide #{en ? 'Where?' : '会場'}
+      td.thirteen.wide: .ui.list: .item
+        i.map.pin.icon
+        .content Room 324 (Floor Level 3), Hawaii Convention Center
+    tr
+      td.three.wide #{en ? 'When?' : '日時'}
+      td.thirteen.wide: .ui.list: .item
+        i.clock.icon
+        .content Mon, May 13 | 14:00 - 14:15
+    tr
+      td.three.wide CHI '24 Program
+      td.thirteen.wide: .ui.list: .item
+        i.book.icon
+        .content: a(href='https://programs.sigchi.org/chi/2024/program/content/147403') Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals - CHI '24
+  .ui.two.columns.grid: .stackable.row
+    .column: .ui.basic.segment
+      +embed-youtube('//www.youtube.com/embed/rlJ1Fe53Lw8')
+      p.caption #{en ? 'CHI 2024 Video Preview (30s)' : 'CHI 2024 Video Preview（30秒）'}
+    .column: .ui.basic.segment
+      +embed-youtube('//www.youtube.com/embed/RWdw9rDRf7A')
+      p.caption CHI 2024 Pre-recorded Presentation Video
+
+mixin revisions()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 09/13/2024
+        .summary #{en ? 'Added a project page' : 'プロジェクトページを仮公開'}
+
+mixin further-readings()
+  h2.ui.header
+    i.gift.icon
+    .content #{en ? 'Relevant project' : '関連プロジェクト'}
+  .ui.basic.segment
+    .ui.segment: .ui.divided.items.projects
+      +render-project-item(projectsTable['creativity-support-environments'])

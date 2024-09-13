@@ -15,12 +15,13 @@
   "services": {
     "members": [
       {
-        "name": "AIST Creative HCI Seminar",
+        "name": "AIST Creative HCI Seminar/Workshop",
         "url": "https://chci.pages.dev/aist-seminar/en",
         "role": [
           {
             "title": "Founder, organizer",
-            "from": 2023
+            "from": 2023,
+            "to": 2024
           }
         ]
       },
@@ -71,6 +72,17 @@
       }
     ],
     "organizers": [
+      {
+        "class": "oc",
+        "title": "Sponsorship Chair",
+        "url": "https://chi2025.acm.org/organizing",
+        "event": {
+          "name": "ACM CHI '25",
+          "fullname": "The 2025 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2025.acm.org"
+        },
+        "year": 2025
+      },
       {
         "class": "pc",
         "title": "Program Committee",
