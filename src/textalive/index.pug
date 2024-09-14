@@ -26,7 +26,7 @@ block post-footer
       .content #{en ? 'Publications' : '発表文献'}
     a.item(href='#further-readings')
       i.right.triangle.icon
-      .content #{en ? 'Relevant project' : '関連プロジェクト'}
+      .content #{en ? 'Relevant projects' : '関連プロジェクト'}
 
 block main-hero-unit
   +render-project-hero('textalive')
@@ -209,7 +209,8 @@ mixin examples()
 mixin further-readings()
   h2.ui.header
     i.gift.icon
-    .content #{en ? 'Relevant project' : '関連プロジェクト'}
+    .content #{en ? 'Relevant projects' : '関連プロジェクト'}
   .ui.basic.segment
     .ui.segment: .ui.divided.items.projects
       +render-project-item(projectsTable['lyric-app-framework'])
+      +render-project-item(projectsTable['creativity-support-environments'])
