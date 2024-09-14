@@ -21,13 +21,16 @@ block main
         | Arch Research #{en ? 'project page' : 'プロジェクトページ'}
         i.chevron.circle.right.icon
   .ui.hidden.divider
-  section#presentations: +presentations()
-  .ui.hidden.divider
+  .ui.stackable.two.columns.grid: .row
+    .column
+      section#presentations: +presentations()
+      .ui.hidden.divider
+    .column
+      section#further-readings: +further-readings()
+      .ui.hidden.divider
   +render-project-publications(p.project, 'chi2024-kato-griffith')
   .ui.hidden.divider
   section#revisions: +revisions()
-  .ui.hidden.divider
-  section#further-readings: +further-readings()
 
 mixin presentations()
   h2.ui.header: .content #{en ? 'Presentation materials' : '発表内容'}
@@ -47,13 +50,39 @@ mixin presentations()
       td.thirteen.wide: .ui.list: .item
         i.book.icon
         .content: a(href='https://programs.sigchi.org/chi/2024/program/content/147403') Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals - CHI '24
-  .ui.two.columns.grid: .stackable.row
-    .column: .ui.basic.segment
-      +embed-youtube('//www.youtube.com/embed/rlJ1Fe53Lw8')
-      p.caption #{en ? 'CHI 2024 Video Preview (30s)' : 'CHI 2024 Video Preview（30秒）'}
-    .column: .ui.basic.segment
-      +embed-youtube('//www.youtube.com/embed/RWdw9rDRf7A')
-      p.caption CHI 2024 Pre-recorded Presentation Video
+  .ui.basic.segment
+    +embed-youtube('//www.youtube.com/embed/rlJ1Fe53Lw8')
+    p.caption #{en ? 'CHI 2024 Video Preview (30s)' : 'CHI 2024 Video Preview（30秒）'}
+  .ui.basic.segment
+    +embed-youtube('//www.youtube.com/embed/RWdw9rDRf7A')
+    p.caption CHI 2024 Pre-recorded Presentation Video
+
+mixin further-readings()
+  h2.ui.header
+    i.gift.icon
+    .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+  .ui.basic.segment
+    .ui.two.stackable.cards.projects
+      .card
+        a.image(href='https://gsw.archinc.jp'): img(src=`${rootPath}griffith/griffith-stopwatch-thumbnail.png`)
+        .content
+          a.header(href='https://gsw.archinc.jp') Griffith Stopwatch
+          p.description #{en ? 'Griffith Stopwatch is a web-based stopwatch tool with a user interface designed specifically for anime creators.' : '日本のアニメ制作に特化したユーザインタフェースを持つストップウォッチのWebアプリケーションです。'}
+        .extra.content
+          span.right.floated
+            i.calendar.icon
+            | 2024-
+      .card
+        a.image(href=en ? 'https://research.archinc.jp/en/griffith/sketch' : 'https://research.archinc.jp/griffith/sketch'): img(src=`${rootPath}griffith/griffith-sketch-screenshot.png`)
+        .content
+          a.header(href=en ? 'https://research.archinc.jp/en/griffith/sketch' : 'https://research.archinc.jp/griffith/sketch') Griffith Sketch
+          p.description #{en ? 'Griffith Sketch is a lightweight web-based sketching tool with a pressure-sensitive brush and easy layering.' : '感圧式キャンバスやレイヤー機能などを備えたシンプルなスケッチ用のWebアプリケーションです。'}
+        .extra.content
+          span.right.floated
+            i.calendar.icon
+            | 2020
+    .ui.segment: .ui.divided.items.projects
+      +render-project-item(projectsTable['creativity-support-environments'])
 
 mixin revisions()
   h2.ui.header
@@ -64,11 +93,3 @@ mixin revisions()
       .event: .content
         .date 09/13/2024
         .summary #{en ? 'Added a project page' : 'プロジェクトページを仮公開'}
-
-mixin further-readings()
-  h2.ui.header
-    i.gift.icon
-    .content #{en ? 'Relevant project' : '関連プロジェクト'}
-  .ui.basic.segment
-    .ui.segment: .ui.divided.items.projects
-      +render-project-item(projectsTable['creativity-support-environments'])

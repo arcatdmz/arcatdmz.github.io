@@ -348,7 +348,7 @@
   "ja": [
     {
       "date": "04/16/2024",
-      "text": "技術顧問を務めるアーチ株式会社で研究開発してきた絵コンテ制作ツール「Griffith」に関して、<a href=\"https://archinc.jp/ja/news/2314\">CHI 2024 論文採択のニュース</a>が掲載されました。"
+      "text": "技術顧問を務めるアーチ株式会社で研究開発してきた絵コンテ制作ツール「<a href=\"${rootPath}ja/griffith/\">Griffith</a>」に関して、<a href=\"https://archinc.jp/ja/news/2314\">CHI 2024 論文採択のニュース</a>が掲載されました。"
     },
     {
       "date": "04/12/2024",
