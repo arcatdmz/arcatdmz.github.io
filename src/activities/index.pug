@@ -3,6 +3,7 @@ extends ../_layout
 block vars
   - title = en ? 'Professional Activities' : '職務活動';
   - me = 'activities/';
+  - confArr = ["ACM CHI", "ACM UIST", "ACM DIS", "ACM SPLASH"];
   - hciArr = ['CHI', 'UIST', 'IUI'];
   - pxArr = ['LIVE', 'SPLASH', 'VL/HCC', 'Programming', 'ECOOP', 'PX/'];
   - rf = (organizer) => (( p, c) => p && organizer.event.name.indexOf(c) < 0 && (!organizer.conference || organizer.conference.name.indexOf(c) < 0));
@@ -271,72 +272,29 @@ mixin places()
       iframe(width="100%", height="360", frameborder="0", src="https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4")
     .column
       .ui.divided.list
+        - misc.services.attendances.filter(c => confArr.indexOf(c.name) >= 0).forEach(conference => {
         .item
-          .header: abbr(title="The ACM CHI Conference on Human Factors in Computing Systems") ACM CHI
+          .header: abbr(title=conference.title) #{conference.name}
           .meta
-            a(href="https://web.archive.org/web/20141111021704/http://www.chi2009.org/") 2009
-            |  (Boston, MA), 
-            a(href="https://chi2013.acm.org/") 2013
-            |  (Paris, France), 
-            a(href="https://chi2015.acm.org/") 2015
-            |  (Seoul, Korea), 
-            a(href="https://chi2016.acm.org/") 2016
-            |  (San Jose, CA), 
-            a(href="https://chi2023.acm.org/") 2023
-            |  (Hamburg, Germany)
+            - let totalLocations = conference.locations.length
+            - conference.locations.forEach((location, index) => {
+              a(href=location.link) #{location.year}
+              |  (#{location.city}, #{location.country})
+              - if (index < totalLocations - 1) {
+                | , 
+              - }
+            - })
+        - })
         .item
-          .header: abbr(title="The Annual ACM Symposium on User Interface Software and Technology") ACM UIST
+          .header #{en ? 'Other attended conferences' : 'その他の国際会議'}
           .meta
-            a(href="https://uist.acm.org/uist2009/") 2009
-            |  (Victoria, Canada), 
-            a(href="https://uist.acm.org/uist2010/") 2010
-            |  (New York, NY), 
-            a(href="https://uist.acm.org/uist2012/") 2012
-            |  (Boston, MA), 
-            a(href="https://uist.acm.org/uist2013/") 2013
-            |  (St. Andrews, UK), 
-            a(href="https://uist.acm.org/uist2015/") 2015
-            |  (Charlotte, NC), 
-            a(href="https://uist.acm.org/uist2016/") 2016
-            |  (Tokyo, Japan)
-        .item
-          .header: abbr(title="The ACM SIGCHI Conference on Designing Interactive Systems") ACM DIS
-          .meta
-            a(href="https://web.archive.org/web/20170916142003/http://www.dis2012.org/") 2012
-            |  (Newcastle upon Tyne, UK), 
-            a(href="https://web.archive.org/web/20200216101539/http://dis2017.org/") 2017
-            |  (Edinburgh, UK)
-        .item
-          .header #{en ? 'Other conferences' : 'その他の国際会議'}
-          .meta
-            a(href="https://www.siggraph.org/asia2009/", title="The 36th International Conference and Exhibition on Computer Graphics and Interactive Techniques") SIGGRAPH Asia 2009
-            |  (Yokohama, Japan), 
-            a(href="http://pldi2013.ucombinator.org/", title="The 34th Annual ACM SIGPLAN Conference on Programming Language Design and Implementation") ACM PLDI 2013
-            |  (Seattle, WA), 
-            a(href="http://www.ieee-gcce.org/2013/", title="The 2nd IEEE Global Conference on Consumer Electronics") IEEE GCCE 2013
-            |  (Tokyo, Japan), 
-            a(href="https://www.cs.mcgill.ca/~kry/gi2014/", title="The 40th Graphics Interface Conference") GI 2014
-            |  (Montreal, QC, Canada), 
-            a(href="http://hai-conference.net/hai2014/", title="The Second International Conference on Human-Agent Interaction") HAI 2014
-            |  (Tsukuba, Japan), 
-            a(href="https://iclc.toplap.org/", title="The First International Conference on Live Coding") ICLC 2015
-            |  (Leeds, UK), 
-            a(href="https://2016.ecoop.org/", title="The 30th European Conference on Object-Oriented Programming") ECOOP 2016
-            |  (Rome, Italy), 
-            a(href="https://humanrobotinteraction.org/2017/", title="The 2017 Conference on Human-Robot Interaction") IEEE/ACM HRI 2017
-            |  (Vienna, Austria), 
-            a(href="https://2017.programming-conference.org", title="The International Conference on the Art, Science, and Engineering of Programming") &lt;Programming&gt; 2017
-            |  (Brussels, Belgium), 
-            a(href="https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=17232") Dagstuhl Seminar 17232
-            |  and 
-            a(href="https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22231") 22231
-            |  (Dagstuhl, Germany), 
-            a(href="https://vlhcc18.github.io") IEEE VL/HCC 2018
-            |  (Lisbon, Portugal), 
-            a(href="http://sigmm.org/events/acm-multimedia-2018") ACM Multimedia 2018
-            |  (Seoul, Korea), 
-            a(href="https://2022.splashcon.org/") SPLASH 2022
-            |  (Auckland, New Zealand), 
-            a(href="https://2023.splashcon.org/") SPLASH 2023
-            |  (Cascais, Portugal)
-
+            - const oConfArr = misc.services.attendances.filter(c => confArr.indexOf(c.name) < 0);
+            - oConfArr.forEach((conf, confIndex) => {
+            - conf.locations.forEach((location, locIndex) => {
+            a(href=location.link, title=location.title || undefined) #{conf.name} #{location.year}
+            |  (#{location.city}, #{location.country})
+            - if (locIndex < conf.locations.length - 1 || confIndex < oConfArr.length - 1) {
+              | , 
+            - }
+            - });
+            - });

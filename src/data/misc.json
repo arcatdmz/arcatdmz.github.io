@@ -622,6 +622,275 @@
         "year": 2013
       }
     ],
+    "attendances": [
+      {
+        "name": "ACM CHI",
+        "title": "The ACM CHI Conference on Human Factors in Computing Systems",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://web.archive.org/web/20141111021704/http://www.chi2009.org/"
+          },
+          {
+            "year": 2013,
+            "city": "Paris",
+            "country": "France",
+            "link": "https://chi2013.acm.org/"
+          },
+          {
+            "year": 2015,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "https://chi2015.acm.org/"
+          },
+          {
+            "year": 2016,
+            "city": "San Jose",
+            "country": "USA",
+            "link": "https://chi2016.acm.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Hamburg",
+            "country": "Germany",
+            "link": "https://chi2023.acm.org/"
+          },
+          {
+            "year": 2024,
+            "city": "Honolulu",
+            "country": "USA",
+            "link": "https://chi2024.acm.org/"
+          }
+        ]
+      },
+      {
+        "name": "ACM UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Victoria",
+            "country": "Canada",
+            "link": "https://uist.acm.org/uist2009/"
+          },
+          {
+            "year": 2010,
+            "city": "New York",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2010/"
+          },
+          {
+            "year": 2012,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2012/"
+          },
+          {
+            "year": 2013,
+            "city": "St. Andrews",
+            "country": "UK",
+            "link": "https://uist.acm.org/uist2013/"
+          },
+          {
+            "year": 2015,
+            "city": "Charlotte",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2015/"
+          },
+          {
+            "year": 2016,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "https://uist.acm.org/uist2016/"
+          }
+        ]
+      },
+      {
+        "name": "ACM DIS",
+        "title": "The ACM SIGCHI Conference on Designing Interactive Systems",
+        "locations": [
+          {
+            "year": 2012,
+            "city": "Newcastle upon Tyne",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20170916142003/http://www.dis2012.org/"
+          },
+          {
+            "year": 2017,
+            "city": "Edinburgh",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20200216101539/http://dis2017.org/"
+          }
+        ]
+      },
+      {
+        "name": "SIGGRAPH Asia",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Yokohama",
+            "country": "Japan",
+            "link": "https://www.siggraph.org/asia2009/",
+            "title": "The 36th International Conference and Exhibition on Computer Graphics and Interactive Techniques"
+          }
+        ]
+      },
+      {
+        "name": "ACM PLDI",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Seattle",
+            "country": "USA",
+            "link": "http://pldi2013.ucombinator.org/",
+            "title": "The 34th Annual ACM SIGPLAN Conference on Programming Language Design and Implementation"
+          }
+        ]
+      },
+      {
+        "name": "IEEE GCCE",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "http://www.ieee-gcce.org/2013/",
+            "title": "The 2nd IEEE Global Conference on Consumer Electronics"
+          }
+        ]
+      },
+      {
+        "name": "Graphics Interface (GI)",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Montreal",
+            "country": "Canada",
+            "link": "https://www.cs.mcgill.ca/~kry/gi2014/",
+            "title": "The 40th Graphics Interface Conference"
+          }
+        ]
+      },
+      {
+        "name": "HAI",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Tsukuba",
+            "country": "Japan",
+            "link": "http://hai-conference.net/hai2014/",
+            "title": "The Second International Conference on Human-Agent Interaction"
+          }
+        ]
+      },
+      {
+        "name": "ICLC",
+        "locations": [
+          {
+            "year": 2015,
+            "city": "Leeds",
+            "country": "UK",
+            "link": "https://iclc.toplap.org/",
+            "title": "The First International Conference on Live Coding"
+          }
+        ]
+      },
+      {
+        "name": "ECOOP",
+        "locations": [
+          {
+            "year": 2016,
+            "city": "Rome",
+            "country": "Italy",
+            "link": "https://2016.ecoop.org/",
+            "title": "The 30th European Conference on Object-Oriented Programming"
+          }
+        ]
+      },
+      {
+        "name": "IEEE/ACM HRI",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Vienna",
+            "country": "Austria",
+            "link": "https://humanrobotinteraction.org/2017/",
+            "title": "The 2017 Conference on Human-Robot Interaction"
+          }
+        ]
+      },
+      {
+        "name": "<Programming>",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Brussels",
+            "country": "Belgium",
+            "link": "https://2017.programming-conference.org",
+            "title": "The International Conference on the Art, Science, and Engineering of Programming"
+          }
+        ]
+      },
+      {
+        "name": "Dagstuhl Seminar",
+        "locations": [
+          {
+            "year": "#17232 (2017)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=17232"
+          },
+          {
+            "year": "#22231 (2022)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22231"
+          }
+        ]
+      },
+      {
+        "name": "IEEE VL/HCC",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Lisbon",
+            "country": "Portugal",
+            "link": "https://vlhcc18.github.io"
+          }
+        ]
+      },
+      {
+        "name": "ACM Multimedia",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "http://sigmm.org/events/acm-multimedia-2018"
+          }
+        ]
+      },
+      {
+        "name": "ACM SPLASH",
+        "title": "The ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity",
+        "locations": [
+          {
+            "year": 2022,
+            "city": "Auckland",
+            "country": "New Zealand",
+            "link": "https://2022.splashcon.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Cascais",
+            "country": "Portugal",
+            "link": "https://2023.splashcon.org/"
+          }
+        ]
+      }
+    ],
     "miscellaneous": [
       {
         "title": "User interface design consultant for an animation TV series",
