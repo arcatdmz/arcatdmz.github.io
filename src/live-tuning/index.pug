@@ -6,11 +6,11 @@ block vars
   - me = p.project + '/';
 
 block main
-  .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
+  .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100; margin-right: 1em;')
     img(src=`${rootPath}live-tuning/live2016-kato-livetuning.jpg`)
-    .caption: a(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
+    .caption: a.ui.fluid.primary.small.labeled.icon.button(href=`${rootPath}publications/live2016-kato-livetuning.pdf`)
       i.book.icon
-      | Read the article
+      | Paper
   +render-project-header('live-tuning')
   .ui.message
     p This page provides summary and some graphical materials of the workshop paper that was presented at 

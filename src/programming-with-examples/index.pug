@@ -2,19 +2,20 @@ extends ../_layout
 
 block vars
   - title = 'Programming with Examples';
+  - subtitle = 'to Develop Data-Intensive User Interfaces';
   - description = 'The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and userss understand applications and configure them to meet their needs. The web page provides summary and additional information for the journal article discussing PwE that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.';
   - imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-with-examples.png`;
   - me = 'programming-with-examples/';
 
 block main
+  .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100; margin-right: 1em;')
+    img(src=`${rootPath}programming-with-examples/programming-with-examples.jpg`)
+    .caption: a.ui.fluid.primary.small.labeled.icon.button(href='https://dx.doi.org/10.1109/MC.2016.217')
+      i.book.icon
+      | Paper
   section
-    .mobile.hidden: .ui.right.floated.small.bordered.image(style='z-index: 100')
-      img(src=`${rootPath}programming-with-examples/programming-with-examples.jpg`)
-      .caption: a(href='https://dx.doi.org/10.1109/MC.2016.217')
-        i.book.icon
-        | Read the article
     h1.ui.header #{title}
-    +render-share()
+      .sub.header #{subtitle}
     .ui.horizontal.divided.list.project-meta-list
       .item
         span.ui.tiny.basic.label
@@ -23,6 +24,7 @@ block main
       .item
         span.ui.red.tiny.basic.label
           | IEEE Computer Special Issue on 21st Century User Interfaces
+    +render-share()
     .ui.message
       p This page provides summary and additional information for the journal article that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.
       - if (!en) {
