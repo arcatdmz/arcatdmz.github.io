@@ -1,5 +1,36 @@
 [
   {
+    "date": "8/23/2024",
+    "text": {
+      "ja": "Mizuho India Japan Study Centre at IIM Bangalore 「Meijin-Samvad」Webinarシリーズ招待パネル, <a href=\"https://www.youtube.com/watch?v=xKDia05R2uc\">&quot;Impact &amp; Synergy of Manga, Anime, and Video Games: Japanese Soft Power’s Impact on Global Markets - Positive? Negative? Balanced?&quot;</a> パネリスト",
+      "en": "Mizuho India Japan Study Centre at IIM Bangalore, <a href=\"https://digest.iimb.ac.in/2024/07/mijsc-at-iimb-hosts-panel-presentation-series-meijin-samvad-a-k-a-expert-conversation-on-23-august-2024/\">Meijin-Samvad</a> webinar series, <a href=\"https://www.youtube.com/watch?v=xKDia05R2uc\">&quot;Impact &amp; Synergy of Manga, Anime, and Video Games: Japanese Soft Power’s Impact on Global Markets - Positive? Negative? Balanced?&quot;</a> panelist"
+    },
+    "entryType": "international"
+  },
+  {
+    "date": "6/26/2024",
+    "text": {
+      "ja": "東京大学 <a href=\"https://non-research-tips.github.io/2024\">情報科学研究補助技法</a> ゲスト講義「DevOps for research」",
+      "en": "The University of Tokyo, <a href=\"https://non-research-tips.github.io/2024\">Non-Research Tips for Information Science Researchers</a> guest lecture, &quot;DevOps for research&quot;"
+    },
+    "entryType": "international"
+  },
+  {
+    "date": "6/19/2024",
+    "text": {
+      "ja": "東京大学 <a href=\"https://non-research-tips.github.io/2024\">情報科学研究補助技法</a> ゲスト講義「Research community」",
+      "en": "The University of Tokyo, <a href=\"https://non-research-tips.github.io/2024\">Non-Research Tips for Information Science Researchers</a> guest lecture, &quot;Research community&quot;"
+    },
+    "entryType": "international"
+  },
+  {
+    "date": "6/19/2024",
+    "text": {
+      "ja": "東京大学 <a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a> ゲスト講義「道具鍛冶とクリエータ」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "4/19/2024",
     "text": {
       "ja": "ニコニコサイエンス 公式生放送「<a href=\"https://live.nicovideo.jp/watch/lv344818897#39:18\">なんで、あなたは研究者に？～研究現場に凸って研究人生を聞いてみた～【産総研】</a>」"
@@ -30,7 +61,7 @@
   {
     "date": "9/22/2023",
     "text": {
-      "ja": "<a href=\"https://xdiversity.org/projects/xtalk\">xDiversity xTalk</a> 第31回「<a href=\"https://www.youtube.com/live/69pByl5RCBU?si=I1bBCHjAxcvbyTxC&t=1091\">加藤淳×落合陽一×菅野裕介</a>」"
+      "ja": "<a href=\"https://xdiversity.org/projects/xtalk\">xDiversity xTalk</a> 第31回「<a href=\"https://www.youtube.com/live/69pByl5RCBU?t=1091\">加藤淳×落合陽一×菅野裕介</a>」"
     },
     "entryType": "domestic"
   },

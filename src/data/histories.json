@@ -14,7 +14,7 @@
     },
     {
       "date": "09/28/2023",
-      "text": "Added a summary of the Japanese tutorial course titled &quot;Introduction to Live Programming: Try It, Make It, Know It&quot; held as part of The 40th <abbr title=\"Japan Society for Software Science and Technology\">JSSST</abbr> Annual Conference to the page <a href=\"${rootPath}ja/live-programming/\">&quot;User Interfaces for Live Programming&quot;</a>."
+      "text": "Added a summary of the Japanese tutorial course titled &quot;Introduction to Live Programming: Try It, Make It, Know It&quot; held as part of The 40th <abbr title=\"Japan Society for Software Science and Technology\">JSSST</abbr> Annual Conference to the page <a href=\"${rootPath}live-programming/\">&quot;User Interfaces for Live Programming&quot;</a>."
     },
     {
       "date": "08/20/2023",
