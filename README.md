@@ -8,8 +8,8 @@ All rights on image, video, text, and related resources (e.g., including paper P
 ## Dependencies
 
 - `Gulp v4`
-- `Webpack v4` + `Babel-loader v8` + `Babel v7`
-- `TypeScript v3.8`
+- `Webpack v5` + `Babel-loader v9` + `Babel v7`
+- `TypeScript v5`
 - `Pug v2` (as part of `gulp-pug` plugin)
 
 ## Directory structure
