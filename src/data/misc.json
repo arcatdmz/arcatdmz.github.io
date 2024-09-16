@@ -990,6 +990,16 @@
         }
       },
       {
+        "title": "Guest lectures in the &quot;Non-Research Tips for Information Science Researchers&quot; course",
+        "date": "2024/06/19, 2024/06/26",
+        "url": "https://non-research-tips.github.io/2024",
+        "description": "The University of Tokyo, &quot;Research community&quot; and &quot;DevOps for research&quot;",
+        "ja": {
+          "title": "情報科学研究補助技法 ゲスト講義",
+          "description": "東京大学, 「Research community」「DevOps for research」"
+        }
+      },
+      {
         "title": "Guest lecture in the &quot;Technology and Contents&quot; course",
         "date": "2024/06/19",
         "description": "The University of Tokyo, &quot;Toolsmiths and Creators&quot;",
