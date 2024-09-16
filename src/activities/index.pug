@@ -8,6 +8,27 @@ block vars
   - pxArr = ['LIVE', 'SPLASH', 'VL/HCC', 'Programming', 'ECOOP', 'PX/'];
   - rf = (organizer) => (( p, c) => p && organizer.event.name.indexOf(c) < 0 && (!organizer.conference || organizer.conference.name.indexOf(c) < 0));
   - rfx = (organizer) => ((p, c) => p || organizer.event.name.indexOf(c) >= 0 || (organizer.conference && organizer.conference.name.indexOf(c) >= 0));
+  - function formatYears(years) {
+  -   years.sort(function(a, b) { return a - b; });
+  -   var ranges = [];
+  -   var start = years[0];
+  -   var end = years[0];
+  -
+  -   for (var i = 1; i <= years.length; i++) {
+  -     if (years[i] === end + 1) {
+  -       end = years[i];
+  -     } else {
+  -       if (start === end) {
+  -         ranges.push('' + start);
+  -       } else {
+  -         ranges.push(start + '-' + end);
+  -       }
+  -       start = years[i];
+  -       end = years[i];
+  -     }
+  -   }
+  -   return ranges.join(', ');
+  - }
 
 block post-footer
   a.ui.circular.icon.popup-menu.large.grey.hidden.button
@@ -158,7 +179,6 @@ mixin services-pc-domestic()
       .meta プログラム委員 (2015-2019)
   - }
 
-
 mixin services-oc-hci()
   h4.ui.header Human-Computer Interaction
   .ui.list
@@ -203,54 +223,12 @@ mixin services-oc-domestic()
   - }
 
 mixin services-reviewers()
+  - for (let reviewer of misc.services.reviewers) {
   .item
-    .header: abbr(title='The SIGCHI Conference on Human Factors in Computing Systems') CHI
-    .meta 2010, 2015-2024
-  .item
-    .header: abbr(title='The Annual ACM symposium on User Interface Software and Technology') UIST
-    .meta 2014-2024
-  .item
-    .header: abbr(title='ACM SIGCHI Conference on Designing Interactive Systems') DIS
-    .meta 2017
-  .item
-    .header: abbr(title='ACM Annual Meeting of the Intelligent Interfaces Community') IUI
-    .meta 2018-2019
-  .item
-    .header: abbr(title='ACM Transactions on Computer-Human Interaction') TOCHI
-    .meta 2018
-  .item
-    .header: abbr(title='The International Conference and Exhibition on Computer Graphics and Interactive Techniques') SIGGRAPH
-    .meta 2015
-  .item
-    .header: abbr(title='ACM/IEEE International Conference on Human-Robot Interaction') HRI
-    .meta 2016-2017, 2022
-  .item
-    .header: abbr(title='ACM Transactions on Human-Robot Interaction') THRI
-    .meta 2018
-  .item
-    .header: abbr(title='The International Symposium on Robot and Human Interactive Communication') RO-MAN
-    .meta 2015
-  .item
-    .header: abbr(title='The International Conference on Human-Agent Interaction') HAI
-    .meta 2014
-  .item
-    .header: abbr(title='IEEE International Symposium on Mixed and Augmented Reality') ISMAR
-    .meta 2021
-  .item
-    .header: abbr(title="IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)") VL/HCC
-    .meta 2020
-  .item
-    .header: abbr(title='IEEE Global Conference on Consumer Electronics') GCCE
-    .meta 2013-2014
-  .item
-    .header: abbr(title='ACM Multimedia Conference') MM
-    .meta 2012
-  .item
-    .header: abbr(title='International Conference on Advances in Computer Entertainment Technology') ACE
-    .meta 2010-2011
-  .item
-    .header: abbr(title='IPSJ Forum on Information Technology') FIT
-    .meta 2011
+    .header
+      abbr(title=reviewer.title) #{reviewer.venue}
+    .meta #{formatYears(reviewer.years)}
+  - }
 
 mixin services-miscellaneous()
   h2.ui.header

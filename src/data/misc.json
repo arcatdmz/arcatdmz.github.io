@@ -622,6 +622,92 @@
         "year": 2013
       }
     ],
+    "reviewers": [
+      {
+        "venue": "CHI",
+        "title": "The SIGCHI Conference on Human Factors in Computing Systems",
+        "years": [
+          2010, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+        ]
+      },
+      {
+        "venue": "UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "years": [
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+        ]
+      },
+      {
+        "venue": "DIS",
+        "title": "ACM SIGCHI Conference on Designing Interactive Systems",
+        "years": [2017]
+      },
+      {
+        "venue": "IUI",
+        "title": "ACM Annual Meeting of the Intelligent Interfaces Community",
+        "years": [2018, 2019]
+      },
+      {
+        "venue": "TOCHI",
+        "title": "ACM Transactions on Computer-Human Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "SIGGRAPH",
+        "title": "The International Conference and Exhibition on Computer Graphics and Interactive Techniques",
+        "years": [2015]
+      },
+      {
+        "venue": "HRI",
+        "title": "ACM/IEEE International Conference on Human-Robot Interaction",
+        "years": [2016, 2017, 2022]
+      },
+      {
+        "venue": "THRI",
+        "title": "ACM Transactions on Human-Robot Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "RO-MAN",
+        "title": "The International Symposium on Robot and Human Interactive Communication",
+        "years": [2015]
+      },
+      {
+        "venue": "HAI",
+        "title": "The International Conference on Human-Agent Interaction",
+        "years": [2014]
+      },
+      {
+        "venue": "ISMAR",
+        "title": "IEEE International Symposium on Mixed and Augmented Reality",
+        "years": [2021]
+      },
+      {
+        "venue": "VL/HCC",
+        "title": "IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)",
+        "years": [2020]
+      },
+      {
+        "venue": "GCCE",
+        "title": "IEEE Global Conference on Consumer Electronics",
+        "years": [2013, 2014]
+      },
+      {
+        "venue": "MM",
+        "title": "ACM Multimedia Conference",
+        "years": [2012]
+      },
+      {
+        "venue": "ACE",
+        "title": "International Conference on Advances in Computer Entertainment Technology",
+        "years": [2010, 2011]
+      },
+      {
+        "venue": "FIT",
+        "title": "IPSJ Forum on Information Technology",
+        "years": [2011]
+      }
+    ],
     "attendances": [
       {
         "name": "ACM CHI",
