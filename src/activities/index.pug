@@ -236,9 +236,18 @@ mixin services-miscellaneous()
     | #{en ? 'Miscellaneous' : 'その他の活動'}
   .ui.divided.list.miscellaneous-list
     - for (let activity of misc.services.miscellaneous) {
+    - const date = en ? activity.date : (activity.ja && activity.ja.date) || activity.date || "";
+    - const description = (!en && activity.ja && activity.ja.description) || activity.description || "";
+    - let url = null;
+    - if (activity.url && (en || !(activity.ja && activity.ja.url))) {
+    - url = activity.url;
+    - } else if (!en && activity.ja && activity.ja.url) {
+    - url = activity.ja.url;
+    - }
+    - const linkOrDescription = url ? `<a href="${url}">${description}</a>` : description;
     .item: .content
       .header !{en || !(activity.ja && activity.ja.title) ? activity.title : activity.ja.title}
-      .meta !{[(en || !(activity.ja && activity.ja.date) ? activity.date : activity.ja.date) || "", (en || !(activity.ja && activity.ja.url)) && activity.url ? `<a href="${activity.url}">${activity.description}</a>` : (!en && (activity.ja && activity.ja.url) ? `<a href="${activity.ja.url}">${(activity.ja && activity.ja.description) || activity.description}</a>` : (!en && activity.ja && activity.ja.description) || activity.description || "")].filter(s => !!s).join(", ")}
+      .meta !{[date, linkOrDescription].filter(Boolean).join(", ")}
     - } 
 
 mixin places()
