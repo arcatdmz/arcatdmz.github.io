@@ -79,8 +79,7 @@ mixin technical-effort()
           |  implements both of them and is available at 
           a(href="https://f3js.org") https://f3js.org
           | .
-  .ui.segment
-    .ui.divided.items.projects
+    .ui.segment: .ui.divided.items.projects
       - let technicalProjects = ['user-generated-variables', 'live-tuning'].map(key => projectsTable[key])
       - for (const p of technicalProjects) {
       //- skip concept, committee, and private projects

@@ -328,8 +328,7 @@ mixin further-readings()
     - } else {
     p ライブプログラミング体験を実装したり議論したりしているプロジェクトが表示されています。
     - }
-  .ui.segment
-    .ui.divided.items.projects
+    .ui.segment: .ui.divided.items.projects
       - for (const p of projects) {
       //- skip concept, committee, and private projects
       - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
