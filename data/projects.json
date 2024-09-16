@@ -433,7 +433,8 @@
       "tags": ["creativity", "music", "toolkit", "design"],
       "tags-design": ["graphic", "ui"],
       "year": {
-        "from": 2017
+        "from": 2017,
+        "to": 2023
       },
       "publication": "mm2018-kato-songlesync",
       "title": "Songle Sync",

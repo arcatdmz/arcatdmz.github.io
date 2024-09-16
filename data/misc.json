@@ -621,6 +621,490 @@
         },
         "year": 2013
       }
+    ],
+    "reviewers": [
+      {
+        "venue": "CHI",
+        "title": "The SIGCHI Conference on Human Factors in Computing Systems",
+        "years": [
+          2010, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+        ]
+      },
+      {
+        "venue": "UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "years": [
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+        ]
+      },
+      {
+        "venue": "DIS",
+        "title": "ACM SIGCHI Conference on Designing Interactive Systems",
+        "years": [2017]
+      },
+      {
+        "venue": "IUI",
+        "title": "ACM Annual Meeting of the Intelligent Interfaces Community",
+        "years": [2018, 2019]
+      },
+      {
+        "venue": "TOCHI",
+        "title": "ACM Transactions on Computer-Human Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "SIGGRAPH",
+        "title": "The International Conference and Exhibition on Computer Graphics and Interactive Techniques",
+        "years": [2015]
+      },
+      {
+        "venue": "HRI",
+        "title": "ACM/IEEE International Conference on Human-Robot Interaction",
+        "years": [2016, 2017, 2022]
+      },
+      {
+        "venue": "THRI",
+        "title": "ACM Transactions on Human-Robot Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "RO-MAN",
+        "title": "The International Symposium on Robot and Human Interactive Communication",
+        "years": [2015]
+      },
+      {
+        "venue": "HAI",
+        "title": "The International Conference on Human-Agent Interaction",
+        "years": [2014]
+      },
+      {
+        "venue": "ISMAR",
+        "title": "IEEE International Symposium on Mixed and Augmented Reality",
+        "years": [2021]
+      },
+      {
+        "venue": "VL/HCC",
+        "title": "IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)",
+        "years": [2020]
+      },
+      {
+        "venue": "GCCE",
+        "title": "IEEE Global Conference on Consumer Electronics",
+        "years": [2013, 2014]
+      },
+      {
+        "venue": "MM",
+        "title": "ACM Multimedia Conference",
+        "years": [2012]
+      },
+      {
+        "venue": "ACE",
+        "title": "International Conference on Advances in Computer Entertainment Technology",
+        "years": [2010, 2011]
+      },
+      {
+        "venue": "FIT",
+        "title": "IPSJ Forum on Information Technology",
+        "years": [2011]
+      }
+    ],
+    "attendances": [
+      {
+        "name": "ACM CHI",
+        "title": "The ACM CHI Conference on Human Factors in Computing Systems",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://web.archive.org/web/20141111021704/http://www.chi2009.org/"
+          },
+          {
+            "year": 2013,
+            "city": "Paris",
+            "country": "France",
+            "link": "https://chi2013.acm.org/"
+          },
+          {
+            "year": 2015,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "https://chi2015.acm.org/"
+          },
+          {
+            "year": 2016,
+            "city": "San Jose",
+            "country": "USA",
+            "link": "https://chi2016.acm.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Hamburg",
+            "country": "Germany",
+            "link": "https://chi2023.acm.org/"
+          },
+          {
+            "year": 2024,
+            "city": "Honolulu",
+            "country": "USA",
+            "link": "https://chi2024.acm.org/"
+          }
+        ]
+      },
+      {
+        "name": "ACM UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Victoria",
+            "country": "Canada",
+            "link": "https://uist.acm.org/uist2009/"
+          },
+          {
+            "year": 2010,
+            "city": "New York",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2010/"
+          },
+          {
+            "year": 2012,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2012/"
+          },
+          {
+            "year": 2013,
+            "city": "St. Andrews",
+            "country": "UK",
+            "link": "https://uist.acm.org/uist2013/"
+          },
+          {
+            "year": 2015,
+            "city": "Charlotte",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2015/"
+          },
+          {
+            "year": 2016,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "https://uist.acm.org/uist2016/"
+          }
+        ]
+      },
+      {
+        "name": "ACM DIS",
+        "title": "The ACM SIGCHI Conference on Designing Interactive Systems",
+        "locations": [
+          {
+            "year": 2012,
+            "city": "Newcastle upon Tyne",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20170916142003/http://www.dis2012.org/"
+          },
+          {
+            "year": 2017,
+            "city": "Edinburgh",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20200216101539/http://dis2017.org/"
+          }
+        ]
+      },
+      {
+        "name": "SIGGRAPH Asia",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Yokohama",
+            "country": "Japan",
+            "link": "https://www.siggraph.org/asia2009/",
+            "title": "The 36th International Conference and Exhibition on Computer Graphics and Interactive Techniques"
+          }
+        ]
+      },
+      {
+        "name": "ACM PLDI",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Seattle",
+            "country": "USA",
+            "link": "http://pldi2013.ucombinator.org/",
+            "title": "The 34th Annual ACM SIGPLAN Conference on Programming Language Design and Implementation"
+          }
+        ]
+      },
+      {
+        "name": "IEEE GCCE",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "http://www.ieee-gcce.org/2013/",
+            "title": "The 2nd IEEE Global Conference on Consumer Electronics"
+          }
+        ]
+      },
+      {
+        "name": "Graphics Interface (GI)",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Montreal",
+            "country": "Canada",
+            "link": "https://www.cs.mcgill.ca/~kry/gi2014/",
+            "title": "The 40th Graphics Interface Conference"
+          }
+        ]
+      },
+      {
+        "name": "HAI",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Tsukuba",
+            "country": "Japan",
+            "link": "http://hai-conference.net/hai2014/",
+            "title": "The Second International Conference on Human-Agent Interaction"
+          }
+        ]
+      },
+      {
+        "name": "ICLC",
+        "locations": [
+          {
+            "year": 2015,
+            "city": "Leeds",
+            "country": "UK",
+            "link": "https://iclc.toplap.org/",
+            "title": "The First International Conference on Live Coding"
+          }
+        ]
+      },
+      {
+        "name": "ECOOP",
+        "locations": [
+          {
+            "year": 2016,
+            "city": "Rome",
+            "country": "Italy",
+            "link": "https://2016.ecoop.org/",
+            "title": "The 30th European Conference on Object-Oriented Programming"
+          }
+        ]
+      },
+      {
+        "name": "IEEE/ACM HRI",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Vienna",
+            "country": "Austria",
+            "link": "https://humanrobotinteraction.org/2017/",
+            "title": "The 2017 Conference on Human-Robot Interaction"
+          }
+        ]
+      },
+      {
+        "name": "<Programming>",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Brussels",
+            "country": "Belgium",
+            "link": "https://2017.programming-conference.org",
+            "title": "The International Conference on the Art, Science, and Engineering of Programming"
+          }
+        ]
+      },
+      {
+        "name": "Dagstuhl Seminar",
+        "locations": [
+          {
+            "year": "#17232 (2017)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=17232"
+          },
+          {
+            "year": "#22231 (2022)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22231"
+          }
+        ]
+      },
+      {
+        "name": "IEEE VL/HCC",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Lisbon",
+            "country": "Portugal",
+            "link": "https://vlhcc18.github.io"
+          }
+        ]
+      },
+      {
+        "name": "ACM Multimedia",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "http://sigmm.org/events/acm-multimedia-2018"
+          }
+        ]
+      },
+      {
+        "name": "ACM SPLASH",
+        "title": "The ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity",
+        "locations": [
+          {
+            "year": 2022,
+            "city": "Auckland",
+            "country": "New Zealand",
+            "link": "https://2022.splashcon.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Cascais",
+            "country": "Portugal",
+            "link": "https://2023.splashcon.org/"
+          }
+        ]
+      }
+    ],
+    "miscellaneous": [
+      {
+        "title": "User interface design consultant for an animation TV series",
+        "date": "2011",
+        "url": "http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet",
+        "description": "Gargantia on the Verdurous Planet",
+        "ja": {
+          "title": "アニメ地上波放映シリーズのユーザインタフェース考証",
+          "url": "https://gargantia.jp",
+          "description": "翠星のガルガンティア"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Technology and Contents&quot; course",
+        "date": "2024/06/19",
+        "description": "The University of Tokyo, &quot;Toolsmiths and Creators&quot;",
+        "ja": {
+          "title": "技術とコンテンツ ゲスト講義",
+          "url": "https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html",
+          "description": "東京大学, 「道具鍛冶とクリエータ」"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Special Lecture on Information Technology (A)&quot; course",
+        "date": "2023/12/14",
+        "description": "Takushoku University, &quot;Research on Making Malleable Tools&quot;",
+        "ja": {
+          "title": "情報工学特講A ゲスト講義",
+          "description": "拓殖大学, 「変幻自在の道具をつくる研究」"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Data Visualization&quot; course",
+        "date": "2023/11/30",
+        "description": "Future University Hakodate, &quot;Toward Tools that Provide a Better View&quot;",
+        "ja": {
+          "title": "データ可視化 ゲスト講義",
+          "url": "https://twitter.com/arcatdmz/status/1729845616044318987",
+          "description": "はこだて未来大学, 「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」"
+        }
+      },
+      {
+        "title": "Tutorial lecture at the 40th <abbr title=\"Japan Society for Software Science and Technology\">JSSST</abbr> Annual Conference",
+        "url": "/live-programming/#presentation-jssst2023",
+        "date": "2023/09/11",
+        "description": "Introduction to Live Programming: Try It, Make It, Know It",
+        "ja": {
+          "title": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル",
+          "url": "/ja/live-programming/#presentation-jssst2023",
+          "description": "試して作って知る ライブプログラミング入門"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Advanced Information Science Exercise&quot; course",
+        "date": "2020/01/22, 2021/01/20, 2022/01/19, 2023/01/18, 2024/1/17",
+        "description": "Shibaura Institute of Technology, &quot;Introduction to Programming Experience Research&quot;",
+        "ja": {
+          "title": "高度情報演習2C ゲスト講義",
+          "url": "https://twitter.com/arcatdmz/status/1220711563360759808",
+          "description": "芝浦工業大学, 「プログラミング体験 (PX) 概論」"
+        }
+      },
+      {
+        "title": "Guest critique in the &quot;Open Design Strategy&quot; course",
+        "date": "2020/01/20",
+        "description": "Keio University",
+        "ja": {
+          "title": "デザイン戦略（オープンデザイン） ゲストクリティーク",
+          "url": "https://twitter.com/arcatdmz/status/1219188243125522432",
+          "description": "慶應義塾大学"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Special Lectures in Information Engineering&quot; course",
+        "date": "2018/05/25",
+        "description": "Keio University, &quot;User Interfaces for Programming &amp; The Future of Creativity Support&quot;",
+        "ja": {
+          "title": "情報工学特別講義 ゲスト講義",
+          "url": "https://www.ics.keio.ac.jp/for_students/%E6%83%85%E5%A0%B1%E5%B7%A5%E5%AD%A6%E7%89%B9%E5%88%A5%E8%AC%9B%E7%BE%A9%E3%80%80%E9%87%91%E6%9B%9C%E6%97%A5%E3%80%801630-1800-14-201%E6%95%99%E5%AE%A4%E3%80%80%E7%AC%AC4%E5%9B%9E%E3%81%8B%E3%82%89-2/",
+          "description": "慶應義塾大学, 「プログラミングのためのユーザインタフェースと創作支援の未来」"
+        }
+      },
+      {
+        "title": "Organizer of a joint seminar on &quot;Reading All CHI Papers in One Day&quot;",
+        "date": "2011, 2015-2024",
+        "description": "Japan ACM SIGCHI Chapter (2024)",
+        "url": "https://sigchi.jp/seminar/chi2024/",
+        "ja": {
+          "title": "CHI勉強会 幹事",
+          "description": "Japan ACM SIGCHI Chapter &mdash; CHI勉強会 2024",
+          "url": "https://sigchi.jp/seminar/chi2024/"
+        }
+      },
+      {
+        "title": "Teaching assistant of the &quot;Media Informatics&quot; course",
+        "date": "Winter 2008, Summer 2016",
+        "description": "The University of Tokyo",
+        "ja": {
+          "title": "メディア情報学<abbr title=\"ティーチングアシスタント\">TA</abbr>",
+          "date": "2008年冬学期, 2016年夏学期",
+          "description": "東京大学大学院"
+        }
+      },
+      {
+        "title": "Guest lecture in the &quot;Content and Entertainment&quot; course",
+        "date": "2015/12/09",
+        "description": "Meiji University, &quot;* as a Code &mdash; Render any content with code&quot;",
+        "ja": {
+          "title": "コンテンツ・エンタテインメント概論（CE概論）ゲスト講義",
+          "description": "明治大学, 「* as a Code &mdash; コンテンツをプログラミングする方法」"
+        }
+      },
+      {
+        "title": "Graphic &amp; Interaction Design",
+        "description": "Please refer to <a href=\"/design\">the design portfolio</a>.",
+        "ja": {
+          "title": "グラフィック &amp; インタラクションデザイン",
+          "description": "<a href=\"/ja/design\">デザインのポートフォリオ</a>をご覧ください。"
+        }
+      },
+      {
+        "title": "Invited talks",
+        "description": "Please refer to <a href=\"/publications/#talks\">the dedicated section in Publications</a> (some entries may be duplicated).",
+        "ja": {
+          "title": "招待講演",
+          "description": "<a href=\"/ja/publications/#talks\">発表文献の該当箇所</a>をご覧ください。（一部重複があります）"
+        }
+      }
     ]
   }
 }

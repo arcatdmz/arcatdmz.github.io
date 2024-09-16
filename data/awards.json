@@ -1,5 +1,13 @@
 [
   {
+    "date": "9/12/2024",
+    "text": {
+      "en": "<a href=\"https://visualcomputing.jp/vc2024/\">Visual Computing 2024</a> <a href=\"https://visualcomputing.jp/vc2024/award/\">VC Poster Award</a> for the co-authored poster of techniques behind <a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>",
+      "ja": "<a href=\"https://visualcomputing.jp/vc2024/\">Visual Computing 2024</a> <a href=\"https://visualcomputing.jp/vc2024/award/\">VCポスター賞</a> (<a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>の<a href=\"https://archinc.jp/ja/news/2469\">技術</a>に関する共著発表に対して)"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "7/31/2024",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Yamashita <abbr title=\"Special Interest Group\">SIG</abbr> Research Award (<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>)",
