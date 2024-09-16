@@ -355,7 +355,7 @@ gulp.task("sharp", function (cb) {
     return;
   }
   return gulp
-    .src("dist/images/**/*.jpg")
+    .src("dist/images/**/*.jpg", { encoding: false })
     .pipe(
       through2.obj(function (chunk, enc, cb) {
         if (chunk.isNull()) {
