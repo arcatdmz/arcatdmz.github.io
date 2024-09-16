@@ -23,11 +23,11 @@ block main
   +render-project-header('creativity-support-environments')
   .ui.hidden.divider
   section#abstract
-    h2.ui.header: .content #{en ? 'Abstract' : '概要'}
+    h2.ui.header: .content #{en ? 'Summary' : '概要'}
     .ui.basic.segment !{p.getDescription(lang)}
       p: img.ui.image(src=`${basePath}creativity-support-environments/creativity-support-environments.png`)
-  //- .ui.hidden.divider
-  //- section 
+  .ui.hidden.divider
+  section#examples: +examples()
   .ui.hidden.divider
   section#sigccc: +sigccc()
   .ui.hidden.divider
@@ -36,6 +36,19 @@ block main
   +render-project-publications(p.project, 'chi2023-kato-sigccc')
   .ui.divider
   section#revision: +revision()
+
+mixin examples()
+  h2.ui.header #{en ? 'Example projects' : 'プロジェクト'}
+  .ui.basic.segment
+    p #{en ? 'I have worked on the following projects collaborating with creators and companies in the creative industries.' : '私はこれまで、クリエータの方々やクリエイティブ産業の企業のみなさまの協力をいただきながら、以下のプロジェクトに取り組んできました。'}
+    .ui.segment
+      .ui.divided.items.projects
+        - const exampleProjects = ['griffith', 'textalive', 'lyric-app-framework'].map(key => projectsTable[key]);
+        - for (const p of exampleProjects) {
+        //- skip concept, committee, and private projects
+        - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
+        +render-project-item(p)
+        - }
 
 mixin sigccc()
   h2.ui.header Special Interest Group on Creativity and Cultures in Computing (SIGCCC)
@@ -79,6 +92,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 9/16/2024
+        .summary Add a list of projects.
       .event: .content
         .date 3/31/2023
         .summary Upload the initial revision.
