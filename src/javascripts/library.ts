@@ -70,17 +70,18 @@ export class EntryDate {
         return lang === "en" ? `${d.getFullYear()}` : `${d.getFullYear()}年`;
       case EntryDateType.Month:
         return lang === "en"
-          ? `${(full ? fullMonths: months)[d.getMonth()]}${full ? '' : '.'} ${d.getFullYear()}`
+          ? `${getEnglishMonth(d, full)} ${d.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月`;
       case EntryDateType.Day:
         return lang === "en"
-          ? `${(full ? fullMonths: months)[d.getMonth()]}${full ? '' : '.'} ${d.getDate()}, ${d.getFullYear()}`
+          ? `${getEnglishMonth(d, full)} ${d.getDate()}, ${d.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
       case EntryDateType.Range:
         return lang === "en"
-          ? `${(full ? fullMonths: months)[d.getMonth()]}${full ? '' : '.'} ${d.getFullYear()} - ${
-            (full ? fullMonths: months)[ed.getMonth()]
-            }${full ? '' : '.'} ${ed.getFullYear()}`
+          ? `${getEnglishMonth(d, full)} ${d.getFullYear()} - ${getEnglishMonth(
+              ed,
+              full
+            )} ${ed.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月-${ed.getFullYear()}年${
               ed.getMonth() + 1
             }月`;
@@ -104,9 +105,7 @@ export class Entry {
   public entryType?: string;
   constructor(data: RawEntry) {
     this.data = data;
-    const {
-      date, text, entryType
-    } = data;
+    const { date, text, entryType } = data;
     this.dateObj = new EntryDate(date);
     this.text = text;
     this.entryType = entryType;
@@ -132,27 +131,25 @@ export class MultipleDateEntry {
   public data: any;
   public dateObjs: EntryDate[];
   public get dateTypes(): EntryDateType[] {
-    return this.dateObjs.map(o => o.dateType);
+    return this.dateObjs.map((o) => o.dateType);
   }
   public get dates(): Date[] {
-    return this.dateObjs.map(o => o.date);
+    return this.dateObjs.map((o) => o.date);
   }
   public get endDates(): (Date | undefined)[] {
-    return this.dateObjs.map(o => o.endDate);
+    return this.dateObjs.map((o) => o.endDate);
   }
   public text: string | I18nText;
   public entryType?: string;
   constructor(data: RawMultipleDateEntry) {
     this.data = data;
-    const {
-      dates, text, entryType
-    } = data;
-    this.dateObjs = dates.map(date => new EntryDate(date));
+    const { dates, text, entryType } = data;
+    this.dateObjs = dates.map((date) => new EntryDate(date));
     this.text = text;
     this.entryType = entryType;
   }
   public getDatesString(lang: string, full?: boolean) {
-    return this.dateObjs.map(o => o.getDateString(lang, full));
+    return this.dateObjs.map((o) => o.getDateString(lang, full));
   }
   public getText(lang: "en" | "ja") {
     return getI18nText(this.text, lang);
@@ -166,6 +163,12 @@ export interface RawMultipleDateEntry {
   dates: string[];
   text: string | I18nText;
   entryType?: string;
+}
+
+function getEnglishMonth(d: Date, full?: boolean) {
+  return `${(full ? fullMonths : months)[d.getMonth()]}${
+    full || d.getMonth() === 4 ? "" : "."
+  }`;
 }
 
 function getI18nText(text: string | I18nText, lang: "en" | "ja") {

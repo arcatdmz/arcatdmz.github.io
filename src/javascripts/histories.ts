@@ -1,19 +1,23 @@
 /// <reference path='./typings.d.ts' />
 import * as json from "../data/histories.json";
+import { EntryDate, EntryDateType } from "./library";
 const histories: RawEntries = json.default ? json.default : json;
 
 class Entry {
-  public date: Date;
+  private dateObj: EntryDate;
+  public get dateType(): EntryDateType {
+    return this.dateObj.dateType;
+  }
+  public get date(): Date {
+    return this.dateObj.date;
+  }
   public text: string;
   constructor(date: string, text: string) {
-    this.date = new Date(date);
+    this.dateObj = new EntryDate(date);
     this.text = text;
   }
-  public getDateString(lang: string) {
-    const d = this.date;
-    return lang === "en"
-      ? `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
-      : `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
+  public getDateString(lang: string, full?: boolean) {
+    return this.dateObj.getDateString(lang, full);
   }
 }
 

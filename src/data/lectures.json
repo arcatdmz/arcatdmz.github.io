@@ -1,6 +1,6 @@
 [
   {
-    "dates": ["06/19/2024"],
+    "dates": ["2024/6/19"],
     "text": {
       "ja": "東京大学 <a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a> ゲスト講義「道具鍛冶とクリエータ」",
       "en": "The University of Tokyo <a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">Technology and Contents</a> Guest Lecture \"Toolsmiths and Creators\""
@@ -8,7 +8,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["06/19/2024", "06/26/2024"],
+    "dates": ["2024/6/19", "2024/6/26"],
     "text": {
       "ja": "東京大学 <a href=\"https://non-research-tips.github.io/2024\">情報科学研究補助技法</a> ゲスト講義「Research community」「DevOps for research」",
       "en": "The University of Tokyo <a href=\"https://non-research-tips.github.io/2024\">Non-Research Tips for Information Science Researchers</a> Guest Lectures \"Research community\" and \"DevOps for research\""
@@ -16,7 +16,7 @@
     "entryType": "international"
   },
   {
-    "dates": ["12/14/2023"],
+    "dates": ["2023/12/14"],
     "text": {
       "ja": "拓殖大学 情報工学特講A ゲスト講義「変幻自在の道具をつくる研究」",
       "en": "Takushoku University Special Lecture on Information Technology (A) Guest Lecture \"Research on Making Malleable Tools\""
@@ -24,7 +24,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["11/30/2023"],
+    "dates": ["2023/11/30"],
     "text": {
       "ja": "はこだて未来大学 データ可視化 ゲスト講義「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」",
       "en": "Future University Hakodate Data Visualization Guest Lecture \"Toward Tools that Provide a Better View\""
@@ -32,7 +32,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["09/11/2023"],
+    "dates": ["2023/9/11"],
     "text": {
       "ja": "<a href=\"https://www.jssst.or.jp/\">日本ソフトウェア科学会</a> <a href=\"https://jssst2023.wordpress.com\">第40回大会</a> チュートリアル「<a href=\"https://jssst2023.wordpress.com/tutorial\">試して作って知る ライブプログラミング入門</a>」, <a href=\"${rootPath}ja/live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
       "en": "<a href=\"https://www.jssst.or.jp/\">Japan Society for Software Science and Technology</a> <a href=\"https://jssst2023.wordpress.com\">40th Annual Conference</a> Tutorial Lecture \"<a href=\"https://jssst2023.wordpress.com/tutorial\">Introduction to Live Programming: Try It, Make It, Know It</a>\", <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Web page</a>"
@@ -40,7 +40,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["01/17/2024", "01/18/2023", "01/19/2022", "01/20/2021", "01/22/2020"],
+    "dates": ["2024/1/17", "2023/1/18", "2022/1/19", "2021/1/20", "2020/1/22"],
     "text": {
       "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」",
       "en": "Shibaura Institute of Technology Advanced Information Science Exercise Guest Lecture \"Introduction to Programming Experience (PX)\""
@@ -48,7 +48,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["01/20/2020"],
+    "dates": ["2020/1/20"],
     "text": {
       "ja": "慶應義塾大学 デザイン戦略（オープンデザイン） ゲストクリティーク",
       "en": "Keio University Open Design Strategy Guest Critique"
@@ -56,7 +56,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["05/25/2018"],
+    "dates": ["2018/5/25"],
     "text": {
       "ja": "慶応義塾大学 情報工学特別講義 ゲスト講義「プログラミングのためのユーザインタフェースと創作支援の未来」",
       "en": "Keio University Special Lectures in Information Engineering Guest Lecture \"User Interfaces for Programming & The Future of Creativity Support\""
@@ -64,7 +64,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["12/09/2015"],
+    "dates": ["2015/12/9"],
     "text": {
       "ja": "明治大学 コンテンツ・エンタテインメント概論（CE概論）ゲスト講義「* as a Code -- コンテンツをプログラミングする方法」",
       "en": "Meiji University Content and Entertainment Guest Lecture \"* as a Code -- Render any content with code\""

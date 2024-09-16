@@ -78,7 +78,7 @@ mixin timeline()
 mixin update(entry)
   .event: .content
     - if (entry) {
-    .date #{entry.getDateString(lang)}
+    .date #{entry.getDateString(lang, true)}
     .summary !{entry.text}
     - } else {
     .summary #{en ? 'No updates found in this year.' : 'この年の更新内容はありません。'}
@@ -137,7 +137,7 @@ mixin awards(as, y)
     .ui.divided.feed
       - for (entry of as) {
       .event: .content
-        .date #{entry.getDateString(lang)}
+        .date #{entry.getDateString(lang, true)}
         .summary !{entry.getText(lang)}
       - }
 
@@ -149,7 +149,7 @@ mixin talks(ts, y)
     .ui.divided.feed
       - for (entry of ts) {
       .event: .content
-        .date #{entry.getDateString(lang)}
+        .date #{entry.getDateString(lang, true)}
         .summary !{entry.getText(lang)}
       - }
 
@@ -161,7 +161,7 @@ mixin lectures(ls, y, f)
     .ui.divided.feed
       - for (entry of ls) {
       .event: .content
-        .date #{entry.dateObjs.filter(o => f(o.date.getFullYear())).map(o => o.getDateString(lang)).join(", ")}
+        .date #{entry.dateObjs.filter(o => f(o.date.getFullYear())).map(o => o.getDateString(lang, true)).join(", ")}
         .summary !{entry.getText(lang)}
       - }
 

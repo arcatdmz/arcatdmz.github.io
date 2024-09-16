@@ -93,7 +93,7 @@ mixin awards()
           i.icon(class=entry.getIconClass())
           .content
             .header !{entry.getText(lang)}
-            .description #{entry.getDateString(lang)}
+            .description.date #{entry.getDateString(lang, true)}
         - }
 
 mixin talks()
@@ -105,7 +105,7 @@ mixin talks()
       .item(class=entry.entryType)
         .content
           .header !{entry.getText(lang)}
-          .description #{entry.getDateString(lang)}
+          .description.date #{entry.getDateString(lang, true)}
       - }
   - } else {
   .ui.segments
@@ -125,7 +125,7 @@ mixin talks()
           i.icon(class=entry.getIconClass())
           .content
             .header !{entry.getText(lang)}
-            .description #{entry.getDateString(lang)}
+            .description.date #{entry.getDateString(lang, true)}
         - }
   - }
 
@@ -138,7 +138,7 @@ mixin lectures()
       .item(class=entry.entryType)
         .content
           .header !{entry.getText(lang)}
-          .description #{entry.getDatesString(lang).join(", ")}
+          .description.date #{entry.getDatesString(lang).join(", ")}
       - }
   - } else {
   .ui.segments
@@ -158,7 +158,7 @@ mixin lectures()
           i.icon(class=entry.getIconClass())
           .content
             .header !{entry.getText(lang)}
-            .description #{entry.getDatesString(lang).join(", ")}
+            .description.date #{entry.getDatesString(lang).join(", ")}
         - }
   - }
 
