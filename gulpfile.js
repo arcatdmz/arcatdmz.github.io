@@ -290,8 +290,8 @@ gulp.task("css:bare", function () {
   return compileCSS(gulp.src("src/stylesheets/**/*.less"));
 });
 
-// [css:debug] is the same as css:bare
-gulp.task("css:debug", gulp.parallel("css:bare", "replace:devicon"));
+// [css:debug]
+gulp.task("css:debug", gulp.series("replace:devicon", "css:bare"));
 
 // [css] should be called after semantic, css:bare, js, html
 gulp.task("css", function () {
@@ -518,16 +518,16 @@ gulp.task("watch:semantic", function () {
 
 // [watch:css]
 gulp.task("watch:css", function () {
-  const watcher = gulp.watch("src/stylesheets/**/*.less");
-
-  const handler = function (_fullPath, _stats) {
-    compileCSS(gulp.src("src/stylesheets/**/*.less"));
-    browserSync.reload();
-  };
-
-  watcher.on("add", handler);
-  watcher.on("change", handler);
-  return watcher;
+  return gulp.watch(
+    "src/stylesheets/**/*.less",
+    {
+      events: ["add", "change"],
+    },
+    gulp.series("css:debug", (done) => {
+      browserSync.reload();
+      done();
+    })
+  );
 });
 
 // Build from scratch
