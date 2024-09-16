@@ -351,6 +351,38 @@
   ],
   "ja": [
     {
+      "date": "2024/9/12",
+      "text": "アーチとグラフィニカで取り組んだ3DCGのスタイル転写の表現に関する研究開発、プロトタイプ作品「<a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>」映像制作で、主に研究開発の体制づくりと技術広報をお手伝いしました。同成果が<a href=\"https://visualcomputing.jp/vc2024/\">Visual Computing 2024</a>で<a href=\"https://visualcomputing.jp/vc2024/award/\">VCポスター賞</a>を受賞しました。（<a href=\"https://archinc.jp/ja/news/2469\">アーチ株式会社ニュース</a>）"
+    },
+    {
+      "date": "2024/8/30",
+      "text": "初音ミク「<a href=\"https://magicalmirai.com/2024/\">マジカルミライ 2024</a>」で「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」を活用したプログラミング・コンテストが5年連続で開催され、企画展ステージに登壇しました。YouTube「<a href=\"https://www.youtube.com/@piaproTV\">ピアプロTV</a>」でも生放送されたステージの模様は、アーカイブ動画（<a href=\"https://www.youtube.com/watch?v=4SNjMz0_5ko\">FUKUOKA</a>・<a href=\"https://www.youtube.com/watch?v=9xE9PDQyDoo\">TOKYO</a>）で視聴できます。"
+    },
+    {
+      "date": "2024/8/23",
+      "text": "IIM Bangaloreの併置研究所Mizuho India Japan Study Centre主催のWebinarシリーズ「<a href=\"https://www.iimb.ac.in/node/13283\">Meijin-Samvad</a>」に招待いただき、<a href=\"https://www.youtube.com/watch?v=xKDia05R2uc\">Manga, Anime, Gamesに関する回</a>で講演しました。"
+    },
+    {
+      "date": "2024/8/15",
+      "text": "アーチ株式会社で研究開発してきた絵コンテ制作ツール「<a href=\"${rootPath}ja/griffith/\">Griffith</a>」の派生ツール、「<a href=\"https://gsw.archinc.jp\">Griffith Stopwatch</a>」を公開しました。（<a href=\"https://archinc.jp/ja/news/2314\">アーチ株式会社ニュース</a>）"
+    },
+    {
+      "date": "2024/7/31",
+      "text": "情報処理学会から、<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>と<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>の両研究会にご推薦いただき、「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」の研究論文2本に関して<a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">山下記念研究賞</a>を2件受賞しました。"
+    },
+    {
+      "date": "2024/6/26",
+      "text": "東京大学の新設講義「<a href=\"https://non-research-tips.github.io/2024\">情報科学研究補助技法</a>」で2回分（「Research community」「DevOps for research」）を担当しました。"
+    },
+    {
+      "date": "2024/6/19",
+      "text": "東京大学のオムニバス形式講義「<a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a>」で「道具鍛冶とクリエータ」と題して講演しました。"
+    },
+    {
+      "date": "2024/6/14",
+      "text": "<a href=\"https://www.annecyfestival.com/\" title=\"Festival International du Film d'Animation d'Annecy\">アヌシー国際アニメーション映画祭</a>に参加しました。アニメづくりを支援するツール開発に従事する方々と交流できました。"
+    },
+    {
       "date": "2024/4/16",
       "text": "技術顧問を務めるアーチ株式会社で研究開発してきた絵コンテ制作ツール「<a href=\"${rootPath}ja/griffith/\">Griffith</a>」に関して、<a href=\"https://archinc.jp/ja/news/2314\">CHI 2024 論文採択のニュース</a>が掲載されました。"
     },
@@ -380,7 +412,7 @@
     },
     {
       "date": "2023/9/25",
-      "text": "<a href=\"https://www.youtube.com/live/69pByl5RCBU?si=I1bBCHjAxcvbyTxC&t=1091\">xDiversity 第31回xTalk 加藤淳×落合陽一×菅野裕介</a>に呼んでいただきました。また、有志で初音ミク「マジカルミライ 2023」プログラミング・コンテストを振り返る<a href=\"https://twitter.com/TextAliveJp/status/1705410915443814523\">リリックアプリ座談会</a>にも呼んでいただきました。"
+      "text": "<a href=\"https://www.youtube.com/live/69pByl5RCBU?t=1091\">xDiversity 第31回xTalk 加藤淳×落合陽一×菅野裕介</a>に呼んでいただきました。また、有志で初音ミク「マジカルミライ 2023」プログラミング・コンテストを振り返る<a href=\"https://twitter.com/TextAliveJp/status/1705410915443814523\">リリックアプリ座談会</a>にも呼んでいただきました。"
     },
     {
       "date": "2023/9/2",
