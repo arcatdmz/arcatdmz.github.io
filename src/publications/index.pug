@@ -21,6 +21,12 @@ block main
         .content #{en ? 'Invited Talks' : '招待講演'}
       +talks()
     .ui.hidden.divider
+    section#lectures
+      h1.ui.header
+        i.graduation.cap.icon
+        .content #{en ? 'Lectures' : '講義'}
+      +lectures()
+    .ui.hidden.divider
     section#publications
       h1.ui.header
         i.book.icon
@@ -41,6 +47,9 @@ mixin publications-menu()
     a.item(href='#talks')
       i.talk.icon
       .content #{en ? 'Invited Talks' : '招待講演'}
+    a.item(href='#lectures')
+      i.graduation.cap.icon
+      .content #{en ? 'Lectures' : '講義'}
     a.item(href='#publications')
       i.book.icon
       .content #{en ? 'Publications' : '発表文献'}
@@ -117,6 +126,39 @@ mixin talks()
           .content
             .header !{entry.getText(lang)}
             .description #{entry.getDateString(lang)}
+        - }
+  - }
+
+mixin lectures()
+  - if (en) {
+  .ui.segment
+    .ui.divided.list
+      - for (const entry of lectures) {
+      - if (entry.entryType === 'private' || entry.entryType === 'domestic') continue;
+      .item(class=entry.entryType)
+        .content
+          .header !{entry.getText(lang)}
+          .description #{entry.getDatesString(lang).join(", ")}
+      - }
+  - } else {
+  .ui.segments
+    .ui.secondary.segment
+      .ui.horizontal.list
+        .item
+          i.circle.icon
+          .content 国内
+        .item
+          i.world.icon
+          .content 国際
+    .ui.segment
+      .ui.divided.list
+        - for (const entry of lectures) {
+        - if (entry.entryType === 'private') continue;
+        .item(class=entry.entryType)
+          i.icon(class=entry.getIconClass())
+          .content
+            .header !{entry.getText(lang)}
+            .description #{entry.getDatesString(lang).join(", ")}
         - }
   - }
 

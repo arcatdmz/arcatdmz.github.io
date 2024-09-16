@@ -249,6 +249,21 @@ mixin services-miscellaneous()
       .header !{en || !(activity.ja && activity.ja.title) ? activity.title : activity.ja.title}
       .meta !{[date, linkOrDescription].filter(Boolean).join(", ")}
     - } 
+    .item
+      i.paint.brush.icon
+      .content
+        .header #{en ? "Graphic & Interaction Design" : "グラフィック & インタラクションデザイン"}
+        .meta !{en ? `Please refer to <a href=\"${rootPath}design\">the design portfolio</a>.` : `<a href=\"${rootPath}ja/design\">デザインのポートフォリオ</a>をご覧ください。`}
+    .item
+      i.talk.icon
+      .content
+        .header #{en ? "Invited talks" : "招待講演"}
+        .meta !{en ? `Please refer to <a href=\"${rootPath}publications/#talks\">the dedicated section in Publications</a>.` : `<a href=\"${rootPath}ja/publications/#talks\">発表文献の該当箇所</a>をご覧ください。`}
+    .item
+      i.graduation.cap.icon
+      .content
+        .header #{en ? "Lectures" : "講義"}
+        .meta !{en ? `Please refer to <a href=\"${rootPath}publications/#lectures\">the dedicated section in Publications</a>.` : `<a href=\"${rootPath}ja/publications/#lectures\">発表文献の該当箇所</a>をご覧ください。`}
 
 mixin places()
   h2.ui.header

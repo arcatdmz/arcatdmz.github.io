@@ -222,6 +222,7 @@ function setupLocals() {
   const histories = require("./build/javascripts/histories").default,
     awards = require("./build/javascripts/awards").default,
     talks = require("./build/javascripts/talks").default,
+    lectures = require("./build/javascripts/lectures").default,
     projects = require("./build/javascripts/projects").default,
     publications = require("./build/javascripts/publications").parse(
       JSON.parse(fs.readFileSync("./build/data/publications.json"))
@@ -254,18 +255,19 @@ function setupLocals() {
 
   // merge locals with website options
   var locals = {
-    histories: histories,
-    awards: awards,
-    talks: talks,
-    projects: projects,
-    projectsTable: projectsTable,
-    products: products,
-    selectedProjects: selectedProjects,
-    publications: publications,
-    publicationsTable: publicationsTable,
-    selectedPublications: selectedPublications,
-    misc: misc,
-    moment: moment,
+    histories,
+    awards,
+    talks,
+    lectures,
+    projects,
+    projectsTable,
+    products,
+    selectedProjects,
+    publications,
+    publicationsTable,
+    selectedPublications,
+    misc,
+    moment,
   };
   for (var key in website) {
     if (typeof website[key] !== "string") continue;

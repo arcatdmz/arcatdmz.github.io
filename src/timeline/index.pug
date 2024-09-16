@@ -107,6 +107,17 @@ mixin all(f, y)
   +talks(ts, y)
   -
     }
+    var ls = [];
+    for (const entry of lectures) {
+      if (entry.entryType === 'private') continue;
+      if (en && entry.entryType === 'domestic') continue;
+      if (!entry.dates.reduce((p, c) => p || f(c.getFullYear()), false)) continue;
+      ls.push(entry);
+    }
+    if (ls.length > 0) {
+  +lectures(ls, y, f)
+  -
+    }
     var ps = [];
     for (const entry of publications) {
       if (!entry.entryTags) continue;
@@ -139,6 +150,18 @@ mixin talks(ts, y)
       - for (entry of ts) {
       .event: .content
         .date #{entry.getDateString(lang)}
+        .summary !{entry.getText(lang)}
+      - }
+
+mixin lectures(ls, y, f)
+  h3.ui.header(id=`${y}-lectures`)
+    i.graduation.cap.icon
+    | #{en ? 'Lectures' : '講義'}
+  .ui.segment
+    .ui.divided.feed
+      - for (entry of ls) {
+      .event: .content
+        .date #{entry.dateObjs.filter(o => f(o.date.getFullYear())).map(o => o.getDateString(lang)).join(", ")}
         .summary !{entry.getText(lang)}
       - }
 
