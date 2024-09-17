@@ -86,6 +86,20 @@
       {
         "class": "pc",
         "title": "Program Committee",
+        "url": "https://2024.splashcon.org/track/splash-2024-Onward-papers",
+        "event": {
+          "name": "SPLASH '24 Onward! Papers"
+        },
+        "conference": {
+          "name": "ACM SPLASH '24",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2024.splashcon.org"
+        },
+        "year": 2024
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
         "url": "https://2024.splashcon.org/home/live-2024",
         "event": {
           "name": "LIVE '24",

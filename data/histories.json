@@ -383,6 +383,10 @@
       "text": "<a href=\"https://www.annecyfestival.com/\" title=\"Festival International du Film d'Animation d'Annecy\">アヌシー国際アニメーション映画祭</a>に参加しました。アニメづくりを支援するツール開発に従事する方々と交流できました。"
     },
     {
+      "date": "2024/5/13",
+      "text": "国際会議<a href=\"https://chi2024.acm.org/\">ACM CHI 2024</a>の「Design Tools B」セッションで「<a href=\"${rootPath}ja/griffith\">Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals</a>」（14:00 Mon, May 13）を登壇発表しました。"
+    },
+    {
       "date": "2024/4/16",
       "text": "技術顧問を務めるアーチ株式会社で研究開発してきた絵コンテ制作ツール「<a href=\"${rootPath}ja/griffith/\">Griffith</a>」に関して、<a href=\"https://archinc.jp/ja/news/2314\">CHI 2024 論文採択のニュース</a>が掲載されました。"
     },
