@@ -368,7 +368,7 @@
     },
     {
       "date": "2024/7/31",
-      "text": "情報処理学会から、<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>と<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>の両研究会からそれぞれご推薦いただき、「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」の研究論文2本に関して<a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">山下記念研究賞</a>を2件受賞しました。"
+      "text": "情報処理学会から、<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>と<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>の両研究会にご推薦いただき、「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」の研究論文2本に関して<a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">山下記念研究賞</a>を2件受賞しました。"
     },
     {
       "date": "2024/6/26",
@@ -377,6 +377,10 @@
     {
       "date": "2024/6/19",
       "text": "東京大学のオムニバス形式講義「<a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a>」で「道具鍛冶とクリエータ」と題して講演しました。"
+    },
+    {
+      "date": "2024/6/14",
+      "text": "<a href=\"https://www.annecyfestival.com/\" title=\"Festival International du Film d'Animation d'Annecy\">アヌシー国際アニメーション映画祭</a>に参加しました。アニメづくりを支援するツール開発に従事する方々と交流できました。"
     },
     {
       "date": "2024/4/16",
