@@ -130,7 +130,7 @@ mixin services()
 
 mixin print-service-organizer(organizer)
   .ui.item
-    .header: a(href=organizer.event.url || organizer.url): abbr(title=organizer.event.fullname) #{organizer.event.name}
+    .header: a(href=organizer.event.url || organizer.url, title=organizer.event.fullname) #{organizer.event.name}
     .meta
       - if (organizer.track) {
       | #{organizer.track.fullname || organizer.track.name} 
