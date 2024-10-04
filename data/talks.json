@@ -112,6 +112,13 @@
     "entryType": "domestic"
   },
   {
+    "date": "2017/11/23",
+    "text": {
+      "ja": "<a href=\"https://sites.google.com/u/0/d/16peN4KVh24kwokB60nBFIku10IFCU3QO/preview\">音楽情報科学研究会 計算論的生成音楽学 ワーキンググループ ワークショップ</a> 招待講演「創作支援研究の方法と限界」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2017/10/24",
     "text": {
       "ja": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
