@@ -351,6 +351,10 @@
   ],
   "ja": [
     {
+      "date": "2024/10/26",
+      "text": "<a href=\"https://www.jams.media/conferences/2024autconf/\">日本メディア学会 2024年秋季大会</a>（オンライン開催）にて、ワークショップ「コンピュータの歴史と実践」に問題提起者として参加しました。HCI研究の歴史と実践について紹介し、メディア考古学との接点を探りました。（<a href=\"${rootPath}publications/media2024autumn-kato-slides.pdf\">発表資料</a>）"
+    },
+    {
       "date": "2024/9/12",
       "text": "アーチとグラフィニカで取り組んだ3DCGのスタイル転写の表現に関する研究開発、プロトタイプ作品「<a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>」映像制作で、主に研究開発の体制づくりと技術広報をお手伝いしました。同成果が<a href=\"https://visualcomputing.jp/vc2024/\">Visual Computing 2024</a>で<a href=\"https://visualcomputing.jp/vc2024/award/\">VCポスター賞</a>を受賞しました。（<a href=\"https://archinc.jp/ja/news/2469\">アーチ株式会社ニュース</a>）"
     },
