@@ -1,6 +1,38 @@
 {
   "en": [
     {
+      "date": "2024/12/14",
+      "text": "Proposed and participated in the Birds of a Feather session <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2024/\">R&D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering</a> at <a href=\"https://sa2024.siggraph.org\">ACM SIGGRAPH Asia 2024</a>. Additionally, a co-authored Technical Communications paper received the Best Paper Award. (See <a href=\"https://dev.graphinica.com/en/projects/style-transfer/\">Graphinica project page</a>)"
+    },
+    {
+      "date": "2024/11/13",
+      "text": "Attended the <a href=\"https://www.dwih-tokyo.org/en/event/ai4/\">Trilateral AI Conference 2024</a> and presented a <a href=\"${rootPath}in-the-wild\">poster</a>. I also served as a co-chair of the joint roundtable session \"Creativity and Cultures in the Post-AI Era\" (merged with \"AI in Branding and Design\")."
+    },
+    {
+      "date": "2024/9/12",
+      "text": "Contributed to establishing a development structure and conducting technical outreach for Arch Inc. and Graphinica, Inc.&apos;s style-transfer R&amp;D in 3D CG production, resulting in the production of the prototype film <a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>."
+    },
+    {
+      "date": "2024/8/30",
+      "text": "For the fifth consecutive year, a programming contest using the <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework</a> was held at Hatsune Miku&apos;s <a href=\"https://magicalmirai.com/2024/\">Magical Mirai 2024</a>. I took the stage, and the session was streamed live on YouTube, with recordings available for both the <a href=\"https://www.youtube.com/watch?v=4SNjMz0_5ko\">FUKUOKA</a> and <a href=\"https://www.youtube.com/watch?v=9xE9PDQyDoo\">TOKYO</a> stages."
+    },
+    {
+      "date": "2024/8/23",
+      "text": "Invited as a speaker in the &quot;<a href=\"https://www.iimb.ac.in/node/13283\">Meijin-Samvad</a>&quot; webinar series hosted by the Mizuho India Japan Study Centre at IIM Bangalore, where I gave a talk on <a href=\"https://www.youtube.com/watch?v=xKDia05R2uc\">Manga, Anime, and Games</a>."
+    },
+    {
+      "date": "2024/8/15",
+      "text": "Released <del>&quot;<a href=\"https://gsw.archinc.jp\">Griffith Stopwatch</a>&quot;</del> &quot;<a href=\"https://sw.animecraft.jp\">AnimeCraft Stopwatch</a>&quot;, a derivative product of the storyboard authoring tool <a href=\"${rootPath}griffith/\">Griffith</a> developed at Arch Inc."
+    },
+    {
+      "date": "2024/6/26",
+      "text": "At the newly established course <a href=\"https://non-research-tips.github.io/2024\">Non-Research Tips for Information Science Researchers</a> at The University of Tokyo, I was in charge of two sessions: &quot;Research community&quot; and &quot;DevOps for research&quot;."
+    },
+    {
+      "date": "2024/6/14",
+      "text": "Attended the <a href=\"https://www.annecyfestival.com/\" title=\"Festival International du Film d'Animation d'Annecy\">Annecy International Animation Film Festival</a> and got to know &quot;toolsmiths&quot; in the industry."
+    },
+    {
       "date": "2024/5/13",
       "text": "Presented <a href=\"${rootPath}griffith\">Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals</a> in the <a href=\"https://programs.sigchi.org/chi/2024/program/content/147403\">&quot;Design Tools B&quot;</a> session from 14:00 Mon, May 13 at <a href=\"https://chi2024.acm.org/\">ACM CHI 2024</a>."
     },
