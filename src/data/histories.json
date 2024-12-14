@@ -355,6 +355,10 @@
       "text": "国際会議<a href=\"https://sa2024.siggraph.org\">ACM SIGGRAPH Asia 2024</a>にて、Birds of a Featherセッション「<a href=\"https://research.archinc.jp/events/siggraph-asia-2024/\">R&D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering</a>（アニメづくりのR&amp;D: アート・科学・工学の文化的共創）」を提案し、オンライン登壇しました。また、Technical Communicationsの共著論文がBest Paper Awardを受賞しました。（<a href=\"https://dev.graphinica.com/projects/style-transfer/\">株式会社グラフィニカ プロジェクトページ</a>）"
     },
     {
+      "date": "2024/11/13",
+      "text": "国際会議<a href=\"https://www.dwih-tokyo.org/en/event/ai4/\">Trilateral AI Conference 2024</a>に参加し、<a href=\"${rootPath}in-the-wild\">ポスター発表</a>した他、ラウンドテーブル「Creativity and Cultures in the Post-AI Era」（「AI in Branding and Design」と合流）の合同議長を務めました。"
+    },
+    {
       "date": "2024/10/26",
       "text": "<a href=\"https://www.jams.media/conferences/2024autconf/\">日本メディア学会 2024年秋季大会</a>（オンライン開催）にて、ワークショップ「コンピュータの歴史と実践」に問題提起者として参加しました。HCI研究の歴史と実践について紹介し、メディア考古学との接点を探りました。（<a href=\"${rootPath}publications/media2024autumn-kato-slides.pdf\">発表資料</a>）"
     },
