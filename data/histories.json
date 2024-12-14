@@ -351,6 +351,10 @@
   ],
   "ja": [
     {
+      "date": "2024/12/14",
+      "text": "国際会議<a href=\"https://sa2024.siggraph.org\">ACM SIGGRAPH Asia 2024</a>にて、Birds of a Featherセッション「<a href=\"https://research.archinc.jp/events/siggraph-asia-2024/\">R&D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering</a>（アニメづくりのR&amp;D: アート・科学・工学の文化的共創）」を提案し、オンライン登壇しました。また、Technical Communicationsの共著論文がBest Paper Awardを受賞しました。（<a href=\"https://dev.graphinica.com/projects/style-transfer/\">株式会社グラフィニカ プロジェクトページ</a>）"
+    },
+    {
       "date": "2024/10/26",
       "text": "<a href=\"https://www.jams.media/conferences/2024autconf/\">日本メディア学会 2024年秋季大会</a>（オンライン開催）にて、ワークショップ「コンピュータの歴史と実践」に問題提起者として参加しました。HCI研究の歴史と実践について紹介し、メディア考古学との接点を探りました。（<a href=\"${rootPath}publications/media2024autumn-kato-slides.pdf\">発表資料</a>）"
     },
@@ -428,7 +432,7 @@
     },
     {
       "date": "2023/8/23",
-      "text": "<abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023の招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」に登壇し、絵コンテ制作ツール<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>とその研究開発プロセスを紹介しました。"
+      "text": "<abbr title=\"Computer Entertainment Developers Conference\">CEDEC</abbr> 2023の招待セッション「<a href=\"https://research.archinc.jp/events/cedec-2023/\">アニメR&amp;Dの最前線：絵コンテ制作支援からルック開発、ゲームエンジン活用まで</a>」に登壇し、絵コンテ制作ツール<a href=\"https://research.archinc.jp/griffith/\">Griffith</a>とその研究開発プロセスを紹介しました。"
     },
     {
       "date": "2023/8/21",
