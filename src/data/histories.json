@@ -22,7 +22,7 @@
     },
     {
       "date": "2024/8/15",
-      "text": "Released &quot;<a href=\"https://sw.animecraft.jp\">AnimeCraft Stopwatch</a>&quot;, a derivative product of the storyboard authoring tool <a href=\"${rootPath}griffith/\">Griffith</a> developed at Arch Inc."
+      "text": "Released <del>&quot;<a href=\"https://gsw.archinc.jp\">Griffith Stopwatch</a>&quot;</del> &quot;<a href=\"https://sw.animecraft.jp\">AnimeCraft Stopwatch</a>&quot;, a derivative product of the storyboard authoring tool <a href=\"${rootPath}griffith/\">Griffith</a> developed at Arch Inc."
     },
     {
       "date": "2024/6/26",
@@ -294,7 +294,7 @@
     },
     {
       "date": "2014/6/19",
-      "text": "Visited <a href=\"https://www.dgp.toronto.edu\">the University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> and gave a talk. Also visited <a href=\"https://hci.cs.umanitoba.ca\">the University of Manitoba <abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a> for another talk. Both talks were about &quot;Live Programming&quot; in the real world, based on my Ph.D dissertation."
+      "text": "Visited <a href=\"https://www.dgp.toronto.edu\">the University of Toronto <abbr title=\"Dynamic Graphics Project\">DGP</abbr></a> and gave a talk. I will also visit <a href=\"https://hci.cs.umanitoba.ca\">the University of Manitoba <abbr title=\"Human-Computer Interaction\">HCI</abbr> Lab</a> in a few days for another talk. Both talks were about &quot;Live Programming&quot; in the real world, based on my Ph.D dissertation."
     },
     {
       "date": "2014/4/25",
@@ -302,7 +302,7 @@
     },
     {
       "date": "2014/4/1",
-      "text": "Received a Ph.D in Computer Science and started working as a researcher at <a href=\"https://www.aist.go.jp/aist_e/about_aist/\">AIST</a>, a Japanese government-funded research organization with over 2000 researchers. My main task remains the same: conduct interesting research, write good papers, and help make the world a better place with information technology :)"
+      "text": "Received a Ph.D in Computer Science and started working as a researcher at <a href=\"https://www.aist.go.jp/aist_e/about_aist/\">AIST</a>, a Japanese government-funded research organization with over 2000 researchers dedicated to advancing both industry and science. My main task remains the same: conduct interesting research, write good papers, and help make the world a better place with information technology :)"
     },
     {
       "date": "2014/2/25",
