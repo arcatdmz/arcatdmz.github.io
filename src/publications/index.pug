@@ -73,8 +73,8 @@ mixin publications-menu()
       .content #{en ? 'Timeline' : '活動履歴'}
 
 mixin awards()
-  - const numInternationalAwards = awards.reduce((p, c) => p + (c.entryType !== "domestic" && c.getText('ja').indexOf('受賞') >= 0 ? 1 : 0), 0);
-  - const numDomesticAwards = awards.reduce((p, c) => p + (c.entryType === "domestic" && c.getText('ja').indexOf('受賞') >= 0 ? 1 : 0), 0);
+  - const numInternationalAwards = awards.reduce((p, c) => p + (c.entryType !== "domestic" && (c.getText('ja').indexOf('受賞') >= 0 || c.getText('ja').indexOf('選定') >= 0) ? 1 : 0), 0);
+  - const numDomesticAwards = awards.reduce((p, c) => p + (c.entryType === "domestic" && (c.getText('ja').indexOf('受賞') >= 0 || c.getText('ja').indexOf('選定') >= 0) ? 1 : 0), 0);
   block awards
     p I have received <strong>#{numInternationalAwards}</strong> international and <strong>#{numDomesticAwards}</strong> domestic awards.
   .ui.segments

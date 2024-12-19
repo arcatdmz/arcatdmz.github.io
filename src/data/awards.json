@@ -1,5 +1,13 @@
 [
   {
+    "date": "2024/12/17",
+    "text": {
+      "en": "<a href=\"https://www.nistep.go.jp/en\"><abbr title=\"National Institute of Science and Technology Policy\">NISTEP</abbr></a>: <a href=\"https://www.nistep.go.jp/en/?page_id=13\">The Researchers with Nice Step</a> 2024, recognized for significant contributions to science and technology",
+      "ja": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024（ナイスステップな研究者）</a> 選定（<a href=\"https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm\">文部科学省 報道発表</a>）"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2024/12/6",
     "text": {
       "en": "<a href=\"https://dev.graphinica.com/en/projects/style-transfer/\">ACM SIGGRAPH Asia '24 Technical Communications Best Paper Award</a> for the co-authored paper of techniques behind <a href=\"https://www.youtube.com/watch?v=EJ_vwZbOFCs\">Forest Tale</a>",
