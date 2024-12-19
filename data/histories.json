@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "2024/12/17",
+      "text": "Selected as one of ten <a href=\"https://www.nistep.go.jp/en/?page_id=13\">Researchers with Nice Step</a> 2024, recognized for significant contributions to science and technology"
+    },
+    {
       "date": "2024/12/14",
       "text": "Proposed and participated in the <a href=\"https://research.archinc.jp/en/events/siggraph-asia-2024/\" title=\"R&amp;D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering\">Birds of a Feather session focusing on anime</a> at <a href=\"https://sa2024.siggraph.org\">ACM SIGGRAPH Asia 2024</a> and announced the anime tool brand <a href=\"https://animecraft.jp/en\">AnimeCraft</a>. Additionally, a co-authored Technical Communications paper received the Best Paper Award. (See <a href=\"https://dev.graphinica.com/en/projects/style-transfer/\">Graphinica project page</a>)"
     },
@@ -383,6 +387,10 @@
   ],
   "ja": [
     {
+      "date": "2024/12/17",
+      "text": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024（ナイスステップな研究者）</a>に選定されました。（<a href=\"https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm\">文部科学省 報道発表</a>）"
+    },
+    {
       "date": "2024/12/14",
       "text": "国際会議<a href=\"https://sa2024.siggraph.org\">ACM SIGGRAPH Asia 2024</a>にて、<a href=\"https://research.archinc.jp/events/siggraph-asia-2024/\" title=\"R&D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering（アニメづくりのR&amp;D: アート・科学・工学の文化的共創）\">アニメの研究開発に関するBirds of a Featherセッション</a>を提案し、オンライン登壇して、ツールブランド<a href=\"https://animecraft.jp\">AnimeCraft</a>の立ち上げを報告しました。また、Technical Communicationsの共著論文がBest Paper Awardを受賞しました。（<a href=\"https://dev.graphinica.com/projects/style-transfer/\">株式会社グラフィニカ プロジェクトページ</a>）"
     },
@@ -392,7 +400,7 @@
     },
     {
       "date": "2024/10/26",
-      "text": "<a href=\"https://www.jams.media/conferences/2024autconf/\">日本メディア学会 2024年秋季大会</a>（オンライン開催）にて、ワークショップ「コンピュータの歴史と実践」に問題提起者として参加しました。HCI研究の歴史と実践について紹介し、メディア考古学との接点を探りました。（<a href=\"${rootPath}publications/media2024autumn-kato-slides.pdf\">発表資料</a>）"
+      "text": "<a href=\"https://www.jams.media/conferences/2024autconf/\">日本メディア学会 2024年秋季大会</a>（オンライン開催）にて、ワークショップ「コンピュータの歴史と実践」に問題提起者として参加しました。HCI研究の歴史と実践について紹介し、メディア文化論との接点を探りました。（<a href=\"${rootPath}publications/media2024autumn-kato-slides.pdf\">発表資料</a>）"
     },
     {
       "date": "2024/9/12",
