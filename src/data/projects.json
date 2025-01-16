@@ -399,7 +399,8 @@
       "project": "sigpx",
       "title": "SIGPX",
       "year": {
-        "from": 2016
+        "from": 2016,
+        "to": 2022
       },
       "category": "committee",
       "description": "This is a Japanese domestic study group for those interested in programming environments and their programming experience, founded in January 2016.",
