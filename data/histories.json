@@ -1,6 +1,26 @@
 {
   "en": [
     {
+      "date": "2025/3/14",
+      "text": "The permanent exhibition facility of the National Institute of Advanced Industrial Science and Technology (AIST) is being renewed as <a href=\"https://www.aist.go.jp/sc/cube/\">&quot;AIST-Cube&quot;</a>, as <a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">publicly announced</a>. I contributed to the exhibition production related to the <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework</a>."
+    },
+    {
+      "date": "2025/3/4",
+      "text": "Delivered a keynote talk at the international workshop <a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>. Also participated in the panel discussions over the following two days."
+    },
+    {
+      "date": "2025/2/12",
+      "text": "Organized <a href=\"https://chci.pages.dev/chap2025paris\">A Workshop on Creativity Support for Hand-drawn Art Practices (CHAP 2025 Paris)</a> in Paris over three days, from February 10 to 12, 2025. Researchers and artists from Japan and France, where animation and manga/bande dessinée are both vibrant yet culturally distinct practices, participated in the event."
+    },
+    {
+      "date": "2025/2/4",
+      "text": "Visited the Max Planck Institute for Human Development in Berlin, Germany, and gave a talk titled &quot;Being a toolsmith researcher: a constructive approach to science of tools?&quot; Also visited the HCI and Software Architecture groups at the Hasso Plattner Institute in Potsdam and delivered a talk. In Hamburg, I visited The New Institute and met with Kohei Saito."
+    },
+    {
+      "date": "2025/1/23",
+      "text": "Paid a courtesy visit to the Minister of Education, Culture, Sports, Science and Technology following the selection for <a href=\"https://www.nistep.go.jp/en/?page_id=13\">Researchers with Nice Step</a> 2024 for notable contributions to science and technology."
+    },
+    {
       "date": "2024/12/17",
       "text": "Selected as one of ten <a href=\"https://www.nistep.go.jp/en/?page_id=13\">Researchers with Nice Step</a> 2024, recognized for significant contributions to science and technology."
     },
@@ -386,6 +406,34 @@
     }
   ],
   "ja": [
+    {
+      "date": "2025/3/14",
+      "text": "先に公表されていた<a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">山下記念研究賞</a>の表彰式が情報処理学会 第87回全国大会（ハイブリッド開催）で行われました。<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>と<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>の両研究会にご推薦いただき2件の受賞をいただきました。"
+    },
+    {
+      "date": "2025/3/14",
+      "text": "産業技術総合研究所の常設展示施設が<a href=\"https://www.aist.go.jp/sc/cube/\">「AIST-Cube」</a>としてリニューアルすることが<a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">公表</a>されました。<a href=\"${rootPath}ja/lyric-app-framework\">リリックアプリ</a>に関する展示制作を行いました。"
+    },
+    {
+      "date": "2025/3/4",
+      "text": "国際ワークショップ<a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>で基調講演しました。また、続く2日間のパネルディスカッションに参加しました。"
+    },
+    {
+      "date": "2025/2/17",
+      "text": "情報処理学会論文誌 66(2) でリリックアプリの最新の知見をまとめた論文<a href=\"https://doi.org/10.20729/0002000020\">「インタラクティブな歌詞駆動型視覚表現『リリックアプリ』開発用フレームワークの提案と実証研究」</a>が刊行されました。さらに、多くの研究者が参照すべき論文として<a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">特選論文</a>に決定していただきました。"
+    },
+    {
+      "date": "2025/2/12",
+      "text": "国際ワークショップ<a href=\"https://chci.pages.dev/chap2025paris\">A Workshop on Creativity Support for Hand-drawn Art Practices (CHAP 2025 Paris)</a>を2025/2/10-12の3日間にわたりパリで主催しました。アニメとアニメーション、漫画とバンド＝デシネという、共通点の多い、しかし異なる文化活動が共に盛んな日本とフランスの研究者・アーティストに参加いただきました。"
+    },
+    {
+      "date": "2025/2/4",
+      "text": "ドイツ・ベルリンのMax Planck Institute for Human Developmentを訪問し、「Being a toolsmith researcher: a constructive approach to science of tools?」と題して講演しました。また、ポツダムのHasso Plattner InstitutでHCIグループおよびSoftware Architectureグループを訪問し、講演しました。ハンブルクではThe New Instituteを訪問し斎藤 幸平氏と面会しました。"
+    },
+    {
+      "date": "2025/1/23",
+      "text": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024（ナイスステップな研究者）</a>選定に伴い、文部科学大臣を表敬訪問しました。（<a href=\"https://www.mext.go.jp/b_menu/activity/detail/2025/20250123_3.html\">文部科学省 「今日の出来事」</a>）"
+    },
     {
       "date": "2024/12/17",
       "text": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024（ナイスステップな研究者）</a>に選定されました。（<a href=\"https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm\">文部科学省 報道発表</a>）"
