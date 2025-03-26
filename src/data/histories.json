@@ -2,19 +2,11 @@
   "en": [
     {
       "date": "2025/3/14",
-      "text": "The award ceremony for the <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">Yamashita Memorial Research Award</a>, which had been announced earlier, was held at the 87th National Convention of the Information Processing Society of Japan (hybrid format). I received two awards through nominations from both the <abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr> and the <abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>."
-    },
-    {
-      "date": "2025/3/14",
       "text": "The permanent exhibition facility of the National Institute of Advanced Industrial Science and Technology (AIST) is being renewed as <a href=\"https://www.aist.go.jp/sc/cube/\">&quot;AIST-Cube&quot;</a>, as <a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">publicly announced</a>. I contributed to the exhibition production related to the <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework</a>."
     },
     {
       "date": "2025/3/4",
       "text": "Delivered a keynote talk at the international workshop <a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>. Also participated in the panel discussions over the following two days."
-    },
-    {
-      "date": "2025/2/17",
-      "text": "A paper summarizing the latest findings on the Lyric App, titled <a href=\"https://doi.org/10.20729/0002000020\">&quot;Proposal and Empirical Study of a Development Framework for Interactive Lyric-Driven Visual Expression: The Lyric App&quot;</a>, was published in Vol. 66, No. 2 of the Journal of Information Processing Society of Japan. It was also selected as a <a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">Featured Paper</a>, recommended for reference by many researchers."
     },
     {
       "date": "2025/2/12",
@@ -26,7 +18,7 @@
     },
     {
       "date": "2025/1/23",
-      "text": "Paid a courtesy visit to the Minister of Education, Culture, Sports, Science and Technology following the selection for <a href=\"https://www.nistep.go.jp\">NISTEP</a>'s <a href=\"https://www.nistep.go.jp/archives/59810\">“Researchers with Nice Step” 2024</a> for notable contributions to science and technology. (See <a href=\"https://www.mext.go.jp/b_menu/activity/detail/2025/20250123_3.html\">MEXT's “Today’s Highlights”</a>)"
+      "text": "Paid a courtesy visit to the Minister of Education, Culture, Sports, Science and Technology following the selection for <a href=\"https://www.nistep.go.jp/en/?page_id=13\">Researchers with Nice Step</a> 2024 for notable contributions to science and technology."
     },
     {
       "date": "2024/12/17",
