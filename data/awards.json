@@ -1,5 +1,13 @@
 [
   {
+    "date": "2025/3/28",
+    "text": {
+      "en": "<a href=\"https://www.taf.or.jp/\"><abbr title=\"The Telecommunications Advancement Foundation\">TAF</abbr></a> Award (Encouragement Prize) for the ACM CHI '23 first-authored paper on <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">Lyric App Framework</a>",
+      "ja": "第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞（テレコム学際研究賞 奨励賞）（<a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">ACM CHI '23 主著論文</a>に対して）"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2024/12/17",
     "text": {
       "en": "<a href=\"https://www.nistep.go.jp/en\"><abbr title=\"National Institute of Science and Technology Policy\">NISTEP</abbr></a>: <a href=\"https://www.nistep.go.jp/en/?page_id=13\">The Researchers with Nice Step</a> 2024, recognized for significant contributions to science and technology",
