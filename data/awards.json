@@ -3,7 +3,15 @@
     "date": "2025/3/28",
     "text": {
       "en": "<a href=\"https://www.taf.or.jp/\"><abbr title=\"The Telecommunications Advancement Foundation\">TAF</abbr></a> Award (Encouragement Prize) for the ACM CHI '23 first-authored paper on <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">Lyric App Framework</a>",
-      "ja": "第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞（テレコム学際研究賞 奨励賞）（<a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">ACM CHI '23 主著論文</a>に対して）"
+      "ja": "第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞 (テレコム学際研究賞 奨励賞, <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">ACM CHI '23 主著論文</a>に対して)"
+    },
+    "entryType": "domestic"
+  },
+  {
+    "date": "2025/3/15",
+    "text": {
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Specially Selected Paper Award for the first-authored paper published in <a href=\"https://doi.org/10.20729/0002000020\">IPSJ Journal 66(2)</a>",
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">2024年度 (令和6年度) 特選論文</a> 受賞 (<a href=\"https://doi.org/10.20729/0002000020\">論文誌ジャーナル Vol.66 No.2 主著論文</a>に対して)"
     },
     "entryType": "domestic"
   },
@@ -11,7 +19,7 @@
     "date": "2024/12/17",
     "text": {
       "en": "<a href=\"https://www.nistep.go.jp/en\"><abbr title=\"National Institute of Science and Technology Policy\">NISTEP</abbr></a>: <a href=\"https://www.nistep.go.jp/en/?page_id=13\">The Researchers with Nice Step</a> 2024, recognized for significant contributions to science and technology",
-      "ja": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024（ナイスステップな研究者）</a> 選定（<a href=\"https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm\">文部科学省 報道発表</a>）"
+      "ja": "<a href=\"https://www.nistep.go.jp\">科学技術・学術政策研究所</a> <a href=\"https://www.nistep.go.jp/archives/59810\">科学技術への顕著な貢献2024 (ナイスステップな研究者)</a> 選定 (<a href=\"https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm\">文部科学省 報道発表</a>)"
     },
     "entryType": "domestic"
   },
@@ -34,7 +42,7 @@
     "date": "2024/7/31",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Yamashita <abbr title=\"Special Interest Group\">SIG</abbr> Research Award (<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>)",
-      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度（令和6年度）山下記念研究賞</a> 受賞（<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>推薦: インタラクション2024）"
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度 (令和6年度) 山下記念研究賞</a> 受賞 (<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>推薦: インタラクション2024)"
     },
     "entryType": "domestic"
   },
@@ -42,7 +50,7 @@
     "date": "2024/7/31",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Yamashita <abbr title=\"Special Interest Group\">SIG</abbr> Research Award (<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>)",
-      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度（令和6年度）山下記念研究賞</a> 受賞（<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>推薦: 2023-MUS-138）"
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">2024年度 (令和6年度) 山下記念研究賞</a> 受賞 (<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>推薦: 2023-MUS-138)"
     },
     "entryType": "domestic"
   },
@@ -50,7 +58,7 @@
     "date": "2024/3/6",
     "text": {
       "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Symposium Interaction 2024 Best Paper Award and Interactivity Award (&quot;People's Choice&quot; category)",
-      "ja": "第28回 <a href=\"http://www.ipsj.or.jp/\">情報処理学会</a>シンポジウム <a href=\"https://www.interaction-ipsj.org/2024/\">インタラクション2024</a> <a href=\"https://www.interaction-ipsj.org/2024/award/\">最優秀論文賞・インタラクティブ発表賞（一般投票）</a> 受賞"
+      "ja": "第28回 <a href=\"http://www.ipsj.or.jp/\">情報処理学会</a>シンポジウム <a href=\"https://www.interaction-ipsj.org/2024/\">インタラクション2024</a> <a href=\"https://www.interaction-ipsj.org/2024/award/\">最優秀論文賞・インタラクティブ発表賞 (一般投票)</a> 受賞"
     },
     "entryType": "domestic"
   },
