@@ -1,5 +1,13 @@
 [
   {
+    "dates": ["2025/3/19"],
+    "text": {
+      "ja": "<a href=\"https://u-paris.fr\">Université Paris Cité</a> 日本学 修士コース ゲスト講義「How anime is made」",
+      "en": "<a href=\"https://u-paris.fr\">Université Paris Cité</a>, Études Japonaises, Guest Lecture \"How anime is made\""
+    },
+    "entryType": "international"
+  },
+  {
     "dates": ["2024/6/19"],
     "text": {
       "ja": "東京大学 <a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a> ゲスト講義「道具鍛冶とクリエータ」",
