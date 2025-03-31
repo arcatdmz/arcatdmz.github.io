@@ -407,6 +407,10 @@
   ],
   "ja": [
     {
+      "date": "2025/3/28",
+      "text": "国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>で発表した「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」の論文が第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞（テレコム学際研究賞 奨励賞）を受賞しました。（<a href=\"https://www.taf.or.jp/files/2198/552880864.pdf\">財団 報道発表</a>）"
+    },
+    {
       "date": "2025/3/14",
       "text": "先に公表されていた<a href=\"https://www.ipsj.or.jp/award/yamashita2024.html\">山下記念研究賞</a>の表彰式が情報処理学会 第87回全国大会（ハイブリッド開催）で行われました。<abbr title=\"Special Interest Group on Human-Computer Interaction\">SIGHCI</abbr>と<abbr title=\"Special Interest Group on Music and Computer\">SIGMUS</abbr>の両研究会にご推薦いただき2件の受賞をいただきました。"
     },
