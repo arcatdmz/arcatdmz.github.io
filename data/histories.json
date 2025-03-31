@@ -416,7 +416,7 @@
     },
     {
       "date": "2025/3/14",
-      "text": "産業技術総合研究所の常設展示施設が<a href=\"https://www.aist.go.jp/sc/cube/\">「AIST-Cube」</a>としてリニューアルすることが<a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">公表</a>されました。<a href=\"${rootPath}ja/lyric-app-framework\">リリックアプリ</a>に関する展示制作を行いました。"
+      "text": "産業技術総合研究所の常設展示施設が「<a href=\"https://www.aist.go.jp/sc/cube/\">AIST-Cube</a>」としてリニューアルすることが<a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">公表</a>されました。<a href=\"${rootPath}ja/lyric-app-framework\">リリックアプリ</a>に関する展示制作を行いました。"
     },
     {
       "date": "2025/3/4",
@@ -424,7 +424,7 @@
     },
     {
       "date": "2025/2/17",
-      "text": "情報処理学会論文誌 66(2) でリリックアプリの最新の知見をまとめた論文<a href=\"https://doi.org/10.20729/0002000020\">「インタラクティブな歌詞駆動型視覚表現『リリックアプリ』開発用フレームワークの提案と実証研究」</a>が刊行されました。さらに、多くの研究者が参照すべき論文として<a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">特選論文</a>に決定していただきました。"
+      "text": "情報処理学会論文誌 66(2) でリリックアプリの最新の知見をまとめた論文「<a href=\"https://doi.org/10.20729/0002000020\">インタラクティブな歌詞駆動型視覚表現『リリックアプリ』開発用フレームワークの提案と実証研究</a>」が刊行されました。さらに、多くの研究者が参照すべき論文として<a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">特選論文</a>に決定していただきました。"
     },
     {
       "date": "2025/2/12",
