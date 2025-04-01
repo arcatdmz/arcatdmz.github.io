@@ -89,6 +89,34 @@
   },
   "projects": [
     {
+      "project": "aist-cube",
+      "title": "AIST-Cube: Interacting with music/lyrics",
+      "title-design": "AIST-Cube: Interacting with music/lyrics",
+      "year": {
+        "from": 2025,
+        "to": 2025
+      },
+      "tags": ["design"],
+      "tags-design": ["graphic", "ui"],
+      "category": "private",
+      "icon": "aist-cube.jpg",
+      "thumbnail": "aist-cube.jpg",
+      "description": "Designed and implemented the exhibibition of <a href=\"${rootPath}lyric-app-framework/\">Lyric App Framework</a> for AIST-Cube, the permanent exhibition facility of AIST renewed in April 2025.",
+      "description-design": "Designed and implemented the exhibibition of <a href=\"${rootPath}lyric-app-framework/\">Lyric App Framework</a> for AIST-Cube, the permanent exhibition facility of AIST renewed in April 2025.",
+      "images": [
+        "${rootPath}design/aist-cube/aist-cube-display.jpg",
+        "${rootPath}design/aist-cube/aist-cube-menu.png",
+        "${rootPath}design/aist-cube/aist-cube-app.png"
+      ],
+      "url": "https://textalive.jp/apps/aist-cube",
+      "ja": {
+        "title": "AIST-Cube 「リリックアプリ：音楽と歌詞を楽しむ新表現」展示制作",
+        "title-design": "AIST-Cube 「リリックアプリ：音楽と歌詞を楽しむ新表現」展示制作",
+        "description": "2025年4月にリニューアルされた産総研の常設展示施設「<a href=\"https://www.aist.go.jp/sc/cube/\">AIST-Cube</a>」のための「<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>」に関する展示制作を行いました。",
+        "description-design": "2025年4月にリニューアルされた産総研の常設展示施設「<a href=\"https://www.aist.go.jp/sc/cube/\">AIST-Cube</a>」のための「<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>」に関する展示制作を行いました。"
+      }
+    },
+    {
       "project": "griffith",
       "publication": "chi2024-kato-griffith",
       "title": "Griffith",
