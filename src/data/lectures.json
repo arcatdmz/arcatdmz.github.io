@@ -8,6 +8,14 @@
     "entryType": "international"
   },
   {
+    "dates": ["2024/12/18"],
+    "text": {
+      "ja": "日本大学 マルチメディア表現 ゲスト講義(2)「音楽・アニメ産業の未来を切り拓くインタラクション研究」",
+      "en": "Nihon University Lecture on Multimedia Expressions Guest Lecture (2) \"HCI Research for the Future of Music and Anime Industry\""
+    },
+    "entryType": "domestic"
+  },
+  {
     "dates": ["2024/6/19"],
     "text": {
       "ja": "東京大学 <a href=\"https://www.cyber.t.u-tokyo.ac.jp/lecture/tech_con2024.html\">技術とコンテンツ</a> ゲスト講義「道具鍛冶とクリエータ」",
@@ -16,7 +24,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["2024/6/19", "2024/6/26"],
+    "dates": ["2024/6/26", "2024/6/19"],
     "text": {
       "ja": "東京大学 <a href=\"https://non-research-tips.github.io/2024\">情報科学研究補助技法</a> ゲスト講義「Research community」「DevOps for research」",
       "en": "The University of Tokyo <a href=\"https://non-research-tips.github.io/2024\">Non-Research Tips for Information Science Researchers</a> Guest Lectures \"Research community\" and \"DevOps for research\""
@@ -32,7 +40,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["2023/11/30"],
+    "dates": ["2025/1/9", "2023/11/30"],
     "text": {
       "ja": "はこだて未来大学 データ可視化 ゲスト講義「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」",
       "en": "Future University Hakodate Data Visualization Guest Lecture \"Toward Tools that Provide a Better View\""
@@ -48,7 +56,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["2024/1/17", "2023/1/18", "2022/1/19", "2021/1/20", "2020/1/22"],
+    "dates": ["2025/1/21", "2024/1/17", "2023/1/18", "2022/1/19", "2021/1/20", "2020/1/22"],
     "text": {
       "ja": "芝浦工業大学 高度情報演習2C ゲスト講義「プログラミング体験（PX）概論」",
       "en": "Shibaura Institute of Technology Advanced Information Science Exercise Guest Lecture \"Introduction to Programming Experience (PX)\""
