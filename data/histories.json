@@ -1,5 +1,8 @@
 {
-  "en": [
+  "en": [{
+    "date": "2025/5/10",
+    "text": "Organized <a href=\"https://chci.pages.dev/chi2025anime\" title=\"Anime SIG\">Anime SIG: Researching Japanese Animation from Technical, Cultural, and Industrial Perspectives</a> from 11:10 Mon, Apr 28, which drew a standing-room-only crowd (thanks!), presented <a href=\"${rootPath}creativity-support-environments/#postgrowth\">a position paper</a> on a post-growth future vision for creativity support tools in the <a href=\"https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089\">Advancing Post-growth HCI</a> workshop, and presented <a href=\"${rootPath}ja/timeline/#2025-publications\">two co-authored papers</a> at <a href=\"https://chi2025.acm.org/\">ACM CHI 2025</a>."
+  }, 
     {
       "date": "2025/3/14",
       "text": "The permanent exhibition facility of the National Institute of Advanced Industrial Science and Technology (AIST) is being renewed as <a href=\"https://www.aist.go.jp/sc/cube/\">&quot;AIST-Cube&quot;</a>, as <a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">publicly announced</a>. I contributed to the exhibition production related to the <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework</a>."
@@ -406,6 +409,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2025/5/10",
+      "text": "国際会議<a href=\"https://chi2025.acm.org/\">ACM CHI 2025</a>で「<a href=\"https://chci.pages.dev/chi2025anime\" title=\"Anime SIG\">Anime SIG: Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives</a>」（11:10 Mon, Apr 28）を主催して立ち見の盛況でした。ありがとうございました！また、「<a href=\"https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089\">Advancing Post-growth HCI</a>」ワークショップで創造性支援ツールの未来ビジョンに関する<a href=\"${rootPath}ja/creativity-support-environments/#postgrowth\">ポジションペーパー</a>を発表しました。さらに、<a href=\"${rootPath}ja/timeline/#2025-publications\">共著論文2本</a>の発表がありました。"
+    },
     {
       "date": "2025/3/28",
       "text": "国際会議<a href=\"https://chi2023.acm.org/\">ACM CHI 2023</a>で発表した「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」の論文が第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞（テレコム学際研究賞 奨励賞）を受賞しました。（<a href=\"https://www.taf.or.jp/files/2198/552880864.pdf\">財団 報道発表</a>）"
