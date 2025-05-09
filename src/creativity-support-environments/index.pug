@@ -12,6 +12,12 @@ block post-footer
     a.item(href='#body')
       i.chevron.circle.up.icon
       .content #{en ? 'Top' : 'トップ'}
+    a.item(href='#animesig')
+      i.right.triangle.icon
+      .content Anime SIG
+    a.item(href='#postgrowth')
+      i.right.triangle.icon
+      .content Post-growth HCI
     a.item(href='#sigccc')
       i.right.triangle.icon
       .content SIGCCC
@@ -28,6 +34,10 @@ block main
       p: img.ui.image(src=`${basePath}creativity-support-environments/creativity-support-environments.png`)
   .ui.hidden.divider
   section#examples: +examples()
+  .ui.hidden.divider
+  section#animesig: +animesig()
+  .ui.hidden.divider
+  section#postgrowth: +postgrowth()
   .ui.hidden.divider
   section#sigccc: +sigccc()
   .ui.hidden.divider
@@ -49,6 +59,42 @@ mixin examples()
         - if (p.category === 'concept' || p.category === 'committee' || p.category === 'private') continue;
         +render-project-item(p)
         - }
+
+mixin animesig()
+  h2.ui.header Anime SIG: Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives
+  .ui.basic.segment
+    block animesig-content
+      p Organized by experts from industry and academia, this CHI 2025 Special Interest Group invited participants to the emerging area of anime research and aims to open up a new alley for human-computer interaction (HCI) research. Please refer to the event page for more details.
+      +animesig-abstract()
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="http://chci.pages.dev/chi2025anime")
+      | #{en ? 'Event page' : 'イベントページ'}
+      i.chevron.circle.right.icon
+
+mixin animesig-abstract()
+  .ui.message
+    p Japanese animation, or anime for short, has attracted global attention with its immense international growth. Despite its popularity, academic research has been limited to media studies, with grand questions like &quot;what is anime,&quot; i.e., observational and analytical perspectives, and more recently in computer science from the perspective of &quot;how to generate the anime look,&quot; focusing on representing visual characteristics with computer vision and machine learning methods.
+    p This Special Interest Group (SIG) aims to deepen this multifaceted cultural phenomenon from multidisciplinary perspectives, including &quot;who&quot; makes anime, &quot;how&quot; creativity support tools can aid the process, and &quot;what&quot; about non-visual aspects like anime voices.
+    p Organized by experts from industry and academia, this SIG invites participants to the emerging area of anime research and aims to open up a new alley for human-computer interaction (HCI) research through collective discussion on potential directions and community fostering of anime-interested researchers.
+
+mixin postgrowth()
+  h2.ui.header Power, Culture, and Sustainability in Creativity Support Tools: A Post-growth Perspective
+  .ui.basic.segment
+    block postgrowth-content
+      p A workshop with focus on post-growth HCI was held as part of the CHI 2025 conference. I presented a position paper on the topic of how creativity support tools should be designed and maintained in the post-growth era.
+      +postgrowth-abstract()
+  .ui.basic.right.aligned.segment
+    a.ui.primary.button(href="https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089")
+      | #{en ? 'Event page' : 'イベントページ'}
+      i.chevron.circle.right.icon
+
+mixin postgrowth-abstract()
+  p: img.ui.bordered.image(src=`${basePath}creativity-support-environments/postgrowth-cst.jpg`)
+  .ui.message 
+    p In contemporary capitalism, particularly in computer-science-related fields, capital-driven innovation tends to dominate discourse and decision-making. This model aligns with technosolutionism, the belief that technology alone can provide universal solutions. However, creative industries with deep cultural traditions, such as Japanese animation (anime), require a fundamentally different approach. These industries function as communities of practitioners united by a shared goal of producing high-quality creative work, yet they encompass a wide range of technical backgrounds. As a result, they need diverse socio-technical solutions, including tools that facilitate collaboration between different roles (e.g., artists and producers), user interfaces designed for expressivity rather than naïve usability, and support for hybrid analog-digital workflows.
+    p Despite their cultural significance, these communities remain small compared to the vast user base of globally distributed products. Consequently, capital-driven efforts rarely prioritize dedicated solutions for them, reinforcing an asymmetrical power structure between toolmakers and users. While a few software engineers have supported practitioners, the community is still seeking a sustainable structure. Notably, because tools are a critical component in shaping culture and its evolution, such sustainable collaboration is also important for maintaining cultural diversity in a form decoupled from economic growth. This is where the academic community of Human-Computer Interaction (HCI) can play a critical role.
+    p A notable precedent is the collaboration between the 3D computer graphics (CG) animation industry and SIGGRAPH, where academia and industry jointly tackled computational challenges in CG. However, unlike CG, which lends itself to formalization as a purely technical research problem, the socio-technical complexities of creative industries often resist such reduction. This makes HCI an ideal partner, jointly building and deploying creativity-support tools with collaboration, professional use, and hybrid analog-digital workflows in mind. The resulting toolchain can be considered a new commons to be shared across the industry.
+    p As researchers with experience in the animation industry and a deep interest in cultural circulation, we reflect on these challenges from both academic and industry perspectives. Creativity-support tools must be designed with an awareness of the cultural and professional contexts in which they are used, going beyond the Western-centric, economic-growth-driven focus. As a vision for post-growth HCI, we argue that fostering slow but steady collaborations between academia and creative industries has the potential to ensure that technological development supports sustainable, culturally embedded, and community-driven futures.
 
 mixin sigccc()
   h2.ui.header Special Interest Group on Creativity and Cultures in Computing (SIGCCC)
@@ -92,6 +138,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 5/10/2024
+        .summary Add information on the Anime SIG event and the post-growth <abbr title="Creativity Support Tools">CST</abbr> position paper at CHI 2025.
       .event: .content
         .date 9/16/2024
         .summary Add a list of projects.

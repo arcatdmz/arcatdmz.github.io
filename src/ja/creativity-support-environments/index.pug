@@ -8,8 +8,18 @@ block vars
 block lang
   - var lang = 'ja';
 
+block animesig-content
+  p ACM CHI 2025 でアニメに関する Special Interest Group （カジュアルな研究会合）を主催しました。詳細はイベントページをご覧ください。
+  +animesig-abstract()
+
+block postgrowth-content
+  p ACM CHI 2025 で Post-growth HCI に関するワークショップが開催され、
+    a(href='/publications/chi2025-kato-postgrowth-cst.pdf') ポジションペーパー
+    | を執筆、発表しました。
+  +postgrowth-abstract()
+
 block sigccc-content
-  p ACM CHI 2023 で Special Interest Group （カジュアルな研究会合）を主催しました。詳細はイベントページをご覧ください。
+  p ACM CHI 2023 で Special Interest Group を主催しました。詳細はイベントページをご覧ください。
   +sigccc-abstract()
   p また、産業技術総合研究所として 
     a(href='https://chci.pages.dev/aist-seminar') AIST Creative HCI Seminar 
@@ -21,6 +31,9 @@ block xrds-content
   +xrds-abstract()
 
 block news
+  .event: .content
+    .date 5/10/2025
+    .summary <a href="https://programs.sigchi.org/chi/2025/program/content/189764" title="Anime SIG: Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives">Anime SIG</a> と Post-growth HCI におけるポジションペーパーについて追記
   .event: .content
     .date 9/16/2024
     .summary プロジェクト一覧を追加
