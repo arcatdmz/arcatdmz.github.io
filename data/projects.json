@@ -138,7 +138,8 @@
       "project": "aist-creative-hci-seminar",
       "title": "AIST Creative HCI Seminar",
       "year": {
-        "from": 2023
+        "from": 2023,
+        "to": 2024
       },
       "category": "committee",
       "description": "This seminar series is organized by AIST and will invite rising stars in the Human-Computer Interaction field and cover diverse topics which are directly/indirectly connected to creativity support research.",
