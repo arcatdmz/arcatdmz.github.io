@@ -1,5 +1,13 @@
 [
   {
+    "date": "2025/3/4",
+    "text": {
+      "ja": "基調講演: <a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>, &quot;Creativity Support Tools as Boundary Objects: bridging computer and social science methodologies&quot;",
+      "en": "Keynote: <a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>, &quot;Creativity Support Tools as Boundary Objects: bridging computer and social science methodologies&quot;"
+    },
+    "entryType": "international"
+  },
+  {
     "date": "2024/8/23",
     "text": {
       "ja": "Mizuho India Japan Study Centre (IIM Bangalore) 「<a href=\"https://www.iimb.ac.in/node/13283\">Meijin-Samvad</a>」Webinarシリーズ招待パネル, <a href=\"https://www.youtube.com/watch?v=xKDia05R2uc\">&quot;Impact &amp; Synergy of Manga, Anime, and Video Games: Japanese Soft Power’s Impact on Global Markets - Positive? Negative? Balanced?&quot;</a> パネリスト",
@@ -121,8 +129,8 @@
   {
     "date": "2017/10/24",
     "text": {
-      "ja": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
-      "en": "<a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, Keynote, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Website</a>"
+      "ja": "基調講演: <a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Webページ</a>",
+      "en": "Keynote: <a href=\"https://2017.splashcon.org/\" title=\"The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity\">SPLASH</a> <a href=\"https://2017.splashcon.org/track/live-2017#program\">LIVE 2017</a>, <a href=\"https://2017.splashcon.org/event/live-2017-keynote-a\">&quot;User Interfaces for Live Programming&quot;</a>, <a href=\"${rootPath}live-programming/\"><i class=\"world icon\"></i>Website</a>"
     }
   },
   {
