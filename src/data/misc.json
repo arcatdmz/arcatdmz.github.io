@@ -1,5 +1,6 @@
 {
   "publications": {
+    "CHI '25": "acceptance rate: 24.9%",
     "CHI '24": "acceptance rate: 26.4%",
     "CHI '23": "acceptance rate: 27.6%",
     "MM '18": "acceptance rate: 27.5%; oral presentation: 8.5%",
@@ -72,6 +73,31 @@
       }
     ],
     "organizers": [
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2025/organizers",
+        "event": {
+          "name": "ACM UIST '25",
+          "fullname": "The 38th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2025"
+        },
+        "year": 2025
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2025.splashcon.org/track/splash-2025-Onward-papers",
+        "event": {
+          "name": "SPLASH '25 Onward! Papers"
+        },
+        "conference": {
+          "name": "ACM SPLASH '25",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2025.splashcon.org"
+        },
+        "year": 2025
+      },
       {
         "class": "oc",
         "title": "Sponsorship Chair",
@@ -641,14 +667,14 @@
         "venue": "CHI",
         "title": "The SIGCHI Conference on Human Factors in Computing Systems",
         "years": [
-          2010, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+          2010, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
         ]
       },
       {
         "venue": "UIST",
         "title": "The Annual ACM Symposium on User Interface Software and Technology",
         "years": [
-          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
         ]
       },
       {
