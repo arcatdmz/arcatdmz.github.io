@@ -12,7 +12,7 @@
     "build:semantic": "gulp semantic",
     "build:redirections": "node scripts/add-redirections.mjs",
     "clean": "del-cli build dist && npm run clean:js",
-    "clean:js": "del-cli src/javascripts/**/*.js",
+    "clean:js": "del-cli src/javascripts/*.js src/javascripts/**/*.js",
     "dev": "gulp dev",
     "dev:meta": "gulp dev:meta",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
