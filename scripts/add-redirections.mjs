@@ -14,7 +14,7 @@ fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
 
   const traverseCategories = (cat, basePath) => {
     const promises = [];
-    Object.entries(cat, ([key, value]) => {
+    Object.entries(cat).forEach(([key, value]) => {
       const dirPath = `${basePath}${key}`;
       const url = `https://blog.junkato.jp/ja/tags/${key}/`;
       const promise = (async function () {
