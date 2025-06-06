@@ -11,12 +11,13 @@
     "build:gulp": "gulp",
     "build:semantic": "gulp semantic",
     "build:redirections": "node scripts/add-redirections.mjs",
-    "clean": "del-cli build dist 'src/javascripts/**/*.js'",
+    "clean": "del-cli build dist && npm run clean:js",
+    "clean:js": "del-cli src/javascripts/**/*.js",
     "dev": "gulp dev",
     "dev:meta": "gulp dev:meta",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
     "test": "gulp test && npm run test:jest",
-    "test:jest": "npm run clean && jest"
+    "test:jest": "npm run clean:js && jest"
   },
   "repository": {
     "type": "git",
