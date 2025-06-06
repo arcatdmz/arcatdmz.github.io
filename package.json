@@ -11,10 +11,12 @@
     "build:gulp": "gulp",
     "build:semantic": "gulp semantic",
     "build:redirections": "node scripts/add-redirections.mjs",
+    "clean": "del-cli build dist 'src/javascripts/**/*.js'",
     "dev": "gulp dev",
     "dev:meta": "gulp dev:meta",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
-    "test": "gulp test && jest"
+    "test": "gulp test && npm run test:jest",
+    "test:jest": "npm run clean && jest"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "bibtex-tidy": "^1.11.0",
     "browser-sync": "^3.0.2",
     "del": "^7.1.0",
+    "del-cli": "^6.0.0",
     "glob": "^10.3.10",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
