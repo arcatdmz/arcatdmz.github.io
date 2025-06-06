@@ -1,4 +1,4 @@
-// This type definitions are copied from the following URL:
+// These type definitions are copied from the following URL:
 // https://github.com/DefinitelyTyped/DefinitelyTyped/blob/097d2acf711df3ffb7a3df62554769b216876275/types/clipboard/index.d.ts
 
 declare class Clipboard {
