@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User-Generated Variables (PX/17) | junkato.jp</title>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="User-Generated Variables (PX/17) | junkato.jp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://junkato.jp/user-generated-variables/">
+    <meta name="description" content="User-Generated Variables (UGV) enable streamlined interaction for feature requests and implementations. This page shows slides presented at PX/17 workshop co-located with &amp;lt;Programming&amp;gt; conference.">
+    <meta name="author" content="Jun Kato">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+  </head>
+  <body>
+    <header><a href="//junkato.jp">Jun Kato</a><a href="//junkato.jp/ugv">http://junkato.jp/ugv</a>
+      <div class="pull-right">
+        <div class="fb-share-button" style="display: inline-block;" data-href="http://junkato.jp/user-generated-variables/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjunkato.jp%2Fuser-generated-variables%2F&amp;amp;src=sdkpreparse"><i class="fa fa-facebook"></i> Share</a></div><a href="https://twitter.com/intent/tweet?text=User-Generated%20Variables&amp;url=http%3A%2F%2Fjunkato.jp%2Fuser-generated-variables&amp;via=junkato"><i class="fa fa-twitter"></i> Tweet</a><a href="//junkato.jp/publications/px2017-kato-user-generated-variables.pdf"><i class="fa fa-file"></i> PDF</a>
+      </div>
+    </header>
+    <div class="reveal">
+      <div class="slides">
+        <section class="cover">
+          <h1>User-Generated Variables</h1>
+          <h2>
+            <u>Jun Kato</u> and Masataka Goto
+          </h2>
+          <h3>National Institute of Advanced Industrial Science and Technology (AIST), Japan</h3>
+        </section>
+        <section>
+          <section id="ugc">
+            <h1>User-Generated Content (UGC)</h1>
+            <div class="stretch">
+              <ul>
+                <li>Move from the binary distinction between 
+                  <u>professional creators</u> vs 
+                  <u>consumers</u>
+                </li>
+                <li>Driven by the novel <span class="label">tool</span> &amp; web-based <span class="label">communication</span></li>
+                <li>People without professional expertise can create content and share it with others</li>
+              </ul>
+            </div>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Users can express creativity with web-based tools</p>
+            </div>
+          </section>
+          <section id="twitter">
+            <h1>Twitter for short text</h1>
+            <div class="stretch">
+              <dl>
+                <dt><span class="label">Tool</span></dt>
+                <dd>Web-based UI for writing short text</dd>
+                <dt><span class="label">Communication</span></dt>
+                <dd>Platform for sharing user-generated text content</dd>
+              </dl>
+            </div>
+            <div class="bottom">
+              <p class="text-left box"><i class="fa fa-twitter"></i> <a href="//twitter.com">https://twitter.com</a></p>
+            </div>
+          </section>
+          <section id="textalive">
+            <h1>TextAlive for music videos</h1>
+            <div class="stretch">
+              <dl>
+                <dt><span class="label">Tool</span></dt>
+                <dd>Web-based UI for authoring lyrics animation</dd>
+                <dt><span class="label">Communication</span></dt>
+                <dd>Platform for sharing user-generated video content</dd>
+              </dl>
+            </div>
+            <div class="bottom">
+              <p class="text-left box"><i class="fa fa-check-circle"></i> <a href="//textalive.jp">http://textalive.jp</a></p>
+            </div>
+          </section>
+          <section id="f3js">
+            <h1>f3.js for Internet of Things</h1>
+            <div class="stretch">
+              <dl>
+                <dt><span class="label">Tool</span></dt>
+                <dd>Web-based UI for customizing <abbr title="Internet of Things">IoT</abbr> devices</dd>
+                <dt><span class="label">Communication</span></dt>
+                <dd>Platform for sharing customized <abbr title="Internet of Things">IoT</abbr> content</dd>
+              </dl>
+            </div>
+            <div class="bottom">
+              <p class="text-left box"><i class="fa fa-check-circle"></i> <a href="//f3js.org">http://f3js.org</a></p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section id="ugv">
+            <h1>User-Generated Variables (UGV)</h1>
+            <div class="stretch">
+              <ul>
+                <li>Move from the binary distinction between 
+                  <u>programmers</u> vs 
+                  <u>end-users</u>
+                </li>
+                <li>Driven by the novel <abbr class="label" title="Integrated Development Environment">IDE</abbr> &amp; web-based <span class="label">communication</span></li>
+                <li>People without prior knowledge of programming can propose new features and update the code</li>
+              </ul>
+            </div>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Users can contribute to improve web-based tools</p>
+            </div>
+          </section>
+          <section id="ugv-demo">
+            <h1><abbr title="User-Generated Variables">UGV</abbr> in TextAlive <span></span></h1>
+            <div class="stretch live-demo" data-src="/videos/new?song=staff.aist.go.jp%2Fm.goto%2FRWC-MDB%2FMP3%2FRWC-MDB-P-2001.No.087.mp3&amp;style=pop&amp;skipProposalCommit=true&amp;skipTutorial=true&amp;tutorial=true&amp;ugv=true&amp;fontSize=16"></div>
+          </section>
+          <section id="ugv-demo-f3js">
+            <h1><abbr title="User-Generated Variables">UGV</abbr> in f3.js</h1>
+            <div class="stretch live-demo" data-src="http://f3js.org/projects/321"></div>
+          </section>
+        </section>
+        <section>
+          <section id="interaction-design">
+            <h1>Streamlined Interaction Design of <abbr title="User-Generated Variables">UGV</abbr></h1>
+            <div class="stretch">
+              <ol>
+                <li><span class="label">End-users</span> propose a new variable</li>
+                <li><span class="label">System</span> updates the code according to the proposal and notifies programmers</li>
+                <li><span class="label">Programmers</span>
+                  <ul style="margin-top: 0.2em;">
+                    <li>accepts the proposal by implementing it</li>
+                    <li>declines it by removing the variable declaration</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Feature reqests are directly bound to the code</p>
+            </div>
+          </section>
+          <section id="prior-work">
+            <h1><span class="label">Prior work</span> Collaborative Development</h1>
+            <div class="stretch">
+              <table>
+                <caption>Social development tools by collaboration types</caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Direct</th>
+                    <th>Indirect</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Real-time</th>
+                    <td><a href="http://up.csail.mit.edu/collabode/">Collabode</a>, <a href="https://codeshare.io">Codeshare</a></td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>Async.</th>
+                    <td><a href="//github.com">GitHub</a>, <a href="//uservoice.com">UserVoice</a>, <a href="//bugherd.com">BugHerd</a></td>
+                    <td><a href="https://www.youtube.com/watch?v=OQnmmnHjZvU">HelpMeOut</a>, <a href="http://www.eclipse.org/recommenders/">Eclipse Code Recommenders</a>, <strong>User-Generated Variables</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Programming language-oriented collaborations</p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section id="implementation">
+            <h1>Implementation</h1>
+            <div class="stretch">
+              <ol start="0">
+                <li>Prerequisite</li>
+                <li>Track code-UI relationship</li>
+                <li>Find place to insert code snippet</li>
+                <li>Insert code snippet for UI mockup</li>
+                <li>Refresh view to show the UI mockup</li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <h1><span class="label">0</span> Prerequisite</h1>
+            <p>The <abbr title="Integrated Development Environment">IDE</abbr> should support <a href="http://junkato.jp/live-tuning">Live Tuning</a> or a similar architecture that allows to share the codebase between programmers and users.</p><img class="stretch no-border" src="http://junkato.jp/thumbnails/live-tuning.jpg">
+          </section>
+          <section>
+            <h1><span class="label">1</span> Track code-UI relationship</h1>
+            <p>Tracking is enabled by extending GUI Toolkits</p>
+            <pre class="stretch"><code class="typescript" data-trim>// To support UGV, each GUI container should know
+// where its constructor is called
+interface CodeLocation {
+  filePath: string;
+  row: number;
+  column: number;
+}
+
+// GUI container is a parent of any kinds of widgets
+class UGVContainer extends Container {
+  private loc: CodeLocation;
+
+  constructor() {
+    super();
+    this.loc = IDE.app.getCurrentContext().getCodeLocation();
+
+    // let the 'Propose' button know the code location
+    this.addProposeButton(container, loc);
+  }
+
+  // details omitted
+}
+</code></pre>
+          </section>
+          <section>
+            <h1><span class="label">2</span> Find place to insert code snippet</h1>
+            <p>Static code analysis with heuristics gives the answer</p>
+            <pre class="stretch"><code class="typescript">interface ParsedFile {
+  filePath: string;
+  ast: ASTNode;
+}
+
+class ProposeButton {
+  // details omitted
+
+  private loc: CodeLocation
+
+  onClick(proposal: Proposal) {
+    var file: ParsedFile = IDE.getParsedSourceFile(this.loc.filePath)
+      , ast = file.ast;
+
+    // In TextAlive, this file represents a single template class
+    // that defines a particular kind of visual effect.
+<div class="clickable line" data-target="#impl-2-last-field-code">    var node: ASTNode = this.findLastFieldDeclaration(ast);
+</div>    if (node) node = node.next();
+<div class="clickable line" data-target="#impl-2-first-line-code">    else node = this.findFirstLineOfFunctionBody(ast);
+</div>
+    IDE.addWidgetCode(proposal, node);
+    IDE.updateSourceFile(file);
+  }
+}</code></pre>
+            <pre class="hidden modal" id="impl-2-last-field-code"><code class="typescript"><h3>Example app code with multiple field declarations</h3>
+function RotateAndZoomWithBackground() {
+
+  this.name = "回って拡大/背景付き (RotateAndZoomWithBackground)";
+  this.type = PHRASE;
+
+  var da = require("DefaultAlignment");
+  var defaultAlignment = null;
+
+  // @ui Slider(0, 100)
+  // @title Rotation speed
+  // @title @ja 回転スピード
+  this.rotSpeed = 20;
+
+  // @ui Slider(1, 1000)
+  // @title Start time correction
+  // @title @ja 開始時刻補正
+  this.headTime = 300;
+
+  // @ui Slider(1, 1000)
+  // @title End time correction
+  // @title @ja 終了時刻補正
+  this.tailTime = 500;
+
+  // @ui Slider(-200, 200)
+  // @title Horizontal position
+  // @title @ja 横位置補正
+  this.x = 0;
+
+  // @ui Color()
+  // @title Background color
+  // @title @ja 背景色
+  this.primaryColor = new Color('#186f7f');
+
+  // @ui Color()
+  // @title Text color
+  // @title @ja 文字色
+  this.textColor = new Color('#ffffff');
+
+  // @ui Slider(-100, 100)
+  // @title Vertical position
+  // @title @ja 背景縦位置
+  this.yFix = 15;
+
+<div class="marker">  <i class="fa fa-arrow-left"></i> Code snippet will be inserted here.</div>
+  this.animate = function(now) {
+    // details omitted
+  };
+}
+
+</code></pre>
+            <pre class="hidden modal" id="impl-2-first-line-code"><code class="typescript"><h3>Example app code with no field declaration</h3>
+function TemplateWithNoCustomizationParameter() {
+<div class="marker">  <i class="fa fa-arrow-left"></i> Code snippet will be inserted here.</div>
+  this.animate = function(now) {
+    // details omitted
+  }
+}
+
+</code></pre>
+          </section>
+          <section>
+            <h1><span class="label">3</span> Insert code snippet for UI mockup</h1>
+            <p>Application code is updated automatically &amp; safely</p>
+            <pre class="stretch"><code class="typescript">interface Proposal {
+  type: string;
+  label: string;
+  options: object;
+}
+
+class IDE {
+  // details omitted
+
+  addWidgetCode(proposal: Proposal, node: ASTNode) {
+    var widgetCode = this.getWidgetCode(proposal, node);
+<div class="clickable line" data-target="#impl-3-code-snippet">  file.ast.find(loc).insert(IDE.parse(widgetCode));
+</div>
+    IDE.writeFile(file);
+  }
+
+  getWidgetCode(proposal: Proposal, node: ASTNode) {
+    var varName = this.findUniqueVariableName(node);
+      , code;
+    code  = '// @proposed' + lineBreak;
+    code += '// @title ' + proposal.label + lineBreak;
+    code += '// ' + this.getWidgetConstructorCode(proposal) + lineBreak;
+    code += 'this.' + varName + ' = ' + JSON.stringify(proposal.options.defaultValue);
+    return code;
+  }
+
+  getWidgetConstructorCode(proposal: Proposal) {
+    var opt = proposal.options;
+    switch (proposal.type) {
+      case 'slider':
+        return '@ui Slider(' + opt.min + ', ' + opt.max + ')';
+      case 'check':
+        return '@ui Check()';
+      case 'color':
+        return '@ui Color()';
+      default:
+        return '@comment ' + opt.toString();
+    }
+  }
+}
+</code></pre>
+            <pre class="hidden modal" id="impl-3-code-snippet"><code class="typescript"><h3>Example of inserted code snippet</h3>
+// @proposed
+// @title Font size
+// @ui Slider(1, 1000)
+this.var23495 = 500.5;
+
+</code></pre>
+          </section>
+          <section>
+            <h1><span class="label">4</span> Refresh view to show the UI mockup</h1>
+            <p>The current instances of the app need to refresh UIs</p>
+            <pre class="stretch"><code class="typescript">class IDE {
+  // details omitted
+
+  updateSourceFile(file: File) {
+    this.save(file);
+    this.updateView(file);
+  }
+
+  updateView(file: File) {
+    var container = this.app.getCorrespondingContainer(file);
+    container.reload();
+  }
+}</code></pre>
+          </section>
+        </section>
+        <section>
+          <section id="user-feedback">
+            <h1>Preliminary User Feedback</h1>
+            <div class="stretch">
+              <p><abbr title="User-Generated Variables">UGV</abbr> is implemented in the following <abbr title="Integrated Development Environment">IDE</abbr>s:</p>
+              <ul>
+                <li><a href="//textalive.jp">TextAlive</a></li>
+                <li><a href="//f3js.org">f3.js</a></li>
+              </ul>
+              <p>The following people were asked to use the <abbr title="User-Generated Variables">UGV</abbr> features:</p>
+              <ul>
+                <li><strong>4</strong> users without prior knowledge of programming</li>
+                <li><strong>4</strong> programmers</li>
+              </ul>
+            </div>
+          </section>
+          <section id="user-feedback-results">
+            <h1>Preliminary Results in a 3-Days Trial</h1>
+            <ul>
+              <li><strong>14</strong> variables were declared</li>
+              <li><strong>11</strong> variables were implemented</li>
+              <li>Communication through <i class="fa fa-twitter"></i> was successful</li>
+            </ul>
+            <div class="stretch"><a class="twitter-timeline" href="https://twitter.com/TextAliveJpn" data-width="50%" data-height="100%">Tweets by @TextAliveJpn</a><a class="twitter-timeline" href="https://twitter.com/f3jsOrgn" data-width="50%" data-height="100%">Tweets by @f3jsOrgn</a></div>
+          </section>
+          <section id="user-feedback-analysis">
+            <h1>Analysis of the Results</h1>
+            <p><strong>3</strong> rejections were made because ...</p>
+            <ul class="stretch">
+              <li><span class="label">Needless</span> Desired feature could be already achieved without the proposed variable</li>
+              <li><span class="label">Better solution found</span> Desired feature could be implemented more effectively with a different set of variables</li>
+              <li><span class="label">Too difficult</span> Desired feature was considered difficult/time-consuming to implement</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section id="discussion">
+            <h1>Discussion</h1>
+            <ul class="stretch">
+              <li>Limitations
+                <ul>
+                  <li>Lack of scalability</li>
+                  <li>Limited widget layout</li>
+                  <li>Limited kinds of widgets</li>
+                </ul>
+              </li>
+              <li>Source code as a communication medium</li>
+              <li>Are tool developers adequately acknowledged?</li>
+            </ul>
+          </section>
+          <section>
+            <h1 class="stretch"><span class="label">Limitations</span> Lack of scalability</h1>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Mechanisms for consensus building are needed</p>
+            </div>
+          </section>
+          <section>
+            <h1 class="stretch"><span class="label">Limitations</span> Limited widget layout</h1>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Ease of use and flexibility should be balanced well</p>
+            </div>
+          </section>
+          <section>
+            <h1 class="stretch"><span class="label">Limitations</span> Limited kinds of widgets</h1>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Widgets for more complex features are desired</p>
+            </div>
+          </section>
+          <section id="code-for-communication">
+            <div class="ribbon"><span>Not in paper</span></div>
+            <h1>Source code as a communication medium</h1>
+            <blockquote class="stretch">
+              <p>Giving users write access to code seems like a terrible idea, especially at scale, but the very premise raises other interesting opportunities about embedding all kinds of user feedback in source.</p>
+              <footer>-
+                <cite>a PX reviewer</cite>
+              </footer>
+            </blockquote>
+          </section>
+          <section>
+            <div class="ribbon"><span>Not in paper</span></div>
+            <h1><span class="label">Prior work</span> Source code as a communication medium</h1>
+            <div class="stretch">
+              <ul>
+                <li><a href="http://www.sikuli.org/">Sikuli</a> [UIST 2009]</li>
+                <li><a href="http://www.joelbrandt.org/publications/oney_chi2012_codelets.pdf">Codelets</a> [CHI 2012]</li>
+                <li><a href="http://junkato.jp/picode/">Picode</a> [CHI 2013]</li>
+                <li><a href="http://www.sei.pku.edu.cn/people/zhanglu/my-papers/ICSE13-Tool">Multimedia comment tool</a> [ICSE 2013]</li>
+              </ul>
+            </div>
+            <!--.bottom.fragment
+            p.text-left.box
+              i.fa.fa-arrow-circle-right
+              |  Source code as a communication medium
+            
+            -->
+          </section>
+          <section>
+            <div class="ribbon"><span>Not in paper</span></div>
+            <h1>Are tool developers adequately acknowledged?</h1>
+            <div class="stretch">
+              <ul>
+                <li>Not only the content authors but also the tool developers should be acknowledged</li>
+                <li><a href="http://www.nature.com/news/the-unsung-heroes-of-scientific-software-1.19100">
+                    The unsung heroes of scientific software (Nature, 4 Feb, 2016)</a></li>
+                <li><a href="http://www.ign.com/articles/2017/02/06/unsung-heroes-of-the-games-industry-tools-programmers">
+                    Unsung heroes of the game industry: tools programmers (IGN, 5 Feb, 2017)</a></li>
+              </ul>
+            </div>
+            <div class="bottom fragment">
+              <p class="text-left box"><i class="fa fa-arrow-circle-right"></i> Attracting attention to code could be the first step</p>
+            </div>
+          </section>
+          <!-- section
+          h1 TextAlive acknowledges developers
+          .stretch
+            ul
+              li Live Programming of animation templates
+              li Credits go to everyone who contributed to videos
+          
+          -->
+          <!-- Morph halo?-->
+          <!-- section
+          h1 Tools define design space
+          .stretch
+            ul
+              li Twitter UI defines what users can share
+              li TextAlive templates define how users can decorate videos
+          -->
+        </section>
+        <section id="conclusion">
+          <h1>User-Generated Variables (UGV)</h1>
+          <ul>
+            <li><span class="label">Streamlined interaction design</span> for feature requests and implementations</li>
+            <li>Stands on top of the idea that <strong>code can be a shared medium between programmers and users</strong></li>
+            <li>Enables bi-directional collaboration while
+              <ul>
+                <li><span class="label">Live Programming</span> is merely for programmers</li>
+                <li><span class="label">Live Tuning</span> is uni-directional in that programmers provide benefits to users</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="js/vendor/head.min.js"></script>
+    <script src="js/vendor/reveal.min.js"></script>
+    <script src="js/main.js"></script>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=488785607828009";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+      
+        return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

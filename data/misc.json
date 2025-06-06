@@ -1,0 +1,1055 @@
+{
+  "publications": {
+    "CHI '25": "acceptance rate: 24.9%",
+    "CHI '24": "acceptance rate: 26.4%",
+    "CHI '23": "acceptance rate: 27.6%",
+    "MM '18": "acceptance rate: 27.5%; oral presentation: 8.5%",
+    "CHI '18": "acceptance rate: 25%",
+    "DIS '17": "acceptance rate: 22%",
+    "CHI '15": "acceptance rate: 25%",
+    "PLDI '13": "acceptance rate: 17%",
+    "CHI '13": "acceptance rate: 20%",
+    "UIST '12": "acceptance rate: 22%",
+    "DIS '12": "acceptance rate: 20%",
+    "Special Issue on 21st User Interfaces": "IF 1.115"
+  },
+  "services": {
+    "members": [
+      {
+        "name": "AIST Creative HCI Seminar/Workshop",
+        "url": "https://chci.pages.dev/aist-seminar/en",
+        "role": [
+          {
+            "title": "Founder, organizer",
+            "from": 2023,
+            "to": 2024
+          }
+        ]
+      },
+      {
+        "name": "Japan ACM SIGCHI Chapter",
+        "url": "https://sigchi.jp",
+        "role": [
+          {
+            "title": "Treasurer",
+            "from": 2022
+          },
+          {
+            "title": "Board Member",
+            "from": 2021,
+            "to": 2022
+          }
+        ]
+      },
+      {
+        "name": "Workshop on Live Programming (LIVE)",
+        "url": "https://liveprog.org",
+        "role": [
+          {
+            "title": "Steering Committee",
+            "from": 2020
+          }
+        ]
+      },
+      {
+        "name": "Special Interest Group in Programming Experience (SIGPX)",
+        "url": "https://sigpx.org/en",
+        "role": [
+          {
+            "title": "Founder, organizer",
+            "from": 2016
+          }
+        ]
+      },
+      {
+        "name": "Society for Animation Studies (SAS)",
+        "url": "https://v4.animationstudies.org",
+        "from": 2020
+      },
+      {
+        "name": "Association for Computing Machinery (ACM)",
+        "url": "https://www.acm.org/",
+        "from": 2009
+      }
+    ],
+    "organizers": [
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2025/organizers",
+        "event": {
+          "name": "ACM UIST '25",
+          "fullname": "The 38th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2025"
+        },
+        "year": 2025
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2025.splashcon.org/track/splash-2025-Onward-papers",
+        "event": {
+          "name": "SPLASH '25 Onward! Papers"
+        },
+        "conference": {
+          "name": "ACM SPLASH '25",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2025.splashcon.org"
+        },
+        "year": 2025
+      },
+      {
+        "class": "oc",
+        "title": "Sponsorship Chair",
+        "url": "https://chi2025.acm.org/organizing",
+        "event": {
+          "name": "ACM CHI '25",
+          "fullname": "The 2025 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2025.acm.org"
+        },
+        "year": 2025
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2024.splashcon.org/track/splash-2024-Onward-papers",
+        "event": {
+          "name": "SPLASH '24 Onward! Papers"
+        },
+        "conference": {
+          "name": "ACM SPLASH '24",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2024.splashcon.org"
+        },
+        "year": 2024
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2024.splashcon.org/home/live-2024",
+        "event": {
+          "name": "LIVE '24",
+          "fullname": "The Tenth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '24",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2024.splashcon.org"
+        },
+        "year": 2024
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://liveprog.org",
+        "event": {
+          "name": "LIVE '23",
+          "fullname": "The Ninth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '23",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2023.splashcon.org"
+        },
+        "year": 2023
+      },
+      {
+        "class": "oc",
+        "title": "Organizer",
+        "url": "https://chci.pages.dev/chi2023",
+        "event": {
+          "name": "SIGCCC",
+          "fullname": "Special Interest Group on Creativity and Cultures in Computing"
+        },
+        "conference": {
+          "name": "ACM CHI '23",
+          "fullname": "The 2023 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2023.acm.org"
+        },
+        "year": 2023
+      },
+      {
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Blending Interaction: Engineering Interactive Systems & Tools",
+        "url": "https://chi2023.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction",
+        "event": {
+          "name": "ACM CHI '23",
+          "fullname": "The 2023 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2023.acm.org"
+        },
+        "year": 2023
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://liveprog.org/live-2022",
+        "event": {
+          "name": "LIVE '22",
+          "fullname": "The Eighth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '22",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2022.splashcon.org"
+        },
+        "year": 2022
+      },
+      {
+        "class": "chair",
+        "title": "Chair",
+        "url": "https://sa2021.siggraph.org/en/about-us/siggraph-asia-2021-committee/real-time-live-committee",
+        "track": {
+          "name": "Real-Time Live!",
+          "url": "https://sa2021.siggraph.org/en/attend/real-time-live"
+        },
+        "event": {
+          "name": "ACM SIGGRAPH Asia '21",
+          "fullname": "The 14th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+          "url": "https://sa2021.siggraph.org/en"
+        },
+        "year": 2018
+      },
+      {
+        "class": "chair",
+        "title": "Chair",
+        "url": "https://chi2021.acm.org/for-authors/students/student-research-competition",
+        "track": {
+          "name": "SRC",
+          "fullname": "Student Research Competition"
+        },
+        "event": {
+          "name": "ACM CHI '21",
+          "fullname": "The 2021 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2021.acm.org"
+        },
+        "year": 2021
+      },
+      {
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Engineering Interactive Systems & Technologies",
+        "url": "https://chi2021.acm.org/for-authors/presenting/papers/selecting-a-subcommittee#Engineering-Interactive-Systems-and-Technologies",
+        "event": {
+          "name": "ACM CHI '21",
+          "fullname": "The 2021 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2021.acm.org"
+        },
+        "year": 2021
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2020.splashcon.org/home/live-2020",
+        "event": {
+          "name": "LIVE '20",
+          "fullname": "The Sixth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '20",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2020.splashcon.org"
+        },
+        "year": 2020
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://conf.researchr.org/committee/vlhcc2020/vlhcc2020-papers-program-committee",
+        "event": {
+          "name": "IEEE VL/HCC '20",
+          "fullname": "2020 IEEE Symposium on Visual Languages and Human-Centric Computing",
+          "url": "https://conf.researchr.org/home/vlhcc2020"
+        },
+        "year": 2020
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://conf.researchr.org/committee/vlhcc2020/vlhcc2020-organizing-committee",
+        "track": {
+          "name": "Showpieces"
+        },
+        "event": {
+          "name": "IEEE VL/HCC '20",
+          "fullname": "2020 IEEE Symposium on Visual Languages and Human-Centric Computing",
+          "url": "https://conf.researchr.org/home/vlhcc2020"
+        },
+        "year": 2020
+      },
+      {
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Engineering Interactive Systems & Technologies",
+        "url": "https://chi2020.acm.org/authors/papers/selecting-a-subcommittee/#Engineering-Interactive-Systems-and-Technologies",
+        "event": {
+          "name": "ACM CHI '20",
+          "fullname": "The 2020 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2020.acm.org"
+        },
+        "year": 2020
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2019/organizers",
+        "event": {
+          "name": "ACM UIST '19",
+          "fullname": "The 32nd annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2019"
+        },
+        "year": 2019
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2019.programming-conference.org/committee/px-2019-papers-program-committee",
+        "event": {
+          "name": "PX/19",
+          "fullname": "The 5th Edition of the Programming Experience Workshop",
+          "url": "http://programming-experience.org/px19"
+        },
+        "conference": {
+          "name": "‹Programming› '19",
+          "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
+          "url": "https://2019.programming-conference.org"
+        },
+        "year": 2019
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://iui.acm.org/2019/current_pcs.html",
+        "event": {
+          "name": "ACM IUI '19",
+          "fullname": "The 2019 ACM International Conference on Intelligent User Interfaces",
+          "url": "https://iui.acm.org/2019"
+        },
+        "year": 2019
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://sa2018.siggraph.org/en/about-us/siggraph-asia-2018-committee/real-time-live-committee.htm",
+        "track": {
+          "name": "Real-Time Live!",
+          "url": "https://sa2018.siggraph.org/en/attendees/real-time-live.htm"
+        },
+        "event": {
+          "name": "ACM SIGGRAPH Asia '18",
+          "fullname": "The 11th ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+          "url": "https://sa2018.siggraph.org/en.htm"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2018.splashcon.org/home/live-2018",
+        "event": {
+          "name": "LIVE '18",
+          "fullname": "The Fourth Workshop on Live Programming"
+        },
+        "conference": {
+          "name": "ACM SPLASH '18",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2018.splashcon.org"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2018/organizers",
+        "event": {
+          "name": "ACM UIST '18",
+          "fullname": "The 31st annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2018"
+        },
+        "year": 2018
+      },
+      {
+        "class": "oc",
+        "title": "Organizing Committee",
+        "url": "https://sigchi.jp/symposium/chi2018",
+        "event": {
+          "name": "Asian CHI Symposium: Emerging HCI Research Collection",
+          "url": "https://chi2018.acm.org/accepted-workshops"
+        },
+        "conference": {
+          "name": "ACM CHI '18",
+          "fullname": "The 2018 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2018.acm.org"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2018.programming-conference.org/committee/px-2018-papers-program-committee",
+        "event": {
+          "name": "PX/18",
+          "fullname": "The 4th Edition of the Programming Experience Workshop",
+          "url": "http://programming-experience.org/px18"
+        },
+        "conference": {
+          "name": "‹Programming› '18",
+          "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
+          "url": "https://2018.programming-conference.org"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2018.programming-conference.org/committee/programming-2018-papers-program-committee",
+        "event": {
+          "name": "‹Programming› '18",
+          "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
+          "url": "https://2018.programming-conference.org"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://iui.acm.org/2018/current_pcs.html",
+        "event": {
+          "name": "ACM IUI '18",
+          "fullname": "The 2018 ACM International Conference on Intelligent User Interfaces",
+          "url": "https://iui.acm.org/2018"
+        },
+        "year": 2018
+      },
+      {
+        "class": "oc",
+        "title": "Committee",
+        "url": "https://iui.acm.org/2018/call_for_studentconsortium.html",
+        "track": {
+          "name": "Student Consortium"
+        },
+        "event": {
+          "name": "ACM IUI '18",
+          "fullname": "The 2018 ACM International Conference on Intelligent User Interfaces",
+          "url": "https://iui.acm.org/2018"
+        },
+        "year": 2018
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2017.splashcon.org/committee/px-splash-2017-papers-program-committee",
+        "event": {
+          "name": "PX/17.2",
+          "fullname": "The 3rd Edition of the Programming Experience Workshop",
+          "url": "http://programming-experience.org/px17.2"
+        },
+        "conference": {
+          "name": "ACM SPLASH '17",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2017.splashcon.org"
+        },
+        "year": 2017
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2017.splashcon.org/committee/live-2017-papers-program-committee",
+        "event": {
+          "name": "LIVE '17",
+          "fullname": "The Third Workshop on Live Programming",
+          "url": "https://2017.splashcon.org/home/live-2017"
+        },
+        "conference": {
+          "name": "ACM SPLASH '17",
+          "fullname": "The ACM SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity",
+          "url": "https://2017.splashcon.org"
+        },
+        "year": 2017
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2017/#program-committee",
+        "event": {
+          "name": "ACM UIST '17",
+          "fullname": "The 30th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2017"
+        },
+        "year": 2017
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2017.programming-conference.org/committee/px-2017-papers-program-committee",
+        "event": {
+          "name": "PX/17",
+          "fullname": "The 2nd Edition of the Programming Experience Workshop",
+          "url": "http://programming-experience.org/px17"
+        },
+        "conference": {
+          "name": "‹Programming› '17",
+          "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
+          "url": "https://2017.programming-conference.org"
+        },
+        "year": 2017
+      },
+      {
+        "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Engineering Interactive Systems & Technologies",
+        "url": "https://chi2017.acm.org/select-subcommittee.html#engineering-interactive-systems",
+        "event": {
+          "name": "ACM CHI '17",
+          "fullname": "The 2017 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2017.acm.org"
+        },
+        "year": 2017
+      },
+      {
+        "class": "oc",
+        "title": "Organizing Committee",
+        "url": "https://sigchi.jp/symposium/chi2017",
+        "event": {
+          "name": "Asian CHI Symposium: Emerging HCI Research Collection",
+          "url": "https://chi2017.acm.org/workshops.html"
+        },
+        "conference": {
+          "name": "ACM CHI '17",
+          "fullname": "The 2017 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2017.acm.org"
+        },
+        "year": 2017
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://humanrobotinteraction.org/2017/organisation/committees",
+        "track": {
+          "name": "Demo & Video"
+        },
+        "event": {
+          "name": "IEEE/ACM HRI '17",
+          "fullname": "The 2017 Conference on Human-Robot Interaction",
+          "url": "https://humanrobotinteraction.org/2017"
+        },
+        "year": 2017
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://iss2016.acm.org/organization",
+        "track": {
+          "name": "Publicity"
+        },
+        "event": {
+          "name": "ACM ISS '16",
+          "fullname": "The 11th ACM International Conference on Interactive Surfaces and Spaces",
+          "url": "https://iss2016.acm.org/"
+        },
+        "year": 2016
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2016.ecoop.org/committee/px-2016-papers-program-committee",
+        "event": {
+          "name": "PX/16",
+          "fullname": "The 1st Edition of the Programming Experience Workshop",
+          "url": "http://programming-experience.org/px16"
+        },
+        "conference": {
+          "name": "ECOOP '16",
+          "fullname": "The 30th European Conference on Object-Oriented Programming",
+          "url": "https://2016.ecoop.org"
+        },
+        "year": 2016
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2016.ecoop.org/committee/live-2016-papers-program-committee",
+        "event": {
+          "name": "LIVE '16",
+          "fullname": "The Second Workshop on Live Programming",
+          "url": "https://2016.ecoop.org/home/live-2016"
+        },
+        "conference": {
+          "name": "ECOOP '16",
+          "fullname": "The 30th European Conference on Object-Oriented Programming",
+          "url": "https://2016.ecoop.org"
+        },
+        "year": 2016
+      },
+      {
+        "class": "chair",
+        "title": "Chair",
+        "url": "https://uist.acm.org/uist2016/organizers",
+        "track": {
+          "name": "Student Volunteer"
+        },
+        "event": {
+          "name": "ACM UIST '16",
+          "fullname": "The 29th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2016"
+        },
+        "year": 2016
+      },
+      {
+        "class": "oc",
+        "title": "Organizing Committee",
+        "url": "https://sigchi.jp/symposium/chi2016",
+        "event": {
+          "name": "Symposium on Emerging Japanese HCI Research Collection",
+          "url": "https://chi2016.acm.org/wp/workshops"
+        },
+        "conference": {
+          "name": "ACM CHI '16",
+          "fullname": "The 2016 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2016.acm.org"
+        },
+        "year": 2016
+      },
+      {
+        "class": "oc",
+        "title": "Organizing Committee",
+        "url": "https://sigchi.jp/symposium/chi2015",
+        "event": {
+          "name": "Symposium on Emerging Japanese HCI Research Collection",
+          "url": "https://chi2015.acm.org/program/workshops"
+        },
+        "conference": {
+          "name": "ACM CHI '15",
+          "fullname": "The 2015 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2015.acm.org"
+        },
+        "year": 2015
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://hai-conference.net/hai2014/organizing-committee",
+        "event": {
+          "name": "HAI '14",
+          "fullname": "The Second International Conference on Human-Agent Interaction",
+          "url": "https://hai-conference.net/hai2014"
+        },
+        "year": 2014
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://uist.acm.org/uist2014/#program-committee",
+        "event": {
+          "name": "ACM UIST '14",
+          "fullname": "The 27th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2014"
+        },
+        "year": 2014
+      },
+      {
+        "class": "chair",
+        "title": "Co-chair",
+        "url": "https://www.acm.org/uist/uist2013/organizers.php",
+        "track": {
+          "name": "Publicity"
+        },
+        "event": {
+          "name": "ACM UIST '13",
+          "fullname": "The 26th annual ACM symposium on User Interface Software and Technology",
+          "url": "https://uist.acm.org/uist2013"
+        },
+        "year": 2013
+      }
+    ],
+    "reviewers": [
+      {
+        "venue": "CHI",
+        "title": "The SIGCHI Conference on Human Factors in Computing Systems",
+        "years": [
+          2010, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
+        ]
+      },
+      {
+        "venue": "UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "years": [
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
+        ]
+      },
+      {
+        "venue": "DIS",
+        "title": "ACM SIGCHI Conference on Designing Interactive Systems",
+        "years": [2017]
+      },
+      {
+        "venue": "IUI",
+        "title": "ACM Annual Meeting of the Intelligent Interfaces Community",
+        "years": [2018, 2019]
+      },
+      {
+        "venue": "TOCHI",
+        "title": "ACM Transactions on Computer-Human Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "SIGGRAPH",
+        "title": "The International Conference and Exhibition on Computer Graphics and Interactive Techniques",
+        "years": [2015]
+      },
+      {
+        "venue": "HRI",
+        "title": "ACM/IEEE International Conference on Human-Robot Interaction",
+        "years": [2016, 2017, 2022]
+      },
+      {
+        "venue": "THRI",
+        "title": "ACM Transactions on Human-Robot Interaction",
+        "years": [2018]
+      },
+      {
+        "venue": "RO-MAN",
+        "title": "The International Symposium on Robot and Human Interactive Communication",
+        "years": [2015]
+      },
+      {
+        "venue": "HAI",
+        "title": "The International Conference on Human-Agent Interaction",
+        "years": [2014]
+      },
+      {
+        "venue": "ISMAR",
+        "title": "IEEE International Symposium on Mixed and Augmented Reality",
+        "years": [2021]
+      },
+      {
+        "venue": "VL/HCC",
+        "title": "IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)",
+        "years": [2020]
+      },
+      {
+        "venue": "GCCE",
+        "title": "IEEE Global Conference on Consumer Electronics",
+        "years": [2013, 2014]
+      },
+      {
+        "venue": "MM",
+        "title": "ACM Multimedia Conference",
+        "years": [2012]
+      },
+      {
+        "venue": "ACE",
+        "title": "International Conference on Advances in Computer Entertainment Technology",
+        "years": [2010, 2011]
+      },
+      {
+        "venue": "FIT",
+        "title": "IPSJ Forum on Information Technology",
+        "years": [2011]
+      }
+    ],
+    "attendances": [
+      {
+        "name": "ACM CHI",
+        "title": "The ACM CHI Conference on Human Factors in Computing Systems",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://web.archive.org/web/20141111021704/http://www.chi2009.org/"
+          },
+          {
+            "year": 2013,
+            "city": "Paris",
+            "country": "France",
+            "link": "https://chi2013.acm.org/"
+          },
+          {
+            "year": 2015,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "https://chi2015.acm.org/"
+          },
+          {
+            "year": 2016,
+            "city": "San Jose",
+            "country": "USA",
+            "link": "https://chi2016.acm.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Hamburg",
+            "country": "Germany",
+            "link": "https://chi2023.acm.org/"
+          },
+          {
+            "year": 2024,
+            "city": "Honolulu",
+            "country": "USA",
+            "link": "https://chi2024.acm.org/"
+          }
+        ]
+      },
+      {
+        "name": "ACM UIST",
+        "title": "The Annual ACM Symposium on User Interface Software and Technology",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Victoria",
+            "country": "Canada",
+            "link": "https://uist.acm.org/uist2009/"
+          },
+          {
+            "year": 2010,
+            "city": "New York",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2010/"
+          },
+          {
+            "year": 2012,
+            "city": "Boston",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2012/"
+          },
+          {
+            "year": 2013,
+            "city": "St. Andrews",
+            "country": "UK",
+            "link": "https://uist.acm.org/uist2013/"
+          },
+          {
+            "year": 2015,
+            "city": "Charlotte",
+            "country": "USA",
+            "link": "https://uist.acm.org/uist2015/"
+          },
+          {
+            "year": 2016,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "https://uist.acm.org/uist2016/"
+          }
+        ]
+      },
+      {
+        "name": "ACM DIS",
+        "title": "The ACM SIGCHI Conference on Designing Interactive Systems",
+        "locations": [
+          {
+            "year": 2012,
+            "city": "Newcastle upon Tyne",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20170916142003/http://www.dis2012.org/"
+          },
+          {
+            "year": 2017,
+            "city": "Edinburgh",
+            "country": "UK",
+            "link": "https://web.archive.org/web/20200216101539/http://dis2017.org/"
+          }
+        ]
+      },
+      {
+        "name": "SIGGRAPH Asia",
+        "locations": [
+          {
+            "year": 2009,
+            "city": "Yokohama",
+            "country": "Japan",
+            "link": "https://www.siggraph.org/asia2009/",
+            "title": "The 36th International Conference and Exhibition on Computer Graphics and Interactive Techniques"
+          }
+        ]
+      },
+      {
+        "name": "ACM PLDI",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Seattle",
+            "country": "USA",
+            "link": "http://pldi2013.ucombinator.org/",
+            "title": "The 34th Annual ACM SIGPLAN Conference on Programming Language Design and Implementation"
+          }
+        ]
+      },
+      {
+        "name": "IEEE GCCE",
+        "locations": [
+          {
+            "year": 2013,
+            "city": "Tokyo",
+            "country": "Japan",
+            "link": "http://www.ieee-gcce.org/2013/",
+            "title": "The 2nd IEEE Global Conference on Consumer Electronics"
+          }
+        ]
+      },
+      {
+        "name": "Graphics Interface (GI)",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Montreal",
+            "country": "Canada",
+            "link": "https://www.cs.mcgill.ca/~kry/gi2014/",
+            "title": "The 40th Graphics Interface Conference"
+          }
+        ]
+      },
+      {
+        "name": "HAI",
+        "locations": [
+          {
+            "year": 2014,
+            "city": "Tsukuba",
+            "country": "Japan",
+            "link": "http://hai-conference.net/hai2014/",
+            "title": "The Second International Conference on Human-Agent Interaction"
+          }
+        ]
+      },
+      {
+        "name": "ICLC",
+        "locations": [
+          {
+            "year": 2015,
+            "city": "Leeds",
+            "country": "UK",
+            "link": "https://iclc.toplap.org/",
+            "title": "The First International Conference on Live Coding"
+          }
+        ]
+      },
+      {
+        "name": "ECOOP",
+        "locations": [
+          {
+            "year": 2016,
+            "city": "Rome",
+            "country": "Italy",
+            "link": "https://2016.ecoop.org/",
+            "title": "The 30th European Conference on Object-Oriented Programming"
+          }
+        ]
+      },
+      {
+        "name": "IEEE/ACM HRI",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Vienna",
+            "country": "Austria",
+            "link": "https://humanrobotinteraction.org/2017/",
+            "title": "The 2017 Conference on Human-Robot Interaction"
+          }
+        ]
+      },
+      {
+        "name": "<Programming>",
+        "locations": [
+          {
+            "year": 2017,
+            "city": "Brussels",
+            "country": "Belgium",
+            "link": "https://2017.programming-conference.org",
+            "title": "The International Conference on the Art, Science, and Engineering of Programming"
+          }
+        ]
+      },
+      {
+        "name": "Dagstuhl Seminar",
+        "locations": [
+          {
+            "year": "#17232 (2017)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=17232"
+          },
+          {
+            "year": "#22231 (2022)",
+            "city": "Dagstuhl",
+            "country": "Germany",
+            "link": "https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22231"
+          }
+        ]
+      },
+      {
+        "name": "IEEE VL/HCC",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Lisbon",
+            "country": "Portugal",
+            "link": "https://vlhcc18.github.io"
+          }
+        ]
+      },
+      {
+        "name": "ACM Multimedia",
+        "locations": [
+          {
+            "year": 2018,
+            "city": "Seoul",
+            "country": "Korea",
+            "link": "http://sigmm.org/events/acm-multimedia-2018"
+          }
+        ]
+      },
+      {
+        "name": "ACM SPLASH",
+        "title": "The ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity",
+        "locations": [
+          {
+            "year": 2022,
+            "city": "Auckland",
+            "country": "New Zealand",
+            "link": "https://2022.splashcon.org/"
+          },
+          {
+            "year": 2023,
+            "city": "Cascais",
+            "country": "Portugal",
+            "link": "https://2023.splashcon.org/"
+          }
+        ]
+      }
+    ],
+    "miscellaneous": [
+      {
+        "title": "Research and development advisor for a new 3DCG look development tool",
+        "date": "2023-2024",
+        "url": "https://www.youtube.com/watch?v=EJ_vwZbOFCs",
+        "description": "Forest Tale (Arch Inc., Graphinica, Inc., Salamander Inc.)",
+        "ja": {
+          "title": "3DCGルック開発用ツールのR&Dアドバイザー",
+          "description": "「Forest Tale」 Technical study ver.（アーチ株式会社, 株式会社グラフィニカ, 株式会社サラマンダー）"
+        }
+      },
+      {
+        "title": "User interface design consultant for an animation TV series",
+        "date": "2011",
+        "url": "http://en.wikipedia.org/wiki/Gargantia_on_the_Verdurous_Planet",
+        "description": "Gargantia on the Verdurous Planet",
+        "ja": {
+          "title": "アニメ地上波放映シリーズのユーザインタフェース考証",
+          "url": "https://gargantia.jp",
+          "description": "翠星のガルガンティア"
+        }
+      },
+      {
+        "title": "Organizer of a joint seminar on &quot;Reading All CHI Papers in One Day&quot;",
+        "date": "2011, 2015-2024",
+        "description": "Japan ACM SIGCHI Chapter (2024)",
+        "url": "https://sigchi.jp/seminar/chi2024/",
+        "ja": {
+          "title": "CHI勉強会 幹事",
+          "description": "Japan ACM SIGCHI Chapter &mdash; CHI勉強会 2024",
+          "url": "https://sigchi.jp/seminar/chi2024/"
+        }
+      }
+    ]
+  }
+}
