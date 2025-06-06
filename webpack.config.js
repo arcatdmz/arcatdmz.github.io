@@ -28,7 +28,6 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: [
-              "minify",
               [
                 "@babel/preset-env",
                 {
