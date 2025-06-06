@@ -45,4 +45,6 @@ fetch("https://blog.junkato.jp/redirections.json").then(async (res) => {
     }),
     ...traverseCategories(redirections.categories, "dist/ja/blog/category/")
   ]);
+}).catch((err) => {
+  console.error("Error setting up redirections:", err);
 });
