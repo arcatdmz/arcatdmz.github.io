@@ -372,21 +372,46 @@ gulp.task("rss", function (cb) {
 
 gulp.task("sitemap", function (cb) {
   const locals = setupLocals();
-  const host = `${locals.protocol}://${locals.domain}${locals.rootPath}`;
+  const host = `${locals.protocol}://${locals.domain}`;
+  const root = locals.rootPath.endsWith("/") ? locals.rootPath : `${locals.rootPath}/`;
 
   // extract top-level paths from layout
   const layoutSrc = fs.readFileSync("./src/_layout-components.pug", "utf8");
   const hrefRegex = /href=`\\${basePath}([^`#]*)`/g;
-  const paths = new Set(["/", "/ja/"]);
+  const topSegments = new Set();
   let m;
   while ((m = hrefRegex.exec(layoutSrc))) {
     let p = m[1];
     if (p.endsWith("/")) p = p.slice(0, -1);
     if (p.length > 0) {
-      paths.add(`/${p}/`);
-      paths.add(`/ja/${p}/`);
+      topSegments.add(p);
     }
   }
+
+  const entries = [];
+  function pushTop(segment) {
+    const enUrl = `${root}${segment ? `${segment}/` : ""}`;
+    const jaUrl = `${root}ja/${segment ? `${segment}/` : ""}`;
+    entries.push({
+      url: enUrl,
+      priority: 1.0,
+      links: [
+        { lang: "en", url: enUrl },
+        { lang: "ja", url: jaUrl },
+      ],
+    });
+    entries.push({
+      url: jaUrl,
+      priority: 1.0,
+      links: [
+        { lang: "en", url: enUrl },
+        { lang: "ja", url: jaUrl },
+      ],
+    });
+  }
+
+  pushTop("");
+  for (const seg of Array.from(topSegments)) pushTop(seg);
 
   const { projects } = locals;
   const sortedProjects = projects.slice().sort((a, b) => {
@@ -397,20 +422,25 @@ gulp.task("sitemap", function (cb) {
   for (const proj of sortedProjects) {
     const slug = proj.project || (proj.data && proj.data.project);
     if (!slug) continue;
-    for (const lang of ["en", "ja"]) {
-      if (
-        proj.isPrivateProject(lang) ||
-        proj.category === "concept" ||
-        proj.category === "committee" ||
-        proj.category === "private"
-      )
-        continue;
-      const basePath = lang === "ja" ? `${locals.rootPath}ja/` : locals.rootPath;
-      paths.add(proj.getLink(lang, basePath));
+    const baseEn = root;
+    const baseJa = `${root}ja/`;
+    const linkEn = proj.getLink("en", baseEn);
+    const linkJa = proj.getLink("ja", baseJa);
+    const internalEn = linkEn.startsWith(baseEn);
+    const internalJa = linkJa.startsWith(baseJa);
+    if (!internalEn && !internalJa) continue;
+    const altLinks = [];
+    if (internalEn) altLinks.push({ lang: "en", url: linkEn });
+    if (internalJa) altLinks.push({ lang: "ja", url: linkJa });
+    if (internalEn) {
+      entries.push({ url: linkEn, links: altLinks });
+    }
+    if (internalJa) {
+      entries.push({ url: linkJa, links: altLinks });
     }
   }
 
-  const sm = new SitemapStream({ hostname: host });
+  const sm = new SitemapStream({ hostname: host, xmlns: { xhtml: true } });
   streamToPromise(sm)
     .then((data) => {
       if (!fs.existsSync("dist")) fs.mkdirSync("dist");
@@ -419,8 +449,8 @@ gulp.task("sitemap", function (cb) {
     })
     .catch((err) => cb(err));
 
-  for (const url of Array.from(paths).sort()) {
-    sm.write({ url });
+  for (const item of entries.sort((a, b) => a.url.localeCompare(b.url))) {
+    sm.write(item);
   }
   sm.end();
 });
