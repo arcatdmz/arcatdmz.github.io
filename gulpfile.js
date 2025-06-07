@@ -426,8 +426,10 @@ gulp.task("sitemap", function (cb) {
     const baseJa = `${root}ja/`;
     const linkEn = proj.getLink("en", baseEn);
     const linkJa = proj.getLink("ja", baseJa);
-    const internalEn = linkEn.startsWith(baseEn);
-    const internalJa = linkJa.startsWith(baseJa);
+    const internalEn =
+      typeof linkEn === "string" && linkEn.startsWith(baseEn);
+    const internalJa =
+      typeof linkJa === "string" && linkJa.startsWith(baseJa);
     if (!internalEn && !internalJa) continue;
     const altLinks = [];
     if (internalEn) altLinks.push({ lang: "en", url: linkEn });
