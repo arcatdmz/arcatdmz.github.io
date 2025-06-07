@@ -1,7 +1,7 @@
 # junkato.jp
 
-[![Build Status](https://travis-ci.com/arcatdmz/arcatdmz.github.io.svg?branch=main&status=passed)](https://travis-ci.com/arcatdmz/arcatdmz.github.io)
-[![github-pages](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/gh-pages.yml/badge.svg?branch=main)](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/gh-pages.yml)
+[![Publish](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/deploy.yml)
+[![Publish assets](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/publish-assets.yml/badge.svg?branch=main)](https://github.com/arcatdmz/arcatdmz.github.io/actions/workflows/publish-assets.yml)
 
 All rights on image, video, text, and related resources (e.g., including paper PDF files) reserved.
 
