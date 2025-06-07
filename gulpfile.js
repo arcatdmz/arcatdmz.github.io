@@ -331,23 +331,42 @@ function compileCSS(stream) {
 gulp.task("rss", function (cb) {
   const locals = setupLocals();
   const host = `${locals.protocol}://${locals.domain}`;
-  const feed = new RSS({
-    title: "junkato.jp updates",
-    feed_url: `${host}${locals.rootPath}rss.xml`,
-    site_url: `${host}${locals.rootPath}`,
-    language: "en",
-  });
-  const entries = locals.histories.en || [];
-  entries.slice(0, 20).forEach((entry) => {
-    feed.item({
-      title: locals.stripTags(entry.text),
-      description: entry.text,
-      url: `${host}${locals.rootPath}timeline/`,
-      date: entry.date,
+
+  for (const lang of ["en", "ja"]) {
+    const feed = new RSS({
+      title: "junkato.jp updates",
+      feed_url:
+        lang === "ja"
+          ? `${host}${locals.rootPath}ja/rss.xml`
+          : `${host}${locals.rootPath}rss.xml`,
+      site_url:
+        lang === "ja"
+          ? `${host}${locals.rootPath}ja/`
+          : `${host}${locals.rootPath}`,
+      language: lang,
     });
-  });
-  if (!fs.existsSync("dist")) fs.mkdirSync("dist");
-  fs.writeFileSync(path.join("dist", "rss.xml"), feed.xml({ indent: true }));
+
+    const entries = locals.histories[lang] || [];
+    entries.forEach((entry) => {
+      feed.item({
+        title: entry.getDateString(lang, true),
+        description: entry.text,
+        url:
+          lang === "ja"
+            ? `${host}${locals.rootPath}ja/timeline/`
+            : `${host}${locals.rootPath}timeline/`,
+        date: entry.date,
+      });
+    });
+
+    const dir = lang === "ja" ? path.join("dist", "ja") : "dist";
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, "rss.xml"),
+      feed.xml({ indent: true })
+    );
+  }
+
   cb();
 });
 
