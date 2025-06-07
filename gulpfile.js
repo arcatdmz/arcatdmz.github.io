@@ -370,11 +370,25 @@ gulp.task("sitemap", function (cb) {
   }
 
   const { projects } = locals;
-  for (const proj of projects) {
+  const sortedProjects = projects.slice().sort((a, b) => {
+    const af = a.year && a.year.from ? a.year.from : 0;
+    const bf = b.year && b.year.from ? b.year.from : 0;
+    return bf - af;
+  });
+  for (const proj of sortedProjects) {
     const slug = proj.project || (proj.data && proj.data.project);
     if (!slug) continue;
-    paths.add(`/${slug}/`);
-    paths.add(`/ja/${slug}/`);
+    for (const lang of ["en", "ja"]) {
+      if (
+        proj.isPrivateProject(lang) ||
+        proj.category === "concept" ||
+        proj.category === "committee" ||
+        proj.category === "private"
+      )
+        continue;
+      const basePath = lang === "ja" ? `${locals.rootPath}ja/` : locals.rootPath;
+      paths.add(`${proj.getLink(lang, basePath)}/`);
+    }
   }
 
   const sm = new SitemapStream({ hostname: host });
