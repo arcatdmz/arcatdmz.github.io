@@ -594,9 +594,8 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html", "js", "css:bare"),
+        gulp.parallel("html", "rss", "js", "css:bare"),
         "css",
-        "rss",
         "gzip"
       )
     )
@@ -627,8 +626,7 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html:debug", "js:debug", "css:debug"),
-        "rss",
+        gulp.parallel("html:debug", "rss", "js:debug", "css:debug"),
         "gzip:debug"
       )
     )
