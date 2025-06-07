@@ -11,6 +11,7 @@ const through2 = require("through2");
 const browserSync = require("browser-sync");
 const moment = require("moment");
 const RSS = require("rss");
+const { SitemapStream, streamToPromise } = require("sitemap");
 
 // Load website-wide config
 const tsProjectFile = "./tsconfig.json";
@@ -350,6 +351,47 @@ gulp.task("rss", function (cb) {
   cb();
 });
 
+gulp.task("sitemap", function (cb) {
+  const locals = setupLocals();
+  const host = `${locals.protocol}://${locals.domain}${locals.rootPath}`;
+
+  // extract top-level paths from layout
+  const layoutSrc = fs.readFileSync("./src/_layout-components.pug", "utf8");
+  const hrefRegex = /href=`\\${basePath}([^`#]*)`/g;
+  const paths = new Set(["/", "/ja/"]);
+  let m;
+  while ((m = hrefRegex.exec(layoutSrc))) {
+    let p = m[1];
+    if (p.endsWith("/")) p = p.slice(0, -1);
+    if (p.length > 0) {
+      paths.add(`/${p}/`);
+      paths.add(`/ja/${p}/`);
+    }
+  }
+
+  const { projects } = locals;
+  for (const proj of projects) {
+    const slug = proj.project || (proj.data && proj.data.project);
+    if (!slug) continue;
+    paths.add(`/${slug}/`);
+    paths.add(`/ja/${slug}/`);
+  }
+
+  const sm = new SitemapStream({ hostname: host });
+  streamToPromise(sm)
+    .then((data) => {
+      if (!fs.existsSync("dist")) fs.mkdirSync("dist");
+      fs.writeFileSync(path.join("dist", "sitemap.xml"), data.toString());
+      cb();
+    })
+    .catch((err) => cb(err));
+
+  for (const url of Array.from(paths).sort()) {
+    sm.write({ url });
+  }
+  sm.end();
+});
+
 // Post-process
 const gzip = require("gulp-gzip");
 let sharp;
@@ -594,7 +636,7 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html", "rss", "js", "css:bare"),
+        gulp.parallel("html", "rss", "sitemap", "js", "css:bare"),
         "css",
         "gzip"
       )
@@ -626,7 +668,7 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html:debug", "rss", "js:debug", "css:debug"),
+        gulp.parallel("html:debug", "rss", "sitemap", "js:debug", "css:debug"),
         "gzip:debug"
       )
     )
