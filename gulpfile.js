@@ -10,6 +10,7 @@ const fs = require("fs");
 const through2 = require("through2");
 const browserSync = require("browser-sync");
 const moment = require("moment");
+const RSS = require("rss");
 
 // Load website-wide config
 const tsProjectFile = "./tsconfig.json";
@@ -326,6 +327,29 @@ function compileCSS(stream) {
     .pipe(browserSync.stream());
 }
 
+gulp.task("rss", function (cb) {
+  const locals = setupLocals();
+  const host = `${locals.protocol}://${locals.domain}`;
+  const feed = new RSS({
+    title: "junkato.jp updates",
+    feed_url: `${host}${locals.rootPath}rss.xml`,
+    site_url: `${host}${locals.rootPath}`,
+    language: "en",
+  });
+  const entries = locals.histories.en || [];
+  entries.slice(0, 20).forEach((entry) => {
+    feed.item({
+      title: locals.stripTags(entry.text),
+      description: entry.text,
+      url: `${host}${locals.rootPath}timeline/`,
+      date: entry.date,
+    });
+  });
+  if (!fs.existsSync("dist")) fs.mkdirSync("dist");
+  fs.writeFileSync(path.join("dist", "rss.xml"), feed.xml({ indent: true }));
+  cb();
+});
+
 // Post-process
 const gzip = require("gulp-gzip");
 let sharp;
@@ -572,6 +596,7 @@ gulp.task(
         ),
         gulp.parallel("html", "js", "css:bare"),
         "css",
+        "rss",
         "gzip"
       )
     )
@@ -603,6 +628,7 @@ gulp.task(
           "replace:devicon"
         ),
         gulp.parallel("html:debug", "js:debug", "css:debug"),
+        "rss",
         "gzip:debug"
       )
     )
