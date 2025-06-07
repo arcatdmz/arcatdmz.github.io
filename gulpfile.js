@@ -353,8 +353,8 @@ gulp.task("rss", function (cb) {
         description: entry.text,
         url:
           lang === "ja"
-            ? `${host}${locals.rootPath}ja/timeline/`
-            : `${host}${locals.rootPath}timeline/`,
+            ? `${host}${locals.rootPath}ja/timeline/#${entry.date.getFullYear()}`
+            : `${host}${locals.rootPath}timeline/#${entry.date.getFullYear()}`,
         date: entry.date,
       });
     });
