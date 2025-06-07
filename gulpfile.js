@@ -387,7 +387,7 @@ gulp.task("sitemap", function (cb) {
       )
         continue;
       const basePath = lang === "ja" ? `${locals.rootPath}ja/` : locals.rootPath;
-      paths.add(`${proj.getLink(lang, basePath)}/`);
+      paths.add(proj.getLink(lang, basePath));
     }
   }
 
