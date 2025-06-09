@@ -179,7 +179,7 @@ mixin lectures(ls, y, f)
 mixin projects(prs, y)
   h3.ui.header(id=`${y}-projects`)
     i.gift.icon
-    | #{en ? 'Projects started' : '開始したプロジェクト'}
+    | #{en ? 'New Projects' : '開始したプロジェクト'}
   .ui.segment
     .ui.divided.items.projects
       - for (p of prs) {
