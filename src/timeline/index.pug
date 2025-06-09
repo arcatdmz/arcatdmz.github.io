@@ -118,6 +118,17 @@ mixin all(f, y)
   +lectures(ls, y, f)
   -
     }
+    var prs = [];
+    for (const p of projects) {
+      if (p.isPrivateProject(lang)) continue;
+      if (!p.year || typeof p.year.from !== 'number') continue;
+      if (!f(p.year.from)) continue;
+      prs.push(p);
+    }
+    if (prs.length > 0) {
+  +projects(prs, y)
+  -
+    }
     var ps = [];
     for (const entry of publications) {
       if (!entry.entryTags) continue;
@@ -163,6 +174,16 @@ mixin lectures(ls, y, f)
       .event: .content
         .date #{entry.dateObjs.filter(o => f(o.date.getFullYear())).map(o => o.getDateString(lang, true)).join(", ")}
         .summary !{entry.getText(lang)}
+      - }
+
+mixin projects(prs, y)
+  h3.ui.header(id=`${y}-projects`)
+    i.gift.icon
+    | #{en ? 'New Projects' : '開始したプロジェクト'}
+  .ui.segment
+    .ui.divided.items.projects
+      - for (p of prs) {
+      +render-project-item(p)
       - }
 
 mixin publications(ps, y)
