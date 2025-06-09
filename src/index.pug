@@ -4,6 +4,9 @@ block vars
   - title = en ? 'Portfolio of Jun Kato' : '加藤 淳のポートフォリオ';
   - me = '';
 
+block head
+  link(rel='alternate', type='application/rss+xml', href=`${basePath}rss.xml`)
+
 block projects-sidebar-menu
   a.item(href=`${basePath}projects`)
     i.gift.icon
