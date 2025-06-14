@@ -698,6 +698,11 @@
         "years": [2015]
       },
       {
+        "venue": "SIGGRAPH Asia",
+        "title": "The International Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+        "years": [2024]
+      },
+      {
         "venue": "HRI",
         "title": "ACM/IEEE International Conference on Human-Robot Interaction",
         "years": [2016, 2017, 2022]
@@ -788,6 +793,12 @@
             "city": "Honolulu",
             "country": "USA",
             "link": "https://chi2024.acm.org/"
+          },
+          {
+            "year": 2025,
+            "city": "Yokohama",
+            "country": "Japan",
+            "link": "https://chi2025.acm.org/"
           }
         ]
       },
