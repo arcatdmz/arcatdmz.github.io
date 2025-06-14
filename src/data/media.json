@@ -1,0 +1,94 @@
+[
+  {
+    "date": "2022/4/18",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ」10th Anniversary』プログラミング・コンテストの応募受付を開始しました！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000094.000052709.html"
+  },
+  {
+    "date": "2016/2/5",
+    "text": {
+      "ja": "「SNOW MIKU 2016 TextAliveラウンジ」、MIRAI.ST cafeで開催！"
+    },
+    "media": {
+      "ja": "SNOW MIKU 2016 ニュース"
+    },
+    "permalink": "https://snowmiku.com/2016/news_collabo.html"
+  },
+  {
+    "date": "2016/1/25",
+    "text": {
+      "en": "Publication of a Service That Allows Easy Production and Sharing of Videos with Lyrics Animated in Synchrony with Music – Anyone can enjoy creating lyrics animation that matches their style with “TextAlive” –"
+    },
+    "media": {
+      "en": "AIST press release"
+    },
+    "permalink": "https://www.aist.go.jp/aist_e/list/latest_research/2015/20160125/en20160125.html"
+  },
+  {
+    "date": "2015/9/14",
+    "text": {
+      "ja": "曲に合わせて動く“歌詞アニメ”を簡単作成/共有。産総研「TextAlive」の仕組み"
+    },
+    "media": {
+      "ja": "藤本健のDigital Audio Laboratory 第650回"
+    },
+    "permalink": "https://av.watch.impress.co.jp/docs/series/dal/721004.html"
+  },
+  {
+    "date": "2015/9/8",
+    "text": {
+      "ja": "音楽に合わせ歌詞が動く動画を容易に制作・共有できるサービスを公開 －誰でも好みの演出の歌詞アニメーションを作って楽しめる「TextAlive」－"
+    },
+    "media": {
+      "ja": "産業技術総合研究所 プレスリリース"
+    },
+    "related": [
+      {
+        "date": "2015/9/8",
+        "text": {
+          "ja": "ボカロ曲に合わせて歌詞が動く動画を自動で作れる　産総研「TextAlive」"
+        },
+        "media": {
+          "ja": "ITmedia NEWS"
+        },
+        "permalink": "https://www.itmedia.co.jp/news/articles/1509/08/news128.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "音楽に合わせて歌詞が動く動画を簡単に制作できるサービスが公開～産総研が開発"
+        },
+        "media": {
+          "ja": "PC Watch"
+        },
+        "permalink": "https://pc.watch.impress.co.jp/docs/news/720301.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "歌詞が動くMVを簡単に作成、産総研が「TextAlive」公開"
+        },
+        "media": {
+          "ja": "RBB TODAY"
+        },
+        "permalink": "https://www.rbbtoday.com/article/2015/09/09/135080.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "産総研、曲と歌詞が連動した歌詞アニメを簡単に制作できる「TextAlive」"
+        },
+        "media": {
+          "ja": "AV Watch"
+        },
+        "permalink": "https://av.watch.impress.co.jp/docs/news/720321.html"
+      }
+    ],
+    "permalink": "https://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html"
+  }
+]
