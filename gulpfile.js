@@ -299,7 +299,7 @@ function setupLocals() {
 // CSS
 const less = require("gulp-less");
 const autoprefixer = require("gulp-autoprefixer");
-const purify = require("gulp-purifycss");
+const purgecss = require("gulp-purgecss");
 
 // [css:bare]
 gulp.task("css:bare", function () {
@@ -313,7 +313,7 @@ gulp.task("css:debug", gulp.series("replace:devicon", "css:bare"));
 gulp.task("css", function () {
   return gulp
     .src(["dist/stylesheets/**/*.css"], { base: "dist" })
-    .pipe(purify(["dist/**/*.js", "dist/**/*.html"], { minify: true }))
+    .pipe(purgecss({ content: ["dist/**/*.js", "dist/**/*.html"] }))
     .pipe(gulp.dest("dist"));
 });
 
@@ -740,7 +740,7 @@ gulp.task(
   )
 );
 
-// // High-level tasks
+// High-level tasks
 gulp.task("default", gulp.task("site"));
 gulp.task("debug", gulp.task("site:debug"));
 gulp.task("test", gulp.task("lint:html"));
