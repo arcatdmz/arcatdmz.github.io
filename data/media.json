@@ -41,7 +41,8 @@
     "media": {
       "ja": "電波タイムズ: 2025年4月2日 第7793号"
     },
-    "permalink": "https://www.taf.or.jp/files/2210/676588911.pdf"
+    "permalink": "https://www.taf.or.jp/files/2210/676588911.pdf",
+    "projects": ["lyric-app-framework"]
   },
   {
     "date": "2025/3/14",
