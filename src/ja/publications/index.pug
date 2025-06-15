@@ -43,3 +43,8 @@ block publications
     - if (entry.entryType !== 'phdthesis') continue;
     +render-publication(entry)
     - }
+
+block media
+  p これまでの研究活動は、さまざまなメディアで <strong>#{numInternationalMediaCoverage + numDomesticMediaCoverage}</strong> 件（うち
+    a(href=`${rootPath}publications/#media`) 国際 <strong>#{numInternationalMediaCoverage}</strong> 件
+    | ）紹介されてきました。

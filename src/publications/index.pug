@@ -211,9 +211,15 @@ mixin publications()
       - }
 
 mixin media()
+  - const filteredMediaList = mediaList.filter(entry => !entry.private && !entry.draft);
+  - const numInternationalMediaCoverage = filteredMediaList.reduce((p, c) => p + (c.media?.en ? 1 : 0), 0);
+  - const numDomesticMediaCoverage = mediaList.length - numInternationalMediaCoverage;
+  block media
+    p Media coverage includes both my work and personal interviews, featured in <strong>#{numInternationalMediaCoverage}</strong> international and 
+      a(href=`${rootPath}ja/publications/#media`) <strong>#{numDomesticMediaCoverage}</strong> domestic
+      |  media outlets.
   .ui.divided.relaxed.list.media
-    - for (const entry of media) {
-    - if (entry.private || entry.draft) continue;
+    - for (const entry of filteredMediaList) {
     - if (lang === "en" && !entry.media[lang]) continue;
     +render-media-item(entry)
     - }

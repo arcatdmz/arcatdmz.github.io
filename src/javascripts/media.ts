@@ -27,25 +27,28 @@ class MediaEntry {
   public media?: I18nText;
   public permalink?: string;
   public archive?: string;
-  public projects?: string[];
+  private _projects?: string[];
+  public get projects(): string[] | undefined {
+    return this._projects || this.parent?.projects;
+  }
   public related?: MediaEntry[];
   public draft?: boolean;
   public private?: boolean;
 
-  constructor(data: RawMediaEntry) {
+  constructor(data: RawMediaEntry, public parent?: MediaEntry) {
     this.data = data;
     this.text = data.text;
     this.media = data.media;
     this.permalink = data.permalink;
     this.archive = data.archive;
-    this.projects = data.projects;
+    this._projects = data.projects;
     this.draft = data.draft;
     this.private = data.private;
     if (data.date) {
       this.dateObj = new EntryDate(data.date);
     }
     if (data.related) {
-      this.related = data.related.map((r) => new MediaEntry(r));
+      this.related = data.related.map((r) => new MediaEntry(r, this));
     }
   }
 

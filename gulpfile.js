@@ -274,8 +274,7 @@ function setupLocals() {
   const flattenMedia = (m) => m.reduce((v, c) => {
     return v.concat(c, ...flattenMedia(c.related || []));
   }, []);
-  const mediaList = flattenMedia(media);
-  mediaList.sort((a, b) => {
+  const sortMedia = (a, b) => {
     if (a.date || b.date) {
       if (!a.date) return 1;
       if (!b.date) return -1;
@@ -291,7 +290,10 @@ function setupLocals() {
     const aChildCount = Array.isArray(a.related) ? a.related.length : 0;
     const bChildCount = Array.isArray(b.related) ? b.related.length : 0;
     return aChildCount - bChildCount;
-  });
+  };
+  const mediaList = flattenMedia(media);
+  media.sort(sortMedia);
+  mediaList.sort(sortMedia);
 
   // merge locals with website options
   var locals = {
