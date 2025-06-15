@@ -1,0 +1,1136 @@
+[
+  {
+    "date": "2025/5/10",
+    "text": {
+      "ja": "アニメづくりのR&D座談会 2025"
+    },
+    "media": {
+      "ja": "CGWORLD vol.322（2025年6月号） p.74-79"
+    },
+    "permalink": "https://cgworld.jp/magazine/cgw322.html",
+    "projects": ["griffith"]
+  },
+  {
+    "date": "2025/4/10",
+    "text": {
+      "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！－『初音ミク「マジカルミライ 2025」』の一環で7月8日まで募集！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000481.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2025/4/10",
+        "text": {
+          "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！－『初音ミク「マジカルミライ 2025」』の一環で7月8日まで募集！"
+        },
+        "media": {
+          "ja": "ASCII.jp"
+        },
+        "permalink": "https://ascii.jp/elem/000/004/262/4262690/"
+      }
+    ]
+  },
+  {
+    "date": "2025/4/2",
+    "text": {
+      "ja": "第40回電気通信普及財団賞授賞式を開催"
+    },
+    "media": {
+      "ja": "電波タイムズ: 2025年4月2日 第7793号"
+    },
+    "permalink": "https://www.taf.or.jp/files/2210/676588911.pdf"
+  },
+  {
+    "date": "2025/3/14",
+    "text": {
+      "ja": "常設展示施設リニューアルのお知らせ"
+    },
+    "media": {
+      "ja": "産業技術総合研究所 ニュース（お知らせ）"
+    },
+    "permalink": "https://www.aist.go.jp/aist_j/news/au20250314_2.html",
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2025/4/2",
+        "draft": true,
+        "text": {
+          "ja": "つくばの常設展示施設　産総研「未来と出合う場に」　10年ぶり刷新、専門性高く"
+        },
+        "media": {
+          "ja": "日本経済新聞 電子版"
+        },
+        "permalink": "https://www.nikkei.com/article/DGKKZO87747870R00C25A4L60000/"
+      },
+      {
+        "date": "2025/4/1",
+        "text": {
+          "ja": "常設展示施設（AIST-Cube）リニューアルオープンのお知らせ"
+        },
+        "media": {
+          "ja": "産業技術総合研究所 ニュース（お知らせ）"
+        },
+        "permalink": "https://www.aist.go.jp/aist_j/news/announce/au20250401.html"
+      },
+      {
+        "date": "2025/3/18",
+        "text": {
+          "ja": "産総研、つくば「AIST-Cube」をリニューアルオープン"
+        },
+        "media": {
+          "ja": "日刊工業新聞 電子版"
+        },
+        "permalink": "https://www.nikkan.co.jp/articles/view/00743275"
+      },
+      {
+        "date": "2025/3/18",
+        "media": {
+          "ja": "日刊工業新聞: 2025年3月18日 朝刊23面"
+        }
+      },
+      {
+        "date": "2025/3/17",
+        "text": {
+          "ja": "常設展示施設をリニューアル 産総研 「高い専門性」ニーズに応え"
+        },
+        "media": {
+          "ja": "LuckyFM 茨城放送"
+        },
+        "permalink": "https://lucky-ibaraki.com/news_list/666927/"
+      },
+      {
+        "date": "2025/3/16",
+        "media": {
+          "ja": "読売新聞: 2025年3月16日 朝刊830面"
+        }
+      },
+      {
+        "date": "2025/3/15",
+        "text": {
+          "ja": "産総研が常設展示刷新　10年ぶり、高い専門性　茨城・つくば"
+        },
+        "media": {
+          "ja": "茨城新聞クロスアイ"
+        },
+        "permalink": "https://ibarakinews.jp/news/newsdetail.php?f_jun=17419575350945"
+      },
+      {
+        "date": "2025/3/15",
+        "text": {
+          "ja": "ちょっと先の未来に出会える　10年ぶり常設展示施設を一新　産総研つくば"
+        },
+        "media": {
+          "ja": "NEWSつくば"
+        },
+        "permalink": "https://newstsukuba.jp/55862/15/03/"
+      }
+    ]
+  },
+  {
+    "date": "2025/3/9",
+    "text": {
+      "ja": "漫画　研究人　最終回　パリで漫画のワークショップを開催！"
+    },
+    "media": {
+      "ja": "朝日中高生新聞: 2025年3月9日号9面"
+    }
+  },
+  {
+    "date": "2025/1/23",
+    "text": {
+      "ja": "あべ大臣が「ナイスステップな研究者 2024」に選ばれた若手研究者と意見交換"
+    },
+    "media": {
+      "ja": "文部科学省 今日の出来事（令和7年1月）"
+    },
+    "permalink": "https://www.mext.go.jp/b_menu/activity/detail/2025/20250123_3.html"
+  },
+  {
+    "date": "2024/12/17",
+    "text": {
+      "ja": "科学技術・学術政策研究所「科学技術への顕著な貢献2024（ナイスステップな研究者）」の選定について"
+    },
+    "media": {
+      "ja": "文部科学省 報道発表（令和6年度）"
+    },
+    "permalink": "https://www.mext.go.jp/b_menu/houdou/2020/1422310_00030.htm",
+    "related": [
+      {
+        "date": "2024/12/29",
+        "text": {
+          "ja": "2024年のナイスステップな研究者　東京大学の佐々田槙子教授ら10人に"
+        },
+        "media": {
+          "ja": "大学ジャーナルオンライン"
+        },
+        "permalink": "https://univ-journal.jp/250764/"
+      },
+      {
+        "date": "2024/12/17",
+        "text": {
+          "ja": "科学技術への顕著な貢献 2024（ナイスステップな研究者）を選定しました"
+        },
+        "media": {
+          "ja": "科学技術・学術政策研究所"
+        },
+        "permalink": "https://www.nistep.go.jp/archives/59810"
+      },
+      {
+        "date": "2024/12/17",
+        "text": {
+          "ja": "日本の科学技術を牽引する10名の研究者、文科省が選定"
+        },
+        "media": {
+          "ja": "リセマム"
+        },
+        "permalink": "https://resemom.jp/article/2024/12/17/79972.html"
+      },
+      {
+        "date": "2024/12/20",
+        "text": {
+          "ja": "「ナイスステップな研究者」に選定"
+        },
+        "media": {
+          "ja": "産業技術総合研究所 ニュース（受賞）"
+        },
+        "permalink": "https://www.aist.go.jp/aist_j/news/prize/prz20241220.html"
+      },
+      {
+        "date": "2024/12/27",
+        "text": {
+          "ja": "「ナイスステップな研究者2024」に精鋭10人、広範な分野で成果"
+        },
+        "media": {
+          "ja": "科学技術振興機構 Science Portal"
+        },
+        "permalink": "https://scienceportal.jst.go.jp/newsflash/20241227_n01/"
+      }
+    ]
+  },
+  {
+    "date": "2024/11/10",
+    "text": {
+      "ja": "漫画　研究人　道具鍛冶研究者　加藤淳さん"
+    },
+    "media": {
+      "ja": "朝日中高生新聞: 2024年11月10日号10面"
+    }
+  },
+  {
+    "date": "2024/8/6",
+    "text": {
+      "en": "Meet Dr. Jun Kato"
+    },
+    "media": {
+      "en": "STEM to the Sky"
+    },
+    "permalink": "https://www.acm.org/articles/people-of-acm/2023/jun-kato"
+  },
+  {
+    "date": "2024/8/30",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ 2024」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000388.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2024/8/30",
+        "text": {
+          "ja": "『初音ミク「マジカルミライ 2024」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
+        },
+        "media": {
+          "ja": "ASCII.jp"
+        },
+        "permalink": "https://ascii.jp/elem/000/004/218/4218797/"
+      }
+    ]
+  },
+  {
+    "date": "2024/8/8",
+    "text": {
+      "ja": "プログラミング・コンテスト受賞作品の選定に向けて一般投票を開始！　力作揃いのリリックアプリ10作を公開！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000379.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2024/8/30",
+        "text": {
+          "ja": "プログラミング・コンテスト受賞作品の選定に向けて一般投票を開始！　力作揃いのリリックアプリ10作を公開！"
+        },
+        "media": {
+          "ja": "ASCII.jp"
+        },
+        "permalink": "https://ascii.jp/elem/000/004/214/4214970/"
+      }
+    ]
+  },
+  {
+    "date": "2024/4/24",
+    "text": {
+      "ja": "初音ミク16th×RED° TOKYO TOWERのイベントが決定！　施設内の５つの“ダンジョン”パネルゾーンを巡る回遊型アトラクションが登場"
+    },
+    "media": {
+      "ja": "RED MAKER株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000076.000072682.html",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2024/4/19",
+    "text": {
+      "ja": "なんで、あなたは研究者に？～研究現場に凸って研究人生を聞いてみた～【産総研】"
+    },
+    "media": {
+      "ja": "ニコニコ生放送 ニコニコサイエンス"
+    },
+    "permalink": "https://live.nicovideo.jp/watch/lv344818897",
+    "related": [
+      {
+        "date": "2024/4/17",
+        "text": {
+          "ja": "道具鍛冶研究者・加藤淳さんの「研究室から街へ、世界へ」　～研究者漫画　AIST RESEARCHER MANGA～　#科学技術週間"
+        },
+        "media": {
+          "ja": "産業技術総合研究所 産総研マガジン"
+        },
+        "permalink": "https://www.aist.go.jp/aist_j/magazine/20240415.html"
+      },
+      {
+        "date": "2024/4/10",
+        "text": {
+          "ja": "#科学技術週間「なんで、あなたは研究者に？」"
+        },
+        "media": {
+          "ja": "産業技術総合研究所 公式サイト"
+        },
+        "permalink": "https://www.aist.go.jp/aist_j/2024openhouse/#kato"
+      }
+    ]
+  },
+  {
+    "date": "2024/4/5",
+    "text": {
+      "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！－『初音ミク「マジカルミライ 2024」』の一環で7/9まで募集！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000333.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2023/9/1",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ 2023」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000249.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2023/8/31",
+    "text": {
+      "ja": "世界を広げてくれたみんなに、ありがとう。16周年を迎えた初音ミクの創作文化を凝縮した特別映像が公開！－誕生日を祝うオンラインイベントも8/31（木）21時より開催！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000247.000052709.html",
+    "projects": ["textalive", "songle-sync"]
+  },
+  {
+    "date": "2023/8/24",
+    "text": {
+      "ja": "［CEDEC 2023］ゲームとは異なる文化を持つアニメ業界からR&Dを学ぶ。研究開発をテーマにしたセッション「アニメR&Dの最前線」をレポート"
+    },
+    "media": {
+      "ja": "4Gamer.net"
+    },
+    "permalink": "https://www.4gamer.net/games/999/G999905/20230824073/",
+    "projects": ["griffith"]
+  },
+  {
+    "date": "2023/7/28",
+    "text": {
+      "ja": "初音ミクの「16歳の誕生日」を祝うオンラインイベント開催決定！　8月16日（水）まで、バースデーメッセージを大募集！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000236.000052709.html",
+    "projects": ["textalive", "songle-sync"]
+  },
+  {
+    "date": "2023/5/19",
+    "text": {
+      "ja": "阪急阪神ホールディングス、バンダイナムコフィルムワークス、ブシロードが共催するメタバースライブイベントに『XR CLOUD』を提供"
+    },
+    "media": {
+      "ja": "monoAI technology株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000120.000013447.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2023/4/25",
+    "text": {
+      "en": "People of ACM - Jun Kato"
+    },
+    "media": {
+      "en": "People of ACM, Association for Computing Machinery (ACM)"
+    },
+    "permalink": "https://www.acm.org/articles/people-of-acm/2023/jun-kato"
+  },
+  {
+    "date": "2023/4/12",
+    "text": {
+      "ja": "プログラミング・コンテストに参加して創作文化を彩ろう！　7月18日（火）正午まで『初音ミク』楽曲のリリックアプリを募集！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000208.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2023/1/17",
+    "text": {
+      "ja": "「好き」を見つけられるフェスにしたい――「SANRIO Virtual Festival 2023」制作陣インタビュー"
+    },
+    "media": {
+      "ja": "MoguLive"
+    },
+    "permalink": "https://www.moguravr.com/sanrio-virtual-festival-2023-interview/",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2022/9/2",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ」10th Anniversary』プログラミング・コンテスト、一般投票を経て決定した受賞作品を発表！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000127.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2022/5/27",
+    "text": {
+      "ja": "“初音ミク「マジカルミライ」10th Anniversary”の一環でプログラミング・コンテストが開催中"
+    },
+    "media": {
+      "ja": "MdN（エムディエヌ）"
+    },
+    "permalink": "https://www.mdn.co.jp/news/3296",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2022/4/19",
+    "text": {
+      "ja": "初音ミク「マジカルミライ 10th」、楽曲を彩るプログラミングコンテスト"
+    },
+    "media": {
+      "ja": "マイナビニュース +Digital（プラスデジタル）"
+    },
+    "permalink": "https://news.mynavi.jp/article/20220419-2325254/"
+  },
+  {
+    "date": "2022/4/18",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ」10th Anniversary』プログラミング・コンテストの応募受付を開始しました！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000094.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
+    "date": "2022/3/28",
+    "text": {
+      "ja": "ネット最大のボカロイベント 【The VOCALOID Collection ～2022 Spring～】追加発表－ボカコレランキング特別賞、各種コラボ・公募企画などを公開"
+    },
+    "media": {
+      "ja": "株式会社ドワンゴ プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000020.000096446.html",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2022/2/10",
+    "text": {
+      "ja": "＜特集＞ アニメ制作の現在と未来. SIGGRAPH Asia 2021セッションレポート「アニメづくりのR&D：現状と今後」"
+    },
+    "media": {
+      "ja": "CGWORLD vol.283（2022年3月号） p.50-55"
+    },
+    "permalink": "https://cgworld.jp/magazine/cgw283.html",
+    "projects": ["griffith"]
+  },
+  {
+    "date": "2022/2/10",
+    "text": {
+      "ja": "Hot Stuff! <Conference> SIGGRAPH Asia 2021"
+    },
+    "media": {
+      "ja": "CGWORLD vol.283（2022年3月号） p.80-83"
+    },
+    "permalink": "https://cgworld.jp/magazine/cgw283.html"
+  },
+  {
+    "date": "2021/12/27",
+    "text": {
+      "ja": "初の単独3DCGライブ『鏡音リン・レン Happy 14th Birthday Party「Two You☆★」』開催決定！　本日21:00より、誕生日当日を記念したオンライン企画も2つ実施！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000074.000052709.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2021/8/11",
+    "text": {
+      "ja": "「第二回 北海道どこでも盆踊り with Domingo」開催決定！　今年も8月14日～29日まで、いつでもどこでも「シャンコシャンコ」！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000051.000052709.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2020/10/2",
+    "text": {
+      "ja": "「SYNCHRONICITY 2020」開催決定！街と音楽がシンクロする新しいコンテンツ体験をお届けします！"
+    },
+    "media": {
+      "ja": "初音ミク公式ブログ"
+    },
+    "permalink": "https://blog.piapro.net/2020/10/ms2010021.html",
+    "projects": ["textalive", "songle-sync"],
+    "related": [
+      {
+        "date": "2020/10/15",
+        "text": {
+          "ja": "札幌・北3条広場で「SYNCHRONICITY 2020」　街と音と光の「シンクロ」体験提供"
+        },
+        "media": {
+          "ja": "札幌経済新聞"
+        },
+        "permalink": "https://sapporo.keizai.biz/headline/3346/"
+      },
+      {
+        "date": "2020/10/13",
+        "text": {
+          "ja": "「NoMaps2020」いよいよ開幕、注目すべきポイントは"
+        },
+        "media": {
+          "ja": "週刊アスキー"
+        },
+        "permalink": "https://weekly.ascii.jp/elem/000/004/030/4030200/",
+        "related": [
+          {
+            "date": "2020/10/13",
+            "text": {
+              "ja": "「NoMaps2020」いよいよ開幕、注目すべきポイントは"
+            },
+            "media": {
+              "ja": "ASCII STARTUP"
+            },
+            "permalink": "https://ascii.jp/elem/000/004/030/4030200/"
+          }
+        ]
+      },
+      {
+        "date": "2020/10/9",
+        "text": {
+          "ja": "街と音楽がシンクロする「SYNCHRONICITY 2020」、10月16日・17日にNoMaps2020にて開催"
+        },
+        "media": {
+          "ja": "週刊アスキー"
+        },
+        "permalink": "https://weekly.ascii.jp/elem/000/004/029/4029864/",
+        "related": [
+          {
+            "date": "2020/10/9",
+            "text": {
+              "ja": "街と音楽がシンクロする「SYNCHRONICITY 2020」、10月16日・17日にNoMaps2020にて開催"
+            },
+            "media": {
+              "ja": "ASCII STARTUP"
+            },
+            "permalink": "https://ascii.jp/elem/000/004/029/4029864/"
+          }
+        ]
+      },
+      {
+        "date": "2020/10/9",
+        "text": {
+          "ja": "札幌市でオンラインを軸に「NoMaps2020」開催　台湾のデジタル大臣オードリー・タン氏、インターステラ稲川社長らが登壇"
+        },
+        "media": {
+          "ja": "ITmedia NEWS"
+        },
+        "permalink": "https://www.itmedia.co.jp/business/articles/2010/09/news132.html"
+      }
+    ]
+  },
+  {
+    "date": "2020/9/29",
+    "draft": true,
+    "text": {
+      "en": "Magical Mirai 2020 Programming Contest - VNN"
+    },
+    "media": {
+      "en": "VNN: Vocaloid News Network"
+    }
+  },
+  {
+    "date": "2020/9/3",
+    "text": {
+      "ja": "「ボカロ曲を簡単に探せるサービス」「MVを手軽に作成できるサービス」を専門家が解説！ クリエイターに耳寄りな情報が続々登場"
+    },
+    "media": {
+      "ja": "ニコニコニュース オリジナル"
+    },
+    "permalink": "https://originalnews.nico/272499",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2020/8/30",
+    "text": {
+      "ja": "今年もやります“初音ミクバースデーメッセージ企画”！ “Digital Stars”コラボで本日開催！"
+    },
+    "media": {
+      "ja": "ファミ通.com"
+    },
+    "permalink": "https://www.famitsu.com/news/202008/31204920.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2020/8/6",
+    "text": {
+      "ja": "ミクと一緒に盆踊り　８日から特設サイト"
+    },
+    "media": {
+      "ja": "どうしん電子版（北海道新聞）"
+    },
+    "permalink": "https://www.hokkaido-np.co.jp/article/448189",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2020/8/6",
+    "text": {
+      "ja": "オンライン「北海道どこでも盆踊り」、クリプトン・フューチャー・メディアが開催"
+    },
+    "media": {
+      "ja": "北海道経済のニュースサイト リアルエコノミー"
+    },
+    "permalink": "https://hre-net.com/syakai/syakaibunka/46675/",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2020/7/31",
+    "text": {
+      "ja": "「北海道どこでも盆踊り with Domingo」開催決定！　8月8日～16日まで、いつでもどこでも「シャンコシャンコ」！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000010.000052709.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2019/10/29",
+    "text": {
+      "ja": "「Inter BEE 2019」に出展【11/13-15】"
+    },
+    "media": {
+      "ja": "株式会社モリサワ プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000148.000010848.html",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2019/9/9",
+    "draft": true,
+    "text": {
+      "en": "TextAlive technology brings lyrics to life at Magical Mirai! - VNN"
+    },
+    "media": {
+      "en": "VNN: Vocaloid News Network"
+    },
+    "permalink": "https://www.vocaloidnews.net/textalive-technology-brings-lyrics-to-life-at-magical-mirai/"
+  },
+  {
+    "date": "2019/6/20",
+    "text": {
+      "ja": "舞台美術の老舗が話題のバンド「ジュリアナの祟り」を本気でプロデュース！ 銅鑼に見える電子ドラム、巻き取りくんで早着替え！"
+    },
+    "media": {
+      "ja": "Rooftop 古今東西南北、ポップカルチャー最前線"
+    },
+    "permalink": "https://rooftop1976.com/report/2019/06/20113831.php",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2019/6/19",
+    "text": {
+      "ja": "舞台美術の老舗が話題のバンドを本気でプロデュース！東京国際フォーラムで新機材を披露！ シミズオクト×ジュリアナの祟り＝エンタテインメント・テクノロジー"
+    },
+    "media": {
+      "ja": "株式会社アクアムンダアンドアソシエイツ プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000002.000045795.html",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2019/4/11",
+    "text": {
+      "en": "A Platform that Can Control Various Devices in Synchronization with Music Has Been Opened to the Public – “Songle Sync” enables large-scale, music-driven multimedia performance via the Internet –"
+    },
+    "media": {
+      "en": "AIST press release (original release date: August 2, 2017)"
+    },
+    "permalink": "https://www.aist.go.jp/aist_e/list/latest_research/2019/20190411/en20190411.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2019/2/16",
+    "text": {
+      "ja": "エンジニア出身者がアニメプロデューサーに向く理由とは? - ACTF2019"
+    },
+    "media": {
+      "ja": "マイナビニュース +Digital（プラスデジタル）"
+    },
+    "permalink": "https://news.mynavi.jp/article/20190216-770325/",
+    "projects": ["griffith"]
+  },
+  {
+    "date": "2019/2/8",
+    "text": {
+      "ja": "制作もプロデュースもテクノロジーが勝負　「ACTF2019」から見えるアニメの現在"
+    },
+    "media": {
+      "ja": "アニメハック"
+    },
+    "permalink": "https://anime.eiga.com/news/107966/",
+    "projects": ["griffith"]
+  },
+  {
+    "date": "2018/12/24",
+    "text": {
+      "ja": "初音ミク「マジカルミライ 2018」LIVE＆MAKING"
+    },
+    "media": {
+      "ja": "TOKYO MX（各地方局でも放送）"
+    },
+    "permalink": "https://s.mxtv.jp/magicalmirai2018_tokuban_lm/",
+    "archive": "https://web.archive.org/web/20190331133019/https://s.mxtv.jp/magicalmirai2018_tokuban_lm/",
+    "projects": ["textalive", "songle-sync"]
+  },
+  {
+    "date": "2018/12/15",
+    "text": {
+      "ja": "先生，質問です！"
+    },
+    "media": {
+      "ja": "情報処理, vol.60, no.1, p.76-79"
+    },
+    "permalink": "https://www.ipsj.or.jp/magazine/sensei-q/6001.html"
+  },
+  {
+    "date": "2018/11/8",
+    "text": {
+      "ja": "技術で未来拓く・産総研の挑戦（５３）ネット時代のコンテンツ技術"
+    },
+    "media": {
+      "ja": "日刊工業新聞 電子版"
+    },
+    "permalink": "https://www.nikkan.co.jp/articles/view/00495157"
+  },
+  {
+    "date": "2018/11/8",
+    "text": {
+      "ja": "技術で未来拓く・産総研の挑戦（５３）ネット時代のコンテンツ技術　人と人を結ぶ創作支援"
+    },
+    "media": {
+      "ja": "日刊工業新聞: 朝刊 13面"
+    }
+  },
+  {
+    "date": "2018/8/20",
+    "text": {
+      "ja": "幕張メッセで初音ミクイベント　千葉市やモノレールとコラボ"
+    },
+    "media": {
+      "ja": "千葉経済新聞"
+    },
+    "permalink": "https://chiba.keizai.biz/headline/417/",
+    "projects": ["textalive"]
+  },
+  {
+    "date": "2018/9/1",
+    "text": {
+      "ja": "初音ミク「マジカルミライ 2018」in TOKYO開催！ボカロP小林オニキスの現地レポートその２！"
+    },
+    "media": {
+      "ja": "gooニュース"
+    },
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2018/8/26",
+    "text": {
+      "ja": "Otomaniaが見た『初音ミク「マジカルミライ2018」in OSAKA』 Part2 "
+    },
+    "media": {
+      "ja": "dmenuニュース"
+    },
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2018/2/2",
+    "text": {
+      "ja": "No Maps後援「SNOW MIKU LIVE! 2018」で実証実験を実施！"
+    },
+    "media": {
+      "ja": "No Maps"
+    },
+    "projects": ["songle-sync"],
+    "permalink": "https://no-maps.jp/2017/topics/2079.html"
+  },
+  {
+    "date": "2017/8/21",
+    "text": {
+      "ja": "スマホやロボット、服まで音楽と連動? 産総研「Songle Sync」の仕組み"
+    },
+    "media": {
+      "ja": "藤本健のDigital Audio Laboratory 第734回"
+    },
+    "permalink": "https://av.watch.impress.co.jp/docs/series/dal/1076363.html",
+    "projects": ["songle-sync"]
+  },
+  {
+    "date": "2017/8/2",
+    "text": {
+      "ja": "音楽に合わせて多様なデバイスを制御できるプラットフォームを公開 ～インターネットを介した大規模音楽連動制御を手軽に利用できる「Ｓｏｎｇｌｅ　Ｓｙｎｃ」～"
+    },
+    "media": {
+      "ja": "産業技術総合研究所・科学技術振興機構（ＪＳＴ） 共同プレスリリース"
+    },
+    "projects": ["songle-sync"],
+    "permalink": "https://www.jst.go.jp/pr/announce/20170802/",
+    "related": [
+      {
+        "date": "2017/8/21",
+        "media": {
+          "ja": "日本経済新聞: 朝刊 11面"
+        }
+      },
+      {
+        "date": "2017/8/20",
+        "text": {
+          "ja": "音楽に合わせてスマホやパソコン制御　産総研が新技術"
+        },
+        "media": {
+          "ja": "日本経済新聞 電子版"
+        },
+        "permalink": "https://www.nikkei.com/article/DGXLASGG16H0B_Q7A820C1TJM000/"
+      },
+      {
+        "date": "2017/8/15",
+        "media": {
+          "ja": "フジサンケイビジネスアイ: 朝刊 10面"
+        }
+      },
+      {
+        "date": "2017/8/15",
+        "media": {
+          "ja": "朝日新聞: 朝刊 17面"
+        }
+      },
+      {
+        "date": "2017/8/15",
+        "text": {
+          "ja": "音楽と動く映像、共有　産総研が開発"
+        },
+        "media": {
+          "ja": "朝日新聞 デジタル"
+        }
+      },
+      {
+        "date": "2017/8/15",
+        "text": {
+          "ja": "産総研、新技術でイベント盛り上げ スマホや照明、音楽に連動"
+        },
+        "media": {
+          "ja": "SankeiBiz"
+        },
+        "permalink": "http://www.sankeibiz.jp/business/news/170815/bsc1708150500002-n1.htm"
+      },
+      {
+        "date": "2017/8/14",
+        "text": {
+          "ja": "産総研、音楽に同期してＩｏＴ機器を演出できるプラットフォーム開発（動画あり）"
+        },
+        "media": {
+          "ja": "日刊工業新聞 電子版"
+        },
+        "permalink": "https://www.nikkan.co.jp/articles/view/00439301"
+      },
+      {
+        "date": "2017/8/14",
+        "media": {
+          "ja": "日刊工業新聞: 朝刊 13面"
+        }
+      },
+      {
+        "date": "2017/8/8",
+        "text": {
+          "ja": "音楽でスマホ光りロボ踊る　産総研、イベント演出に新技術　茨城"
+        },
+        "media": {
+          "ja": "産経ニュース"
+        },
+        "permalink": "https://www.sankei.com/region/news/170808/rgn1708080016-n1.html",
+        "archive": "https://web.archive.org/web/20170808034825/https://www.sankei.com/region/news/170808/rgn1708080016-n1.html"
+      },
+      {
+        "date": "2017/8/8",
+        "media": {
+          "ja": "産経新聞: 朝刊 19面"
+        }
+      },
+      {
+        "date": "2017/8/7",
+        "text": {
+          "ja": "音楽版IoT、100台以上のスマホが音楽に連動－ライブ会場などで一体感ある演出"
+        },
+        "media": {
+          "ja": "EE Times Japan"
+        },
+        "permalink": "https://eetimes.itmedia.co.jp/ee/articles/1708/07/news031.html"
+      },
+      {
+        "date": "2017/8/4",
+        "media": {
+          "ja": "NHKニュース おはよう日本 [NHK総合・水戸] 07:45-08:00 (1.5分間紹介)"
+        }
+      },
+      {
+        "date": "2017/8/4",
+        "media": {
+          "ja": "茨城ニュース いば6 [NHK総合・水戸] 18:10-18:52 (3分間紹介)"
+        }
+      },
+      {
+        "date": "2017/8/4",
+        "text": {
+          "ja": "「ＩＯＴ」連動で同時再生可能"
+        },
+        "media": {
+          "ja": "NHK NEWS WEB"
+        }
+      },
+      {
+        "date": "2017/8/3",
+        "text": {
+          "ja": "音楽で連動、新技術を公開"
+        },
+        "media": {
+          "ja": "つくばもん"
+        }
+      },
+      {
+        "date": "2017/8/3",
+        "media": {
+          "ja": "茨城新聞: 朝刊 23面"
+        }
+      },
+      {
+        "date": "2017/8/3",
+        "media": {
+          "ja": "山口新聞: 朝刊 8面"
+        }
+      },
+      {
+        "date": "2017/8/3",
+        "text": {
+          "ja": "産総研、多数のデバイスで簡単に音楽連動を実現するプラットフォーム公開－スマホからロボットまで横断して同期"
+        },
+        "media": {
+          "ja": "マイナビニュース TECH+（テックプラス）"
+        },
+        "permalink": "https://news.mynavi.jp/techplus/article/20170803-songle_sync/"
+      },
+      {
+        "date": "2017/8/2",
+        "text": {
+          "ja": "多数のIoTをビートで刻む　産総研Songle Syncが目指すライブの形"
+        },
+        "media": {
+          "ja": "ITmedia NEWS"
+        },
+        "permalink": "https://www.itmedia.co.jp/news/articles/1708/02/news127.html"
+      },
+      {
+        "date": "2017/8/2",
+        "text": {
+          "ja": "産総研、音楽と連動で100台以上のスマホやIoT機器を制御する「Songle Sync」"
+        },
+        "media": {
+          "ja": "インプレス AV Watch"
+        },
+        "permalink": "https://av.watch.impress.co.jp/docs/news/1073902.html"
+      }
+    ]
+  },
+  {
+    "date": "2017/5/11",
+    "text": {
+      "ja": "今や、プログラマーにも体力と鋼の精神が必要？ プログラマーが疲れないプログラミング環境の開発"
+    },
+    "media": {
+      "ja": "本と学問でひらく未来 高校生応援 みらいぶプラス (河合塾)"
+    },
+    "projects": ["dejavu", "f3js", "programming-with-examples"],
+    "permalink": "https://www.milive-plus.net/gakumon/170501/",
+    "archive": "https://web.archive.org/web/20170707005736/https://www.milive-plus.net/gakumon/170501/",
+    "related": [
+      {
+        "date": "2023/9/8",
+        "text": {
+          "ja": "加藤淳 先生｜研究者｜みらいぶっく｜学問・大学なび｜河合塾"
+        },
+        "media": {
+          "ja": "みらいぶっく (河合塾)"
+        },
+        "permalink": "https://miraibook.jp/researcher/ip04501",
+        "related": [
+          {
+            "date": "2023/9/8",
+            "private": true,
+            "permalink": "https://www.kawaijuku.jp/jp/news/detail.html?id=614"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016/10/24",
+    "text": {
+      "ja": "“日本版SXSW”目指す「No Maps」で見た、音楽とテクノロジーの新たな動向"
+    },
+    "media": {
+      "ja": "藤本健のDigital Audio Laboratory 第697回"
+    },
+    "permalink": "https://av.watch.impress.co.jp/docs/series/dal/1026306.html",
+    "projects": ["textalive", "songle-sync"]
+  },
+  {
+    "date": "2016/2/5",
+    "text": {
+      "ja": "「SNOW MIKU 2016 TextAliveラウンジ」、MIRAI.ST cafeで開催！"
+    },
+    "media": {
+      "ja": "SNOW MIKU 2016 ニュース"
+    },
+    "projects": ["textalive"],
+    "permalink": "https://snowmiku.com/2016/news_collabo.html"
+  },
+  {
+    "date": "2016/1/25",
+    "text": {
+      "en": "Publication of a Service That Allows Easy Production and Sharing of Videos with Lyrics Animated in Synchrony with Music – Anyone can enjoy creating lyrics animation that matches their style with “TextAlive” –"
+    },
+    "media": {
+      "en": "AIST press release (original release date: September 8, 2015)"
+    },
+    "projects": ["textalive"],
+    "permalink": "https://www.aist.go.jp/aist_e/list/latest_research/2015/20160125/en20160125.html"
+  },
+  {
+    "date": "2015/9/14",
+    "text": {
+      "ja": "曲に合わせて動く“歌詞アニメ”を簡単作成/共有。産総研「TextAlive」の仕組み"
+    },
+    "media": {
+      "ja": "藤本健のDigital Audio Laboratory 第650回"
+    },
+    "projects": ["textalive"],
+    "permalink": "https://av.watch.impress.co.jp/docs/series/dal/721004.html"
+  },
+  {
+    "date": "2015/9/8",
+    "text": {
+      "ja": "音楽に合わせ歌詞が動く動画を容易に制作・共有できるサービスを公開 －誰でも好みの演出の歌詞アニメーションを作って楽しめる「TextAlive」－"
+    },
+    "media": {
+      "ja": "産業技術総合研究所 プレスリリース"
+    },
+    "projects": ["textalive"],
+    "permalink": "https://www.aist.go.jp/aist_j/press_release/pr2015/pr20150908/pr20150908.html",
+    "related": [
+      {
+        "date": "2015/9/8",
+        "text": {
+          "ja": "ボカロ曲に合わせて歌詞が動く動画を自動で作れる　産総研「TextAlive」"
+        },
+        "media": {
+          "ja": "ITmedia NEWS"
+        },
+        "permalink": "https://www.itmedia.co.jp/news/articles/1509/08/news128.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "音楽に合わせて歌詞が動く動画を簡単に制作できるサービスが公開～産総研が開発"
+        },
+        "media": {
+          "ja": "インプレス PC Watch"
+        },
+        "permalink": "https://pc.watch.impress.co.jp/docs/news/720301.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "歌詞が動くMVを簡単に作成、産総研が「TextAlive」公開"
+        },
+        "media": {
+          "ja": "RBB TODAY"
+        },
+        "permalink": "https://www.rbbtoday.com/article/2015/09/09/135080.html"
+      },
+      {
+        "date": "2015/9/9",
+        "text": {
+          "ja": "産総研、曲と歌詞が連動した歌詞アニメを簡単に制作できる「TextAlive」"
+        },
+        "media": {
+          "ja": "インプレス AV Watch"
+        },
+        "permalink": "https://av.watch.impress.co.jp/docs/news/720321.html"
+      }
+    ]
+  },
+  {
+    "draft": true,
+    "permalink": "https://archinc.jp/ja/news/{2540,2537,2469,2449,2314,2111,1901,1611,1486,1397,1311,1248,1125,1124,762,602,538,396,385,343,342,324,149}"
+  }
+]
