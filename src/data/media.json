@@ -24,7 +24,7 @@
       {
         "date": "2025/4/10",
         "text": {
-          "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！－『初音ミク「マジカルミライ 2025」』の一環で7月8日まで募集！"
+          "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！"
         },
         "media": {
           "ja": "ASCII.jp"
@@ -446,7 +446,8 @@
     "media": {
       "ja": "マイナビニュース +Digital（プラスデジタル）"
     },
-    "permalink": "https://news.mynavi.jp/article/20220419-2325254/"
+    "permalink": "https://news.mynavi.jp/article/20220419-2325254/",
+    "projects": ["lyric-app-framework"]
   },
   {
     "date": "2022/4/18",
@@ -762,7 +763,8 @@
     "media": {
       "ja": "日刊工業新聞 電子版"
     },
-    "permalink": "https://www.nikkan.co.jp/articles/view/00495157"
+    "permalink": "https://www.nikkan.co.jp/articles/view/00495157",
+    "projects": ["textalive"]
   },
   {
     "date": "2018/11/8",
@@ -771,7 +773,8 @@
     },
     "media": {
       "ja": "日刊工業新聞: 朝刊 13面"
-    }
+    },
+    "projects": ["textalive"]
   },
   {
     "date": "2018/8/20",
@@ -1128,6 +1131,54 @@
         "permalink": "https://av.watch.impress.co.jp/docs/news/720321.html"
       }
     ]
+  },
+  {
+    "draft": true,
+    "media": {
+      "en": "Engadget"
+    },
+    "permalink": "http://www.engadget.com/2013/03/09/openpool/"
+  },
+  {
+    "draft": true,
+    "media": {
+      "en": "Gizmodo"
+    }
+  },
+  {
+    "draft": true,
+    "permalink": "http://austin.culturemap.com/newsdetail/03-13-13-the-5-coolest-things-at-the-sxswi-trade-show/"
+  },
+  {
+    "draft": true,
+    "permalink": "http://blog.laptopmag.com/openpool-lets-fish-and-lights-dance-and-play-with-moving-objects"
+  },
+  {
+    "draft": true,
+    "permalink": "http://www.techhive.com/article/2030378/five-highlights-from-the-sxsw-gaming-expo.html"
+  },
+  {
+    "draft": true,
+    "permalink": "",
+    "archive": "https://web.archive.org/web/20140331085608/http://blip.tv/dargadgetz/openpool-open-source-super-billiards-at-sxsw-2013-6551425"
+  },
+  {
+    "draft": true,
+    "permalink": "",
+    "archive": "https://web.archive.org/web/20181125035554/https://gearburn.com/2013/03/7-of-the-best-gadgets-of-sxsw/"
+  },
+  {
+    "draft": true,
+    "permalink": "http://www.jeuxvideo.org/index.php/2013/03/14/kinect-un-projecteur-et-un-billard-openpool/"
+  },
+  {
+    "draft": true,
+    "permalink": "https://web.archive.org/web/20130315015834/http://www.roclay.com/techbuzz/openpool-change-your-billiards-game-with-kinects-camera-controlled-lights"
+  },
+  {
+    "draft": true,
+    "permalink": "",
+    "archive": "https://web.archive.org/web/20140423171150/http://www.thecoolgeek.net/openpool-transforms-billiards-with-a-kinect-camera-controlled-light-show/"
   },
   {
     "draft": true,
