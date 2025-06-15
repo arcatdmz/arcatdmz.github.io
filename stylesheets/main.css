@@ -44586,6 +44586,17 @@ body.without-header-menu #body {
     padding-left: 0;
   }
 }
+/* media list */
+.ui.list.media > .item > .content > .description:not(.date) {
+  margin: 0.07em 0;
+}
+.ui.list.media > .item > .content > .description > .ui.label {
+  vertical-align: text-bottom;
+  margin-left: 0.2em;
+}
+.ui.list.media > .item > .content > .description > .ui.label:first-child {
+  margin-left: 0.4em;
+}
 /* /publications */
 #main > #publications > section:not(:first-child) > h1.ui.header {
   margin-top: 2rem;
