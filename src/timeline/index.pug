@@ -129,6 +129,17 @@ mixin all(f, y)
   +projects(prs, y)
   -
     }
+    var ms = [];
+    for (const m of mediaList) {
+      if (m.private || m.draft || !m.date) continue;
+      if (en && !m.media.en) continue;
+      if (!f(m.date.getFullYear())) continue;
+      ms.push(m);
+    }
+    if (ms.length > 0) {
+  +media(ms, y)
+  -
+    }
     var ps = [];
     for (const entry of publications) {
       if (!entry.entryTags) continue;
@@ -184,6 +195,16 @@ mixin projects(prs, y)
     .ui.divided.items.projects
       - for (p of prs) {
       +render-project-item(p)
+      - }
+
+mixin media(ms, y)
+  h3.ui.header(id=`${y}-media`)
+    i.broadcast.tower.icon
+    | #{en ? 'Media Coverage' : 'メディア掲載'}
+  .ui.segment
+    .ui.divided.list.media
+      - for (entry of ms) {
+      +render-media-item(entry)
       - }
 
 mixin publications(ps, y)
