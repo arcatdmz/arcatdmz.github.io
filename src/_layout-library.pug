@@ -366,7 +366,25 @@ mixin render-project-item(p)
         span.meta !{p.getTags(lang).join(' ')}
       - }
 
-mixin render-media-item(m)
+mixin render-project-media(project)
+  section#media
+    h2.ui.header
+      i.broadcast.tower.icon
+      .content #{en ? 'Media Coverage' : 'メディア掲載'}
+    .ui.segment: .ui.divided.list.media
+      - var med = 0;
+      - for (const entry of mediaList) {
+      - if (entry.private || entry.draft) continue;
+      - if (en && !entry.media.en) continue;
+      - if ((entry.projects || []).indexOf(project) < 0) continue;
+      - med ++;
+      +render-media-item(entry, false)
+      - }
+      - if (med <= 0) {
+      .item No media coverage found for this project.
+      - }
+
+mixin render-media-item(m, withLabel=true)
   - const text = m.getText(lang);
   - const media = m.getMedia(lang);
   - const url = m.archive || m.permalink;
@@ -382,7 +400,7 @@ mixin render-media-item(m)
       .description #{text}
       - }
       .description.date #{m.getDateString(lang, true)}
-        - if (projects.length > 0) for (const p of projects) {
+        - if (withLabel && projects.length > 0) for (const p of projects) {
         +render-project-label(p)
         - }
 
