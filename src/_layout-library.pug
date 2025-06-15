@@ -366,6 +366,26 @@ mixin render-project-item(p)
         span.meta !{p.getTags(lang).join(' ')}
       - }
 
+mixin render-media-item(m)
+  - const text = m.getText(lang);
+  - const media = m.getMedia(lang);
+  - const url = m.archive || m.permalink;
+  - const projects = (m.projects || []).map(p => projectsTable[p]).filter(p => !!p);
+  .item
+    .content
+      - if (url) {
+      a.header(href=url) #{media}
+      - } else {
+      .header #{media}
+      - }
+      - if (text) {
+      .description #{text}
+      - }
+      .description.date #{m.getDateString(lang, true)}
+        - if (projects.length > 0) for (const p of projects) {
+        +render-project-label(p)
+        - }
+
 mixin render-project-label(p)
   a.ui.tiny.basic.red.label(href=p.getLink(lang, basePath))
     i.lab.icon
