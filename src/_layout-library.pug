@@ -80,7 +80,7 @@ mixin render-project-header(project, additionalLabels)
           i.calendar.icon
           | #{p.getYearString(lang)}
       - if (p.hasPublication(lang)) {
-      .item: +render-project-label(p)
+      .item: +render-project-publication-label(p)
       - }
       - for (const award of projectAwards) {
       .item
@@ -214,9 +214,7 @@ mixin render-publication(entry, withIcon=false, withProjectLabel=true)
             - if (withProjectLabel) {
             - if (entry.entryTags.project && projectsTable[entry.entryTags.project]) {
             - const p = projectsTable[entry.entryTags.project];
-            a.ui.tiny.basic.red.label(href=p.getLink(lang, basePath))
-              i.lab.icon
-              | !{p.getTitle(lang)}
+            +render-project-label(p)
             - }
             - }
         .item.authors
@@ -358,7 +356,7 @@ mixin render-project-item(p)
           i.calendar.icon
           | #{p.getYearString(lang)}
         - if (p.category !== 'private' && p.category !== 'committee') {
-        +render-project-label(p)
+        +render-project-publication-label(p)
         - }
         - if (p.category === 'collaboration') {
         span.ui.tiny.basic.label
@@ -369,6 +367,11 @@ mixin render-project-item(p)
       - }
 
 mixin render-project-label(p)
+  a.ui.tiny.basic.red.label(href=p.getLink(lang, basePath))
+    i.lab.icon
+    | !{p.getTitle(lang)}
+
+mixin render-project-publication-label(p)
   - if (p.hasPublication(lang)) {
   - const pubKey = p.getPublication(lang);
   - const pub = publicationsTable[pubKey];

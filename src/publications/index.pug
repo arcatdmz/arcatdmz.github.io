@@ -211,13 +211,14 @@ mixin publications()
       - }
 
 mixin media()
-  .ui.divided.relaxed.list
-    - for (const entry of mediaList) {
+  .ui.divided.relaxed.list.media
+    - for (const entry of media) {
     - if (entry.private || entry.draft) continue;
     - if (lang === "en" && !entry.media[lang]) continue;
     - const text = entry.getText(lang);
     - const media = entry.getMedia(lang);
     - const url = entry.archive || entry.permalink;
+    - const projects = (entry.projects || []).map(p => projectsTable[p]).filter(p => !!p);
     .item
       .content
         - if (url) {
@@ -229,4 +230,7 @@ mixin media()
         .description #{text}
         - }
         .description.date #{entry.getDateString(lang, true)}
+          - if (projects.length > 0) for (const p of projects) {
+          +render-project-label(p)
+          - }
     - }
