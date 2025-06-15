@@ -276,10 +276,21 @@ function setupLocals() {
   }, []);
   const mediaList = flattenMedia(media);
   mediaList.sort((a, b) => {
-    if (!a.date && !b.date) return 0;
-    if (!a.date) return 1;
-    if (!b.date) return -1;
-    return b.date.getTime() - a.date.getTime();
+    if (a.date || b.date) {
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+    }
+
+    // prioritize items with earlier dates
+    if (a.date && b.date) {
+      const diff = b.date.getTime() - a.date.getTime();
+      if (diff !== 0) return diff;
+    }
+
+    // prioritize items with more children (i.e., original media)
+    const aChildCount = Array.isArray(a.related) ? a.related.length : 0;
+    const bChildCount = Array.isArray(b.related) ? b.related.length : 0;
+    return aChildCount - bChildCount;
   });
 
   // merge locals with website options
