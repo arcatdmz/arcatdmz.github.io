@@ -8,7 +8,7 @@ block vars
 block main
   .left-rail
     +publications-menu()
-  .right-content
+  .right-content#publications
     section#awards
       h1.ui.header
         i.trophy.icon
@@ -32,6 +32,12 @@ block main
         i.book.icon
         .content #{en ? 'Publications' : '発表文献'}
       +publications()
+    .ui.hidden.divider
+    section#media
+      h1.ui.header 
+        i.broadcast.tower.icon
+        .content #{en ? 'Media coverage' : 'メディア掲載'}
+      +media()
 
 block post-footer
   a.ui.circular.icon.popup-menu.large.grey.hidden.mobile-only.button
@@ -68,6 +74,9 @@ mixin publications-menu()
           a.item(href='#dissertation')
             i.right.triangle.icon
             .content Dissertation
+    a.item(href='#media')
+      i.broadcast.tower.icon
+      .content #{en ? 'Media' : 'メディア'}
     a.item(href=`${basePath}timeline/`)
       i.history.icon
       .content #{en ? 'Timeline' : '活動履歴'}
@@ -200,3 +209,24 @@ mixin publications()
       - if (entry.entryType !== 'phdthesis') continue;
       +render-publication(entry)
       - }
+
+mixin media()
+  .ui.divided.relaxed.list
+    - for (const entry of mediaList) {
+    - if (entry.private || entry.draft) continue;
+    - if (lang === "en" && !entry.media[lang]) continue;
+    - const text = entry.getText(lang);
+    - const media = entry.getMedia(lang);
+    - const url = entry.archive || entry.permalink;
+    .item
+      .content
+        - if (url) {
+        a.header(href=url) #{media}
+        - } else {
+        .header #{media}
+        - }
+        - if (text) {
+        .description #{text}
+        - }
+        .description.date #{entry.getDateString(lang, true)}
+    - }

@@ -243,6 +243,7 @@ function setupLocals() {
     publications = require("./build/javascripts/publications").parse(
       JSON.parse(fs.readFileSync("./build/data/publications.json"))
     ),
+    media = require("./build/javascripts/media").default;
     misc = JSON.parse(fs.readFileSync("./build/data/misc.json"));
 
   // build projects table and list
@@ -269,6 +270,12 @@ function setupLocals() {
     selectedPublications.push(publicationsTable[key]);
   }
 
+  // build media list
+  const flattenMedia = (m) => m.reduce((v, c) => {
+    return v.concat(c, ...flattenMedia(c.related || []));
+  }, []);
+  const mediaList = flattenMedia(media).sort((a, b) => a.date > b.date ? 1 : -1);
+
   // merge locals with website options
   var locals = {
     histories,
@@ -282,6 +289,8 @@ function setupLocals() {
     publications,
     publicationsTable,
     selectedPublications,
+    media,
+    mediaList,
     misc,
     moment,
   };
