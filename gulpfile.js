@@ -274,7 +274,13 @@ function setupLocals() {
   const flattenMedia = (m) => m.reduce((v, c) => {
     return v.concat(c, ...flattenMedia(c.related || []));
   }, []);
-  const mediaList = flattenMedia(media).sort((a, b) => a.date > b.date ? 1 : -1);
+  const mediaList = flattenMedia(media);
+  mediaList.sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return b.date.getTime() - a.date.getTime();
+  });
 
   // merge locals with website options
   var locals = {

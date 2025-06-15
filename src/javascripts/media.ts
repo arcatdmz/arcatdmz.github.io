@@ -1,6 +1,6 @@
 /// <reference path='./typings.d.ts' />
 import * as json from "../data/media.json";
-import { EntryDate, I18nText } from "./library";
+import { EntryDate, EntryDateType, I18nText } from "./library";
 
 interface RawMediaEntry {
   date?: string;
@@ -17,6 +17,12 @@ interface RawMediaEntry {
 class MediaEntry {
   public data: RawMediaEntry;
   private dateObj?: EntryDate;
+  public get dateType(): EntryDateType | undefined {
+    return this.dateObj?.dateType;
+  }
+  public get date(): Date | undefined {
+    return this.dateObj?.date;
+  }
   public text?: I18nText;
   public media?: I18nText;
   public permalink?: string;
@@ -65,4 +71,3 @@ for (const re of rawEntries) {
 }
 
 export default entries;
-
