@@ -647,8 +647,11 @@ gulp.task("watch:html", function () {
     const relDirPath = path.relative(basePath, path.dirname(fullPath));
     let stream;
 
-    // _layout.pug affects all pages
-    if (baseName.indexOf("_layout") === 0) {
+    if (relPath.startsWith(`resume${path.sep}_`)) {
+      stream = compilePug(
+        gulp.src([path.join(basePath, "resume.pug")], { base: basePath })
+      );
+    } else if (baseName.indexOf("_layout") === 0) {
       if (relDirPath.length > 0) {
         stream = compilePug(
           gulp.src([
