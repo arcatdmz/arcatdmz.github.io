@@ -13,6 +13,9 @@ block popup-menu
     a.item(href='#tech-transfer')
       i.gift.icon
       .content 外部連携
+    a.item(href='#collaborators')
+      i.users.icon
+      .content リサーチエンジニア・協力研究員
     a.item(href='#students')
       i.student.icon
       .content 技術研修生
@@ -23,8 +26,8 @@ block collaborations
         h2.ui.header#tech-transfer
           i.gift.icon
           | 外部連携
-        p これまでに研究開発してきた創作支援システムは、大学院の講義や大規模イベントでのライブなどで活用されてきました。
-        p 今後もより多くの現場で使われる創作支援システムを実現していきたいと考えているので、ご協力よろしくお願いいたします。
+        p これまでに研究開発してきた創造性支援ツール・インタラクティブシステムは、大規模イベントでのライブやプログラミング・コンテスト、アニメ制作の現場、科学館のワークショップや大学院の講義などで活用されてきました。
+        p 今後もより多くの現場で使われる研究成果を実現していきたいと考えているので、ご協力よろしくお願いいたします。
         dl
           dt: strong 共同研究や招待講演などのお問合せ:
           dd
@@ -48,6 +51,17 @@ block collaborations
             | ）へメールでご相談ください。
         +services()
       .eight.wide.column
+        h2.ui.header#collaborators
+          i.users.icon
+          | リサーチエンジニア・協力研究員
+        p 2018年から技術顧問としてアニメの企画開発プロデュース会社である<a href="https://archinc.jp">アーチ株式会社</a>の技術顧問を務めており、小規模ながら研究開発チームがあります。また、主務である<abbr title="産業技術総合研究所">産総研</abbr>でも、協力研究員などのかたちで研究開発に関わってくださる方々を受け入れています。
+        .ui.list
+          .item
+            .header: a(href='https://research.archinc.jp/members/') Arch Research
+            .meta 2019/04- アーチ株式会社 研究開発部門
+          .item
+            .header: a(href='https://baku89.com') 橋本 麦
+            .meta 2023/02- <abbr title="産業技術総合研究所">産総研</abbr> 協力研究員
         h2.ui.header#students
           i.student.icon
           | 学生インターン
@@ -62,7 +76,7 @@ block collaborations
           dt: strong 場所:
           dd 産総研つくば中央第二事業所（他の学生と一緒に泊まり込むことを基本とします）
         p モーションキャプチャ、3Dプリンタ、レーザーカッター、切削加工機や電子工作に必要な機材が揃っています。
-        p 2018年からは技術顧問としてアニメの企画開発プロデュース会社である<a href="https://archinc.jp">アーチ株式会社</a>の技術顧問を務めており、<a href="https://research.archinc.jp">Arch Research</a>で受け入れ可能なこともあるかもしれません。アーチは代々木にオフィスがあります。
+        p <a href="https://research.archinc.jp">Arch Research</a>で受け入れ可能なこともあるかもしれません。アーチは代々木にオフィスがあります。
         h3.ui.header 過去の技術研修生
         p 多くの場合、複数の研究員が共同でメンタリングします。加藤が主に担当した学生は名前の前に
           i.check.circle.icon
