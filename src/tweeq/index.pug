@@ -15,7 +15,7 @@ block post-footer
     a.item(href='#abstract')
       i.right.triangle.icon
       .content #{en ? 'Abstract' : '概要'}
-    a.item(href='#tweeq')
+    a.item(href='#implementation')
       i.right.triangle.icon
       .content #{en ? 'Reference implementation' : 'リファレンス実装'}
 
@@ -26,7 +26,7 @@ block main
   section#abstract
     h2.ui.header
       .content #{en ? 'Abstract' : '概要'}
-    .ui.basic.segment
+    .ui.basic.segment: block abstract
       p Professionals in the creative industry rely on digital content authoring tools that provide graphical user interface (GUI) widgets for tuning primitive values, such as numeric sliders, rotary knobs, and color pickers. Despite their prevalence, GUI studies have sometimes been considered "done" in the context of HCI, and users' frustrations with these widgets might have gone unheard.
       p We sampled such widgets from popular production software and analyzed their interaction design, identifying three core design principles:
       ul
@@ -37,24 +37,25 @@ block main
       p To evaluate <i>Tweeq</i>, we implemented example applications and conducted an informal expert user study, which revealed generally positive reactions and indicated that the proposed design principles may offer a useful direction for GUI development in creative software.
     .ui.basic.segment
       p: img.ui.fluid.image(src=`${rootPath}tweeq/tweeq.png`)
-      p.caption
-        i Tweeq
-        | , a set of GUI widgets proposed in this paper for creative software. 
-        strong (a)
-        |  Components of <i>Tweeq</i>. 
-        strong (b)
-        |  Color input and its overlay UI. 
-        strong (c)
-        |  Timecode input with overlay UI. 
-        strong (d)
-        |  Simultaneous parameter tuning on angle inputs.
-      p *Note that Baku Hashimoto carried out this work partly in the capacity of a collaborative researcher at AIST, as reflected in the paper author's affiliation, and partly as an independent visual artist.
+      block teaser
+        p.caption
+          i Tweeq
+          | , a set of GUI widgets proposed in this paper for creative software. 
+          strong (a)
+          |  Components of <i>Tweeq</i>. 
+          strong (b)
+          |  Color input and its overlay UI. 
+          strong (c)
+          |  Timecode input with overlay UI. 
+          strong (d)
+          |  Simultaneous parameter tuning on angle inputs.
+        p *Note that Baku Hashimoto carried out this work partly in the capacity of a collaborative researcher at AIST, as reflected in the paper author's affiliation, and partly as an independent visual artist.
   .ui.hidden.divider
-  section#tweeq
+  section#implementation
     h2
       i.github.icon
       | #{en ? 'Reference implementation' : 'リファレンス実装'}
-    .ui.basic.segment 
+    .ui.basic.segment: block implementation
       p 
         | The reference implementation of the design principles, <i>Tweeq</i>, developed with Vue.js and TypeScript, is available as an open-source project on 
         a(href='//github.com/baku89/tweeq')
@@ -64,16 +65,16 @@ block main
     .ui.basic.center.aligned.segment
       .ui.huge.buttons
         a.ui.primary.button(href="//github.com/baku89/tweeq")
-          | Code
+          | #{en ? 'Code' : 'ソースコード'}
         .ui.divider
         a.ui.button(href="//baku89.github.io/tweeq")
-          | Documents
+          | #{en ? 'Documents' : 'デモ'}
   .ui.hidden.divider
   section#revision
     h2
       i.announcement.icon
       | #{en ? 'Revision history' : '更新履歴'}
-    .ui.basic.segment: .ui.divided.feed
+    .ui.basic.segment: .ui.divided.feed: block revision
       .event: .content
         .date 8/1/2025
         .summary Upload the initial revision.

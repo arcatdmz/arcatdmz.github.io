@@ -103,10 +103,11 @@
       "publication": "uist2025-hashimoto-tweeq",
       "title": "Tweeq",
       "subtitle": "Parameter-Tuning GUI Widgets by/for Creative Professionals",
-      "description": "GUI studies are sometimes considered “done” in HCI, but this is never truly the case, especially for creative professionals with demanding needs. In this work, we analyzed parameter-tuning GUI widgets from popular production software and identified three key design principles, embodied in a set of widgets called Tweeq, developed and refined through use in the first author's animation projects.",
+      "description": "GUI studies are sometimes considered &quot;done&quot; in HCI, but this is never truly the case, especially for creative professionals with demanding needs. In this work, we analyzed parameter-tuning GUI widgets from popular production software and identified three key design principles, embodied in a set of widgets called Tweeq, developed and refined through use in the first author's animation projects.",
       "members": ["Baku Hashimoto", "Jun Kato"],
       "ja": {
-        "members": ["加藤 淳", "橋本 麦"]
+        "members": ["橋本 麦", "加藤 淳"],
+        "description": "GUIの設計に関する研究は、ともすればHCI分野で「解決済み」と見なされがちだが、とくに要求の厳しいクリエイティブ業界のプロフェッショナルにとっては、決してそうではない。本研究では、市販制作ツールに実装されたパラメタ調整用GUIウィジェットを分析し、3つの設計原則を導出した。そして、第一著者によるアニメーション制作の実践と並行して、これらの原則を具現化したウィジェット群 Tweeq を開発した。"
       }
     },
     {
