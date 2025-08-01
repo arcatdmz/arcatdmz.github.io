@@ -1,8 +1,13 @@
 {
-  "en": [{
-    "date": "2025/5/10",
-    "text": "Organized <a href=\"https://chci.pages.dev/chi2025anime\" title=\"Anime SIG\">Anime SIG: Researching Japanese Animation from Technical, Cultural, and Industrial Perspectives</a> from 11:10 Mon, Apr 28, which drew a standing-room-only crowd (thanks!), presented <a href=\"${rootPath}creativity-support-environments/#postgrowth\">a position paper</a> on a post-growth future vision for creativity support tools in the <a href=\"https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089\">Advancing Post-growth HCI</a> workshop, and presented <a href=\"${rootPath}ja/timeline/#2025-publications\">two co-authored papers</a> at <a href=\"https://chi2025.acm.org/\">ACM CHI 2025</a>."
-  }, 
+  "en": [
+    {
+      "date": "2025/8/1",
+      "text": "My co-authored paper on GUI widgets for creative professionals featuring a new set called <a href=\"${rootPath}tweeq\">Tweeq</a> is accepted to <a href=\"https://uist.acm.org/2025/\">ACM UIST 2025</a>. Congratulations to the first author, <a href=\"https://baku89.com\">Baku Hashimoto</a>, for his first academic paper &mdash; it's well deserved, considering his expertise and efforts!"
+    },
+    {
+      "date": "2025/5/10",
+      "text": "Organized <a href=\"https://chci.pages.dev/chi2025anime\" title=\"Anime SIG\">Anime SIG: Researching Japanese Animation from Technical, Cultural, and Industrial Perspectives</a> from 11:10 Mon, Apr 28, which drew a standing-room-only crowd (thanks!), presented <a href=\"${rootPath}creativity-support-environments/#postgrowth\">a position paper</a> on a post-growth future vision for creativity support tools in the <a href=\"https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089\">Advancing Post-growth HCI</a> workshop, and presented <a href=\"${rootPath}ja/timeline/#2025-publications\">two co-authored papers</a> at <a href=\"https://chi2025.acm.org/\">ACM CHI 2025</a>."
+    },
     {
       "date": "2025/3/14",
       "text": "The permanent exhibition facility of the National Institute of Advanced Industrial Science and Technology (AIST) is being renewed as <a href=\"https://www.aist.go.jp/sc/cube/\">&quot;AIST-Cube&quot;</a>, as <a href=\"https://www.aist.go.jp/aist_j/news/au20250314_2.html\">publicly announced</a>. I contributed to the exhibition production related to the <a href=\"${rootPath}lyric-app-framework\">Lyric App Framework</a>."

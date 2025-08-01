@@ -89,6 +89,27 @@
   },
   "projects": [
     {
+      "project": "tweeq",
+      "thumbnail": "tweeq.png",
+      "tags": [
+        "creativity",
+        "design",
+        "toolkit"
+      ],
+      "year": {
+        "from": 2023,
+        "to": 2025
+      },
+      "publication": "uist2025-hashimoto-tweeq",
+      "title": "Tweeq",
+      "subtitle": "Parameter-Tuning GUI Widgets by/for Creative Professionals",
+      "description": "GUI studies are sometimes considered “done” in HCI, but this is never truly the case, especially for creative professionals with demanding needs. In this work, we analyzed parameter-tuning GUI widgets from popular production software and identified three key design principles, embodied in a set of widgets called Tweeq, developed and refined through use in the first author's animation projects.",
+      "members": ["Baku Hashimoto", "Jun Kato"],
+      "ja": {
+        "members": ["加藤 淳", "橋本 麦"]
+      }
+    },
+    {
       "project": "aist-cube",
       "title": "AIST-Cube: Interacting with music/lyrics",
       "title-design": "AIST-Cube: Interacting with music/lyrics",
@@ -575,7 +596,7 @@
         "title-design": "TextAlive ブランドデザイン",
         "description": "音楽に同期して歌詞がアニメーションする動画を制作でき、演出をJavaScriptで拡張できる統合制作環境です。",
         "description-design": "研究プロジェクト<a href=\"${rootPath}ja/textalive\">TextAlive</a>のロゴや配色を含むブランドキットをデザインしました。また、WebサイトをNode.jsとMySQLなどを用いて開発した他、ドキュメントサイトはWordPressで構築しました。WebデザインにはBootstrap CSSフレームワークを利用しました。",
-        "members": ["加藤 淳", "中野 倫靖", "後藤真孝"]
+        "members": ["加藤 淳", "中野 倫靖", "後藤 真孝"]
       }
     },
     {
