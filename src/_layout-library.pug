@@ -72,8 +72,8 @@ mixin render-project-header(project, additionalLabels)
     h1.ui.header !{title}
       .sub.header !{p.getSubtitle(lang)}
     .ui.horizontal.divided.list.project-meta-list
-      - if (p.hasMembers()) for (member of p.getMembers(lang)) {
-      .item #{member}
+      - if (p.hasMembers(lang)) for (member of p.getMembers(lang)) {
+      .item.author #{member}
       - }
       .item
         span.ui.tiny.basic.label
