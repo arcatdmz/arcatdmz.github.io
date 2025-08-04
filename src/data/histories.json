@@ -415,6 +415,10 @@
   ],
   "ja": [
     {
+      "date": "2025/8/4",
+      "text": "コンテンツ創作の現場で利用される制作ツールのための、プロ向けGUIウィジェット群「<a href=\"${rootPath}ja/tweeq\">Tweeq</a>」に関する共著論文が<a href=\"https://uist.acm.org/2025/\">ACM UIST 2025</a>に採択されました。主著の映像作家<a href=\"https://baku89.com\">橋本 麦</a>さんとご一緒した経緯などを<a href=\"https://blog.junkato.jp/ja/posts/2025-08-03-uist2025-tweeq/\">ブログ</a>に書きました。"
+    },
+    {
       "date": "2025/5/10",
       "text": "国際会議<a href=\"https://chi2025.acm.org/\">ACM CHI 2025</a>で「<a href=\"https://chci.pages.dev/chi2025anime\" title=\"Anime SIG\">Anime SIG: Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives</a>」（11:10 Mon, Apr 28）を主催して立ち見の盛況でした。ありがとうございました！また、「<a href=\"https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089\">Advancing Post-growth HCI</a>」ワークショップで創造性支援ツールの未来ビジョンに関する<a href=\"${rootPath}ja/creativity-support-environments/#postgrowth\">ポジションペーパー</a>を発表しました。さらに、<a href=\"${rootPath}ja/timeline/#2025-publications\">共著論文2本</a>の発表がありました。"
     },
