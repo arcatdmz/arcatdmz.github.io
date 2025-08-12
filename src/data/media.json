@@ -1,5 +1,16 @@
 [
   {
+    "date": "2025/8/9",
+    "text": {
+      "ja": "プログラミング・コンテスト受賞作品の選定に向けて一般投票を開始！　力作揃いのリリックアプリ10作を公開！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000530.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"]
+  },
+  {
     "date": "2025/5/10",
     "text": {
       "ja": "アニメづくりのR&D座談会 2025"
