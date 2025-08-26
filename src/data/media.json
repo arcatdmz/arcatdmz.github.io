@@ -11,6 +11,17 @@
     "projects": ["textalive", "lyric-app-framework"]
   },
   {
+    "date": "2025/6/26",
+    "text": {
+      "ja": "アニメづくりのR&D座談会 2025 No.2／R&Dの火を絶やさぬための組織戦略"
+    },
+    "media": {
+      "ja": "CGWORLD.jp"
+    },
+    "permalink": "https://cgworld.jp/article/202506-rad-2.html",
+    "projects": ["griffith"]
+  },
+  {
     "date": "2025/5/10",
     "text": {
       "ja": "アニメづくりのR&D座談会 2025"
