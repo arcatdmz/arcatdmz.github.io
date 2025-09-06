@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025/9/4",
+    "text": {
+      "ja": "日本ソフトウェア科学会 <a href=\"https://jssst2025.wordpress.com/\">第42回大会</a>基調講演「現場に根差したツール研究　プログラミング、IoT、音楽動画からアニメまで」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2025/3/4",
     "text": {
       "ja": "基調講演: <a href=\"https://www.ehess.fr/fr/rencontre/iaasoc-2025-intelligence-augmentation-and-amplification-plus-society-forum\">Intelligence Augmentation and Amplification plus Society Forum (IAA+Soc 2025)</a>, &quot;Creativity Support Tools as Boundary Objects: bridging computer and social science methodologies&quot;",

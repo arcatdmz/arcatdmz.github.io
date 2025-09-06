@@ -1,5 +1,28 @@
 [
   {
+    "date": "2025/8/29",
+    "text": {
+      "ja": "『初音ミク「マジカルミライ 2025」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
+    },
+    "media": {
+      "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
+    },
+    "permalink": "https://prtimes.jp/main/html/rd/p/000000533.000052709.html",
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2025/8/29",
+        "text": {
+          "ja": "『初音ミク「マジカルミライ 2025」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
+        },
+        "media": {
+          "ja": "ASCII.jp"
+        },
+        "permalink": "https://ascii.jp/elem/000/004/316/4316309/"
+      }
+    ]
+  },
+  {
     "date": "2025/8/9",
     "text": {
       "ja": "プログラミング・コンテスト受賞作品の選定に向けて一般投票を開始！　力作揃いのリリックアプリ10作を公開！"
@@ -8,7 +31,29 @@
       "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
     },
     "permalink": "https://prtimes.jp/main/html/rd/p/000000530.000052709.html",
-    "projects": ["textalive", "lyric-app-framework"]
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2025/8/9",
+        "text": {
+          "ja": "プログラミング・コンテスト受賞作品の選定に向けて一般投票を開始！　力作揃いのリリックアプリ10作を公開！"
+        },
+        "media": {
+          "ja": "ASCII.jp"
+        },
+        "permalink": "https://ascii.jp/elem/000/004/312/4312147/"
+      },
+      {
+        "date": "2025/8/14",
+        "text": {
+          "ja": "クリプトン、「初音ミク プログラミング・コンテスト」の一般投票を受付け中"
+        },
+        "media": {
+          "ja": "ICT教育ニュース"
+        },
+        "permalink": "https://ict-enews.net/2025/08/14crypton-2/"
+      }
+    ]
   },
   {
     "date": "2025/6/26",
@@ -295,6 +340,16 @@
           "ja": "ASCII.jp"
         },
         "permalink": "https://ascii.jp/elem/000/004/214/4214970/"
+      },
+      {
+        "date": "2024/8/13",
+        "text": {
+          "ja": "クリプトン・フューチャー・メディア、プログラミング・コンテスト受賞作品の選定に一般投票を開始"
+        },
+        "media": {
+          "ja": "ICT教育ニュース"
+        },
+        "permalink": "https://ict-enews.net/2024/08/13crypton/"
       }
     ]
   },
@@ -426,7 +481,19 @@
       "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
     },
     "permalink": "https://prtimes.jp/main/html/rd/p/000000208.000052709.html",
-    "projects": ["textalive", "lyric-app-framework"]
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2023/4/14",
+        "text": {
+          "ja": "クリプトン、「初音ミク『マジカルミライ2023』プログラミング・コンテスト」作品募集"
+        },
+        "media": {
+          "ja": "ICT教育ニュース"
+        },
+        "permalink": "https://ict-enews.net/2023/04/14crypton/"
+      }
+    ]
   },
   {
     "date": "2023/1/17",

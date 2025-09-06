@@ -75,6 +75,18 @@
     "organizers": [
       {
         "class": "pc",
+        "title": "Associate Chair",
+        "subtitle": "Blending Interaction: Engineering Interactive Systems & Tools",
+        "url": "https://chi2026.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction",
+        "event": {
+          "name": "ACM CHI '26",
+          "fullname": "The 2026 ACM CHI Conference on Human Factors in Computing Systems",
+          "url": "https://chi2026.acm.org"
+        },
+        "year": 2023
+      },
+      {
+        "class": "pc",
         "title": "Program Committee",
         "url": "https://uist.acm.org/uist2025/organizers",
         "event": {

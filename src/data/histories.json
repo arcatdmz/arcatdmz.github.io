@@ -415,6 +415,14 @@
   ],
   "ja": [
     {
+      "date": "2025/9/4",
+      "text": "日本ソフトウェア科学会 <a href=\"https://jssst2025.wordpress.com/\">第42回大会</a>で<a href=\"https://jssst2025.wordpress.com/program/\">基調講演「現場に根差したツール研究　プログラミング、IoT、音楽動画からアニメまで」</a>を行いました。（<a href=\"https://www.facebook.com/jun.kato/posts/pfbid0QLjsorrtAJ4ZW7RmveC9ZRY3RZh89nZpNvysbKE7ZgdKLLN9zTLByavMejZ2ddk4l\">Facebookポスト</a>）"
+    },
+    {
+      "date": "2025/8/29",
+      "text": "初音ミク「<a href=\"https://magicalmirai.com/2024/\">マジカルミライ 2025</a>」で「<a href=\"${rootPath}ja/lyric-app-framework\">Lyric App Framework</a>」を活用したプログラミング・コンテストが6年連続で開催され、企画展ステージに登壇しました。YouTube「<a href=\"https://www.youtube.com/@piaproTV\">ピアプロTV</a>」でも生放送されたステージの模様は、アーカイブ動画（<a href=\"https://www.youtube.com/watch?v=LystAUVEZCw\">OSAKA</a>・<a href=\"https://www.youtube.com/watch?v=sN2FoQJhrqI\">TOKYO</a>）で視聴できます。"
+    },
+    {
       "date": "2025/8/4",
       "text": "コンテンツ創作の現場で利用される制作ツールのための、プロ向けGUIウィジェット群「<a href=\"${rootPath}ja/tweeq\">Tweeq</a>」に関する共著論文が<a href=\"https://uist.acm.org/2025/\">ACM UIST 2025</a>に採択されました。主著の映像作家<a href=\"https://baku89.com\">橋本 麦</a>さんとご一緒した経緯などを<a href=\"https://blog.junkato.jp/ja/posts/2025-08-03-uist2025-tweeq/\">ブログ</a>に書きました。"
     },
