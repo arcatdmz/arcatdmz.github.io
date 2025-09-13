@@ -1,0 +1,59 @@
+extends ../_layout
+
+block vars
+  - p = projectsTable['animare'];
+  - title = p.getTitle(lang);
+  - me = 'animare/';
+
+block main-hero-unit
+  +render-project-hero('animare')
+
+block main
+  section#abstract
+    h2.ui.header: .content #{en ? 'Summary' : '概要'}
+    .ui.basic.segment
+      p !{p.getDescription(lang)}
+      p !{en ? 'This project is being advanced in collaboration with Co-PIs Maejima (OLM Digital Inc.) and Koyama (The University of Tokyo). The overall project website is under preparation, and this page mainly serves to publicize the related achievements of the Kato group.' : '本プロジェクトは<a href="https://www.jst.go.jp/kisoken/cronos/">JST CRONOS</a>の支援の下で前島（OLM Digital）、小山（東京大学）Co-PIとともに進めるもので、プロジェクト全体のWebページは準備中です。本ページは主に加藤グループの関連成果を広報するものです。'}
+      p: img.ui.bordered.image(src=`${rootPath}images/panels/animare${en ? "" : "-ja"}.png`)
+  .ui.hidden.divider
+  section#further-readings: +further-readings()
+  .ui.hidden.divider
+  section#revision: +revision()
+
+mixin further-readings()
+  h2.ui.header
+    i.gift.icon
+    .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+  .ui.basic.segment
+    .ui.segment: .ui.divided.items.projects
+      +render-project-item(projectsTable['anime-sig'])
+      +render-project-item(projectsTable['griffith'])
+  .ui.basic.segment
+    p #{en ? 'I have also organized and hosted related events.' : '他にも関連イベントを主催・開催してきました。'}
+    .ui.segment: .ui.divided.items.projects
+      - for (const e of misc.miscellaneous['past-anime-events']) {
+      a.item(href=e.url): .content
+        .header #{e.title}
+        .extra
+          span.right.floated
+            i.calendar.icon
+            | #{en ? e.dates : e.ja && e.ja.dates || e.dates}
+      - }
+  .ui.basic.segment
+    p #{en ? 'The following is a full list of past publications (including non-archival ones).' : '過去の発表文献のうち内容面で本プロジェクトに関係するものは以下のとおりです。'}
+    .ui.divider
+    .ui.divided.list
+      - for (const pubId of ['chi2025-kato-animesig', 'chi2025-kato-postgrowth-cst', 'chi2025-mandai-super-kawaii-vocalics', 'sa2024-todo-style-transfer', !en && 'vc2024-kato-toolsmiths-in-anime', 'chi2024-kato-griffith', 'xrds2023summer-kato-toolsmith', 'sas2023-kato-lights-animation-interaction', !en && 'hi25-kato-ui-design-for-authoring-videos', 'chi2023-kato-sigccc', !en && 'jssst39-1-kato-toolsmith', 'sas2022-kato-toolsmiths-in-anime', 'isid2022-kato-toolsmiths-in-anime', 'sas2021-kato-storyboarding-in-anime', 'isid2021-kato-anime-storyboards', ]) {
+      - if (!publicationsTable[pubId]) continue;
+      +render-publication(publicationsTable[pubId])
+      - }
+
+mixin revision()
+  h2.ui.header
+    i.announcement.icon
+    | #{en ? 'Revision history' : '更新履歴'}
+  .ui.basic.segment: .ui.divided.feed
+    block news
+      .event: .content
+        .date 9/14/2025
+        .summary Upload the initial revision.

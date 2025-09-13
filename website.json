@@ -7,6 +7,7 @@
   "defaultJapaneseDescription": "加藤 淳（Human-Computer Interaction 研究者，情報理工学博士）のポートフォリオWebサイトです。これまでの研究、デザイン、発表文献などを紹介しています。",
   "products": ["textalive", "griffith", "songle-sync", "f3js"],
   "selectedProjects": [
+    "animare",
     "creativity-support-environments",
     "science",
     "user-interface-design",

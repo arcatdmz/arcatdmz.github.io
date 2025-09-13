@@ -1,5 +1,12 @@
 {
   "tags": {
+    "anime": {
+      "title": "Anime",
+      "label": "Anime",
+      "ja": {
+        "title": "アニメ"
+      }
+    },
     "user-interface-design": {
       "title": "User Interface Design",
       "label": "<abbr title=\"User Interface\">UI</abbr>",
@@ -89,6 +96,26 @@
   },
   "projects": [
     {
+      "project": "animare",
+      "thumbnail": "animare.png",
+      "tags": [
+        "anime",
+        "creativity"
+      ],
+      "year": {
+        "from": 2025
+      },
+      "title": "animāre",
+      "subtitle": "Foundational Techniques for Malleable Tools for a Reciprocal Anime Co-creation Environment",
+      "description": "animāre (pronounced ah-nee-MAH-ray) comes from the Latin &quot;to give life,&quot; which is also the root of the word &quot;animation.&quot; This project sets anime creation as a key application domain to develop foundational techniques for malleable tools and realize an environment where anime creators and tool developers can form reciprocal relationships.",
+      "members": ["Jun Kato", "Akinobu Maejima", "Yuki Koyama"],
+      "ja": {
+        "members": ["加藤 淳", "前島 謙宣", "小山 裕己"],
+        "subtitle": "高融合性ツール基盤技術によるアニメ共創環境の実現",
+        "description": "animāre（アニマーレ） はラテン語で「命を吹き込む」を意味し、アニメーションの語源でもあります。アニメ（&quot;ani&quot;-me）づくりを対象に、しなやかなツール群（&quot;ma&quot;-lleable tools）の基盤技術を研究開発し、アニメ制作に関わる多様なクリエータとツール開発者が互いに影響を与え合う関係（&quot;re&quot;-ciprocal relationship）を築ける環境の実現を目指すプロジェクトです。"
+      }
+    },
+    {
       "project": "tweeq",
       "thumbnail": "tweeq.png",
       "tags": [
@@ -107,6 +134,21 @@
       "ja": {
         "members": ["橋本 麦", "加藤 淳"],
         "description": "GUIの設計に関する研究は、ともすればHCI分野で「解決済み」と見なされがちだが、とくに要求の厳しいクリエイティブ業界のプロフェッショナルにとっては、決してそうではない。本研究では、市販制作ツールに実装されたパラメタ調整用GUIウィジェットを分析し、3つの設計原則を導出した。そして、第一著者によるアニメーション制作の実践と並行して、これらの原則を具現化したウィジェット群 Tweeq を開発した。"
+      }
+    },
+    {
+      "project": "anime-sig",
+      "title": "Anime SIG",
+      "subtitle": "Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives",
+      "year": {
+        "from": 2025,
+        "to": 2025
+      },
+      "category": "committee",
+      "description": "Organized by experts from industry and academia, this SIG invited participants to the emerging area of anime research with the aim to open up a new alley for human-computer interaction (HCI) research through collective discussion on potential directions and community fostering of anime-interested researchers.",
+      "url": "https://chci.pages.dev/chi2025anime",
+      "ja": {
+        "description": "産学の専門家が集まり、Human-Computer Interaction 研究のアプローチでアニメづくりを支えるための新たな道筋を切り拓くことを目的として研究会合を開催しました。アニメ研究の新たな潮流を紹介し、今後の方向性について議論するとともに、アニメに関心を持つ研究者コミュニティの形成を目指しました。"
       }
     },
     {
@@ -145,7 +187,7 @@
       "year": {
         "from": 2019
       },
-      "tags": ["creativity"],
+      "tags": ["anime", "creativity"],
       "thumbnail": "griffith.jpg",
       "icon": true,
       "hero": "griffith.jpg",
@@ -163,10 +205,10 @@
         "to": 2024
       },
       "category": "committee",
-      "description": "This seminar series is organized by AIST and will invite rising stars in the Human-Computer Interaction field and cover diverse topics which are directly/indirectly connected to creativity support research.",
+      "description": "This seminar series is organized by AIST and invited rising stars in the Human-Computer Interaction field and cover diverse topics which are directly/indirectly connected to creativity support research.",
       "url": "https://chci.pages.dev/aist-seminar/en",
       "ja": {
-        "description": "産総研として主催するセミナーシリーズで、国際的に活躍する Human-Computer Interaction 分野の新星を招き、創造性支援研究に直接/間接に関わる多様なトピックを取り上げます。",
+        "description": "産総研として主催するセミナーシリーズで、国際的に活躍する Human-Computer Interaction 分野の新星を招き、創造性支援研究に直接/間接に関わる多様なトピックを取り上げました。",
         "url": "https://chci.pages.dev/aist-seminar"
       }
     },
@@ -449,8 +491,7 @@
       "project": "sigpx",
       "title": "SIGPX",
       "year": {
-        "from": 2016,
-        "to": 2022
+        "from": 2016
       },
       "category": "committee",
       "description": "This is a Japanese domestic study group for those interested in programming environments and their programming experience, founded in January 2016.",

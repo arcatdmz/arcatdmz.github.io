@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025/9/7",
+    "text": {
+      "ja": "<a href=\"https://visualcomputing.jp/vc2025/tutorial/#tutorial_kato\">Visual Computing 2025 チュートリアル</a>招待講演「絵コンテから始めるアニメ制作支援」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2025/9/4",
     "text": {
       "ja": "日本ソフトウェア科学会 <a href=\"https://jssst2025.wordpress.com/\">第42回大会</a>基調講演「現場に根差したツール研究　プログラミング、IoT、音楽動画からアニメまで」"

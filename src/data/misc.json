@@ -1074,5 +1074,43 @@
         }
       }
     ]
+  },
+  "miscellaneous": {
+    "past-anime-events": [
+      {
+        "title": "A Workshop on Creativity support for Hand-drawn Art Practices",
+        "shorthand": "CHAP2025 Paris",
+        "dates": "February 10-12, 2025",
+        "url": "https://chci.pages.dev/chap2025paris/",
+        "ja": {
+          "dates": "2025/2/10-12"
+        }
+      },
+      {
+        "title": "R&D for Anime Production: Collaborative Cultural Craft of Art, Science, and Engineering (ACM SIGGRAPH Asia 2024)",
+        "dates": "December 6, 2024",
+        "url": "https://research.archinc.jp/en/events/siggraph-asia-2024/",
+        "ja": {
+          "dates": "2024/12/6"
+        }
+      },
+      {
+        "title": "Special Interest Group on Creativity and Cultures in Computing (ACM CHI 2023)",
+        "shorthand": "SIGCCC",
+        "dates": "April 24, 2023",
+        "url": "https://chci.pages.dev/chi2023/",
+        "ja": {
+          "dates": "2023/4/24"
+        }
+      },
+      {
+        "title": "R&D for Anime Production: State-of-the-Art and Future Prospects (ACM SIGGRAPH Asia 2021)",
+        "dates": "December 16, 2021",
+        "url": "https://research.archinc.jp/en/events/siggraph-asia-2021/",
+        "ja": {
+          "dates": "2021/12/16"
+        }
+      }
+    ]
   }
 }
