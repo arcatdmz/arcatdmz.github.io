@@ -1,6 +1,7 @@
 /// <reference path='./typings.d.ts' />
 import * as json from "../data/media.json";
 import { EntryDate, EntryDateType, I18nText } from "./library";
+import { tagsToHTML } from "./projects";
 
 interface RawMediaEntry {
   date?: string;
@@ -9,6 +10,7 @@ interface RawMediaEntry {
   permalink?: string;
   archive?: string;
   projects?: string[];
+  tags?: string[];
   related?: RawMediaEntry[];
   draft?: boolean;
   private?: boolean;
@@ -31,6 +33,10 @@ class MediaEntry {
   public get projects(): string[] | undefined {
     return this._projects || this.parent?.projects;
   }
+  private _tags?: string[];
+  public get tags(): string[] | undefined {
+    return this._tags || this.parent?.tags;
+  }
   public related?: MediaEntry[];
   public draft?: boolean;
   public private?: boolean;
@@ -42,6 +48,7 @@ class MediaEntry {
     this.permalink = data.permalink;
     this.archive = data.archive;
     this._projects = data.projects;
+    this._tags = data.tags;
     this.draft = data.draft;
     this.private = data.private;
     if (data.date) {
@@ -59,6 +66,11 @@ class MediaEntry {
   public getText(lang: "en" | "ja") {
     if (!this.text) return "";
     return this.text[lang] || this.text.ja || this.text.en || "";
+  }
+
+  getTags(lang?: "en" | "ja") {
+    const tags = this.tags;
+    return tagsToHTML(tags);
   }
 
   public getMedia(lang: "en" | "ja") {

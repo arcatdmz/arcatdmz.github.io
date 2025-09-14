@@ -389,6 +389,8 @@ mixin render-media-item(m, withLabel=true)
   - const media = m.getMedia(lang);
   - const url = m.archive || m.permalink;
   - const projects = (m.projects || []).map(p => projectsTable[p]).filter(p => !!p);
+  - const tags = m.getTags(lang) || [];
+  - for (var i = 0; i < tags.length; i ++) tags[i] = tags[i].replace(/<a class="(.+)" data-tag="(.+)">/, '<a class="$1" data-tag="$2" data-position="bottom center">');
   .item
     .content
       - if (url) {
@@ -400,8 +402,13 @@ mixin render-media-item(m, withLabel=true)
       .description #{text}
       - }
       .description.date #{m.getDateString(lang, true)}
-        - if (withLabel && projects.length > 0) for (const p of projects) {
+        - if (withLabel) {
+        - if (tags.length > 0) {
+        |  (#{en ? 'Keywords' : '関連キーワード'}: !{tags.join(', ')}) 
+        - }
+        - if (projects.length > 0) for (const p of projects) {
         +render-project-label(p)
+        - }
         - }
 
 mixin render-project-label(p)

@@ -167,19 +167,8 @@ class Entry {
     return this.thumbnail;
   }
   getTags(lang?: "en" | "ja") {
-    const results = [];
     const tags = this.data.tags;
-    const dict = data.tags;
-    if (typeof tags !== "undefined") {
-      for (const tag of tags) {
-        const t = dict[tag];
-        if (!t) continue;
-        results.push(
-          `<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`
-        );
-      }
-    }
-    return results;
+    return tagsToHTML(tags);
   }
   getDesignTags(lang?: "en" | "ja") {
     const results = [];
@@ -306,6 +295,21 @@ export function namesToHTML(namesArr: string[]) {
     namesArr[k] = `<u>${namesArr[k]}</u>`;
   }
   return namesArr;
+}
+
+export function tagsToHTML(tagsArr?: string[]) {
+  const results = [];
+  const dict = data.tags;
+  if (typeof tagsArr !== "undefined") {
+    for (const tag of tagsArr) {
+      const t = dict[tag];
+      if (!t) continue;
+      results.push(
+        `<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`
+      );
+    }
+  }
+  return results;
 }
 
 const entries: Entry[] = [];
