@@ -11,6 +11,16 @@
     "projects": ["textalive", "lyric-app-framework"],
     "related": [
       {
+        "date": "2025/8/31",
+        "text": {
+          "ja": "初音ミク「マジカルミライ 2025」プログラミング・コンテスト受賞作品発表！　96作品から4作品を選出"
+        },
+        "media": {
+          "ja": "AppBank"
+        },
+        "permalink": "https://www.appbank.net/2025/08/31/iphone-news/2808702.php"
+      },
+      {
         "date": "2025/8/29",
         "text": {
           "ja": "『初音ミク「マジカルミライ 2025」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
@@ -309,6 +319,16 @@
     "projects": ["textalive", "lyric-app-framework"],
     "related": [
       {
+        "date": "2024/9/3",
+        "text": {
+          "ja": "初音ミク「マジカルミライ 2024」プログラミングコンテスト、受賞作品が決定"
+        },
+        "media": {
+          "ja": "インプレス こどもとIT"
+        },
+        "permalink": "https://edu.watch.impress.co.jp/docs/news/1620232.html"
+      },
+      {
         "date": "2024/8/30",
         "text": {
           "ja": "『初音ミク「マジカルミライ 2024」プログラミング・コンテスト』一般投票を経て決定した受賞作品を発表！"
@@ -405,7 +425,19 @@
       "ja": "クリプトン・フューチャー・メディア株式会社 プレスリリース"
     },
     "permalink": "https://prtimes.jp/main/html/rd/p/000000333.000052709.html",
-    "projects": ["textalive", "lyric-app-framework"]
+    "projects": ["textalive", "lyric-app-framework"],
+    "related": [
+      {
+        "date": "2024/4/5",
+        "text": {
+          "ja": "楽曲のリリックアプリを公募するプログラミング・コンテスト開催！「初音ミク『マジカルミライ 2024』」の一環で7/9まで募集！"
+        },
+        "media": {
+          "ja": "Musicman"
+        },
+        "permalink": "https://web.archive.org/web/20240406015604/https://www.musicman.co.jp/audition/608153"
+      }
+    ]
   },
   {
     "date": "2023/9/1",
@@ -1343,15 +1375,6 @@
   {
     "draft": true,
     "permalink": "https://archinc.jp/ja/news/{2540,2537,2469,2449,2314,2111,1901,1611,1486,1397,1311,1248,1125,1124,762,602,538,396,385,343,342,324,149}"
-  },
-  {
-    "draft": true,
-    "permalink": "https://edu.watch.impress.co.jp/docs/news/1620232.html"
-  },
-  {
-    "draft": true,
-    "permalink": "",
-    "archive": "https://web.archive.org/web/20240406015604/https://www.musicman.co.jp/audition/608153"
   },
   {
     "draft": true,
