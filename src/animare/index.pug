@@ -5,6 +5,27 @@ block vars
   - title = p.getTitle(lang);
   - me = 'animare/';
 
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.mobile-only.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup
+    .ui.divided.list
+      a.item(href='#body')
+        i.chevron.circle.up.icon
+        .content #{en ? 'Top' : 'トップ'}
+      a.item(href='#abstract')
+        i.right.triangle.icon
+        .content #{en ? 'Abstract' : '概要'}
+      a.item(href='#further-readings')
+        i.gift.icon
+        .content #{en ? 'Relevant projects' : '関連プロジェクト'}
+      a.item(href='#publications')
+        i.book.icon
+        .content #{en ? 'Publications' : '発表文献'}
+      a.item(href='#media')
+        i.broadcast.tower.icon
+        .content #{en ? 'Media coverage' : 'メディア掲載'}
+
 block main-hero-unit
   +render-project-hero('animare')
 
@@ -17,6 +38,10 @@ block main
       p: img.ui.bordered.image(src=`${rootPath}images/panels/animare${en ? "" : "-ja"}.png`)
   .ui.hidden.divider
   section#further-readings: +further-readings()
+  .ui.hidden.divider
+  section#publications: +publications()
+  .ui.hidden.divider
+  section#media: +media()
   .ui.hidden.divider
   section#revision: +revision()
 
@@ -39,6 +64,11 @@ mixin further-readings()
             i.calendar.icon
             | #{en ? e.dates : e.ja && e.ja.dates || e.dates}
       - }
+
+mixin publications()
+  h2.ui.header
+    i.book.icon
+    .content #{en ? 'Publications' : '発表文献'}
   .ui.basic.segment
     p #{en ? 'The following is a full list of past publications (including non-archival ones).' : '過去の発表文献のうち内容面で本プロジェクトに関係するものは以下のとおりです。'}
     .ui.divider
@@ -46,6 +76,17 @@ mixin further-readings()
       - for (const pubId of ['chi2025-kato-animesig', 'chi2025-kato-postgrowth-cst', 'chi2025-mandai-super-kawaii-vocalics', 'sa2024-todo-style-transfer', !en && 'vc2024-kato-toolsmiths-in-anime', 'chi2024-kato-griffith', 'xrds2023summer-kato-toolsmith', 'sas2023-kato-lights-animation-interaction', !en && 'hi25-kato-ui-design-for-authoring-videos', 'chi2023-kato-sigccc', !en && 'jssst39-1-kato-toolsmith', 'sas2022-kato-toolsmiths-in-anime', 'isid2022-kato-toolsmiths-in-anime', 'sas2021-kato-storyboarding-in-anime', 'isid2021-kato-anime-storyboards', ]) {
       - if (!publicationsTable[pubId]) continue;
       +render-publication(publicationsTable[pubId])
+      - }
+
+mixin media()
+  - const filteredMediaList = mediaList.filter(entry => !entry.private && !entry.draft && entry.tags && entry.tags.includes('anime'));
+  h2.ui.header 
+    i.broadcast.tower.icon
+    .content #{en ? 'Media coverage' : 'メディア掲載'}
+  .ui.basic.segment
+    .ui.divided.relaxed.list.media
+      - for (const entry of filteredMediaList) {
+      +render-media-item(entry, false)
       - }
 
 mixin revision()
