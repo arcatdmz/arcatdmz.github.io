@@ -74,7 +74,8 @@
       "ja": "CGWORLD.jp"
     },
     "permalink": "https://cgworld.jp/article/202506-rad-2.html",
-    "projects": ["griffith"]
+    "projects": ["griffith"],
+    "tags": ["anime"]
   },
   {
     "date": "2025/5/10",
@@ -85,7 +86,8 @@
       "ja": "CGWORLD vol.322（2025年6月号） p.74-79"
     },
     "permalink": "https://cgworld.jp/magazine/cgw322.html",
-    "projects": ["griffith"]
+    "projects": ["griffith"],
+    "tags": ["anime"]
   },
   {
     "date": "2025/4/10",
@@ -470,7 +472,8 @@
       "ja": "4Gamer.net"
     },
     "permalink": "https://www.4gamer.net/games/999/G999905/20230824073/",
-    "projects": ["griffith"]
+    "projects": ["griffith"],
+    "tags": ["anime"]
   },
   {
     "date": "2023/7/28",
@@ -602,7 +605,8 @@
       "ja": "CGWORLD vol.283（2022年3月号） p.50-55"
     },
     "permalink": "https://cgworld.jp/magazine/cgw283.html",
-    "projects": ["griffith"]
+    "projects": ["griffith"],
+    "tags": ["anime"]
   },
   {
     "date": "2022/2/10",
@@ -853,7 +857,8 @@
       "ja": "アニメハック"
     },
     "permalink": "https://anime.eiga.com/news/107966/",
-    "projects": ["griffith"]
+    "projects": ["griffith"],
+    "tags": ["anime"]
   },
   {
     "date": "2018/12/24",
