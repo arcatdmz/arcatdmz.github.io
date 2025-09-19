@@ -415,8 +415,12 @@
   ],
   "ja": [
     {
+      "date": "2025/9/18",
+      "text": "JST さきがけ「人間中心インタラクション」領域で個人型の研究提案「共創的コンテンツ制作を支える時系列共有支援技術」が採択されました。アニメ制作進行職などに顕著な現場の課題について、入念な調査研究を行い、プログラミング言語とLLMやGUIのHCI技術をかけ合わせて解決することを目指します。（<a href=\"https://www.facebook.com/jun.kato/posts/pfbid0xWGsGq7mqk1DaHXsVKYgEXiq4xMfEdwfP5YQvQKHuMhYXJrmCfv1gtN6D6BnrexYl\">Facebookポスト</a>）"
+    },
+    {
       "date": "2025/9/14",
-      "text": "国内学会 <a href=\"https://visualcomputing.jp/vc2025/\">Visual Computing 2025</a>の<a href=\"https://visualcomputing.jp/vc2025/tutorial/\">チュートリアル</a>で招待講演「絵コンテから始めるアニメ制作支援」を行いました。また、JST CRONOS 2025年度採択課題として支援を受け、アニメづくりを技術で支えるプロジェクト「<a href=\"${rootPath}ja/animare\">animāre（アニマーレ） </a>」を始めます。（<a href=\"https://www.facebook.com/jun.kato/posts/pfbid02ouBNuXxm3fGeoPpyWQDagm9NB7XsofwWir8WsKafpXM4va1pFnW2jPdoN9DfaT2Sl\">Facebookポスト</a>, <a href=\"${rootPath}ja/animare\">プロジェクトページ</a>）"
+      "text": "国内学会 <a href=\"https://visualcomputing.jp/vc2025/\">Visual Computing 2025</a>の<a href=\"https://visualcomputing.jp/vc2025/tutorial/\">チュートリアル</a>で招待講演「絵コンテから始めるアニメ制作支援」を行いました。また、JST CRONOS 2025年度採択課題として支援を受け、アニメづくりを技術で支えるプロジェクト「<a href=\"${rootPath}ja/animare\">animāre（アニマーレ）</a>」を始めます。（<a href=\"https://www.facebook.com/jun.kato/posts/pfbid02ouBNuXxm3fGeoPpyWQDagm9NB7XsofwWir8WsKafpXM4va1pFnW2jPdoN9DfaT2Sl\">Facebookポスト</a>, <a href=\"${rootPath}ja/animare\">プロジェクトページ</a>）"
     },
     {
       "date": "2025/9/4",
