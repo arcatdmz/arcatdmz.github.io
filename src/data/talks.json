@@ -1,5 +1,13 @@
 [
   {
+    "date": "2025/9/28",
+    "text": {
+      "ja": "基調講演: <a href=\"https://uist.acm.org/2025\">ACM UIST 2025</a>併催ワークショップ <a href=\"https://longitudinal-workshop.github.io/\">Facilitating Longitudinal Interaction Studies of AI Systems</a>, &quot;Untangling the myth of 'generalizability': some notes from longitudinal systems research with/for creators&quot;",
+      "en": "Keynote: <a href=\"https://uist.acm.org/2025\">ACM UIST 2025</a> co-located workshop <a href=\"https://longitudinal-workshop.github.io/\">Facilitating Longitudinal Interaction Studies of AI Systems</a>, &quot;Untangling the myth of 'generalizability': some notes from longitudinal systems research with/for creators&quot;"
+    },
+    "entryType": "international"
+  },
+  {
     "date": "2025/9/7",
     "text": {
       "ja": "<a href=\"https://visualcomputing.jp/vc2025/tutorial/#tutorial_kato\">Visual Computing 2025 チュートリアル</a>招待講演「絵コンテから始めるアニメ制作支援」"
