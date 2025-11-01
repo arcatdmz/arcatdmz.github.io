@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025/10/20",
+    "text": {
+      "ja": "情報処理学会 連続セミナー2025第8回「<a href=\"https://www.ipsj.or.jp/event/seminar/2025/program08.html\">音楽・アニメ・食事: 情報技術が切り拓くメディア体験・制作の未来</a>」招待講演「情報技術が切り拓くアニメ制作の未来」"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2025/9/28",
     "text": {
       "ja": "基調講演: <a href=\"https://uist.acm.org/2025\">ACM UIST 2025</a>併催ワークショップ <a href=\"https://longitudinal-workshop.github.io/\">Facilitating Longitudinal Interaction Studies of AI Systems</a>, &quot;Untangling the myth of 'generalizability': some notes from longitudinal systems research with/for creators&quot;",

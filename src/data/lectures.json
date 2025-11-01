@@ -1,5 +1,21 @@
 [
   {
+    "dates": ["2025/10/28"],
+    "text": {
+      "ja": "京都大学 User Experience ゲスト講義「GUI研究は終わらない: 道具の科学のための理論的HCI」",
+      "en": "Kyoto University User Experience Guest Lecture \"GUI Research Never Ends: Theoretical HCI for the Science of Tools\""
+    },
+    "entryType": "domestic"
+  },
+  {
+    "dates": ["2025/10/15"],
+    "text": {
+      "ja": "はこだて未来大学 人工物の科学通論 ゲスト講義「Untangling the myth of \"generalizability\", and why we should conduct research with/for/by artists」",
+      "en": "Future University Hakodate Introduction to the Sciences of the Artificial Guest Lecture \"Untangling the myth of 'generalizability', and why we should conduct research with/for/by artists\""
+    },
+    "entryType": "domestic"
+  },
+  {
     "dates": ["2025/3/19"],
     "text": {
       "ja": "<a href=\"https://u-paris.fr\">Université Paris Cité</a> 日本学 修士コース ゲスト講義「How anime is made」",
@@ -40,7 +56,7 @@
     "entryType": "domestic"
   },
   {
-    "dates": ["2025/1/9", "2023/11/30"],
+    "dates": ["2025/10/14", "2025/1/9", "2023/11/30"],
     "text": {
       "ja": "はこだて未来大学 データ可視化 ゲスト講義「もっと見える『道具』のために─道具鍛冶研究者から見たデータ可視化」",
       "en": "Future University Hakodate Data Visualization Guest Lecture \"Toward Tools that Provide a Better View\""
