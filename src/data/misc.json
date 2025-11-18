@@ -265,17 +265,6 @@
         "year": 2020
       },
       {
-        "class": "pc",
-        "title": "Program Committee",
-        "url": "https://conf.researchr.org/committee/vlhcc2020/vlhcc2020-papers-program-committee",
-        "event": {
-          "name": "IEEE VL/HCC '20",
-          "fullname": "2020 IEEE Symposium on Visual Languages and Human-Centric Computing",
-          "url": "https://conf.researchr.org/home/vlhcc2020"
-        },
-        "year": 2020
-      },
-      {
         "class": "chair",
         "title": "Co-chair",
         "url": "https://conf.researchr.org/committee/vlhcc2020/vlhcc2020-organizing-committee",
@@ -298,6 +287,17 @@
           "name": "ACM CHI '20",
           "fullname": "The 2020 ACM CHI Conference on Human Factors in Computing Systems",
           "url": "https://chi2020.acm.org"
+        },
+        "year": 2020
+      },
+      {
+        "class": "pc",
+        "title": "Program Committee",
+        "url": "https://2020.programming-conference.org/committee/programming-2020-papers-program-committee",
+        "event": {
+          "name": "‹Programming› '20",
+          "fullname": "The International Conference on the Art, Science, and Engineering of Programming",
+          "url": "https://2020.programming-conference.org"
         },
         "year": 2020
       },
