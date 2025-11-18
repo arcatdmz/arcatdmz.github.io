@@ -135,6 +135,17 @@
     "projects": ["textalive", "lyric-app-framework"],
     "related": [
       {
+        "date": "2025/4/22",
+        "text": {
+          "ja": "情報エンターテイメント番組「CONNECT」"
+        },
+        "media": {
+          "ja": "LuckyFM 茨城放送"
+        },
+        "permalink": "https://radiko.jp/#!/ts/IBS/20250422173402"
+      },
+
+      {
         "date": "2025/4/2",
         "draft": true,
         "text": {
@@ -154,6 +165,26 @@
           "ja": "産業技術総合研究所 ニュース（お知らせ）"
         },
         "permalink": "https://www.aist.go.jp/aist_j/news/announce/au20250401.html"
+      },
+      {
+        "date": "2025/3/19",
+        "text": {
+          "ja": "常設展示を刷新 専門性高い内容に"
+        },
+        "media": {
+          "ja": "いばキラニュース"
+        },
+        "permalink": "https://ibakira.tv/movies/view/105398"
+      },
+      {
+        "date": "2025/3/19",
+        "text": {
+          "ja": "産総研が常設展示刷新　10年ぶり、高い専門性　4月1日オープン　茨城・つくば"
+        },
+        "media": {
+          "ja": "きたかんナビ"
+        },
+        "permalink": "https://kitakan-navi.jp/archives/223755"
       },
       {
         "date": "2025/3/18",
@@ -206,6 +237,16 @@
           "ja": "NEWSつくば"
         },
         "permalink": "https://newstsukuba.jp/55862/15/03/"
+      },
+      {
+        "date": "2025/3/14",
+        "text": {
+          "ja": "常設展示を刷新 専門性高い内容に つくばの産総研"
+        },
+        "media": {
+          "ja": "茨城新聞動画ニュース"
+        },
+        "permalink": "https://www.youtube.com/watch?v=IpD87oaXg8Y"
       }
     ]
   },
