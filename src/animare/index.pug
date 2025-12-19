@@ -34,8 +34,11 @@ block main
     h2.ui.header: .content #{en ? 'Summary' : '概要'}
     .ui.basic.segment
       p !{p.getDescription(lang)}
-      p !{en ? 'This project is being advanced in collaboration with Co-PIs Maejima (OLM Digital Inc.) and Koyama (The University of Tokyo). The overall project website is under preparation, and this page mainly serves to publicize the related achievements of the Kato group.' : '本プロジェクトは<a href="https://www.jst.go.jp/kisoken/cronos/">JST CRONOS</a>の支援の下で前島（OLM Digital）、小山（東京大学）Co-PIとともに進めるもので、プロジェクト全体のWebページは準備中です。本ページは主に加藤グループの関連成果を広報するものです。'}
-      p: img.ui.bordered.image(src=`${rootPath}images/panels/animare${en ? "" : "-ja"}.png`)
+      p !{en ? 'This project is being advanced in collaboration with Co-PIs Maejima (OLM Digital Inc.) and Koyama (The University of Tokyo). This page mainly serves to publicize the related achievements of the Kato group.' : '本プロジェクトは<a href="https://www.jst.go.jp/kisoken/presto/">JST さきがけ</a>（JPMJPR25I1）および<a href="https://www.jst.go.jp/kisoken/cronos/">JST CRONOS</a>（JPMJCS25K1）の支援の下で前島（OLM Digital; CRONOS Co-PI）、小山（東京大学; CRONOS Co-PI）および産学官のコミュニティとともに進めるものです。本ページは主に加藤個人の関連成果を広報するものです。'}
+    .ui.basic.right.aligned.segment
+      a.ui.primary.button(href="https://anime.pj.aist.go.jp")
+        | #{en ? "Project website" : "公式ページ"}
+        i.chevron.circle.right.icon
   .ui.hidden.divider
   section#further-readings: +further-readings()
   .ui.hidden.divider
@@ -95,6 +98,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 12/19/2025
+        .summary Add link to the project website.
       .event: .content
         .date 9/14/2025
         .summary Upload the initial revision.
