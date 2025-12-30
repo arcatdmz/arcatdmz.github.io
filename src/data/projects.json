@@ -111,6 +111,7 @@
       "description": "Animāre (pronounced ah-nee-MAH-ray) comes from the Latin &quot;to give life,&quot; which is also the root of the word &quot;animation.&quot; This project sets anime creation as a key application domain to develop foundational techniques for malleable tools and realize an environment where anime creators and tool developers can form reciprocal relationships.",
       "members": ["Jun Kato", "Akinobu Maejima", "Yuki Koyama"],
       "ja": {
+        "thumbnail": "animare-ja.png",
         "members": ["加藤 淳", "前島 謙宣", "小山 裕己"],
         "subtitle": "高融合性ツール基盤技術によるアニメ共創環境の実現",
         "description": "Animāre（アニマーレ） はラテン語で「命を吹き込む」を意味し、アニメーションの語源でもあります。アニメ（&quot;ani&quot;-me）づくりを対象に、しなやかなツール群（&quot;ma&quot;-lleable tools）の基盤技術を研究開発し、アニメ制作に関わる多様なクリエータとツール開発者が互いに影響を与え合う関係（&quot;re&quot;-ciprocal relationship）を築ける環境の実現を目指すプロジェクトです。"
