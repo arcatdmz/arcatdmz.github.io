@@ -17,6 +17,9 @@ block main
       block abstract
         p The &quot;E-conte,&quot; storyboard in English, is commonly referred to as the &quot;blueprint&quot; in Japanese animation (anime) production, serving as a communication medium with a prominent role in anime production. Griffith is a web-based E-conte authoring tool designed with Japanese animation professionals, as part of our long-term effort to intertwine artistic practice and scientific research.
     .ui.basic.right.aligned.segment
+      a.ui.primary.button(href=`${rootPath}${en ? 'animare/' : 'ja/animare'}`)
+        | #{en ? 'Animāre' : 'Animāre（アニマーレ）'}
+        i.chevron.circle.right.icon
       a.ui.primary.button(href=en ? 'https://research.archinc.jp/en/griffith/' : 'https://research.archinc.jp/griffith/')
         | Arch Research #{en ? 'project page' : 'プロジェクトページ'}
         i.chevron.circle.right.icon
@@ -90,6 +93,9 @@ mixin revisions()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 12/30/2025
+        .summary #{en ? 'Added a link to Animāre' : 'Animāreへのリンクを追加'}
       .event: .content
         .date 09/13/2024
         .summary #{en ? 'Added a project page' : 'プロジェクトページを仮公開'}
