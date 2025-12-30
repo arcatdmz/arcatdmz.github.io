@@ -96,7 +96,7 @@ mixin about()
             |  and the Technical Advisor (<abbr title="Principal Investigator">PI</abbr>) at 
             a(href='https://research.archinc.jp/en') Arch Research
             |  with a focus on <abbr title="Programming Experience">PX</abbr> and creativity support research. 
-            | Since April 2024, he has been a Visiting Scientist at 
+            | From April 2024 to March 2025, he was a Visiting Scientist at 
             a(href='https://ex-situ.lri.fr/about') ex)situ
             |  group, LISN, Université Paris-Saclay. 
             | He received a Ph.D. from 
@@ -212,16 +212,6 @@ mixin contact()
           .item
             i.building.icon
             .content
-              a(href='https://ex-situ.lri.fr/about') ex)situ
-              | , 
-              a(href='https://www.lisn.upsaclay.fr/') Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)
-              | , 
-              a(href='https://www.universite-paris-saclay.fr/en') Université Paris-Saclay
-        hr.ui.divider
-        .ui.list.grey
-          .item
-            i.building.icon
-            .content
               - if (en) {
               a(href='https://unit.aist.go.jp/hiiri/meirg/') Media Interaction Group
               | , 
@@ -238,6 +228,35 @@ mixin contact()
           .item
             i.marker.icon
             .content #{en ? 'Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan' : '305-8568 茨城県つくば市梅園1-1-1 中央事業所2群'}
+        hr.ui.divider
+        .ui.list
+          .item
+            i.building.icon
+            .content
+              - if (en) {
+              a(href='https://research.archinc.jp/en') Arch Research
+              | , 
+              a(href='https://archinc.jp/en') Arch Inc.
+              - } else {
+              a(href='https://archinc.jp/') アーチ株式会社
+              | , 
+              a(href='https://research.archinc.jp/') Arch Research
+              - }
+          - if (en) {
+          .item
+            i.marker.icon
+            .content Tokyo, Japan
+          - }
+        hr.ui.divider
+        .ui.list
+          .item
+            i.building.icon
+            .content
+              a(href='https://ex-situ.lri.fr/about') ex)situ
+              | , 
+              a(href='https://www.lisn.upsaclay.fr/') Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)
+              | , 
+              a(href='https://www.universite-paris-saclay.fr/en') Université Paris-Saclay
         hr.ui.divider
         .ui.horizontal.list
           .item
