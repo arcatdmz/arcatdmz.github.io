@@ -5,7 +5,7 @@
   "description": "Source code of https://junkato.jp",
   "main": "index.js",
   "scripts": {
-    "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments src/junkato.bib",
+    "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments --modify src/junkato.bib",
     "blc": "broken-link-checker http://localhost:8080/ -ro",
     "build": "npm run build:gulp && npm run build:redirections",
     "build:gulp": "gulp",
