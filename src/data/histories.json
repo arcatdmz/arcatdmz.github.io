@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "2026/2/3",
+      "text": "A 5.5-year research project <a href=\"https://anime.pj.aist.go.jp/en\">Animāre</a>, funded by <abbr title=\"Japan Science and Technology Agency\">JST</abbr>, has started, and its first public seminar will be held on February 10 at a venue at the University of Tokyo, featuring three outstanding speakers. <a href=\"https://anime.pj.aist.go.jp/en/events/2026-02-10-1st-seminar\">Join us onsite or online!</a>"
+    },
+    {
       "date": "2025/8/1",
       "text": "My co-authored paper on GUI widgets for creative professionals featuring a new set called <a href=\"${rootPath}tweeq\">Tweeq</a> is accepted to <a href=\"https://uist.acm.org/2025/\">ACM UIST 2025</a>. Congratulations to the first author, <a href=\"https://baku89.com\">Baku Hashimoto</a>, for his first academic paper &mdash; it's well deserved, considering his expertise and efforts!"
     },
@@ -414,6 +418,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2026/2/3",
+      "text": "「<a href=\"https://anime.pj.aist.go.jp/\">Animāre（アニマーレ）</a>」の一般公開セミナー初回が来週2月10日 13:30-16:30に東京大学本郷キャンパスで開催されます。研究者3名（Jingyi Li, Jane L. E, Shm G. Almeda）を海外から招聘し、中小路 久美代氏（はこだて未来大学）をモデレーターに迎え、創造性支援ツール研究について議論します。ぜひお越しください。（<a href=\"https://anime.pj.aist.go.jp/events/2026-02-10-1st-seminar\">イベント紹介・参加登録ページ</a>）"
+    },
     {
       "date": "2025/9/18",
       "text": "JST さきがけ「人間中心インタラクション」領域で個人型の研究提案「共創的コンテンツ制作を支える時系列共有支援技術」が採択されました。アニメ制作進行職などに顕著な現場の課題について、入念な調査研究を行い、プログラミング言語とLLMやGUIのHCI技術をかけ合わせて解決することを目指します。（<a href=\"https://blog.junkato.jp/ja/posts/2025-09-19-animare/\">ブログ記事</a>）"
