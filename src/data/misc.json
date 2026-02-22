@@ -17,6 +17,16 @@
   "services": {
     "members": [
       {
+        "name": "Animāre seminar",
+        "url": "https://anime.pj.aist.go.jp/en",
+        "role": [
+          {
+            "title": "Founder, organizer",
+            "from": 2025
+          }
+        ]
+      },
+      {
         "name": "AIST Creative HCI Seminar/Workshop",
         "url": "https://chci.pages.dev/aist-seminar/en",
         "role": [
