@@ -81,6 +81,12 @@ mixin publications()
     i.book.icon
     .content #{en ? 'Publications' : '発表文献'}
   .ui.basic.segment
+    .ui.divided.list
+      - for (const entry of publications) {
+      - if (entry.getFundings().indexOf("JST CRONOS JPMJCS25K1") < 0) continue;
+      +render-publication(entry)
+      - }
+    .ui.divider
     p #{en ? 'The following is a full list of past publications (including non-archival ones).' : '過去の発表文献のうち内容面で本プロジェクトに関係するものは以下のとおりです。'}
     .ui.divider
     .ui.divided.list
@@ -106,6 +112,9 @@ mixin revision()
     | #{en ? 'Revision history' : '更新履歴'}
   .ui.basic.segment: .ui.divided.feed
     block news
+      .event: .content
+        .date 3/29/2026
+        .summary Add publications funded by the project (e.g., <a href="https://junkato.jp/publications/undonecs2026-kato-anime-rnd.pdf">a talk</a> at UndoneCS '26).
       .event: .content
         .date 12/30/2025
         .summary Update Animare visuals.
