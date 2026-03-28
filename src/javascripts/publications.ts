@@ -41,6 +41,12 @@ class Entry implements BibTexEntry {
   public getEditorsTags() {
     return namesToHTML(this.getEditors());
   }
+  public getFundings() {
+    if (!this.entryTags || typeof this.entryTags.funding !== "string") {
+      return [];
+    }
+    return parseFundings(this.entryTags.funding);
+  }
   public getBibTeX() {
     const entrysep = ",\n",
       indent = "  ";
@@ -131,6 +137,11 @@ export function parseNames(names: string) {
     }
   }
   return namesArr;
+}
+
+export function parseFundings(fundings: string) {
+  // same as parseNames for now
+  return parseNames(fundings);
 }
 
 export function namesToHTML(namesArr: string[]) {
