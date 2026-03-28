@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026/3/6",
+    "text": {
+      "en": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">The 13th Yamato Scientific Award</a> for <a href=\"https://www.yamato-net.co.jp/award/detail/23/\">Pioneering HCI Research in the Field of Digital Content</a>",
+      "ja": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">第13回ヤマト科学賞</a> 受賞（受賞タイトル「<a href=\"https://www.yamato-net.co.jp/award/detail/23/\">デジタルコンテンツ分野における先導的HCI研究</a>」）"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2025/3/28",
     "text": {
       "en": "<a href=\"https://www.taf.or.jp/\"><abbr title=\"The Telecommunications Advancement Foundation\">TAF</abbr></a> Award (Encouragement Prize) for the ACM CHI '23 first-authored paper on <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">Lyric App Framework</a>",
