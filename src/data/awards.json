@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026/6/15",
+    "text": {
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> <a href=\"https://www.ipsj.or.jp/english/organization/aboutipsj/award/BestPaperAward.html\">Outstanding Paper Award (to appear)</a> for the first-authored paper published in <a href=\"https://doi.org/10.20729/0002000020\">IPSJ Journal 66(2)</a>",
+      "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/ronbun-index.html\">2025年度 情報処理学会論文賞</a> 受賞 (<a href=\"https://doi.org/10.20729/0002000020\">論文誌ジャーナル Vol.66 No.2 主著論文</a>に対して)"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2026/3/6",
     "text": {
       "en": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">The 13th Yamato Scientific Award</a> for <a href=\"https://www.yamato-net.co.jp/award/detail/23/\">Pioneering HCI Research in the Field of Digital Content</a>",
@@ -18,7 +26,7 @@
   {
     "date": "2025/3/15",
     "text": {
-      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> Specially Selected Paper Award for the first-authored paper published in <a href=\"https://doi.org/10.20729/0002000020\">IPSJ Journal 66(2)</a>",
+      "en": "<a href=\"http://www.ipsj.or.jp/english/index.html\"><abbr title=\"Information Processing Society of Japan\">IPSJ</abbr></a> <a href=\"https://www.ipsj.or.jp/english/organization/aboutipsj/award/ssp_award.html\">Specially Selected Paper Award</a> for the first-authored paper published in <a href=\"https://doi.org/10.20729/0002000020\">IPSJ Journal 66(2)</a>",
       "ja": "<a href=\"http://www.ipsj.or.jp/\">情報処理学会</a> <a href=\"https://www.ipsj.or.jp/award/ssp_award.html\">2024年度 (令和6年度) 特選論文</a> 受賞 (<a href=\"https://doi.org/10.20729/0002000020\">論文誌ジャーナル Vol.66 No.2 主著論文</a>に対して)"
     },
     "entryType": "domestic"
