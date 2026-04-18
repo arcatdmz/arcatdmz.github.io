@@ -8,18 +8,34 @@
     "entryType": "domestic"
   },
   {
+    "date": "2026/4/14",
+    "text": {
+      "en": "<a href=\"https://www.aist.go.jp/aist_j/aist_award/2025/apa.html#r1\">AIST President Award (Research)</a>, National Institute of Advanced Industrial Science and Technology (AIST), 2026, for the co-awarded research and development of media interaction technologies that accelerate social implementation for content appreciation and creation support",
+      "ja": "<a href=\"https://www.aist.go.jp/aist_j/aist_award/2025/apa.html#r1\">産総研 理事長賞 (研究)</a> 受賞 (受賞業績「コンテンツ鑑賞・創作支援のための社会実装加速型メディアインタラクション技術の研究開発」, 代表: 後藤 真孝, 6名での共同受賞)"
+    },
+    "entryType": "domestic"
+  },
+  {
+    "date": "2026/3/30",
+    "text": {
+      "en": "AIST Best Paper Award, National Institute of Advanced Industrial Science and Technology (AIST), 2026, for the ACM CHI '23 first-authored paper on <a href=\"https://doi.org/10.1145/3544548.3580931\">Lyric App Framework</a>",
+      "ja": "産総研 論文賞 (優秀賞) 受賞 (<a href=\"https://doi.org/10.1145/3544548.3580931\">ACM CHI '23 主著論文</a>に対して)"
+    },
+    "entryType": "domestic"
+  },
+  {
     "date": "2026/3/6",
     "text": {
       "en": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">The 13th Yamato Scientific Award</a> for <a href=\"https://www.yamato-net.co.jp/award/detail/23/\">Pioneering HCI Research in the Field of Digital Content</a>",
-      "ja": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">第13回ヤマト科学賞</a> 受賞（受賞タイトル「<a href=\"https://www.yamato-net.co.jp/award/detail/23/\">デジタルコンテンツ分野における先導的HCI研究</a>」）"
+      "ja": "<a href=\"https://www.yamato-net.co.jp/topics/detail/1563/\">第13回ヤマト科学賞</a> 受賞 (受賞タイトル「<a href=\"https://www.yamato-net.co.jp/award/detail/23/\">デジタルコンテンツ分野における先導的HCI研究</a>」)"
     },
     "entryType": "domestic"
   },
   {
     "date": "2025/3/28",
     "text": {
-      "en": "<a href=\"https://www.taf.or.jp/\"><abbr title=\"The Telecommunications Advancement Foundation\">TAF</abbr></a> Award (Encouragement Prize) for the ACM CHI '23 first-authored paper on <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">Lyric App Framework</a>",
-      "ja": "第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞 受賞 (テレコム学際研究賞 奨励賞, <a href=\"https://programs.sigchi.org/chi/2023/program/content/96444\">ACM CHI '23 主著論文</a>に対して)"
+      "en": "<a href=\"https://www.taf.or.jp/\"><abbr title=\"The Telecommunications Advancement Foundation\">TAF</abbr></a> Award (Encouragement Prize) for the ACM CHI '23 first-authored paper on <a href=\"https://doi.org/10.1145/3544548.3580931\">Lyric App Framework</a>",
+      "ja": "第40回<a href=\"https://www.taf.or.jp\">電気通信普及財団</a>賞 受賞 (テレコム学際研究賞 奨励賞, <a href=\"https://doi.org/10.1145/3544548.3580931\">ACM CHI '23 主著論文</a>に対して)"
     },
     "entryType": "domestic"
   },
