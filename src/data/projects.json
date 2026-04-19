@@ -189,7 +189,6 @@
         "from": 2019
       },
       "tags": ["anime", "creativity"],
-      "thumbnail": "griffith.jpg",
       "icon": true,
       "hero": "griffith.jpg",
       "description": "Griffith is a web-based authoring tool for Japanese animation (anime) storyboards.",
@@ -227,6 +226,7 @@
         "music",
         "toolkit"
       ],
+      "hero": "lyric-app-framework.jpg",
       "publication": "chi2023-kato-lyric-app-framework",
       "ja": {
         "subtitle": "インタラクティブな歌詞駆動型視覚表現の開発用フレームワーク",
@@ -243,7 +243,6 @@
       "tags": [
         "creativity"
       ],
-      "thumbnail": true,
       "icon": true,
       "hero": true,
       "publication": "chi2023-kato-sigccc",
