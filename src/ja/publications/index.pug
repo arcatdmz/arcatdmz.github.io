@@ -17,7 +17,7 @@ block left-rail-list
         .content 学位論文
 
 block awards
-  p これまでに <strong>#{numInternationalAwards + numDomesticAwards}</strong> 件の受賞（うち <strong>#{numInternationalAwards}</strong> 件が国際受賞）に繋がる成果を創出してきました。
+  p これまでに <strong>#{filteredAwards.length}</strong> 件の受賞に繋がる成果を創出してきました。
 
 block publications
   p 以下の発表文献リストは

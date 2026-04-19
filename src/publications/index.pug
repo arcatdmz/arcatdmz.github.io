@@ -82,22 +82,37 @@ mixin publications-menu()
       .content #{en ? 'Timeline' : '活動履歴'}
 
 mixin awards()
-  - const numInternationalAwards = awards.reduce((p, c) => p + (c.entryType !== "domestic" && (c.getText('ja').indexOf('受賞') >= 0 || c.getText('ja').indexOf('選定') >= 0) ? 1 : 0), 0);
-  - const numDomesticAwards = awards.reduce((p, c) => p + (c.entryType === "domestic" && (c.getText('ja').indexOf('受賞') >= 0 || c.getText('ja').indexOf('選定') >= 0) ? 1 : 0), 0);
+  - const isAward = (award) => award.getText('ja').indexOf('受賞') >= 0 || award.getText('ja').indexOf('選定') >= 0;
+  - const filteredAwards = awards.filter(isAward);
+  - const honors = awards.filter(award => !isAward(award));
+  - const numInternationalAwards = filteredAwards.reduce((p, c) => p + (c.entryType !== "domestic" ? 1 : 0), 0);
+  - const numDomesticAwards = filteredAwards.reduce((p, c) => p + (c.entryType === "domestic" ? 1 : 0), 0);
   block awards
-    p I have received <strong>#{numInternationalAwards}</strong> international and <strong>#{numDomesticAwards}</strong> domestic awards.
+    p I have received <strong>#{filteredAwards.length}</strong> awards.
   .ui.segments
     .ui.secondary.segment
       .ui.horizontal.list
         .item
           i.circle.icon
-          .content #{en ? 'Domestic' : '国内'}
+          .content !{en ? `Domestic (<strong>${numDomesticAwards}</strong>)` : `国内 <strong>${numDomesticAwards}</strong> 件`}
         .item
           i.world.icon
-          .content #{en ? 'International' : '国際'}
+          .content !{en ? `International (<strong>${numInternationalAwards}</strong>)` : `国際 <strong>${numInternationalAwards}</strong> 件`}
     .ui.segment
       .ui.divided.list
-        - for (const entry of awards) {
+        - for (const entry of filteredAwards) {
+        .item(class=entry.entryType)
+          i.icon(class=entry.getIconClass())
+          .content
+            .header !{entry.getText(lang)}
+            .description.date #{entry.getDateString(lang, true)}
+        - }
+  .ui.segments
+    .ui.secondary.segment
+      p !{en ? `Other honors and recognitions (<strong>${honors.length}</strong>)` : `その他の顕彰など <strong>${honors.length}</strong> 件`}
+    .ui.segment
+      .ui.divided.list
+        - for (const entry of honors) {
         .item(class=entry.entryType)
           i.icon(class=entry.getIconClass())
           .content
