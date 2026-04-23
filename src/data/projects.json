@@ -190,6 +190,7 @@
       },
       "tags": ["anime", "creativity"],
       "icon": true,
+      "thumbnail": "griffith.jpg",
       "hero": "griffith.jpg",
       "description": "Griffith is a web-based authoring tool for Japanese animation (anime) storyboards.",
       "ja": {
