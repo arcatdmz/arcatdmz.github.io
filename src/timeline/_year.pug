@@ -1,0 +1,74 @@
+extends ../_layout
+
+include ./_timeline-components
+
+block vars
+  - title = en ? `Timeline (${pageYear})` : `${pageYear}年の活動履歴`;
+  - description = en ? `Timeline of Dr. Jun Kato's research and design portfolio, showing ${pageYear} website updates and publication records.` : `加藤 淳の研究・デザインのポートフォリオWebサイトにおける${pageYear}年の活動履歴です。Webサイトの更新情報と発表文献を紹介しています。`;
+  - me = `timeline/${pageYear}/`;
+  - var bodyClass = 'with-rail';
+  - const currentYear = new Date().getFullYear();
+  - const oldestYear = en ? 2011 : 2010;
+
+block main
+  .left-rail
+    +timeline-year-nav()
+  .right-content
+    section
+      h1.ui.header
+        i.history.icon
+        .content #{title}
+      block description
+        p This page shows #{pageYear} updates to the website as well as 
+          a(href=`${rootPath}publications`)
+            i.book.icon
+            | publication records
+          | .
+          |  
+          a(href=`${basePath}timeline/`) View the full timeline.
+    +year-content()
+
+block post-footer
+  a.ui.circular.icon.popup-menu.large.grey.hidden.mobile-only.button
+    i.sidebar.icon
+  .ui.hidden.popup-menu.popup
+    +timeline-year-nav()
+
+mixin timeline-year-nav()
+  .ui.divided.list
+    a.item(href=`${basePath}timeline/`)
+      i.chevron.circle.up.icon
+      .content #{en ? 'Timeline' : '活動履歴'}
+    - if (pageYear < currentYear) {
+    a.item(href=`${basePath}timeline/${pageYear + 1}/`)
+      i.arrow.up.icon
+      .content #{pageYear + 1}
+    - }
+    - if (pageYear > oldestYear) {
+    a.item(href=`${basePath}timeline/${pageYear - 1}/`)
+      i.arrow.down.icon
+      .content #{pageYear - 1}
+    - }
+
+mixin year-content()
+  -
+    var yearHistories = [];
+    for (const entry of histories[lang]) {
+      if (entry.date.getFullYear() === pageYear) yearHistories.push(entry);
+    }
+  .ui.hidden.divider
+  section(id=pageYear)
+    //- h2.ui.header #{en ? pageYear : `${pageYear}年`}
+    h3.ui.header(id=`${pageYear}-updates`)
+      i.announcement.icon
+      | #{en ? 'Updates' : '更新情報'}
+    .ui.segment
+      .ui.divided.feed
+        - if (yearHistories.length > 0) {
+        - for (const entry of yearHistories) {
+        +update(entry)
+        - }
+        - } else {
+        +update(null)
+        - }
+    +all(function (year) { return pageYear === year; }, pageYear)

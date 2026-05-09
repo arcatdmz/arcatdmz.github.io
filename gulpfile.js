@@ -195,6 +195,7 @@ gulp.task("replace:devicon", function () {
 
 // HTML
 const pug = require("gulp-pug");
+const pugLib = require("pug");
 
 // [html] should be called after ts:node, replace:node, copy:bibtex
 // gulp.series('ts:node', 'replace:node', 'copy:bibtex')
@@ -206,6 +207,40 @@ gulp.task("html", function () {
 gulp.task("html:debug", function () {
   return compilePug(gulp.src(["src/**/*.pug", "!src/**/_*.pug"]), true);
 });
+
+// [html:timeline-years] should be called after ts:node, replace:node, copy:bibtex
+// Generates per-year timeline pages: dist/timeline/{year}/index.html and dist/ja/timeline/{year}/index.html
+gulp.task("html:timeline-years", function (cb) {
+  compileTimelineYearPages();
+  cb();
+});
+
+function compileTimelineYearPages() {
+  const locals = setupLocals();
+  const currentYear = new Date().getFullYear();
+  const configs = [
+    {
+      oldestYear: 2011,
+      templatePath: path.resolve(__dirname, "src/timeline/_year.pug"),
+      outBase: path.join("dist", "timeline"),
+    },
+    {
+      oldestYear: 2010,
+      templatePath: path.resolve(__dirname, "src/ja/timeline/_year.pug"),
+      outBase: path.join("dist", "ja", "timeline"),
+    },
+  ];
+
+  for (const { oldestYear, templatePath, outBase } of configs) {
+    for (let year = currentYear; year >= oldestYear; year--) {
+      const pageLocals = { ...locals, pageYear: year };
+      const html = pugLib.renderFile(templatePath, pageLocals);
+      const outDir = path.join(outBase, String(year));
+      if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+      fs.writeFileSync(path.join(outDir, "index.html"), html);
+    }
+  }
+}
 
 // [html:meta] should be called after replace:node
 // gulp.series('replace:node')
@@ -441,6 +476,32 @@ gulp.task("sitemap", function (cb) {
   pushTop("");
   for (const seg of Array.from(topSegments)) pushTop(seg);
 
+  // Add per-year timeline pages
+  const currentYear = new Date().getFullYear();
+  for (let year = currentYear; year >= 2011; year--) {
+    const enUrl = `${root}timeline/${year}/`;
+    const jaUrl = `${root}ja/timeline/${year}/`;
+    entries.push({
+      url: enUrl,
+      links: [
+        { lang: "en", url: enUrl },
+        { lang: "ja", url: jaUrl },
+      ],
+    });
+    entries.push({
+      url: jaUrl,
+      links: [
+        { lang: "en", url: enUrl },
+        { lang: "ja", url: jaUrl },
+      ],
+    });
+  }
+  // Add the oldest Japanese-only year
+  entries.push({
+    url: `${root}ja/timeline/2010/`,
+    links: [{ lang: "ja", url: `${root}ja/timeline/2010/` }],
+  });
+
   const { projects } = locals;
   const sortedProjects = projects.slice().sort((a, b) => {
     const af = a.year && a.year.from ? a.year.from : 0;
@@ -646,11 +707,30 @@ gulp.task("watch:html", function () {
     const relPath = path.relative(basePath, fullPath);
     const relDirPath = path.relative(basePath, path.dirname(fullPath));
     let stream;
+    let onFinish = browserSync.reload.bind(browserSync);
 
     if (relPath.startsWith(`resume${path.sep}_`)) {
       stream = compilePug(
         gulp.src([path.join(basePath, "resume.pug")], { base: basePath })
       );
+    } else if (
+      relPath === path.join("timeline", "_year.pug") ||
+      relPath === path.join("ja", "timeline", "_year.pug") ||
+      relPath === path.join("timeline", "_timeline-components.pug")
+    ) {
+      stream = compilePug(
+        gulp.src(
+          [
+            path.join(basePath, "timeline", "index.pug"),
+            path.join(basePath, "ja", "timeline", "index.pug"),
+          ],
+          { base: basePath }
+        )
+      );
+      onFinish = function () {
+        compileTimelineYearPages();
+        browserSync.reload();
+      };
     } else if (baseName.indexOf("_layout") === 0) {
       if (relDirPath.length > 0) {
         stream = compilePug(
@@ -676,7 +756,7 @@ gulp.task("watch:html", function () {
       }
     }
 
-    stream.on("finish", browserSync.reload.bind(browserSync));
+    stream.on("finish", onFinish);
   };
   watcher.on("add", handler);
   watcher.on("change", handler);
@@ -732,7 +812,7 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html", "rss", "sitemap", "js", "css:bare"),
+        gulp.parallel("html", "html:timeline-years", "rss", "sitemap", "js", "css:bare"),
         "css",
         "gzip"
       )
@@ -764,7 +844,7 @@ gulp.task(
           // use devicon in *.less
           "replace:devicon"
         ),
-        gulp.parallel("html:debug", "rss", "sitemap", "js:debug", "css:debug"),
+        gulp.parallel("html:debug", "html:timeline-years", "rss", "sitemap", "js:debug", "css:debug"),
         "gzip:debug"
       )
     )
