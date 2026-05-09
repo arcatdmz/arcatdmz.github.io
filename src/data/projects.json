@@ -96,6 +96,34 @@
   },
   "projects": [
     {
+      "project": "chokaigi2026",
+      "title": "TextAlive at Nico Nico Chokaigi 2026",
+      "title-design": "TextAlive at Nico Nico Chokaigi 2026",
+      "year": {
+        "from": 2026,
+        "to": 2026
+      },
+      "tags": ["design"],
+      "tags-design": ["graphic", "ui"],
+      "category": "private",
+      "icon": "chokaigi2026.jpg",
+      "thumbnail": "chokaigi2026.jpg",
+      "description": "Designed and implemented the <a href=\"${rootPath}textalive/\">TextAlive</a> hands-on exhibition for <a href=\"https://textalive.jp/events/chokaigi2026\">AIST's booth</a> at <a href=\"https://chokaigi.jp/2026/plan/aist/\">Nico Nico Chokaigi 2026</a>, where visitors created lyric videos and experienced <a href=\"${rootPath}lyric-app-framework/\">lyric apps</a>.",
+      "description-design": "Designed and implemented the <a href=\"${rootPath}textalive/\">TextAlive</a> hands-on exhibition for <a href=\"https://textalive.jp/events/chokaigi2026\">AIST's booth</a> at <a href=\"https://chokaigi.jp/2026/plan/aist/\">Nico Nico Chokaigi 2026</a>, where visitors created lyric videos and experienced <a href=\"${rootPath}lyric-app-framework/\">lyric apps</a>.",
+      "images": [
+        "${rootPath}design/chokaigi2026/chokaigi2026.jpg",
+        "${rootPath}design/chokaigi2026/chokaigi2026-menu.png",
+        "${rootPath}design/chokaigi2026/chokaigi2026-app.png"
+      ],
+      "url": "https://textalive.jp/events/chokaigi2026",
+      "ja": {
+        "title": "ニコニコ超会議2026 TextAlive展示制作",
+        "title-design": "ニコニコ超会議2026 TextAlive展示制作",
+        "description": "2026年4月25-26日に開催された「<a href=\"https://chokaigi.jp/2026/plan/aist/\">ニコニコ超会議2026</a>」の<a href=\"https://textalive.jp/events/chokaigi2026\">産総研ブース</a>で<a href=\"${rootPath}ja/textalive/\">TextAlive</a>のリリックビデオ制作と<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>体験を楽しめる展示を制作しました。",
+        "description-design": "2026年4月25-26日に開催された「<a href=\"https://chokaigi.jp/2026/plan/aist/\">ニコニコ超会議2026</a>」の<a href=\"https://textalive.jp/events/chokaigi2026\">産総研ブース</a>で<a href=\"${rootPath}ja/textalive/\">TextAlive</a>のリリックビデオ制作と<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>体験を楽しめる展示を制作しました。"
+      }
+    },
+    {
       "project": "animare",
       "thumbnail": "animare.png",
       "hero": "animare.jpg",
