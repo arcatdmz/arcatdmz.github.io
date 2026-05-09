@@ -3,6 +3,10 @@ on:
   push:
     tags:
       - "v*"
+
+permissions:
+  contents: write
+
 jobs:
   publish-assets:
     name: publish-assets
@@ -11,16 +15,12 @@ jobs:
       - name: Set env vars
         run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> ${GITHUB_ENV}
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6.0.2
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: 20
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+          cache: npm
       - name: Install dependencies
         run: npm ci
       - name: Build package
@@ -28,8 +28,6 @@ jobs:
       - name: Archive assets
         run: cd dist && zip -r ../stylesheets-${VERSION}.zip stylesheets/main.* fonts semantic/themes/default
       - name: Upload assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: stylesheets-${{ env.VERSION }}.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
