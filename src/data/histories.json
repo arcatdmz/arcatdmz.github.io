@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "2026/4/26",
+      "text": "Designed and implemented the <a href=\"${rootPath}design/#chokaigi2026\">TextAlive hands-on exhibition</a> for <a href=\"https://textalive.jp/events/chokaigi2026\">AIST booth</a> at <a href=\"https://chokaigi.jp/2026/plan/aist/\">Nico Nico Chokaigi 2026</a>, where visitors created <a href=\"${rootPath}textalive/\">lyric videos</a> and experienced <a href=\"${rootPath}lyric-app-framework/\">lyric apps</a>."
+    },
+    {
       "date": "2026/4/20",
       "text": "Got promoted to Chief Senior Researcher at <abbr title=\"National Institute of Advanced Industrial Science and Technology\">AIST</abbr>, welcomed <a href=\"https://nmgcapucine.github.io\">Capucine Nghiem</a>, and received multiple awards."
     },
@@ -426,6 +430,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2026/4/26",
+      "text": "「<a href=\"https://chokaigi.jp/2026/plan/aist/\">ニコニコ超会議2026</a>」の<a href=\"https://textalive.jp/events/chokaigi2026\">産総研ブース</a>で、<a href=\"${rootPath}ja/textalive/\">TextAlive</a>のリリックビデオ制作と<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>体験を楽しめる<a href=\"${rootPath}ja/design/#chokaigi2026\">展示を制作</a>しました。"
+    },
     {
       "date": "2026/4/20",
       "text": "産総研にて上級主任研究員に昇格しました。ポスドクとして<a href=\"https://nmgcapucine.github.io\">Capucine Nghiem</a>を迎えました。また、第13回ヤマト科学賞、産総研 論文賞（優秀賞）、同 理事長賞 （研究）を受賞しました。"
