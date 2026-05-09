@@ -156,7 +156,9 @@ class Entry {
     );
   }
   isPrivateProject(lang?: "en" | "ja") {
-    return lang === "ja" && this.data.ja ? this.data.ja.private : this.data.private;
+    return lang === "ja" && this.data.ja
+      ? this.data.ja.private
+      : this.data.private;
   }
   getThumbnail(lang?: "en" | "ja") {
     if (lang === "ja" && this.data.ja) {
@@ -181,7 +183,7 @@ class Entry {
         const tagTitle =
           lang === "ja" && t.ja && t.ja.title ? t.ja.title : t.title;
         results.push(
-          `<div class="ui basic label project design ${tag}" data-tag="${tag}" title="${tagTitle}"><i class="${t.icon} icon"></i>${t.label}</div>`
+          `<div class="ui basic label project design ${tag}" data-tag="${tag}" title="${tagTitle}"><i class="${t.icon} icon"></i>${t.label}</div>`,
         );
       }
     }
@@ -305,7 +307,7 @@ export function tagsToHTML(tagsArr?: string[]) {
       const t = dict[tag];
       if (!t) continue;
       results.push(
-        `<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`
+        `<a class="project tag ${tag}" data-tag="${tag}">${t.label}</a>`,
       );
     }
   }

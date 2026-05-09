@@ -66,7 +66,7 @@ gulp.task("ts", function () {
   return gulp
     .src("src/**/*.ts")
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(tsProject())
     .pipe(gulp.dest("src"));
@@ -77,7 +77,7 @@ gulp.task("ts:node", function () {
   return gulp
     .src("src/javascripts/*.ts")
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(tsNodeProject())
     .pipe(gulp.dest("build/javascripts"));
@@ -88,7 +88,7 @@ gulp.task("js", function () {
   const webpackConfig = require(webpackConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("dist"));
 });
@@ -98,7 +98,7 @@ gulp.task("js:debug", function () {
   const webpackConfig = require(webpackDebugConfigFile);
   return webpackStream(webpackConfig, webpack)
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("dist"));
 });
@@ -109,13 +109,13 @@ const bibtexParse = require("@orcid/bibtex-parse-js");
 // [bibtex]
 gulp.task("bibtex", function (callback) {
   const bibtexJSON = bibtexParse.toJSON(
-    fs.readFileSync(bibtexFile, { encoding: "UTF-8" })
+    fs.readFileSync(bibtexFile, { encoding: "UTF-8" }),
   );
   if (!fs.existsSync("dist")) fs.mkdirSync("dist");
   if (!fs.existsSync("dist/data")) fs.mkdirSync("dist/data");
   fs.writeFileSync(
     "dist/data/publications.json",
-    JSON.stringify(bibtexJSON, "  ")
+    JSON.stringify(bibtexJSON, "  "),
   );
   callback();
 });
@@ -125,7 +125,7 @@ gulp.task("copy:bibtex", function () {
   return gulp
     .src("dist/data/publications.json")
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("build/data"));
 });
@@ -133,9 +133,12 @@ gulp.task("copy:bibtex", function () {
 // [copy:fonts]
 gulp.task("copy:fonts", function () {
   return gulp
-    .src("node_modules/devicon/fonts/*", { base: "node_modules/devicon", encoding: false })
+    .src("node_modules/devicon/fonts/*", {
+      base: "node_modules/devicon",
+      encoding: false,
+    })
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("dist/stylesheets"));
 });
@@ -143,32 +146,26 @@ gulp.task("copy:fonts", function () {
 // [copy:default]
 gulp.task("copy:default-binary", function () {
   return gulp
-    .src(
-      [
-        "src/**/*.{pdf,png,jpg}"
-      ],
-      { base: "src", encoding: false }
-    )
+    .src(["src/**/*.{pdf,png,jpg}"], { base: "src", encoding: false })
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("dist"));
 });
 gulp.task("copy:default-text", function () {
   return gulp
-    .src(
-      [
-        "src/**/*.{bib,json,html,css,txt,package-list}",
-        "src/.htaccess",
-      ],
-      { base: "src" }
-    )
+    .src(["src/**/*.{bib,json,html,css,txt,package-list}", "src/.htaccess"], {
+      base: "src",
+    })
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(gulp.dest("dist"));
 });
-gulp.task("copy:default", gulp.parallel("copy:default-binary", "copy:default-text"));
+gulp.task(
+  "copy:default",
+  gulp.parallel("copy:default-binary", "copy:default-text"),
+);
 
 // [copy]
 gulp.task("copy", gulp.parallel("copy:bibtex", "copy:fonts", "copy:default"));
@@ -179,7 +176,7 @@ gulp.task("replace:node", function () {
   return gulp
     .src("src/**/*.json", { base: "src" })
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(replace("${rootPath}", website.rootPath))
     .pipe(gulp.dest("build"));
@@ -249,21 +246,21 @@ gulp.task("html:meta", function () {
     gulp.src([
       "src/{index.pug,activities/index.pug,timeline/index.pug,publications/index.pug,ja/index.pug,ja/activities/index.pug,ja/timeline/index.pug,ja/publications/index.pug}",
     ]),
-    false
+    false,
   );
 });
 
 function compilePug(stream, pretty) {
   return stream
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(
       pug({
         locals: setupLocals(),
         verbose: true,
         pretty,
-      })
+      }),
     )
     .pipe(gulp.dest("dist/"));
 }
@@ -276,10 +273,10 @@ function setupLocals() {
     lectures = require("./build/javascripts/lectures").default,
     projects = require("./build/javascripts/projects").default,
     publications = require("./build/javascripts/publications").parse(
-      JSON.parse(fs.readFileSync("./build/data/publications.json"))
+      JSON.parse(fs.readFileSync("./build/data/publications.json")),
     ),
     media = require("./build/javascripts/media").default;
-    misc = JSON.parse(fs.readFileSync("./build/data/misc.json"));
+  misc = JSON.parse(fs.readFileSync("./build/data/misc.json"));
 
   // build projects table and list
   const projectsTable = {};
@@ -306,9 +303,10 @@ function setupLocals() {
   }
 
   // build media list
-  const flattenMedia = (m) => m.reduce((v, c) => {
-    return v.concat(c, ...flattenMedia(c.related || []));
-  }, []);
+  const flattenMedia = (m) =>
+    m.reduce((v, c) => {
+      return v.concat(c, ...flattenMedia(c.related || []));
+    }, []);
   const sortMedia = (a, b) => {
     if (a.date || b.date) {
       if (!a.date) return 1;
@@ -383,7 +381,7 @@ gulp.task("css", function () {
 function compileCSS(stream) {
   return stream
     .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }),
     )
     .pipe(less())
     .pipe(autoprefixer())
@@ -416,7 +414,9 @@ gulp.task("rss", function (cb) {
         description: entry.text,
         url:
           lang === "ja"
-            ? `${host}${locals.rootPath}ja/timeline/#${entry.date.getFullYear()}`
+            ? `${host}${
+                locals.rootPath
+              }ja/timeline/#${entry.date.getFullYear()}`
             : `${host}${locals.rootPath}timeline/#${entry.date.getFullYear()}`,
         date: entry.date,
       });
@@ -424,10 +424,7 @@ gulp.task("rss", function (cb) {
 
     const dir = lang === "ja" ? path.join("dist", "ja") : "dist";
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(
-      path.join(dir, "rss.xml"),
-      feed.xml({ indent: true })
-    );
+    fs.writeFileSync(path.join(dir, "rss.xml"), feed.xml({ indent: true }));
   }
 
   cb();
@@ -436,7 +433,9 @@ gulp.task("rss", function (cb) {
 gulp.task("sitemap", function (cb) {
   const locals = setupLocals();
   const host = `${locals.protocol}://${locals.domain}`;
-  const root = locals.rootPath.endsWith("/") ? locals.rootPath : `${locals.rootPath}/`;
+  const root = locals.rootPath.endsWith("/")
+    ? locals.rootPath
+    : `${locals.rootPath}/`;
 
   // extract top-level paths from layout
   const layoutSrc = fs.readFileSync("./src/_layout-components.pug", "utf8");
@@ -515,10 +514,8 @@ gulp.task("sitemap", function (cb) {
     const baseJa = `${root}ja/`;
     const linkEn = proj.getLink("en", baseEn);
     const linkJa = proj.getLink("ja", baseJa);
-    const internalEn =
-      typeof linkEn === "string" && linkEn.startsWith(baseEn);
-    const internalJa =
-      typeof linkJa === "string" && linkJa.startsWith(baseJa);
+    const internalEn = typeof linkEn === "string" && linkEn.startsWith(baseEn);
+    const internalJa = typeof linkJa === "string" && linkJa.startsWith(baseJa);
     if (!internalEn && !internalJa) continue;
     const altLinks = [];
     if (internalEn) altLinks.push({ lang: "en", url: linkEn });
@@ -619,7 +616,7 @@ gulp.task("sharp", function (cb) {
             console.error(err.message);
             return cb();
           });
-      })
+      }),
     )
     .pipe(gulp.dest("dist"));
 });
@@ -639,7 +636,7 @@ gulp.task("lint:html", function () {
     .pipe(
       htmlhint({
         "attr-lowercase": ["viewBox"],
-      })
+      }),
     )
     .pipe(htmlhint.failAfterError());
 });
@@ -675,7 +672,7 @@ gulp.task("lint:pdf", function () {
         }
         cb(null, chunk);
       });
-    })
+    }),
   );
 });
 
@@ -711,7 +708,7 @@ gulp.task("watch:html", function () {
 
     if (relPath.startsWith(`resume${path.sep}_`)) {
       stream = compilePug(
-        gulp.src([path.join(basePath, "resume.pug")], { base: basePath })
+        gulp.src([path.join(basePath, "resume.pug")], { base: basePath }),
       );
     } else if (
       relPath === path.join("timeline", "_year.pug") ||
@@ -724,8 +721,8 @@ gulp.task("watch:html", function () {
             path.join(basePath, "timeline", "index.pug"),
             path.join(basePath, "ja", "timeline", "index.pug"),
           ],
-          { base: basePath }
-        )
+          { base: basePath },
+        ),
       );
       onFinish = function () {
         compileTimelineYearPages();
@@ -739,7 +736,7 @@ gulp.task("watch:html", function () {
             `!src/${relDirPath}/**/_*.pug`,
             `src/ja/${relDirPath}/**/*.pug`,
             `!src/ja/${relDirPath}/**/_*.pug`,
-          ])
+          ]),
         );
       } else {
         stream = compilePug(gulp.src(["src/**/*.pug", "!src/**/_*.pug"]));
@@ -768,7 +765,7 @@ gulp.task("watch:html", function () {
 gulp.task("watch:semantic", function () {
   return gulp.watch(
     "semantic/**/*.{less,overrides,variables}",
-    gulp.task("semantic:assets")
+    gulp.task("semantic:assets"),
   );
 });
 
@@ -782,7 +779,7 @@ gulp.task("watch:css", function () {
     gulp.series("css:debug", (done) => {
       browserSync.reload();
       done();
-    })
+    }),
   );
 });
 
@@ -810,14 +807,21 @@ gulp.task(
           // replace text in *.json and place them in build/
           "replace:node",
           // use devicon in *.less
-          "replace:devicon"
+          "replace:devicon",
         ),
-        gulp.parallel("html", "html:timeline-years", "rss", "sitemap", "js", "css:bare"),
+        gulp.parallel(
+          "html",
+          "html:timeline-years",
+          "rss",
+          "sitemap",
+          "js",
+          "css:bare",
+        ),
         "css",
-        "gzip"
-      )
-    )
-  )
+        "gzip",
+      ),
+    ),
+  ),
 );
 // [site:debug]
 gulp.task(
@@ -842,13 +846,20 @@ gulp.task(
           // replace text in *.json and place them in build/
           "replace:node",
           // use devicon in *.less
-          "replace:devicon"
+          "replace:devicon",
         ),
-        gulp.parallel("html:debug", "html:timeline-years", "rss", "sitemap", "js:debug", "css:debug"),
-        "gzip:debug"
-      )
-    )
-  )
+        gulp.parallel(
+          "html:debug",
+          "html:timeline-years",
+          "rss",
+          "sitemap",
+          "js:debug",
+          "css:debug",
+        ),
+        "gzip:debug",
+      ),
+    ),
+  ),
 );
 
 // High-level tasks
@@ -857,13 +868,13 @@ gulp.task("debug", gulp.task("site:debug"));
 gulp.task("test", gulp.task("lint:html"));
 gulp.task(
   "json",
-  gulp.series(gulp.parallel("ts", "ts:node", "replace:node"), "js")
+  gulp.series(gulp.parallel("ts", "ts:node", "replace:node"), "js"),
 );
 gulp.task("dev", gulp.parallel("browser-sync", "watch:html", "watch:css"));
 gulp.task(
   "dev:meta",
   gulp.series(
     gulp.parallel(gulp.series("bibtex", "copy:bibtex"), "replace:node"),
-    "html:meta"
-  )
+    "html:meta",
+  ),
 );

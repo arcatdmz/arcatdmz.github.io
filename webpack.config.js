@@ -51,7 +51,7 @@ module.exports = {
     alias: {
       clipboard$: path.resolve(
         __dirname,
-        "node_modules/clipboard/dist/clipboard.min.js"
+        "node_modules/clipboard/dist/clipboard.min.js",
       ),
     },
   },

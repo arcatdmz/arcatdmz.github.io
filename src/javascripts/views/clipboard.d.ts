@@ -4,7 +4,7 @@
 declare class Clipboard {
   constructor(
     selector: string | Element | NodeListOf<Element>,
-    options?: Clipboard.Options
+    options?: Clipboard.Options,
   );
 
   /**

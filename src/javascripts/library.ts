@@ -80,7 +80,7 @@ export class EntryDate {
         return lang === "en"
           ? `${getEnglishMonth(d, full)} ${d.getFullYear()} - ${getEnglishMonth(
               ed,
-              full
+              full,
             )} ${ed.getFullYear()}`
           : `${d.getFullYear()}年${d.getMonth() + 1}月-${ed.getFullYear()}年${
               ed.getMonth() + 1

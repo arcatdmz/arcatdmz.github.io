@@ -91,7 +91,7 @@ if ($tagLink.length > 0) {
         var $content = listProjectsByTag(
           projects,
           $ct.data("tag"),
-          $ct.parents("[data-project]").data("project")
+          $ct.parents("[data-project]").data("project"),
         );
         $("body").append($content);
         $ct.popup({
@@ -123,7 +123,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
   const $popupContent = $(
     '<div class="ui hidden popup project tag">' +
       header +
-      '<div class="content"><p></p><div class="ui divided list"></div></div></div>'
+      '<div class="content"><p></p><div class="ui divided list"></div></div></div>',
   );
 
   var tagTitle;
@@ -151,7 +151,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
     $list.append(
       `<a class="item" href="${basePath}projects/#projects-${
         p.project
-      }">${p.getTitle(lang)}</a>`
+      }">${p.getTitle(lang)}</a>`,
     );
     count++;
   }
@@ -164,8 +164,8 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
           ? `以下のプロジェクトも<strong>${tagTitle}</strong>に関するものです。`
           : `他に<strong>${tagTitle}</strong>に関するプロジェクトはありません。`
         : count > 0
-        ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.`
-        : `No other project is tagged with <strong>${tags[tag].label}</strong>.`
+          ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.`
+          : `No other project is tagged with <strong>${tags[tag].label}</strong>.`,
     );
   setSmoothScroll($list.find("a"));
   return $popupContent;
@@ -180,7 +180,7 @@ function loadProjects() {
     import(/* webpackChunkName: "projects" */ "../projects").then(
       (projects) => {
         resolve(projects);
-      }
+      },
     );
   });
 }
@@ -189,7 +189,7 @@ function loadProjects() {
 setSmoothScroll(
   $("#pusher a[href*=\\#]")
     .add("#fixed-menu a[href*=\\#]")
-    .add("#post-footer a[href*=\\#]")
+    .add("#post-footer a[href*=\\#]"),
 );
 
 // clipboard
@@ -236,7 +236,7 @@ export function doSmoothScroll(a: HTMLAnchorElement, ev?: JQuery.Event) {
     700,
     () => {
       history.pushState({}, "", a.href);
-    }
+    },
   );
   return false;
 }

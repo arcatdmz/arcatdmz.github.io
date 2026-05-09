@@ -41,7 +41,10 @@ class MediaEntry {
   public draft?: boolean;
   public private?: boolean;
 
-  constructor(data: RawMediaEntry, public parent?: MediaEntry) {
+  constructor(
+    data: RawMediaEntry,
+    public parent?: MediaEntry,
+  ) {
     this.data = data;
     this.text = data.text;
     this.media = data.media;

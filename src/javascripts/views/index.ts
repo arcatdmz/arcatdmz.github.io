@@ -54,7 +54,7 @@ $moreButton.removeClass("disabled").on("click touch", () => {
       $moreButton.removeClass("loading disabled");
       entries = histories.default[lang];
       if (entries) handleEntries(entries);
-    }
+    },
   );
 });
 
@@ -64,7 +64,7 @@ function handleEntries(entries: any[]) {
   var $added = null;
   for (const e of es) {
     const $item = $(
-      '<div class="event"><div class="content"><div class="date"></div><div class="header"></div></div></div>'
+      '<div class="event"><div class="content"><div class="date"></div><div class="header"></div></div></div>',
     );
     $item.find(".date").text(e.getDateString(lang, true));
     $item.find(".header").html((e.text as string).replace("${rootPath}", "/"));
