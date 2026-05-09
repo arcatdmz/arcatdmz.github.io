@@ -26,10 +26,10 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --omit=optional
-      - name: Test
-        run: npm run test
       - name: Build pages
         run: npm run build
+      - name: Test built pages
+        run: npm test
       - name: Add CNAME
         run: echo junkato.jp > ./dist/CNAME
       - name: Upload artifact

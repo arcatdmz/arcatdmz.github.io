@@ -28,6 +28,6 @@ jobs:
       - name: Archive assets
         run: cd dist && zip -r ../stylesheets-${VERSION}.zip stylesheets/main.* fonts semantic/themes/default
       - name: Upload assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: stylesheets-${{ env.VERSION }}.zip
