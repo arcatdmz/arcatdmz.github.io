@@ -19,13 +19,9 @@ block main
         i.history.icon
         .content #{title}
       block description
-        p This page shows #{pageYear} updates to the website as well as 
-          a(href=`${rootPath}publications`)
-            i.book.icon
-            | publication records
+        p This page shows #{pageYear} updates to the website as well as publication records. View 
+          a(href=`${basePath}timeline/`) the full timeline
           | .
-          |  
-          a(href=`${basePath}timeline/`) View the full timeline.
     +year-content()
 
 block post-footer
