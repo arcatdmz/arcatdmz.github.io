@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "2026/6/17",
+      "text": "Alongside with the <a href=\"https://anime.pj.aist.go.jp/en\">Animāre</a> mini-talks on <a href=\"https://anime.pj.aist.go.jp/en/events/2026-01-07-1st-mini-talk\">Jan 7</a>, <a href=\"https://anime.pj.aist.go.jp/en/events/2026-04-17-2nd-mini-talk\">Apr 17</a>, and <a href=\"https://anime.pj.aist.go.jp/en/events/2026-05-28-3rd-mini-talk\">May 28</a>, we started an eight-session online storyboarding course (the first Animāre animation production lecture course) from Feb. 24. The <a href=\"https://anime.pj.aist.go.jp/en/events/jsai2026\">proposed session at JSAI 2026</a> was held to a standing-room-only crowd."
+    },
+    {
       "date": "2026/4/26",
       "text": "Designed and implemented the <a href=\"${rootPath}design/#chokaigi2026\">TextAlive hands-on exhibition</a> for <a href=\"https://textalive.jp/events/chokaigi2026\">AIST booth</a> at <a href=\"https://chokaigi.jp/2026/plan/aist/\">Nico Nico Chokaigi 2026</a>, where visitors created <a href=\"${rootPath}textalive/\">lyric videos</a> and experienced <a href=\"${rootPath}lyric-app-framework/\">lyric apps</a>."
     },
@@ -430,6 +434,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2026/6/17",
+      "text": "「<a href=\"https://anime.pj.aist.go.jp/\">Animāre（アニマーレ）</a>」で、<a href=\"https://anime.pj.aist.go.jp/events/2026-01-07-1st-mini-talk\">1月7日</a>・<a href=\"https://anime.pj.aist.go.jp/events/2026-04-17-2nd-mini-talk\">4月17日</a>・<a href=\"https://anime.pj.aist.go.jp/events/2026-05-28-3rd-mini-talk\">5月28日</a>にミニトークを実施し、2月24日から8セッションにわたり「<a href=\"https://www.youtube.com/watch?v=QCBb0MADB58&list=PL-5luj-qf3-CHSvmve7AW79J4MNS7-7Ne\">第1回アニメ制作講座（絵コンテ制作講座）</a>」を開催しました。6月8日には<a href=\"https://anime.pj.aist.go.jp/events/jsai2026\">人工知能学会2026の企画セッション</a>を開催して、立ち見も出る盛況でした！"
+    },
     {
       "date": "2026/4/26",
       "text": "「<a href=\"https://chokaigi.jp/2026/plan/aist/\">ニコニコ超会議2026</a>」の<a href=\"https://textalive.jp/events/chokaigi2026\">産総研ブース</a>で、<a href=\"${rootPath}ja/textalive/\">TextAlive</a>のリリックビデオ制作と<a href=\"${rootPath}ja/lyric-app-framework/\">リリックアプリ</a>体験を楽しめる<a href=\"${rootPath}ja/design/#chokaigi2026\">展示を制作</a>しました。"
