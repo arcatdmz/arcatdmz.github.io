@@ -543,6 +543,364 @@ gulp.task("sitemap", function (cb) {
   sm.end();
 });
 
+// researchmap.v2 JSONL export
+function getResearchmapInputFiles() {
+  const dir = path.join(__dirname, "resources", "researchmap");
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+  return fs
+    .readdirSync(dir)
+    .filter((f) => /^rm_researchers\d+\.jsonl$/.test(f))
+    .sort()
+    .reverse()
+    .map((f) => path.join(dir, f));
+}
+
+function resolveResearchmapUserId() {
+  if (process.env.RESEARCHMAP_USER_ID) {
+    return process.env.RESEARCHMAP_USER_ID;
+  }
+
+  for (const filePath of getResearchmapInputFiles()) {
+    const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/);
+    for (const line of lines) {
+      if (!line.trim()) {
+        continue;
+      }
+      try {
+        const row = JSON.parse(line);
+        if (row.insert && row.insert.type === "researchers" && row.insert.id) {
+          return row.insert.id;
+        }
+      } catch (_e) {
+        // ignore parse errors and continue
+      }
+    }
+  }
+
+  return "B000249363";
+}
+
+function numericIdFromString(text) {
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+  }
+  // keep ids human-readable and positive
+  return String(10000000 + (hash % 90000000));
+}
+
+function cleanupText(text) {
+  return String(text || "")
+    .replace(/[{}]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function stripHtmlTags(text) {
+  return String(text || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeAwardName(text) {
+  return String(text || "")
+    .replace(/\s*受賞(?=\s*[（(]|$)/g, "")
+    .replace(/\s+（/g, "（")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function parseBibNames(names) {
+  const out = [];
+  for (const name of String(names || "").split(/\s+and\s+/)) {
+    const t = cleanupText(name);
+    if (!t) {
+      continue;
+    }
+    const arr = t.split(/\s*,\s*/);
+    out.push(arr.length > 1 ? arr.reverse().join(" ") : t);
+  }
+  return out;
+}
+
+function detectLang(text, explicitLang) {
+  if (explicitLang === "japanese") {
+    return "ja";
+  }
+  if (explicitLang === "english") {
+    return "en";
+  }
+  return /[\u3040-\u30FF\u3400-\u9FFF]/.test(text) ? "ja" : "en";
+}
+
+function normalizeDateString(dateRaw) {
+  const src = String(dateRaw || "").trim();
+  if (!src) {
+    return undefined;
+  }
+  const from = src.split("-")[0].trim();
+  const m = from.match(/^(\d{4})(?:\/(\d{1,2})(?:\/(\d{1,2}))?)?/);
+  if (!m) {
+    return undefined;
+  }
+  const y = m[1];
+  const mo = m[2] ? String(parseInt(m[2], 10)).padStart(2, "0") : undefined;
+  const d = m[3] ? String(parseInt(m[3], 10)).padStart(2, "0") : undefined;
+  if (d) {
+    return `${y}-${mo}-${d}`;
+  }
+  if (mo) {
+    return `${y}-${mo}`;
+  }
+  return y;
+}
+
+function bibMonthToNumber(monthRaw) {
+  const m = String(monthRaw || "").toLowerCase().trim();
+  if (!m) {
+    return undefined;
+  }
+  const map = {
+    jan: "01",
+    feb: "02",
+    mar: "03",
+    apr: "04",
+    may: "05",
+    jun: "06",
+    jul: "07",
+    aug: "08",
+    sep: "09",
+    oct: "10",
+    nov: "11",
+    dec: "12",
+  };
+  if (map[m]) {
+    return map[m];
+  }
+  const n = parseInt(m, 10);
+  if (!Number.isNaN(n) && n >= 1 && n <= 12) {
+    return String(n).padStart(2, "0");
+  }
+  return undefined;
+}
+
+function publicationDateFromBib(tags) {
+  const year = cleanupText(tags.year);
+  if (!year) {
+    return undefined;
+  }
+  const month = bibMonthToNumber(tags.month);
+  return month ? `${year}-${month}` : year;
+}
+
+function addIdentifier(identifiers, key, value) {
+  const v = cleanupText(value);
+  if (!v) {
+    return;
+  }
+  if (!identifiers[key]) {
+    identifiers[key] = [];
+  }
+  identifiers[key].push(v);
+}
+
+function addSeeAlso(seeAlso, label, id) {
+  const url = cleanupText(id);
+  if (!url) {
+    return;
+  }
+  seeAlso.push({
+    label,
+    "@id": url,
+    is_downloadable: false,
+  });
+}
+
+function pruneObject(v) {
+  if (Array.isArray(v)) {
+    return v.map(pruneObject).filter((x) => x !== undefined);
+  }
+  if (v && typeof v === "object") {
+    const out = {};
+    for (const key of Object.keys(v)) {
+      const vv = pruneObject(v[key]);
+      if (vv === undefined) {
+        continue;
+      }
+      if (Array.isArray(vv) && vv.length === 0) {
+        continue;
+      }
+      if (vv && typeof vv === "object" && !Array.isArray(vv)) {
+        if (Object.keys(vv).length === 0) {
+          continue;
+        }
+      }
+      out[key] = vv;
+    }
+    return Object.keys(out).length > 0 ? out : undefined;
+  }
+  if (v === "" || v === null) {
+    return undefined;
+  }
+  return v;
+}
+
+function exportResearchmapPublicationsJSONL() {
+  const userId = resolveResearchmapUserId();
+  const outDir = path.join("dist", "researchmap");
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
+
+  const bibtex = bibtexParse.toJSON(
+    fs.readFileSync(path.join(__dirname, "src", "junkato.bib"), "utf8"),
+  );
+
+  const lines = [];
+  for (const entry of bibtex) {
+    const tags = entry.entryTags || {};
+    const lang = detectLang(tags.title, tags.language);
+    const paperType = cleanupText(entry.entryType).toLowerCase();
+    const isMisc = ["misc", "techreport", "unpublished", "comment"].includes(
+      paperType,
+    );
+    if (paperType === "comment") {
+      continue;
+    }
+
+    const title = cleanupText(tags.title);
+    const publicationName = cleanupText(tags.booktitle || tags.journal);
+    const publisher = cleanupText(tags.publisher);
+    const publicationDate = publicationDateFromBib(tags);
+    const authorNames = parseBibNames(tags.author);
+    const pages = cleanupText(tags.pages);
+    const pageMatch = pages.match(/^([^\-]+)-+(.+)$/);
+
+    const identifiers = {};
+    addIdentifier(identifiers, "doi", tags.doi);
+    addIdentifier(identifiers, "isbn", tags.isbn);
+    addIdentifier(identifiers, "issn", tags.issn);
+    addIdentifier(identifiers, "e_issn", tags.eissn || tags["e_issn"]);
+
+    const seeAlso = [];
+    if (tags.doi) {
+      addSeeAlso(seeAlso, "doi", `https://doi.org/${cleanupText(tags.doi)}`);
+    }
+    addSeeAlso(seeAlso, "url", tags.url);
+    addSeeAlso(seeAlso, "url", tags.pdf);
+    addSeeAlso(seeAlso, "url", tags.slides);
+
+    const merge = {
+      display: "disclosed",
+      major_achievement: false,
+      paper_title: {
+        [lang]: title,
+      },
+      authors:
+        authorNames.length > 0
+          ? {
+              [lang]: authorNames.map((name) => ({ name })),
+            }
+          : undefined,
+      publication_date: publicationDate,
+      publication_name: publicationName ? { [lang]: publicationName } : undefined,
+      publisher: publisher ? { [lang]: publisher } : undefined,
+      starting_page: pageMatch ? cleanupText(pageMatch[1]) : pages || undefined,
+      ending_page: pageMatch ? cleanupText(pageMatch[2]) : undefined,
+      published_paper_type: isMisc
+        ? undefined
+        : paperType === "article"
+          ? "scientific_journal"
+          : "international_conference_proceedings",
+      identifiers,
+      see_also: seeAlso,
+    };
+
+    const jsonlRow = pruneObject({
+      insert: {
+        type: isMisc ? "misc" : "published_papers",
+        id: numericIdFromString(`pub:${entry.citationKey}`),
+        user_id: userId,
+      },
+      merge,
+    });
+
+    lines.push(JSON.stringify(jsonlRow));
+  }
+
+  fs.writeFileSync(path.join(outDir, "publications.jsonl"), lines.join("\n") + "\n");
+}
+
+function exportResearchmapAwardsJSONL() {
+  const userId = resolveResearchmapUserId();
+  const outDir = path.join("dist", "researchmap");
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
+
+  const awards = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "src", "data", "awards.json"), "utf8"),
+  );
+
+  const lines = [];
+  for (const award of awards) {
+    const enText =
+      typeof award.text === "string"
+        ? stripHtmlTags(award.text)
+        : stripHtmlTags(award.text && award.text.en);
+    const jaText =
+      typeof award.text === "string"
+        ? undefined
+        : stripHtmlTags(award.text && award.text.ja);
+    const awardDate = normalizeDateString(award.date);
+
+    const merge = {
+      display: "disclosed",
+      major_achievement: false,
+      award_name: pruneObject({
+        en: normalizeAwardName(enText),
+        ja: normalizeAwardName(jaText),
+      }),
+      award_date: awardDate,
+    };
+
+    const jsonlRow = pruneObject({
+      insert: {
+        type: "awards",
+        user_id: userId,
+      },
+      merge,
+    });
+
+    lines.push(JSON.stringify(jsonlRow));
+  }
+
+  fs.writeFileSync(path.join(outDir, "awards.jsonl"), lines.join("\n") + "\n");
+}
+
+gulp.task("researchmap:publications", function (cb) {
+  exportResearchmapPublicationsJSONL();
+  cb();
+});
+
+gulp.task("researchmap:awards", function (cb) {
+  exportResearchmapAwardsJSONL();
+  cb();
+});
+
+gulp.task(
+  "researchmap",
+  gulp.parallel("researchmap:publications", "researchmap:awards"),
+);
+
 // Post-process
 const gzip = require("gulp-gzip");
 let sharp;
