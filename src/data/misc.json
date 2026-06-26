@@ -86,6 +86,16 @@
     "organizers": [
       {
         "class": "pc",
+        "title": "Program Committee",
+        "url": "https://liveprog.org",
+        "event": {
+          "name": "LIVE '26",
+          "fullname": "The Twelfth Workshop on Live Programming"
+        },
+        "year": 2026
+      },
+      {
+        "class": "pc",
         "title": "Associate Chair",
         "subtitle": "Blending Interaction: Engineering Interactive Systems & Tools",
         "url": "https://chi2026.acm.org/subcommittees/selecting-a-subcommittee/#blending_interaction",
@@ -697,7 +707,7 @@
         "venue": "UIST",
         "title": "The Annual ACM Symposium on User Interface Software and Technology",
         "years": [
-          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
         ]
       },
       {
@@ -864,6 +874,12 @@
             "city": "Tokyo",
             "country": "Japan",
             "link": "https://uist.acm.org/uist2016/"
+          },
+          {
+            "year": 2025,
+            "city": "Seoul",
+            "country": "South Korea",
+            "link": "https://uist.acm.org/uist2025/"
           }
         ]
       },
