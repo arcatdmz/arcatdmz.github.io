@@ -38,15 +38,17 @@ block post-footer
       .content #{en ? 'Contact' : '連絡先'}
   .ui.large.modal
     .header #{en ? 'Profile photo' : '著者近影'}
-    .scrolling.content: .ui.stackable.columns.grid: .row
-      .four.wide.column
+    .scrolling.content: .ui.stackable.columns.grid: .five.columns.row
+      .column
         a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.highres.jpg`): img(src=`${rootPath}images/junkato.jpg`)
-      .four.wide.column
+      .column
         a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.comics.highres.png`): img(src=`${rootPath}images/junkato.comics.png`)
-      .four.wide.column
+      .column
         a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.alt.highres.jpg`): img(src=`${rootPath}images/junkato.alt.jpg`)
-      .four.wide.column
+      .column
         a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.alt2.highres.jpg`): img(src=`${rootPath}images/junkato.alt2.jpg`)
+      .column
+        a.ui.fluid.circular.bordered.image(href=`${rootPath}images/junkato.alt3.highres.jpg`): img(src=`${rootPath}images/junkato.alt3.jpg`)
     .content
       - if (en) {
       ul
