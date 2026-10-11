@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -69,7 +76,9 @@ export default function Page() {
         {content.renderProjectHeader("surfboard")}
         <div className="ui message">
           {richText("Surfboardのソースコードは")}
-          <a href={href("https://github.com/arcatdmz/surfboard")}>{richText("GitHub")}</a>
+          <a href={href("https://github.com/arcatdmz/surfboard")}>
+            {richText("GitHub")}
+          </a>
           {richText("で公開されています。")}
         </div>
         <div className="ui hidden divider"></div>
@@ -93,7 +102,9 @@ export default function Page() {
           <div className="column">
             <section id={attribute("gestures")}>
               <h2 className="ui header">
-                {plainText(en ? "Recognizable gestures" : "検出可能なジェスチャ")}
+                {plainText(
+                  en ? "Recognizable gestures" : "検出可能なジェスチャ",
+                )}
               </h2>
               <div className="ui basic segment">
                 <p>
@@ -105,7 +116,9 @@ export default function Page() {
             </section>
             <div className="ui hidden divider"></div>
             <section id={attribute("hardware")}>
-              <h2 className="ui header">{plainText(en ? "Supported hardware" : "対応ハードウェア")}</h2>
+              <h2 className="ui header">
+                {plainText(en ? "Supported hardware" : "対応ハードウェア")}
+              </h2>
               <div className="ui basic segment">
                 <p>
                   {richText(
@@ -129,7 +142,10 @@ export default function Page() {
               </div>
             </div>
             <div className="ui hidden divider"></div>
-            <a className="ui fluid image" href={href(`${rootPath}surfboard/fig2-microphones.jpg`)}>
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}surfboard/fig2-microphones.jpg`)}
+            >
               <img src={`${rootPath}surfboard/fig2-microphones.jpg`} />
             </a>
             <div className="caption">
@@ -142,7 +158,10 @@ export default function Page() {
           </div>
         </div>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("surfboard", "uist2010-kato-surfboard")}
+        {content.renderProjectPublications(
+          "surfboard",
+          "uist2010-kato-surfboard",
+        )}
       </SiteLayout>
     </>
   );

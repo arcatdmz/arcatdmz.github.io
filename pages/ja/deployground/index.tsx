@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -104,7 +111,9 @@ export default function Page() {
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Presentation materials" : "発表内容")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
@@ -112,7 +121,9 @@ export default function Page() {
                 {richText("IEEE VL/HCC 2018 ")}
                 {plainText(en ? "Demo Video" : "デモ動画")}
               </h3>
-              {content.renderEmbedYoutube("//www.youtube.com/embed/dE6mCZVWIms")}
+              {content.renderEmbedYoutube(
+                "//www.youtube.com/embed/dE6mCZVWIms",
+              )}
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -163,7 +174,9 @@ export default function Page() {
             )}
           </p>
         </div>
-        <h3 className="ui header">{richText("A. Coding Tutorials on the Web")}</h3>
+        <h3 className="ui header">
+          {richText("A. Coding Tutorials on the Web")}
+        </h3>
         <div className="ui basic segment">
           <p>
             {richText("In the era when ")}
@@ -180,12 +193,20 @@ export default function Page() {
             <a href={href("https://doi.acm.org/10.1145/3017680.3017728")}>
               {richText("Kim et al., SIGCSE '17")}
             </a>
-            {richText("]. In the context of HCI, while there is much work on creating tutorials [")}
-            <a href={href("https://doi.acm.org/10.1145/2380116.2380130")} title={"MixT"}>
+            {richText(
+              "]. In the context of HCI, while there is much work on creating tutorials [",
+            )}
+            <a
+              href={href("https://doi.acm.org/10.1145/2380116.2380130")}
+              title={"MixT"}
+            >
               {richText("Chi et al., UIST '12")}
             </a>
             {richText(", ")}
-            <a href={href("https://doi.acm.org/10.1145/2501988.2502052")} title={"DemoCut"}>
+            <a
+              href={href("https://doi.acm.org/10.1145/2501988.2502052")}
+              title={"DemoCut"}
+            >
               {richText("Chi et al., UIST '13")}
             </a>
             {richText(", ")}
@@ -203,7 +224,9 @@ export default function Page() {
               {richText("Harms et al., IDC '13")}
             </a>
             {richText("]. Tutoron [")}
-            <a href={href("http://tutorons.com")}>{richText("Head et al., VL/HCC '15")}</a>
+            <a href={href("http://tutorons.com")}>
+              {richText("Head et al., VL/HCC '15")}
+            </a>
             {richText(
               "] allows one to write micro-explanations of code and allows learners to read them automatically inserted next to example code on the web. Codepourri [",
             )}
@@ -218,9 +241,13 @@ export default function Page() {
             {richText(
               "Many of these coding tutorials present read-only content that programmers can read, watch, and sometimes discuss with other learners but cannot interactively run and edit. Examples include API documentations, online fora such as ",
             )}
-            <a href={href("https://stackoverflow.com/")}>{richText("Stack Overflow")}</a>
+            <a href={href("https://stackoverflow.com/")}>
+              {richText("Stack Overflow")}
+            </a>
             {richText(", and lecturestyle courses provided as MOOCs, such as ")}
-            <a href={href("https://www.coursera.org/")}>{richText("Coursera")}</a>
+            <a href={href("https://www.coursera.org/")}>
+              {richText("Coursera")}
+            </a>
             {richText(" and ")}
             <a href={href("https://www.edx.org/")}>{richText("edX")}</a>
             {richText(
@@ -241,30 +268,43 @@ export default function Page() {
           <div className="ui stackable three columns grid">
             <div className="column">
               <p>
-                <img className="ui fluid image" src={"/deployground/fig-1.jpg"} />
+                <img
+                  className="ui fluid image"
+                  src={"/deployground/fig-1.jpg"}
+                />
               </p>
             </div>
             <div className="column">
               <p>
-                <img className="ui fluid image" src={"/deployground/fig-2.jpg"} />
+                <img
+                  className="ui fluid image"
+                  src={"/deployground/fig-2.jpg"}
+                />
               </p>
             </div>
             <div className="column">
               <p>
-                <img className="ui fluid image" src={"/deployground/fig-3.jpg"} />
+                <img
+                  className="ui fluid image"
+                  src={"/deployground/fig-3.jpg"}
+                />
               </p>
             </div>
           </div>
           <p className="caption">
             <strong>{richText("Figure.")}</strong>
-            {richText(" Three implementation-based categories of interactive coding tutorials")}
+            {richText(
+              " Three implementation-based categories of interactive coding tutorials",
+            )}
           </p>
           <div className="ui hidden divider"></div>
           <p>
             {richText(
               "The first category (Figure (1)) is for learning client-side web technologies such as HTML/JavaScript/CSS and utilizes the JavaScript eval() function and/or HTML5 sandboxed inline frames (Iframe). For instance, ",
             )}
-            <a href={href("https://www.w3schools.com/")}>{richText("W3Schools")}</a>
+            <a href={href("https://www.w3schools.com/")}>
+              {richText("W3Schools")}
+            </a>
             {richText(
               " and several other tutorial websites provide a JavaScript code editor next to the preview pane, in which the code gets executed in the Iframe. The eval() and Iframe implementations are very simple and provide quick response to the user edits because the code is executed at the browser’s native speed, but both are vulnerable to malicious code such as infinite loops—when the code executes, the browser can easily crash. Additionally, this category cannot handle programming languages the browser cannot interpret.",
             )}
@@ -273,11 +313,15 @@ export default function Page() {
             {richText(
               "The second category (Figure 2 (2)) is for learning how to use the character-based user interface (CUI) and how to build character-based programs, such as for learning Linux command usage and basic C programming. It provides each user access to a lightweight virtual machine (VM) hosted on the server such as a Docker container. For instance, the C programming course in ",
             )}
-            <a href={href("https://www.tutorialspoint.com/")}>{richText("Tutorials Point")}</a>
+            <a href={href("https://www.tutorialspoint.com/")}>
+              {richText("Tutorials Point")}
+            </a>
             {richText(
               " provides access to the GCC compiler and allows the user to run the program compiled with it. ",
             )}
-            <a href={href("https://www.codecademy.com/")}>{richText("Codecademy")}</a>
+            <a href={href("https://www.codecademy.com/")}>
+              {richText("Codecademy")}
+            </a>
             {richText(
               " provides access to a console of a Linux-based VM and allows programmers to test various CUI commands. ",
             )}
@@ -299,7 +343,9 @@ export default function Page() {
         <h3 className="ui header">{richText("B. Executable Documents")}</h3>
         <div className="ui basic segment">
           <p>
-            {richText("The usability of API documentation has been extensively studied [")}
+            {richText(
+              "The usability of API documentation has been extensively studied [",
+            )}
             <a href={href("https://dx.doi.org/10.1109/MS.2009.193")}>
               {richText("Robillard, 2009")}
             </a>
@@ -358,7 +404,9 @@ export default function Page() {
             )}
           </p>
         </div>
-        <h3 className="ui header">{richText("C. Live Programming on the Web")}</h3>
+        <h3 className="ui header">
+          {richText("C. Live Programming on the Web")}
+        </h3>
         <div className="ui basic segment">
           <p>
             {richText(
@@ -367,7 +415,9 @@ export default function Page() {
             <a href={href("https://doi.acm.org/10.1145/3126594.3126663")}>
               {richText("Zhang et al., UIST '17")}
             </a>
-            {richText("]), producing enclosure layouts for microcontroller applications (f3.js [")}
+            {richText(
+              "]), producing enclosure layouts for microcontroller applications (f3.js [",
+            )}
             <a href={href("https://doi.acm.org/10.1145/3064663.3064681")}>
               {richText("Kato et al., DIS '17")}
             </a>
@@ -397,9 +447,14 @@ export default function Page() {
         {content.renderProjectHeader("deployground")}
         <div className="ui hidden divider"></div>
         <section id={attribute("abstract")}>{renderAbstract()}</section>
-        <section id={attribute("presentations")}>{renderPresentations()}</section>
+        <section id={attribute("presentations")}>
+          {renderPresentations()}
+        </section>
         <section id={attribute("related-work")}>{renderRelatedWork()}</section>
-        {content.renderProjectPublications("deployground", "vlhcc2018-kato-deployground")}
+        {content.renderProjectPublications(
+          "deployground",
+          "vlhcc2018-kato-deployground",
+        )}
       </SiteLayout>
     </>
   );

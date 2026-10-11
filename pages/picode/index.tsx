@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -77,14 +84,18 @@ export default function Page() {
                 {richText(
                   " library for creating robotic things and its source code is available on ",
                 )}
-                <a href={href("https://github.com/arcatdmz/picode/")}>{richText("GitHub")}</a>
+                <a href={href("https://github.com/arcatdmz/picode/")}>
+                  {richText("GitHub")}
+                </a>
                 {richText("! The development was supported in part by ")}
                 <a
                   href={href(
                     "https://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx",
                   )}
                 >
-                  {richText("Microsoft Research CORE 7 program (Japanese page)")}
+                  {richText(
+                    "Microsoft Research CORE 7 program (Japanese page)",
+                  )}
                 </a>
                 {richText(".")}
               </div>
@@ -99,7 +110,9 @@ export default function Page() {
             <>
               <section id={attribute("abstract")}>
                 <h2 className="ui header">
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </h2>
                 <div className="ui basic segment">
                   <p>
@@ -124,22 +137,36 @@ export default function Page() {
           children128.push(
             <>
               <section id={attribute("presentations")}>
-                <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+                <h2 className="ui header">
+                  {plainText(en ? "Presentation materials" : "発表内容")}
+                </h2>
                 <div className="ui basic segment">
                   <div className="ui stackable two columns grid">
                     <div className="column">
-                      <h3 className="ui header">{richText("CHI 2013 Fast-forward")}</h3>
-                      {content.renderEmbedYoutube("//www.youtube.com/embed/NCou4Q1STE8")}
+                      <h3 className="ui header">
+                        {richText("CHI 2013 Fast-forward")}
+                      </h3>
+                      {content.renderEmbedYoutube(
+                        "//www.youtube.com/embed/NCou4Q1STE8",
+                      )}
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
-                            <a href={href("//www.youtube.com/watch?v=NCou4Q1STE8")}>
+                            <a
+                              href={href(
+                                "//www.youtube.com/watch?v=NCou4Q1STE8",
+                              )}
+                            >
                               <i className="youtube icon"></i>
                               {richText("Fast-forward")}
                             </a>
                           </div>
                           <div className="item">
-                            <a href={href("//www.youtube.com/watch?v=cQv0-4f8LEA")}>
+                            <a
+                              href={href(
+                                "//www.youtube.com/watch?v=cQv0-4f8LEA",
+                              )}
+                            >
                               <i className="youtube icon"></i>
                               {richText("Full version")}
                             </a>
@@ -162,7 +189,10 @@ export default function Page() {
                           <>
                             <div
                               className="ui embed"
-                              data-url={publicationsTable[p.publication].entryTags.slides}
+                              data-url={
+                                publicationsTable[p.publication].entryTags
+                                  .slides
+                              }
                               data-placeholder={`${rootPath}images/background-eee.png`}
                               data-icon={"video play outline"}
                             ></div>
@@ -173,9 +203,16 @@ export default function Page() {
                             <div className="caption">
                               <div className="ui horizontal list">
                                 <div className="item">
-                                  <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                                  <a
+                                    href={href(
+                                      publicationsTable[p.publication].entryTags
+                                        .slides,
+                                    )}
+                                  >
                                     <i className="download icon"></i>
-                                    {plainText(en ? "Download" : "ダウンロード")}
+                                    {plainText(
+                                      en ? "Download" : "ダウンロード",
+                                    )}
                                   </a>
                                 </div>
                               </div>
@@ -237,38 +274,86 @@ export default function Page() {
                 </div>
                 <div className="ui stackable two columns grid">
                   <div className="column">
-                    <a className="ui fluid image" href={href(`${rootPath}picode/picode-ide.jpg`)}>
-                      <img src={`${rootPath}picode/picode-ide.jpg`} alt={"Overview"} />
+                    <a
+                      className="ui fluid image"
+                      href={href(`${rootPath}picode/picode-ide.jpg`)}
+                    >
+                      <img
+                        src={`${rootPath}picode/picode-ide.jpg`}
+                        alt={"Overview"}
+                      />
                     </a>
                     <div className="caption">
-                      {plainText(en ? "Overview of the Picode IDE" : "Picode IDEの概観")}
+                      {plainText(
+                        en ? "Overview of the Picode IDE" : "Picode IDEの概観",
+                      )}
                     </div>
                   </div>
                   <div className="column">
                     <dl>
-                      <dt>{richText("<strong>Pose</strong> Robot.getPose()")}</dt>
+                      <dt>
+                        {richText("<strong>Pose</strong> Robot.getPose()")}
+                      </dt>
                       <dd>{richText("returns the current pose data.")}</dd>
-                      <dt>{richText("<strong>float</strong> Pose.distance(Pose pose)")}</dt>
+                      <dt>
+                        {richText(
+                          "<strong>float</strong> Pose.distance(Pose pose)",
+                        )}
+                      </dt>
                       <dd>
-                        {richText("calculates the distance between the two poses. [0.0-1.0]")}
+                        {richText(
+                          "calculates the distance between the two poses. [0.0-1.0]",
+                        )}
                       </dd>
                       <dt>
-                        {richText("<strong>boolean</strong> Pose.eq(Pose pose, float threshold)")}
+                        {richText(
+                          "<strong>boolean</strong> Pose.eq(Pose pose, float threshold)",
+                        )}
                       </dt>
                       <dd>
                         {richText(
                           "returns whether the two poses can be thought of as identical or not. (returns whether the distance between the two poses is less than the threshold or not.)",
                         )}
                       </dd>
-                      <dt>{richText("<strong>boolean</strong> Robot.setPose(Pose pose)")}</dt>
-                      <dd>{richText("set the current pose to the specified data.")}</dd>
-                      <dt>{richText("<strong>Action</strong> Robot.action()")}</dt>
-                      <dd>{richText("start building an action for the robot.")}</dd>
-                      <dt>{richText("<strong>Action</strong> Action.pose(Pose pose)")}</dt>
-                      <dd>{richText("add this pose to the end of this action.")}</dd>
-                      <dt>{richText("<strong>Action</strong> Action.stay(int ms)")}</dt>
-                      <dd>{richText("wait for the specified time at the end of this action.")}</dd>
-                      <dt>{richText("<strong>ActionResult</strong> Action.play()")}</dt>
+                      <dt>
+                        {richText(
+                          "<strong>boolean</strong> Robot.setPose(Pose pose)",
+                        )}
+                      </dt>
+                      <dd>
+                        {richText(
+                          "set the current pose to the specified data.",
+                        )}
+                      </dd>
+                      <dt>
+                        {richText("<strong>Action</strong> Robot.action()")}
+                      </dt>
+                      <dd>
+                        {richText("start building an action for the robot.")}
+                      </dd>
+                      <dt>
+                        {richText(
+                          "<strong>Action</strong> Action.pose(Pose pose)",
+                        )}
+                      </dt>
+                      <dd>
+                        {richText("add this pose to the end of this action.")}
+                      </dd>
+                      <dt>
+                        {richText(
+                          "<strong>Action</strong> Action.stay(int ms)",
+                        )}
+                      </dt>
+                      <dd>
+                        {richText(
+                          "wait for the specified time at the end of this action.",
+                        )}
+                      </dd>
+                      <dt>
+                        {richText(
+                          "<strong>ActionResult</strong> Action.play()",
+                        )}
+                      </dt>
                       <dd>{richText("play this action.")}</dd>
                     </dl>
                   </div>
@@ -297,7 +382,12 @@ export default function Page() {
             </>,
           );
           children128.push(
-            <>{content.renderProjectPublications("picode", "chi2013-kato-picode")}</>,
+            <>
+              {content.renderProjectPublications(
+                "picode",
+                "chi2013-kato-picode",
+              )}
+            </>,
           );
           return keyed(children128);
         })()}

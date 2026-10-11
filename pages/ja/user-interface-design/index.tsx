@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -88,11 +95,16 @@ export default function Page() {
           </p>
           <div className="ui top attached segment">
             <div className="ui divided list">
-              {content.renderPublication(publicationsTable["asj-v77n4-kato-ui-design"])}
+              {content.renderPublication(
+                publicationsTable["asj-v77n4-kato-ui-design"],
+              )}
             </div>
           </div>
           <div className="ui basic right aligned bottom attached secondary segment">
-            <a className="ui primary button" href={href("https://doi.org/10.20697/jasj.77.4_231")}>
+            <a
+              className="ui primary button"
+              href={href("https://doi.org/10.20697/jasj.77.4_231")}
+            >
               {richText("学会誌 記事を読む")}
               <i className="chevron circle right icon"></i>
             </a>
@@ -170,7 +182,9 @@ export default function Page() {
             className="ui stackable two column divided rail-like grid"
             id={attribute("theory-gulf-of-execution-and-evaluation")}
           >
-            <div className="row">{renderTheoryGulfOfExecutionAndEvaluation()}</div>
+            <div className="row">
+              {renderTheoryGulfOfExecutionAndEvaluation()}
+            </div>
           </div>
           {renderTheoryLimitation()}
         </div>
@@ -181,7 +195,10 @@ export default function Page() {
     return (
       <>
         <div className="eleven wide column">
-          <h3 className="ui header" id={attribute("theory-model-human-processor")}>
+          <h3
+            className="ui header"
+            id={attribute("theory-model-human-processor")}
+          >
             <div className="content">
               {richText("人間情報処理モデル（Model Human Processor; HMP）")}
             </div>
@@ -217,7 +234,9 @@ export default function Page() {
             )}
           </p>
           <h3 className="ui header" id={attribute("theory-fitts-law")}>
-            <div className="content">{richText("フィッツの法則（Fitts' law）")}</div>
+            <div className="content">
+              {richText("フィッツの法則（Fitts' law）")}
+            </div>
           </h3>
           <p>
             {richText(
@@ -225,7 +244,9 @@ export default function Page() {
             )}
           </p>
           <a className="ui right floated medium stackable image">
-            <img src={`${rootPath}user-interface-design/uidesign-fig2-fits-law.png`} />
+            <img
+              src={`${rootPath}user-interface-design/uidesign-fig2-fits-law.png`}
+            />
           </a>
           <p>
             {richText(
@@ -253,7 +274,9 @@ export default function Page() {
             )}
           </p>
           <a className="ui right floated medium stackable image">
-            <img src={`${rootPath}user-interface-design/uidesign-fig2-steering.png`} />
+            <img
+              src={`${rootPath}user-interface-design/uidesign-fig2-steering.png`}
+            />
           </a>
           <p>
             {richText(
@@ -303,7 +326,9 @@ export default function Page() {
           {richText(" ")}
           <h3 className="ui header">
             <div className="content">
-              {richText("ダイレクトマニピュレーション（Direct Manipulation; DM）")}
+              {richText(
+                "ダイレクトマニピュレーション（Direct Manipulation; DM）",
+              )}
             </div>
           </h3>
           <p>
@@ -374,7 +399,9 @@ export default function Page() {
           {richText(" ")}
           <h3 className="ui header">
             <div className="content">
-              {richText("実行の溝と評価の溝（Gulf of Execution and Evaluation）")}
+              {richText(
+                "実行の溝と評価の溝（Gulf of Execution and Evaluation）",
+              )}
             </div>
           </h3>
           <p>
@@ -385,11 +412,19 @@ export default function Page() {
           <ol>
             <li>{richText("ユーザが目標を決定する")}</li>
             <li>{richText("ユーザが望ましいシステムの状態を意図する")}</li>
-            <li>{richText("ユーザが意図どおりの状態を実現するための入力を選択する")}</li>
+            <li>
+              {richText(
+                "ユーザが意図どおりの状態を実現するための入力を選択する",
+              )}
+            </li>
             <li>{richText("システムがコマンドを実行して応答を返す")}</li>
             <li>{richText("ユーザがその状態を知覚する")}</li>
             <li>{richText("ユーザが知覚した内容を解釈する")}</li>
-            <li>{richText("ユーザが、はじめに意図した状態と実際の状態を比較評価する")}</li>
+            <li>
+              {richText(
+                "ユーザが、はじめに意図した状態と実際の状態を比較評価する",
+              )}
+            </li>
           </ol>
           <p>
             {richText(
@@ -425,9 +460,13 @@ export default function Page() {
           </p>
           <a
             className="ui fluid bordered image"
-            href={href(`${rootPath}images/thumbnails/user-interface-design.png`)}
+            href={href(
+              `${rootPath}images/thumbnails/user-interface-design.png`,
+            )}
           >
-            <img src={`${rootPath}images/thumbnails/user-interface-design.png`} />
+            <img
+              src={`${rootPath}images/thumbnails/user-interface-design.png`}
+            />
           </a>
           <div className="caption">
             <p>{richText("ユーザとシステムの間の実行・評価の溝")}</p>
@@ -483,7 +522,9 @@ export default function Page() {
             <li>{richText("学習しやすいこと")}</li>
             <li>{richText("作業効率が高いこと")}</li>
             <li>{richText("覚えやすいこと")}</li>
-            <li>{richText("エラーが発生しにくく、発生しても復帰しやすいこと")}</li>
+            <li>
+              {richText("エラーが発生しにくく、発生しても復帰しやすいこと")}
+            </li>
             <li>{richText("主観的な満足度が高いこと")}</li>
           </ol>
           <p>
@@ -558,11 +599,19 @@ export default function Page() {
         <div className="five wide column">
           <dl>
             <dt>
-              <a href={href("https://www.nngroup.com/articles/ten-usability-heuristics/")}>
+              <a
+                href={href(
+                  "https://www.nngroup.com/articles/ten-usability-heuristics/",
+                )}
+              >
                 {richText("10 Usability Heuristics for User Interface Design")}
               </a>
               {richText(" (")}
-              <a href={href("https://u-site.jp/alertbox/ten-usability-heuristics/")}>
+              <a
+                href={href(
+                  "https://u-site.jp/alertbox/ten-usability-heuristics/",
+                )}
+              >
                 {richText("日本語訳")}
               </a>
               {richText(")")}
@@ -602,7 +651,9 @@ export default function Page() {
       <>
         <div className="eleven wide column">
           <h3 className="ui header">
-            <div className="content">{richText("定性的ユーザビリティテスト")}</div>
+            <div className="content">
+              {richText("定性的ユーザビリティテスト")}
+            </div>
           </h3>
           <p>
             {richText(
@@ -619,16 +670,28 @@ export default function Page() {
           <dl>
             <dt>
               <a href={href("https://u-site.jp/alertbox/20000319/")}>
-                {richText("5人のユーザーでテストすれば十分な理由 &#8211; U-Site")}
+                {richText(
+                  "5人のユーザーでテストすれば十分な理由 &#8211; U-Site",
+                )}
               </a>
             </dt>
             <dd>
-              {richText("ユーザビリティテストの実施回数と見つかった問題の数を調査した")}
-              <a href={href("https://dl.acm.org/doi/10.1145/169059.169166")}>{richText("論文")}</a>
-              {richText("の内容を、 Nielsen 自身が分かりやすく説明した記事の日本語訳です。")}
+              {richText(
+                "ユーザビリティテストの実施回数と見つかった問題の数を調査した",
+              )}
+              <a href={href("https://dl.acm.org/doi/10.1145/169059.169166")}>
+                {richText("論文")}
+              </a>
+              {richText(
+                "の内容を、 Nielsen 自身が分かりやすく説明した記事の日本語訳です。",
+              )}
             </dd>
             <dt>
-              <a href={href("https://u-site.jp/wp-content/uploads/2015/09/persona_method.pdf")}>
+              <a
+                href={href(
+                  "https://u-site.jp/wp-content/uploads/2015/09/persona_method.pdf",
+                )}
+              >
                 {richText("ペルソナ／シナリオ法を使ったユーザー中心のデザイン")}
               </a>
             </dt>
@@ -647,7 +710,9 @@ export default function Page() {
       <>
         <div className="eleven wide column">
           <h3 className="ui header">
-            <div className="content">{richText("定量的ユーザビリティテスト")}</div>
+            <div className="content">
+              {richText("定量的ユーザビリティテスト")}
+            </div>
           </h3>
           <p>
             {richText(
@@ -697,7 +762,9 @@ export default function Page() {
       <>
         <div className="eleven wide column">
           <h3 className="ui header">
-            <div className="content">{richText("ユーザビリティテストの限界")}</div>
+            <div className="content">
+              {richText("ユーザビリティテストの限界")}
+            </div>
           </h3>
           <p>
             {richText(
@@ -719,9 +786,13 @@ export default function Page() {
           <p>
             {richText("「")}
             <a href={href("https://www.billbuxton.com/usabilityHarmful.pdf")}>
-              {richText("Usability Evaluation Considered Harmful (Some of the Time)")}
+              {richText(
+                "Usability Evaluation Considered Harmful (Some of the Time)",
+              )}
             </a>
-            {richText("」は、ユーザビリティ評価は使い方を誤れば害になるという主旨の学術論文です。")}
+            {richText(
+              "」は、ユーザビリティ評価は使い方を誤れば害になるという主旨の学術論文です。",
+            )}
             <a
               href={href(
                 "https://www.slideshare.net/saul.greenberg/usability-evaluation-considered-harmful-some-of-the-time",
@@ -750,7 +821,9 @@ export default function Page() {
                 "https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&linkCode=li2&tag=digitalmuseum-22&linkId=e636a05eb62ab11181a5af2591c5dcc7&language=ja_JP&ref_=as_li_ss_il",
               )}
             >
-              {richText("Research &amp; Design Method Index リサーチデザイン 新・100の法則")}
+              {richText(
+                "Research &amp; Design Method Index リサーチデザイン 新・100の法則",
+              )}
             </a>
             {richText(
               "」はデザインのためのリサーチ手法を 100 個、各々見開き 2 ページで簡潔に紹介したカタログ的な書籍です。",
@@ -797,7 +870,9 @@ export default function Page() {
               <div className="content">
                 <div className="date">{richText("10/6/2021")}</div>
                 <div className="summary">
-                  {richText("本文無償公開に伴い、日本音響学会 学会誌 77 巻 4 号（2021）記事「")}
+                  {richText(
+                    "本文無償公開に伴い、日本音響学会 学会誌 77 巻 4 号（2021）記事「",
+                  )}
                   <a href={href("https://doi.org/10.20697/jasj.77.4_231")}>
                     {richText("インタフェース・デザインの勘所")}
                   </a>
@@ -808,20 +883,26 @@ export default function Page() {
             <div className="event">
               <div className="content">
                 <div className="date">{richText("6/19/2021")}</div>
-                <div className="summary">{richText("ユーザビリティのセクションを追加")}</div>
+                <div className="summary">
+                  {richText("ユーザビリティのセクションを追加")}
+                </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="date">{richText("5/19/2021")}</div>
-                <div className="summary">{richText("執筆中の範囲への導入を追加")}</div>
+                <div className="summary">
+                  {richText("執筆中の範囲への導入を追加")}
+                </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="date">{richText("4/12/2021")}</div>
                 <div className="summary">
-                  {richText("フィッツの法則について加筆; 執筆中の範囲の目次を掲載")}
+                  {richText(
+                    "フィッツの法則について加筆; 執筆中の範囲の目次を掲載",
+                  )}
                 </div>
               </div>
             </div>
@@ -849,15 +930,21 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#asj`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("日本音響学会「やさしい解説」")}</div>
+                  <div className="content">
+                    {richText("日本音響学会「やさしい解説」")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#theory`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("インタフェース設計の基礎理論")}</div>
+                  <div className="content">
+                    {richText("インタフェース設計の基礎理論")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#usability`)}>
                   <i className="right triangle icon"></i>
@@ -865,7 +952,9 @@ export default function Page() {
                 </a>
                 <a className="item" href={href(`#visualization`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("情報提示のデザイン")}</div>
+                  <div className="content">
+                    {richText("情報提示のデザイン")}
+                  </div>
                 </a>
               </div>
             </div>
@@ -876,7 +965,9 @@ export default function Page() {
         <div className="ui hidden divider"></div>
         <section id={attribute("introduction")}>
           <h2 className="ui header">
-            <div className="content">{plainText(en ? "Introduction" : "はじめに")}</div>
+            <div className="content">
+              {plainText(en ? "Introduction" : "はじめに")}
+            </div>
           </h2>
           <div className="ui basic segment">
             <p>
@@ -905,7 +996,9 @@ export default function Page() {
         <div className="ui hidden divider"></div>
         <div className="ui horizontal divider">{richText("以降は執筆中")}</div>
         <div className="ui hidden divider"></div>
-        <section id={attribute("visualization")}>{renderVisualization()}</section>
+        <section id={attribute("visualization")}>
+          {renderVisualization()}
+        </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("conclusion")}>{renderConclusion()}</section>
         <div className="ui divider"></div>

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -85,16 +92,22 @@ export default function Page() {
                 <strong>{richText("共同研究や招待講演などのお問合せ:")}</strong>
               </dt>
               <dd>
-                <a href={href(`${rootPath}ja/#contact`)}>{richText("連絡先")}</a>
+                <a href={href(`${rootPath}ja/#contact`)}>
+                  {richText("連絡先")}
+                </a>
                 {richText("へメールでご相談ください。")}
               </dd>
               <dt>
                 <strong>{richText("学会運営委員などのご依頼:")}</strong>
               </dt>
               <dd>
-                <a href={href(`${rootPath}ja/#contact`)}>{richText("同じ連絡先")}</a>
+                <a href={href(`${rootPath}ja/#contact`)}>
+                  {richText("同じ連絡先")}
+                </a>
                 {richText("で承りますが、")}
-                <a href={href(`${rootPath}ja/activities`)}>{richText("溢れ気味")}</a>
+                <a href={href(`${rootPath}ja/activities`)}>
+                  {richText("溢れ気味")}
+                </a>
                 {richText("でお断りせざるを得ない場合が多いです。")}
               </dd>
               <dt>
@@ -105,11 +118,17 @@ export default function Page() {
                 {richText(
                   "はWeb上でお試しいただけます。教育用途や営利目的で利用されたい場合は、各システムの窓口（",
                 )}
-                <a href={href("mailto:songle-sync-ml@aist.go.jp")}>{richText("Songle Sync")}</a>
+                <a href={href("mailto:songle-sync-ml@aist.go.jp")}>
+                  {richText("Songle Sync")}
+                </a>
                 {richText("、")}
-                <a href={href("mailto:f3js-ml@aist.go.jp")}>{richText("f3.js")}</a>
+                <a href={href("mailto:f3js-ml@aist.go.jp")}>
+                  {richText("f3.js")}
+                </a>
                 {richText("、")}
-                <a href={href("mailto:textalive-ml@aist.go.jp")}>{richText("TextAlive")}</a>
+                <a href={href("mailto:textalive-ml@aist.go.jp")}>
+                  {richText("TextAlive")}
+                </a>
                 {richText("）へメールでご相談ください。")}
               </dd>
             </dl>
@@ -132,14 +151,18 @@ export default function Page() {
                     {richText("Arch Research")}
                   </a>
                 </div>
-                <div className="meta">{richText("2019/04- アーチ株式会社 研究開発部門")}</div>
+                <div className="meta">
+                  {richText("2019/04- アーチ株式会社 研究開発部門")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
                   <a href={href("https://baku89.com")}>{richText("橋本 麦")}</a>
                 </div>
                 <div className="meta">
-                  {richText('2023/02- <abbr title="産業技術総合研究所">産総研</abbr> 協力研究員')}
+                  {richText(
+                    '2023/02- <abbr title="産業技術総合研究所">産総研</abbr> 協力研究員',
+                  )}
                 </div>
               </div>
             </div>
@@ -156,7 +179,11 @@ export default function Page() {
               <dt>
                 <strong>{richText("研究テーマ:")}</strong>
               </dt>
-              <dd>{richText("自由（一から企画立案して取り組むことを基本とします）")}</dd>
+              <dd>
+                {richText(
+                  "自由（一から企画立案して取り組むことを基本とします）",
+                )}
+              </dd>
               <dt>
                 <strong>{richText("立場:")}</strong>
               </dt>
@@ -164,7 +191,11 @@ export default function Page() {
               <dt>
                 <strong>{richText("期間:")}</strong>
               </dt>
-              <dd>{richText("春休みか夏休みの1-2か月（前後も含め数か月で論文化を目指します）")}</dd>
+              <dd>
+                {richText(
+                  "春休みか夏休みの1-2か月（前後も含め数か月で論文化を目指します）",
+                )}
+              </dd>
               <dt>
                 <strong>{richText("場所:")}</strong>
               </dt>
@@ -195,7 +226,9 @@ export default function Page() {
             <div className="ui list">
               <div className="item">
                 <div className="header">{richText("山根 壮一、小林 和弘")}</div>
-                <div className="meta">{richText("奈良先端科学技術大学院大学（2014/09-10）")}</div>
+                <div className="meta">
+                  {richText("奈良先端科学技術大学院大学（2014/09-10）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -204,7 +237,9 @@ export default function Page() {
                     {richText("鈴木 遼")}
                   </a>
                 </div>
-                <div className="meta">{richText("東京大学大学院 経済学研究科 （2015/02-03）")}</div>
+                <div className="meta">
+                  {richText("東京大学大学院 経済学研究科 （2015/02-03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -213,17 +248,25 @@ export default function Page() {
                     {richText("平井 辰典")}
                   </a>
                 </div>
-                <div className="meta">{richText("早稲田大学 先進理工学部（2015/02-03）")}</div>
+                <div className="meta">
+                  {richText("早稲田大学 先進理工学部（2015/02-03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">{richText("吉館 要")}</div>
-                <div className="meta">{richText("筑波大学 情報学群（2015/02-03）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2015/02-03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
-                  <a href={href("https://site.kkunihir.com/")}>{richText("加藤 邦拓")}</a>
+                  <a href={href("https://site.kkunihir.com/")}>
+                    {richText("加藤 邦拓")}
+                  </a>
                 </div>
-                <div className="meta">{richText("明治大学大学院 理工学研究科 （2015/09-10）")}</div>
+                <div className="meta">
+                  {richText("明治大学大学院 理工学研究科 （2015/09-10）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -234,7 +277,9 @@ export default function Page() {
                     {richText("小渕 豊")}
                   </a>
                 </div>
-                <div className="meta">{richText("明治大学 総合数理学部（2015/09-10）")}</div>
+                <div className="meta">
+                  {richText("明治大学 総合数理学部（2015/09-10）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -244,7 +289,9 @@ export default function Page() {
                   </a>
                 </div>
                 <div className="meta">
-                  {richText("東京工業大学大学院 情報理工学研究科（2015/09-10）")}
+                  {richText(
+                    "東京工業大学大学院 情報理工学研究科（2015/09-10）",
+                  )}
                 </div>
               </div>
               <div className="item">
@@ -254,24 +301,36 @@ export default function Page() {
                     {richText("原 健太")}
                   </a>
                 </div>
-                <div className="meta">{richText("明治大学 総合数理学部（2016/02-03）")}</div>
+                <div className="meta">
+                  {richText("明治大学 総合数理学部（2016/02-03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">{richText("若狭 健太")}</div>
-                <div className="meta">{richText("筑波大学 情報学群（2016/08-2016/09）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2016/08-2016/09）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
-                  <a href={href("https://iis-lab.org/members/")}>{richText("有賀 竣哉")}</a>
+                  <a href={href("https://iis-lab.org/members/")}>
+                    {richText("有賀 竣哉")}
+                  </a>
                 </div>
-                <div className="meta">{richText("東京大学 工学系研究科（2016/09-2016/09）")}</div>
+                <div className="meta">
+                  {richText("東京大学 工学系研究科（2016/09-2016/09）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
                   {richText("吉館 要、")}
-                  <a href={href("https://hiromu.phd")}>{richText("矢倉 大夢")}</a>
+                  <a href={href("https://hiromu.phd")}>
+                    {richText("矢倉 大夢")}
+                  </a>
                 </div>
-                <div className="meta">{richText("筑波大学 情報学群（2015/04-2017/03）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2015/04-2017/03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -286,17 +345,25 @@ export default function Page() {
               </div>
               <div className="item">
                 <div className="header">
-                  <a href={href("https://sites.google.com/view/smygw72/home-jp")}>
+                  <a
+                    href={href("https://sites.google.com/view/smygw72/home-jp")}
+                  >
                     {richText("宮川 翔貴")}
                   </a>
                 </div>
-                <div className="meta">{richText("早稲田大学 先進理工学部（2017/08-2017/09）")}</div>
+                <div className="meta">
+                  {richText("早稲田大学 先進理工学部（2017/08-2017/09）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
-                  <a href={href("https://73ch.work/")}>{richText("浪川 洪作")}</a>
+                  <a href={href("https://73ch.work/")}>
+                    {richText("浪川 洪作")}
+                  </a>
                 </div>
-                <div className="meta">{richText("筑波大学 情報学群（2019/10-2021/03）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2019/10-2021/03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -305,7 +372,9 @@ export default function Page() {
                     {richText("新 由衣")}
                   </a>
                 </div>
-                <div className="meta">{richText("筑波大学 情報学群（2020/09-2022/09）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2020/09-2022/09）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -314,7 +383,9 @@ export default function Page() {
                     {richText("村上 貴人")}
                   </a>
                 </div>
-                <div className="meta">{richText("筑波大学 情報学群（2021/05-2025/03）")}</div>
+                <div className="meta">
+                  {richText("筑波大学 情報学群（2021/05-2025/03）")}
+                </div>
               </div>
               <div className="item">
                 <div className="header">
@@ -322,13 +393,17 @@ export default function Page() {
                   {richText("上村 宙")}
                 </div>
                 <div className="meta">
-                  {richText("北海道情報大学 情報メディア学部（2025/08-2025/09）")}
+                  {richText(
+                    "北海道情報大学 情報メディア学部（2025/08-2025/09）",
+                  )}
                 </div>
               </div>
             </div>
             <h3 className="ui header">{richText("その他の学生向け情報")}</h3>
             <p>
-              <a href={href("https://blog.junkato.jp/ja/")}>{richText("ブログ")}</a>
+              <a href={href("https://blog.junkato.jp/ja/")}>
+                {richText("ブログ")}
+              </a>
               {richText(
                 "で定期的に情報発信しています。サイドバーに学生向けのおすすめ記事をまとめてあります。",
               )}
@@ -351,12 +426,22 @@ export default function Page() {
           for (const p of products) {
             children192.push(
               <>
-                <div className="ui fluid card" id={attribute(`projects-${p.project}`)}>
+                <div
+                  className="ui fluid card"
+                  id={attribute(`projects-${p.project}`)}
+                >
                   <a className="image" href={href(p.getLink(lang, basePath))}>
-                    <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+                    <img
+                      src={`${rootPath}images/thumbnails/${p.getThumbnail(
+                        lang,
+                      )}`}
+                    />
                   </a>
                   <div className="content">
-                    <a className="header" href={href(p.getLink(lang, basePath))}>
+                    <a
+                      className="header"
+                      href={href(p.getLink(lang, basePath))}
+                    >
                       {(() => {
                         const children193: ReactNode[] = [];
                         if (p.icon) {
@@ -373,7 +458,9 @@ export default function Page() {
                         return keyed(children193);
                       })()}
                     </a>
-                    <div className="description">{richText(p.getDescription(lang))}</div>
+                    <div className="description">
+                      {richText(p.getDescription(lang))}
+                    </div>
                   </div>
                 </div>
               </>,
@@ -401,7 +488,9 @@ export default function Page() {
                 </a>
                 <a className="item" href={href("#collaborators")}>
                   <i className="users icon"></i>
-                  <div className="content">{richText("リサーチエンジニア・協力研究員")}</div>
+                  <div className="content">
+                    {richText("リサーチエンジニア・協力研究員")}
+                  </div>
                 </a>
                 <a className="item" href={href("#students")}>
                   <i className="student icon"></i>

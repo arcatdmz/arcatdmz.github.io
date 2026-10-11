@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -77,16 +84,22 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#abstract")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </a>
                 <a className="item" href={href("#implementation")}>
                   <i className="right triangle icon"></i>
                   <div className="content">
-                    {plainText(en ? "Reference implementation" : "リファレンス実装")}
+                    {plainText(
+                      en ? "Reference implementation" : "リファレンス実装",
+                    )}
                   </div>
                 </a>
               </div>
@@ -116,9 +129,15 @@ export default function Page() {
                 )}
               </li>
               <li>
-                {richText("prioritize high-speed and accurate interaction for skilled users, and")}
+                {richText(
+                  "prioritize high-speed and accurate interaction for skilled users, and",
+                )}
               </li>
-              <li>{richText("minimize visual footprint to preserve the creative workspace.")}</li>
+              <li>
+                {richText(
+                  "minimize visual footprint to preserve the creative workspace.",
+                )}
+              </li>
             </ul>
             <p>
               {richText(
@@ -133,11 +152,16 @@ export default function Page() {
           </div>
           <div className="ui basic segment">
             <p>
-              <img className="ui fluid image" src={`${rootPath}tweeq/tweeq.png`} />
+              <img
+                className="ui fluid image"
+                src={`${rootPath}tweeq/tweeq.png`}
+              />
             </p>
             <p className="caption">
               <i>{richText("Tweeq")}</i>
-              {richText(", a set of GUI widgets proposed in this paper for creative software. ")}
+              {richText(
+                ", a set of GUI widgets proposed in this paper for creative software. ",
+              )}
               <strong>{richText("(a)")}</strong>
               {richText(" Components of <i>Tweeq</i>. ")}
               <strong>{richText("(b)")}</strong>
@@ -175,7 +199,10 @@ export default function Page() {
           </div>
           <div className="ui basic center aligned segment">
             <div className="ui huge buttons">
-              <a className="ui primary button" href={href("//github.com/baku89/tweeq")}>
+              <a
+                className="ui primary button"
+                href={href("//github.com/baku89/tweeq")}
+              >
                 {plainText(en ? "Code" : "ソースコード")}
               </a>
               <div className="ui divider"></div>
@@ -196,7 +223,9 @@ export default function Page() {
               <div className="event">
                 <div className="content">
                   <div className="date">{richText("8/1/2025")}</div>
-                  <div className="summary">{richText("Upload the initial revision.")}</div>
+                  <div className="summary">
+                    {richText("Upload the initial revision.")}
+                  </div>
                 </div>
               </div>
             </div>

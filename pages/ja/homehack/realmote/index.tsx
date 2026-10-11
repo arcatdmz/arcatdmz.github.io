@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -43,7 +50,6 @@ export default function Page() {
     description: any,
     imageUrl: any,
     bodyClass: any;
-  
 
   p = projectsTable["homehack"];
   var homehack;
@@ -85,13 +91,19 @@ export default function Page() {
         {content.renderProjectHeader("homehack")}
         <div className="ui secondary pointing menu">
           <a
-            className={classNames("item", typeof homehack === "undefined" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              typeof homehack === "undefined" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/`)}
           >
             {plainText(en ? "Overview" : "概要")}
           </a>
           <a
-            className={classNames("item", homehack === "fungus-camera" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "fungus-camera" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
             {plainText(titles[lang]["fungus-camera"])}
@@ -101,7 +113,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "rhythm-kaden" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "rhythm-kaden" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
             {plainText(titles[lang]["rhythm-kaden"])}
@@ -111,7 +126,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "realmote" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "realmote" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/realmote/`)}
           >
             {plainText(titles[lang]["realmote"])}
@@ -133,11 +151,17 @@ export default function Page() {
             <ul>
               <li>
                 {richText("Java + ")}
-                <a href={href(`${rootPath}ja/phybots/`)}>{richText("Phybots")}</a>
+                <a href={href(`${rootPath}ja/phybots/`)}>
+                  {richText("Phybots")}
+                </a>
                 {richText(" on Mac OS X")}
               </li>
               <li>
-                <a href={href("https://www.buffalo.jp/product/detail/pc-op-rs1.html")}>
+                <a
+                  href={href(
+                    "https://www.buffalo.jp/product/detail/pc-op-rs1.html",
+                  )}
+                >
                   {richText("パソコン用学習リモコン PC-OP-RS1")}
                 </a>
               </li>
@@ -172,12 +196,18 @@ export default function Page() {
             {content.renderEmbedYoutube("//www.youtube.com/embed/bhbW39zoxyg")}
           </div>
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/realmote-edit.jpg`)}>
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/realmote-edit.jpg`)}
+            >
               <img src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`} />
             </a>
           </div>
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/realmote.jpg`)}>
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/realmote.jpg`)}
+            >
               <img src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
             </a>
           </div>

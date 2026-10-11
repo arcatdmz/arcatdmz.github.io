@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -78,7 +85,9 @@ export default function Page() {
             <>
               <section id={attribute("abstract")}>
                 <h2 className="ui header">
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </h2>
                 <div className="ui basic segment">
                   <p>
@@ -92,7 +101,9 @@ export default function Page() {
                     )}
                   </p>
                   <p>
-                    {richText("The experimental implementation is available at ")}
+                    {richText(
+                      "The experimental implementation is available at ",
+                    )}
                     <a href={href("http://www.sharedo.info")}>
                       {richText("http://www.sharedo.info")}
                     </a>
@@ -112,16 +123,26 @@ export default function Page() {
           children150.push(
             <>
               <section id={attribute("presentations")}>
-                <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+                <h2 className="ui header">
+                  {plainText(en ? "Presentation materials" : "発表内容")}
+                </h2>
                 <div className="ui basic segment">
                   <div className="ui stackable two columns grid">
                     <div className="column">
-                      <h3 className="ui header">{plainText(en ? "Demo Video" : "デモ動画")}</h3>
-                      {content.renderEmbedYoutube("//www.youtube.com/embed/HxEUgOSwTeM")}
+                      <h3 className="ui header">
+                        {plainText(en ? "Demo Video" : "デモ動画")}
+                      </h3>
+                      {content.renderEmbedYoutube(
+                        "//www.youtube.com/embed/HxEUgOSwTeM",
+                      )}
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
-                            <a href={href("//www.youtube.com/watch?v=HxEUgOSwTeM")}>
+                            <a
+                              href={href(
+                                "//www.youtube.com/watch?v=HxEUgOSwTeM",
+                              )}
+                            >
                               <i className="youtube icon"></i>
                               {richText("YouTube")}
                             </a>
@@ -144,7 +165,10 @@ export default function Page() {
                           <>
                             <div
                               className="ui embed"
-                              data-url={publicationsTable[p.publication].entryTags.slides}
+                              data-url={
+                                publicationsTable[p.publication].entryTags
+                                  .slides
+                              }
                               data-placeholder={`${rootPath}images/background-eee.png`}
                               data-icon={"video play outline"}
                             ></div>
@@ -155,9 +179,16 @@ export default function Page() {
                             <div className="caption">
                               <div className="ui horizontal list">
                                 <div className="item">
-                                  <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                                  <a
+                                    href={href(
+                                      publicationsTable[p.publication].entryTags
+                                        .slides,
+                                    )}
+                                  >
                                     <i className="download icon"></i>
-                                    {plainText(en ? "Download" : "ダウンロード")}
+                                    {plainText(
+                                      en ? "Download" : "ダウンロード",
+                                    )}
                                   </a>
                                 </div>
                               </div>
@@ -209,7 +240,12 @@ export default function Page() {
             </>,
           );
           children150.push(
-            <>{content.renderProjectPublications("sharedo", "hai2014-kato-sharedo")}</>,
+            <>
+              {content.renderProjectPublications(
+                "sharedo",
+                "hai2014-kato-sharedo",
+              )}
+            </>,
           );
           return keyed(children150);
         })()}

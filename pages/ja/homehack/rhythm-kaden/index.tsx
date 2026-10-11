@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -43,7 +50,6 @@ export default function Page() {
     description: any,
     imageUrl: any,
     bodyClass: any;
-  
 
   p = projectsTable["homehack"];
   var homehack;
@@ -85,13 +91,19 @@ export default function Page() {
         {content.renderProjectHeader("homehack")}
         <div className="ui secondary pointing menu">
           <a
-            className={classNames("item", typeof homehack === "undefined" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              typeof homehack === "undefined" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/`)}
           >
             {plainText(en ? "Overview" : "概要")}
           </a>
           <a
-            className={classNames("item", homehack === "fungus-camera" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "fungus-camera" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
             {plainText(titles[lang]["fungus-camera"])}
@@ -101,7 +113,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "rhythm-kaden" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "rhythm-kaden" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
             {plainText(titles[lang]["rhythm-kaden"])}
@@ -111,7 +126,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "realmote" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "realmote" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/realmote/`)}
           >
             {plainText(titles[lang]["realmote"])}
@@ -123,7 +141,10 @@ export default function Page() {
         </div>
         <div className="ui stackable grid">
           <div className="four wide column">
-            <img className="ui fluid image" src={`${rootPath}homehack/rhythmkaden.jpg`} />
+            <img
+              className="ui fluid image"
+              src={`${rootPath}homehack/rhythmkaden.jpg`}
+            />
           </div>
           <div className="twelve wide column">
             <p>
@@ -141,7 +162,11 @@ export default function Page() {
               {richText(
                 "本アプリケーションは、Sony CSLとお茶の水女子大学の共催ワークショップ「Home Hacker’s Workshop」の半日のセッションで制作された。また、Sony CSL、大和ハウス、ヤフーの共催イベント「",
               )}
-              <a href={href("https://www.daiwahouse.co.jp/lab/HousingAPI/symposium/index.html")}>
+              <a
+                href={href(
+                  "https://www.daiwahouse.co.jp/lab/HousingAPI/symposium/index.html",
+                )}
+              >
                 {richText("住宅をカスタマイズするためのシンポジウム")}
               </a>
               {richText("」で発表され、学生賞を受賞した。")}
@@ -152,7 +177,11 @@ export default function Page() {
           <div className="column">
             <h3 className="ui header">{richText("開発環境")}</h3>
             <ul>
-              <li>{richText("Java (プロキシサーバ), JavaScript (Webサービスの改造)")}</li>
+              <li>
+                {richText(
+                  "Java (プロキシサーバ), JavaScript (Webサービスの改造)",
+                )}
+              </li>
               <li>
                 <a href={href("https://www.sonycsl.co.jp/tokyo/347/")}>
                   {richText("Kadecot Server")}
@@ -226,7 +255,9 @@ export default function Page() {
           <div className="column">
             {content.renderEmbedYoutube("//www.youtube.com/embed/Wu3OLxEmeww")}
             <p className="caption">
-              {richText("「既存Webアプリと家電のマッシュアップ」プレゼンテーション動画")}
+              {richText(
+                "「既存Webアプリと家電のマッシュアップ」プレゼンテーション動画",
+              )}
             </p>
           </div>
         </div>

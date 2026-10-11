@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -94,7 +101,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           {plainText(
-            en ? "Multi-touch Vector Field Operation" : "ベクトル場を用いた複数ロボットの同時操作",
+            en
+              ? "Multi-touch Vector Field Operation"
+              : "ベクトル場を用いた複数ロボットの同時操作",
           )}
         </h2>
         <div className="ui basic segment">
@@ -149,10 +158,15 @@ export default function Page() {
           </div>
         </div>
         <div className="ui hidden divider"></div>
-        <a className="ui fluid image" href={href(`${rootPath}multirobot/operations.png`)}>
+        <a
+          className="ui fluid image"
+          href={href(`${rootPath}multirobot/operations.png`)}
+        >
           <img src={`${rootPath}multirobot/operations.png`} />
         </a>
-        <div className="caption">{plainText(en ? "Three operation modes" : "3つの操作モード")}</div>
+        <div className="caption">
+          {plainText(en ? "Three operation modes" : "3つの操作モード")}
+        </div>
         <div className="ui hidden divider"></div>
       </>
     );
@@ -165,13 +179,18 @@ export default function Page() {
         <div className="ui stackable two columns grid">
           <div className="column">
             <section id={attribute("abstract")}>{renderAbstract()}</section>
-            <section id={attribute("interaction")}>{renderInteraction()}</section>
+            <section id={attribute("interaction")}>
+              {renderInteraction()}
+            </section>
           </div>
           <div className="column">
             <section id={attribute("videos")}>{renderVideos()}</section>
           </div>
         </div>
-        {content.renderProjectPublications("multirobot", "chi2009-kato-multirobot")}
+        {content.renderProjectPublications(
+          "multirobot",
+          "chi2009-kato-multirobot",
+        )}
       </SiteLayout>
     </>
   );

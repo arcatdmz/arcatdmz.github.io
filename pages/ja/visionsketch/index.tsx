@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -69,7 +76,9 @@ export default function Page() {
         {content.renderProjectHeader("visionsketch")}
         <div className="ui message">
           {richText("ソースコードが")}
-          <a href={href("https://github.com/arcatdmz/visionsketch/")}>{richText("GitHub")}</a>
+          <a href={href("https://github.com/arcatdmz/visionsketch/")}>
+            {richText("GitHub")}
+          </a>
           {richText("で公開されています。WindowsとMac両用です。")}
         </div>
         <div className="ui hidden divider"></div>
@@ -97,7 +106,9 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("presentations")}>
-          <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -105,7 +116,9 @@ export default function Page() {
                   {richText("GI 2014 ")}
                   {plainText(en ? "Demo Video" : "デモ動画")}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/I6FTOVygHxc")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/I6FTOVygHxc",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -131,7 +144,11 @@ export default function Page() {
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
-                      <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                      <a
+                        href={href(
+                          publicationsTable[p.publication].entryTags.slides,
+                        )}
+                      >
                         <i className="download icon"></i>
                         {plainText(en ? "Download" : "ダウンロード")}
                       </a>
@@ -151,10 +168,17 @@ export default function Page() {
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/fig1-overview.jpg`)}
               >
-                <img src={`${rootPath}visionsketch/fig1-overview.jpg`} alt={"Overview"} />
+                <img
+                  src={`${rootPath}visionsketch/fig1-overview.jpg`}
+                  alt={"Overview"}
+                />
               </a>
               <div className="caption">
-                {plainText(en ? "Overview of the VisionSketch IDE (GI '14)" : "VisionSketch IDEの概観")}
+                {plainText(
+                  en
+                    ? "Overview of the VisionSketch IDE (GI '14)"
+                    : "VisionSketch IDEの概観",
+                )}
               </div>
               <div className="ui hidden divider"></div>
               <a
@@ -187,14 +211,19 @@ export default function Page() {
               </a>
               <div className="caption">
                 {plainText(
-                  en ? "An example image processing pipeline" : "構築した画像処理パイプラインの例",
+                  en
+                    ? "An example image processing pipeline"
+                    : "構築した画像処理パイプラインの例",
                 )}
               </div>
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("visionsketch", "gi2014-kato-visionsketch")}
+        {content.renderProjectPublications(
+          "visionsketch",
+          "gi2014-kato-visionsketch",
+        )}
       </SiteLayout>
     </>
   );

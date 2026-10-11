@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -93,7 +100,9 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("implementation")}>
-          <h2 className="ui header">{plainText(en ? "Implementation" : "実装")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Implementation" : "実装")}
+          </h2>
           <div className="ui basic segment">
             <p>
               {richText(
@@ -137,9 +146,13 @@ export default function Page() {
                 "The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.",
               )}
             </p>
-            <h3 className="ui header">{richText("OpenPool pocket detection library")}</h3>
+            <h3 className="ui header">
+              {richText("OpenPool pocket detection library")}
+            </h3>
             <pre className="prettyprint linenums">
-              {richText('OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");')}
+              {richText(
+                'OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");',
+              )}
               {richText("\n")}
               {richText("p.start();")}
               {richText("\n")}
@@ -182,16 +195,22 @@ export default function Page() {
         <section id={attribute("videos")}>
           <div className="ui embed">
             <iframe
-              src={"https://www.facebook.com/video/embed?video_id=608850275796418"}
+              src={
+                "https://www.facebook.com/video/embed?video_id=608850275796418"
+              }
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
           </div>
-          <div className="caption">{richText("Playing 8 ball pool with OpenPool")}</div>
+          <div className="caption">
+            {richText("Playing 8 ball pool with OpenPool")}
+          </div>
           <div className="ui hidden divider"></div>
           <div className="ui embed">
             <iframe
-              src={"https://www.facebook.com/video/embed?video_id=614971478517631"}
+              src={
+                "https://www.facebook.com/video/embed?video_id=614971478517631"
+              }
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
@@ -202,30 +221,49 @@ export default function Page() {
           <div className="ui hidden divider"></div>
           <div className="ui embed">
             <iframe
-              src={"https://www.facebook.com/video/embed?video_id=615808058433973"}
+              src={
+                "https://www.facebook.com/video/embed?video_id=615808058433973"
+              }
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
           </div>
           <div className="caption">
-            {richText("Animation effect triggered by an OpenPool pocket detection sensor")}
+            {richText(
+              "Animation effect triggered by an OpenPool pocket detection sensor",
+            )}
           </div>
         </section>
         <div className="ui divider"></div>
         <section id={attribute("press")}></section>
-        <h2 className="ui header">{plainText(en ? "Media Coverage" : "メディア掲載")}</h2>
-        <div className="ui basic segment" style={style("margin-bottom: -0.5em")}>
+        <h2 className="ui header">
+          {plainText(en ? "Media Coverage" : "メディア掲載")}
+        </h2>
+        <div
+          className="ui basic segment"
+          style={style("margin-bottom: -0.5em")}
+        >
           <div className="ui stackable grid">
             <div className="three columns row">
               {(() => {
                 const children234: ReactNode[] = [];
                 for (const e of mediaList.filter(
-                  (e) => !e.private && !e.draft && (e.projects || []).indexOf("openpool") >= 0,
+                  (e) =>
+                    !e.private &&
+                    !e.draft &&
+                    (e.projects || []).indexOf("openpool") >= 0,
                 )) {
                   children234.push(
                     <>
-                      <div className="column" style={style("margin-bottom: 0.5em")}>
-                        <a className="item" href={href(e.archive || e.permalink)} title={e.text.en}>
+                      <div
+                        className="column"
+                        style={style("margin-bottom: 0.5em")}
+                      >
+                        <a
+                          className="item"
+                          href={href(e.archive || e.permalink)}
+                          title={e.text.en}
+                        >
                           <img
                             className="ui fluid image"
                             src={`${rootPath}openpool/${e.media.en
@@ -246,15 +284,25 @@ export default function Page() {
         </div>
         <div className="ui divider"></div>
         <section id={attribute("related-work")}>
-          <h2 className="ui header">{plainText(en ? "Related Work" : "関連研究")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Related Work" : "関連研究")}
+          </h2>
           <ol>
             <li id={attribute("ppp")}>
-              <a href={href("https://tangible.media.mit.edu/project/pingpongplus/")}>
+              <a
+                href={href(
+                  "https://tangible.media.mit.edu/project/pingpongplus/",
+                )}
+              >
                 {richText("PingPongPlus")}
               </a>
             </li>
             <li id={attribute("pppp")}>
-              <a href={href("https://tangible.media.mit.edu/project/pingpongplusplus/")}>
+              <a
+                href={href(
+                  "https://tangible.media.mit.edu/project/pingpongplusplus/",
+                )}
+              >
                 {richText("PingPong++")}
               </a>
             </li>
@@ -271,17 +319,23 @@ export default function Page() {
           additionalLabels.push(
             '<span class="ui tiny red basic label"><i class="trophy icon"></i>\'13 グッドデザイン賞</span>',
           );
-          children235.push(<>{content.renderProjectHeader("openpool", additionalLabels)}</>);
+          children235.push(
+            <>{content.renderProjectHeader("openpool", additionalLabels)}</>,
+          );
           children235.push(
             <>
               <div className="ui message">
                 <p>
-                  {richText("OpenPool is a collaborative open-source project developed at ")}
+                  {richText(
+                    "OpenPool is a collaborative open-source project developed at ",
+                  )}
                   <a href={href("https://github.com/openpool/openpool-core")}>
                     {richText("GitHub")}
                   </a>
                   {richText(". The official site is ")}
-                  <a href={href("http://www.openpool.cc/")}>{richText("openpool.cc")}</a>
+                  <a href={href("http://www.openpool.cc/")}>
+                    {richText("openpool.cc")}
+                  </a>
                   {richText(".")}
                 </p>
                 <p>{content.renderTranslate("openpool/index.pug")}</p>
@@ -307,7 +361,12 @@ export default function Page() {
             </>,
           );
           children235.push(
-            <>{content.renderProjectPublications("openpool", "gcce2013-kato-openpool")}</>,
+            <>
+              {content.renderProjectPublications(
+                "openpool",
+                "gcce2013-kato-openpool",
+              )}
+            </>,
           );
           return keyed(children235);
         })()}

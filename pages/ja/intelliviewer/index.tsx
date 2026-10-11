@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -85,17 +92,27 @@ export default function Page() {
             >
               {richText("Adaptive Hardware")}
             </a>
-            {richText("プロジェクトで開発したAdaptive Keyboardのプロトタイプ上で動作します。")}
+            {richText(
+              "プロジェクトで開発したAdaptive Keyboardのプロトタイプ上で動作します。",
+            )}
           </p>
           <p>
             {richText("研究室の有志による共同プロジェクトで、UIST 2010の")}
-            <a href={href("https://www.acm.org/uist/uist2010/Student_Contest.html")}>
+            <a
+              href={href(
+                "https://www.acm.org/uist/uist2010/Student_Contest.html",
+              )}
+            >
               {richText("Student Innovation Contest")}
             </a>
             {richText("に参加しました。")}
           </p>
           <p>
-            <a href={href("https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST")}>
+            <a
+              href={href(
+                "https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST",
+              )}
+            >
               <i className="video icon"></i>
               {richText("Microsoft Channel9 (UIST '10 interview, 5:55-)")}
             </a>

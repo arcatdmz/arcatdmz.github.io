@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -43,7 +50,6 @@ export default function Page() {
     description: any,
     imageUrl: any,
     bodyClass: any;
-  
 
   p = projectsTable["homehack"];
   var homehack;
@@ -85,13 +91,19 @@ export default function Page() {
         {content.renderProjectHeader("homehack")}
         <div className="ui secondary pointing menu">
           <a
-            className={classNames("item", typeof homehack === "undefined" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              typeof homehack === "undefined" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/`)}
           >
             {plainText(en ? "Overview" : "概要")}
           </a>
           <a
-            className={classNames("item", homehack === "fungus-camera" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "fungus-camera" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
             {plainText(titles[lang]["fungus-camera"])}
@@ -101,7 +113,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "rhythm-kaden" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "rhythm-kaden" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
             {plainText(titles[lang]["rhythm-kaden"])}
@@ -111,7 +126,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "realmote" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "realmote" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/realmote/`)}
           >
             {plainText(titles[lang]["realmote"])}
@@ -123,22 +141,38 @@ export default function Page() {
         </div>
         <div className="ui stackable four columns grid">
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/fungus-prototype.jpg`)}>
-              <img src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`} />
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/fungus-prototype.jpg`)}
+            >
+              <img
+                src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`}
+              />
             </a>
           </div>
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}>
-              <img src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`} />
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}
+            >
+              <img
+                src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`}
+              />
             </a>
           </div>
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/fungus-camera.jpg`)}>
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/fungus-camera.jpg`)}
+            >
               <img src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`} />
             </a>
           </div>
           <div className="column">
-            <a className="ui fluid image" href={href(`${rootPath}homehack/fungus-box.jpg`)}>
+            <a
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/fungus-box.jpg`)}
+            >
               <img src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
             </a>
           </div>
@@ -164,7 +198,11 @@ export default function Page() {
             <ul>
               <li>
                 {richText("ブログ記事: ")}
-                <a href={href("https://blog.junkato.jp/ja/posts/2012-12-18-mac-os-x-launchd/")}>
+                <a
+                  href={href(
+                    "https://blog.junkato.jp/ja/posts/2012-12-18-mac-os-x-launchd/",
+                  )}
+                >
                   {richText("Mac OS Xでスクリプトを定期実行する")}
                 </a>
               </li>
@@ -176,7 +214,9 @@ export default function Page() {
               </li>
               <li>
                 {richText("半年間の全成長記録: ")}
-                <a href={href("//www.youtube.com/watch?v=ggH3Y_goGtM")}>{richText("YouTube")}</a>
+                <a href={href("//www.youtube.com/watch?v=ggH3Y_goGtM")}>
+                  {richText("YouTube")}
+                </a>
               </li>
             </ul>
           </div>

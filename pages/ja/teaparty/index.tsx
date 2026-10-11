@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -89,7 +96,9 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("past-events")}>
-          <h2 className="ui header">{plainText(en ? "Past Events" : "イベント一覧")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Past Events" : "イベント一覧")}
+          </h2>
           <div className="ui basic segment">
             <h3 className="ui header" id={attribute("9")}>
               {richText("第9回 2020年2月16日 Wantedly, Inc.")}
@@ -136,7 +145,9 @@ export default function Page() {
               )}
             </p>
             <p>
-              <a href={href("https://www.wantedly.com/chat")}>{richText("Wantedlyチャット")}</a>
+              <a href={href("https://www.wantedly.com/chat")}>
+                {richText("Wantedlyチャット")}
+              </a>
               {richText(
                 "を利用して、オフラインの発表と同時並行でオンラインの議論を行いました。また、運営を複数名で行ったおかげで、温かいお茶やコーヒーをサーブでき、懇親会の時間もしっかり取れました。",
               )}
@@ -216,14 +227,29 @@ export default function Page() {
   function renderImages(): ReactNode {
     return (
       <>
-        <img className="ui fluid image" src={`${rootPath}teaparty/20160213-5th-teaparty.jpg`} />
-        <div className="caption">{plainText(en ? "A photo from the 5th party" : "第5回の模様")}</div>
+        <img
+          className="ui fluid image"
+          src={`${rootPath}teaparty/20160213-5th-teaparty.jpg`}
+        />
+        <div className="caption">
+          {plainText(en ? "A photo from the 5th party" : "第5回の模様")}
+        </div>
         <div className="ui hidden divider"></div>
-        <img className="ui fluid image" src={`${rootPath}teaparty/20140301-3rd-teaparty.jpg`} />
-        <div className="caption">{plainText(en ? "A photo from the 3rd party" : "第3回の模様")}</div>
+        <img
+          className="ui fluid image"
+          src={`${rootPath}teaparty/20140301-3rd-teaparty.jpg`}
+        />
+        <div className="caption">
+          {plainText(en ? "A photo from the 3rd party" : "第3回の模様")}
+        </div>
         <div className="ui hidden divider"></div>
-        <img className="ui fluid image" src={`${rootPath}teaparty/20130105-2nd-teaparty.jpg`} />
-        <div className="caption">{plainText(en ? "A photo from the 2nd party" : "第2回の模様")}</div>
+        <img
+          className="ui fluid image"
+          src={`${rootPath}teaparty/20130105-2nd-teaparty.jpg`}
+        />
+        <div className="caption">
+          {plainText(en ? "A photo from the 2nd party" : "第2回の模様")}
+        </div>
         <div className="ui hidden divider"></div>
       </>
     );

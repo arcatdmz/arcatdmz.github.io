@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -83,11 +90,19 @@ export default function Page() {
                 {richText("打鍵圧を検出できるキーボードのプロトタイプ")}
               </a>
               {richText("を用いて開発された。UIST 2009 ")}
-              <a href={href("https://www.acm.org/uist/uist2009/call/contest.html")}>
+              <a
+                href={href(
+                  "https://www.acm.org/uist/uist2009/call/contest.html",
+                )}
+              >
                 {richText("Student Innovation Contest")}
               </a>
               {richText("で")}
-              <a href={href(`${rootPath}publications/uist2009-kato-pressing-flyer.pdf`)}>
+              <a
+                href={href(
+                  `${rootPath}publications/uist2009-kato-pressing-flyer.pdf`,
+                )}
+              >
                 <i className="icon-file"></i>
                 {richText("フライヤー")}
               </a>
@@ -95,10 +110,18 @@ export default function Page() {
             </p>
             <div className="ui hidden divider"></div>
             <div className="ui fluid image">
-              <img src={"https://digitalmuseum.jp/en/software/pressing/images/usage.png"} />
+              <img
+                src={
+                  "https://digitalmuseum.jp/en/software/pressing/images/usage.png"
+                }
+              />
             </div>
             <div className="caption">
-              {plainText(en ? "Example code and its execution results" : "サンプルコードとその実行結果")}
+              {plainText(
+                en
+                  ? "Example code and its execution results"
+                  : "サンプルコードとその実行結果",
+              )}
             </div>
           </div>
         </section>
@@ -116,16 +139,22 @@ export default function Page() {
             <p>
               {richText("例えば ")}
               <code>{richText("new Ball()")}</code>
-              {richText(" と打ち込んでEnterキーを押すと、スクリーン上に円が現れる。このとき ")}
+              {richText(
+                " と打ち込んでEnterキーを押すと、スクリーン上に円が現れる。このとき ",
+              )}
               <i>{richText("Ball")}</i>
-              {richText(" の打鍵が強ければ大きな円が、弱ければ小さな物体が現れる。")}
+              {richText(
+                " の打鍵が強ければ大きな円が、弱ければ小さな物体が現れる。",
+              )}
             </p>
             <p>
               {richText(
                 "他にもいくつか面白いプリセットクラスが用意されている。例えば、次の2文は円インスタンスを変数 ",
               )}
               <i>{richText("b")}</i>
-              {richText(" に代入し、円が通った軌跡が赤いブラシで塗られる。ブラシの幅は ")}
+              {richText(
+                " に代入し、円が通った軌跡が赤いブラシで塗られる。ブラシの幅は ",
+              )}
               <i>{richText("Brush")}</i>
               {richText(" がどれだけ強く打鍵されたかによって決まる。")}
             </p>
@@ -145,11 +174,15 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("implementation")}>
-          <h2 className="ui header">{plainText(en ? "Implementation" : "実装")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Implementation" : "実装")}
+          </h2>
           <div className="ui basic segment">
             <p>
               {richText("Hakoniwaは")}
-              <a href={href("https://github.com/erincatto/box2d")}>{richText("Box2D")}</a>
+              <a href={href("https://github.com/erincatto/box2d")}>
+                {richText("Box2D")}
+              </a>
               {richText(
                 "ベースの物理シミュレータであり、以下の図に示すようなインタラクションを可能にしている。",
               )}
@@ -167,11 +200,18 @@ export default function Page() {
   function renderImages(): ReactNode {
     return (
       <>
-        <a className="ui fluid image" href={href(`${rootPath}pressing/pressing.png`)}>
+        <a
+          className="ui fluid image"
+          href={href(`${rootPath}pressing/pressing.png`)}
+        >
           <img src={`${rootPath}pressing/pressing.png`} />
         </a>
         <div className="caption">
-          {plainText(en ? "Screenshot of the Pressing IDE" : "統合開発環境Pressingのスクリーンショット")}
+          {plainText(
+            en
+              ? "Screenshot of the Pressing IDE"
+              : "統合開発環境Pressingのスクリーンショット",
+          )}
         </div>
         <div className="ui hidden divider"></div>
         <a
@@ -181,7 +221,9 @@ export default function Page() {
           <img src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
         </a>
         <div className="caption">
-          {plainText(en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子")}
+          {plainText(
+            en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子",
+          )}
         </div>
         <div className="ui hidden divider"></div>
       </>

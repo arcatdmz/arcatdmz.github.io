@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -83,7 +90,9 @@ export default function Page() {
             <div className="four wide column">
               <a
                 className="ui fluid bordered image"
-                href={href(`${rootPath}publications/trilateral-ai-conf-2024-kato-poster.pdf`)}
+                href={href(
+                  `${rootPath}publications/trilateral-ai-conf-2024-kato-poster.pdf`,
+                )}
               >
                 <img
                   src={`${rootPath}in-the-wild/trilateral-ai-conf-2024-kato-poster-thumbnail.jpg`}
@@ -201,9 +210,11 @@ export default function Page() {
           <div className="ui divided items projects">
             {(() => {
               const children89: ReactNode[] = [];
-              const exampleProjects = ["textalive", "lyric-app-framework", "griffith"].map(
-                (key) => projectsTable[key],
-              );
+              const exampleProjects = [
+                "textalive",
+                "lyric-app-framework",
+                "griffith",
+              ].map((key) => projectsTable[key]);
               for (const p of exampleProjects) {
                 children89.push(<>{content.renderProjectItem(p)}</>);
               }

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -65,13 +72,18 @@ export default function Page() {
 
   return (
     <>
-      <SiteLayout context={context} mainHero={<>{content.renderProjectHero("f3js")}</>}>
+      <SiteLayout
+        context={context}
+        mainHero={<>{content.renderProjectHero("f3js")}</>}
+      >
         <div className="with-rail">
           <div className="right-rail">
             <section id={attribute("news")}>
               <h2 className="ui header">
                 <i className="announcement icon"></i>
-                <div className="content">{plainText(en ? "News" : "ニュース")}</div>
+                <div className="content">
+                  {plainText(en ? "News" : "ニュース")}
+                </div>
               </h2>
               <div className="ui basic segment">
                 <div className="ui divided small feed">
@@ -79,9 +91,15 @@ export default function Page() {
                     <div className="content">
                       <div className="date">{richText("2017/6/14")}</div>
                       <div className="summary">
-                        {richText("国際会議ACM DIS 2017でf3.jsに関する登壇発表を行いました。")}
-                        <a href={href("http://f3js.org")}>{richText("f3js.org")}</a>
-                        {richText("で実際にIoTデバイス製作を試すことができます。")}
+                        {richText(
+                          "国際会議ACM DIS 2017でf3.jsに関する登壇発表を行いました。",
+                        )}
+                        <a href={href("http://f3js.org")}>
+                          {richText("f3js.org")}
+                        </a>
+                        {richText(
+                          "で実際にIoTデバイス製作を試すことができます。",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -93,7 +111,9 @@ export default function Page() {
           <div className="left-content">
             <section id={attribute("abstract")}>
               <h2 className="ui header">
-                <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                <div className="content">
+                  {plainText(en ? "Abstract" : "概要")}
+                </div>
               </h2>
               <div className="ui basic segment">
                 <p>
@@ -117,7 +137,9 @@ export default function Page() {
           </div>
         </div>
         <section id={attribute("presentations")}>
-          <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -125,7 +147,9 @@ export default function Page() {
                   {richText("DIS 2017 ")}
                   {plainText(en ? "Demo Video" : "デモ動画")}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/BwPXXjfUUVw")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/BwPXXjfUUVw",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -152,7 +176,9 @@ export default function Page() {
                     <>
                       <div
                         className="ui embed"
-                        data-url={publicationsTable[p.publication].entryTags.slides}
+                        data-url={
+                          publicationsTable[p.publication].entryTags.slides
+                        }
                         data-placeholder={`${rootPath}images/background-eee.png`}
                         data-icon={"video play outline"}
                       ></div>
@@ -163,7 +189,12 @@ export default function Page() {
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
-                            <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                            <a
+                              href={href(
+                                publicationsTable[p.publication].entryTags
+                                  .slides,
+                              )}
+                            >
                               <i className="download icon"></i>
                               {plainText(en ? "Download" : "ダウンロード")}
                             </a>
@@ -211,20 +242,31 @@ export default function Page() {
                     const children203: ReactNode[] = [];
                     if (en) {
                       children203.push(
-                        <>{richText("Parametric Design for Interaction Designers")}</>,
+                        <>
+                          {richText(
+                            "Parametric Design for Interaction Designers",
+                          )}
+                        </>,
                       );
                     } else {
-                      children203.push(<>{richText("インタラクションデザイナ向けの特長")}</>);
+                      children203.push(
+                        <>{richText("インタラクションデザイナ向けの特長")}</>,
+                      );
                       children203.push(
                         <>
-                          <div className="sub header">{richText("ハードとソフトの一体開発")}</div>
+                          <div className="sub header">
+                            {richText("ハードとソフトの一体開発")}
+                          </div>
                         </>,
                       );
                     }
                     return keyed(children203);
                   })()}
                 </h3>
-                <a className="ui fluid image" href={href(`${rootPath}f3js/f3js-programmers.png`)}>
+                <a
+                  className="ui fluid image"
+                  href={href(`${rootPath}f3js/f3js-programmers.png`)}
+                >
                   <img src={`${rootPath}f3js/f3js-programmers.png`} />
                 </a>
                 <div className="caption">
@@ -254,9 +296,13 @@ export default function Page() {
                   <div className="column">
                     <a
                       className="ui fluid image"
-                      href={href(`${rootPath}f3js/extrusion-without-opposite-plane.jpg`)}
+                      href={href(
+                        `${rootPath}f3js/extrusion-without-opposite-plane.jpg`,
+                      )}
                     >
-                      <img src={`${rootPath}f3js/extrusion-without-opposite-plane-resized.jpg`} />
+                      <img
+                        src={`${rootPath}f3js/extrusion-without-opposite-plane-resized.jpg`}
+                      />
                     </a>
                     <p className="caption">
                       {plainText(
@@ -276,7 +322,9 @@ export default function Page() {
                             className="ui fluid image"
                             href={href(`${rootPath}f3js/circle-layout.jpg`)}
                           >
-                            <img src={`${rootPath}f3js/circle-layout-resized.jpg`} />
+                            <img
+                              src={`${rootPath}f3js/circle-layout-resized.jpg`}
+                            />
                           </a>
                         </>,
                       );
@@ -284,7 +332,9 @@ export default function Page() {
                         children204.push(
                           <>
                             <p className="caption">
-                              {richText("Circular layout is common in physical user interfaces.")}
+                              {richText(
+                                "Circular layout is common in physical user interfaces.",
+                              )}
                             </p>
                           </>,
                         );
@@ -294,7 +344,11 @@ export default function Page() {
                               {richText(
                                 "Other figures showing the API usage and design patterns include: ",
                               )}
-                              <a href={href(`${rootPath}f3js/partial-extrusion.jpg`)}>
+                              <a
+                                href={href(
+                                  `${rootPath}f3js/partial-extrusion.jpg`,
+                                )}
+                              >
                                 {richText("partial extrusion")}
                               </a>
                               {richText(" and  ")}
@@ -312,7 +366,11 @@ export default function Page() {
                               {richText(
                                 "モジュールが円形に並ぶデザインは多くのIoTデバイスで見られる。他に",
                               )}
-                              <a href={href(`${rootPath}f3js/partial-extrusion.jpg`)}>
+                              <a
+                                href={href(
+                                  `${rootPath}f3js/partial-extrusion.jpg`,
+                                )}
+                              >
                                 {richText("押し出し操作の別例")}
                               </a>
                               {richText("と")}
@@ -341,9 +399,13 @@ export default function Page() {
                   {(() => {
                     const children205: ReactNode[] = [];
                     if (en) {
-                      children205.push(<>{richText("Parametric Design for End-uesrs")}</>);
+                      children205.push(
+                        <>{richText("Parametric Design for End-uesrs")}</>,
+                      );
                     } else {
-                      children205.push(<>{richText("エンドユーザ向けの特長")}</>);
+                      children205.push(
+                        <>{richText("エンドユーザ向けの特長")}</>,
+                      );
                       children205.push(
                         <>
                           <div className="sub header">
@@ -355,7 +417,10 @@ export default function Page() {
                     return keyed(children205);
                   })()}
                 </h3>
-                <a className="ui fluid image" href={href(`${rootPath}f3js/f3js-end-users.png`)}>
+                <a
+                  className="ui fluid image"
+                  href={href(`${rootPath}f3js/f3js-end-users.png`)}
+                >
                   <img src={`${rootPath}f3js/f3js-end-users.png`} />
                 </a>
                 <div className="caption">
@@ -365,8 +430,14 @@ export default function Page() {
                     )}
                   </p>
                   <div className="ui right floated small image">
-                    <a href={href(`${rootPath}f3js/design-alternatives-shapes.jpg`)}>
-                      <img src={`${rootPath}f3js/design-alternatives-shapes-resized.jpg`} />
+                    <a
+                      href={href(
+                        `${rootPath}f3js/design-alternatives-shapes.jpg`,
+                      )}
+                    >
+                      <img
+                        src={`${rootPath}f3js/design-alternatives-shapes-resized.jpg`}
+                      />
                     </a>
                     <p className="caption">
                       {richText(
@@ -396,12 +467,16 @@ export default function Page() {
           </div>
         </section>
         <section id={attribute("examples")}>
-          <h2 className="ui header">{plainText(en ? "Example applications" : "アプリケーション例")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Example applications" : "アプリケーション例")}
+          </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
                 <h3 className="ui header">
-                  {plainText(en ? "Videos of 17 applications" : "17個の作例動画")}
+                  {plainText(
+                    en ? "Videos of 17 applications" : "17個の作例動画",
+                  )}
                 </h3>
                 {content.renderEmbedYoutube(
                   "https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvYwbJqt8Z30LS72LkPrPJb",
@@ -422,7 +497,9 @@ export default function Page() {
               </div>
               <div className="column">
                 <h3 className="ui header">
-                  {plainText(en ? "Explanations on the first 5 apps" : "冒頭5例の紹介")}
+                  {plainText(
+                    en ? "Explanations on the first 5 apps" : "冒頭5例の紹介",
+                  )}
                 </h3>
                 <div className="ui basic segment">
                   <ol type={"a"}>
@@ -452,7 +529,11 @@ export default function Page() {
                       )}
                     </li>
                   </ol>
-                  <p>{richText("この他にも力作揃いなのでぜひ全部鑑賞してみてほしい。")}</p>
+                  <p>
+                    {richText(
+                      "この他にも力作揃いなのでぜひ全部鑑賞してみてほしい。",
+                    )}
+                  </p>
                 </div>
                 <div className="ui hidden divider"></div>
               </div>

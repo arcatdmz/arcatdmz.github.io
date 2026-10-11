@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -73,7 +80,9 @@ export default function Page() {
               {richText(
                 "The live programming feature proposed in the paper is already shipped with the current version of TouchDevelop. Test it ",
               )}
-              <a href={href("https://www.touchdevelop.com/docs/pages-and-boxes")}>
+              <a
+                href={href("https://www.touchdevelop.com/docs/pages-and-boxes")}
+              >
                 {richText("in your web browser")}
               </a>
               {richText("!")}
@@ -82,12 +91,16 @@ export default function Page() {
           <p>
             {richText("Unfortunately, ")}
             <a href={href("https://makecode.com/touchdevelop")}>
-              {richText("Microsoft retired the TouchDevelop platform in June 2019")}
+              {richText(
+                "Microsoft retired the TouchDevelop platform in June 2019",
+              )}
             </a>
             {richText(
               ". Its live programming techniques have been adopted by subsequent projects such as ",
             )}
-            <a href={href("https://makecode.com/about")}>{richText("Microsoft MakeCode")}</a>
+            <a href={href("https://makecode.com/about")}>
+              {richText("Microsoft MakeCode")}
+            </a>
             {richText(
               " and have impacted programming experience design of various projects such as ",
             )}
@@ -112,8 +125,14 @@ export default function Page() {
               )}
             </p>
             <p>
-              {richText("This work was done during my internship at Microsoft Research Redmond ")}
-              <a href={href("https://www.microsoft.com/en-us/research/project/touchdevelop/")}>
+              {richText(
+                "This work was done during my internship at Microsoft Research Redmond ",
+              )}
+              <a
+                href={href(
+                  "https://www.microsoft.com/en-us/research/project/touchdevelop/",
+                )}
+              >
                 {richText("TouchDevelop team")}
               </a>
               {richText(" of ")}
@@ -131,7 +150,9 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("presentations")}>
-          <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -139,7 +160,9 @@ export default function Page() {
                   {richText("PLDI 2013 ")}
                   {plainText(en ? "Demo Video" : "デモ動画")}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/GaVbYx-NN0o")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/GaVbYx-NN0o",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -153,9 +176,15 @@ export default function Page() {
               </div>
               <div className="column">
                 <h3 className="ui header">
-                  {richText(en ? 'Experimental <abbr title="User Interface">UI</abbr>' : "β版実装")}
+                  {richText(
+                    en
+                      ? 'Experimental <abbr title="User Interface">UI</abbr>'
+                      : "β版実装",
+                  )}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/D1UB73y4GGo")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/D1UB73y4GGo",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -172,7 +201,10 @@ export default function Page() {
         </section>
 
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("touchdevelop", "pldi2013-kato-alive")}
+        {content.renderProjectPublications(
+          "touchdevelop",
+          "pldi2013-kato-alive",
+        )}
       </SiteLayout>
     </>
   );

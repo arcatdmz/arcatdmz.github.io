@@ -1,7 +1,14 @@
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -44,7 +51,13 @@ export default function Page() {
     description: any,
     imageUrl: any,
     bodyClass: any;
-  let confArr: any, hciArr: any, pxArr: any, rf: any, rfx: any, end: any, start: any;
+  let confArr: any,
+    hciArr: any,
+    pxArr: any,
+    rf: any,
+    rfx: any,
+    end: any,
+    start: any;
 
   title = en ? "Professional Activities" : "職務活動";
   me = "activities/";
@@ -123,13 +136,20 @@ export default function Page() {
           } else {
             children168.push(
               <>
-                <p>{richText("研究者とクリエータのための講演会や勉強会を運営しています。")}</p>
+                <p>
+                  {richText(
+                    "研究者とクリエータのための講演会や勉強会を運営しています。",
+                  )}
+                </p>
               </>,
             );
           }
           children168.push(
             <>
-              <div className="ui divided items projects" id={attribute("meetups-list")}>
+              <div
+                className="ui divided items projects"
+                id={attribute("meetups-list")}
+              >
                 {(() => {
                   const children169: ReactNode[] = [];
                   for (const p of projects) {
@@ -184,7 +204,11 @@ export default function Page() {
                   } else {
                     children171.push(
                       <>
-                        <p>{richText("国際会議やワークショップなどを運営してきました。")}</p>
+                        <p>
+                          {richText(
+                            "国際会議やワークショップなどを運営してきました。",
+                          )}
+                        </p>
                       </>,
                     );
                   }
@@ -269,7 +293,9 @@ export default function Page() {
           );
           children170.push(
             <>
-              <h3 className="ui header">{plainText(en ? "Reviewer" : "査読")}</h3>
+              <h3 className="ui header">
+                {plainText(en ? "Reviewer" : "査読")}
+              </h3>
             </>,
           );
           if (en) {
@@ -307,7 +333,9 @@ export default function Page() {
           );
           children170.push(
             <>
-              <section id={attribute("miscellaneous")}>{renderServicesMiscellaneous()}</section>
+              <section id={attribute("miscellaneous")}>
+                {renderServicesMiscellaneous()}
+              </section>
             </>,
           );
           return keyed(children170);
@@ -320,7 +348,10 @@ export default function Page() {
       <>
         <div className="ui item">
           <div className="header">
-            <a href={href(organizer.event.url || organizer.url)} title={organizer.event.fullname}>
+            <a
+              href={href(organizer.event.url || organizer.url)}
+              title={organizer.event.fullname}
+            >
               {plainText(organizer.event.name)}
             </a>
           </div>
@@ -328,7 +359,13 @@ export default function Page() {
             {(() => {
               const children173: ReactNode[] = [];
               if (organizer.track) {
-                children173.push(<>{plainText(organizer.track.fullname || organizer.track.name)}</>);
+                children173.push(
+                  <>
+                    {plainText(
+                      organizer.track.fullname || organizer.track.name,
+                    )}
+                  </>,
+                );
                 children173.push(<>{richText(" ")}</>);
               }
               children173.push(<>{plainText(organizer.title)}</>);
@@ -353,7 +390,8 @@ export default function Page() {
             const children174: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if (hciArr.reduce(rf(organizer), true)) continue;
-              if (organizer.class === "chair" || organizer.class === "oc") continue;
+              if (organizer.class === "chair" || organizer.class === "oc")
+                continue;
               children174.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children174);
@@ -377,7 +415,8 @@ export default function Page() {
             const children175: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if (pxArr.reduce(rf(organizer), true)) continue;
-              if (organizer.class === "chair" || organizer.class === "oc") continue;
+              if (organizer.class === "chair" || organizer.class === "oc")
+                continue;
               children175.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children175);
@@ -401,7 +440,8 @@ export default function Page() {
             const children176: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if ([...hciArr, ...pxArr].reduce(rfx(organizer), false)) continue;
-              if (organizer.class === "chair" || organizer.class === "oc") continue;
+              if (organizer.class === "chair" || organizer.class === "oc")
+                continue;
               children176.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children176);
@@ -442,7 +482,9 @@ export default function Page() {
                         '日本ソフトウェア科学会 <a href="https://wiss.org/" title="インタラクティブシステムとソフトウェアに関するワークショップ">WISS</a>',
                       )}
                     </div>
-                    <div className="meta">{richText("プログラム委員 (2015-2019, 2025)")}</div>
+                    <div className="meta">
+                      {richText("プログラム委員 (2015-2019, 2025)")}
+                    </div>
                   </div>
                 </div>
               </>,
@@ -462,7 +504,8 @@ export default function Page() {
             const children178: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if (hciArr.reduce(rf(organizer), true)) continue;
-              if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+              if (organizer.class !== "chair" && organizer.class !== "oc")
+                continue;
               children178.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children178);
@@ -486,7 +529,8 @@ export default function Page() {
             const children179: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if (pxArr.reduce(rf(organizer), true)) continue;
-              if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+              if (organizer.class !== "chair" && organizer.class !== "oc")
+                continue;
               children179.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children179);
@@ -510,7 +554,8 @@ export default function Page() {
             const children180: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
               if ([...hciArr, ...pxArr].reduce(rfx(organizer), false)) continue;
-              if (organizer.class !== "chair" && organizer.class !== "oc") continue;
+              if (organizer.class !== "chair" && organizer.class !== "oc")
+                continue;
               children180.push(<>{renderPrintServiceOrganizer(organizer)}</>);
             }
             return keyed(children180);
@@ -547,13 +592,19 @@ export default function Page() {
                   </div>
                   <div className="ui item">
                     <div className="header">
-                      {richText('情報処理学会 <a href="https://ipsj-one.org/">IPSJ-ONE</a>')}
+                      {richText(
+                        '情報処理学会 <a href="https://ipsj-one.org/">IPSJ-ONE</a>',
+                      )}
                     </div>
                     <div className="meta">
                       {richText("Web担当 運営委員 (")}
-                      <a href={href("https://ipsj-one.org/2015/")}>{richText("2015")}</a>
+                      <a href={href("https://ipsj-one.org/2015/")}>
+                        {richText("2015")}
+                      </a>
                       {richText(", ")}
-                      <a href={href("https://ipsj-one.org/2017/")}>{richText("2017")}</a>
+                      <a href={href("https://ipsj-one.org/2017/")}>
+                        {richText("2017")}
+                      </a>
                       {richText(")")}
                     </div>
                   </div>
@@ -576,9 +627,13 @@ export default function Page() {
               <>
                 <div className="item">
                   <div className="header">
-                    <abbr title={reviewer.title}>{plainText(reviewer.venue)}</abbr>
+                    <abbr title={reviewer.title}>
+                      {plainText(reviewer.venue)}
+                    </abbr>
                   </div>
-                  <div className="meta">{plainText(formatYears(reviewer.years))}</div>
+                  <div className="meta">
+                    {plainText(formatYears(reviewer.years))}
+                  </div>
                 </div>
               </>,
             );
@@ -603,14 +658,18 @@ export default function Page() {
                 ? activity.date
                 : (activity.ja && activity.ja.date) || activity.date || "";
               const description =
-                (!en && activity.ja && activity.ja.description) || activity.description || "";
+                (!en && activity.ja && activity.ja.description) ||
+                activity.description ||
+                "";
               let url = null;
               if (activity.url && (en || !(activity.ja && activity.ja.url))) {
                 url = activity.url;
               } else if (!en && activity.ja && activity.ja.url) {
                 url = activity.ja.url;
               }
-              const linkOrDescription = url ? `<a href="${url}">${description}</a>` : description;
+              const linkOrDescription = url
+                ? `<a href="${url}">${description}</a>`
+                : description;
               children183.push(
                 <>
                   <div className="item">
@@ -623,7 +682,9 @@ export default function Page() {
                         )}
                       </div>
                       <div className="meta">
-                        {richText([date, linkOrDescription].filter(Boolean).join(", "))}
+                        {richText(
+                          [date, linkOrDescription].filter(Boolean).join(", "),
+                        )}
                       </div>
                     </div>
                   </div>
@@ -658,7 +719,9 @@ export default function Page() {
                 <div className="item">
                   <i className="talk icon"></i>
                   <div className="content">
-                    <div className="header">{plainText(en ? "Invited talks" : "招待講演")}</div>
+                    <div className="header">
+                      {plainText(en ? "Invited talks" : "招待講演")}
+                    </div>
                     <div className="meta">
                       {richText(
                         en
@@ -675,7 +738,9 @@ export default function Page() {
                 <div className="item">
                   <i className="graduation cap icon"></i>
                   <div className="content">
-                    <div className="header">{plainText(en ? "Lectures" : "講義")}</div>
+                    <div className="header">
+                      {plainText(en ? "Lectures" : "講義")}
+                    </div>
                     <div className="meta">
                       {richText(
                         en
@@ -706,7 +771,9 @@ export default function Page() {
               width={"100%"}
               height={"360"}
               frameBorder={"0"}
-              src={"https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"}
+              src={
+                "https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"
+              }
             ></iframe>
           </div>
           <div className="column">
@@ -720,16 +787,32 @@ export default function Page() {
                       <>
                         <div className="item">
                           <div className="header">
-                            <abbr title={conference.title}>{plainText(conference.name)}</abbr>
+                            <abbr title={conference.title}>
+                              {plainText(conference.name)}
+                            </abbr>
                           </div>
                           <div className="meta">
                             {(() => {
                               const children185: ReactNode[] = [];
                               let totalLocations = conference.locations.length;
-                              conference.locations.forEach((location, index) => {
-    children185.push(<><a href={href(location.link)}>{plainText(location.year)}</a>{" ("}{plainText(location.city)}{", "}{plainText(location.country)}{")"}</>);
-    if (index < totalLocations - 1) children185.push(", ");
-  });
+                              conference.locations.forEach(
+                                (location, index) => {
+                                  children185.push(
+                                    <>
+                                      <a href={href(location.link)}>
+                                        {plainText(location.year)}
+                                      </a>
+                                      {" ("}
+                                      {plainText(location.city)}
+                                      {", "}
+                                      {plainText(location.country)}
+                                      {")"}
+                                    </>,
+                                  );
+                                  if (index < totalLocations - 1)
+                                    children185.push(", ");
+                                },
+                              );
                               return keyed(children185);
                             })()}
                           </div>
@@ -741,7 +824,11 @@ export default function Page() {
                   <>
                     <div className="item">
                       <div className="header">
-                        {plainText(en ? "Other attended conferences" : "その他の国際会議")}
+                        {plainText(
+                          en
+                            ? "Other attended conferences"
+                            : "その他の国際会議",
+                        )}
                       </div>
                       <div className="meta">
                         {(() => {
@@ -753,7 +840,10 @@ export default function Page() {
                             conf.locations.forEach((location, locIndex) => {
                               children186.push(
                                 <>
-                                  <a href={href(location.link)} title={location.title || undefined}>
+                                  <a
+                                    href={href(location.link)}
+                                    title={location.title || undefined}
+                                  >
                                     {plainText(conf.name)}
                                     {richText(" ")}
                                     {plainText(location.year)}
@@ -763,12 +853,15 @@ export default function Page() {
                               children186.push(<>{richText(" (")}</>);
                               children186.push(<>{plainText(location.city)}</>);
                               children186.push(<>{richText(", ")}</>);
-                              children186.push(<>{plainText(location.country)}</>);
+                              children186.push(
+                                <>{plainText(location.country)}</>,
+                              );
                               children186.push(<>{richText(")")}</>);
                               if (
                                 locIndex < conf.locations.length - 1 ||
                                 confIndex < oConfArr.length - 1
-                              ) {children186.push(", ");
+                              ) {
+                                children186.push(", ");
                               }
                             });
                           });
@@ -799,19 +892,27 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#meetups")}>
                   <i className="users icon"></i>
-                  <div className="content">{plainText(en ? "Meetups" : "勉強会")}</div>
+                  <div className="content">
+                    {plainText(en ? "Meetups" : "勉強会")}
+                  </div>
                 </a>
                 <a className="item" href={href("#services")}>
                   <i className="lab icon"></i>
-                  <div className="content">{plainText(en ? "Academic" : "学会活動")}</div>
+                  <div className="content">
+                    {plainText(en ? "Academic" : "学会活動")}
+                  </div>
                 </a>
                 <a className="item" href={href("#miscellaneous")}>
                   <i className="book icon"></i>
-                  <div className="content">{plainText(en ? "Others" : "その他")}</div>
+                  <div className="content">
+                    {plainText(en ? "Others" : "その他")}
+                  </div>
                 </a>
                 <a className="item" href={href("#places")}>
                   <i className="world icon"></i>
-                  <div className="content">{plainText(en ? "Visited places" : "訪問先")}</div>
+                  <div className="content">
+                    {plainText(en ? "Visited places" : "訪問先")}
+                  </div>
                 </a>
               </div>
             </div>

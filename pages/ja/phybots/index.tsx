@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -73,11 +80,15 @@ export default function Page() {
             <>
               <div className="ui message">
                 {richText("Phybotsは")}
-                <a href={href("https://github.com/arcatdmz/phybots/")}>{richText("GitHub")}</a>
+                <a href={href("https://github.com/arcatdmz/phybots/")}>
+                  {richText("GitHub")}
+                </a>
                 {richText(
                   "にてオープンソースで公開中です。また、ドキュメントやライブラリのダウンロードは ",
                 )}
-                <a href={href("https://phybots.com/ja/")}>{richText("https://phybots.com/ja")}</a>
+                <a href={href("https://phybots.com/ja/")}>
+                  {richText("https://phybots.com/ja")}
+                </a>
                 {richText(" から行うことができます。")}
               </div>
             </>,
@@ -93,7 +104,9 @@ export default function Page() {
                 <div className="ui basic segment">
                   <div className="ui stackable grid">
                     <div className="ten wide column">
-                      <h2 className="ui header">{plainText(en ? "Abstract" : "概要")}</h2>
+                      <h2 className="ui header">
+                        {plainText(en ? "Abstract" : "概要")}
+                      </h2>
                       <p>
                         {richText(
                           "ユーザの指示に従って料理や服畳みといった実世界におけるタスクを実行するインタラクティブなロボットアプリケーションが実現しつつある。また、このような高度なアプリケーションの効果的な開発には、プロトタイピングが重要である。しかし、HCI分野で利用されてきた既存のプロトタイピング用ツールキットは、空間内の特定の場所に置かれて使われるアプリケーションを想定している。そのため、プログラマがモビリティを備えたアプリケーションを開発しようとすると、ロボット工学的な困難に直面する。一方で、ロボット工学向けのツールキットは、利用に際し、ある程度の前提知識を必要とするものがほとんどである。",
@@ -129,18 +142,26 @@ export default function Page() {
           children236.push(
             <>
               <section id={attribute("presentations")}>
-                <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+                <h2 className="ui header">
+                  {plainText(en ? "Presentation materials" : "発表内容")}
+                </h2>
                 <div className="ui basic segment">
                   <div className="ui stackable two columns grid">
                     <div className="column">
-                      <h3 className="ui header">{richText("Example applications")}</h3>
+                      <h3 className="ui header">
+                        {richText("Example applications")}
+                      </h3>
                       {content.renderEmbedYoutube(
                         "https://www.youtube.com/embed/videoseries?list=PL5EC9CECDDBEA183A",
                       )}
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
-                            <a href={href("//www.youtube.com/playlist?list=PL5EC9CECDDBEA183A")}>
+                            <a
+                              href={href(
+                                "//www.youtube.com/playlist?list=PL5EC9CECDDBEA183A",
+                              )}
+                            >
                               <i className="youtube icon"></i>
                               {richText("YouTube")}
                             </a>
@@ -163,7 +184,10 @@ export default function Page() {
                           <>
                             <div
                               className="ui embed"
-                              data-url={publicationsTable[p.publication].entryTags.slides}
+                              data-url={
+                                publicationsTable[p.publication].entryTags
+                                  .slides
+                              }
                               data-placeholder={`${rootPath}images/background-eee.png`}
                               data-icon={"video play outline"}
                             ></div>
@@ -174,9 +198,16 @@ export default function Page() {
                             <div className="caption">
                               <div className="ui horizontal list">
                                 <div className="item">
-                                  <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                                  <a
+                                    href={href(
+                                      publicationsTable[p.publication].entryTags
+                                        .slides,
+                                    )}
+                                  >
                                     <i className="download icon"></i>
-                                    {plainText(en ? "Download" : "ダウンロード")}
+                                    {plainText(
+                                      en ? "Download" : "ダウンロード",
+                                    )}
                                   </a>
                                 </div>
                               </div>
@@ -224,8 +255,12 @@ export default function Page() {
                       <tr>
                         <th>{richText("目的:")}</th>
                         <th>{richText("フィジカルコンピューティング")}</th>
-                        <th className="center aligned">{richText("Phybots")}</th>
-                        <th className="right aligned">{richText("ロボット")}</th>
+                        <th className="center aligned">
+                          {richText("Phybots")}
+                        </th>
+                        <th className="right aligned">
+                          {richText("ロボット")}
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -234,7 +269,9 @@ export default function Page() {
                           <strong>{richText("ターゲット ユーザー:")}</strong>
                         </td>
                         <td className="positive" colSpan={Number("2")}>
-                          {richText("HCI研究者 &amp; インタラクション デザイナー")}
+                          {richText(
+                            "HCI研究者 &amp; インタラクション デザイナー",
+                          )}
                         </td>
                         <td className="negative right aligned">
                           {richText("ロボット工学の研究者")}
@@ -247,20 +284,29 @@ export default function Page() {
                         <td className="positive" colSpan={Number("2")}>
                           {richText("プロトタイピング")}
                         </td>
-                        <td className="negative right aligned">{richText("信頼性")}</td>
+                        <td className="negative right aligned">
+                          {richText("信頼性")}
+                        </td>
                       </tr>
                       <tr>
                         <td>
                           <strong>{richText("ソフトウェアAPI:")}</strong>
                         </td>
-                        <td className="negative">{richText("低レベルで拡張性に乏しい")}</td>
-                        <td className="positive right aligned" colSpan={Number("2")}>
+                        <td className="negative">
+                          {richText("低レベルで拡張性に乏しい")}
+                        </td>
+                        <td
+                          className="positive right aligned"
+                          colSpan={Number("2")}
+                        >
                           {richText("高レベルで拡張性に富む")}
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          <strong>{richText("ハードウェアの大きさ &amp; 価格:")}</strong>
+                          <strong>
+                            {richText("ハードウェアの大きさ &amp; 価格:")}
+                          </strong>
                         </td>
                         <td className="positive" colSpan={Number("2")}>
                           {richText("小さい &amp; 安い (Phidget Kit $200, ")}
@@ -279,7 +325,9 @@ export default function Page() {
                       </tr>
                     </tbody>
                   </table>
-                  <div className="caption">{richText("ツールキットの比較")}</div>
+                  <div className="caption">
+                    {richText("ツールキットの比較")}
+                  </div>
                   <div className="ui hidden divider"></div>
                   <div className="ui stackable three columns grid">
                     <div className="column">
@@ -289,7 +337,9 @@ export default function Page() {
                           <>
                             <h3 className="ui header">
                               {plainText(
-                                en ? "APIs for 2D Locomotion" : "平面上での移動指示のためのAPI",
+                                en
+                                  ? "APIs for 2D Locomotion"
+                                  : "平面上での移動指示のためのAPI",
                               )}
                             </h3>
                           </>,
@@ -315,7 +365,9 @@ export default function Page() {
                         if (!en) {
                           children238.push(
                             <>
-                              <p>{content.renderTranslate("phybots/index.pug")}</p>
+                              <p>
+                                {content.renderTranslate("phybots/index.pug")}
+                              </p>
                             </>,
                           );
                         }
@@ -386,7 +438,9 @@ export default function Page() {
                         if (!en) {
                           children239.push(
                             <>
-                              <p>{content.renderTranslate("phybots/index.pug")}</p>
+                              <p>
+                                {content.renderTranslate("phybots/index.pug")}
+                              </p>
                             </>,
                           );
                         }
@@ -399,7 +453,11 @@ export default function Page() {
                         children240.push(
                           <>
                             <h3 className="ui header">
-                              {plainText(en ? "Runtime Debug Tool" : "ランタイムデバッグツール")}
+                              {plainText(
+                                en
+                                  ? "Runtime Debug Tool"
+                                  : "ランタイムデバッグツール",
+                              )}
                             </h3>
                           </>,
                         );
@@ -426,7 +484,9 @@ export default function Page() {
                         children240.push(
                           <>
                             <p>
-                              {richText("To support this workflow, a graphical ")}
+                              {richText(
+                                "To support this workflow, a graphical ",
+                              )}
                               <i>{richText("runtime debug tool")}</i>
                               {richText(
                                 " enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try.",
@@ -437,7 +497,9 @@ export default function Page() {
                         if (!en) {
                           children240.push(
                             <>
-                              <p>{content.renderTranslate("phybots/index.pug")}</p>
+                              <p>
+                                {content.renderTranslate("phybots/index.pug")}
+                              </p>
                             </>,
                           );
                         }
@@ -447,7 +509,10 @@ export default function Page() {
                   </div>
                   <div className="ui hidden divider"></div>
                   <p>
-                    <a className="ui fluid image" href={href(`${rootPath}phybots/debug-tools.png`)}>
+                    <a
+                      className="ui fluid image"
+                      href={href(`${rootPath}phybots/debug-tools.png`)}
+                    >
                       <img src={`${rootPath}phybots/debug-tools.png`} />
                     </a>
                   </p>
@@ -477,11 +542,17 @@ export default function Page() {
                       {richText(
                         "本研究には以下の原稿とは別に<strong>裏</strong>の未来ビジョンが存在する。詳細は",
                       )}
-                      <a href={href(`${rootPath}publications/wiss2010-kato-matereal-slides.pdf`)}>
+                      <a
+                        href={href(
+                          `${rootPath}publications/wiss2010-kato-matereal-slides.pdf`,
+                        )}
+                      >
                         {richText("発表スライド")}
                       </a>
                       {richText("後半に書いてあり、これが翌年の")}
-                      <a href={href(`${basePath}sharedo/`)}>{richText("Sharedo")}</a>
+                      <a href={href(`${basePath}sharedo/`)}>
+                        {richText("Sharedo")}
+                      </a>
                       {richText("に繋がっている。")}
                     </div>
                     <p>
@@ -510,7 +581,12 @@ export default function Page() {
             </>,
           );
           children236.push(
-            <>{content.renderProjectPublications("phybots", "dis2012-kato-phybots")}</>,
+            <>
+              {content.renderProjectPublications(
+                "phybots",
+                "dis2012-kato-phybots",
+              )}
+            </>,
           );
           return keyed(children236);
         })()}

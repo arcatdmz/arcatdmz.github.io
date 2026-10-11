@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -72,7 +79,9 @@ export default function Page() {
           </a>
           <a className="item" href={href("#design-and-engineering")}>
             <i className="paint brush icon"></i>
-            <div className="content">{plainText(en ? "Design and Engineering" : "デザイン・開発")}</div>
+            <div className="content">
+              {plainText(en ? "Design and Engineering" : "デザイン・開発")}
+            </div>
           </a>
         </div>
       </>
@@ -101,7 +110,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="lab icon"></i>
-          <div className="content">{plainText(en ? "Research projects" : "研究プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Research projects" : "研究プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <p>
@@ -109,7 +120,10 @@ export default function Page() {
               "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。",
             )}
           </p>
-          <div className="ui divided items projects" id={attribute("other-projects-list")}>
+          <div
+            className="ui divided items projects"
+            id={attribute("other-projects-list")}
+          >
             {(() => {
               const children246: ReactNode[] = [];
               for (const p of projects) {
@@ -135,7 +149,11 @@ export default function Page() {
         <h2 className="ui header">
           <i className="paint brush icon"></i>
           <div className="content">
-            {plainText(en ? "Design and/or engineering projects" : "デザイン・開発プロジェクト")}
+            {plainText(
+              en
+                ? "Design and/or engineering projects"
+                : "デザイン・開発プロジェクト",
+            )}
           </div>
         </h2>
         <div className="ui basic segment">
@@ -151,7 +169,8 @@ export default function Page() {
             {(() => {
               const children247: ReactNode[] = [];
               for (const p of projects) {
-                if (p.isPrivateProject(lang) || p.category !== "private") continue;
+                if (p.isPrivateProject(lang) || p.category !== "private")
+                  continue;
                 children247.push(<>{content.renderProjectItem(p)}</>);
               }
               return keyed(children247);
@@ -170,7 +189,9 @@ export default function Page() {
             <a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
             </a>
-            <div className="ui hidden popup-menu popup">{renderPublicationsMenu()}</div>
+            <div className="ui hidden popup-menu popup">
+              {renderPublicationsMenu()}
+            </div>
           </>
         }
       >
@@ -178,13 +199,17 @@ export default function Page() {
         <div className="right-content">
           <h1 className="ui header">
             <i className="gift icon"></i>
-            <div className="content">{plainText(en ? "Projects" : "プロジェクト")}</div>
+            <div className="content">
+              {plainText(en ? "Projects" : "プロジェクト")}
+            </div>
           </h1>
           {renderAbout()}
           <div className="ui hidden divider"></div>
           <section id={attribute("research")}>{renderResearch()}</section>
           <div className="ui hidden divider"></div>
-          <section id={attribute("design-and-engineering")}>{renderDesignAndEngineering()}</section>
+          <section id={attribute("design-and-engineering")}>
+            {renderDesignAndEngineering()}
+          </section>
         </div>
       </SiteLayout>
     </>

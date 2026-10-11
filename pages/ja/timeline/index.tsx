@@ -1,7 +1,14 @@
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -76,7 +83,9 @@ export default function Page() {
               if (entry) {
                 children268.push(
                   <>
-                    <div className="date">{plainText(entry.getDateString(lang, true))}</div>
+                    <div className="date">
+                      {plainText(entry.getDateString(lang, true))}
+                    </div>
                   </>,
                 );
                 children268.push(
@@ -89,7 +98,9 @@ export default function Page() {
                   <>
                     <div className="summary">
                       {plainText(
-                        en ? "No updates found in this year." : "この年の更新内容はありません。",
+                        en
+                          ? "No updates found in this year."
+                          : "この年の更新内容はありません。",
                       )}
                     </div>
                   </>,
@@ -130,7 +141,8 @@ export default function Page() {
           for (const entry of lectures) {
             if (entry.entryType === "private") continue;
             if (en && entry.entryType === "domestic") continue;
-            if (!entry.dates.reduce((p, c) => p || f(c.getFullYear()), false)) continue;
+            if (!entry.dates.reduce((p, c) => p || f(c.getFullYear()), false))
+              continue;
             ls.push(entry);
           }
           if (ls.length > 0) {
@@ -188,8 +200,12 @@ export default function Page() {
                   <>
                     <div className="event">
                       <div className="content">
-                        <div className="date">{plainText(entry.getDateString(lang, true))}</div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="date">
+                          {plainText(entry.getDateString(lang, true))}
+                        </div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -219,8 +235,12 @@ export default function Page() {
                   <>
                     <div className="event">
                       <div className="content">
-                        <div className="date">{plainText(entry.getDateString(lang, true))}</div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="date">
+                          {plainText(entry.getDateString(lang, true))}
+                        </div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -233,7 +253,11 @@ export default function Page() {
       </>
     );
   }
-  function renderLectures(ls: any = undefined, y: any = undefined, f: any = undefined): ReactNode {
+  function renderLectures(
+    ls: any = undefined,
+    y: any = undefined,
+    f: any = undefined,
+  ): ReactNode {
     let entry: any;
     return (
       <>
@@ -258,7 +282,9 @@ export default function Page() {
                               .join(", "),
                           )}
                         </div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -315,7 +341,10 @@ export default function Page() {
       </>
     );
   }
-  function renderPublications(ps: any = undefined, y: any = undefined): ReactNode {
+  function renderPublications(
+    ps: any = undefined,
+    y: any = undefined,
+  ): ReactNode {
     let entry: any;
     return (
       <>
@@ -407,15 +436,21 @@ export default function Page() {
                     const children278: ReactNode[] = [];
                     children278.push(
                       <>
-                        <h2 className="ui header">{plainText(en ? y : `${y}年`)}</h2>
+                        <h2 className="ui header">
+                          {plainText(en ? y : `${y}年`)}
+                        </h2>
                       </>,
                     );
                     if (en) {
                       children278.push(
                         <>
                           <p>
-                            {richText("To view only the activities in this year, click ")}
-                            <a href={href(`${basePath}timeline/${y}/`)}>{richText("here")}</a>
+                            {richText(
+                              "To view only the activities in this year, click ",
+                            )}
+                            <a href={href(`${basePath}timeline/${y}/`)}>
+                              {richText("here")}
+                            </a>
                             {richText(".")}
                           </p>
                         </>,
@@ -425,7 +460,9 @@ export default function Page() {
                         <>
                           <p>
                             {richText("この年の活動だけを表示するには")}
-                            <a href={href(`${basePath}timeline/${y}/`)}>{richText("こちら")}</a>
+                            <a href={href(`${basePath}timeline/${y}/`)}>
+                              {richText("こちら")}
+                            </a>
                             {richText("をクリックしてください。")}
                           </p>
                         </>,
@@ -433,7 +470,10 @@ export default function Page() {
                     }
                     children278.push(
                       <>
-                        <h3 className="ui header" id={attribute(`${y}-updates`)}>
+                        <h3
+                          className="ui header"
+                          id={attribute(`${y}-updates`)}
+                        >
                           <i className="announcement icon"></i>
                           {plainText(en ? "Updates" : "更新情報")}
                         </h3>
@@ -486,7 +526,9 @@ export default function Page() {
           children277.push(
             <>
               <section id={attribute(y)}>
-                <h2 className="ui header">{plainText(en ? `${y} and before` : `${y}年とそれ以前`)}</h2>
+                <h2 className="ui header">
+                  {plainText(en ? `${y} and before` : `${y}年とそれ以前`)}
+                </h2>
                 {renderAll(function (year) {
                   return y >= year;
                 }, y)}
@@ -507,7 +549,9 @@ export default function Page() {
             <a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
             </a>
-            <div className="ui hidden popup-menu popup">{renderTimelineMenu()}</div>
+            <div className="ui hidden popup-menu popup">
+              {renderTimelineMenu()}
+            </div>
           </>
         }
       >

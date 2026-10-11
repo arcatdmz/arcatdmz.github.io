@@ -1,7 +1,14 @@
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -88,7 +95,9 @@ export default function Page({ pageYear }: { pageYear: number }) {
               if (entry) {
                 children280.push(
                   <>
-                    <div className="date">{plainText(entry.getDateString(lang, true))}</div>
+                    <div className="date">
+                      {plainText(entry.getDateString(lang, true))}
+                    </div>
                   </>,
                 );
                 children280.push(
@@ -101,7 +110,9 @@ export default function Page({ pageYear }: { pageYear: number }) {
                   <>
                     <div className="summary">
                       {plainText(
-                        en ? "No updates found in this year." : "この年の更新内容はありません。",
+                        en
+                          ? "No updates found in this year."
+                          : "この年の更新内容はありません。",
                       )}
                     </div>
                   </>,
@@ -142,7 +153,8 @@ export default function Page({ pageYear }: { pageYear: number }) {
           for (const entry of lectures) {
             if (entry.entryType === "private") continue;
             if (en && entry.entryType === "domestic") continue;
-            if (!entry.dates.reduce((p, c) => p || f(c.getFullYear()), false)) continue;
+            if (!entry.dates.reduce((p, c) => p || f(c.getFullYear()), false))
+              continue;
             ls.push(entry);
           }
           if (ls.length > 0) {
@@ -200,8 +212,12 @@ export default function Page({ pageYear }: { pageYear: number }) {
                   <>
                     <div className="event">
                       <div className="content">
-                        <div className="date">{plainText(entry.getDateString(lang, true))}</div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="date">
+                          {plainText(entry.getDateString(lang, true))}
+                        </div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -231,8 +247,12 @@ export default function Page({ pageYear }: { pageYear: number }) {
                   <>
                     <div className="event">
                       <div className="content">
-                        <div className="date">{plainText(entry.getDateString(lang, true))}</div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="date">
+                          {plainText(entry.getDateString(lang, true))}
+                        </div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -245,7 +265,11 @@ export default function Page({ pageYear }: { pageYear: number }) {
       </>
     );
   }
-  function renderLectures(ls: any = undefined, y: any = undefined, f: any = undefined): ReactNode {
+  function renderLectures(
+    ls: any = undefined,
+    y: any = undefined,
+    f: any = undefined,
+  ): ReactNode {
     let entry: any;
     return (
       <>
@@ -270,7 +294,9 @@ export default function Page({ pageYear }: { pageYear: number }) {
                               .join(", "),
                           )}
                         </div>
-                        <div className="summary">{richText(entry.getText(lang))}</div>
+                        <div className="summary">
+                          {richText(entry.getText(lang))}
+                        </div>
                       </div>
                     </div>
                   </>,
@@ -327,7 +353,10 @@ export default function Page({ pageYear }: { pageYear: number }) {
       </>
     );
   }
-  function renderPublications(ps: any = undefined, y: any = undefined): ReactNode {
+  function renderPublications(
+    ps: any = undefined,
+    y: any = undefined,
+  ): ReactNode {
     let entry: any;
     return (
       <>
@@ -359,14 +388,19 @@ export default function Page({ pageYear }: { pageYear: number }) {
               <>
                 <a className="item" href={href(`${basePath}timeline/`)}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Timeline" : "活動履歴")}</div>
+                  <div className="content">
+                    {plainText(en ? "Timeline" : "活動履歴")}
+                  </div>
                 </a>
               </>,
             );
             if (pageYear < currentYear) {
               children288.push(
                 <>
-                  <a className="item" href={href(`${basePath}timeline/${pageYear + 1}/`)}>
+                  <a
+                    className="item"
+                    href={href(`${basePath}timeline/${pageYear + 1}/`)}
+                  >
                     <i className="arrow up icon"></i>
                     <div className="content">{plainText(pageYear + 1)}</div>
                   </a>
@@ -376,7 +410,10 @@ export default function Page({ pageYear }: { pageYear: number }) {
             if (pageYear > oldestYear) {
               children288.push(
                 <>
-                  <a className="item" href={href(`${basePath}timeline/${pageYear - 1}/`)}>
+                  <a
+                    className="item"
+                    href={href(`${basePath}timeline/${pageYear - 1}/`)}
+                  >
                     <i className="arrow down icon"></i>
                     <div className="content">{plainText(pageYear - 1)}</div>
                   </a>
@@ -396,7 +433,8 @@ export default function Page({ pageYear }: { pageYear: number }) {
           const children289: ReactNode[] = [];
           var yearHistories = [];
           for (const entry of histories[lang]) {
-            if (entry.date.getFullYear() === pageYear) yearHistories.push(entry);
+            if (entry.date.getFullYear() === pageYear)
+              yearHistories.push(entry);
           }
           children289.push(
             <>
@@ -445,7 +483,9 @@ export default function Page({ pageYear }: { pageYear: number }) {
             <a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
             </a>
-            <div className="ui hidden popup-menu popup">{renderTimelineYearNav()}</div>
+            <div className="ui hidden popup-menu popup">
+              {renderTimelineYearNav()}
+            </div>
           </>
         }
       >
@@ -459,8 +499,12 @@ export default function Page({ pageYear }: { pageYear: number }) {
             <p>
               {richText("This page shows ")}
               {plainText(pageYear)}
-              {richText(" updates to the website as well as publication records. View ")}
-              <a href={href(`${basePath}timeline/`)}>{richText("the full timeline")}</a>
+              {richText(
+                " updates to the website as well as publication records. View ",
+              )}
+              <a href={href(`${basePath}timeline/`)}>
+                {richText("the full timeline")}
+              </a>
               {richText(".")}
             </p>
           </section>

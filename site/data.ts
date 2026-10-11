@@ -1,4 +1,5 @@
 import moment from "moment";
+import "moment/locale/ja";
 import { buildTimestamp } from "./clock";
 
 // Preserve static durations instead of changing them during client hydration.

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -80,11 +87,17 @@ export default function Page() {
     return (
       <>
         <div className="item">
-          <a className="image" href={href(`${basePath}homehack/fungus-camera/`)}>
+          <a
+            className="image"
+            href={href(`${basePath}homehack/fungus-camera/`)}
+          >
             <img src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
           </a>
           <div className="content">
-            <a className="header" href={href(`${basePath}homehack/fungus-camera/`)}>
+            <a
+              className="header"
+              href={href(`${basePath}homehack/fungus-camera/`)}
+            >
               {plainText(en ? "Fungus Camera" : "なめこカメラ")}
             </a>
             <div className="description">
@@ -132,7 +145,10 @@ export default function Page() {
             <img src={`${rootPath}homehack/rhythmkaden.jpg`} />
           </a>
           <div className="content">
-            <a className="header" href={href(`${basePath}homehack/rhythm-kaden/`)}>
+            <a
+              className="header"
+              href={href(`${basePath}homehack/rhythm-kaden/`)}
+            >
               {plainText(en ? "Rhythm-Kaden" : "リズム家電")}
             </a>
             <div className="description">
@@ -144,7 +160,11 @@ export default function Page() {
                       {richText(
                         "ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム",
                       )}
-                      <a href={href("https://peraichi.com/landing_pages/view/otoge")}>
+                      <a
+                        href={href(
+                          "https://peraichi.com/landing_pages/view/otoge",
+                        )}
+                      >
                         {richText("otoge.net")}
                       </a>
                       {richText(
@@ -236,13 +256,19 @@ export default function Page() {
         {content.renderProjectHeader("homehack")}
         <div className="ui secondary pointing menu">
           <a
-            className={classNames("item", typeof homehack === "undefined" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              typeof homehack === "undefined" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/`)}
           >
             {plainText(en ? "Overview" : "概要")}
           </a>
           <a
-            className={classNames("item", homehack === "fungus-camera" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "fungus-camera" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
             {plainText(titles[lang]["fungus-camera"])}
@@ -252,7 +278,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "rhythm-kaden" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "rhythm-kaden" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
             {plainText(titles[lang]["rhythm-kaden"])}
@@ -262,7 +291,10 @@ export default function Page() {
             </div>
           </a>
           <a
-            className={classNames("item", homehack === "realmote" ? "active" : undefined)}
+            className={classNames(
+              "item",
+              homehack === "realmote" ? "active" : undefined,
+            )}
             href={href(`${basePath}homehack/realmote/`)}
           >
             {plainText(titles[lang]["realmote"])}
@@ -276,7 +308,9 @@ export default function Page() {
           {(() => {
             const children209: ReactNode[] = [];
             if (en) {
-              children209.push(<>{richText("Keynote speech at Home Hack Workshop")}</>);
+              children209.push(
+                <>{richText("Keynote speech at Home Hack Workshop")}</>,
+              );
               children209.push(
                 <>
                   <div className="sub header">
@@ -285,7 +319,9 @@ export default function Page() {
                 </>,
               );
             } else {
-              children209.push(<>{richText("おうちハック発表会キーノートスピーチ")}</>);
+              children209.push(
+                <>{richText("おうちハック発表会キーノートスピーチ")}</>,
+              );
             }
             return keyed(children209);
           })()}
@@ -310,7 +346,9 @@ export default function Page() {
                 children210.push(
                   <>
                     <p>
-                      {richText("Sony CSL大和田さんとPhysVis湯村さん主催のイベント「")}
+                      {richText(
+                        "Sony CSL大和田さんとPhysVis湯村さん主催のイベント「",
+                      )}
                       <a
                         href={href(
                           "https://web.archive.org/web/20170625152327/http://kadecot.net/ouch-hack/",
@@ -320,15 +358,21 @@ export default function Page() {
                       </a>
                       {richText("」でキーノートスピーカーを拝命し、「")}
                       <a
-                        href={href("https://www.slideshare.net/arcatdmz/home-hack")}
-                        title={"もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─"}
+                        href={href(
+                          "https://www.slideshare.net/arcatdmz/home-hack",
+                        )}
+                        title={
+                          "もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─"
+                        }
                         target={"_blank"}
                       >
                         {richText(
                           "もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─",
                         )}
                       </a>
-                      {richText("」と題してこれまでの家ハック事例をまとめてご紹介しました。")}
+                      {richText(
+                        "」と題してこれまでの家ハック事例をまとめてご紹介しました。",
+                      )}
                     </p>
                   </>,
                 );
@@ -336,8 +380,12 @@ export default function Page() {
                   <>
                     <p>
                       {richText("ご紹介したプロジェクトはほとんど")}
-                      <a href={href("https://github.com/arcatdmz")}>{richText("GitHub")}</a>
-                      {richText("上でソースコードが公開されています。みんなでHappy home hacking!")}
+                      <a href={href("https://github.com/arcatdmz")}>
+                        {richText("GitHub")}
+                      </a>
+                      {richText(
+                        "上でソースコードが公開されています。みんなでHappy home hacking!",
+                      )}
                     </p>
                   </>,
                 );
@@ -353,7 +401,9 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <h2 className="ui header">{plainText(en ? "Past projects" : "プロジェクト一覧")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Past projects" : "プロジェクト一覧")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui items">{renderProjects()}</div>
         </div>

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -67,7 +74,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="gift icon"></i>
-          <div className="content">{plainText(en ? "Relevant projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Relevant projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <div className="ui segment">
@@ -98,7 +107,9 @@ export default function Page() {
                           <div className="extra">
                             <span className="right floated">
                               <i className="calendar icon"></i>
-                              {plainText(en ? e.dates : (e.ja && e.ja.dates) || e.dates)}
+                              {plainText(
+                                en ? e.dates : (e.ja && e.ja.dates) || e.dates,
+                              )}
                             </span>
                           </div>
                         </div>
@@ -119,14 +130,17 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="book icon"></i>
-          <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+          <div className="content">
+            {plainText(en ? "Publications" : "発表文献")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <div className="ui divided list">
             {(() => {
               const children66: ReactNode[] = [];
               for (const entry of publications) {
-                if (entry.getFundings().indexOf("JST CRONOS JPMJCS25K1") < 0) continue;
+                if (entry.getFundings().indexOf("JST CRONOS JPMJCS25K1") < 0)
+                  continue;
                 children66.push(<>{content.renderPublication(entry)}</>);
               }
               return keyed(children66);
@@ -162,7 +176,9 @@ export default function Page() {
                 "isid2021-kato-anime-storyboards",
               ]) {
                 if (!publicationsTable[pubId]) continue;
-                children67.push(<>{content.renderPublication(publicationsTable[pubId])}</>);
+                children67.push(
+                  <>{content.renderPublication(publicationsTable[pubId])}</>,
+                );
               }
               return keyed(children67);
             })()}
@@ -177,14 +193,20 @@ export default function Page() {
         {(() => {
           const children68: ReactNode[] = [];
           const filteredMediaList = mediaList.filter(
-            (entry) => !entry.private && !entry.draft && entry.tags && entry.tags.includes("anime"),
+            (entry) =>
+              !entry.private &&
+              !entry.draft &&
+              entry.tags &&
+              entry.tags.includes("anime"),
           );
           children68.push(
             <>
               <h2 className="ui header">
                 {richText(" ")}
                 <i className="broadcast tower icon"></i>
-                <div className="content">{plainText(en ? "Media coverage" : "メディア掲載")}</div>
+                <div className="content">
+                  {plainText(en ? "Media coverage" : "メディア掲載")}
+                </div>
               </h2>
             </>,
           );
@@ -195,7 +217,9 @@ export default function Page() {
                   {(() => {
                     const children69: ReactNode[] = [];
                     for (const entry of filteredMediaList) {
-                      children69.push(<>{content.renderMediaItem(entry, false)}</>);
+                      children69.push(
+                        <>{content.renderMediaItem(entry, false)}</>,
+                      );
                     }
                     return keyed(children69);
                   })()}
@@ -230,19 +254,25 @@ export default function Page() {
             <div className="event">
               <div className="content">
                 <div className="date">{richText("12/30/2025")}</div>
-                <div className="summary">{richText("Update Animare visuals.")}</div>
+                <div className="summary">
+                  {richText("Update Animare visuals.")}
+                </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="date">{richText("12/19/2025")}</div>
-                <div className="summary">{richText("Add link to the project website.")}</div>
+                <div className="summary">
+                  {richText("Add link to the project website.")}
+                </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="date">{richText("9/14/2025")}</div>
-                <div className="summary">{richText("Upload the initial revision.")}</div>
+                <div className="summary">
+                  {richText("Upload the initial revision.")}
+                </div>
               </div>
             </div>
           </div>
@@ -264,11 +294,15 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#abstract")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </a>
                 <a className="item" href={href("#further-readings")}>
                   <i className="gift icon"></i>
@@ -278,11 +312,15 @@ export default function Page() {
                 </a>
                 <a className="item" href={href("#publications")}>
                   <i className="book icon"></i>
-                  <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+                  <div className="content">
+                    {plainText(en ? "Publications" : "発表文献")}
+                  </div>
                 </a>
                 <a className="item" href={href("#media")}>
                   <i className="broadcast tower icon"></i>
-                  <div className="content">{plainText(en ? "Media coverage" : "メディア掲載")}</div>
+                  <div className="content">
+                    {plainText(en ? "Media coverage" : "メディア掲載")}
+                  </div>
                 </a>
               </div>
             </div>
@@ -305,7 +343,10 @@ export default function Page() {
             <div className="ui hidden divider"></div>
             <div className="ui stackable two columns grid">
               <div className="column">
-                <img className="ui fluid image" src={`${basePath}animare/animare-workflow.jpg`} />
+                <img
+                  className="ui fluid image"
+                  src={`${basePath}animare/animare-workflow.jpg`}
+                />
                 <p className="caption">
                   {plainText(
                     en
@@ -317,7 +358,9 @@ export default function Page() {
               <div className="column">
                 <img
                   className="ui fluid image"
-                  src={`${rootPath}images/panels/${en ? "animare" : "animare-ja"}.png`}
+                  src={`${rootPath}images/panels/${
+                    en ? "animare" : "animare-ja"
+                  }.png`}
                 />
                 <p className="caption">
                   {plainText(
@@ -330,14 +373,21 @@ export default function Page() {
             </div>
           </div>
           <div className="ui basic center aligned segment">
-            <a className="ui primary huge button" href={href("https://anime.pj.aist.go.jp")}>
-              {plainText(en ? "CRONOS project website" : "CRONOS プロジェクトページ")}
+            <a
+              className="ui primary huge button"
+              href={href("https://anime.pj.aist.go.jp")}
+            >
+              {plainText(
+                en ? "CRONOS project website" : "CRONOS プロジェクトページ",
+              )}
               <i className="chevron circle right icon"></i>
             </a>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("further-readings")}>{renderFurtherReadings()}</section>
+        <section id={attribute("further-readings")}>
+          {renderFurtherReadings()}
+        </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("publications")}>{renderPublications()}</section>
         <div className="ui hidden divider"></div>

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -77,14 +84,20 @@ export default function Page() {
             <div className="eight wide column">
               <h5 className="ui header">{richText("略歴")}</h5>
               <p>
-                {richText("2014年 東京大学大学院コンピュータ科学専攻 博士課程を修了。同年より")}
+                {richText(
+                  "2014年 東京大学大学院コンピュータ科学専攻 博士課程を修了。同年より",
+                )}
                 <a href={href("https://www.aist.go.jp/")}>
                   {richText(
                     '産業技術総合研究所 (<abbr title="National Institute of Advanced Industrial Science and Technology">AIST</abbr>)',
                   )}
                 </a>
-                {richText("研究員、2018年 主任研究員、2026年 上級主任研究員。2018年より")}
-                <a href={href("https://research.archinc.jp/")}>{richText("アーチ株式会社")}</a>
+                {richText(
+                  "研究員、2018年 主任研究員、2026年 上級主任研究員。2018年より",
+                )}
+                <a href={href("https://research.archinc.jp/")}>
+                  {richText("アーチ株式会社")}
+                </a>
                 {richText(
                   "技術顧問を兼務。2024年度パリ＝サクレ大学にVisiting Scientistとして滞在。",
                 )}
@@ -93,12 +106,16 @@ export default function Page() {
                   'Human-Computer Interaction、とくに<abbr title="Programming Experience; プログラミング体験">PX</abbr>向上や創造性支援ツールの研究に従事。ACM CHI Honorable Mention (2013, 2015, 2023) や',
                 )}
                 <a
-                  href={href("https://blog.junkato.jp/ja/posts/2025-12-28-nistep-sti-hz-vol11no4/")}
+                  href={href(
+                    "https://blog.junkato.jp/ja/posts/2025-12-28-nistep-sti-hz-vol11no4/",
+                  )}
                 >
                   {richText("ナイスステップな研究者")}
                 </a>
                 {richText("選定 (2024) など")}
-                <a href={href(`${basePath}publications/#awards`)}>{richText("受賞多数")}</a>
+                <a href={href(`${basePath}publications/#awards`)}>
+                  {richText("受賞多数")}
+                </a>
                 {richText("。")}
               </p>
             </div>
@@ -108,7 +125,9 @@ export default function Page() {
               <div className="item">
                 <i className="address card icon"></i>
                 <div className="content">
-                  <a href={href("#contact")}>{plainText(en ? "Contact" : "連絡先")}</a>
+                  <a href={href("#contact")}>
+                    {plainText(en ? "Contact" : "連絡先")}
+                  </a>
                 </div>
               </div>
               <div className="item">
@@ -139,7 +158,10 @@ export default function Page() {
               <div className="item">
                 <i className="linkedin icon"></i>
                 <div className="content">
-                  <a href={href("https://jp.linkedin.com/in/jkato")} title={"LinkedIn"}>
+                  <a
+                    href={href("https://jp.linkedin.com/in/jkato")}
+                    title={"LinkedIn"}
+                  >
                     {richText("jkato")}
                   </a>
                 </div>
@@ -147,7 +169,10 @@ export default function Page() {
               <div className="item">
                 <i className="facebook icon"></i>
                 <div className="content">
-                  <a href={href("https://facebook.com/jun.kato")} title={"Facebook"}>
+                  <a
+                    href={href("https://facebook.com/jun.kato")}
+                    title={"Facebook"}
+                  >
                     {richText("jun.kato")}
                   </a>
                 </div>
@@ -156,7 +181,9 @@ export default function Page() {
                 <i className="twitter icon"></i>
                 <div className="content">
                   <a
-                    href={href("https://twitter.com/" + (en ? "junkato" : "arcatdmz"))}
+                    href={href(
+                      "https://twitter.com/" + (en ? "junkato" : "arcatdmz"),
+                    )}
                     title={"Twitter"}
                   >
                     {plainText(en ? "junkato" : "arcatdmz")}
@@ -174,7 +201,10 @@ export default function Page() {
               <div className="item">
                 <i className="github icon"></i>
                 <div className="content">
-                  <a href={href("https://github.com/arcatdmz")} title={"GitHub"}>
+                  <a
+                    href={href("https://github.com/arcatdmz")}
+                    title={"GitHub"}
+                  >
                     {richText("arcatdmz")}
                   </a>
                 </div>
@@ -194,7 +224,9 @@ export default function Page() {
             <>
               <h2 className="ui header">
                 <i className="history icon"></i>
-                <div className="content">{plainText(en ? "Recent updates" : "近況")}</div>
+                <div className="content">
+                  {plainText(en ? "Recent updates" : "近況")}
+                </div>
               </h2>
             </>,
           );
@@ -211,8 +243,12 @@ export default function Page() {
                         <>
                           <div className="event">
                             <div className="content">
-                              <div className="date">{plainText(entry.getDateString(lang, true))}</div>
-                              <div className="summary">{richText(entry.text)}</div>
+                              <div className="date">
+                                {plainText(entry.getDateString(lang, true))}
+                              </div>
+                              <div className="summary">
+                                {richText(entry.text)}
+                              </div>
                             </div>
                           </div>
                         </>,
@@ -259,7 +295,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="gift icon"></i>
-          <div className="content">{plainText(en ? "Projects" : "プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Projects" : "プロジェクト")}
+          </div>
         </h2>
         {renderProducts()}
         {renderTopics()}
@@ -271,7 +309,9 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute("products")}>
           <i className="star icon"></i>
-          <div className="content">{plainText(en ? "Products" : "プロダクト")}</div>
+          <div className="content">
+            {plainText(en ? "Products" : "プロダクト")}
+          </div>
         </h3>
         <div className="ui basic segment">
           <p>
@@ -280,7 +320,10 @@ export default function Page() {
             )}
           </p>
           <div className="ui hidden divider"></div>
-          <div className="ui two stackable cards projects" id={attribute("products-list")}>
+          <div
+            className="ui two stackable cards projects"
+            id={attribute("products-list")}
+          >
             {(() => {
               const children93: ReactNode[] = [];
               for (const p of products) {
@@ -298,7 +341,9 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute("topics")}>
           <i className="lightbulb icon"></i>
-          <div className="content">{plainText(en ? "Research topics" : "研究トピック")}</div>
+          <div className="content">
+            {plainText(en ? "Research topics" : "研究トピック")}
+          </div>
         </h3>
         <div className="ui basic segment">
           {(() => {
@@ -308,17 +353,32 @@ export default function Page() {
               if (!p.getLink(lang, basePath)) continue;
               children94.push(
                 <>
-                  <div className="ui two column stackable grid" id={attribute(`topics-${p.project}`)}>
+                  <div
+                    className="ui two column stackable grid"
+                    id={attribute(`topics-${p.project}`)}
+                  >
                     <div className="five wide column">
-                      <a className="ui fluid bordered image" href={href(p.getLink(lang, basePath))}>
-                        <img src={`${rootPath}images/panels/${p.getThumbnail(lang)}`} />
+                      <a
+                        className="ui fluid bordered image"
+                        href={href(p.getLink(lang, basePath))}
+                      >
+                        <img
+                          src={`${rootPath}images/panels/${p.getThumbnail(
+                            lang,
+                          )}`}
+                        />
                       </a>
                     </div>
                     <div className="eleven wide column">
-                      <a className="ui header" href={href(p.getLink(lang, basePath))}>
+                      <a
+                        className="ui header"
+                        href={href(p.getLink(lang, basePath))}
+                      >
                         {richText(p.getTitle(lang))}
                       </a>
-                      <div className="description">{richText(p.getDescription(lang))}</div>
+                      <div className="description">
+                        {richText(p.getDescription(lang))}
+                      </div>
                     </div>
                   </div>
                 </>,
@@ -371,7 +431,11 @@ export default function Page() {
                       if (en) {
                         children95.push(
                           <>
-                            <a href={href("https://unit.aist.go.jp/hiiri/meirg/")}>
+                            <a
+                              href={href(
+                                "https://unit.aist.go.jp/hiiri/meirg/",
+                              )}
+                            >
                               {richText("Media Interaction Group")}
                             </a>
                           </>,
@@ -379,7 +443,11 @@ export default function Page() {
                         children95.push(<>{richText(", ")}</>);
                         children95.push(
                           <>
-                            <a href={href("https://unit.aist.go.jp/hiiri/index-en.html")}>
+                            <a
+                              href={href(
+                                "https://unit.aist.go.jp/hiiri/index-en.html",
+                              )}
+                            >
                               {richText(
                                 "Human Informatics and Interaction Research Institute (HIIRI)",
                               )}
@@ -389,7 +457,11 @@ export default function Page() {
                         children95.push(<>{richText(", ")}</>);
                         children95.push(
                           <>
-                            <a href={href("https://www.aist.go.jp/index_en.html")}>
+                            <a
+                              href={href(
+                                "https://www.aist.go.jp/index_en.html",
+                              )}
+                            >
                               {richText(
                                 "National Institute of Advanced Industrial Science and Technology (AIST)",
                               )}
@@ -419,7 +491,11 @@ export default function Page() {
                         children95.push(<>{richText(", ")}</>);
                         children95.push(
                           <>
-                            <a href={href("https://unit.aist.go.jp/hiiri/meirg/")}>
+                            <a
+                              href={href(
+                                "https://unit.aist.go.jp/hiiri/meirg/",
+                              )}
+                            >
                               {richText("メディアインタラクション研究グループ")}
                             </a>
                           </>,
@@ -454,7 +530,11 @@ export default function Page() {
                             if (en) {
                               children97.push(
                                 <>
-                                  <a href={href("https://research.archinc.jp/en")}>
+                                  <a
+                                    href={href(
+                                      "https://research.archinc.jp/en",
+                                    )}
+                                  >
                                     {richText("Arch Research")}
                                   </a>
                                 </>,
@@ -478,7 +558,9 @@ export default function Page() {
                               children97.push(<>{richText(", ")}</>);
                               children97.push(
                                 <>
-                                  <a href={href("https://research.archinc.jp/")}>
+                                  <a
+                                    href={href("https://research.archinc.jp/")}
+                                  >
                                     {richText("Arch Research")}
                                   </a>
                                 </>,
@@ -495,7 +577,9 @@ export default function Page() {
                       <>
                         <div className="item">
                           <i className="marker icon"></i>
-                          <div className="content">{richText("Tokyo, Japan")}</div>
+                          <div className="content">
+                            {richText("Tokyo, Japan")}
+                          </div>
                         </div>
                       </>,
                     );
@@ -508,7 +592,9 @@ export default function Page() {
                 <div className="item">
                   <i className="mail icon"></i>
                   <div className="content">
-                    <a href={href("mailto:i@junkato.jp")}>{richText("i@junkato.jp")}</a>
+                    <a href={href("mailto:i@junkato.jp")}>
+                      {richText("i@junkato.jp")}
+                    </a>
                   </div>
                 </div>
                 <div className="item">
@@ -572,7 +658,10 @@ export default function Page() {
         }
         projectsHeaderMenu={
           <>
-            <a className="ui print-hidden mobile hidden item" href={href(`${basePath}projects`)}>
+            <a
+              className="ui print-hidden mobile hidden item"
+              href={href(`${basePath}projects`)}
+            >
               <i className="gift icon"></i>
               <span className="tablet or lower hidden">
                 {plainText(en ? "Projects" : "プロジェクト")}
@@ -589,28 +678,40 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#history")}>
                   <i className="history icon"></i>
-                  <div className="content">{plainText(en ? "Updates" : "近況")}</div>
+                  <div className="content">
+                    {plainText(en ? "Updates" : "近況")}
+                  </div>
                 </a>
                 <a className="item" href={href("#products")}>
                   <i className="gift icon"></i>
-                  <div className="content">{plainText(en ? "Products" : "プロダクト")}</div>
+                  <div className="content">
+                    {plainText(en ? "Products" : "プロダクト")}
+                  </div>
                 </a>
                 <a className="item" href={href("#topics")}>
                   <i className="lightbulb icon"></i>
-                  <div className="content">{plainText(en ? "Research topics" : "研究トピック")}</div>
+                  <div className="content">
+                    {plainText(en ? "Research topics" : "研究トピック")}
+                  </div>
                 </a>
                 <a className="item" href={href("#contact")}>
                   <i className="address card icon"></i>
-                  <div className="content">{plainText(en ? "Contact" : "連絡先")}</div>
+                  <div className="content">
+                    {plainText(en ? "Contact" : "連絡先")}
+                  </div>
                 </a>
               </div>
             </div>
             <div className="ui large modal">
-              <div className="header">{plainText(en ? "Profile photo" : "著者近影")}</div>
+              <div className="header">
+                {plainText(en ? "Profile photo" : "著者近影")}
+              </div>
               <div className="scrolling content">
                 <div className="ui stackable columns grid">
                   <div className="five columns row">
@@ -625,7 +726,9 @@ export default function Page() {
                     <div className="column">
                       <a
                         className="ui fluid circular bordered image"
-                        href={href(`${rootPath}images/junkato.comics.highres.png`)}
+                        href={href(
+                          `${rootPath}images/junkato.comics.highres.png`,
+                        )}
                       >
                         <img src={`${rootPath}images/junkato.comics.png`} />
                       </a>
@@ -641,7 +744,9 @@ export default function Page() {
                     <div className="column">
                       <a
                         className="ui fluid circular bordered image"
-                        href={href(`${rootPath}images/junkato.alt2.highres.jpg`)}
+                        href={href(
+                          `${rootPath}images/junkato.alt2.highres.jpg`,
+                        )}
                       >
                         <img src={`${rootPath}images/junkato.alt2.jpg`} />
                       </a>
@@ -649,7 +754,9 @@ export default function Page() {
                     <div className="column">
                       <a
                         className="ui fluid circular bordered image"
-                        href={href(`${rootPath}images/junkato.alt3.highres.jpg`)}
+                        href={href(
+                          `${rootPath}images/junkato.alt3.highres.jpg`,
+                        )}
                       >
                         <img src={`${rootPath}images/junkato.alt3.jpg`} />
                       </a>
@@ -664,12 +771,20 @@ export default function Page() {
                     children90.push(
                       <>
                         <ul>
-                          <li>{richText("Click to download full resolution images.")}</li>
+                          <li>
+                            {richText(
+                              "Click to download full resolution images.",
+                            )}
+                          </li>
                           <li>
                             {richText(
                               "The comic version was drawn by Akira Shinohara as part of the ",
                             )}
-                            <a href={href("https://www.aist.go.jp/aist_j/magazine/20240415.html")}>
+                            <a
+                              href={href(
+                                "https://www.aist.go.jp/aist_j/magazine/20240415.html",
+                              )}
+                            >
                               {richText("AIST magazine")}
                             </a>
                             {richText(".")}
@@ -681,13 +796,23 @@ export default function Page() {
                     children90.push(
                       <>
                         <ul>
-                          <li>{richText("クリックでフル解像度をダウンロードできます")}</li>
+                          <li>
+                            {richText(
+                              "クリックでフル解像度をダウンロードできます",
+                            )}
+                          </li>
                           <li>
                             {richText("漫画版は")}
-                            <a href={href("https://www.aist.go.jp/aist_j/magazine/20240415.html")}>
+                            <a
+                              href={href(
+                                "https://www.aist.go.jp/aist_j/magazine/20240415.html",
+                              )}
+                            >
                               {richText("産総研マガジン")}
                             </a>
-                            {richText("に掲載された篠原 彬氏の手によるものです")}
+                            {richText(
+                              "に掲載された篠原 彬氏の手によるものです",
+                            )}
                           </li>
                         </ul>
                       </>,
@@ -713,7 +838,11 @@ export default function Page() {
               {(() => {
                 const children98: ReactNode[] = [];
                 if (en) {
-                  children98.push(<>{richText("Human-Computer Interaction researcher, Ph.D.")}</>);
+                  children98.push(
+                    <>
+                      {richText("Human-Computer Interaction researcher, Ph.D.")}
+                    </>,
+                  );
                 } else {
                   children98.push(<>{richText("博士（情報理工学）")}</>);
                 }

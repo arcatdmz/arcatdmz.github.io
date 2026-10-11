@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -80,10 +87,14 @@ export default function Page() {
           <p>
             {richText("残念ながら")}
             <a href={href("https://makecode.com/touchdevelop")}>
-              {richText("MicrosoftはTouchDevelopプラットフォームを2019年6月で終了")}
+              {richText(
+                "MicrosoftはTouchDevelopプラットフォームを2019年6月で終了",
+              )}
             </a>
             {richText("しました。採用されていた技術は")}
-            <a href={href("https://makecode.com/about")}>{richText("Microsoft MakeCode")}</a>
+            <a href={href("https://makecode.com/about")}>
+              {richText("Microsoft MakeCode")}
+            </a>
             {richText("などに受け継がれているほか、このプログラミング体験は")}
             <a href={href("/ja/textalive")}>{richText("TextAlive")}</a>
             {richText("などの設計に大きな影響を与えています。")}
@@ -116,26 +127,44 @@ export default function Page() {
                 {richText("RiSE Group")}
               </a>
               {richText("の")}
-              <a href={href("https://www.microsoft.com/en-us/research/project/touchdevelop/")}>
+              <a
+                href={href(
+                  "https://www.microsoft.com/en-us/research/project/touchdevelop/",
+                )}
+              >
                 {richText("TouchDevelopチーム")}
               </a>
               {richText("における3か月のインターンの成果物である。")}
-              <a href={href("https://www.microsoft.com/en-us/research/people/sburckha/")}>
+              <a
+                href={href(
+                  "https://www.microsoft.com/en-us/research/people/sburckha/",
+                )}
+              >
                 {richText("Sebastian Burckhardt")}
               </a>
               {richText("と")}
-              <a href={href("https://moskal.me/")}>{richText("Michał Moskal")}</a>
+              <a href={href("https://moskal.me/")}>
+                {richText("Michał Moskal")}
+              </a>
               {richText("がメンターであった。Microsoft Research Asiaの")}
-              <a href={href("https://scholar.google.com/citations?user=EFCqkUsAAAAJ&hl=en")}>
+              <a
+                href={href(
+                  "https://scholar.google.com/citations?user=EFCqkUsAAAAJ&hl=en",
+                )}
+              >
                 {richText("Sean McDirmid")}
               </a>
-              {richText("とも連絡を取り、MSRの2つのキャンパス間の協力体制を築いて研究を進めた。")}
+              {richText(
+                "とも連絡を取り、MSRの2つのキャンパス間の協力体制を築いて研究を進めた。",
+              )}
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("presentations")}>
-          <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -143,7 +172,9 @@ export default function Page() {
                   {richText("PLDI 2013 ")}
                   {plainText(en ? "Demo Video" : "デモ動画")}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/GaVbYx-NN0o")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/GaVbYx-NN0o",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -157,9 +188,15 @@ export default function Page() {
               </div>
               <div className="column">
                 <h3 className="ui header">
-                  {richText(en ? 'Experimental <abbr title="User Interface">UI</abbr>' : "β版実装")}
+                  {richText(
+                    en
+                      ? 'Experimental <abbr title="User Interface">UI</abbr>'
+                      : "β版実装",
+                  )}
                 </h3>
-                {content.renderEmbedYoutube("//www.youtube.com/embed/D1UB73y4GGo")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/D1UB73y4GGo",
+                )}
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
@@ -185,9 +222,13 @@ export default function Page() {
             )}
           </div>
           <p>
-            {richText("本研究で扱っている技術によるLive Programmingを体験してみたい方は")}
+            {richText(
+              "本研究で扱っている技術によるLive Programmingを体験してみたい方は",
+            )}
             <a href={href("https://www.touchdevelop.com/rthv")}>
-              {richText("TouchDevelop Web Appの当該機能を利用しているスクリプト")}
+              {richText(
+                "TouchDevelop Web Appの当該機能を利用しているスクリプト",
+              )}
             </a>
             {richText("を開いてみてください。")}
             <a href={href("https://www.touchdevelop.com/docs/pages-and-boxes")}>
@@ -198,7 +239,9 @@ export default function Page() {
           <p>
             {richText("なお、本機能は")}
             <code>{richText("page")}</code>
-            {richText("を使ったときだけ有効化されます。TouchDevelopには何でもpostできる")}
+            {richText(
+              "を使ったときだけ有効化されます。TouchDevelopには何でもpostできる",
+            )}
             <code>{richText("wall")}</code>
             {richText("というレガシーなコンセプトがありますが、")}
             <code>{richText("page")}</code>
@@ -207,11 +250,15 @@ export default function Page() {
           <div className="ui segment">
             <ol>
               <li>
-                <a href={href("https://touchdevelop.com")}>{richText("TouchDevelop")}</a>
+                <a href={href("https://touchdevelop.com")}>
+                  {richText("TouchDevelop")}
+                </a>
                 {richText("にログインする。")}
               </li>
               <li>
-                <a href={href("https://www.touchdevelop.com/rthv")}>{richText("リンク先")}</a>
+                <a href={href("https://www.touchdevelop.com/rthv")}>
+                  {richText("リンク先")}
+                </a>
                 {richText("のヘッダにある「")}
                 <strong>{richText("edit in TouchDevelop")}</strong>
                 {richText("」からスクリプトを開く。")}
@@ -233,14 +280,18 @@ export default function Page() {
               <li>
                 {richText("画面上で「")}
                 <strong>{richText("box")}</strong>
-                {richText("」と呼ばれる任意のGUIコンポーネントをクリックすると選択でき、隣に「")}
+                {richText(
+                  "」と呼ばれる任意のGUIコンポーネントをクリックすると選択でき、隣に「",
+                )}
                 <strong>{richText("edit")}</strong>
                 {richText("」ボタンが現れる。")}
               </li>
               <li>
                 {richText("「")}
                 <strong>{richText("edit")}</strong>
-                {richText("」をクリックすると、コードエディタの当該boxを表示する処理に飛ぶ。")}
+                {richText(
+                  "」をクリックすると、コードエディタの当該boxを表示する処理に飛ぶ。",
+                )}
               </li>
             </ol>
             <div className="ui divider"></div>
@@ -248,9 +299,13 @@ export default function Page() {
               <li>
                 {richText("コードエディタの左隣には画面の縮小表示「")}
                 <strong>{richText("Live view")}</strong>
-                {richText("」が表示される。(WindowBuilderやXAMLエディタなどでよくある")}
+                {richText(
+                  "」が表示される。(WindowBuilderやXAMLエディタなどでよくある",
+                )}
                 <strong>{richText("pre")}</strong>
-                {richText("viewでないことに注意)コードを編集するとLive viewに即座に反映される。")}
+                {richText(
+                  "viewでないことに注意)コードを編集するとLive viewに即座に反映される。",
+                )}
               </li>
               <li>
                 {richText(
@@ -274,7 +329,10 @@ export default function Page() {
           </div>
         </div>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("touchdevelop", "pldi2013-kato-alive")}
+        {content.renderProjectPublications(
+          "touchdevelop",
+          "pldi2013-kato-alive",
+        )}
       </SiteLayout>
     </>
   );
