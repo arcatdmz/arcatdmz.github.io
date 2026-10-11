@@ -311,12 +311,35 @@ test("export verifier preserves archives/assets/feeds and separates pre-existing
   }
 });
 
-
 test("only the five migrated translation-source links may change to TSX", () => {
   const root = "https://github.com/arcatdmz/arcatdmz.github.io/blob/main";
-  for (const name of ["phybots", "homehack", "live-tuning", "openpool", "programming-with-examples"]) {
-    assert.deepEqual(compare(document(`<a href="${root}/src/${name}/index.pug">Translate</a>`), document(`<a href="${root}/pages/${name}/index.tsx">Translate</a>`)), []);
+  for (const name of [
+    "phybots",
+    "homehack",
+    "live-tuning",
+    "openpool",
+    "programming-with-examples",
+  ]) {
+    assert.deepEqual(
+      compare(
+        document(`<a href="${root}/src/${name}/index.pug">Translate</a>`),
+        document(`<a href="${root}/pages/${name}/index.tsx">Translate</a>`),
+      ),
+      [],
+    );
   }
-  assert.notDeepEqual(compare(document(`<a href="${root}/src/other/index.pug">Translate</a>`), document(`<a href="${root}/pages/other/index.tsx">Translate</a>`)), []);
-  assert.notDeepEqual(compare(document(`<a href="${root}/src/phybots/index.pug">Translate</a>`), document(`<a href="${root}/pages/homehack/index.tsx">Translate</a>`)), []);
+  assert.notDeepEqual(
+    compare(
+      document(`<a href="${root}/src/other/index.pug">Translate</a>`),
+      document(`<a href="${root}/pages/other/index.tsx">Translate</a>`),
+    ),
+    [],
+  );
+  assert.notDeepEqual(
+    compare(
+      document(`<a href="${root}/src/phybots/index.pug">Translate</a>`),
+      document(`<a href="${root}/pages/homehack/index.tsx">Translate</a>`),
+    ),
+    [],
+  );
 });
