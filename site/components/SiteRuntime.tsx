@@ -26,7 +26,7 @@ export function SiteRuntime() {
   const router = useRouter();
   useEffect(() => {
     if (!document.querySelector("#pusher")) return;
-    document.body.classList.add("pushable");
+    document.getElementById("__next")?.classList.add("pushable");
     const site = window as unknown as SiteWindow;
     const lang = document.documentElement.lang === "ja" ? "ja" : "en";
     site.lang = lang;
