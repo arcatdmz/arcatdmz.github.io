@@ -25,3 +25,15 @@ describe("project year ranges", () => {
     );
   });
 });
+
+describe("project member formatting", () => {
+  it("keeps shared member data unchanged across repeated page renders", () => {
+    const project = projects.find((entry) =>
+      entry.getMembers("en").includes("Jun Kato"),
+    )!;
+    const members = [...project.getMembers("en")];
+    expect(project.getMembersTags("en")).toContain("<u>Jun Kato</u>");
+    expect(project.getMembers("en")).toEqual(members);
+    expect(project.getMembersTags("en")).toContain("<u>Jun Kato</u>");
+  });
+});

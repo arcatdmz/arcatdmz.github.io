@@ -1,45 +1,20 @@
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
 import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+  EmbedYoutube,
+  ProjectHeader,
+  ProjectPublications,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
+
+import { href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from visionsketch/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projectsTable, publicationsTable, moment, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -68,63 +43,58 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
 
   return (
     <>
       <SiteLayout context={context}>
-        {content.renderProjectHeader("visionsketch")}
+        <ProjectHeader project={"visionsketch"} />
         <div className="ui message">
-          {richText("Source code is available on ")}
-          <a href={href("https://github.com/arcatdmz/visionsketch/")}>
-            {richText("GitHub")}
-          </a>
-          {richText("! It works on both Windows and Mac OS X.")}
+          {"Source code is available on "}
+          <a href={"https://github.com/arcatdmz/visionsketch/"}>{"GitHub"}</a>
+          {"! It works on both Windows and Mac OS X."}
         </div>
         <div className="ui hidden divider"></div>
-        <section id={attribute("abstract")}>
+        <section id={"abstract"}>
           <h2 className="ui header">
-            <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+            <div className="content">{en ? "Abstract" : "概要"}</div>
           </h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "We propose an integrated development environment (IDE) called &quot;VisionSketch&quot;, which supports example-centric programming for easily building image processing pipelines.",
-              )}
+              {
+                'We propose an integrated development environment (IDE) called "VisionSketch", which supports example-centric programming for easily building image processing pipelines.'
+              }
             </p>
             <p>
-              {richText(
-                "With VisionSketch, a programmer is first asked to select the input video. Then, he can start building the pipeline with a visual programming language that provides immediate graphical feedback for algorithms applied to the video. He can also use a text-based editor to create or edit the implementation of each algorithm.",
-              )}
+              {
+                "With VisionSketch, a programmer is first asked to select the input video. Then, he can start building the pipeline with a visual programming language that provides immediate graphical feedback for algorithms applied to the video. He can also use a text-based editor to create or edit the implementation of each algorithm."
+              }
             </p>
             <p>
-              {richText(
-                "During the development, the pipeline is always ready for execution with a video player-like interface enabling rapid iterative prototyping. In a preliminary user study, VisionSketch was positively received by five programmers, who had prior experience of writing text-based image processing programs and could successfully build interesting applications.",
-              )}
+              {
+                "During the development, the pipeline is always ready for execution with a video player-like interface enabling rapid iterative prototyping. In a preliminary user study, VisionSketch was positively received by five programmers, who had prior experience of writing text-based image processing programs and could successfully build interesting applications."
+              }
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("presentations")}>
+        <section id={"presentations"}>
           <h2 className="ui header">
-            {plainText(en ? "Presentation materials" : "発表内容")}
+            {en ? "Presentation materials" : "発表内容"}
           </h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
                 <h3 className="ui header">
-                  {richText("GI 2014 ")}
-                  {plainText(en ? "Demo Video" : "デモ動画")}
+                  {"GI 2014 "}
+                  {en ? "Demo Video" : "デモ動画"}
                 </h3>
-                {content.renderEmbedYoutube(
-                  "//www.youtube.com/embed/I6FTOVygHxc",
-                )}
+                <EmbedYoutube src={"//www.youtube.com/embed/I6FTOVygHxc"} />
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
-                      <a href={href("//www.youtube.com/watch?v=I6FTOVygHxc")}>
+                      <a href={"//www.youtube.com/watch?v=I6FTOVygHxc"}>
                         <i className="youtube icon"></i>
-                        {richText("YouTube")}
+                        {"YouTube"}
                       </a>
                     </div>
                   </div>
@@ -132,8 +102,8 @@ export default function Page() {
               </div>
               <div className="column">
                 <h3 className="ui header">
-                  {richText("GI 2014 ")}
-                  {plainText(en ? "Slides" : "発表スライド")}
+                  {"GI 2014 "}
+                  {en ? "Slides" : "発表スライド"}
                 </h3>
                 <div
                   className="ui embed"
@@ -144,14 +114,14 @@ export default function Page() {
                 <div className="caption">
                   <div className="ui horizontal list">
                     <div className="item">
-                      <a
+                      <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
                         <i className="download icon"></i>
-                        {plainText(en ? "Download" : "ダウンロード")}
-                      </a>
+                        {en ? "Download" : "ダウンロード"}
+                      </SiteLink>
                     </div>
                   </div>
                 </div>
@@ -161,10 +131,10 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section>
-          <h2 className="ui header">{richText("VisionSketch IDE")}</h2>
+          <h2 className="ui header">{"VisionSketch IDE"}</h2>
           <div className="ui stackable two columns grid">
             <div className="column">
-              <a
+              <SiteLink
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/fig1-overview.jpg`)}
               >
@@ -172,16 +142,14 @@ export default function Page() {
                   src={`${rootPath}visionsketch/fig1-overview.jpg`}
                   alt={"Overview"}
                 />
-              </a>
+              </SiteLink>
               <div className="caption">
-                {plainText(
-                  en
-                    ? "Overview of the VisionSketch IDE (GI '14)"
-                    : "VisionSketch IDEの概観",
-                )}
+                {en
+                  ? "Overview of the VisionSketch IDE (GI '14)"
+                  : "VisionSketch IDEの概観"}
               </div>
               <div className="ui hidden divider"></div>
-              <a
+              <SiteLink
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/visionsketch-overview.jpg`)}
               >
@@ -189,17 +157,15 @@ export default function Page() {
                   src={`${rootPath}visionsketch/visionsketch-overview.jpg`}
                   alt={"Overview (original version)"}
                 />
-              </a>
+              </SiteLink>
               <div className="caption">
-                {plainText(
-                  en
-                    ? "Prototype of the VisionSketch IDE (PLDI '13)"
-                    : "PLDI '13発表時の初版の概観",
-                )}
+                {en
+                  ? "Prototype of the VisionSketch IDE (PLDI '13)"
+                  : "PLDI '13発表時の初版の概観"}
               </div>
             </div>
             <div className="column">
-              <a
+              <SiteLink
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/visionsketch-example.jpg`)}
               >
@@ -208,22 +174,20 @@ export default function Page() {
                   alt={"Example use case #1: counting grinds"}
                   width={"560"}
                 />
-              </a>
+              </SiteLink>
               <div className="caption">
-                {plainText(
-                  en
-                    ? "An example image processing pipeline"
-                    : "構築した画像処理パイプラインの例",
-                )}
+                {en
+                  ? "An example image processing pipeline"
+                  : "構築した画像処理パイプラインの例"}
               </div>
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications(
-          "visionsketch",
-          "gi2014-kato-visionsketch",
-        )}
+        <ProjectPublications
+          project={"visionsketch"}
+          majorPublication={"gi2014-kato-visionsketch"}
+        />
       </SiteLayout>
     </>
   );

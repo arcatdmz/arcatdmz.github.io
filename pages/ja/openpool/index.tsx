@@ -1,45 +1,22 @@
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
+import { Fragment } from "react";
 import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+  ProjectHeader,
+  ProjectPublications,
+  Translate,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
+import type { ReactNode } from "react";
+
+import { keyed, href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/openpool/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projectsTable, mediaList, moment, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -71,118 +48,111 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderBody(): ReactNode {
     return (
       <>
-        <section id={attribute("abstract")}>
-          <h2 className="ui header">{plainText(en ? "Abstract" : "概要")}</h2>
+        <section id={"abstract"}>
+          <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus",
-              )}
-              <a href={href("#ppp")}>{richText("[1]")}</a>
-              {richText(
-                ", a novel way of augmenting ping pong table with a set of microphone array in 1999. The project later became an open-source project in 2011",
-              )}
-              <a href={href("#pppp")}>{richText("[2]")}</a>
-              {richText(
-                ", which needed some soldering to be deployed. We walk the same line with PingPongPlus, but with a billiard table and off-the-shelf hardware products.",
-              )}
+              {
+                "People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus"
+              }
+              <a href={"#ppp"}>{"[1]"}</a>
+              {
+                ", a novel way of augmenting ping pong table with a set of microphone array in 1999. The project later became an open-source project in 2011"
+              }
+              <a href={"#pppp"}>{"[2]"}</a>
+              {
+                ", which needed some soldering to be deployed. We walk the same line with PingPongPlus, but with a billiard table and off-the-shelf hardware products."
+              }
             </p>
             <p>
-              {richText(
-                'In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.',
-              )}
+              {
+                'In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.'
+              }
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("implementation")}>
-          <h2 className="ui header">
-            {plainText(en ? "Implementation" : "実装")}
-          </h2>
+        <section id={"implementation"}>
+          <h2 className="ui header">{en ? "Implementation" : "実装"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac.",
-              )}
+              {
+                "OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac."
+              }
             </p>
             <p>
-              {richText(
-                "Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail.",
-              )}
+              {
+                "Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail."
+              }
             </p>
-            <h3 className="ui header">{richText("OpenPool core library")}</h3>
+            <h3 className="ui header">{"OpenPool core library"}</h3>
             <pre className="prettyprint linenums">
-              {richText("OpenPool op = new OpenPool(this);")}
-              {richText("\n")}
-              {richText("")}
-              {richText("\n")}
-              {richText("op.updateBalls();")}
-              {richText("\n")}
-              {richText("for (int i = 0; i &lt; op.balls; i ++) {")}
-              {richText("\n")}
-              {richText("  Ball ball = op.balls[i];")}
-              {richText("\n")}
-              {richText("  ellipse(ball.x, ball.y, 10, 10);")}
-              {richText("\n")}
-              {richText("  if (ball.prev != null) {")}
-              {richText("\n")}
-              {richText("    line(ball.x, ball.y, ball.prev.x, ball.prev.y);")}
-              {richText("\n")}
-              {richText("  }")}
-              {richText("\n")}
-              {richText("}")}
+              {"OpenPool op = new OpenPool(this);"}
+              {"\n"}
+
+              {"\n"}
+              {"op.updateBalls();"}
+              {"\n"}
+              {"for (int i = 0; i < op.balls; i ++) {"}
+              {"\n"}
+              {"  Ball ball = op.balls[i];"}
+              {"\n"}
+              {"  ellipse(ball.x, ball.y, 10, 10);"}
+              {"\n"}
+              {"  if (ball.prev != null) {"}
+              {"\n"}
+              {"    line(ball.x, ball.y, ball.prev.x, ball.prev.y);"}
+              {"\n"}
+              {"  }"}
+              {"\n"}
+              {"}"}
             </pre>
             <p>
-              {richText(
-                'Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.',
-              )}
+              {
+                'Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.'
+              }
             </p>
             <p>
-              {richText(
-                "The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection.",
-              )}
+              {
+                "The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection."
+              }
             </p>
-            <h3 className="ui header">
-              {richText("OpenPool pocket detection library")}
-            </h3>
+            <h3 className="ui header">{"OpenPool pocket detection library"}</h3>
             <pre className="prettyprint linenums">
-              {richText(
-                'OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");',
-              )}
-              {richText("\n")}
-              {richText("p.start();")}
-              {richText("\n")}
-              {richText("")}
-              {richText("\n")}
-              {richText("int[] pockets = p.getPockets();")}
-              {richText("\n")}
-              {richText("for (int i = 0; i &lt; pockets.length; i++) {")}
-              {richText("\n")}
-              {richText("  if (pockets[i] &gt; 0) {")}
-              {richText("\n")}
-              {richText("    print(pockets[i]);")}
-              {richText("\n")}
-              {richText('    print(" balls fell in the pocket no.");')}
-              {richText("\n")}
-              {richText("    println(i + 1);")}
-              {richText("\n")}
-              {richText("  }")}
-              {richText("\n")}
-              {richText("}")}
+              {'OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");'}
+              {"\n"}
+              {"p.start();"}
+              {"\n"}
+
+              {"\n"}
+              {"int[] pockets = p.getPockets();"}
+              {"\n"}
+              {"for (int i = 0; i < pockets.length; i++) {"}
+              {"\n"}
+              {"  if (pockets[i] > 0) {"}
+              {"\n"}
+              {"    print(pockets[i]);"}
+              {"\n"}
+              {'    print(" balls fell in the pocket no.");'}
+              {"\n"}
+              {"    println(i + 1);"}
+              {"\n"}
+              {"  }"}
+              {"\n"}
+              {"}"}
             </pre>
             <p>
-              {richText(
-                "With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket.",
-              )}
+              {
+                "With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket."
+              }
             </p>
             <p>
-              {richText(
-                'To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.',
-              )}
+              {
+                'To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.'
+              }
             </p>
           </div>
         </section>
@@ -192,7 +162,7 @@ export default function Page() {
   function renderVideos(): ReactNode {
     return (
       <>
-        <section id={attribute("videos")}>
+        <section id={"videos"}>
           <div className="ui embed">
             <iframe
               src={
@@ -202,9 +172,7 @@ export default function Page() {
               allowFullScreen={true}
             ></iframe>
           </div>
-          <div className="caption">
-            {richText("Playing 8 ball pool with OpenPool")}
-          </div>
+          <div className="caption">{"Playing 8 ball pool with OpenPool"}</div>
           <div className="ui hidden divider"></div>
           <div className="ui embed">
             <iframe
@@ -216,7 +184,7 @@ export default function Page() {
             ></iframe>
           </div>
           <div className="caption">
-            {richText("Collision detection between balls and virtual objects")}
+            {"Collision detection between balls and virtual objects"}
           </div>
           <div className="ui hidden divider"></div>
           <div className="ui embed">
@@ -229,81 +197,63 @@ export default function Page() {
             ></iframe>
           </div>
           <div className="caption">
-            {richText(
-              "Animation effect triggered by an OpenPool pocket detection sensor",
-            )}
+            {
+              "Animation effect triggered by an OpenPool pocket detection sensor"
+            }
           </div>
         </section>
         <div className="ui divider"></div>
-        <section id={attribute("press")}></section>
-        <h2 className="ui header">
-          {plainText(en ? "Media Coverage" : "メディア掲載")}
-        </h2>
-        <div
-          className="ui basic segment"
-          style={style("margin-bottom: -0.5em")}
-        >
+        <section id={"press"}></section>
+        <h2 className="ui header">{en ? "Media Coverage" : "メディア掲載"}</h2>
+        <div className="ui basic segment" style={{ marginBottom: "-0.5em" }}>
           <div className="ui stackable grid">
             <div className="three columns row">
-              {(() => {
-                const children234: ReactNode[] = [];
-                for (const e of mediaList.filter(
+              {mediaList
+                .filter(
                   (e) =>
                     !e.private &&
                     !e.draft &&
                     (e.projects || []).indexOf("openpool") >= 0,
-                )) {
-                  children234.push(
-                    <>
-                      <div
-                        className="column"
-                        style={style("margin-bottom: 0.5em")}
+                )
+                .map((e, itemIndex) => (
+                  <Fragment key={itemIndex}>
+                    <div className="column" style={{ marginBottom: "0.5em" }}>
+                      <SiteLink
+                        className="item"
+                        href={href(e.archive || e.permalink)}
+                        title={e.text.en}
                       >
-                        <a
-                          className="item"
-                          href={href(e.archive || e.permalink)}
-                          title={e.text.en}
-                        >
-                          <img
-                            className="ui fluid image"
-                            src={`${rootPath}openpool/${e.media.en
-                              .split(/[\s.()]+/g)
-                              .join("")
-                              .toLowerCase()}.png`}
-                            alt={e.media.en}
-                          />
-                        </a>
-                      </div>
-                    </>,
-                  );
-                }
-                return keyed(children234);
-              })()}
+                        <img
+                          className="ui fluid image"
+                          src={`${rootPath}openpool/${e.media.en
+                            .split(/[\s.()]+/g)
+                            .join("")
+                            .toLowerCase()}.png`}
+                          alt={e.media.en}
+                        />
+                      </SiteLink>
+                    </div>
+                  </Fragment>
+                ))}
             </div>
           </div>
         </div>
         <div className="ui divider"></div>
-        <section id={attribute("related-work")}>
-          <h2 className="ui header">
-            {plainText(en ? "Related Work" : "関連研究")}
-          </h2>
+        <section id={"related-work"}>
+          <h2 className="ui header">{en ? "Related Work" : "関連研究"}</h2>
           <ol>
-            <li id={attribute("ppp")}>
-              <a
-                href={href(
-                  "https://tangible.media.mit.edu/project/pingpongplus/",
-                )}
-              >
-                {richText("PingPongPlus")}
+            <li id={"ppp"}>
+              <a href={"https://tangible.media.mit.edu/project/pingpongplus/"}>
+                {"PingPongPlus"}
               </a>
             </li>
-            <li id={attribute("pppp")}>
+            <li id={"pppp"}>
               <a
-                href={href(
-                  "https://tangible.media.mit.edu/project/pingpongplusplus/",
-                )}
+                href={
+                  "https://tangible.media.mit.edu/project/pingpongplusplus/"
+                }
               >
-                {richText("PingPong++")}
+                {"PingPong++"}
               </a>
             </li>
           </ol>
@@ -320,25 +270,30 @@ export default function Page() {
             '<span class="ui tiny red basic label"><i class="trophy icon"></i>\'13 グッドデザイン賞</span>',
           );
           children235.push(
-            <>{content.renderProjectHeader("openpool", additionalLabels)}</>,
+            <>
+              <ProjectHeader
+                project={"openpool"}
+                additionalLabels={additionalLabels}
+              />
+            </>,
           );
           children235.push(
             <>
               <div className="ui message">
                 <p>
-                  {richText(
-                    "OpenPool is a collaborative open-source project developed at ",
-                  )}
-                  <a href={href("https://github.com/openpool/openpool-core")}>
-                    {richText("GitHub")}
+                  {
+                    "OpenPool is a collaborative open-source project developed at "
+                  }
+                  <a href={"https://github.com/openpool/openpool-core"}>
+                    {"GitHub"}
                   </a>
-                  {richText(". The official site is ")}
-                  <a href={href("http://www.openpool.cc/")}>
-                    {richText("openpool.cc")}
-                  </a>
-                  {richText(".")}
+                  {". The official site is "}
+                  <a href={"http://www.openpool.cc/"}>{"openpool.cc"}</a>
+                  {"."}
                 </p>
-                <p>{content.renderTranslate("openpool/index.pug")}</p>
+                <p>
+                  <Translate path={"openpool/index.pug"} />
+                </p>
               </div>
             </>,
           );
@@ -362,10 +317,10 @@ export default function Page() {
           );
           children235.push(
             <>
-              {content.renderProjectPublications(
-                "openpool",
-                "gcce2013-kato-openpool",
-              )}
+              <ProjectPublications
+                project={"openpool"}
+                majorPublication={"gcce2013-kato-openpool"}
+              />
             </>,
           );
           return keyed(children235);

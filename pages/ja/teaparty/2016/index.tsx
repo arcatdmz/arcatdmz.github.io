@@ -1,45 +1,16 @@
+import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
-import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+
+import { href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/teaparty/2016/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projectsTable, moment, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -68,26 +39,21 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderDetails(): ReactNode {
     return (
       <>
-        <section id={attribute("details")}>
-          <h2 className="ui header">{richText("時と場所")}</h2>
+        <section id={"details"}>
+          <h2 className="ui header">{"時と場所"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。",
-              )}
+              {"2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。"}
             </p>
             <p>
-              {richText(
-                "Wantedlyオフィスは休日のため、通常の入り口が閉まっています。開場時間近辺はスタッフがいますが、もし遅れる場合は",
-              )}
-              <a href={href("https://twitter.com/arcatdmz")}>
-                {richText("@arcatdmz")}
-              </a>
-              {richText("宛てにツイートするなどして中の人にご連絡ください。")}
+              {
+                "Wantedlyオフィスは休日のため、通常の入り口が閉まっています。開場時間近辺はスタッフがいますが、もし遅れる場合は"
+              }
+              <a href={"https://twitter.com/arcatdmz"}>{"@arcatdmz"}</a>
+              {"宛てにツイートするなどして中の人にご連絡ください。"}
             </p>
             <iframe
               src={
@@ -96,33 +62,33 @@ export default function Page() {
               width={"100%"}
               height={"450"}
               frameBorder={"0"}
-              style={style("border:0")}
+              style={{ border: "0" }}
               allowFullScreen={true}
             ></iframe>
           </div>
-          <h2 className="ui header">{richText("参加費")}</h2>
+          <h2 className="ui header">{"参加費"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText("学生")}
-              <strong>{richText("1000")}</strong>
-              {richText("円、社会人")}
-              <strong>{richText("2500")}</strong>
-              {richText(
-                "円を予定しています。17時半までお菓子とお茶が出るほか、18-19時半まで夕飯とアルコールを含む飲み物が手配されています。",
-              )}
+              {"学生"}
+              <strong>{"1000"}</strong>
+              {"円、社会人"}
+              <strong>{"2500"}</strong>
+              {
+                "円を予定しています。17時半までお菓子とお茶が出るほか、18-19時半まで夕飯とアルコールを含む飲み物が手配されています。"
+              }
             </p>
           </div>
-          <h2 className="ui header">{richText("その他")}</h2>
+          <h2 className="ui header">{"その他"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。",
-              )}
+              {
+                "電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。"
+              }
             </p>
             <p>
-              {richText(
-                "プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。",
-              )}
+              {
+                "プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。"
+              }
             </p>
           </div>
         </section>
@@ -133,55 +99,51 @@ export default function Page() {
     <>
       <SiteLayout context={context}>
         <div className="ui breadcrumb">
-          <a className="section" href={href(basePath + me)}>
-            {richText("名状しがたいお茶会")}
-          </a>
+          <SiteLink className="section" href={href(basePath + me)}>
+            {"名状しがたいお茶会"}
+          </SiteLink>
           <i className="right angle icon divider"></i>
-          <div className="active section">{richText("第5回 (2016)")}</div>
+          <div className="active section">{"第5回 (2016)"}</div>
         </div>
         <div className="ui divider"></div>
         <section>
-          <h1 className="ui header">{richText("第5回 名状しがたいお茶会")}</h1>
+          <h1 className="ui header">{"第5回 名状しがたいお茶会"}</h1>
           <div className="ui horizontal divided list">
             <div className="item">
               <span className="ui tiny basic label">
                 <i className="calendar icon"></i>
-                {richText("2016/2/13")}
+                {"2016/2/13"}
               </span>
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("summary")}>
+        <section id={"summary"}>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "名状しがたいお茶会へようこそ！一年に一度のお茶会も、早いものでもう5回目です。今年から複数名で運営タスクにあたっています。お茶会らしく温かい飲み物も出ます。会場は",
-              )}
-              <a href={href("https://www.wantedly.com/")}>
-                {richText("Wantedly")}
-              </a>
-              {richText("さんにご提供いただき、")}
-              <a href={href("https://m.wantedly.com/")}>
-                {richText("Wantedlyチャット")}
-              </a>
-              {richText(
-                "を使ってお茶会関連の議論を深める試みも始めました。濃ゆい一日をぜひ楽しんでいただければと思います。",
-              )}
+              {
+                "名状しがたいお茶会へようこそ！一年に一度のお茶会も、早いものでもう5回目です。今年から複数名で運営タスクにあたっています。お茶会らしく温かい飲み物も出ます。会場は"
+              }
+              <a href={"https://www.wantedly.com/"}>{"Wantedly"}</a>
+              {"さんにご提供いただき、"}
+              <a href={"https://m.wantedly.com/"}>{"Wantedlyチャット"}</a>
+              {
+                "を使ってお茶会関連の議論を深める試みも始めました。濃ゆい一日をぜひ楽しんでいただければと思います。"
+              }
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
         <div className="ui stackable two columns grid">
           <div className="column">
-            <section id={attribute("timetable")}>
-              <h2 className="ui header">{richText("タイムテーブル")}</h2>
+            <section id={"timetable"}>
+              <h2 className="ui header">{"タイムテーブル"}</h2>
               <div className="ui basic segment">
                 <iframe
                   src={
                     "https://docs.google.com/spreadsheets/d/1We0tN3pxXJ1Wbh30mpEPgec5GD8fDA5WC-De8OsAsqU/pubhtml?gid=1669616252&single=true&widget=true&headers=false"
                   }
-                  style={style("width: 100%; height: 640px;")}
+                  style={{ width: "100%", height: "640px" }}
                 ></iframe>
               </div>
             </section>
@@ -189,23 +151,23 @@ export default function Page() {
             {renderDetails()}
           </div>
           <div className="column">
-            <section id={attribute("photos")}>
-              <h2 className="ui header">{richText("当日の様子")}</h2>
+            <section id={"photos"}>
+              <h2 className="ui header">{"当日の様子"}</h2>
               <div className="ui basic segment">
                 <img className="ui fluid image" src={"DSC09983.jpg"} />
-                <div className="caption">{richText("開場前")}</div>
+                <div className="caption">{"開場前"}</div>
                 <div className="ui hidden divider"></div>
                 <img className="ui fluid image" src={"DSC09990.jpg"} />
-                <div className="caption">{richText("質疑")}</div>
+                <div className="caption">{"質疑"}</div>
                 <div className="ui hidden divider"></div>
                 <img
                   className="ui fluid image"
                   src={"73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg"}
                 />
-                <div className="caption">{richText("名札")}</div>
+                <div className="caption">{"名札"}</div>
                 <div className="ui hidden divider"></div>
                 <img className="ui fluid image" src={"DSC09993.jpg"} />
-                <div className="caption">{richText("突発ゲーム会")}</div>
+                <div className="caption">{"突発ゲーム会"}</div>
                 <div className="ui hidden divider"></div>
               </div>
             </section>
@@ -213,11 +175,11 @@ export default function Page() {
         </div>
         <div className="ui divider"></div>
         <div className="ui breadcrumb">
-          <a className="section" href={href(basePath + me)}>
-            {richText("名状しがたいお茶会")}
-          </a>
+          <SiteLink className="section" href={href(basePath + me)}>
+            {"名状しがたいお茶会"}
+          </SiteLink>
           <i className="right angle icon divider"></i>
-          <div className="active section">{richText("第5回 (2016)")}</div>
+          <div className="active section">{"第5回 (2016)"}</div>
         </div>
       </SiteLayout>
     </>

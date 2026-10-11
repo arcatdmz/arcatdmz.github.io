@@ -1,17 +1,16 @@
+import {
+  MediaItem,
+  ProjectItem,
+  Publication,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
-import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+import { HtmlContent } from "@/site/components/RichText";
+import { keyed, href, attribute } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from timeline/index.pug; edit this TSX source directly. */
@@ -23,23 +22,10 @@ export default function Page() {
     talks,
     lectures,
     projects,
-    projectsTable,
-    products,
-    selectedProjects,
     publications,
-    publicationsTable,
-    selectedPublications,
-    media,
     mediaList,
-    misc,
     moment,
     rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
   } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
@@ -72,42 +58,28 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderUpdate(entry: any = undefined): ReactNode {
     return (
       <>
         <div className="event">
           <div className="content">
-            {(() => {
-              const children156: ReactNode[] = [];
-              if (entry) {
-                children156.push(
-                  <>
-                    <div className="date">
-                      {plainText(entry.getDateString(lang, true))}
-                    </div>
-                  </>,
-                );
-                children156.push(
-                  <>
-                    <div className="summary">{richText(entry.text)}</div>
-                  </>,
-                );
-              } else {
-                children156.push(
-                  <>
-                    <div className="summary">
-                      {plainText(
-                        en
-                          ? "No updates found in this year."
-                          : "この年の更新内容はありません。",
-                      )}
-                    </div>
-                  </>,
-                );
-              }
-              return keyed(children156);
-            })()}
+            {entry ? (
+              <>
+                <div className="date">{entry.getDateString(lang, true)}</div>
+
+                <div className="summary">
+                  <HtmlContent html={entry.text} />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="summary">
+                  {en
+                    ? "No updates found in this year."
+                    : "この年の更新内容はありません。"}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </>
@@ -189,7 +161,7 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-awards`)}>
           <i className="trophy icon"></i>
-          {plainText(en ? "Awards" : "受賞")}
+          {en ? "Awards" : "受賞"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -201,10 +173,10 @@ export default function Page() {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(entry.getDateString(lang, true))}
+                          {entry.getDateString(lang, true)}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -224,7 +196,7 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-talks`)}>
           <i className="talk icon"></i>
-          {plainText(en ? "Invited Talks" : "招待講演")}
+          {en ? "Invited Talks" : "招待講演"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -236,10 +208,10 @@ export default function Page() {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(entry.getDateString(lang, true))}
+                          {entry.getDateString(lang, true)}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -263,7 +235,7 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-lectures`)}>
           <i className="graduation cap icon"></i>
-          {plainText(en ? "Lectures" : "講義")}
+          {en ? "Lectures" : "講義"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -275,15 +247,13 @@ export default function Page() {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(
-                            entry.dateObjs
-                              .filter((o) => f(o.date.getFullYear()))
-                              .map((o) => o.getDateString(lang, true))
-                              .join(", "),
-                          )}
+                          {entry.dateObjs
+                            .filter((o) => f(o.date.getFullYear()))
+                            .map((o) => o.getDateString(lang, true))
+                            .join(", ")}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -303,14 +273,18 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-projects`)}>
           <i className="gift icon"></i>
-          {plainText(en ? "New Projects" : "開始したプロジェクト")}
+          {en ? "New Projects" : "開始したプロジェクト"}
         </h3>
         <div className="ui segment">
           <div className="ui divided items projects">
             {(() => {
               const children161: ReactNode[] = [];
               for (p of prs) {
-                children161.push(<>{content.renderProjectItem(p)}</>);
+                children161.push(
+                  <>
+                    <ProjectItem p={p} />
+                  </>,
+                );
               }
               return keyed(children161);
             })()}
@@ -325,14 +299,18 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-media`)}>
           <i className="broadcast tower icon"></i>
-          {plainText(en ? "Media Coverage" : "メディア掲載")}
+          {en ? "Media Coverage" : "メディア掲載"}
         </h3>
         <div className="ui segment">
           <div className="ui divided list media">
             {(() => {
               const children162: ReactNode[] = [];
               for (entry of ms) {
-                children162.push(<>{content.renderMediaItem(entry)}</>);
+                children162.push(
+                  <>
+                    <MediaItem m={entry} />
+                  </>,
+                );
               }
               return keyed(children162);
             })()}
@@ -350,14 +328,18 @@ export default function Page() {
       <>
         <h3 className="ui header" id={attribute(`${y}-publications`)}>
           <i className="book icon"></i>
-          {plainText(en ? "Publications" : "発表文献")}
+          {en ? "Publications" : "発表文献"}
         </h3>
         <div className="ui segment">
           <div className="ui divided list">
             {(() => {
               const children163: ReactNode[] = [];
               for (entry of ps) {
-                children163.push(<>{content.renderPublication(entry)}</>);
+                children163.push(
+                  <>
+                    <Publication entry={entry} />
+                  </>,
+                );
               }
               return keyed(children163);
             })()}
@@ -374,9 +356,9 @@ export default function Page() {
             const children164: ReactNode[] = [];
             children164.push(
               <>
-                <a className="item" href={href("#body")}>
+                <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(title)}</div>
+                  <div className="content">{title}</div>
                 </a>
               </>,
             );
@@ -384,10 +366,10 @@ export default function Page() {
             for (var year = buildYear; year >= oldestYear; year--) {
               children164.push(
                 <>
-                  <a className="item" href={href(`#${year}`)}>
+                  <SiteLink className="item" href={href(`#${year}`)}>
                     <i className="right triangle icon"></i>
-                    <div className="content">{plainText(year)}</div>
-                  </a>
+                    <div className="content">{year}</div>
+                  </SiteLink>
                 </>,
               );
             }
@@ -407,17 +389,15 @@ export default function Page() {
               <section>
                 <h1 className="ui header">
                   <i className="history icon"></i>
-                  <div className="content">{plainText(title)}</div>
+                  <div className="content">{title}</div>
                 </h1>
                 <p>
-                  {richText(
-                    "This page shows updates to the website as well as ",
-                  )}
-                  <a href={href(`${rootPath}publications`)}>
+                  {"This page shows updates to the website as well as "}
+                  <SiteLink href={href(`${rootPath}publications`)}>
                     <i className="book icon"></i>
-                    {richText("publication records")}
-                  </a>
-                  {richText(" in their chronological order.")}
+                    {"publication records"}
+                  </SiteLink>
+                  {" in their chronological order."}
                 </p>
               </section>
             </>,
@@ -434,87 +414,60 @@ export default function Page() {
             children165.push(
               <>
                 <section id={attribute(y)}>
-                  {(() => {
-                    const children166: ReactNode[] = [];
-                    children166.push(
-                      <>
-                        <h2 className="ui header">
-                          {plainText(en ? y : `${y}年`)}
-                        </h2>
-                      </>,
-                    );
-                    if (en) {
-                      children166.push(
-                        <>
-                          <p>
-                            {richText(
-                              "To view only the activities in this year, click ",
-                            )}
-                            <a href={href(`${basePath}timeline/${y}/`)}>
-                              {richText("here")}
-                            </a>
-                            {richText(".")}
-                          </p>
-                        </>,
-                      );
-                    } else {
-                      children166.push(
-                        <>
-                          <p>
-                            {richText("この年の活動だけを表示するには")}
-                            <a href={href(`${basePath}timeline/${y}/`)}>
-                              {richText("こちら")}
-                            </a>
-                            {richText("をクリックしてください。")}
-                          </p>
-                        </>,
-                      );
-                    }
-                    children166.push(
-                      <>
-                        <h3
-                          className="ui header"
-                          id={attribute(`${y}-updates`)}
-                        >
-                          <i className="announcement icon"></i>
-                          {plainText(en ? "Updates" : "更新情報")}
-                        </h3>
-                      </>,
-                    );
-                    children166.push(
-                      <>
-                        <div className="ui segment">
-                          <div className="ui divided feed">
-                            {(() => {
-                              const children167: ReactNode[] = [];
-                              var i_ = i;
-                              while (i < histories[lang].length) {
-                                const entry = histories[lang][i];
-                                if (entry.date.getFullYear() !== year) {
-                                  year = entry.date.getFullYear();
-                                  break;
-                                }
-                                children167.push(<>{renderUpdate(entry)}</>);
-                                i++;
-                              }
-                              if (i === i_) {
-                                children167.push(<>{renderUpdate(null)}</>);
-                              }
-                              return keyed(children167);
-                            })()}
-                          </div>
-                        </div>
-                      </>,
-                    );
-                    children166.push(
-                      <>
-                        {renderAll(function (year) {
-                          return y === year;
-                        }, y)}
-                      </>,
-                    );
-                    return keyed(children166);
-                  })()}
+                  <h2 className="ui header">{en ? y : `${y}年`}</h2>
+
+                  {en ? (
+                    <>
+                      <p>
+                        {"To view only the activities in this year, click "}
+                        <SiteLink href={href(`${basePath}timeline/${y}/`)}>
+                          {"here"}
+                        </SiteLink>
+                        {"."}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p>
+                        {"この年の活動だけを表示するには"}
+                        <SiteLink href={href(`${basePath}timeline/${y}/`)}>
+                          {"こちら"}
+                        </SiteLink>
+                        {"をクリックしてください。"}
+                      </p>
+                    </>
+                  )}
+
+                  <h3 className="ui header" id={attribute(`${y}-updates`)}>
+                    <i className="announcement icon"></i>
+                    {en ? "Updates" : "更新情報"}
+                  </h3>
+
+                  <div className="ui segment">
+                    <div className="ui divided feed">
+                      {(() => {
+                        const children167: ReactNode[] = [];
+                        var i_ = i;
+                        while (i < histories[lang].length) {
+                          const entry = histories[lang][i];
+                          if (entry.date.getFullYear() !== year) {
+                            year = entry.date.getFullYear();
+                            break;
+                          }
+                          children167.push(<>{renderUpdate(entry)}</>);
+                          i++;
+                        }
+                        if (i === i_) {
+                          children167.push(<>{renderUpdate(null)}</>);
+                        }
+                        return keyed(children167);
+                      })()}
+                    </div>
+                  </div>
+
+                  {renderAll(function (year) {
+                    return y === year;
+                  }, y)}
                 </section>
               </>,
             );
@@ -529,7 +482,7 @@ export default function Page() {
             <>
               <section id={attribute(y)}>
                 <h2 className="ui header">
-                  {plainText(en ? `${y} and before` : `${y}年とそれ以前`)}
+                  {en ? `${y} and before` : `${y}年とそれ以前`}
                 </h2>
                 {renderAll(function (year) {
                   return y >= year;

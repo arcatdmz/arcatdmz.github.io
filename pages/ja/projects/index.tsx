@@ -1,45 +1,17 @@
+import { ProjectItem } from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
-import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+
+import { keyed, href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/projects/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projects, moment, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -68,19 +40,18 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderPublicationsMenu(): ReactNode {
     return (
       <>
         <div className="ui divided list">
-          <a className="item" href={href("#research")}>
+          <a className="item" href={"#research"}>
             <i className="lab icon"></i>
-            <div className="content">{plainText(en ? "Research" : "研究")}</div>
+            <div className="content">{en ? "Research" : "研究"}</div>
           </a>
-          <a className="item" href={href("#design-and-engineering")}>
+          <a className="item" href={"#design-and-engineering"}>
             <i className="paint brush icon"></i>
             <div className="content">
-              {plainText(en ? "Design and Engineering" : "デザイン・開発")}
+              {en ? "Design and Engineering" : "デザイン・開発"}
             </div>
           </a>
         </div>
@@ -90,16 +61,16 @@ export default function Page() {
   function renderAbout(): ReactNode {
     return (
       <>
-        <div className="ui basic segment" id={attribute("about")}>
+        <div className="ui basic segment" id={"about"}>
           <p>
-            {richText(
-              "このページでは加藤が関わってきた研究・開発・デザインに関するプロジェクトの一覧を見ることができます。グラフィックデザインとインタラクションデザインに絞った一覧は",
-            )}
-            <a href={href(`${rootPath}ja/design`)}>
+            {
+              "このページでは加藤が関わってきた研究・開発・デザインに関するプロジェクトの一覧を見ることができます。グラフィックデザインとインタラクションデザインに絞った一覧は"
+            }
+            <SiteLink href={href(`${rootPath}ja/design`)}>
               <i className="paint brush icon"></i>
-              {richText("デザイン")}
-            </a>
-            {richText("のページでも確認できます。")}
+              {"デザイン"}
+            </SiteLink>
+            {"のページでも確認できます。"}
           </p>
         </div>
       </>
@@ -111,19 +82,16 @@ export default function Page() {
         <h2 className="ui header">
           <i className="lab icon"></i>
           <div className="content">
-            {plainText(en ? "Research projects" : "研究プロジェクト")}
+            {en ? "Research projects" : "研究プロジェクト"}
           </div>
         </h2>
         <div className="ui basic segment">
           <p>
-            {richText(
-              "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。",
-            )}
+            {
+              "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。"
+            }
           </p>
-          <div
-            className="ui divided items projects"
-            id={attribute("other-projects-list")}
-          >
+          <div className="ui divided items projects" id={"other-projects-list"}>
             {(() => {
               const children246: ReactNode[] = [];
               for (const p of projects) {
@@ -134,7 +102,11 @@ export default function Page() {
                   p.category === "private"
                 )
                   continue;
-                children246.push(<>{content.renderProjectItem(p)}</>);
+                children246.push(
+                  <>
+                    <ProjectItem p={p} />
+                  </>,
+                );
               }
               return keyed(children246);
             })()}
@@ -149,29 +121,31 @@ export default function Page() {
         <h2 className="ui header">
           <i className="paint brush icon"></i>
           <div className="content">
-            {plainText(
-              en
-                ? "Design and/or engineering projects"
-                : "デザイン・開発プロジェクト",
-            )}
+            {en
+              ? "Design and/or engineering projects"
+              : "デザイン・開発プロジェクト"}
           </div>
         </h2>
         <div className="ui basic segment">
           <p>
-            {richText(
-              "デザインや開発に主眼が置かれたプロジェクトです。趣味またはプロボノ的活動として取り組んできました。",
-            )}
+            {
+              "デザインや開発に主眼が置かれたプロジェクトです。趣味またはプロボノ的活動として取り組んできました。"
+            }
           </p>
           <div
             className="ui divided items projects"
-            id={attribute("design-and-engineering-projects-list")}
+            id={"design-and-engineering-projects-list"}
           >
             {(() => {
               const children247: ReactNode[] = [];
               for (const p of projects) {
                 if (p.isPrivateProject(lang) || p.category !== "private")
                   continue;
-                children247.push(<>{content.renderProjectItem(p)}</>);
+                children247.push(
+                  <>
+                    <ProjectItem p={p} />
+                  </>,
+                );
               }
               return keyed(children247);
             })()}
@@ -199,15 +173,13 @@ export default function Page() {
         <div className="right-content">
           <h1 className="ui header">
             <i className="gift icon"></i>
-            <div className="content">
-              {plainText(en ? "Projects" : "プロジェクト")}
-            </div>
+            <div className="content">{en ? "Projects" : "プロジェクト"}</div>
           </h1>
           {renderAbout()}
           <div className="ui hidden divider"></div>
-          <section id={attribute("research")}>{renderResearch()}</section>
+          <section id={"research"}>{renderResearch()}</section>
           <div className="ui hidden divider"></div>
-          <section id={attribute("design-and-engineering")}>
+          <section id={"design-and-engineering"}>
             {renderDesignAndEngineering()}
           </section>
         </div>

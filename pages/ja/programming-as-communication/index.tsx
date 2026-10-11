@@ -1,44 +1,28 @@
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
 import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+  EmbedYoutube,
+  ProjectHeader,
+  ProjectItem,
+  ProjectPublications,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
+import type { ReactNode } from "react";
+
+import { keyed, href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/programming-as-communication/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
   const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
     projectsTable,
-    products,
-    selectedProjects,
-    publications,
     publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
     moment,
     rootPath,
     protocol,
     domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
   } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
@@ -71,38 +55,35 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Summary" : "概要")}</h2>
+        <h2 className="ui header">{en ? "Summary" : "概要"}</h2>
         <div className="ui basic segment">
           <p>
-            {richText(
-              "コンピュータが人々の生活にも仕事にも溶け込み、プログラミングはこれまで以上に身近で、複雑な事象を扱うようになった。そこで、",
-            )}
-            <a href={href(`${basePath}programming-with-examples`)}>
-              {richText("プログラミングの方法を根本的に改善する")}
-            </a>
-            {richText(
-              "必要がある。既存研究は多くの場合、特定の技術的背景を持った人々（",
-            )}
-            <a href={href(`${basePath}live-programming`)}>
-              {richText("プログラマ")}
-            </a>
-            {richText(
-              ", エンドユーザ, データサイエンティストなど）にとってのプログラミング体験を向上することで問題の解決を図ってきた。",
-            )}
+            {
+              "コンピュータが人々の生活にも仕事にも溶け込み、プログラミングはこれまで以上に身近で、複雑な事象を扱うようになった。そこで、"
+            }
+            <SiteLink href={href(`${basePath}programming-with-examples`)}>
+              {"プログラミングの方法を根本的に改善する"}
+            </SiteLink>
+            {"必要がある。既存研究は多くの場合、特定の技術的背景を持った人々（"}
+            <SiteLink href={href(`${basePath}live-programming`)}>
+              {"プログラマ"}
+            </SiteLink>
+            {
+              ", エンドユーザ, データサイエンティストなど）にとってのプログラミング体験を向上することで問題の解決を図ってきた。"
+            }
           </p>
           <p>
-            {richText(
-              "一方、本研究はプログラミングを、多様な技術的背景を持った人々を伴った、よりインクルーシブで協調的な行為にすることを目指す。「プログラミング環境」は必ずしも「プログラマ」のためだけの環境である必要はない。本研究はそうした環境を、多様な人々を受け止められるように設計することを目指す。",
-            )}
+            {
+              "一方、本研究はプログラミングを、多様な技術的背景を持った人々を伴った、よりインクルーシブで協調的な行為にすることを目指す。「プログラミング環境」は必ずしも「プログラマ」のためだけの環境である必要はない。本研究はそうした環境を、多様な人々を受け止められるように設計することを目指す。"
+            }
           </p>
           <p>
-            {richText(
-              "そうしたインクルーシブな環境において、人々はプログラミングを通してコミュニケーションを取り、全ての人々がプログラミングの便益を享受でき、ひいてはエンパワーメントを高められると考えている。",
-            )}
+            {
+              "そうしたインクルーシブな環境において、人々はプログラミングを通してコミュニケーションを取り、全ての人々がプログラミングの便益を享受でき、ひいてはエンパワーメントを高められると考えている。"
+            }
           </p>
         </div>
       </>
@@ -112,36 +93,36 @@ export default function Page() {
     return (
       <>
         <h2 className="ui header">
-          {plainText(en ? "Presentation materials" : "発表資料")}
+          {en ? "Presentation materials" : "発表資料"}
         </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
               <h3 className="ui header">
-                {richText(
-                  '<abbr title="Convivial Computing Salon 2020">CCS</abbr> ',
-                )}
-                {plainText(en ? "talk" : "講演動画")}
+                <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
+                {en ? "talk" : "講演動画"}
               </h3>
-              {content.renderEmbedYoutube(
-                "//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&cc_load_policy=1",
-              )}
+              <EmbedYoutube
+                src={
+                  "//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&cc_load_policy=1"
+                }
+              />
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
                     <a
-                      href={href(
-                        "//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1",
-                      )}
+                      href={
+                        "//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1"
+                      }
                     >
                       <i className="youtube icon"></i>
-                      {richText("YouTube")}
+                      {"YouTube"}
                     </a>
                   </div>
                   <div className="item">
-                    <a href={href("//vimeo.com/416361135")}>
+                    <a href={"//vimeo.com/416361135"}>
                       <i className="vimeo icon"></i>
-                      {richText("Vimeo")}
+                      {"Vimeo"}
                     </a>
                   </div>
                 </div>
@@ -149,10 +130,8 @@ export default function Page() {
             </div>
             <div className="column">
               <h3 className="ui header">
-                {richText(
-                  '<abbr title="Convivial Computing Salon 2020">CCS</abbr> ',
-                )}
-                {plainText(en ? "slides" : "発表スライド")}
+                <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
+                {en ? "slides" : "発表スライド"}
               </h3>
               <div
                 className="ui embed"
@@ -163,14 +142,14 @@ export default function Page() {
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
-                    <a
+                    <SiteLink
                       href={href(
                         publicationsTable[p.publication].entryTags.slides,
                       )}
                     >
                       <i className="download icon"></i>
-                      {plainText(en ? "Download" : "ダウンロード")}
-                    </a>
+                      {en ? "Download" : "ダウンロード"}
+                    </SiteLink>
                   </div>
                 </div>
               </div>
@@ -179,19 +158,25 @@ export default function Page() {
           <div className="ui divider"></div>
           <div className="ui list">
             <div className="item">
-              {richText(
-                'YouTube版は音量が調整され、字幕もついています。Vimeo版は加藤の発表に続いて<a href="https://tcher.tech/">Philip Tchernavskij</a>氏によるクリティークとQ&amp;Aセッションの録画がついています。',
-              )}
+              {
+                "YouTube版は音量が調整され、字幕もついています。Vimeo版は加藤の発表に続いて"
+              }
+              <a href={"https://tcher.tech/"}>{"Philip Tchernavskij"}</a>
+              {"氏によるクリティークとQ&Aセッションの録画がついています。"}
             </div>
             <div className="item">
-              {richText(
-                'Convivial Computing Salon 2020については<a href="https://2020.programming-conference.org/home/salon-2020">サロンの公式サイト</a>をご覧ください。',
-              )}
+              {"Convivial Computing Salon 2020については"}
+              <a
+                href={"https://2020.programming-conference.org/home/salon-2020"}
+              >
+                {"サロンの公式サイト"}
+              </a>
+              {"をご覧ください。"}
             </div>
             <div className="item">
-              {richText(
-                '論文はページ下部<a href="#publications">発表文献</a>からダウンロードできます。',
-              )}
+              {"論文はページ下部"}
+              <a href={"#publications"}>{"発表文献"}</a>
+              {"からダウンロードできます。"}
             </div>
           </div>
         </div>
@@ -204,7 +189,7 @@ export default function Page() {
         <h2 className="ui header">
           <i className="laptop code icon"></i>
           <div className="content">
-            {plainText(en ? "Technical environment design" : "技術的環境設計")}
+            {en ? "Technical environment design" : "技術的環境設計"}
           </div>
         </h2>
         <div className="ui basic segment">
@@ -214,9 +199,9 @@ export default function Page() {
           />
           <div className="caption">
             <p>
-              {richText(
-                "以下のプロジェクトは多様な人々の協調を支援するインタラクションデザインの設計を通して「Programming as Communication」を実現した例です。",
-              )}
+              {
+                "以下のプロジェクトは多様な人々の協調を支援するインタラクションデザインの設計を通して「Programming as Communication」を実現した例です。"
+              }
             </p>
           </div>
           <div className="ui segment">
@@ -239,7 +224,11 @@ export default function Page() {
                     p.tags.indexOf("programming-as-communication") < 0
                   )
                     continue;
-                  children244.push(<>{content.renderProjectItem(p)}</>);
+                  children244.push(
+                    <>
+                      <ProjectItem p={p} />
+                    </>,
+                  );
                 }
                 return keyed(children244);
               })()}
@@ -255,7 +244,7 @@ export default function Page() {
         <h2 className="ui header">
           <i className="user friends icon"></i>
           <div className="content">
-            {plainText(en ? "Social environment design" : "社会的環境設計")}
+            {en ? "Social environment design" : "社会的環境設計"}
           </div>
         </h2>
         <div className="ui basic segment">
@@ -265,27 +254,30 @@ export default function Page() {
           />
           <div className="caption">
             <p>
-              <a href={href("https://otonglass.jp/")}>
-                {richText("OTON GLASS")}
-              </a>
-              {richText(
-                'プロジェクトでは、プログラミング環境を、ハードウェア部品とソフトウェア<abbr title="Application Programming Interfaces">API</abbr>からなるツールキットのような人工物だけでなく、ツールキットの利用を手助けしてくれる有機的存在──エヴァンジェリストの存在を前提に設計しています。',
-              )}
+              <a href={"https://otonglass.jp/"}>{"OTON GLASS"}</a>
+
+              {
+                "プロジェクトでは、プログラミング環境を、ハードウェア部品とソフトウェア"
+              }
+              <abbr title={"Application Programming Interfaces"}>{"API"}</abbr>
+              {
+                "からなるツールキットのような人工物だけでなく、ツールキットの利用を手助けしてくれる有機的存在──エヴァンジェリストの存在を前提に設計しています。"
+              }
             </p>
           </div>
-          <h3 className="ui header">{richText("関連リンク")}</h3>
+          <h3 className="ui header">{"関連リンク"}</h3>
           <div className="ui divided small list">
             <div className="item">
               <i className="right triangle icon"></i>
               <div className="content">
                 <a
-                  href={href(
-                    "https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F",
-                  )}
+                  href={
+                    "https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"
+                  }
                 >
-                  {richText(
-                    "産業技術総合研究所との共同研究を開始しました - OTON GLASS／FabBiotope",
-                  )}
+                  {
+                    "産業技術総合研究所との共同研究を開始しました - OTON GLASS／FabBiotope"
+                  }
                 </a>
               </div>
             </div>
@@ -293,13 +285,13 @@ export default function Page() {
               <i className="right triangle icon"></i>
               <div className="content">
                 <a
-                  href={href(
-                    "https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar",
-                  )}
+                  href={
+                    "https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar"
+                  }
                 >
-                  {richText(
-                    "Rethinking Programming &quot;Environment&quot; (Convivial Computing Salon 2020) - ‹Programming› 2020",
-                  )}
+                  {
+                    'Rethinking Programming "Environment" (Convivial Computing Salon 2020) - ‹Programming› 2020'
+                  }
                 </a>
               </div>
             </div>
@@ -313,34 +305,30 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="announcement icon"></i>
-          {plainText(en ? "Revision history" : "更新履歴")}
+          {en ? "Revision history" : "更新履歴"}
         </h2>
         <div className="ui basic segment">
           <div className="ui divided feed">
             <div className="event">
               <div className="content">
-                <div className="date">{richText("5/15/2020")}</div>
+                <div className="date">{"5/15/2020"}</div>
                 <div className="summary">
-                  {richText("論文のプレプリントを追加しました。")}
+                  {"論文のプレプリントを追加しました。"}
                 </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
-                <div className="date">{richText("5/9/2020")}</div>
+                <div className="date">{"5/9/2020"}</div>
                 <div className="summary">
-                  {richText(
-                    "プレゼンテーションの録画とスライド資料を追加しました。",
-                  )}
+                  {"プレゼンテーションの録画とスライド資料を追加しました。"}
                 </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
-                <div className="date">{richText("4/1/2020")}</div>
-                <div className="summary">
-                  {richText("初版をアップロードしました。")}
-                </div>
+                <div className="date">{"4/1/2020"}</div>
+                <div className="summary">{"初版をアップロードしました。"}</div>
               </div>
             </div>
           </div>
@@ -351,23 +339,22 @@ export default function Page() {
   return (
     <>
       <SiteLayout context={context}>
-        {content.renderProjectHeader("programming-as-communication")}
+        <ProjectHeader project={"programming-as-communication"} />
         <div className="ui hidden divider"></div>
-        <section id={attribute("abstract")}>{renderAbstract()}</section>
+        <section id={"abstract"}>{renderAbstract()}</section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("presentation")}>{renderPresentation()}</section>
+        <section id={"presentation"}>{renderPresentation()}</section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("technical-effort")}>
-          {renderTechnicalEffort()}
-        </section>
+        <section id={"technical-effort"}>{renderTechnicalEffort()}</section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("social-effort")}>
-          {renderSocialEffort()}
-        </section>
+        <section id={"social-effort"}>{renderSocialEffort()}</section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications(p.project, p.publication)}
+        <ProjectPublications
+          project={p.project}
+          majorPublication={p.publication}
+        />
         <div className="ui hidden divider"></div>
-        <section id={attribute("revision")}>{renderRevision()}</section>
+        <section id={"revision"}>{renderRevision()}</section>
       </SiteLayout>
     </>
   );
