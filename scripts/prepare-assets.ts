@@ -440,6 +440,26 @@ async function prepareRedirections(): Promise<void> {
 }
 
 async function main(): Promise<void> {
+  // Type checking a fresh clone only needs the two generated data modules.
+  if (process.argv.includes("--ensure-data")) {
+    try {
+      await fs.access(path.join(root, "site/generated/publications.json"));
+      await fs.access(path.join(root, "site/generated/build-info.json"));
+      return;
+    } catch {
+      await prepareBibliography();
+      const now = new Date();
+      await write(
+        path.join(root, "site/generated/build-info.json"),
+        JSON.stringify(
+          { timestamp: now.toISOString(), year: now.getFullYear() },
+          null,
+          2,
+        ) + "\n",
+      );
+      return;
+    }
+  }
   // public is entirely generated; original static content lives under src.
   await fs.rm(publicDirectory, { recursive: true, force: true });
   await fs.mkdir(publicDirectory, { recursive: true });
@@ -447,7 +467,14 @@ async function main(): Promise<void> {
   await copySourceAssets();
   await prepareBibliography();
   const buildNow = new Date();
-  await write(path.join(root, "site/generated/build-info.json"), JSON.stringify({ timestamp: buildNow.toISOString(), year: buildNow.getFullYear() }, null, 2) + "\n");
+  await write(
+    path.join(root, "site/generated/build-info.json"),
+    JSON.stringify(
+      { timestamp: buildNow.toISOString(), year: buildNow.getFullYear() },
+      null,
+      2,
+    ) + "\n",
+  );
   await buildSemantic();
   await Promise.all([
     compileStyles(),

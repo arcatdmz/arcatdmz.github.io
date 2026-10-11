@@ -198,10 +198,11 @@ function attributes(element: Element): Record<string, string> {
         let value = raw;
         // Intentional migration: translation helpers now edit the actual TSX source.
         // Keep this list narrow; every other href continues to be compared literally.
-        if (name === "href") value = value.replace(
-          /^(https:\/\/github\.com\/arcatdmz\/arcatdmz\.github\.io\/blob\/main)\/src\/(phybots|homehack|live-tuning|openpool|programming-with-examples)\/index\.pug$/,
-          "$1/pages/$2/index.tsx",
-        );
+        if (name === "href")
+          value = value.replace(
+            /^(https:\/\/github\.com\/arcatdmz\/arcatdmz\.github\.io\/blob\/main)\/src\/(phybots|homehack|live-tuning|openpool|programming-with-examples)\/index\.pug$/,
+            "$1/pages/$2/index.tsx",
+          );
         if (name === "class")
           value = [...new Set(raw.split(/\s+/).filter(Boolean))]
             .sort()
