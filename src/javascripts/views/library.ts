@@ -12,6 +12,7 @@ export function setSidebarHiddenListener(func: (this: JQuery) => void) {
   onSidebarHidden = func;
 }
 $(".ui.sidebar").sidebar({
+  context: $("#__next").length ? "#__next" : "body",
   onHidden: function () {
     // console.log('sidebar is hidden (library side)');
     if (onSidebarHidden) {

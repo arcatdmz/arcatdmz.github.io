@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/projects.json";
+import json from "../data/projects.json";
 
-const data: ProjectData = json.default ? json.default : json;
+const data: ProjectData = json as ProjectData;
 
 const defaultImageType = "png";
 
@@ -41,7 +41,7 @@ interface RawEntry {
     from: number;
     to?: number;
   };
-  category?: "collaboration" | "committee" | "private";
+  category?: "collaboration" | "committee" | "private" | "concept";
   publication?: string;
   title: string;
   "title-design"?: string;

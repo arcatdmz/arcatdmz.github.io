@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/histories.json";
+import json from "../data/histories.json";
 import { EntryDate, EntryDateType } from "./library";
-const histories: RawEntries = json.default ? json.default : json;
+const histories: RawEntries = json as RawEntries;
 
 class Entry {
   private dateObj: EntryDate;

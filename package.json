@@ -7,17 +7,18 @@
   "scripts": {
     "bibtex": "bibtex-tidy --no-numeric --no-tab --no-align --no-sort --no-escape --sort-fields --tidy-comments --modify src/junkato.bib",
     "blc": "broken-link-checker http://localhost:8080/ -ro",
-    "build": "npm run build:gulp && npm run build:redirections",
-    "build:gulp": "gulp",
+    "build": "npm run assets && next build --webpack && node --import tsx scripts/finalize-export.ts",
     "build:semantic": "gulp semantic",
-    "build:redirections": "node scripts/add-redirections.mjs",
-    "clean": "del-cli build dist && npm run clean:js",
+    "clean": "del-cli .next out dist build public site/generated",
     "clean:js": "del-cli src/javascripts/*.js src/javascripts/**/*.js",
-    "dev": "gulp dev",
+    "dev": "npm run assets && next dev --webpack",
     "dev:meta": "gulp dev:meta",
     "prettify": "prettier --write ./.github/**/*.yml ./.vscode/**/*.json ./src/**/*.{json,less,ts} ./*.{js,json}",
-    "test": "gulp test && npm run test:jest",
-    "test:jest": "npm run clean:js && jest"
+    "test": "npm run typecheck && npm run test:unit",
+    "assets": "node --import tsx scripts/prepare-assets.ts",
+    "build:legacy": "gulp",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "jest"
   },
   "repository": {
     "type": "git",
@@ -65,6 +66,7 @@
     "mkdirp": "^3.0.1",
     "moment": "^2.29.4",
     "node-fetch": "^3.3.2",
+    "parse5": "8.0.1",
     "pdfinfo": "^0.0.3",
     "pixelmatch": "8.0.0",
     "pngjs": "7.0.0",
@@ -86,6 +88,7 @@
     "devicon": "^2.15.1",
     "fomantic-ui": "^2.9.4",
     "html-react-parser": "6.1.8",
+    "jquery": "3.2.1",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"

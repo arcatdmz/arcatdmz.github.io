@@ -649,3 +649,17 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
     display: none !important;
   }
 }
+
+/* Next owns one root element; preserve the former body-level sidebar geometry. */
+#__next.pushable {
+  transform: none;
+  overflow-y: visible;
+  min-height: 100%;
+  height: auto;
+  background: @pageBackground;
+}
+#__next.pushable > .ui.sidebar,
+#__next.pushable > .fixed,
+#__next.pushable > .pusher::after {
+  position: fixed;
+}

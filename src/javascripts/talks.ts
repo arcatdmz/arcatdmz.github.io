@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/talks.json";
+import json from "../data/talks.json";
 import { Entry, RawEntry } from "./library";
-const talks: RawEntry[] = json.default || json;
+const talks: RawEntry[] = json as RawEntry[];
 
 const entries: Entry[] = [];
 for (const re of talks) {

@@ -1,4 +1,8 @@
 import moment from "moment";
+import { buildTimestamp } from "./clock";
+
+// Preserve static durations instead of changing them during client hydration.
+moment.now = () => buildTimestamp;
 import website from "../website.json";
 import histories from "../src/javascripts/histories";
 import awards from "../src/javascripts/awards";
@@ -35,7 +39,7 @@ function replaceRootPath(
 const publications = parsePublications(
   rawPublications as Parameters<typeof parsePublications>[0],
 );
-const misc = structuredClone(rawMisc);
+const misc: Record<string, any> = structuredClone(rawMisc);
 replaceRootPath({ histories, awards, talks, lectures, projects, media, misc });
 
 type Project = (typeof projects)[number];
