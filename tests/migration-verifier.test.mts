@@ -343,3 +343,16 @@ test("only the five migrated translation-source links may change to TSX", () => 
     [],
   );
 });
+
+test("React route hrefs compare equivalent trailing slashes while archive URLs stay literal", () => {
+  assert.deepEqual(
+    canonicalPage('<html><body><a href="/projects">Projects</a></body></html>'),
+    canonicalPage(
+      '<html><body><a href="/projects/">Projects</a></body></html>',
+    ),
+  );
+  assert.notDeepEqual(
+    canonicalPage('<html><body><a href="/archive">Archive</a></body></html>'),
+    canonicalPage('<html><body><a href="/archive/">Archive</a></body></html>'),
+  );
+});

@@ -28,6 +28,16 @@ behind a React effect bridge (`site/components/SiteRuntime.tsx`). Existing menus
 and widgets still use the original interaction code; they have not all been
 rewritten as React components.
 
+Current React pages use `SiteLink` to select Next's `Link` for internal React
+routes. Downloads, external URLs, and archival pages retain native anchors.
+Trusted HTML fragments in the existing data go through `HtmlContent`; fixed page
+content is ordinary JSX. Shared content uses typed components and page context.
+
+The widget bridge loads jQuery and its interaction bundle once per document,
+initializes each destination, and disposes listeners, timers, clipboard handlers,
+modals, and popups before leaving a page. Language and section classes update
+before painting the destination. Fonts and analytics scripts load once.
+
 ## Development
 
 Use Node.js 24 and the checked-in lockfile. No global Gulp installation is needed.
@@ -74,6 +84,35 @@ if a non-loopback interface is needed.
 
 The existing GitHub Pages workflow still uploads `dist/`. Both `.nojekyll` and
 `CNAME` are generated so Next.js assets and the custom domain continue to work.
+
+## Browser regression checks
+
+Build the production export before running Playwright:
+
+```sh
+npm run build
+npx playwright install chromium
+npx playwright test
+```
+
+The suite covers desktop and phone navigation, slow widget loading without a dark
+background flash, English/Japanese switches, Back/Forward, year routes, contact
+anchors, menus, modals, tag popups, citations, and links embedded in trusted HTML.
+It also checks that navigation keeps the document and reuses scripts.
+
+For a route sweep and an optional comparison with a previous export:
+
+```sh
+SITE_BASELINE=/path/to/previous/dist node --import tsx scripts/check-browser.ts
+```
+
+Without `SITE_BASELINE`, it checks the current export. The comparison saves
+screenshots and `site-qa/navigation/report.json`, measures five menu transitions,
+and compares nine representative pages at desktop and phone widths. External
+requests are blocked for repeatability. The timing scenario deliberately delays
+jQuery by 1.2 seconds; its results are a controlled regression measurement, not
+an estimate of every visitor's connection. Seven historical redirects are listed
+separately, while their unchanged markup is checked by the static verifier.
 
 ## Blog redirects
 
