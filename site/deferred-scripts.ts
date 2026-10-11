@@ -1,11 +1,15 @@
 /** Execute repository-authored widget placeholders only after hydration. */
-export async function runDeferredScripts(document: Document) {
+export async function runDeferredScripts(
+  document: Document,
+  signal?: AbortSignal,
+) {
   const scripts = [
     ...document.querySelectorAll<HTMLScriptElement>(
       'script[type="application/x-site-script"]',
     ),
   ];
   for (const placeholder of scripts) {
+    if (signal?.aborted) return;
     if (placeholder.dataset.executed) continue;
     placeholder.dataset.executed = "true";
     const script = document.createElement("script");
@@ -20,8 +24,17 @@ export async function runDeferredScripts(document: Document) {
       // Preserve parser-blocking dependency order, even on slow connections.
       // Site menus have already initialized independently.
       const loaded = new Promise<void>((resolve) => {
-        script.onload = () => resolve();
-        script.onerror = () => resolve();
+        const done = () => {
+          signal?.removeEventListener("abort", abort);
+          resolve();
+        };
+        const abort = () => {
+          script.remove();
+          done();
+        };
+        script.onload = done;
+        script.onerror = done;
+        signal?.addEventListener("abort", abort, { once: true });
       });
       placeholder.after(script);
       if (!script.async) await loaded;

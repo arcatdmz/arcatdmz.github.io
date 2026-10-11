@@ -61,3 +61,17 @@ test("originally async social widgets do not delay the following scripts", async
   await runDeferredScripts(document);
   assert.equal(inserted.length, 2);
 });
+
+test("leaving a page cancels its queued widget initializer", async () => {
+  const { inserted, document } = environment();
+  const controller = new AbortController();
+  const run = runDeferredScripts(document, controller.signal);
+  inserted[0].remove = () => {};
+  controller.abort();
+  await run;
+  assert.equal(
+    inserted.length,
+    1,
+    "the departed page's inline initializer must not run on the next page",
+  );
+});
