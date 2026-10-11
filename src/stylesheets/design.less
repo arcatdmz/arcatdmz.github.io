@@ -13,22 +13,26 @@ i[class^="devicon-"] {
  * # junkato.jp
  */
 
-/* /design */
-body.design > .ui.text.fixed.menu {
+/* /design: include the React root without changing the archived body-level rules. */
+body.design > .ui.text.fixed.menu,
+body.design > #__next > .ui.text.fixed.menu {
   pointer-events: none;
 }
-body.design > .ui.text.fixed.menu > .menu {
+body.design > .ui.text.fixed.menu > .menu,
+body.design > #__next > .ui.text.fixed.menu > .menu {
   pointer-events: initial;
   margin-top: 0.5em;
   margin-left: 0.7em;
 }
 
-body.design > .ui.text.fixed.menu > .right.menu {
+body.design > .ui.text.fixed.menu > .right.menu,
+body.design > #__next > .ui.text.fixed.menu > .right.menu {
   margin-left: 0;
   margin-right: 0.7em;
 }
 
-body.design > .ui.text.fixed.menu > .menu > .item {
+body.design > .ui.text.fixed.menu > .menu > .item,
+body.design > #__next > .ui.text.fixed.menu > .menu > .item {
   background: rgba(255, 255, 255, 0.9);
   padding: 0.7em 0.8em;
   margin-left: 1px;
@@ -36,19 +40,22 @@ body.design > .ui.text.fixed.menu > .menu > .item {
   backdrop-filter: blur(7px);
 }
 
-body.design > .ui.text.fixed.menu > .menu > .item:first-child {
+body.design > .ui.text.fixed.menu > .menu > .item:first-child,
+body.design > #__next > .ui.text.fixed.menu > .menu > .item:first-child {
   padding: 0.7em 0.5em 0.7em 0.8em;
   margin-left: 0;
   border-top-left-radius: 0.4em !important;
   border-bottom-left-radius: 0.4em !important;
 }
 
-body.design > .ui.text.fixed.menu > .menu > .item:last-child {
+body.design > .ui.text.fixed.menu > .menu > .item:last-child,
+body.design > #__next > .ui.text.fixed.menu > .menu > .item:last-child {
   border-top-right-radius: 0.4em !important;
   border-bottom-right-radius: 0.4em !important;
 }
 
-body.design > .ui.dimmer {
+body.design > .ui.dimmer,
+body.design > #__next > .ui.dimmer {
   justify-content: center;
   align-items: center;
 }
