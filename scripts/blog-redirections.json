@@ -1,0 +1,311 @@
+{
+  "articles": [
+    {
+      "new": "2012-10-30-hello-world",
+      "old": "2012/10/30/hello-world"
+    },
+    {
+      "new": "2012-11-04-use-opencv-from-java",
+      "old": "2012/11/04/use-opencv-from-java"
+    },
+    {
+      "new": "2012-11-08-javacv-ml",
+      "old": "2012/11/08/javacv-ml"
+    },
+    {
+      "new": "2012-11-13-cs-phd-findings",
+      "old": "2012/11/13/cs-phd-findings"
+    },
+    {
+      "new": "2012-11-21-devenv-research-hci",
+      "old": "2012/11/21/devenv-research-hci"
+    },
+    {
+      "new": "2012-12-18-mac-os-x-launchd",
+      "old": "2012/12/18/mac-os-x-launchd"
+    },
+    {
+      "new": "2012-12-23-phybots-processing-artoolkit",
+      "old": "2012/12/23/phybots-processing-artoolkit"
+    },
+    {
+      "new": "2012-12-24-realmote-remote-control",
+      "old": "2012/12/24/realmote-remote-control"
+    },
+    {
+      "new": "2013-01-28-processing-efficient-copy-from-bufferedimage-to-pimage",
+      "old": "2013/01/28/processing-efficient-copy-from-bufferedimage-to-pimage"
+    },
+    {
+      "new": "2013-02-22-kinect-for-java-via-thrift",
+      "old": "2013/02/22/kinect-for-java-via-thrift"
+    },
+    {
+      "new": "2013-07-19-visuality-of-text",
+      "old": "2013/07/19/visuality-of-text"
+    },
+    {
+      "new": "2013-08-07-excel-as-programming-environment",
+      "old": "2013/08/07/excel-as-programming-environment"
+    },
+    {
+      "new": "2013-09-16-devenv-research-hci-retreat",
+      "old": "2013/09/16/devenv-research-hci-retreat"
+    },
+    {
+      "new": "2013-09-27-devenv-research-labs",
+      "old": "2013/09/27/devenv-research-labs"
+    },
+    {
+      "new": "2014-01-12-mediawiki",
+      "old": "2014/01/12/mediawiki"
+    },
+    {
+      "new": "2014-01-13-mediawiki-import-templates-from-wikipedia",
+      "old": "2014/01/13/mediawiki-import-templates-from-wikipedia"
+    },
+    {
+      "new": "2014-01-14-install-jdk-and-batik-for-mediawiki",
+      "old": "2014/01/14/install-jdk-and-batik-for-mediawiki"
+    },
+    {
+      "new": "2014-01-26-use-opencv-from-java-rev2",
+      "old": "2014/01/26/use-opencv-from-java-rev2"
+    },
+    {
+      "new": "2014-01-28-amazon-com-co-jp-consolidation",
+      "old": "2014/01/28/amazon-com-co-jp-consolidation"
+    },
+    {
+      "new": "2014-02-02-gargantia-kill-la-kill-partner",
+      "old": "2014/02/02/gargantia-kill-la-kill-partner"
+    },
+    {
+      "new": "2014-02-26-less-for-brew-a-wordpress-bootstrap-3-theme",
+      "old": "2014/02/26/less-for-brew-a-wordpress-bootstrap-3-theme"
+    },
+    {
+      "new": "2014-02-27-j1-trainee-tax-refund-docs-for-irs",
+      "old": "2014/02/27/j1-trainee-tax-refund-docs-for-irs"
+    },
+    {
+      "new": "2014-05-05-acm-student-research-competition-2",
+      "old": "2014/05/05/acm-student-research-competition-2"
+    },
+    {
+      "new": "2014-05-04-acm-student-research-competition",
+      "old": "2014/05/04/acm-student-research-competition"
+    },
+    {
+      "new": "2014-05-16-microsoft-research-asia-fellowship",
+      "old": "2014/05/16/microsoft-research-asia-fellowship"
+    },
+    {
+      "new": "2014-07-19-japanese-ist-society-phd",
+      "old": "2014/07/19/japanese-ist-society-phd"
+    },
+    {
+      "new": "2014-07-23-sigma-apo-70-300mm-f4-5-6-dg-macro",
+      "old": "2014/07/23/sigma-apo-70-300mm-f4-5-6-dg-macro"
+    },
+    {
+      "new": "2014-07-27-acm-doctoral-symposium-consortium",
+      "old": "2014/07/27/acm-doctoral-symposium-consortium"
+    },
+    {
+      "new": "2014-08-19-extract-adobe-illustrator-embedded-images",
+      "old": "2014/08/19/extract-adobe-illustrator-embedded-images"
+    },
+    {
+      "new": "2014-09-09-re-user-interface-research",
+      "old": "2014/09/09/re-user-interface-research"
+    },
+    {
+      "new": "2014-09-25-half-yearly-review",
+      "old": "2014/09/25/half-yearly-review"
+    },
+    {
+      "new": "2014-10-11-recent-updates-on-qx1",
+      "old": "2014/10/11/recent-updates-on-qx1"
+    },
+    {
+      "new": "2014-11-09-cancer-chemotherapy-with-caffeine",
+      "old": "2014/11/09/cancer-chemotherapy-with-caffeine"
+    },
+    {
+      "new": "2014-11-13-amazon-payment-history-as-csv",
+      "old": "2014/11/13/amazon-payment-history-as-csv"
+    },
+    {
+      "new": "2014-12-12-4-months-in-beijing-microsoft-research-asia",
+      "old": "2014/12/12/4-months-in-beijing-microsoft-research-asia"
+    },
+    {
+      "new": "2015-01-01-javacv-java-opencv-on-raspberry-pi",
+      "old": "2015/01/01/javacv-java-opencv-on-raspberry-pi"
+    },
+    {
+      "new": "2014-12-31-raspberry-pi-raspbian-on-windows-qemu",
+      "old": "2014/12/31/raspberry-pi-raspbian-on-windows-qemu"
+    },
+    {
+      "new": "2015-03-01-acm-chi2015-hci-tokyo",
+      "old": "2015/03/01/acm-chi2015-hci-tokyo"
+    },
+    {
+      "new": "2015-05-03-acm-chi2015-japan",
+      "old": "2015/05/03/acm-chi2015-japan"
+    },
+    {
+      "new": "2015-06-20-bash-and-adobe-extended-script",
+      "old": "2015/06/20/bash-and-adobe-extended-script"
+    },
+    {
+      "new": "2015-06-30-cs-research-internship-abroad-2",
+      "old": "2015/06/30/cs-research-internship-abroad-2"
+    },
+    {
+      "new": "2015-06-29-cs-research-internship-abroad",
+      "old": "2015/06/29/cs-research-internship-abroad"
+    },
+    {
+      "new": "2015-09-24-ipsj-prosym-wakate-2015",
+      "old": "2015/09/24/ipsj-prosym-wakate-2015"
+    },
+    {
+      "new": "2015-09-26-is-cs-fellowship-application-from-japan",
+      "old": "2015/09/26/is-cs-fellowship-application-from-japan"
+    },
+    {
+      "new": "2015-10-01-half-yearly-review-2015",
+      "old": "2015/10/01/half-yearly-review-2015"
+    },
+    {
+      "new": "2015-10-24-intel-edison-mraa-upm-driver-development",
+      "old": "2015/10/24/intel-edison-mraa-upm-driver-development"
+    },
+    {
+      "new": "2016-02-11-windows-10-mobile-nuans-neo",
+      "old": "2016/02/11/windows-10-mobile-nuans-neo"
+    },
+    {
+      "new": "2016-03-05-sigpx1",
+      "old": "2016/03/05/sigpx1"
+    },
+    {
+      "new": "2016-03-16-ipsj-one-px-science-as-a-service",
+      "old": "2016/03/16/ipsj-one-px-science-as-a-service"
+    },
+    {
+      "new": "2016-04-17-yearly-review-2015",
+      "old": "2016/04/17/yearly-review-2015"
+    },
+    {
+      "new": "2016-05-17-harc-from-center-to-community",
+      "old": "2016/05/17/harc-from-center-to-community"
+    },
+    {
+      "new": "2016-06-11-from-programming-to-education",
+      "old": "2016/06/11/from-programming-to-education"
+    },
+    {
+      "new": "2016-06-20-tsukuba-inter-science",
+      "old": "2016/06/20/tsukuba-inter-science"
+    },
+    {
+      "new": "2016-09-01-myxogastromycetidae",
+      "old": "2016/09/01/myxogastromycetidae"
+    },
+    {
+      "new": "2016-12-22-acm-student-volunteers",
+      "old": "2016/12/22/acm-student-volunteers"
+    },
+    {
+      "new": "2017-07-05-artifact-review-for-replicability",
+      "old": "2017/07/05/artifact-review-for-replicability"
+    },
+    {
+      "new": "2017-07-17-http-to-https-by-lets-encrypt-and-cloudflare",
+      "old": "2017/07/17/http-to-https-by-lets-encrypt-and-cloudflare"
+    },
+    {
+      "new": "2017-07-20-nodejs-loves-webmo",
+      "old": "2017/07/20/nodejs-loves-webmo"
+    },
+    {
+      "new": "2017-07-19-webmo",
+      "old": "2017/07/19/webmo"
+    },
+    {
+      "new": "2017-08-18-yearly-review-2016",
+      "old": "2017/08/18/yearly-review-2016"
+    },
+    {
+      "new": "2017-10-08-live-programming",
+      "old": "2017/10/08/live-programming"
+    },
+    {
+      "new": "2017-12-08-adobe-research-internship-seattle-and-dissertation",
+      "old": "2017/12/08/adobe-research-internship-seattle-and-dissertation"
+    },
+    {
+      "new": "2018-05-04-yearly-review-2017",
+      "old": "2018/05/04/yearly-review-2017"
+    },
+    {
+      "new": "2018-07-09-arch-inc-technical-advisor",
+      "old": "2018/07/09/arch-inc-technical-advisor"
+    },
+    {
+      "new": "2018-12-19-hci-for-machine-learning",
+      "old": "2018/12/19/hci-for-machine-learning"
+    },
+    {
+      "new": "2018-12-22-computer-science-in-the-future",
+      "old": "2018/12/22/computer-science-in-the-future"
+    },
+    {
+      "new": "2018-12-30-yearly-review-2018",
+      "old": "2018/12/30/yearly-review-2018"
+    },
+    {
+      "new": "2019-08-16-roles-of-academic-conf-pc-members",
+      "old": "2019/08/16/roles-of-academic-conf-pc-members"
+    },
+    {
+      "new": "2020-03-15-anitech-2020spring-griffith-sketch",
+      "old": "2020/03/15/anitech-2020spring-griffith-sketch"
+    },
+    {
+      "new": "2020-08-30-digital-stars-2020-online",
+      "old": "2020/08/30/digital-stars-2020-online"
+    },
+    {
+      "new": "2020-12-23-internship-and-third-place",
+      "old": "2020/12/23/internship-and-third-place"
+    },
+    {
+      "new": "2021-03-22-nextjs-mdx-blog",
+      "old": "2021/03/22/nextjs-mdx-blog"
+    }
+  ],
+  "categories": {
+    "anime": true,
+    "design": true,
+    "discussion": true,
+    "java": true,
+    "life": {
+      "lookback": true
+    },
+    "phybots": true,
+    "processing": true,
+    "research": {
+      "sigpx": true
+    },
+    "server": true,
+    "travel": true,
+    "university": {
+      "student": true
+    }
+  }
+}
