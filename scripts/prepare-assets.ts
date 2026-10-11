@@ -64,6 +64,13 @@ async function copySourceAssets(): Promise<void> {
     path.join(publicDirectory, "stylesheets/fonts"),
     { recursive: true },
   );
+  // Pin the historical CDN version locally so menu initialization works offline.
+  await write(
+    path.join(publicDirectory, "javascripts/vendor/jquery.min.js"),
+    await fs.readFile(
+      path.join(root, "node_modules/jquery/dist/jquery.min.js"),
+    ),
+  );
   console.log(
     `Copied ${count} source assets, including historic HTML documents.`,
   );
@@ -439,6 +446,8 @@ async function main(): Promise<void> {
   await fs.mkdir(buildDirectory, { recursive: true });
   await copySourceAssets();
   await prepareBibliography();
+  const buildNow = new Date();
+  await write(path.join(root, "site/generated/build-info.json"), JSON.stringify({ timestamp: buildNow.toISOString(), year: buildNow.getFullYear() }, null, 2) + "\n");
   await buildSemantic();
   await Promise.all([
     compileStyles(),

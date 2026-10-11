@@ -1,3 +1,4 @@
+import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import type { Project, SiteContext } from "../types";
 import { richText } from "./RichText";
@@ -303,7 +304,7 @@ export function SiteFooter({ context }: SiteComponentProps) {
             {"© "}
             <a href={`${basePath}#contact`}>{en ? "Jun Kato" : "加藤 淳"}</a>
           </div>
-          <div className="item">{`2012-${new Date().getFullYear()}`}</div>
+          <div className="item">{`2012-${buildYear}`}</div>
           <div className="item">
             <a href={`${basePath}privacy`}>
               <i className="envelope open outline icon" />

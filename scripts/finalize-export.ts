@@ -30,16 +30,28 @@ async function main(): Promise<void> {
   await fs.rm(destination, { recursive: true, force: true });
   await fs.cp(exportDirectory, destination, { recursive: true });
 
+  // Next exports this route as a directory; keep the long-standing .html URL.
+  // A build without the resume page must not publish an empty or stale alias.
+  try {
+    await fs.copyFile(
+      path.join(destination, "resume/index.html"),
+      path.join(destination, "resume.html"),
+    );
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+
   const files = await filesIn(destination);
   const styles = files.filter(
     (filename) =>
       filename.startsWith(path.join(destination, "stylesheets") + path.sep) &&
       filename.endsWith(".css"),
   );
-  // Include both webpack legacy interactions and Next chunks. Otherwise classes
-  // used by popups, transitions, and dynamically inserted content can disappear.
-  const content = files.filter((filename) => /\.(?:html|js)$/.test(filename));
-  const purged = await new PurgeCSS().purge({ css: styles, content });
+  // The legacy interaction bundles contain all dynamically inserted Fomantic
+  // classes. Next's framework internals retain unrelated selectors by accident;
+  // rendered HTML already contains the classes in our statically exported JSX.
+  const content = files.filter((filename) => /\.(?:html|js)$/.test(filename) && !filename.includes(`${path.sep}_next${path.sep}`));
+  const purged = await new PurgeCSS().purge({ css: styles, content, safelist: ["house", "procedures"] });
   for (const stylesheet of purged) {
     if (!stylesheet.file)
       throw new Error("PurgeCSS returned an unnamed stylesheet.");
