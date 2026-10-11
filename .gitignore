@@ -75,3 +75,7 @@ public/
 site/generated/
 *.tsbuildinfo
 site-qa/
+
+# Playwright reports
+test-results/
+playwright-report/

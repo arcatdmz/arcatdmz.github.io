@@ -98,3 +98,52 @@ migration does not claim a complete replacement of that legacy widget stack.
 See [README.md](../README.md) for installation, development, build, preview, and
 baseline-comparison commands. No remote branch was pushed and no deployment was
 performed as part of this local migration.
+
+## Follow-up: client navigation and React authoring
+
+The initial compatibility pass left internal anchors doing document loads and
+wrapped ordinary text in Pug conversion helpers. The follow-up removes all
+`richText`, `richParagraph`, `plainText`, and `createContentComponents` calls from
+page and shared-component source. Fixed text and markup are JSX; existing
+HTML-bearing data has an explicit `HtmlContent` boundary that also renders
+internal links through `SiteLink`. Sixteen shared render functions are typed
+React components. Generated accumulation closures were simplified, and 1,547
+unused data bindings were removed.
+
+`SiteLink` selects Next's `Link` for known React routes, including relative URLs,
+translations, and year routes. Other destinations preserve ordinary document
+navigation. Retained widgets have explicit initialization/disposal; their bundle,
+jQuery, fonts, and analytics scripts are loaded once. Route transitions update
+language and body classes before paint, cancel pending widget initializers, and
+restore detached modal nodes before React unmounts the page. Widget-generated
+links have a narrow navigation adapter. Hash navigation uses Next/browser history
+and a CSS scroll offset instead of manually replacing history state.
+
+The dark background flash was reproduced in the previous React export. Under a
+1.2-second jQuery delay, it showed 77 dark frames over approximately 1.27 seconds;
+the updated export showed zero dark frames. Five menu transitions made 10 main
+navigation requests before the change (including directory redirects) and zero
+after. Median time until the destination widgets initialized was 1,443 ms before
+and 120 ms after in that controlled local run. These numbers include the
+artificial delay; they do not predict production performance on every device.
+
+Validation of the final export includes:
+
+- Type checking, six model unit tests, and the deferred-widget/content/verifier
+  regression tests
+- Twelve Chromium browser scenarios across desktop and phone viewports
+- Nine representative pages compared at 1440 px and 390 px: identical image
+  dimensions and zero differing pixels in all 18 comparisons
+- 118 content routes loaded in Chromium with zero application errors; seven
+  historical redirects recorded separately
+- All 125 React routes match the previous export's normalized content, structure,
+  inline styles, language, and metadata; known React URL trailing slashes are
+  treated as equivalent
+- 161 archival/redirect HTML files and 637 static assets are byte-identical;
+  generated Next HTML/data is compared separately from archival assets
+- No new broken local references, and no removed baseline CSS rules
+
+Browser comparison artifacts and measurements are generated locally in
+`site-qa/navigation/` by `scripts/check-browser.ts`. Third-party services are
+blocked in this repeatable comparison; the initial migration's settled external
+Maps and TextAlive verification remains described above.

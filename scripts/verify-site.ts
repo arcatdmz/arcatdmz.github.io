@@ -11,6 +11,7 @@
  * strict. --render checks real React SSR before a Next build is available; the
  * export mode additionally verifies the actual document, assets and URL targets.
  */
+import { resolveReactHref } from "../site/navigation";
 import * as fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -197,12 +198,18 @@ function attributes(element: Element): Record<string, string> {
       .map(([name, raw]) => {
         let value = raw;
         // Intentional migration: translation helpers now edit the actual TSX source.
-        // Keep this list narrow; every other href continues to be compared literally.
+        // Preserve literal URLs except known React routes' equivalent trailing slash.
         if (name === "href")
           value = value.replace(
             /^(https:\/\/github\.com\/arcatdmz\/arcatdmz\.github\.io\/blob\/main)\/src\/(phybots|homehack|live-tuning|openpool|programming-with-examples)\/index\.pug$/,
             "$1/pages/$2/index.tsx",
           );
+        if (name === "href" && resolveReactHref(value)) {
+          const url = new URL(value, "https://junkato.jp/");
+          value = `${url.pathname.replace(/\/$/, "") || "/"}${url.search}${
+            url.hash
+          }`;
+        }
         if (name === "class")
           value = [...new Set(raw.split(/\s+/).filter(Boolean))]
             .sort()
@@ -666,8 +673,15 @@ export async function verifySite(options: {
       });
       continue;
     }
-    if (route) {
-      report.counts.comparedReactPages++;
+    const generatedNextPage =
+      ["404.html", "404/index.html", "resume/index.html"].includes(page) &&
+      before.includes('id="__NEXT_DATA__"') &&
+      after.includes('id="__NEXT_DATA__"');
+    if (route || generatedNextPage) {
+      if (route) report.counts.comparedReactPages++;
+      else
+        report.counts.comparedGeneratedPages =
+          (report.counts.comparedGeneratedPages || 0) + 1;
       try {
         for (const diff of differences(
           canonicalPage(before),
@@ -755,6 +769,7 @@ export async function verifySite(options: {
     }
     for (const name of baselineFiles.filter(
       (name) =>
+        !name.startsWith("_next/") &&
         !/\.(?:html|css|js|gz)$/.test(name) &&
         !/\.js\.LICENSE\.txt$/.test(name) &&
         !["sitemap.xml", "rss.xml", "ja/rss.xml"].includes(name),
