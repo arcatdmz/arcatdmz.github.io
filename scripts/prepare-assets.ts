@@ -191,15 +191,14 @@ async function bundleLegacyInteractions(): Promise<void> {
     );
   }
 
+  await fs.rm(path.join(publicDirectory, "javascripts/views"), {
+    recursive: true,
+    force: true,
+  });
   const original = require("./webpack.config.js") as Configuration;
-  const entries = Object.fromEntries(
-    (await filesIn(path.join(temporarySource, "javascripts/views")))
-      .filter(
-        (filename) =>
-          filename.endsWith(".js") && path.basename(filename) !== "library.js",
-      )
-      .map((filename) => [path.basename(filename, ".js"), filename]),
-  );
+  const entries = {
+    runtime: path.join(temporarySource, "javascripts/views/runtime.js"),
+  };
   const config: Configuration = {
     ...original,
     entry: entries,

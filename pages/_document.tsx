@@ -6,10 +6,11 @@ import Document, {
   type DocumentContext,
 } from "next/document";
 
+import { getDocumentMetadata } from "@/site/navigation";
+
 interface SiteDocumentProps {
   language: string;
   bodyClass?: string;
-  standardLayout: boolean;
 }
 export default class SiteDocument extends Document<SiteDocumentProps> {
   static async getInitialProps(context: DocumentContext) {
@@ -32,24 +33,9 @@ export default class SiteDocument extends Document<SiteDocumentProps> {
             (node.props.charSet || node.props.name === "viewport")
           ),
       );
-    const legacyEnglishRedirect =
-      pathname === "/ja/talks/as-a-code" ||
-      pathname === "/ja/talks/people-are-programmers";
-    const section = pathname.replace(/^\/ja(?=\/|$)/, "").split("/")[1];
-    const bodyClass = ["projects", "publications", "timeline"].includes(section)
-      ? "with-rail"
-      : section === "design"
-        ? "without-header-menu design"
-        : undefined;
     return {
       ...initial,
-      language:
-        !legacyEnglishRedirect &&
-        (pathname.startsWith("/ja/") || pathname === "/ja")
-          ? "ja"
-          : "en",
-      bodyClass,
-      standardLayout: pathname !== "/resume" && !pathname.includes("redirect"),
+      ...getDocumentMetadata(pathname),
     };
   }
   render() {
