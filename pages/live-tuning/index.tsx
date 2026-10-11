@@ -1,46 +1,21 @@
-import { DeferredScript } from "@/site/components/DeferredScript";
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
 import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+  ProjectHeader,
+  ProjectPublications,
+  Translate,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
+import { DeferredScript } from "@/site/components/DeferredScript";
+
+import { href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from live-tuning/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projectsTable, moment, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -69,7 +44,6 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
 
   return (
     <>
@@ -77,147 +51,134 @@ export default function Page() {
         <div className="mobile hidden">
           <div
             className="ui right floated small bordered image"
-            style={style("z-index: 100; margin-right: 1em;")}
+            style={{ zIndex: "100", marginRight: "1em" }}
           >
             <img src={`${rootPath}live-tuning/live2016-kato-livetuning.jpg`} />
             <div className="caption">
-              <a
+              <SiteLink
                 className="ui fluid primary small labeled icon button"
                 href={href(
                   `${rootPath}publications/live2016-kato-livetuning.pdf`,
                 )}
               >
                 <i className="book icon"></i>
-                {richText("Paper")}
-              </a>
+                {"Paper"}
+              </SiteLink>
             </div>
           </div>
         </div>
-        {content.renderProjectHeader("live-tuning")}
+        <ProjectHeader project={"live-tuning"} />
         <div className="ui message">
-          {(() => {
-            const children116: ReactNode[] = [];
-            children116.push(
-              <>
-                <p>
-                  {richText(
-                    "This page provides summary and some graphical materials of the workshop paper that was presented at ",
-                  )}
-                  <a href={href("https://2016.ecoop.org/track/LIVE-2016")}>
-                    {richText("ECOOP 2016 LIVE")}
-                  </a>
-                  {richText(".")}
-                </p>
-              </>,
-            );
-            if (!en) {
-              children116.push(
-                <>
-                  <p>{content.renderTranslate("live-tuning/index.pug")}</p>
-                </>,
-              );
+          <p>
+            {
+              "This page provides summary and some graphical materials of the workshop paper that was presented at "
             }
-            return keyed(children116);
-          })()}
+            <a href={"https://2016.ecoop.org/track/LIVE-2016"}>
+              {"ECOOP 2016 LIVE"}
+            </a>
+            {"."}
+          </p>
+
+          {!en ? (
+            <>
+              <p>
+                <Translate path={"live-tuning/index.pug"} />
+              </p>
+            </>
+          ) : null}
         </div>
         <div className="ui hidden divider"></div>
-        <section id={attribute("abstract")}>
+        <section id={"abstract"}>
           <h2 className="ui header">
-            <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+            <div className="content">{en ? "Abstract" : "概要"}</div>
           </h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time.",
-              )}
+              {
+                "Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time."
+              }
             </p>
             <p>
-              {richText(
-                "In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values &quot;Live Tuning.&quot; Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.",
-              )}
+              {
+                'In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.'
+              }
             </p>
           </div>
         </section>
-        <section id={attribute("live-tuning-comparison")}>
+        <section id={"live-tuning-comparison"}>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
-                <h2 className="ui header">{richText("Live Programming")}</h2>
-                <p style={style("position: relative")}>
-                  <a id={attribute("live-programming")}>
+                <h2 className="ui header">{"Live Programming"}</h2>
+                <p style={{ position: "relative" }}>
+                  <a id={"live-programming"}>
                     <img
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-programming-environment.png`}
-                      style={style(
-                        "position: absolute; display: none; z-index: 10",
-                      )}
+                      style={{
+                        position: "absolute",
+                        display: "none",
+                        zIndex: "10",
+                      }}
                     />
                     <img
                       className="ui fluid image"
                       src={`${rootPath}live-tuning/live-programming-environment-shadow.png`}
-                      style={style("z-index: 5")}
+                      style={{ zIndex: "5" }}
                     />
                   </a>
                 </p>
                 <ul>
                   <li>
-                    {richText("Interaction design for ")}
-                    <strong>{richText("programmers")}</strong>
-                    {richText(", typically built in development environments")}
+                    {"Interaction design for "}
+                    <strong>{"programmers"}</strong>
+                    {", typically built in development environments"}
                   </li>
+                  <li>{"Prior knowledge of programming is required."}</li>
+                  <li>{"The entire programs are always live and editable."}</li>
                   <li>
-                    {richText("Prior knowledge of programming is required.")}
-                  </li>
-                  <li>
-                    {richText(
-                      "The entire programs are always live and editable.",
-                    )}
-                  </li>
-                  <li>
-                    {richText(
-                      "The programmer has full control and is responsible for every aspect of program details.",
-                    )}
+                    {
+                      "The programmer has full control and is responsible for every aspect of program details."
+                    }
                   </li>
                 </ul>
               </div>
               <div className="column">
-                <h2 className="ui header">{richText("Live Tuning")}</h2>
-                <p style={style("position: relative")}>
-                  <a id={attribute("live-tuning")}>
+                <h2 className="ui header">{"Live Tuning"}</h2>
+                <p style={{ position: "relative" }}>
+                  <a id={"live-tuning"}>
                     <img
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-tuning-environment.png`}
-                      style={style(
-                        "position: absolute; display: none; z-index: 10",
-                      )}
+                      style={{
+                        position: "absolute",
+                        display: "none",
+                        zIndex: "10",
+                      }}
                     />
                     <img
                       className="ui fluid image"
                       src={`${rootPath}live-tuning/live-tuning-environment-shadow.png`}
-                      style={style("z-index: 5")}
+                      style={{ zIndex: "5" }}
                     />
                   </a>
                 </p>
                 <ul>
                   <li>
-                    {richText("Interaction design for ")}
-                    <strong>{richText("end-users")}</strong>
-                    {richText(", built in ordinary runtime environments")}
+                    {"Interaction design for "}
+                    <strong>{"end-users"}</strong>
+                    {", built in ordinary runtime environments"}
                   </li>
                   <li>
-                    {richText("Prior knowledge of programming is ")}
-                    <strong>{richText("not")}</strong>
-                    {richText(" required.")}
+                    {"Prior knowledge of programming is "}
+                    <strong>{"not"}</strong>
+                    {" required."}
                   </li>
+                  <li>{"Only a certain number of variables are editable."}</li>
                   <li>
-                    {richText(
-                      "Only a certain number of variables are editable.",
-                    )}
-                  </li>
-                  <li>
-                    {richText(
-                      "The programmer and end-user are separating their roles of specifying program details.",
-                    )}
+                    {
+                      "The programmer and end-user are separating their roles of specifying program details."
+                    }
                   </li>
                 </ul>
               </div>
@@ -225,50 +186,46 @@ export default function Page() {
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("motivation")}>
-          <h2 className="ui header">{richText("Motivation")}</h2>
+        <section id={"motivation"}>
+          <h2 className="ui header">{"Motivation"}</h2>
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
-                <h3 className="ui header">
-                  {richText("Because programmers are tired")}
-                </h3>
+                <h3 className="ui header">{"Because programmers are tired"}</h3>
                 <ul>
                   <li>
-                    {richText("There are more and more ")}
-                    <a
+                    {"There are more and more "}
+                    <SiteLink
                       href={href(`${rootPath}programming-with-examples`)}
                       title={
                         "Programming with Examples to Develop Data-Intensive User Interfaces"
                       }
                     >
-                      {richText("data-intensive programs")}
-                    </a>
-                    {richText(" such as animation design, ")}
-                    <abbr title={"Internet of Things"}>{richText("IoT")}</abbr>
-                    {richText(
-                      " application development, machine learning, etc.",
-                    )}
+                      {"data-intensive programs"}
+                    </SiteLink>
+                    {" such as animation design, "}
+                    <abbr title={"Internet of Things"}>{"IoT"}</abbr>
+                    {" application development, machine learning, etc."}
                   </li>
                   <li>
-                    {richText(
-                      "The amount and variations of data far surpass what programmers alone can manage and edit. Intensive parameter tunings might be needed per user.",
-                    )}
+                    {
+                      "The amount and variations of data far surpass what programmers alone can manage and edit. Intensive parameter tunings might be needed per user."
+                    }
                   </li>
                 </ul>
               </div>
               <div className="column">
-                <h3>{richText("Because users are demanding")}</h3>
+                <h3>{"Because users are demanding"}</h3>
                 <ul>
                   <li>
-                    {richText(
-                      "Live Programming (changing program behaviors without losing context) can benefit end-users. In particular, they can comprehend parameter tuning interfaces and customize programs to match their needs.",
-                    )}
+                    {
+                      "Live Programming (changing program behaviors without losing context) can benefit end-users. In particular, they can comprehend parameter tuning interfaces and customize programs to match their needs."
+                    }
                   </li>
                   <li>
-                    {richText(
-                      "They typically do not have access to development environments since they lack prior knowledge of programming.",
-                    )}
+                    {
+                      "They typically do not have access to development environments since they lack prior knowledge of programming."
+                    }
                   </li>
                 </ul>
               </div>
@@ -276,22 +233,20 @@ export default function Page() {
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("example-ides")}>
+        <section id={"example-ides"}>
           <h2 className="ui header">
-            {richText("Example &quot;Live Tuning&quot; ")}
-            <abbr title={"Integrated Development Environments"}>
-              {richText("IDEs")}
-            </abbr>
+            {'Example "Live Tuning" '}
+            <abbr title={"Integrated Development Environments"}>{"IDEs"}</abbr>
           </h2>
           <div className="ui basic segment">
-            <h3 className="ui header">{richText("TextAlive")}</h3>
+            <h3 className="ui header">{"TextAlive"}</h3>
             <p>
-              <a href={href(`${basePath}textalive/`)}>
-                <strong>{richText("TextAlive")}</strong>
-              </a>
-              {richText(
-                " is an Integrated Design Environment for authoring Kinetic Typography videos.",
-              )}
+              <SiteLink href={href(`${basePath}textalive/`)}>
+                <strong>{"TextAlive"}</strong>
+              </SiteLink>
+              {
+                " is an Integrated Design Environment for authoring Kinetic Typography videos."
+              }
             </p>
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -300,10 +255,10 @@ export default function Page() {
                   src={`${rootPath}live-tuning/textalive-code.png`}
                 />
                 <p className="caption">
-                  <strong>{richText("For programmers:")}</strong>
-                  {richText(
-                    " it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time.",
-                  )}
+                  <strong>{"For programmers:"}</strong>
+                  {
+                    " it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time."
+                  }
                 </p>
               </div>
               <div className="column">
@@ -312,23 +267,22 @@ export default function Page() {
                   src={`${rootPath}live-tuning/textalive-tuning.png`}
                 />
                 <p className="caption">
-                  <strong>{richText("For end-users:")}</strong>
-                  {richText(
-                    " it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size.",
-                  )}
+                  <strong>{"For end-users:"}</strong>
+                  {
+                    " it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size."
+                  }
                 </p>
               </div>
             </div>
-            <h3 className="ui header">
-              {richText("f3.js: Form Follows Function()")}
-            </h3>
+            <h3 className="ui header">{"f3.js: Form Follows Function()"}</h3>
             <p>
-              <a href={href(`${basePath}f3js`)}>
-                <strong>{richText("f3.js")}</strong>
-              </a>
-              {richText(
-                ' is an Integrated Development Environment for developing <abbr title="Internet of Things">IoT</abbr> applications.',
-              )}
+              <SiteLink href={href(`${basePath}f3js`)}>
+                <strong>{"f3.js"}</strong>
+              </SiteLink>
+
+              {" is an Integrated Development Environment for developing "}
+              <abbr title={"Internet of Things"}>{"IoT"}</abbr>
+              {" applications."}
             </p>
             <div className="ui stackable two columns grid">
               <div className="column">
@@ -337,10 +291,10 @@ export default function Page() {
                   src={`${rootPath}live-tuning/f3js-code.png`}
                 />
                 <p className="caption">
-                  <strong>{richText("For programmers:")}</strong>
-                  {richText(
-                    " It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience.",
-                  )}
+                  <strong>{"For programmers:"}</strong>
+                  {
+                    " It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience."
+                  }
                 </p>
               </div>
               <div className="column">
@@ -349,99 +303,95 @@ export default function Page() {
                   src={`${rootPath}live-tuning/f3js-tuning.png`}
                 />
                 <p className="caption">
-                  <strong>{richText("For end-users:")}</strong>
-                  {richText(
-                    " it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera.",
-                  )}
+                  <strong>{"For end-users:"}</strong>
+                  {
+                    " it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera."
+                  }
                 </p>
               </div>
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("examples")}>
-          <h2 className="ui header">{richText("Discussion")}</h2>
+        <section id={"examples"}>
+          <h2 className="ui header">{"Discussion"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText("Please refer to ")}
-              <a
+              {"Please refer to "}
+              <SiteLink
                 href={href(
                   `${rootPath}publications/live2016-kato-livetuning.pdf#page=4`,
                 )}
               >
-                {richText("the paper (p.4-6)")}
-              </a>
-              {richText(" for the detailed discussion. ")}
-              <u>{richText("Underlined")}</u>
-              {richText(
-                " options are those we consider the most interesting and promising.",
-              )}
+                {"the paper (p.4-6)"}
+              </SiteLink>
+              {" for the detailed discussion. "}
+              <u>{"Underlined"}</u>
+              {
+                " options are those we consider the most interesting and promising."
+              }
             </p>
             <ul>
               <li>
                 <strong>
-                  {richText(
-                    "Programming environments (for programmers) are getting close to runtime environments (for end-users).",
-                  )}
+                  {
+                    "Programming environments (for programmers) are getting close to runtime environments (for end-users)."
+                  }
                 </strong>
-                {richText(
-                  " Live Tuning is such a proposal to connect them through the tuning interfaces.",
-                )}
+                {
+                  " Live Tuning is such a proposal to connect them through the tuning interfaces."
+                }
               </li>
               <li>
                 <strong>
-                  {richText(
-                    "Multiple levels of user interfaces allow varied flexibility to edit programs.",
-                  )}
+                  {
+                    "Multiple levels of user interfaces allow varied flexibility to edit programs."
+                  }
                 </strong>
-                {richText(
-                  " Live Programming aims at the maximum flexibility and Live Tuning is somewhat in the middle between no and maximum flexibility.",
-                )}
+                {
+                  " Live Programming aims at the maximum flexibility and Live Tuning is somewhat in the middle between no and maximum flexibility."
+                }
               </li>
               <li>
                 <strong>
-                  {richText(
-                    "How can we resolve or avoid conflicts between edits by multiple users? ",
-                  )}
+                  {
+                    "How can we resolve or avoid conflicts between edits by multiple users? "
+                  }
                 </strong>
-                {richText(
-                  "1) seriously implement conflict resolution mechanisms 2) discard old edits as typical Live Programming systems do 3) separate namespaces and resulting application instances ",
-                )}
-                <u>
-                  {richText(
-                    "4) aggregate parameter values from different users",
-                  )}
-                </u>
-                {richText(".")}
+                {
+                  "1) seriously implement conflict resolution mechanisms 2) discard old edits as typical Live Programming systems do 3) separate namespaces and resulting application instances "
+                }
+                <u>{"4) aggregate parameter values from different users"}</u>
+                {"."}
               </li>
               <li>
                 <strong>
-                  {richText(
-                    "How can we achieve liveness when it takes time to apply edits? ",
-                  )}
+                  {
+                    "How can we achieve liveness when it takes time to apply edits? "
+                  }
                 </strong>
-                {richText(
-                  "For instance, updating the 3D models is an instant process, but printing them takes time. 1) significantly progress the research of programmable matter ",
-                )}
-                <u>{richText("2) hack humans' feeling of liveness")}</u>
-                {richText(".")}
+                {
+                  "For instance, updating the 3D models is an instant process, but printing them takes time. 1) significantly progress the research of programmable matter "
+                }
+                <u>{"2) hack humans' feeling of liveness"}</u>
+                {"."}
               </li>
             </ul>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("revision")}>
+        <section id={"revision"}>
           <h2>
             <i className="announcement icon"></i>
-            {plainText(en ? "Revision history" : "更新履歴")}
+            {en ? "Revision history" : "更新履歴"}
           </h2>
           <div className="ui basic segment">
             <div className="ui divided feed">
               <div className="event">
                 <div className="content">
-                  <div className="date">{richText("7/16/2016")}</div>
+                  <div className="date">{"7/16/2016"}</div>
                   <div className="summary">
-                    {richText("Upload the initial revision.")}
+                    {"Upload the initial revision."}
                   </div>
                 </div>
               </div>
@@ -449,10 +399,10 @@ export default function Page() {
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications(
-          "live-tuning",
-          "live2016-kato-livetuning",
-        )}
+        <ProjectPublications
+          project={"live-tuning"}
+          majorPublication={"live2016-kato-livetuning"}
+        />
       </SiteLayout>
       <DeferredScript
         dangerouslySetInnerHTML={{

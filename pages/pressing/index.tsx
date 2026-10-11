@@ -1,45 +1,20 @@
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
 import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+  ProjectHeader,
+  ProjectPublications,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
+import type { ReactNode } from "react";
+
+import { href } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from pressing/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { projectsTable, moment, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -68,45 +43,40 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderBody(): ReactNode {
     return (
       <>
-        <section id={attribute("abstract")}>
-          <h2 className="ui header">{plainText(en ? "Abstract" : "概要")}</h2>
+        <section id={"abstract"}>
+          <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with ",
-              )}
-              <a href={href("https://www.youtube.com/watch?v=1zo0kJ_wi80")}>
-                {richText("a practical pressure-sensitive keyboard")}
+              {
+                "Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with "
+              }
+              <a href={"https://www.youtube.com/watch?v=1zo0kJ_wi80"}>
+                {"a practical pressure-sensitive keyboard"}
               </a>
-              {richText(" developed by ")}
-              <a href={href("https://www.microsoft.com/applied-sciences/")}>
-                {richText("Microsoft Applied Science Group")}
+              {" developed by "}
+              <a href={"https://www.microsoft.com/applied-sciences/"}>
+                {"Microsoft Applied Science Group"}
               </a>
-              {richText(".")}
+              {"."}
             </p>
             <p>
-              {richText("This work was presented at UIST 2009 ")}
-              <a
-                href={href(
-                  "https://www.acm.org/uist/uist2009/call/contest.html",
-                )}
-              >
-                {richText("Student Innovation Contest")}
+              {"This work was presented at UIST 2009 "}
+              <a href={"https://www.acm.org/uist/uist2009/call/contest.html"}>
+                {"Student Innovation Contest"}
               </a>
-              {richText(" with ")}
-              <a
+              {" with "}
+              <SiteLink
                 href={href(
                   `${rootPath}publications/uist2009-kato-pressing-flyer.pdf`,
                 )}
               >
                 <i className="file icon"></i>
-                {richText("a flyer")}
-              </a>
-              {richText(".")}
+                {"a flyer"}
+              </SiteLink>
+              {"."}
             </p>
             <div className="ui hidden divider"></div>
             <div className="ui fluid image">
@@ -117,84 +87,78 @@ export default function Page() {
               />
             </div>
             <div className="caption">
-              {plainText(
-                en
-                  ? "Example code and its execution results"
-                  : "サンプルコードとその実行結果",
-              )}
+              {en
+                ? "Example code and its execution results"
+                : "サンプルコードとその実行結果"}
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("px")}>
+        <section id={"px"}>
           <h2 className="ui header">
-            {plainText(en ? "Programming Experience" : "プログラミング体験")}
+            {en ? "Programming Experience" : "プログラミング体験"}
           </h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct.",
-              )}
+              {
+                "When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct."
+              }
             </p>
             <p>
-              {richText("For example, when he types ")}
-              <code>{richText("new Ball()")}</code>
-              {richText(
-                " and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name ",
-              )}
-              <i>{richText("Ball")}</i>
-              {richText(" is typed.")}
+              {"For example, when he types "}
+              <code>{"new Ball()"}</code>
+              {
+                " and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name "
+              }
+              <i>{"Ball"}</i>
+              {" is typed."}
             </p>
             <p>
-              {richText(
-                "There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable ",
-              )}
-              <i>{richText("b")}</i>
-              {richText(
-                " and its track will be painted with a red brush. The brush width is defined by how strong ",
-              )}
-              <i>{richText("Brush")}</i>
-              {richText(" is typed.")}
+              {
+                "There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable "
+              }
+              <i>{"b"}</i>
+              {
+                " and its track will be painted with a red brush. The brush width is defined by how strong "
+              }
+              <i>{"Brush"}</i>
+              {" is typed."}
             </p>
-            <pre>{richText("b = new Ball(); b.pen(new Brush(255,0,0));")}</pre>
+            <pre>{"b = new Ball(); b.pen(new Brush(255,0,0));"}</pre>
             <p>
-              {richText(
-                "The programmer can interact with the instantiated ball objects not only by writing code,",
-              )}
+              {
+                "The programmer can interact with the instantiated ball objects not only by writing code,"
+              }
             </p>
-            <pre>{richText("World.setGravity(0, 0.98); b.setSpeed(100);")}</pre>
+            <pre>{"World.setGravity(0, 0.98); b.setSpeed(100);"}</pre>
             <p>
-              {richText(
-                "but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience.",
-              )}
+              {
+                "but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience."
+              }
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("implementation")}>
-          <h2 className="ui header">
-            {plainText(en ? "Implementation" : "実装")}
-          </h2>
+        <section id={"implementation"}>
+          <h2 className="ui header">{en ? "Implementation" : "実装"}</h2>
           <div className="ui basic segment">
             <p>
-              {richText(
-                "This integrated development environment (IDE) has its original interpreter named ",
-              )}
-              <i>{richText("Kotosaka")}</i>
-              {richText(
-                " which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects.",
-              )}
+              {
+                "This integrated development environment (IDE) has its original interpreter named "
+              }
+              <i>{"Kotosaka"}</i>
+              {
+                " which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects."
+              }
             </p>
             <p>
-              {richText(
-                "The IDE contains a two-dimensional virtual world equipped with a ",
-              )}
-              <a href={href("https://github.com/erincatto/box2d")}>
-                {richText("Box2D")}
-              </a>
-              {richText(
-                "-based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure.",
-              )}
+              {
+                "The IDE contains a two-dimensional virtual world equipped with a "
+              }
+              <a href={"https://github.com/erincatto/box2d"}>{"Box2D"}</a>
+              {
+                "-based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure."
+              }
             </p>
           </div>
         </section>
@@ -204,30 +168,26 @@ export default function Page() {
   function renderImages(): ReactNode {
     return (
       <>
-        <a
+        <SiteLink
           className="ui fluid image"
           href={href(`${rootPath}pressing/pressing.png`)}
         >
           <img src={`${rootPath}pressing/pressing.png`} />
-        </a>
+        </SiteLink>
         <div className="caption">
-          {plainText(
-            en
-              ? "Screenshot of the Pressing IDE"
-              : "統合開発環境Pressingのスクリーンショット",
-          )}
+          {en
+            ? "Screenshot of the Pressing IDE"
+            : "統合開発環境Pressingのスクリーンショット"}
         </div>
         <div className="ui hidden divider"></div>
         <a
           className="ui fluid image"
-          href={href("https://www.flickr.com/photos/zhiquan/3989241000/")}
+          href={"https://www.flickr.com/photos/zhiquan/3989241000/"}
         >
           <img src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
         </a>
         <div className="caption">
-          {plainText(
-            en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子",
-          )}
+          {en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子"}
         </div>
         <div className="ui hidden divider"></div>
       </>
@@ -236,14 +196,14 @@ export default function Page() {
   return (
     <>
       <SiteLayout context={context}>
-        {content.renderProjectHeader("pressing")}
+        <ProjectHeader project={"pressing"} />
         <div className="ui hidden divider"></div>
         <div className="ui stackable grid">
           <div className="ten wide column">{renderBody()}</div>
           <div className="six wide column">{renderImages()}</div>
         </div>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("pressing")}
+        <ProjectPublications project={"pressing"} />
       </SiteLayout>
     </>
   );

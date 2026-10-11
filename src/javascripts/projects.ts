@@ -286,7 +286,8 @@ class Entry {
   }
 }
 
-export function namesToHTML(namesArr: string[]) {
+export function namesToHTML(names: string[]) {
+  const namesArr = [...names];
   var i = -1,
     j = -1;
   if (

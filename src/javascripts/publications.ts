@@ -17,7 +17,7 @@ class Entry implements BibTexEntry {
     this.entryType = e.entryType;
     this.entryTags = e.entryTags;
   }
-  public getIconClassClass() {
+  public getIconClass() {
     if (!this.entryTags) {
       return undefined;
     }

@@ -1,17 +1,17 @@
+import { Fragment } from "react";
+import {
+  MediaItem,
+  ProjectItem,
+  Publication,
+} from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/SiteLink";
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
-import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
+import { HtmlContent } from "@/site/components/RichText";
+import { keyed, href, attribute } from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 export function getStaticPaths() {
   return {
@@ -33,23 +33,10 @@ export default function Page({ pageYear }: { pageYear: number }) {
     talks,
     lectures,
     projects,
-    projectsTable,
-    products,
-    selectedProjects,
     publications,
-    publicationsTable,
-    selectedPublications,
-    media,
     mediaList,
-    misc,
     moment,
     rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
   } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
@@ -84,42 +71,28 @@ export default function Page({ pageYear }: { pageYear: number }) {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
   function renderUpdate(entry: any = undefined): ReactNode {
     return (
       <>
         <div className="event">
           <div className="content">
-            {(() => {
-              const children291: ReactNode[] = [];
-              if (entry) {
-                children291.push(
-                  <>
-                    <div className="date">
-                      {plainText(entry.getDateString(lang, true))}
-                    </div>
-                  </>,
-                );
-                children291.push(
-                  <>
-                    <div className="summary">{richText(entry.text)}</div>
-                  </>,
-                );
-              } else {
-                children291.push(
-                  <>
-                    <div className="summary">
-                      {plainText(
-                        en
-                          ? "No updates found in this year."
-                          : "この年の更新内容はありません。",
-                      )}
-                    </div>
-                  </>,
-                );
-              }
-              return keyed(children291);
-            })()}
+            {entry ? (
+              <>
+                <div className="date">{entry.getDateString(lang, true)}</div>
+
+                <div className="summary">
+                  <HtmlContent html={entry.text} />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="summary">
+                  {en
+                    ? "No updates found in this year."
+                    : "この年の更新内容はありません。"}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </>
@@ -201,7 +174,7 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-awards`)}>
           <i className="trophy icon"></i>
-          {plainText(en ? "Awards" : "受賞")}
+          {en ? "Awards" : "受賞"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -213,10 +186,10 @@ export default function Page({ pageYear }: { pageYear: number }) {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(entry.getDateString(lang, true))}
+                          {entry.getDateString(lang, true)}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -236,7 +209,7 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-talks`)}>
           <i className="talk icon"></i>
-          {plainText(en ? "Invited Talks" : "招待講演")}
+          {en ? "Invited Talks" : "招待講演"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -248,10 +221,10 @@ export default function Page({ pageYear }: { pageYear: number }) {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(entry.getDateString(lang, true))}
+                          {entry.getDateString(lang, true)}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -275,7 +248,7 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-lectures`)}>
           <i className="graduation cap icon"></i>
-          {plainText(en ? "Lectures" : "講義")}
+          {en ? "Lectures" : "講義"}
         </h3>
         <div className="ui segment">
           <div className="ui divided feed">
@@ -287,15 +260,13 @@ export default function Page({ pageYear }: { pageYear: number }) {
                     <div className="event">
                       <div className="content">
                         <div className="date">
-                          {plainText(
-                            entry.dateObjs
-                              .filter((o) => f(o.date.getFullYear()))
-                              .map((o) => o.getDateString(lang, true))
-                              .join(", "),
-                          )}
+                          {entry.dateObjs
+                            .filter((o) => f(o.date.getFullYear()))
+                            .map((o) => o.getDateString(lang, true))
+                            .join(", ")}
                         </div>
                         <div className="summary">
-                          {richText(entry.getText(lang))}
+                          <HtmlContent html={entry.getText(lang)} />
                         </div>
                       </div>
                     </div>
@@ -315,14 +286,18 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-projects`)}>
           <i className="gift icon"></i>
-          {plainText(en ? "New Projects" : "開始したプロジェクト")}
+          {en ? "New Projects" : "開始したプロジェクト"}
         </h3>
         <div className="ui segment">
           <div className="ui divided items projects">
             {(() => {
               const children296: ReactNode[] = [];
               for (p of prs) {
-                children296.push(<>{content.renderProjectItem(p)}</>);
+                children296.push(
+                  <>
+                    <ProjectItem p={p} />
+                  </>,
+                );
               }
               return keyed(children296);
             })()}
@@ -337,14 +312,18 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-media`)}>
           <i className="broadcast tower icon"></i>
-          {plainText(en ? "Media Coverage" : "メディア掲載")}
+          {en ? "Media Coverage" : "メディア掲載"}
         </h3>
         <div className="ui segment">
           <div className="ui divided list media">
             {(() => {
               const children297: ReactNode[] = [];
               for (entry of ms) {
-                children297.push(<>{content.renderMediaItem(entry)}</>);
+                children297.push(
+                  <>
+                    <MediaItem m={entry} />
+                  </>,
+                );
               }
               return keyed(children297);
             })()}
@@ -362,14 +341,18 @@ export default function Page({ pageYear }: { pageYear: number }) {
       <>
         <h3 className="ui header" id={attribute(`${y}-publications`)}>
           <i className="book icon"></i>
-          {plainText(en ? "Publications" : "発表文献")}
+          {en ? "Publications" : "発表文献"}
         </h3>
         <div className="ui segment">
           <div className="ui divided list">
             {(() => {
               const children298: ReactNode[] = [];
               for (entry of ps) {
-                children298.push(<>{content.renderPublication(entry)}</>);
+                children298.push(
+                  <>
+                    <Publication entry={entry} />
+                  </>,
+                );
               }
               return keyed(children298);
             })()}
@@ -382,46 +365,33 @@ export default function Page({ pageYear }: { pageYear: number }) {
     return (
       <>
         <div className="ui divided list">
-          {(() => {
-            const children299: ReactNode[] = [];
-            children299.push(
-              <>
-                <a className="item" href={href(`${basePath}timeline/`)}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">
-                    {plainText(en ? "Timeline" : "活動履歴")}
-                  </div>
-                </a>
-              </>,
-            );
-            if (pageYear < currentYear) {
-              children299.push(
-                <>
-                  <a
-                    className="item"
-                    href={href(`${basePath}timeline/${pageYear + 1}/`)}
-                  >
-                    <i className="arrow up icon"></i>
-                    <div className="content">{plainText(pageYear + 1)}</div>
-                  </a>
-                </>,
-              );
-            }
-            if (pageYear > oldestYear) {
-              children299.push(
-                <>
-                  <a
-                    className="item"
-                    href={href(`${basePath}timeline/${pageYear - 1}/`)}
-                  >
-                    <i className="arrow down icon"></i>
-                    <div className="content">{plainText(pageYear - 1)}</div>
-                  </a>
-                </>,
-              );
-            }
-            return keyed(children299);
-          })()}
+          <SiteLink className="item" href={href(`${basePath}timeline/`)}>
+            <i className="chevron circle up icon"></i>
+            <div className="content">{en ? "Timeline" : "活動履歴"}</div>
+          </SiteLink>
+
+          {pageYear < currentYear ? (
+            <>
+              <SiteLink
+                className="item"
+                href={href(`${basePath}timeline/${pageYear + 1}/`)}
+              >
+                <i className="arrow up icon"></i>
+                <div className="content">{pageYear + 1}</div>
+              </SiteLink>
+            </>
+          ) : null}
+          {pageYear > oldestYear ? (
+            <>
+              <SiteLink
+                className="item"
+                href={href(`${basePath}timeline/${pageYear - 1}/`)}
+              >
+                <i className="arrow down icon"></i>
+                <div className="content">{pageYear - 1}</div>
+              </SiteLink>
+            </>
+          ) : null}
         </div>
       </>
     );
@@ -446,21 +416,21 @@ export default function Page({ pageYear }: { pageYear: number }) {
               <section id={attribute(pageYear)}>
                 <h3 className="ui header" id={attribute(`${pageYear}-updates`)}>
                   <i className="announcement icon"></i>
-                  {plainText(en ? "Updates" : "更新情報")}
+                  {en ? "Updates" : "更新情報"}
                 </h3>
                 <div className="ui segment">
                   <div className="ui divided feed">
-                    {(() => {
-                      const children301: ReactNode[] = [];
-                      if (yearHistories.length > 0) {
-                        for (const entry of yearHistories) {
-                          children301.push(<>{renderUpdate(entry)}</>);
-                        }
-                      } else {
-                        children301.push(<>{renderUpdate(null)}</>);
-                      }
-                      return keyed(children301);
-                    })()}
+                    {yearHistories.length > 0 ? (
+                      <>
+                        {yearHistories.map((entry, itemIndex) => (
+                          <Fragment key={itemIndex}>
+                            {renderUpdate(entry)}
+                          </Fragment>
+                        ))}
+                      </>
+                    ) : (
+                      <>{renderUpdate(null)}</>
+                    )}
                   </div>
                 </div>
                 {renderAll(function (year) {
@@ -494,16 +464,18 @@ export default function Page({ pageYear }: { pageYear: number }) {
           <section>
             <h1 className="ui header">
               <i className="history icon"></i>
-              <div className="content">{plainText(title)}</div>
+              <div className="content">{title}</div>
             </h1>
             <p>
-              {richText("このページでは")}
-              {plainText(pageYear)}
-              {richText(
-                "年のWebサイトの更新情報と発表文献を見ることができます。全期間の活動履歴は",
-              )}
-              <a href={href(`${basePath}timeline/`)}>{richText("こちら")}</a>
-              {richText("。")}
+              {"このページでは"}
+              {pageYear}
+              {
+                "年のWebサイトの更新情報と発表文献を見ることができます。全期間の活動履歴は"
+              }
+              <SiteLink href={href(`${basePath}timeline/`)}>
+                {"こちら"}
+              </SiteLink>
+              {"。"}
             </p>
           </section>
           {renderYearContent()}

@@ -1,7 +1,8 @@
+import { SiteLink } from "@/site/components/SiteLink";
 import Head from "next/head";
 import { Fragment, type ReactNode } from "react";
 import { getSiteData, type SiteData } from "@/site/data";
-import { richText } from "@/site/components/RichText";
+import { HtmlContent } from "@/site/components/RichText";
 
 /** The résumé retains its independent print layout and original inline stylesheet. */
 const resumeStyles = `@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic&amp;subset=latin,latin-ext);
@@ -158,9 +159,9 @@ function Profile() {
         </dd>
         <dt>{"URL"}</dt>
         <dd>
-          <a className="link" href={"https://junkato.jp"}>
+          <SiteLink className="link" href={"https://junkato.jp"}>
             {"https://junkato.jp"}
-          </a>
+          </SiteLink>
         </dd>
       </dl>
       <div className="row">
@@ -193,9 +194,17 @@ function Profile() {
             {"\n"}
             {"He has regularly gained academic recognitions such as "}
             {"\n"}
-            {richText(
-              'Honorable Mentions at ACM <abbr title="The SIGCHI conference on Human Factors in Computing Systems">CHI</abbr> (2013, 2015, 2023) and ',
-            )}
+
+            {"Honorable Mentions at ACM "}
+            <abbr
+              title={
+                "The SIGCHI conference on Human Factors in Computing Systems"
+              }
+            >
+              {"CHI"}
+            </abbr>
+            {" (2013, 2015, 2023) and "}
+
             <a
               href={
                 "https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
@@ -632,11 +641,13 @@ function ResearchGrants() {
             {
               "Principal investigator; funded 11M Japanese Yen for 3.5 years for "
             }
-            <a href={"https://junkato.jp/creativity-support-environments"}>
+            <SiteLink
+              href={"https://junkato.jp/creativity-support-environments"}
+            >
               {
                 "AI-enabled creativity support environments for a constructive study of creative culture"
               }
-            </a>
+            </SiteLink>
             {". Acceptance rate: 20% (23/115)."}
           </p>
         </div>
@@ -792,7 +803,9 @@ function Innovations() {
         <div className="row" id={"griffith"}>
           <div className="year">{"2018-"}</div>
           <div className="content">
-            <a href={"https://junkato.jp/griffith"}>{"Griffith"}</a>
+            <SiteLink href={"https://junkato.jp/griffith"}>
+              {"Griffith"}
+            </SiteLink>
             {" (Arch Inc.)"}
             <p className="small">
               {
@@ -804,7 +817,9 @@ function Innovations() {
         <div className="row" id={"songlesync"}>
           <div className="year">{"2017-"}</div>
           <div className="content">
-            <a href={"https://junkato.jp/songle-sync"}>{"Songle Sync"}</a>
+            <SiteLink href={"https://junkato.jp/songle-sync"}>
+              {"Songle Sync"}
+            </SiteLink>
             {" (AIST)"}
             <p className="small">
               {
@@ -816,7 +831,9 @@ function Innovations() {
         <div className="row" id={"textalive"}>
           <div className="year">{"2014-"}</div>
           <div className="content">
-            <a href={"https://junkato.jp/textalive"}>{"TextAlive"}</a>
+            <SiteLink href={"https://junkato.jp/textalive"}>
+              {"TextAlive"}
+            </SiteLink>
             {" (AIST)"}
             <p className="small">
               {
@@ -828,7 +845,9 @@ function Innovations() {
         <div className="row" id={"touchdevelop"}>
           <div className="year">{"2012"}</div>
           <div className="content">
-            <a href={"https://junkato.jp/touchdevelop"}>{"TouchDevelop"}</a>
+            <SiteLink href={"https://junkato.jp/touchdevelop"}>
+              {"TouchDevelop"}
+            </SiteLink>
             {" ("}
             <a
               href={
@@ -850,9 +869,9 @@ function Innovations() {
           <div className="content">
             <p className="small">
               {"*The complete list of projects can be found at "}
-              <a className="link" href={"https://junkato.jp/projects"}>
+              <SiteLink className="link" href={"https://junkato.jp/projects"}>
                 {"https://junkato.jp/projects"}
-              </a>
+              </SiteLink>
               {"."}
             </p>
           </div>
@@ -872,9 +891,12 @@ function Innovations() {
             {"2016 (granted)"}
           </div>
           <div className="content">
-            {richText(
-              "Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux, Sean McDirmid, Michal Moskal, Nikolai Tillmann, <u>Jun Kato</u> (Microsoft). Interface development and operation. ",
-            )}
+            {
+              "Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux, Sean McDirmid, Michal Moskal, Nikolai Tillmann, "
+            }
+            <u>{"Jun Kato"}</u>
+            {" (Microsoft). Interface development and operation. "}
+
             <a href={"https://patents.google.com/patent/US9286038B2/en"}>
               {"US9286038B2"}
             </a>
@@ -888,9 +910,10 @@ function Innovations() {
             {"2017 (granted)"}
           </div>
           <div className="content">
-            {richText(
-              "Xiang Cao, <u>Jun Kato</u>, Sean McDirmid (Microsoft). Programming interface. ",
-            )}
+            {"Xiang Cao, "}
+            <u>{"Jun Kato"}</u>
+            {", Sean McDirmid (Microsoft). Programming interface. "}
+
             <a href={"https://patents.google.com/patent/US9639330B2/en"}>
               {"US9639330B2"}
             </a>
@@ -1127,7 +1150,7 @@ function Honors({ awards }: { awards: SiteData["awards"] }) {
             <div className="row" key={index}>
               <div className="year">{entry.getDateString("en", true)}</div>
               <div className="content">
-                {richText(text)}
+                <HtmlContent html={text} />
                 {description && (
                   <p className="small">{honorDescriptions[description]}</p>
                 )}
@@ -1140,9 +1163,9 @@ function Honors({ awards }: { awards: SiteData["awards"] }) {
         <div className="content">
           <p className="small">
             {"*Domestic (Japanese) awards are unlisted and can be found at "}
-            <a className="link" href="https://junkato.jp/publications">
+            <SiteLink className="link" href="https://junkato.jp/publications">
               https://junkato.jp/publications
-            </a>
+            </SiteLink>
             {"."}
           </p>
         </div>
@@ -1166,11 +1189,11 @@ function PublicationCitation({
   const memo = notes[series];
   return (
     <>
-      {richText(entry.getAuthorsTags().join(", "))}
+      <HtmlContent html={entry.getAuthorsTags().join(", ")} />
       {entry.entryTags.editor && (
         <>
           {" (Eds. "}
-          {richText(entry.getEditorsTags().join(", "))}
+          <HtmlContent html={entry.getEditorsTags().join(", ")} />
           {")"}
         </>
       )}
@@ -1209,10 +1232,10 @@ function PublicationCitation({
       {entry.hasDOIUrl() && (
         <>
           {" "}
-          <a className="item" href={entry.getDOIUrl()}>
+          <SiteLink className="item" href={entry.getDOIUrl()}>
             {"DOI: "}
             {entry.entryTags.doi}
-          </a>
+          </SiteLink>
           {"."}
         </>
       )}
@@ -1298,13 +1321,16 @@ function Publications({ data }: { data: SiteData }) {
               {
                 "*Non-archival publications and domestic (Japanese) publications are unlisted and can be found at "
               }
-              <a className="link" href="https://junkato.jp/publications">
+              <SiteLink className="link" href="https://junkato.jp/publications">
                 https://junkato.jp/publications
-              </a>
+              </SiteLink>
               {" and "}
-              <a className="link" href="https://junkato.jp/ja/publications">
+              <SiteLink
+                className="link"
+                href="https://junkato.jp/ja/publications"
+              >
                 /ja/publications
-              </a>
+              </SiteLink>
               {"."}
             </p>
           </div>
@@ -1349,25 +1375,25 @@ function OrganizerRows({ organizers }: { organizers: Organizer[] }) {
               : null}
           </div>
           <div className="content">
-            <a href={organizer.event.url || organizer.url}>
+            <SiteLink href={organizer.event.url || organizer.url}>
               <abbr title={organizer.event.fullname}>
                 {organizer.event.name}
               </abbr>
-            </a>
+            </SiteLink>
             <p className="small">
               {organizer.event.url ? (
-                <a href={organizer.url}>
+                <SiteLink href={organizer.url}>
                   <OrganizerTitle organizer={organizer} />
-                </a>
+                </SiteLink>
               ) : (
                 <OrganizerTitle organizer={organizer} />
               )}
               {organizer.conference && (
                 <>
                   {"; held as part of  "}
-                  <a href={organizer.conference.url}>
+                  <SiteLink href={organizer.conference.url}>
                     {organizer.conference.name}
-                  </a>
+                  </SiteLink>
                 </>
               )}
             </p>
@@ -1393,7 +1419,7 @@ function AcademicServices({ services }: { services: Services }) {
           <div className="row" key={member.name}>
             <div className="year" />
             <div className="content">
-              <a href={member.url}>{member.name}</a>
+              <SiteLink href={member.url}>{member.name}</SiteLink>
               {member.role?.length ? (
                 <p className="small">
                   {member.role.map((role, index) => (
@@ -1455,9 +1481,9 @@ function AcademicServices({ services }: { services: Services }) {
           <div className="content">
             <p className="small">
               {"*Minor reviewing activities are omitted and can be found at "}
-              <a className="link" href="https://junkato.jp/activities">
+              <SiteLink className="link" href="https://junkato.jp/activities">
                 https://junkato.jp/activities
-              </a>
+              </SiteLink>
               {"."}
             </p>
           </div>

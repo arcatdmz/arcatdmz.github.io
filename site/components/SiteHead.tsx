@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { ReactNode } from "react";
 import type { SiteContext } from "../types";
-import { richText } from "./RichText";
+import { htmlToDOM } from "html-react-parser";
 
 export interface SiteHeadProps {
   context: SiteContext;
@@ -10,6 +10,12 @@ export interface SiteHeadProps {
 
 export function stripTags(value: string): string {
   return value.replace(/(<([^>]+)>)/gi, "");
+}
+
+export function decodeTitle(value: string): string {
+  return htmlToDOM(stripTags(value))
+    .map((node) => (node.type === "text" ? node.data : ""))
+    .join("");
 }
 
 export function SiteHead({ context, children }: SiteHeadProps) {
@@ -43,16 +49,16 @@ export function SiteHead({ context, children }: SiteHeadProps) {
           lang,
         )}`
       : defaultImageUrl);
-  const plainTitle = stripTags(title);
+  const plainTitle = decodeTitle(title);
 
   return (
     <Head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{`${String(richText(plainTitle))} | junkato.jp`}</title>
+      <title>{`${plainTitle} | junkato.jp`}</title>
       <meta name="author" content={author} />
       <meta name="description" content={description} />
-      <meta itemProp="name" content={plainTitle} />
+      <meta itemProp="name" content={stripTags(title)} />
       <meta itemProp="description" content={description} />
       {imageUrl && <meta itemProp="image" content={imageUrl} />}
       <meta property="fb:admins" content="503220390" />

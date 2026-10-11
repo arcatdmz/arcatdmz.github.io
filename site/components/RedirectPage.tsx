@@ -1,3 +1,4 @@
+import { SiteLink } from "@/site/components/SiteLink";
 import Head from "next/head";
 import type { ReactNode } from "react";
 export function RedirectPage({
@@ -14,7 +15,7 @@ export function RedirectPage({
         <title>Redirecting ...</title>
       </Head>
       <p>
-        <a href={url}>{children}</a>
+        <SiteLink href={url}>{children}</SiteLink>
       </p>
     </>
   );

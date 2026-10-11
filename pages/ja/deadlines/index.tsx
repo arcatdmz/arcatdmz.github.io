@@ -1,45 +1,12 @@
-import type { ReactNode } from "react";
-import { richText } from "@/site/components/RichText";
-import {
-  classNames,
-  style,
-  text as plainText,
-  keyed,
-  href,
-  attribute,
-} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
-import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
-import { createContentComponents } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/SiteLayout";
+
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/deadlines/index.pug; edit this TSX source directly. */
 export default function Page() {
   const data = getSiteData();
-  const {
-    histories,
-    awards,
-    talks,
-    lectures,
-    projects,
-    projectsTable,
-    products,
-    selectedProjects,
-    publications,
-    publicationsTable,
-    selectedPublications,
-    media,
-    mediaList,
-    misc,
-    moment,
-    rootPath,
-    protocol,
-    domain,
-    defaultImageUrl,
-    defaultDescription,
-    defaultJapaneseDescription,
-    stripTags,
-  } = data;
+  const { moment, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -67,7 +34,6 @@ export default function Page() {
     imageUrl,
     bodyClass,
   };
-  const content = createContentComponents(context);
 
   return (
     <>
@@ -75,18 +41,18 @@ export default function Page() {
         <section>
           <h1 className="ui header">
             <i className="hourglass half icon"></i>
-            {plainText(title)}
+            {title}
           </h1>
         </section>
         <div className="ui hidden clearing divider"></div>
         <section>
           <h2 className="ui header">
-            {plainText(en ? "Active Deadlines" : "現在の〆切")}
+            {en ? "Active Deadlines" : "現在の〆切"}
           </h2>
           <div className="ui segment">
             <div className="ui stackable three columns divided grid">
               <div className="column">
-                <h3 className="ui header">{richText("ACM CHI 2019")}</h3>
+                <h3 className="ui header">{"ACM CHI 2019"}</h3>
                 <div className="basic segment">
                   <iframe
                     src={
@@ -100,16 +66,16 @@ export default function Page() {
                 </div>
                 <div className="ui right aligned basic segment">
                   <a
-                    href={href(
-                      "//www.timeanddate.com/countdown/generic?iso=20180914T115959&p0=234&msg=ACM+CHI+submission+deadline&font=cursive",
-                    )}
+                    href={
+                      "//www.timeanddate.com/countdown/generic?iso=20180914T115959&p0=234&msg=ACM+CHI+submission+deadline&font=cursive"
+                    }
                   >
-                    {richText("Show the countdown timer")}
+                    {"Show the countdown timer"}
                   </a>
                 </div>
               </div>
               <div className="column">
-                <h3 className="ui header">{richText("LIVE 2018")}</h3>
+                <h3 className="ui header">{"LIVE 2018"}</h3>
                 <div className="basic segment">
                   <iframe
                     src={
@@ -123,11 +89,11 @@ export default function Page() {
                 </div>
                 <div className="ui right aligned basic segment">
                   <a
-                    href={href(
-                      "//www.timeanddate.com/countdown/generic?iso=20180817T235959&p0=3399&msg=LIVE+submission+deadline&font=cursive",
-                    )}
+                    href={
+                      "//www.timeanddate.com/countdown/generic?iso=20180817T235959&p0=3399&msg=LIVE+submission+deadline&font=cursive"
+                    }
                   >
-                    {richText("Show the countdown timer")}
+                    {"Show the countdown timer"}
                   </a>
                 </div>
               </div>
@@ -137,13 +103,11 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section>
-          <h2 className="ui header">
-            {plainText(en ? "Past Deadlines" : "過去の〆切")}
-          </h2>
+          <h2 className="ui header">{en ? "Past Deadlines" : "過去の〆切"}</h2>
           <div className="ui segment">
             <div className="ui stackable three columns divided grid">
               <div className="column">
-                <h3 className="ui header">{richText("ACM UIST 2018")}</h3>
+                <h3 className="ui header">{"ACM UIST 2018"}</h3>
                 <div className="basic segment">
                   <iframe
                     src={
@@ -157,16 +121,16 @@ export default function Page() {
                 </div>
                 <div className="ui right aligned basic segment">
                   <a
-                    href={href(
-                      "//www.timeanddate.com/countdown/generic?iso=20180405T17&p0=234&msg=ACM+UIST+submission+deadline&font=cursive",
-                    )}
+                    href={
+                      "//www.timeanddate.com/countdown/generic?iso=20180405T17&p0=234&msg=ACM+UIST+submission+deadline&font=cursive"
+                    }
                   >
-                    {richText("Show the countdown timer")}
+                    {"Show the countdown timer"}
                   </a>
                 </div>
               </div>
               <div className="column">
-                <h3 className="ui header">{richText("ACM MM 2018")}</h3>
+                <h3 className="ui header">{"ACM MM 2018"}</h3>
                 <div className="basic segment">
                   <iframe
                     src={
@@ -180,16 +144,16 @@ export default function Page() {
                 </div>
                 <div className="ui right aligned basic segment">
                   <a
-                    href={href(
-                      "//www.timeanddate.com/countdown/generic?iso=20180408T235959&p0=234&msg=ACM+Multimedia+submission+deadline&font=cursive",
-                    )}
+                    href={
+                      "//www.timeanddate.com/countdown/generic?iso=20180408T235959&p0=234&msg=ACM+Multimedia+submission+deadline&font=cursive"
+                    }
                   >
-                    {richText("Show the countdown timer")}
+                    {"Show the countdown timer"}
                   </a>
                 </div>
               </div>
               <div className="column">
-                <h3 className="ui header">{richText("IEEE VL/HCC 2018")}</h3>
+                <h3 className="ui header">{"IEEE VL/HCC 2018"}</h3>
                 <div className="basic segment">
                   <iframe
                     src={
@@ -203,11 +167,11 @@ export default function Page() {
                 </div>
                 <div className="ui right aligned basic segment">
                   <a
-                    href={href(
-                      "//www.timeanddate.com/countdown/generic?iso=20180427T235959&p0=3399&msg=IEEE+VL/HCC+submission+deadline&font=cursive",
-                    )}
+                    href={
+                      "//www.timeanddate.com/countdown/generic?iso=20180427T235959&p0=3399&msg=IEEE+VL/HCC+submission+deadline&font=cursive"
+                    }
                   >
-                    {richText("Show the countdown timer")}
+                    {"Show the countdown timer"}
                   </a>
                 </div>
               </div>

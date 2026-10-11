@@ -1,12 +1,32 @@
-import parse from "html-react-parser";
-import type { ReactNode } from "react";
+import parse, {
+  domToReact,
+  attributesToProps,
+  type HTMLReactParserOptions,
+} from "html-react-parser";
+import { SiteLink } from "./SiteLink";
 
-/** Render only trusted, repository-authored rich-text fragments. */
-export function richText(value: string | undefined): ReactNode {
-  return parse(value || "");
-}
+const options: HTMLReactParserOptions = {
+  replace(node) {
+    if (node.type === "tag" && node.name === "a") {
+      return (
+        <SiteLink {...attributesToProps(node.attribs)}>
+          {domToReact(
+            node.children as Parameters<typeof domToReact>[0],
+            options,
+          )}
+        </SiteLink>
+      );
+    }
+  },
+};
 
-/** Normalize block-rich descriptions before JSX so browser paragraph repair is stable. */
-export function richParagraph(value: string | undefined): ReactNode {
-  return parse(`<p>${value || ""}</p>`);
+/** HTML is confined to trusted repository data; page-authored content uses JSX. */
+export function HtmlContent({
+  html,
+  paragraph = false,
+}: {
+  html: string | undefined;
+  paragraph?: boolean;
+}) {
+  return <>{parse(paragraph ? `<p>${html || ""}</p>` : html || "", options)}</>;
 }

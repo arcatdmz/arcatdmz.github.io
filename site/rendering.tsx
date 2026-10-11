@@ -1,10 +1,4 @@
-import {
-  cloneElement,
-  isValidElement,
-  type CSSProperties,
-  type ReactNode,
-} from "react";
-import { attributesToProps } from "html-react-parser";
+import { cloneElement, isValidElement, type ReactNode } from "react";
 
 /** Small compatibility helpers for the site's existing content conventions. */
 export function classNames(...values: unknown[]): string | undefined {
@@ -18,14 +12,6 @@ export function classNames(...values: unknown[]): string | undefined {
   };
   values.forEach(append);
   return names.length ? names.join(" ") : undefined;
-}
-export function style(value: string | undefined): CSSProperties | undefined {
-  return value
-    ? (attributesToProps({ style: value }).style as CSSProperties)
-    : undefined;
-}
-export function text(value: unknown): string {
-  return value == null ? "" : String(value);
 }
 export function keyed(children: ReactNode[]): ReactNode[] {
   return children.map((child, index) =>
