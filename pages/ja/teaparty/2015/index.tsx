@@ -1,7 +1,14 @@
 import { DeferredScript } from "@/site/components/DeferredScript";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -105,12 +112,16 @@ export default function Page() {
               )}
             </p>
             <p>
-              {richText("今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。")}
+              {richText(
+                "今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。",
+              )}
             </p>
             <div className="ui horizontal list">
               <div className="item">
                 <a
-                  href={href("https://www.facebook.com/events/873913542653717/")}
+                  href={href(
+                    "https://www.facebook.com/events/873913542653717/",
+                  )}
                   title={"Facebook イベントページ"}
                 >
                   <i className="facebook icon"></i>
@@ -176,13 +187,21 @@ export default function Page() {
         <section id={attribute("details")}>
           <h2 className="ui header">{richText("時と場所")}</h2>
           <div className="ui basic segment">
-            <p>{richText("2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。")}</p>
+            <p>
+              {richText(
+                "2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。",
+              )}
+            </p>
             <p>
               {richText(
                 "DMM.make AKIBA BASEは入り口にセキュリティゲートがあります。開場時間近辺はスタッフの方が開けてくださいますが、もし遅れる場合は",
               )}
-              <a href={href("https://twitter.com/arcatdmz")}>{richText("@arcatdmz")}</a>
-              {richText("または #teaparty2015 でツイートするなどして中の人にご連絡ください。")}
+              <a href={href("https://twitter.com/arcatdmz")}>
+                {richText("@arcatdmz")}
+              </a>
+              {richText(
+                "または #teaparty2015 でツイートするなどして中の人にご連絡ください。",
+              )}
             </p>
           </div>
           <div id={attribute("map-canvas")}></div>
@@ -214,10 +233,14 @@ export default function Page() {
           <h2 className="ui header">
             {richText("Togetter")}
             <div className="ui basic segment togetter">
-              <DeferredScript src={"//togetter.com/js/parts.js"} dangerouslySetInnerHTML={{ __html: "" }} />
+              <DeferredScript
+                src={"//togetter.com/js/parts.js"}
+                dangerouslySetInnerHTML={{ __html: "" }}
+              />
               <DeferredScript
                 dangerouslySetInnerHTML={{
-                  __html: "tgtr.ExtendWidget({id:'774222',url:'https://togetter.com/'});",
+                  __html:
+                    "if (typeof tgtr !== 'undefined') tgtr.ExtendWidget({id:'774222',url:'https://togetter.com/'});",
                 }}
               />
             </div>
@@ -240,7 +263,7 @@ export default function Page() {
       <DeferredScript
         dangerouslySetInnerHTML={{
           __html:
-            "google.maps.event.addDomListener(window, 'load', function (){\n  var latlng = new google.maps.LatLng(35.700514, 139.774166)\n  var mapOptions = {\n    zoom: 15,\n    center: latlng\n  };\n  map = new google.maps.Map(document.getElementById('map-canvas'),\n  mapOptions);\n  var marker = new google.maps.Marker({\n  position: latlng,\n  map: map,\n  title: 'DMM.make AKIBA'\n  });\n});",
+            "function initializeMap(){\n  if (typeof google === 'undefined' || !google.maps) return;\n  var latlng = new google.maps.LatLng(35.700514, 139.774166)\n  var mapOptions = {\n    zoom: 15,\n    center: latlng\n  };\n  map = new google.maps.Map(document.getElementById('map-canvas'),\n  mapOptions);\n  var marker = new google.maps.Marker({\n  position: latlng,\n  map: map,\n  title: 'DMM.make AKIBA'\n  });\n}\nif (document.readyState === 'complete') initializeMap();\nelse window.addEventListener('load', initializeMap, { once: true });",
         }}
       />
     </>

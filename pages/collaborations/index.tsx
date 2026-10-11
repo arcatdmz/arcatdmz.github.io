@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -72,7 +79,9 @@ export default function Page() {
             </h2>
             <h3 className="ui header">{richText("Web services")}</h3>
             <p>
-              {richText("My recent projects have been published as web services ")}
+              {richText(
+                "My recent projects have been published as web services ",
+              )}
               <a href={href("#services")}>{richText("as shown below")}</a>
               {richText(
                 ". If you want to try using the technologies, please visit their websites, preferably with modern web browsers.",
@@ -86,7 +95,9 @@ export default function Page() {
             </p>
             <h3 className="ui header">{richText("Open source projects")}</h3>
             <p>
-              {richText("Some of my technologies have been published as open-source projects at ")}
+              {richText(
+                "Some of my technologies have been published as open-source projects at ",
+              )}
               <a href={href("https://github.com/arcatdmz")}>
                 <i className="github icon"></i>
                 {richText("GitHub")}
@@ -107,7 +118,11 @@ export default function Page() {
             <p>
               {richText("My primary affiliation (")}
               <a href={href("https://www.aist.go.jp/index_en.html")}>
-                <abbr title={"National Institute of Advanced Industrial Science and Technology"}>
+                <abbr
+                  title={
+                    "National Institute of Advanced Industrial Science and Technology"
+                  }
+                >
                   {richText("AIST")}
                 </abbr>
               </a>
@@ -129,7 +144,9 @@ export default function Page() {
                 "Please contact me if you want to work with me with regards to the aforementioned topics. Keep in mind that, generally speaking, the first step toward working with professional researchers is often meeting them at academic conferences and get them know who you are and what you are doing.",
               )}
             </p>
-            <h3 className="ui header">{richText("Potential ways for collaborations")}</h3>
+            <h3 className="ui header">
+              {richText("Potential ways for collaborations")}
+            </h3>
             <p>
               {richText(
                 "If you are living outside Japan, remote collaborations would be the easiest. If you have an appropriate visa, it would be possible for me to invite you to Tsukuba and work with you for a short term (e.g. regular internship programs for domestic students last for a month or so).",
@@ -139,20 +156,38 @@ export default function Page() {
               {richText(
                 "Otherwise, if you are still interested in face-to-face collaborations, we could together find visa and funding support. My primary affiliation currently has a funding from the ",
               )}
-              <a href={href("https://www.jst.go.jp/kisoken/cronos/en/overview/index.html")}>
+              <a
+                href={href(
+                  "https://www.jst.go.jp/kisoken/cronos/en/overview/index.html",
+                )}
+              >
                 {richText("JST CRONOS")}
               </a>
               {richText("/")}
-              <a href={href("https://www.jst.go.jp/kisoken/crest/en/about/index.html")}>
+              <a
+                href={href(
+                  "https://www.jst.go.jp/kisoken/crest/en/about/index.html",
+                )}
+              >
                 {richText("CREST")}
               </a>
-              {richText(" programs and there are also public funding support such as  ")}
-              <a href={href("https://www.jsps.go.jp/english/e-fellow/e-ippan/index.html")}>
-                <abbr title={"Japan Society for the Promotion of Science"}>{richText("JSPS")}</abbr>
+              {richText(
+                " programs and there are also public funding support such as  ",
+              )}
+              <a
+                href={href(
+                  "https://www.jsps.go.jp/english/e-fellow/e-ippan/index.html",
+                )}
+              >
+                <abbr title={"Japan Society for the Promotion of Science"}>
+                  {richText("JSPS")}
+                </abbr>
                 {richText(" Postdoctoral Fellowships")}
               </a>
               {richText("/")}
-              <a href={href("https://www.jsps.go.jp/english/e-fellow/e-summer/")}>
+              <a
+                href={href("https://www.jsps.go.jp/english/e-fellow/e-summer/")}
+              >
                 {richText(" Summer Program")}
               </a>
               {richText(".")}
@@ -175,12 +210,22 @@ export default function Page() {
           for (const p of products) {
             children70.push(
               <>
-                <div className="ui fluid card" id={attribute(`projects-${p.project}`)}>
+                <div
+                  className="ui fluid card"
+                  id={attribute(`projects-${p.project}`)}
+                >
                   <a className="image" href={href(p.getLink(lang, basePath))}>
-                    <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+                    <img
+                      src={`${rootPath}images/thumbnails/${p.getThumbnail(
+                        lang,
+                      )}`}
+                    />
                   </a>
                   <div className="content">
-                    <a className="header" href={href(p.getLink(lang, basePath))}>
+                    <a
+                      className="header"
+                      href={href(p.getLink(lang, basePath))}
+                    >
                       {(() => {
                         const children71: ReactNode[] = [];
                         if (p.icon) {
@@ -197,7 +242,9 @@ export default function Page() {
                         return keyed(children71);
                       })()}
                     </a>
-                    <div className="description">{richText(p.getDescription(lang))}</div>
+                    <div className="description">
+                      {richText(p.getDescription(lang))}
+                    </div>
                   </div>
                 </div>
               </>,

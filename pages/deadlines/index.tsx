@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -73,7 +80,9 @@ export default function Page() {
         </section>
         <div className="ui hidden clearing divider"></div>
         <section>
-          <h2 className="ui header">{plainText(en ? "Active Deadlines" : "現在の〆切")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Active Deadlines" : "現在の〆切")}
+          </h2>
           <div className="ui segment">
             <div className="ui stackable three columns divided grid">
               <div className="column">
@@ -83,7 +92,7 @@ export default function Page() {
                     src={
                       "//free.timeanddate.com/countdown/i6begvps/n137/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs120/szw320/szh135/iso2018-09-14T11:59:59/pa10"
                     }
-                    {...{allowtransparency: "true"}}
+                    {...{ allowtransparency: "true" }}
                     frameBorder={"0"}
                     width={"155"}
                     height={"55"}
@@ -106,7 +115,7 @@ export default function Page() {
                     src={
                       "//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-08-17T23:59:59/pa10"
                     }
-                    {...{allowtransparency: "true"}}
+                    {...{ allowtransparency: "true" }}
                     frameBorder={"0"}
                     width={"155"}
                     height={"55"}
@@ -128,7 +137,9 @@ export default function Page() {
         </section>
         <div className="ui hidden divider"></div>
         <section>
-          <h2 className="ui header">{plainText(en ? "Past Deadlines" : "過去の〆切")}</h2>
+          <h2 className="ui header">
+            {plainText(en ? "Past Deadlines" : "過去の〆切")}
+          </h2>
           <div className="ui segment">
             <div className="ui stackable three columns divided grid">
               <div className="column">
@@ -138,7 +149,7 @@ export default function Page() {
                     src={
                       "//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-05T17:00:00/pa10"
                     }
-                    {...{allowtransparency: "true"}}
+                    {...{ allowtransparency: "true" }}
                     frameBorder={"0"}
                     width={"155"}
                     height={"55"}
@@ -161,7 +172,7 @@ export default function Page() {
                     src={
                       "//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-08T23:59:59/pa10"
                     }
-                    {...{allowtransparency: "true"}}
+                    {...{ allowtransparency: "true" }}
                     frameBorder={"0"}
                     width={"155"}
                     height={"55"}
@@ -184,7 +195,7 @@ export default function Page() {
                     src={
                       "//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-27T23:59:59/pa10"
                     }
-                    {...{allowtransparency: "true"}}
+                    {...{ allowtransparency: "true" }}
                     frameBorder={"0"}
                     width={"155"}
                     height={"55"}

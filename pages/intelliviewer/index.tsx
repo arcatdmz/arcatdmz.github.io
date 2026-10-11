@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -91,13 +98,21 @@ export default function Page() {
             {richText(
               "This work was done in collaboration with lab colleagues and presented at UIST 2010 ",
             )}
-            <a href={href("https://www.acm.org/uist/uist2010/Student_Contest.html")}>
+            <a
+              href={href(
+                "https://www.acm.org/uist/uist2010/Student_Contest.html",
+              )}
+            >
               {richText("Student Innovation Contest")}
             </a>
             {richText(".")}
           </p>
           <p>
-            <a href={href("https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST")}>
+            <a
+              href={href(
+                "https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST",
+              )}
+            >
               <i className="video icon"></i>
               {richText("Microsoft Channel9 (UIST '10 interview, 5:55-)")}
             </a>

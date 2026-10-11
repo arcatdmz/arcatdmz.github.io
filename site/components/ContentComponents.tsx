@@ -1,10 +1,20 @@
+import { buildYear } from "@/site/clock";
 import { DeferredScript } from "@/site/components/DeferredScript";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import type { SiteContext } from "@/site/types";
-export function createContentComponents(context: ReturnType<typeof getSiteData> & SiteContext) {
+export function createContentComponents(
+  context: ReturnType<typeof getSiteData> & SiteContext,
+) {
   const {
     histories,
     awards,
@@ -58,7 +68,12 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
       <>
         <a
           className="ui red tag with-popup label"
-          href={href(`https://github.com/arcatdmz/arcatdmz.github.io/blob/main/src/${path}`)}
+          href={href(
+            `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/pages/${path.replace(
+              /\.pug$/,
+              ".tsx",
+            )}`,
+          )}
           data-content={
             "翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります"
           }
@@ -73,7 +88,12 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
       <>
         <a
           className="ui red tag with-popup label"
-          href={href(`https://github.com/arcatdmz/arcatdmz.github.io/blob/main/src/${path}`)}
+          href={href(
+            `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/pages/${path.replace(
+              /\.pug$/,
+              ".tsx",
+            )}`,
+          )}
           data-content={
             "I would really appreciate if you could translate this content and send a pull request"
           }
@@ -107,7 +127,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                   title={"このエントリーをはてなブックマークに追加"}
                 >
                   <img
-                    src={"https://b.st-hatena.com/images/entry-button/button-only@2x.png"}
+                    src={
+                      "https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+                    }
                     alt={"このエントリーをはてなブックマークに追加"}
                     width={"20"}
                     height={"20"}
@@ -131,7 +153,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               <>
                 <a
                   className="twitter-share-button"
-                  href={href(`https://twitter.com/intent/tweet?url=${encodedURI}`)}
+                  href={href(
+                    `https://twitter.com/intent/tweet?url=${encodedURI}`,
+                  )}
                   data-text={title}
                   data-count={"horizontal"}
                   data-hashtag={hashtag}
@@ -192,7 +216,8 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
         {(() => {
           const children2: ReactNode[] = [];
           const p = projectsTable[project];
-          const backgroundImageUrl = heroImage || `${rootPath}images/heros/${p.hero}`;
+          const backgroundImageUrl =
+            heroImage || `${rootPath}images/heros/${p.hero}`;
           children2.push(
             <>
               <div className="hero-unit">
@@ -202,7 +227,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                     style={style(`background-image:url(${backgroundImageUrl})`)}
                   ></div>
                 </div>
-                <div className="ui container">{renderProjectHeader(project, additionalLabels)}</div>
+                <div className="ui container">
+                  {renderProjectHeader(project, additionalLabels)}
+                </div>
               </div>
             </>,
           );
@@ -228,7 +255,8 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               pub.entryTags.project &&
               pub.entryTags.project.indexOf(project) >= 0 &&
               pub.entryTags.addition &&
-              (!pub.entryTags.language || (!en && pub.entryTags.language === "japanese"))
+              (!pub.entryTags.language ||
+                (!en && pub.entryTags.language === "japanese"))
             ) {
               const { addition } = pub.entryTags;
               const additions = addition.split(/;\s*/g);
@@ -240,7 +268,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               <section>
                 <h1 className="ui header">
                   {richText(title)}
-                  <div className="sub header">{richText(p.getSubtitle(lang))}</div>
+                  <div className="sub header">
+                    {richText(p.getSubtitle(lang))}
+                  </div>
                 </h1>
                 <div className="ui horizontal divided list project-meta-list">
                   {(() => {
@@ -249,7 +279,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                       for (member of p.getMembers(lang)) {
                         children4.push(
                           <>
-                            <div className="item author">{plainText(member)}</div>
+                            <div className="item author">
+                              {plainText(member)}
+                            </div>
                           </>,
                         );
                       }
@@ -258,7 +290,7 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                         <div className="item">
                           <span className="ui tiny basic label">
                             <i className="calendar icon"></i>
-                            {plainText(p.getYearString(lang))}
+                            {plainText(p.getYearString(lang, buildYear))}
                           </span>
                         </div>
                       </>,
@@ -266,7 +298,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                     if (p.hasPublication(lang)) {
                       children4.push(
                         <>
-                          <div className="item">{renderProjectPublicationLabel(p)}</div>
+                          <div className="item">
+                            {renderProjectPublicationLabel(p)}
+                          </div>
                         </>,
                       );
                     }
@@ -299,7 +333,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                       for (additionalLabel of additionalLabels) {
                         children4.push(
                           <>
-                            <div className="item">{richText(additionalLabel)}</div>
+                            <div className="item">
+                              {richText(additionalLabel)}
+                            </div>
                           </>,
                         );
                       }
@@ -345,12 +381,21 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               <>
                 <h2 className="ui header">
                   <i className="book icon"></i>
-                  <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+                  <div className="content">
+                    {plainText(en ? "Publications" : "発表文献")}
+                  </div>
                 </h2>
               </>,
             );
             if (majorPublication) {
-              children6.push(<>{renderProjectPublicationsWithMajor(project, majorPublication)}</>);
+              children6.push(
+                <>
+                  {renderProjectPublicationsWithMajor(
+                    project,
+                    majorPublication,
+                  )}
+                </>,
+              );
             } else {
               children6.push(
                 <>
@@ -360,7 +405,11 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                         const children7: ReactNode[] = [];
                         var pub = 0;
                         for (const entry of publications) {
-                          if (en && entry.entryTags && entry.entryTags.language === "japanese")
+                          if (
+                            en &&
+                            entry.entryTags &&
+                            entry.entryTags.language === "japanese"
+                          )
                             continue; // skip Japanese publications
                           if (
                             !entry.entryTags ||
@@ -369,13 +418,17 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                           )
                             continue;
                           pub++;
-                          children7.push(<>{renderPublication(entry, false, false)}</>);
+                          children7.push(
+                            <>{renderPublication(entry, false, false)}</>,
+                          );
                         }
                         if (pub <= 0) {
                           children7.push(
                             <>
                               <div className="item">
-                                {richText("No publication record found for this project.")}
+                                {richText(
+                                  "No publication record found for this project.",
+                                )}
                               </div>
                             </>,
                           );
@@ -404,7 +457,12 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
           const projectPublications = [];
           for (const entry of publications) {
             if (entry.citationKey === majorPublication) continue;
-            if (en && entry.entryTags && entry.entryTags.language === "japanese") continue; // skip Japanese publications
+            if (
+              en &&
+              entry.entryTags &&
+              entry.entryTags.language === "japanese"
+            )
+              continue; // skip Japanese publications
             if (
               !entry.entryTags ||
               !entry.entryTags.project ||
@@ -424,7 +482,11 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                         <span className="ui red ribbon label">
                           {plainText(en ? "Cite this!" : "引用するならコレ！")}
                         </span>
-                        {renderMajorPublication(publicationsTable[majorPublication], false, false)}
+                        {renderMajorPublication(
+                          publicationsTable[majorPublication],
+                          false,
+                          false,
+                        )}
                       </div>
                     </>,
                   );
@@ -436,7 +498,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                             {(() => {
                               const children10: ReactNode[] = [];
                               for (const entry of projectPublications) {
-                                children10.push(<>{renderPublication(entry, false, false)}</>);
+                                children10.push(
+                                  <>{renderPublication(entry, false, false)}</>,
+                                );
                               }
                               return keyed(children10);
                             })()}
@@ -486,7 +550,10 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                               if (entry.entryTags.pdf) {
                                 children13.push(
                                   <>
-                                    <a className="item" href={href(entry.entryTags.pdf)}>
+                                    <a
+                                      className="item"
+                                      href={href(entry.entryTags.pdf)}
+                                    >
                                       <i className="text file icon"></i>
                                       {plainText(en ? "Paper PDF" : "論文PDF")}
                                     </a>
@@ -496,9 +563,14 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                               if (entry.entryTags.poster) {
                                 children13.push(
                                   <>
-                                    <a className="item" href={href(entry.entryTags.poster)}>
+                                    <a
+                                      className="item"
+                                      href={href(entry.entryTags.poster)}
+                                    >
                                       <i className="image file icon"></i>
-                                      {plainText(en ? "Poster PDF" : "ポスターPDF")}
+                                      {plainText(
+                                        en ? "Poster PDF" : "ポスターPDF",
+                                      )}
                                     </a>
                                   </>,
                                 );
@@ -506,9 +578,14 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                               if (entry.entryTags.slides) {
                                 children13.push(
                                   <>
-                                    <a className="item" href={href(entry.entryTags.slides)}>
+                                    <a
+                                      className="item"
+                                      href={href(entry.entryTags.slides)}
+                                    >
                                       <i className="powerpoint file outline icon"></i>
-                                      {plainText(en ? "Slides PDF" : "スライドPDF")}
+                                      {plainText(
+                                        en ? "Slides PDF" : "スライドPDF",
+                                      )}
                                     </a>
                                   </>,
                                 );
@@ -516,27 +593,36 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                               if (entry.hasDOIUrl()) {
                                 children13.push(
                                   <>
-                                    <a className="item" href={href(entry.getDOIUrl())}>
+                                    <a
+                                      className="item"
+                                      href={href(entry.getDOIUrl())}
+                                    >
                                       <i className="barcode icon"></i>
-                                      {plainText(en ? "Resolve DOI" : "DOIを照会")}
+                                      {plainText(
+                                        en ? "Resolve DOI" : "DOIを照会",
+                                      )}
                                     </a>
                                   </>,
                                 );
                               }
                               if (
                                 !entry.hasDOIUrl() &&
-                                (entry.entryTags.projectsite || entry.entryTags.url)
+                                (entry.entryTags.projectsite ||
+                                  entry.entryTags.url)
                               ) {
                                 children13.push(
                                   <>
                                     <a
                                       className="item"
                                       href={href(
-                                        entry.entryTags.projectsite || entry.entryTags.url,
+                                        entry.entryTags.projectsite ||
+                                          entry.entryTags.url,
                                       )}
                                     >
                                       <i className="barcode icon"></i>
-                                      {plainText(en ? "Related link" : "関連リンク")}
+                                      {plainText(
+                                        en ? "Related link" : "関連リンク",
+                                      )}
                                     </a>
                                   </>,
                                 );
@@ -548,7 +634,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                     data-clipboard-text={entry.getBibTeX()}
                                   >
                                     <i className="book icon"></i>
-                                    {plainText(en ? "Copy BibTeX" : "BibTeXをコピー")}
+                                    {plainText(
+                                      en ? "Copy BibTeX" : "BibTeXをコピー",
+                                    )}
                                   </a>
                                 </>,
                               );
@@ -562,14 +650,18 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                   if (withIcon) {
                     children12.push(
                       <>
-                        <i className={classNames("icon", entry.getIconClass())}></i>
+                        <i
+                          className={classNames("icon", entry.getIconClass())}
+                        ></i>
                       </>,
                     );
                   }
                   children12.push(
                     <>
                       <div className="content">
-                        <h4 className="ui header">{plainText(entry.entryTags.title)}</h4>
+                        <h4 className="ui header">
+                          {plainText(entry.entryTags.title)}
+                        </h4>
                         <div className="description">
                           <div className="ui list">
                             {(() => {
@@ -595,28 +687,36 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                             <>
                                               <span className="ui tiny green label">
                                                 <i className="student icon"></i>
-                                                {plainText(entry.entryTags.series)}
+                                                {plainText(
+                                                  entry.entryTags.series,
+                                                )}
                                               </span>
                                             </>,
                                           );
                                         }
                                         if (entry.entryTags.addition) {
                                           const { addition } = entry.entryTags;
-                                          const additions = addition.split(/;\s*/g);
+                                          const additions =
+                                            addition.split(/;\s*/g);
                                           for (const a of additions) {
                                             children15.push(
                                               <>
                                                 <span className="ui tiny red label">
                                                   {(() => {
-                                                    const children16: ReactNode[] = [];
-                                                    if (a.indexOf("Invited") < 0) {
+                                                    const children16: ReactNode[] =
+                                                      [];
+                                                    if (
+                                                      a.indexOf("Invited") < 0
+                                                    ) {
                                                       children16.push(
                                                         <>
                                                           <i className="trophy icon"></i>
                                                         </>,
                                                       );
                                                     }
-                                                    children16.push(<>{plainText(a)}</>);
+                                                    children16.push(
+                                                      <>{plainText(a)}</>,
+                                                    );
                                                     return keyed(children16);
                                                   })()}
                                                 </span>
@@ -628,7 +728,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                           children15.push(
                                             <>
                                               <span className="ui tiny teal label">
-                                                {plainText(entry.entryTags.group)}
+                                                {plainText(
+                                                  entry.entryTags.group,
+                                                )}
                                               </span>
                                             </>,
                                           );
@@ -636,10 +738,17 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                         if (withProjectLabel) {
                                           if (
                                             entry.entryTags.project &&
-                                            projectsTable[entry.entryTags.project]
+                                            projectsTable[
+                                              entry.entryTags.project
+                                            ]
                                           ) {
-                                            const p = projectsTable[entry.entryTags.project];
-                                            children15.push(<>{renderProjectLabel(p)}</>);
+                                            const p =
+                                              projectsTable[
+                                                entry.entryTags.project
+                                              ];
+                                            children15.push(
+                                              <>{renderProjectLabel(p)}</>,
+                                            );
                                           }
                                         }
                                         return keyed(children15);
@@ -656,12 +765,24 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                       {(() => {
                                         const children17: ReactNode[] = [];
                                         children17.push(
-                                          <>{richText(entry.getAuthorsTags().join(", "))}</>,
+                                          <>
+                                            {richText(
+                                              entry.getAuthorsTags().join(", "),
+                                            )}
+                                          </>,
                                         );
                                         if (entry.entryTags.editor) {
-                                          children17.push(<>{richText(" (Eds. ")}</>);
                                           children17.push(
-                                            <>{richText(entry.getEditorsTags().join(", "))}</>,
+                                            <>{richText(" (Eds. ")}</>,
+                                          );
+                                          children17.push(
+                                            <>
+                                              {richText(
+                                                entry
+                                                  .getEditorsTags()
+                                                  .join(", "),
+                                              )}
+                                            </>,
                                           );
                                           children17.push(<>{richText(")")}</>);
                                         }
@@ -700,7 +821,10 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
       </>
     );
   }
-  function renderMajorPublication(entry: any = undefined, ..._unused: unknown[]): ReactNode {
+  function renderMajorPublication(
+    entry: any = undefined,
+    ..._unused: unknown[]
+  ): ReactNode {
     return (
       <>
         <span className="labels">
@@ -738,10 +862,14 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                   <div className="content">
                     {(() => {
                       const children20: ReactNode[] = [];
-                      children20.push(<>{richText(entry.getAuthorsTags().join(", "))}</>);
+                      children20.push(
+                        <>{richText(entry.getAuthorsTags().join(", "))}</>,
+                      );
                       if (entry.entryTags.editor) {
                         children20.push(<>{richText(" (Eds. ")}</>);
-                        children20.push(<>{richText(entry.getEditorsTags().join(", "))}</>);
+                        children20.push(
+                          <>{richText(entry.getEditorsTags().join(", "))}</>,
+                        );
                         children20.push(<>{richText(")")}</>);
                       }
                       return keyed(children20);
@@ -754,7 +882,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               <>
                 <div className="item book">
                   <i className="book icon"></i>
-                  <div className="content">{plainText(entry.getBookWithPages())}</div>
+                  <div className="content">
+                    {plainText(entry.getBookWithPages())}
+                  </div>
                 </div>
               </>,
             );
@@ -840,13 +970,17 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
         <div className="ui form">
           <div className="field bibtex">
             <label>{richText("BibTeX:")}</label>
-            <textarea readOnly={Boolean(true)}>{plainText(entry.getBibTeX())}</textarea>
+            <textarea readOnly={Boolean(true)}>
+              {plainText(entry.getBibTeX())}
+            </textarea>
             <a
               className="ui bottom attached tiny bibtex button"
               data-clipboard-text={entry.getBibTeX()}
             >
               <i className="copy icon"></i>
-              {plainText(en ? "Copy to the clipboard" : "クリップボードにコピー")}
+              {plainText(
+                en ? "Copy to the clipboard" : "クリップボードにコピー",
+              )}
             </a>
           </div>
         </div>
@@ -890,20 +1024,26 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
               );
               children23.push(
                 <>
-                  <div className="meta">{richText(p.getTags(lang).join(""))}</div>
+                  <div className="meta">
+                    {richText(p.getTags(lang).join(""))}
+                  </div>
                 </>,
               );
               let desc = p.getDescription(lang);
               if (desc.length > 3 && desc.substring(0, 3) === "<p>") {
                 children23.push(
                   <>
-                    <div className="description">{richText(p.getDescription(lang))}</div>
+                    <div className="description">
+                      {richText(p.getDescription(lang))}
+                    </div>
                   </>,
                 );
               } else {
                 children23.push(
                   <>
-                    <p className="description">{richText(p.getDescription(lang))}</p>
+                    <p className="description">
+                      {richText(p.getDescription(lang))}
+                    </p>
                   </>,
                 );
               }
@@ -917,7 +1057,7 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                 <>
                   <span className="right floated">
                     <i className="calendar icon"></i>
-                    {plainText(p.getYearString(lang))}
+                    {plainText(p.getYearString(lang, buildYear))}
                   </span>
                 </>,
               );
@@ -935,7 +1075,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                 } else {
                   children25.push(
                     <>
-                      <span>{plainText(en ? "(Work in progress)" : "(文献未発表)")}</span>
+                      <span>
+                        {plainText(en ? "(Work in progress)" : "(文献未発表)")}
+                      </span>
                     </>,
                   );
                 }
@@ -966,15 +1108,26 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                     children27.push(
                       <>
                         <div className="mobile hidden bordered image">
-                          <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+                          <img
+                            src={`${rootPath}images/thumbnails/${p.getThumbnail(
+                              lang,
+                            )}`}
+                          />
                         </div>
                       </>,
                     );
                   } else {
                     children27.push(
                       <>
-                        <a className="mobile hidden bordered image" href={href(link)}>
-                          <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+                        <a
+                          className="mobile hidden bordered image"
+                          href={href(link)}
+                        >
+                          <img
+                            src={`${rootPath}images/thumbnails/${p.getThumbnail(
+                              lang,
+                            )}`}
+                          />
                         </a>
                       </>,
                     );
@@ -1000,7 +1153,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                         </>,
                                       );
                                     }
-                                    children29.push(<>{richText(p.getTitle(lang))}</>);
+                                    children29.push(
+                                      <>{richText(p.getTitle(lang))}</>,
+                                    );
                                     return keyed(children29);
                                   })()}
                                 </div>
@@ -1012,7 +1167,11 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                 <a
                                   className="header"
                                   href={href(link)}
-                                  title={p.subtitle ? p.getLongTitle(lang) : undefined}
+                                  title={
+                                    p.subtitle
+                                      ? p.getLongTitle(lang)
+                                      : undefined
+                                  }
                                 >
                                   {(() => {
                                     const children30: ReactNode[] = [];
@@ -1026,7 +1185,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                         </>,
                                       );
                                     }
-                                    children30.push(<>{richText(p.getTitle(lang))}</>);
+                                    children30.push(
+                                      <>{richText(p.getTitle(lang))}</>,
+                                    );
                                     return keyed(children30);
                                   })()}
                                 </a>
@@ -1034,7 +1195,10 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                             );
                           }
                           let desc = p.getDescription(lang);
-                          if (desc.length > 3 && desc.substring(0, 3) === "<p>") {
+                          if (
+                            desc.length > 3 &&
+                            desc.substring(0, 3) === "<p>"
+                          ) {
                             children28.push(
                               <>
                                 <div className="description">
@@ -1045,7 +1209,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                           } else {
                             children28.push(
                               <>
-                                <p className="description">{richText(p.getDescription(lang))}</p>
+                                <p className="description">
+                                  {richText(p.getDescription(lang))}
+                                </p>
                               </>,
                             );
                           }
@@ -1059,19 +1225,28 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                                       <>
                                         <span className="right floated">
                                           <i className="calendar icon"></i>
-                                          {plainText(p.getYearString(lang))}
+                                          {plainText(
+                                            p.getYearString(lang, buildYear),
+                                          )}
                                         </span>
                                       </>,
                                     );
-                                    if (p.category !== "private" && p.category !== "committee") {
-                                      children31.push(<>{renderProjectPublicationLabel(p)}</>);
+                                    if (
+                                      p.category !== "private" &&
+                                      p.category !== "committee"
+                                    ) {
+                                      children31.push(
+                                        <>{renderProjectPublicationLabel(p)}</>,
+                                      );
                                     }
                                     if (p.category === "collaboration") {
                                       children31.push(
                                         <>
                                           <span className="ui tiny basic label">
                                             <i className="handshake icon"></i>
-                                            {plainText(en ? "Co-authored" : "共著")}
+                                            {plainText(
+                                              en ? "Co-authored" : "共著",
+                                            )}
                                           </span>
                                         </>,
                                       );
@@ -1110,7 +1285,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
         <section id={attribute("media")}>
           <h2 className="ui header">
             <i className="broadcast tower icon"></i>
-            <div className="content">{plainText(en ? "Media Coverage" : "メディア掲載")}</div>
+            <div className="content">
+              {plainText(en ? "Media Coverage" : "メディア掲載")}
+            </div>
           </h2>
           <div className="ui segment">
             <div className="ui divided list media">
@@ -1141,7 +1318,10 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
       </>
     );
   }
-  function renderMediaItem(m: any = undefined, withLabel: any = true): ReactNode {
+  function renderMediaItem(
+    m: any = undefined,
+    withLabel: any = true,
+  ): ReactNode {
     return (
       <>
         {(() => {
@@ -1149,7 +1329,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
           const text = m.getText(lang);
           const media = m.getMedia(lang);
           const url = m.archive || m.permalink;
-          const projects = (m.projects || []).map((p) => projectsTable[p]).filter((p) => !!p);
+          const projects = (m.projects || [])
+            .map((p) => projectsTable[p])
+            .filter((p) => !!p);
           const tags = m.getTags(lang) || [];
           for (var i = 0; i < tags.length; i++)
             tags[i] = tags[i].replace(
@@ -1189,13 +1371,23 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
                         <div className="description date">
                           {(() => {
                             const children35: ReactNode[] = [];
-                            children35.push(<>{plainText(m.getDateString(lang, true))}</>);
+                            children35.push(
+                              <>{plainText(m.getDateString(lang, true))}</>,
+                            );
                             if (withLabel) {
                               if (tags.length > 0) {
                                 children35.push(<>{richText(" (")}</>);
-                                children35.push(<>{plainText(en ? "Keywords" : "関連キーワード")}</>);
+                                children35.push(
+                                  <>
+                                    {plainText(
+                                      en ? "Keywords" : "関連キーワード",
+                                    )}
+                                  </>,
+                                );
                                 children35.push(<>{richText(": ")}</>);
-                                children35.push(<>{richText(tags.join(", "))}</>);
+                                children35.push(
+                                  <>{richText(tags.join(", "))}</>,
+                                );
                                 children35.push(<>{richText(") ")}</>);
                               }
                               if (projects.length > 0)
@@ -1222,7 +1414,10 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
   function renderProjectLabel(p: any = undefined): ReactNode {
     return (
       <>
-        <a className="ui tiny basic red label" href={href(p.getLink(lang, basePath))}>
+        <a
+          className="ui tiny basic red label"
+          href={href(p.getLink(lang, basePath))}
+        >
           <i className="lab icon"></i>
           {richText(p.getTitle(lang))}
         </a>
@@ -1250,7 +1445,9 @@ export function createContentComponents(context: ReturnType<typeof getSiteData> 
           } else {
             children36.push(
               <>
-                <span>{plainText(en ? "(Work in progress)" : "(文献未発表)")}</span>
+                <span>
+                  {plainText(en ? "(Work in progress)" : "(文献未発表)")}
+                </span>
               </>,
             );
           }

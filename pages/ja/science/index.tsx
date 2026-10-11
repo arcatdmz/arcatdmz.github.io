@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -76,7 +83,9 @@ export default function Page() {
             </span>
           </div>
         </h2>
-        <p>{richText("科学技術が切り拓く未来についての論考などを書いています。")}</p>
+        <p>
+          {richText("科学技術が切り拓く未来についての論考などを書いています。")}
+        </p>
         <div className="ui basic segment" id={attribute("canna")}>
           <h3 className="ui header">
             <div className="content">{richText("カンナたちの研究")}</div>
@@ -103,13 +112,17 @@ export default function Page() {
           </blockquote>
           <div className="ui segment">
             <div className="ui divided list">
-              {content.renderPublication(publicationsTable["ipsj-v61n1-kato-canna"])}
+              {content.renderPublication(
+                publicationsTable["ipsj-v61n1-kato-canna"],
+              )}
             </div>
           </div>
         </div>
         <div className="ui basic segment" id={attribute("cs-in-100years")}>
           <h3 className="ui header">
-            <div className="content">{richText("100年後のコンピュータ科学")}</div>
+            <div className="content">
+              {richText("100年後のコンピュータ科学")}
+            </div>
           </h3>
           <p>
             {richText(
@@ -117,7 +130,11 @@ export default function Page() {
             )}
           </p>
           <blockquote>
-            <p>{richText("100年後のコンピュータ科学はどんなことを研究しているの？")}</p>
+            <p>
+              {richText(
+                "100年後のコンピュータ科学はどんなことを研究しているの？",
+              )}
+            </p>
           </blockquote>
           <p>
             {richText(
@@ -171,7 +188,9 @@ export default function Page() {
               </p>
               <ul className="ui list">
                 <li className="item">
-                  {richText('在野の人々による自発的活動（<a href="#tsemi">立花隆ゼミ</a>）')}
+                  {richText(
+                    '在野の人々による自発的活動（<a href="#tsemi">立花隆ゼミ</a>）',
+                  )}
                 </li>
                 <li className="item">
                   {richText(
@@ -213,7 +232,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <div className="content">
-            {richText('<abbr title="Human-Computer Interaction">HCI</abbr>と研究再現性問題')}
+            {richText(
+              '<abbr title="Human-Computer Interaction">HCI</abbr>と研究再現性問題',
+            )}
             <span className="ui tiny basic label">
               <i className="calendar icon"></i>
               {richText("2018")}
@@ -250,7 +271,9 @@ export default function Page() {
           </blockquote>
           <div className="ui segment">
             <div className="ui divided list">
-              {content.renderPublication(publicationsTable["hi20-kato-reproducibility"])}
+              {content.renderPublication(
+                publicationsTable["hi20-kato-reproducibility"],
+              )}
             </div>
           </div>
         </div>
@@ -267,40 +290,56 @@ export default function Page() {
           <h3 className="ui header">
             <div className="content">{richText("特集号掲載論文")}</div>
           </h3>
-          <p>{richText("本特集には他に以下の記事が掲載されており、すべてWeb上で閲覧できます。")}</p>
+          <p>
+            {richText(
+              "本特集には他に以下の記事が掲載されており、すべてWeb上で閲覧できます。",
+            )}
+          </p>
           <table className="ui striped small table">
-            <tr>
-              <td className="four wide">{richText("松田 昌史")}</td>
-              <td className="twelve wide">
-                <a href={href("https://www.dropbox.com/s/0sme5as2cqupiyq/Matsuda2018HI.pdf?dl=0")}>
-                  {richText("特集によせて: 心理学界を他山の石とする")}
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>{richText("三浦 麻子")}</td>
-              <td>
-                <a href={href("https://www.dropbox.com/s/dzliec1cr9usyds/Miura2018HI.pdf?dl=0")}>
-                  {richText("人を対象とした行動学研究における再現性問題")}
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>{richText("樋口 匡貴・藤島 喜嗣")}</td>
-              <td>
-                <a href={href("https://osf.io/zua7d/")}>
-                  {richText("アスタリスク～真実の意思を求め(すぎ)て")}
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>{richText("山田 祐樹")}</td>
-              <td>
-                <a href={href("https://osf.io/w9u6d")}>
-                  {richText("再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―")}
-                </a>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className="four wide">{richText("松田 昌史")}</td>
+                <td className="twelve wide">
+                  <a
+                    href={href(
+                      "https://www.dropbox.com/s/0sme5as2cqupiyq/Matsuda2018HI.pdf?dl=0",
+                    )}
+                  >
+                    {richText("特集によせて: 心理学界を他山の石とする")}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>{richText("三浦 麻子")}</td>
+                <td>
+                  <a
+                    href={href(
+                      "https://www.dropbox.com/s/dzliec1cr9usyds/Miura2018HI.pdf?dl=0",
+                    )}
+                  >
+                    {richText("人を対象とした行動学研究における再現性問題")}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>{richText("樋口 匡貴・藤島 喜嗣")}</td>
+                <td>
+                  <a href={href("https://osf.io/zua7d/")}>
+                    {richText("アスタリスク～真実の意思を求め(すぎ)て")}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>{richText("山田 祐樹")}</td>
+                <td>
+                  <a href={href("https://osf.io/w9u6d")}>
+                    {richText(
+                      "再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―",
+                    )}
+                  </a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className="ui basic segment">
@@ -309,8 +348,14 @@ export default function Page() {
           </h3>
           <div className="ui divided small list">
             <div className="item">
-              <a href={href("http://team1mile.com/asarinlab/2018/02/26/his2018/")}>
-                {richText("論文が公刊されました &#8211; 関西学院大学文学部社会心理学研究室")}
+              <a
+                href={href(
+                  "http://team1mile.com/asarinlab/2018/02/26/his2018/",
+                )}
+              >
+                {richText(
+                  "論文が公刊されました &#8211; 関西学院大学文学部社会心理学研究室",
+                )}
               </a>
               {richText(" (三浦 麻子)")}
             </div>
@@ -355,7 +400,10 @@ export default function Page() {
           </p>
         </div>
         <div className="ui basic right aligned segment">
-          <a className="ui primary button" href={href("https://digitalmuseum.jp/sci/mitnse-ja/")}>
+          <a
+            className="ui primary button"
+            href={href("https://digitalmuseum.jp/sci/mitnse-ja/")}
+          >
             {richText("翻訳記事の一覧")}
             <i className="chevron circle right icon"></i>
           </a>
@@ -409,14 +457,21 @@ export default function Page() {
           </p>
           <p>
             {richText("また、立花氏が2021年に逝去されたことを受け、")}
-            <a href={href("https://blog.junkato.jp/ja/posts/2021-10-11-chez-tachibana-website/")}>
+            <a
+              href={href(
+                "https://blog.junkato.jp/ja/posts/2021-10-11-chez-tachibana-website/",
+              )}
+            >
               {richText("立花隆公式サイトを新しく作り直し、オープンソース化")}
             </a>
             {richText("しました。")}
           </p>
         </div>
         <div className="ui basic right aligned segment">
-          <a className="ui primary button" href={href("https://sci.digitalmuseum.jp")}>
+          <a
+            className="ui primary button"
+            href={href("https://sci.digitalmuseum.jp")}
+          >
             {richText("SCI(サイ) アーカイブ")}
             <i className="chevron circle right icon"></i>
           </a>
@@ -444,7 +499,9 @@ export default function Page() {
             )}
           </p>
           <div className="ui segment">
-            <div className="ui divided items">{content.renderProjectItem(chippie)}</div>
+            <div className="ui divided items">
+              {content.renderProjectItem(chippie)}
+            </div>
           </div>
         </div>
         <div className="ui basic segment">
@@ -467,17 +524,31 @@ export default function Page() {
                   alt={"イノセンスに見る最先端科学"}
                 />
               </a>
-              <div className="caption">{richText("イノセンスに見る最先端科学")}</div>
+              <div className="caption">
+                {richText("イノセンスに見る最先端科学")}
+              </div>
             </div>
             <div className="column">
-              <a className="ui fluid image" href={href("https://bit.ly/scinote-dl")}>
-                <img src={`${rootPath}science/060526-scinote.png`} alt={"SCInote"} />
+              <a
+                className="ui fluid image"
+                href={href("https://bit.ly/scinote-dl")}
+              >
+                <img
+                  src={`${rootPath}science/060526-scinote.png`}
+                  alt={"SCInote"}
+                />
               </a>
               <div className="caption">{richText("SCInote [PDF]")}</div>
             </div>
             <div className="column">
-              <a className="ui fluid image" href={href("https://bit.ly/scinote2-dl")}>
-                <img src={`${rootPath}science/070518-scinote2.png`} alt={"SCInote2"} />
+              <a
+                className="ui fluid image"
+                href={href("https://bit.ly/scinote2-dl")}
+              >
+                <img
+                  src={`${rootPath}science/070518-scinote2.png`}
+                  alt={"SCInote2"}
+                />
               </a>
               <div className="caption">{richText("SCInote2 [PDF]")}</div>
             </div>
@@ -499,7 +570,9 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#science-future`)}>
                   <i className="right triangle icon"></i>
@@ -507,15 +580,21 @@ export default function Page() {
                 </a>
                 <a className="item" href={href(`#non-academic`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("非アカデミア駆動型研究")}</div>
+                  <div className="content">
+                    {richText("非アカデミア駆動型研究")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#reproducibility`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("HCIと研究再現性問題")}</div>
+                  <div className="content">
+                    {richText("HCIと研究再現性問題")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#mitnse`)}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{richText("原子力発電の解説翻訳")}</div>
+                  <div className="content">
+                    {richText("原子力発電の解説翻訳")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#tsemi`)}>
                   <i className="right triangle icon"></i>
@@ -535,18 +614,26 @@ export default function Page() {
           <div className="ui basic segment">
             {richText(p.getDescription(lang))}
             <p>
-              {richText("また、ブログでも関連する話題を扱ってきました。記事は ")}
-              <a href={href("https://blog.junkato.jp/ja/tags/science/")}>{richText("science")}</a>
+              {richText(
+                "また、ブログでも関連する話題を扱ってきました。記事は ",
+              )}
+              <a href={href("https://blog.junkato.jp/ja/tags/science/")}>
+                {richText("science")}
+              </a>
               {richText(" タグで辿ることができます。")}
             </p>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("science-future")}>{renderScienceFuture()}</section>
+        <section id={attribute("science-future")}>
+          {renderScienceFuture()}
+        </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("non-academic")}>{renderNonAcademic()}</section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("reproducibility")}>{renderReproducibility()}</section>
+        <section id={attribute("reproducibility")}>
+          {renderReproducibility()}
+        </section>
         <div className="ui hidden divider"></div>
         <section id={attribute("mitnse")}>{renderMitnse()}</section>
         <div className="ui hidden divider"></div>

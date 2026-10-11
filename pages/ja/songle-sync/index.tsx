@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -71,7 +78,10 @@ export default function Page() {
         <h2 className="ui header">{plainText(en ? "Abstract" : "概要")}</h2>
         <div className="ui basic segment">
           <p>
-            <img className="ui image" src={"/songle-sync/songlesync-platform-ja.png"} />
+            <img
+              className="ui image"
+              src={"/songle-sync/songlesync-platform-ja.png"}
+            />
           </p>
           <p>
             {richText(
@@ -118,7 +128,10 @@ export default function Page() {
                 "https://ongaaccel.jp/wp-content/uploads/2020/09/OngaACCEL20200912proceedings.pdf",
               )}
             >
-              <img className="ui image" src={"/songle-sync/songlesync-poster-extract.jpg"} />
+              <img
+                className="ui image"
+                src={"/songle-sync/songlesync-poster-extract.jpg"}
+              />
             </a>
           </p>
           <div className="caption">
@@ -139,7 +152,9 @@ export default function Page() {
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Presentation materials" : "発表内容")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
@@ -147,7 +162,9 @@ export default function Page() {
                 {richText("ACM Multimedia 2018 ")}
                 {plainText(en ? "Demo Video" : "デモ動画")}
               </h3>
-              {content.renderEmbedYoutube("//www.youtube.com/embed/dErV9oZw_uQ")}
+              {content.renderEmbedYoutube(
+                "//www.youtube.com/embed/dErV9oZw_uQ",
+              )}
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -192,7 +209,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="lab icon"></i>
-          <div className="content">{plainText(en ? "Related projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Related projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           {(() => {
@@ -206,7 +225,11 @@ export default function Page() {
                     {richText(
                       "由来のもので、さまざまな学術論文で発表されてきた研究成果に基づいています。詳細は",
                     )}
-                    <a href={href("https://staff.aist.go.jp/m.goto/publications.html")}>
+                    <a
+                      href={href(
+                        "https://staff.aist.go.jp/m.goto/publications.html",
+                      )}
+                    >
                       {richText(
                         "&quot;Songle&quot; キーワードで後藤真孝氏の発表文献リストから検索",
                       )}
@@ -215,14 +238,18 @@ export default function Page() {
                   </li>
                   <li>
                     {richText("Songle Sync は")}
-                    <a href={href("https://api.songle.jp/sync")}>{richText("Songle API")}</a>
+                    <a href={href("https://api.songle.jp/sync")}>
+                      {richText("Songle API")}
+                    </a>
                     {richText(" の一部としてリリースされています。")}
                   </li>
                   <li>
                     <a href={href("https://tutorial.songle.jp/sync")}>
                       {richText("Songle Sync のインタラクティブチュートリアル")}
                     </a>
-                    {richText(" は DeployGround フレームワークで実装されています。")}
+                    {richText(
+                      " は DeployGround フレームワークで実装されています。",
+                    )}
                   </li>
                 </ul>
               </>,
@@ -230,7 +257,9 @@ export default function Page() {
             dg = projectsTable["deployground"];
             children264.push(
               <>
-                <div className="ui divided items projects">{content.renderProjectItem(dg)}</div>
+                <div className="ui divided items projects">
+                  {content.renderProjectItem(dg)}
+                </div>
               </>,
             );
             return keyed(children264);
@@ -261,14 +290,23 @@ export default function Page() {
             {richText("メディアインタラクション研究グループ")}
           </a>
           {richText("における共同プロジェクトです。")}
-          <a href={href("//api.songle.jp/sync")}>{richText("Songle Syncの公式サイト")}</a>
+          <a href={href("//api.songle.jp/sync")}>
+            {richText("Songle Syncの公式サイト")}
+          </a>
           {richText("に関係者のクレジットが掲載されています。")}
         </div>
         <div className="ui hidden divider"></div>
         <section id={attribute("abstract")}>{renderAbstract()}</section>
-        <section id={attribute("presentations")}>{renderPresentations()}</section>
-        <section id={attribute("related-projects")}>{renderRelatedProjects()}</section>
-        {content.renderProjectPublications("songle-sync", "mm2018-kato-songlesync")}
+        <section id={attribute("presentations")}>
+          {renderPresentations()}
+        </section>
+        <section id={attribute("related-projects")}>
+          {renderRelatedProjects()}
+        </section>
+        {content.renderProjectPublications(
+          "songle-sync",
+          "mm2018-kato-songlesync",
+        )}
       </SiteLayout>
     </>
   );

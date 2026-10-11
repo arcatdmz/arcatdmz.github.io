@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -72,7 +79,9 @@ export default function Page() {
           </a>
           <a className="item" href={href("#talks")}>
             <i className="talk icon"></i>
-            <div className="content">{plainText(en ? "Invited Talks" : "招待講演")}</div>
+            <div className="content">
+              {plainText(en ? "Invited Talks" : "招待講演")}
+            </div>
           </a>
           <a className="item" href={href("#lectures")}>
             <i className="graduation cap icon"></i>
@@ -80,7 +89,9 @@ export default function Page() {
           </a>
           <a className="item" href={href("#academic-publications")}>
             <i className="book icon"></i>
-            <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+            <div className="content">
+              {plainText(en ? "Publications" : "発表文献")}
+            </div>
           </a>
           <div className="item">
             <div className="ui list">
@@ -100,11 +111,15 @@ export default function Page() {
           </div>
           <a className="item" href={href("#media")}>
             <i className="broadcast tower icon"></i>
-            <div className="content">{plainText(en ? "Media" : "メディア")}</div>
+            <div className="content">
+              {plainText(en ? "Media" : "メディア")}
+            </div>
           </a>
           <a className="item" href={href(`${basePath}timeline/`)}>
             <i className="history icon"></i>
-            <div className="content">{plainText(en ? "Timeline" : "活動履歴")}</div>
+            <div className="content">
+              {plainText(en ? "Timeline" : "活動履歴")}
+            </div>
           </a>
         </div>
       </>
@@ -116,7 +131,8 @@ export default function Page() {
         {(() => {
           const children248: ReactNode[] = [];
           const isAward = (award) =>
-            award.getText("ja").indexOf("受賞") >= 0 || award.getText("ja").indexOf("選定") >= 0;
+            award.getText("ja").indexOf("受賞") >= 0 ||
+            award.getText("ja").indexOf("選定") >= 0;
           const filteredAwards = awards.filter(isAward);
           const honors = awards.filter((award) => !isAward(award));
           const numInternationalAwards = filteredAwards.reduce(
@@ -130,7 +146,9 @@ export default function Page() {
           children248.push(
             <>
               <p>
-                {"これまでに "}<strong>{plainText(filteredAwards.length)}</strong>{" 件の受賞に繋がる成果を創出してきました。"}
+                {"これまでに "}
+                <strong>{plainText(filteredAwards.length)}</strong>
+                {" 件の受賞に繋がる成果を創出してきました。"}
               </p>
             </>,
           );
@@ -168,10 +186,19 @@ export default function Page() {
                       for (const entry of filteredAwards) {
                         children249.push(
                           <>
-                            <div className={classNames("item", entry.entryType)}>
-                              <i className={classNames("icon", entry.getIconClass())}></i>
+                            <div
+                              className={classNames("item", entry.entryType)}
+                            >
+                              <i
+                                className={classNames(
+                                  "icon",
+                                  entry.getIconClass(),
+                                )}
+                              ></i>
                               <div className="content">
-                                <div className="header">{richText(entry.getText(lang))}</div>
+                                <div className="header">
+                                  {richText(entry.getText(lang))}
+                                </div>
                                 <div className="description date">
                                   {plainText(entry.getDateString(lang, true))}
                                 </div>
@@ -206,10 +233,19 @@ export default function Page() {
                       for (const entry of honors) {
                         children250.push(
                           <>
-                            <div className={classNames("item", entry.entryType)}>
-                              <i className={classNames("icon", entry.getIconClass())}></i>
+                            <div
+                              className={classNames("item", entry.entryType)}
+                            >
+                              <i
+                                className={classNames(
+                                  "icon",
+                                  entry.getIconClass(),
+                                )}
+                              ></i>
                               <div className="content">
-                                <div className="header">{richText(entry.getText(lang))}</div>
+                                <div className="header">
+                                  {richText(entry.getText(lang))}
+                                </div>
                                 <div className="description date">
                                   {plainText(entry.getDateString(lang, true))}
                                 </div>
@@ -243,13 +279,20 @@ export default function Page() {
                     {(() => {
                       const children252: ReactNode[] = [];
                       for (const entry of talks) {
-                        if (entry.entryType === "private" || entry.entryType === "domestic")
+                        if (
+                          entry.entryType === "private" ||
+                          entry.entryType === "domestic"
+                        )
                           continue;
                         children252.push(
                           <>
-                            <div className={classNames("item", entry.entryType)}>
+                            <div
+                              className={classNames("item", entry.entryType)}
+                            >
                               <div className="content">
-                                <div className="header">{richText(entry.getText(lang))}</div>
+                                <div className="header">
+                                  {richText(entry.getText(lang))}
+                                </div>
                                 <div className="description date">
                                   {plainText(entry.getDateString(lang, true))}
                                 </div>
@@ -288,10 +331,19 @@ export default function Page() {
                           if (entry.entryType === "private") continue;
                           children253.push(
                             <>
-                              <div className={classNames("item", entry.entryType)}>
-                                <i className={classNames("icon", entry.getIconClass())}></i>
+                              <div
+                                className={classNames("item", entry.entryType)}
+                              >
+                                <i
+                                  className={classNames(
+                                    "icon",
+                                    entry.getIconClass(),
+                                  )}
+                                ></i>
                                 <div className="content">
-                                  <div className="header">{richText(entry.getText(lang))}</div>
+                                  <div className="header">
+                                    {richText(entry.getText(lang))}
+                                  </div>
                                   <div className="description date">
                                     {plainText(entry.getDateString(lang, true))}
                                   </div>
@@ -326,15 +378,24 @@ export default function Page() {
                     {(() => {
                       const children255: ReactNode[] = [];
                       for (const entry of lectures) {
-                        if (entry.entryType === "private" || entry.entryType === "domestic")
+                        if (
+                          entry.entryType === "private" ||
+                          entry.entryType === "domestic"
+                        )
                           continue;
                         children255.push(
                           <>
-                            <div className={classNames("item", entry.entryType)}>
+                            <div
+                              className={classNames("item", entry.entryType)}
+                            >
                               <div className="content">
-                                <div className="header">{richText(entry.getText(lang))}</div>
+                                <div className="header">
+                                  {richText(entry.getText(lang))}
+                                </div>
                                 <div className="description date">
-                                  {plainText(entry.getDatesString(lang).join(", "))}
+                                  {plainText(
+                                    entry.getDatesString(lang).join(", "),
+                                  )}
                                 </div>
                               </div>
                             </div>
@@ -371,12 +432,23 @@ export default function Page() {
                           if (entry.entryType === "private") continue;
                           children256.push(
                             <>
-                              <div className={classNames("item", entry.entryType)}>
-                                <i className={classNames("icon", entry.getIconClass())}></i>
+                              <div
+                                className={classNames("item", entry.entryType)}
+                              >
+                                <i
+                                  className={classNames(
+                                    "icon",
+                                    entry.getIconClass(),
+                                  )}
+                                ></i>
                                 <div className="content">
-                                  <div className="header">{richText(entry.getText(lang))}</div>
+                                  <div className="header">
+                                    {richText(entry.getText(lang))}
+                                  </div>
                                   <div className="description date">
-                                    {plainText(entry.getDatesString(lang).join(", "))}
+                                    {plainText(
+                                      entry.getDatesString(lang).join(", "),
+                                    )}
                                   </div>
                                 </div>
                               </div>
@@ -405,7 +477,9 @@ export default function Page() {
           {richText("から自動生成されています。")}
           {richText("\n")}
           {richText("主務の産業技術総合研究所での成果に関しては")}
-          <a href={href("https://staff.aist.go.jp/jun.kato/")}>{richText("研究所の個人ページ")}</a>
+          <a href={href("https://staff.aist.go.jp/jun.kato/")}>
+            {richText("研究所の個人ページ")}
+          </a>
           {richText("にも掲載しています。")}
         </p>
         <h2 className="ui header" id={attribute("international-publications")}>
@@ -415,7 +489,8 @@ export default function Page() {
           {(() => {
             const children257: ReactNode[] = [];
             for (const entry of publications) {
-              if (entry.entryTags && entry.entryTags.language === "japanese") continue;
+              if (entry.entryTags && entry.entryTags.language === "japanese")
+                continue;
               if (entry.entryType === "phdthesis") continue;
               children257.push(<>{content.renderPublication(entry)}</>);
             }
@@ -429,7 +504,8 @@ export default function Page() {
           {(() => {
             const children258: ReactNode[] = [];
             for (const entry of publications) {
-              if (!entry.entryTags || entry.entryTags.language !== "japanese") continue;
+              if (!entry.entryTags || entry.entryTags.language !== "japanese")
+                continue;
               if (entry.entryType === "phdthesis") continue;
               children258.push(<>{content.renderPublication(entry)}</>);
             }
@@ -457,18 +533,29 @@ export default function Page() {
       <>
         {(() => {
           const children260: ReactNode[] = [];
-          const filteredMediaList = mediaList.filter((entry) => !entry.private && !entry.draft);
+          const filteredMediaList = mediaList.filter(
+            (entry) => !entry.private && !entry.draft,
+          );
           const numInternationalMediaCoverage = filteredMediaList.reduce(
             (p, c) => p + (c.media?.en ? 1 : 0),
             0,
           );
-          const numDomesticMediaCoverage = mediaList.length - numInternationalMediaCoverage;
+          const numDomesticMediaCoverage =
+            mediaList.length - numInternationalMediaCoverage;
           children260.push(
             <>
               <p>
-                {"これまでの研究活動は、さまざまなメディアで "}<strong>{plainText(numInternationalMediaCoverage + numDomesticMediaCoverage)}</strong>{" 件（うち"}
+                {"これまでの研究活動は、さまざまなメディアで "}
+                <strong>
+                  {plainText(
+                    numInternationalMediaCoverage + numDomesticMediaCoverage,
+                  )}
+                </strong>
+                {" 件（うち"}
                 <a href={href(`${rootPath}publications/#media`)}>
-                  {"国際 "}<strong>{plainText(numInternationalMediaCoverage)}</strong>{" 件"}
+                  {"国際 "}
+                  <strong>{plainText(numInternationalMediaCoverage)}</strong>
+                  {" 件"}
                 </a>
                 {richText("）紹介されてきました。")}
               </p>
@@ -502,7 +589,9 @@ export default function Page() {
             <a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
             </a>
-            <div className="ui hidden popup-menu popup">{renderPublicationsMenu()}</div>
+            <div className="ui hidden popup-menu popup">
+              {renderPublicationsMenu()}
+            </div>
           </>
         }
       >
@@ -511,7 +600,9 @@ export default function Page() {
           <section id={attribute("awards")}>
             <h1 className="ui header">
               <i className="trophy icon"></i>
-              <div className="content">{plainText(en ? "Awards and Honors" : "受賞歴")}</div>
+              <div className="content">
+                {plainText(en ? "Awards and Honors" : "受賞歴")}
+              </div>
             </h1>
             {renderAwards()}
           </section>
@@ -519,7 +610,9 @@ export default function Page() {
           <section id={attribute("talks")}>
             <h1 className="ui header">
               <i className="talk icon"></i>
-              <div className="content">{plainText(en ? "Invited Talks" : "招待講演")}</div>
+              <div className="content">
+                {plainText(en ? "Invited Talks" : "招待講演")}
+              </div>
             </h1>
             {renderTalks()}
           </section>
@@ -527,7 +620,9 @@ export default function Page() {
           <section id={attribute("lectures")}>
             <h1 className="ui header">
               <i className="graduation cap icon"></i>
-              <div className="content">{plainText(en ? "Lectures" : "講義")}</div>
+              <div className="content">
+                {plainText(en ? "Lectures" : "講義")}
+              </div>
             </h1>
             {renderLectures()}
           </section>
@@ -535,7 +630,9 @@ export default function Page() {
           <section id={attribute("academic-publications")}>
             <h1 className="ui header">
               <i className="book icon"></i>
-              <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+              <div className="content">
+                {plainText(en ? "Publications" : "発表文献")}
+              </div>
             </h1>
             {renderPublications()}
           </section>
@@ -544,7 +641,9 @@ export default function Page() {
             <h1 className="ui header">
               {richText(" ")}
               <i className="broadcast tower icon"></i>
-              <div className="content">{plainText(en ? "Media coverage" : "メディア掲載")}</div>
+              <div className="content">
+                {plainText(en ? "Media coverage" : "メディア掲載")}
+              </div>
             </h1>
             {renderMedia()}
           </section>

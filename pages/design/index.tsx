@@ -1,6 +1,14 @@
+import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { richText, richParagraph } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -70,7 +78,9 @@ export default function Page() {
           const children74: ReactNode[] = [];
           children74.push(
             <>
-              <h2 className="ui dividing header">{plainText(en ? "Portfolio" : "ポートフォリオ")}</h2>
+              <h2 className="ui dividing header">
+                {plainText(en ? "Portfolio" : "ポートフォリオ")}
+              </h2>
             </>,
           );
           const sortedProjects = [];
@@ -92,7 +102,9 @@ export default function Page() {
   function renderSkillset(): ReactNode {
     return (
       <>
-        <h2 className="ui dividing header">{plainText(en ? "Skillset" : "スキルセット")}</h2>
+        <h2 className="ui dividing header">
+          {plainText(en ? "Skillset" : "スキルセット")}
+        </h2>
         <p>
           {richText(
             "The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See ",
@@ -110,7 +122,9 @@ export default function Page() {
           </div>
           <div className="column">
             <h3 className="ui header">
-              {plainText(en ? "As an interaction designer" : "インタラクションデザイン")}
+              {plainText(
+                en ? "As an interaction designer" : "インタラクションデザイン",
+              )}
             </h3>
             <div className="ui divided list">{renderSkillsetIxd()}</div>
           </div>
@@ -125,14 +139,18 @@ export default function Page() {
           <i className="large devicon-photoshop-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Photoshop")}</div>
-            <div className="description">{plainText(moment([2002, 9, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2002, 9, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-illustrator-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Illustrator")}</div>
-            <div className="description">{plainText(moment([2002, 9, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2002, 9, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
@@ -143,7 +161,9 @@ export default function Page() {
               if (en) {
                 children75.push(
                   <>
-                    <div className="header">{richText("Other Adobe products")}</div>
+                    <div className="header">
+                      {richText("Other Adobe products")}
+                    </div>
                   </>,
                 );
                 children75.push(
@@ -158,7 +178,9 @@ export default function Page() {
               } else {
                 children75.push(
                   <>
-                    <div className="header">{richText("その他のAdobe製品")}</div>
+                    <div className="header">
+                      {richText("その他のAdobe製品")}
+                    </div>
                   </>,
                 );
                 children75.push(
@@ -179,63 +201,81 @@ export default function Page() {
           <i className="large devicon-html5-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("HTML")}</div>
-            <div className="description">{plainText(moment([2000, 10, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2000, 10, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large ellipsis horizontal icon"></i>
           <div className="content">
             <div className="header">{richText("Pug (Jade)")}</div>
-            <div className="description">{plainText(moment([2015, 0, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2015, 0, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-css3-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("CSS")}</div>
-            <div className="description">{plainText(moment([2000, 10, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2000, 10, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-less-plain-wordmark colored icon"></i>
           <div className="content">
             <div className="header">{richText("Stylus and LESS")}</div>
-            <div className="description">{plainText(moment([2015, 0, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2015, 0, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-bootstrap-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Bootstrap (&lt; 4)")}</div>
-            <div className="description">{plainText(moment([2012, 2, 19]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2012, 2, 19]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large ellipsis horizontal icon"></i>
           <div className="content">
             <div className="header">{richText("Semantic UI")}</div>
-            <div className="description">{plainText(moment([2016, 1, 22]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2016, 1, 22]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-grunt-line colored icon"></i>
           <div className="content">
             <div className="header">{richText("Grunt")}</div>
-            <div className="description">{plainText(moment([2015, 0, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2015, 0, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-gulp-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Gulp")}</div>
-            <div className="description">{plainText(moment([2017, 11, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2017, 11, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-vim-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Vim")}</div>
-            <div className="description">{plainText(moment([2005, 5, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2005, 5, 1]).toNow(true))}
+            </div>
           </div>
         </div>
       </>
@@ -248,7 +288,9 @@ export default function Page() {
           <i className="large devicon-javascript-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("JavaScript")}</div>
-            <div className="description">{plainText(moment([2000, 10, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2000, 10, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
@@ -266,56 +308,72 @@ export default function Page() {
           <i className="large devicon-jquery-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("jQuery")}</div>
-            <div className="description">{plainText(moment([2012, 2, 19]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2012, 2, 19]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-d3js-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("D3.js")}</div>
-            <div className="description">{plainText(moment([2017, 11, 7]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2017, 11, 7]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-webpack-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Webpack")}</div>
-            <div className="description">{plainText(moment([2017, 11, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2017, 11, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-babel-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Babel")}</div>
-            <div className="description">{plainText(moment([2017, 11, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2017, 11, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-nodejs-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("Node.js")}</div>
-            <div className="description">{plainText(moment([2015, 0, 5]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2015, 0, 5]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-php-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("PHP (&lt; 7)")}</div>
-            <div className="description">{plainText(moment([2005, 5, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2005, 5, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-wordpress-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("WordPress")}</div>
-            <div className="description">{plainText(moment([2005, 5, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2005, 5, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large devicon-csharp-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("C#")}</div>
-            <div className="description">{richText("for desktop apps and ASP.NET apps")}</div>
+            <div className="description">
+              {richText("for desktop apps and ASP.NET apps")}
+            </div>
           </div>
         </div>
         <div className="item">
@@ -344,7 +402,9 @@ export default function Page() {
         <div className="item">
           <i className="large devicon-visualstudio-plain colored icon"></i>
           <div className="content">
-            <div className="header">{richText("Visual Studio, Visual Studio Code")}</div>
+            <div className="header">
+              {richText("Visual Studio, Visual Studio Code")}
+            </div>
             <div className="description">
               {plainText(moment([2008, 5, 1]).toNow(true))}
               {richText(" and since it was born, respectively")}
@@ -355,14 +415,18 @@ export default function Page() {
           <i className="large devicon-mysql-plain colored icon"></i>
           <div className="content">
             <div className="header">{richText("MySQL")}</div>
-            <div className="description">{plainText(moment([2005, 9, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2005, 9, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
           <i className="large ellipsis horizontal icon"></i>
           <div className="content">
             <div className="header">{richText("Eclipse")}</div>
-            <div className="description">{plainText(moment([2008, 5, 1]).toNow(true))}</div>
+            <div className="description">
+              {plainText(moment([2008, 5, 1]).toNow(true))}
+            </div>
           </div>
         </div>
         <div className="item">
@@ -370,7 +434,9 @@ export default function Page() {
           <div className="content">
             <div className="header">{richText("GitHub")}</div>
             <div className="description">
-              {richText('see <a href="https://github.com/arcatdmz">my repos</a>')}
+              {richText(
+                'see <a href="https://github.com/arcatdmz">my repos</a>',
+              )}
             </div>
           </div>
         </div>
@@ -400,7 +466,10 @@ export default function Page() {
                   } else {
                     children77.push(
                       <>
-                        <a className="ui small left floated image" href={href(link)}>
+                        <a
+                          className="ui small left floated image"
+                          href={href(link)}
+                        >
                           <img src={`${rootPath}images/icons/${p.icon}`} />
                         </a>
                       </>,
@@ -408,13 +477,13 @@ export default function Page() {
                   }
                   children77.push(
                     <>
-                      <h3 className="ui header">{richText(p.getDesignTitle(lang))}</h3>
+                      <h3 className="ui header">
+                        {richText(p.getDesignTitle(lang))}
+                      </h3>
                     </>,
                   );
                   children77.push(
-                    <>
-                      {richParagraph(p.getDesignDescription(lang))}
-                    </>,
+                    <>{richParagraph(p.getDesignDescription(lang))}</>,
                   );
                   if (p.images) {
                     children77.push(
@@ -447,7 +516,7 @@ export default function Page() {
                               <div className="item">
                                 <div className="ui basic label">
                                   <i className="calendar icon"></i>
-                                  {plainText(p.getYearString(lang))}
+                                  {plainText(p.getYearString(lang, buildYear))}
                                 </div>
                               </div>
                             </>,
@@ -488,7 +557,10 @@ export default function Page() {
         context={context}
         head={
           <>
-            <link rel={"stylesheet"} href={href(`${rootPath}stylesheets/design.css`)} />
+            <link
+              rel={"stylesheet"}
+              href={href(`${rootPath}stylesheets/design.css`)}
+            />
           </>
         }
         header={
@@ -509,7 +581,9 @@ export default function Page() {
                       children73.push(<>{richText("研究")}</>);
                       children73.push(
                         <>
-                          <span className="mobile hidden">{richText("に戻る")}</span>
+                          <span className="mobile hidden">
+                            {richText("に戻る")}
+                          </span>
                         </>,
                       );
                     }
@@ -530,7 +604,9 @@ export default function Page() {
                 <i className="circular paint brush icon"></i>
                 {plainText(title)}
               </h1>
-              <div className="ui container">{richText(p.getDescription(lang))}</div>
+              <div className="ui container">
+                {richText(p.getDescription(lang))}
+              </div>
             </div>
           </>
         }
@@ -543,15 +619,21 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#portfolio`)}>
                   <i className="history icon"></i>
-                  <div className="content">{plainText(en ? "Portfolio" : "ポートフォリオ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Portfolio" : "ポートフォリオ")}
+                  </div>
                 </a>
                 <a className="item" href={href(`#skillset`)}>
                   <i className="user icon"></i>
-                  <div className="content">{plainText(en ? "Skillset" : "スキルセット")}</div>
+                  <div className="content">
+                    {plainText(en ? "Skillset" : "スキルセット")}
+                  </div>
                 </a>
               </div>
             </div>

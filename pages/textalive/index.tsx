@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -108,7 +115,11 @@ export default function Page() {
                   )}
                   {richText("\n")}
                   {richText("The programming contest usng the API in ")}
-                  <a href={href("https://developer.textalive.jp/events/magicalmirai2020")}>
+                  <a
+                    href={href(
+                      "https://developer.textalive.jp/events/magicalmirai2020",
+                    )}
+                  >
                     {richText("Hatsune Miku &quot;Magical Mirai 2020&quot;")}
                   </a>
                   {richText(" was also announced.")}
@@ -190,10 +201,16 @@ export default function Page() {
                   {richText(
                     "TextAlive was used to author videos for a live performance by a Japanese idol group, ",
                   )}
-                  <a href={href("https://jpop.fandom.com/wiki/Bellring_Shoujo_Heart")}>
+                  <a
+                    href={href(
+                      "https://jpop.fandom.com/wiki/Bellring_Shoujo_Heart",
+                    )}
+                  >
                     {richText("Bellring Shoujo Heart")}
                   </a>
-                  {richText(". The rendered full HD 60fps videos are available on YouTube (")}
+                  {richText(
+                    ". The rendered full HD 60fps videos are available on YouTube (",
+                  )}
                   <a
                     href={href(
                       "https://www.youtube.com/watch?v=dE8Lzh0CNSw&list=PL1B4fGaIHgNvGAZyWnPDFo9Lm_yICuduo",
@@ -218,7 +235,9 @@ export default function Page() {
                 <div className="date">{richText("1/25/2016")}</div>
                 <div className="summary">
                   <a href={href("https://textalive.jp")}>
-                    {richText("TextAlive has been publicly available as a web service")}
+                    {richText(
+                      "TextAlive has been publicly available as a web service",
+                    )}
                   </a>
                   {richText(" after ")}
                   <a
@@ -235,7 +254,9 @@ export default function Page() {
           </div>
           <p>
             {richText("For more detailed news, please refer to ")}
-            <a href={href("https://textalive.jp/events")}>{richText("the Japanese event page")}</a>
+            <a href={href("https://textalive.jp/events")}>
+              {richText("the Japanese event page")}
+            </a>
             {richText(".")}
           </p>
         </div>
@@ -259,7 +280,11 @@ export default function Page() {
               "While existing systems have allowed the designer and casual user to create animations, most of them do not take into account synchronization with audio signals. They allow predefined motions to be applied to objects and parameters to be tweaked, but it is usually impossible to extend the predefined set of motion algorithms within these systems.",
             )}
           </p>
-          <p>{richText("We therefore propose an integrated design environment featuring")}</p>
+          <p>
+            {richText(
+              "We therefore propose an integrated design environment featuring",
+            )}
+          </p>
           <ul>
             <li>
               {richText(
@@ -272,7 +297,9 @@ export default function Page() {
               )}
             </li>
             <li>
-              {richText("a framework for bridging the interfaces for designers and programmers.")}
+              {richText(
+                "a framework for bridging the interfaces for designers and programmers.",
+              )}
             </li>
           </ul>
           <p>
@@ -292,7 +319,9 @@ export default function Page() {
               {richText("a press release")}
             </a>
             {richText(" on 9/8/2015. Latest information can be found on ")}
-            <a href={href("https://textalive.jp/events")}>{richText("the TextAlive event page")}</a>
+            <a href={href("https://textalive.jp/events")}>
+              {richText("the TextAlive event page")}
+            </a>
             {richText(" or ")}
             <a
               href={href(
@@ -306,14 +335,20 @@ export default function Page() {
           <div className="ui message">
             {richText("On 9/18/2020, ")}
             <a href={href("https://developer.textalive.jp")}>
-              {richText('TextAlive App <abbr title="Application Programming Interface">API</abbr>')}
+              {richText(
+                'TextAlive App <abbr title="Application Programming Interface">API</abbr>',
+              )}
             </a>
             {richText(
               " was released for developers. It allows the development of interactive lyric-driven visual media that we name &quot;lyric apps.&quot;",
             )}
             {richText("\n")}
-            {richText("For more information, please refer to the follow-up page on ")}
-            <a href={href(`${basePath}lyric-app-framework`)}>{richText("Lyric App Framework")}</a>
+            {richText(
+              "For more information, please refer to the follow-up page on ",
+            )}
+            <a href={href(`${basePath}lyric-app-framework`)}>
+              {richText("Lyric App Framework")}
+            </a>
             {richText(".")}
           </div>
         </div>
@@ -323,12 +358,16 @@ export default function Page() {
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Presentation materials" : "発表内容")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
               <h3 className="ui header">{richText("CHI 2015 Fast-forward")}</h3>
-              {content.renderEmbedYoutube("//www.youtube.com/embed/lOdt-pf5U8Q")}
+              {content.renderEmbedYoutube(
+                "//www.youtube.com/embed/lOdt-pf5U8Q",
+              )}
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -361,7 +400,9 @@ export default function Page() {
                   <>
                     <div
                       className="ui embed"
-                      data-url={publicationsTable[p.publication].entryTags.slides}
+                      data-url={
+                        publicationsTable[p.publication].entryTags.slides
+                      }
                       data-placeholder={`${rootPath}images/background-eee.png`}
                       data-icon={"video play outline"}
                     ></div>
@@ -372,7 +413,11 @@ export default function Page() {
                     <div className="caption">
                       <div className="ui horizontal list">
                         <div className="item">
-                          <a href={href(publicationsTable[p.publication].entryTags.slides)}>
+                          <a
+                            href={href(
+                              publicationsTable[p.publication].entryTags.slides,
+                            )}
+                          >
                             <i className="download icon"></i>
                             {plainText(en ? "Download" : "ダウンロード")}
                           </a>
@@ -408,7 +453,9 @@ export default function Page() {
   function renderExamples(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Example videos" : "作例")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Example videos" : "作例")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
@@ -439,8 +486,12 @@ export default function Page() {
                         {richText(
                           "Web版のTextAliveは現在も開発が続けられています。この作例は、初音ミクやアイドルのライブなどで利用されたものです。 ",
                         )}
-                        <a href={href("https://textalive.jp")}>{richText("textalive.jp")}</a>
-                        {richText(" にアクセスすれば、誰でも動画を制作できます。")}
+                        <a href={href("https://textalive.jp")}>
+                          {richText("textalive.jp")}
+                        </a>
+                        {richText(
+                          " にアクセスすれば、誰でも動画を制作できます。",
+                        )}
                       </p>
                     </>,
                   );
@@ -463,7 +514,11 @@ export default function Page() {
                   </>,
                 );
                 children155.push(
-                  <>{content.renderEmbedYoutube("https://www.youtube.com/embed/ofczPQZaWMk")}</>,
+                  <>
+                    {content.renderEmbedYoutube(
+                      "https://www.youtube.com/embed/ofczPQZaWMk",
+                    )}
+                  </>,
                 );
                 if (!en) {
                   children155.push(
@@ -489,13 +544,17 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="gift icon"></i>
-          <div className="content">{plainText(en ? "Relevant projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Relevant projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <div className="ui segment">
             <div className="ui divided items projects">
               {content.renderProjectItem(projectsTable["lyric-app-framework"])}
-              {content.renderProjectItem(projectsTable["creativity-support-environments"])}
+              {content.renderProjectItem(
+                projectsTable["creativity-support-environments"],
+              )}
             </div>
           </div>
         </div>
@@ -516,23 +575,33 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#abstract")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </a>
                 <a className="item" href={href("#presentations")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Presentations" : "発表内容")}</div>
+                  <div className="content">
+                    {plainText(en ? "Presentations" : "発表内容")}
+                  </div>
                 </a>
                 <a className="item" href={href("#examples")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Example videos" : "作例")}</div>
+                  <div className="content">
+                    {plainText(en ? "Example videos" : "作例")}
+                  </div>
                 </a>
                 <a className="item" href={href("#publications")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+                  <div className="content">
+                    {plainText(en ? "Publications" : "発表文献")}
+                  </div>
                 </a>
                 <a className="item" href={href("#further-readings")}>
                   <i className="right triangle icon"></i>
@@ -558,15 +627,22 @@ export default function Page() {
               </a>
             </div>
             <div className="ui hidden divider"></div>
-            <section id={attribute("presentations")}>{renderPresentations()}</section>
+            <section id={attribute("presentations")}>
+              {renderPresentations()}
+            </section>
           </div>
           <div className="ui hidden divider"></div>
           <section id={attribute("examples")}>{renderExamples()}</section>
         </div>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("textalive", "chi2015-kato-textalive")}
+        {content.renderProjectPublications(
+          "textalive",
+          "chi2015-kato-textalive",
+        )}
         <div className="ui hidden divider"></div>
-        <section id={attribute("further-readings")}>{renderFurtherReadings()}</section>
+        <section id={attribute("further-readings")}>
+          {renderFurtherReadings()}
+        </section>
       </SiteLayout>
     </>
   );

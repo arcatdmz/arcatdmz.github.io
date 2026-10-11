@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -68,12 +75,18 @@ export default function Page() {
         <section id={attribute("details")}>
           <h2 className="ui header">{richText("時と場所")}</h2>
           <div className="ui basic segment">
-            <p>{richText("2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。")}</p>
+            <p>
+              {richText(
+                "2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。",
+              )}
+            </p>
             <p>
               {richText(
                 "Wantedlyオフィスは休日のため、通常の入り口が閉まっています。開場時間近辺はスタッフがいますが、もし遅れる場合は",
               )}
-              <a href={href("https://twitter.com/arcatdmz")}>{richText("@arcatdmz")}</a>
+              <a href={href("https://twitter.com/arcatdmz")}>
+                {richText("@arcatdmz")}
+              </a>
               {richText("宛てにツイートするなどして中の人にご連絡ください。")}
             </p>
             <iframe
@@ -145,9 +158,13 @@ export default function Page() {
               {richText(
                 "名状しがたいお茶会へようこそ！一年に一度のお茶会も、早いものでもう5回目です。今年から複数名で運営タスクにあたっています。お茶会らしく温かい飲み物も出ます。会場は",
               )}
-              <a href={href("https://www.wantedly.com/")}>{richText("Wantedly")}</a>
+              <a href={href("https://www.wantedly.com/")}>
+                {richText("Wantedly")}
+              </a>
               {richText("さんにご提供いただき、")}
-              <a href={href("https://m.wantedly.com/")}>{richText("Wantedlyチャット")}</a>
+              <a href={href("https://m.wantedly.com/")}>
+                {richText("Wantedlyチャット")}
+              </a>
               {richText(
                 "を使ってお茶会関連の議論を深める試みも始めました。濃ゆい一日をぜひ楽しんでいただければと思います。",
               )}
@@ -181,7 +198,10 @@ export default function Page() {
                 <img className="ui fluid image" src={"DSC09990.jpg"} />
                 <div className="caption">{richText("質疑")}</div>
                 <div className="ui hidden divider"></div>
-                <img className="ui fluid image" src={"73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg"} />
+                <img
+                  className="ui fluid image"
+                  src={"73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg"}
+                />
                 <div className="caption">{richText("名札")}</div>
                 <div className="ui hidden divider"></div>
                 <img className="ui fluid image" src={"DSC09993.jpg"} />

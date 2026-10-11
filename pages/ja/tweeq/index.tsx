@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -77,16 +84,22 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#abstract")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </a>
                 <a className="item" href={href("#implementation")}>
                   <i className="right triangle icon"></i>
                   <div className="content">
-                    {plainText(en ? "Reference implementation" : "リファレンス実装")}
+                    {plainText(
+                      en ? "Reference implementation" : "リファレンス実装",
+                    )}
                   </div>
                 </a>
               </div>
@@ -111,13 +124,19 @@ export default function Page() {
             </p>
             <ul>
               <li>
-                {richText("ユーザの繊細な制御戦略に応えるために、多様な入力モードを併存させること")}
+                {richText(
+                  "ユーザの繊細な制御戦略に応えるために、多様な入力モードを併存させること",
+                )}
               </li>
               <li>
-                {richText("熟達したユーザ向けに、高速で高精度なインタラクション設計を優先すること")}
+                {richText(
+                  "熟達したユーザ向けに、高速で高精度なインタラクション設計を優先すること",
+                )}
               </li>
               <li>
-                {richText("作業空間を確保するために、ウィジェットの専有面積をできるだけ抑えること")}
+                {richText(
+                  "作業空間を確保するために、ウィジェットの専有面積をできるだけ抑えること",
+                )}
               </li>
             </ul>
             <p>
@@ -133,17 +152,24 @@ export default function Page() {
           </div>
           <div className="ui basic segment">
             <p>
-              <img className="ui fluid image" src={`${rootPath}tweeq/tweeq.png`} />
+              <img
+                className="ui fluid image"
+                src={`${rootPath}tweeq/tweeq.png`}
+              />
             </p>
             <p className="caption">
               <i>{richText("Tweeq")}</i>
-              {richText(" は本論文で提案した制作ツール向けGUIウィジェット群である。")}
+              {richText(
+                " は本論文で提案した制作ツール向けGUIウィジェット群である。",
+              )}
               <strong>{richText("(a)")}</strong>
               {richText(" <i>Tweeq</i> が提供するコンポーネントの一覧。")}
               <strong>{richText("(b)")}</strong>
               {richText(" カラーピッカーとオーバーレイ表示。")}
               <strong>{richText("(c)")}</strong>
-              {richText(" オーバーレイ表示を備えたタイムコード入力インタフェース。")}
+              {richText(
+                " オーバーレイ表示を備えたタイムコード入力インタフェース。",
+              )}
               <strong>{richText("(d)")}</strong>
               {richText(" 角度入力インタフェースを同時調整する様子。")}
             </p>
@@ -175,7 +201,10 @@ export default function Page() {
           </div>
           <div className="ui basic center aligned segment">
             <div className="ui huge buttons">
-              <a className="ui primary button" href={href("//github.com/baku89/tweeq")}>
+              <a
+                className="ui primary button"
+                href={href("//github.com/baku89/tweeq")}
+              >
                 {plainText(en ? "Code" : "ソースコード")}
               </a>
               <div className="ui divider"></div>

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -66,18 +73,24 @@ export default function Page() {
     return (
       <>
         <h2 className="ui header">
-          <div className="content">{plainText(en ? "Presentation materials" : "発表内容")}</div>
+          <div className="content">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </div>
         </h2>
         <table className="ui striped very basic table">
           <tbody>
             <tr>
-              <td className="three wide">{plainText(en ? "Where?" : "会場")}</td>
+              <td className="three wide">
+                {plainText(en ? "Where?" : "会場")}
+              </td>
               <td className="thirteen wide">
                 <div className="ui list">
                   <div className="item">
                     <i className="map pin icon"></i>
                     <div className="content">
-                      {richText("Room 324 (Floor Level 3), Hawaii Convention Center")}
+                      {richText(
+                        "Room 324 (Floor Level 3), Hawaii Convention Center",
+                      )}
                     </div>
                   </div>
                 </div>
@@ -89,7 +102,9 @@ export default function Page() {
                 <div className="ui list">
                   <div className="item">
                     <i className="clock icon"></i>
-                    <div className="content">{richText("Mon, May 13 | 14:00 - 14:15")}</div>
+                    <div className="content">
+                      {richText("Mon, May 13 | 14:00 - 14:15")}
+                    </div>
                   </div>
                 </div>
               </td>
@@ -101,7 +116,11 @@ export default function Page() {
                   <div className="item">
                     <i className="book icon"></i>
                     <div className="content">
-                      <a href={href("https://programs.sigchi.org/chi/2024/program/content/147403")}>
+                      <a
+                        href={href(
+                          "https://programs.sigchi.org/chi/2024/program/content/147403",
+                        )}
+                      >
                         {richText(
                           "Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals - CHI '24",
                         )}
@@ -116,12 +135,18 @@ export default function Page() {
         <div className="ui basic segment">
           {content.renderEmbedYoutube("//www.youtube.com/embed/rlJ1Fe53Lw8")}
           <p className="caption">
-            {plainText(en ? "CHI 2024 Video Preview (30s)" : "CHI 2024 Video Preview（30秒）")}
+            {plainText(
+              en
+                ? "CHI 2024 Video Preview (30s)"
+                : "CHI 2024 Video Preview（30秒）",
+            )}
           </p>
         </div>
         <div className="ui basic segment">
           {content.renderEmbedYoutube("//www.youtube.com/embed/RWdw9rDRf7A")}
-          <p className="caption">{richText("CHI 2024 Pre-recorded Presentation Video")}</p>
+          <p className="caption">
+            {richText("CHI 2024 Pre-recorded Presentation Video")}
+          </p>
         </div>
       </>
     );
@@ -131,13 +156,17 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="gift icon"></i>
-          <div className="content">{plainText(en ? "Relevant projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Relevant projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <div className="ui two stackable cards projects">
             <div className="card">
               <a className="image" href={href("https://gsw.archinc.jp")}>
-                <img src={`${rootPath}griffith/griffith-stopwatch-thumbnail.png`} />
+                <img
+                  src={`${rootPath}griffith/griffith-stopwatch-thumbnail.png`}
+                />
               </a>
               <div className="content">
                 <a className="header" href={href("https://gsw.archinc.jp")}>
@@ -167,7 +196,9 @@ export default function Page() {
                     : "https://research.archinc.jp/griffith/sketch",
                 )}
               >
-                <img src={`${rootPath}griffith/griffith-sketch-screenshot.png`} />
+                <img
+                  src={`${rootPath}griffith/griffith-sketch-screenshot.png`}
+                />
               </a>
               <div className="content">
                 <a
@@ -198,7 +229,9 @@ export default function Page() {
           </div>
           <div className="ui segment">
             <div className="ui divided items projects">
-              {content.renderProjectItem(projectsTable["creativity-support-environments"])}
+              {content.renderProjectItem(
+                projectsTable["creativity-support-environments"],
+              )}
             </div>
           </div>
         </div>
@@ -218,7 +251,9 @@ export default function Page() {
               <div className="content">
                 <div className="date">{richText("12/30/2025")}</div>
                 <div className="summary">
-                  {plainText(en ? "Added a link to Animāre" : "Animāreへのリンクを追加")}
+                  {plainText(
+                    en ? "Added a link to Animāre" : "Animāreへのリンクを追加",
+                  )}
                 </div>
               </div>
             </div>
@@ -226,7 +261,9 @@ export default function Page() {
               <div className="content">
                 <div className="date">{richText("09/13/2024")}</div>
                 <div className="summary">
-                  {plainText(en ? "Added a project page" : "プロジェクトページを仮公開")}
+                  {plainText(
+                    en ? "Added a project page" : "プロジェクトページを仮公開",
+                  )}
                 </div>
               </div>
             </div>
@@ -237,10 +274,15 @@ export default function Page() {
   }
   return (
     <>
-      <SiteLayout context={context} mainHero={<>{content.renderProjectHero("griffith")}</>}>
+      <SiteLayout
+        context={context}
+        mainHero={<>{content.renderProjectHero("griffith")}</>}
+      >
         <section id={attribute("abstract")}>
           <h2 className="ui header">
-            <div className="content">{plainText(en ? "Project summary" : "概要")}</div>
+            <div className="content">
+              {plainText(en ? "Project summary" : "概要")}
+            </div>
           </h2>
           <div className="ui basic segment">
             <p>
@@ -275,11 +317,15 @@ export default function Page() {
         <div className="ui stackable two columns grid">
           <div className="row">
             <div className="column">
-              <section id={attribute("presentations")}>{renderPresentations()}</section>
+              <section id={attribute("presentations")}>
+                {renderPresentations()}
+              </section>
               <div className="ui hidden divider"></div>
             </div>
             <div className="column">
-              <section id={attribute("further-readings")}>{renderFurtherReadings()}</section>
+              <section id={attribute("further-readings")}>
+                {renderFurtherReadings()}
+              </section>
               <div className="ui hidden divider"></div>
             </div>
           </div>

@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -66,7 +73,9 @@ export default function Page() {
     return (
       <>
         <h2 className="ui header">
-          <div className="content">{plainText(en ? "Presentation materials" : "発表内容")}</div>
+          <div className="content">
+            {plainText(en ? "Presentation materials" : "発表内容")}
+          </div>
         </h2>
         <div className="ui basic segment">
           {(() => {
@@ -77,10 +86,14 @@ export default function Page() {
                 <>
                   <h3 className="ui header" id={attribute("interaction2024")}>
                     <div className="content">
-                      {richText("第28回 一般社団法人情報処理学会シンポジウム インタラクション2024")}
+                      {richText(
+                        "第28回 一般社団法人情報処理学会シンポジウム インタラクション2024",
+                      )}
                       <div className="sub header">
                         <i className="ui trophy icon"></i>
-                        {richText("最優秀論文賞・インタラクティブ発表賞 (一般投票)")}
+                        {richText(
+                          "最優秀論文賞・インタラクティブ発表賞 (一般投票)",
+                        )}
                       </div>
                     </div>
                   </h3>
@@ -164,8 +177,9 @@ export default function Page() {
                           <div
                             className="ui embed"
                             data-url={
-                              publicationsTable["interaction2024-kato-lyric-app-framework"]
-                                .entryTags.slides
+                              publicationsTable[
+                                "interaction2024-kato-lyric-app-framework"
+                              ].entryTags.slides
                             }
                             data-placeholder={`${basePath}lyric-app-framework/interaction2024-kato-lyric-apps-slides.png`}
                             data-icon={"video play outline"}
@@ -175,8 +189,9 @@ export default function Page() {
                               <div className="item">
                                 <a
                                   href={href(
-                                    publicationsTable["interaction2024-kato-lyric-app-framework"]
-                                      .entryTags.slides,
+                                    publicationsTable[
+                                      "interaction2024-kato-lyric-app-framework"
+                                    ].entryTags.slides,
                                   )}
                                 >
                                   <i className="download icon"></i>
@@ -198,7 +213,9 @@ export default function Page() {
                       {richText("第138回音楽情報科学研究発表会 (SIGMUS)")}
                       <div className="sub header">
                         <i className="ui trophy icon"></i>
-                        {richText("ベストプレゼンテーション賞 (Best Research部門)")}
+                        {richText(
+                          "ベストプレゼンテーション賞 (Best Research部門)",
+                        )}
                       </div>
                     </div>
                   </h3>
@@ -214,7 +231,9 @@ export default function Page() {
                           <div className="ui list">
                             <div className="item">
                               <i className="map pin icon"></i>
-                              <div className="content">{richText("明治大学 中野キャンパス")}</div>
+                              <div className="content">
+                                {richText("明治大学 中野キャンパス")}
+                              </div>
                             </div>
                           </div>
                         </td>
@@ -227,7 +246,9 @@ export default function Page() {
                               <i className="clock icon"></i>
                               <div className="content">
                                 <a
-                                  href={href("https://www.ipsj.or.jp/kenkyukai/event/mus138.html")}
+                                  href={href(
+                                    "https://www.ipsj.or.jp/kenkyukai/event/mus138.html",
+                                  )}
                                 >
                                   {richText("2023/8/27 (日) 13:30-13:55")}
                                 </a>
@@ -267,8 +288,12 @@ export default function Page() {
                     <div className="stackable row">
                       <div className="column">
                         <div className="ui basic segment">
-                          {content.renderEmbedYoutube("//www.youtube.com/embed/yTS5600B4pg")}
-                          <p className="caption">{richText("プレゼンテーション再録")}</p>
+                          {content.renderEmbedYoutube(
+                            "//www.youtube.com/embed/yTS5600B4pg",
+                          )}
+                          <p className="caption">
+                            {richText("プレゼンテーション再録")}
+                          </p>
                         </div>
                       </div>
                       <div className="column">
@@ -276,8 +301,9 @@ export default function Page() {
                           <div
                             className="ui embed"
                             data-url={
-                              publicationsTable["sigmus138-kato-lyric-app-framework"].entryTags
-                                .slides
+                              publicationsTable[
+                                "sigmus138-kato-lyric-app-framework"
+                              ].entryTags.slides
                             }
                             data-placeholder={`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`}
                             data-icon={"video play outline"}
@@ -287,8 +313,9 @@ export default function Page() {
                               <div className="item">
                                 <a
                                   href={href(
-                                    publicationsTable["sigmus138-kato-lyric-app-framework"]
-                                      .entryTags.slides,
+                                    publicationsTable[
+                                      "sigmus138-kato-lyric-app-framework"
+                                    ].entryTags.slides,
                                   )}
                                 >
                                   <i className="download icon"></i>
@@ -337,20 +364,26 @@ export default function Page() {
                 <table className="ui striped very basic table">
                   <tbody>
                     <tr>
-                      <td className="three wide">{plainText(en ? "Where?" : "会場")}</td>
+                      <td className="three wide">
+                        {plainText(en ? "Where?" : "会場")}
+                      </td>
                       <td className="thirteen wide">
                         <div className="ui list">
                           <div className="item">
                             <i className="map pin icon"></i>
                             <div className="content">
-                              {richText("Room Y07 + Y08, Congress Center Hamburg (CCH)")}
+                              {richText(
+                                "Room Y07 + Y08, Congress Center Hamburg (CCH)",
+                              )}
                             </div>
                           </div>
                         </div>
                       </td>
                     </tr>
                     <tr>
-                      <td className="three wide">{plainText(en ? "When?" : "日時")}</td>
+                      <td className="three wide">
+                        {plainText(en ? "When?" : "日時")}
+                      </td>
                       <td className="thirteen wide">
                         <div className="ui list">
                           <div className="item">
@@ -369,7 +402,9 @@ export default function Page() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="three wide">{richText("CHI '23 Program")}</td>
+                      <td className="three wide">
+                        {richText("CHI '23 Program")}
+                      </td>
                       <td className="thirteen wide">
                         <div className="ui list">
                           <div className="item">
@@ -400,16 +435,26 @@ export default function Page() {
           <div className="stackable row">
             <div className="column">
               <div className="ui basic segment">
-                {content.renderEmbedYoutube("//www.youtube.com/embed/7XpDPghxdCE")}
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/7XpDPghxdCE",
+                )}
                 <p className="caption">
-                  {plainText(en ? "CHI 2023 Video Preview (30s)" : "CHI 2023 Video Preview（30秒）")}
+                  {plainText(
+                    en
+                      ? "CHI 2023 Video Preview (30s)"
+                      : "CHI 2023 Video Preview（30秒）",
+                  )}
                 </p>
               </div>
             </div>
             <div className="column">
               <div className="ui basic segment">
-                {content.renderEmbedYoutube("//www.youtube.com/embed/sX4Cdcljqd0")}
-                <p className="caption">{richText("CHI 2023 Pre-recorded Presentation Video")}</p>
+                {content.renderEmbedYoutube(
+                  "//www.youtube.com/embed/sX4Cdcljqd0",
+                )}
+                <p className="caption">
+                  {richText("CHI 2023 Pre-recorded Presentation Video")}
+                </p>
               </div>
             </div>
           </div>
@@ -534,7 +579,9 @@ export default function Page() {
                       <div className="content">
                         <div className="date">{richText("08/27/2023")}</div>
                         <div className="summary">
-                          {richText("第138回音楽情報科学研究発表会 (SIGMUS) での発表資料を追加")}
+                          {richText(
+                            "第138回音楽情報科学研究発表会 (SIGMUS) での発表資料を追加",
+                          )}
                         </div>
                       </div>
                     </div>
@@ -563,7 +610,9 @@ export default function Page() {
                     <div className="content">
                       <div className="date">{richText("04/16/2023")}</div>
                       <div className="summary">
-                        {plainText(en ? "Added a video preview" : "Video Preview を追加")}
+                        {plainText(
+                          en ? "Added a video preview" : "Video Preview を追加",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -575,7 +624,11 @@ export default function Page() {
                     <div className="content">
                       <div className="date">{richText("03/31/2023")}</div>
                       <div className="summary">
-                        {plainText(en ? "Added a project page" : "プロジェクトページを仮公開")}
+                        {plainText(
+                          en
+                            ? "Added a project page"
+                            : "プロジェクトページを仮公開",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -593,13 +646,17 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="gift icon"></i>
-          <div className="content">{plainText(en ? "Relevant projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Relevant projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <div className="ui segment">
             <div className="ui divided items projects">
               {content.renderProjectItem(projectsTable["textalive"])}
-              {content.renderProjectItem(projectsTable["creativity-support-environments"])}
+              {content.renderProjectItem(
+                projectsTable["creativity-support-environments"],
+              )}
             </div>
           </div>
         </div>
@@ -620,23 +677,33 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#abstract")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </a>
                 <a className="item" href={href("#presentations")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Presentations" : "発表内容")}</div>
+                  <div className="content">
+                    {plainText(en ? "Presentations" : "発表内容")}
+                  </div>
                 </a>
                 <a className="item" href={href("#publications")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Publications" : "発表文献")}</div>
+                  <div className="content">
+                    {plainText(en ? "Publications" : "発表文献")}
+                  </div>
                 </a>
                 <a className="item" href={href("#revisions")}>
                   <i className="right triangle icon"></i>
-                  <div className="content">{plainText(en ? "Revisions" : "更新履歴")}</div>
+                  <div className="content">
+                    {plainText(en ? "Revisions" : "更新履歴")}
+                  </div>
                 </a>
                 <a className="item" href={href("#further-readings")}>
                   <i className="right triangle icon"></i>
@@ -654,7 +721,9 @@ export default function Page() {
             <div className="column">
               <section id={attribute("abstract")}>
                 <h2 className="ui header">
-                  <div className="content">{plainText(en ? "Abstract" : "概要")}</div>
+                  <div className="content">
+                    {plainText(en ? "Abstract" : "概要")}
+                  </div>
                 </h2>
                 <div className="ui basic segment">
                   {(() => {
@@ -717,7 +786,11 @@ export default function Page() {
               <section id={attribute("programming-contest")}>
                 <h2 className="ui header">
                   <div className="content">
-                    {plainText(en ? "Programming Contests" : "プログラミング・コンテスト")}
+                    {plainText(
+                      en
+                        ? "Programming Contests"
+                        : "プログラミング・コンテスト",
+                    )}
                   </div>
                 </h2>
                 <div className="ui basic segment">
@@ -742,7 +815,9 @@ export default function Page() {
                               "We made the framework publicly available in 2020 and has been conducting an annual programming contest in ",
                             )}
                             <a href={href("https://magicalmirai.com")}>
-                              {richText("&quot;Hatsune Miku Magical Mirai&quot;")}
+                              {richText(
+                                "&quot;Hatsune Miku Magical Mirai&quot;",
+                              )}
                             </a>
                             {richText(
                               " &mdash; a live show and exhibition, connecting with Hatsune Miku through creativity. ",
@@ -753,39 +828,59 @@ export default function Page() {
                       children233.push(
                         <>
                           <ul className="ui horizontal divided list">
-                            <a className="item" href={href("https://magicalmirai.com/2020/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2020/procon",
+                              )}
+                            >
                               {richText("2020 (ja)")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2021/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2021/procon",
+                              )}
+                            >
                               {richText("2021 (ja)")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/10th/procon/index_en.html")}
+                              href={href(
+                                "https://magicalmirai.com/10th/procon/index_en.html",
+                              )}
                             >
                               {richText("2022")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2023/procon/index_en.html")}
+                              href={href(
+                                "https://magicalmirai.com/2023/procon/index_en.html",
+                              )}
                             >
                               {richText("2023")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2024/procon/index_en.html")}
+                              href={href(
+                                "https://magicalmirai.com/2024/procon/index_en.html",
+                              )}
                             >
                               {richText("2024")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2025/procon/index_en.html")}
+                              href={href(
+                                "https://magicalmirai.com/2025/procon/index_en.html",
+                              )}
                             >
                               {richText("2025")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2026/procon/index_en.html")}
+                              href={href(
+                                "https://magicalmirai.com/2026/procon/index_en.html",
+                              )}
                             >
                               {richText("2026")}
                             </a>
@@ -821,26 +916,63 @@ export default function Page() {
                       children233.push(
                         <>
                           <ul className="ui horizontal divided list">
-                            <strong className="item">{richText("公式サイト")}</strong>
-                            <a className="item" href={href("https://magicalmirai.com/2020/procon")}>
+                            <strong className="item">
+                              {richText("公式サイト")}
+                            </strong>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2020/procon",
+                              )}
+                            >
                               {richText("2020")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2021/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2021/procon",
+                              )}
+                            >
                               {richText("2021")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/10th/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/10th/procon",
+                              )}
+                            >
                               {richText("2022 (10th Anniversary)")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2023/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2023/procon",
+                              )}
+                            >
                               {richText("2023")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2024/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2024/procon",
+                              )}
+                            >
                               {richText("2024")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2025/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2025/procon",
+                              )}
+                            >
                               {richText("2025")}
                             </a>
-                            <a className="item" href={href("https://magicalmirai.com/2026/procon")}>
+                            <a
+                              className="item"
+                              href={href(
+                                "https://magicalmirai.com/2026/procon",
+                              )}
+                            >
                               {richText("2026")}
                             </a>
                           </ul>
@@ -849,40 +981,54 @@ export default function Page() {
                       children233.push(
                         <>
                           <ul className="ui horizontal divided list">
-                            <strong className="item">{richText("入選作品一覧")}</strong>
+                            <strong className="item">
+                              {richText("入選作品一覧")}
+                            </strong>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2020/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/2020/procon/entry.html",
+                              )}
                             >
                               {richText("2020")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2021/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/2021/procon/entry.html",
+                              )}
                             >
                               {richText("2021")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/10th/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/10th/procon/entry.html",
+                              )}
                             >
                               {richText("2022 (10th Anniversary)")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2023/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/2023/procon/entry.html",
+                              )}
                             >
                               {richText("2023")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2024/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/2024/procon/entry.html",
+                              )}
                             >
                               {richText("2024")}
                             </a>
                             <a
                               className="item"
-                              href={href("https://magicalmirai.com/2025/procon/entry.html")}
+                              href={href(
+                                "https://magicalmirai.com/2025/procon/entry.html",
+                              )}
                             >
                               {richText("2025")}
                             </a>
@@ -898,19 +1044,31 @@ export default function Page() {
           </div>
         </div>
         <div className="ui basic right aligned segment">
-          <a className="ui primary button" href={href("//developer.textalive.jp")}>
+          <a
+            className="ui primary button"
+            href={href("//developer.textalive.jp")}
+          >
             <i className="external icon"></i>
-            {plainText(en ? "Framework Website" : "フレームワークのWebサイトへ")}
+            {plainText(
+              en ? "Framework Website" : "フレームワークのWebサイトへ",
+            )}
           </a>
         </div>
         <div className="ui hidden divider"></div>
-        <section id={attribute("presentations")}>{renderPresentations()}</section>
+        <section id={attribute("presentations")}>
+          {renderPresentations()}
+        </section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications(p.project, "chi2023-kato-lyric-app-framework")}
+        {content.renderProjectPublications(
+          p.project,
+          "chi2023-kato-lyric-app-framework",
+        )}
         <div className="ui hidden divider"></div>
         <section id={attribute("revisions")}>{renderRevisions()}</section>
         <div className="ui hidden divider"></div>
-        <section id={attribute("further-readings")}>{renderFurtherReadings()}</section>
+        <section id={attribute("further-readings")}>
+          {renderFurtherReadings()}
+        </section>
       </SiteLayout>
     </>
   );

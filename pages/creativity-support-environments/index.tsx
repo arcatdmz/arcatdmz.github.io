@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -65,7 +72,9 @@ export default function Page() {
   function renderExamples(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Example projects" : "プロジェクト")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Example projects" : "プロジェクト")}
+        </h2>
         <div className="ui basic segment">
           <p>
             {plainText(
@@ -78,9 +87,11 @@ export default function Page() {
             <div className="ui divided items projects">
               {(() => {
                 const children72: ReactNode[] = [];
-                const exampleProjects = ["griffith", "textalive", "lyric-app-framework"].map(
-                  (key) => projectsTable[key],
-                );
+                const exampleProjects = [
+                  "griffith",
+                  "textalive",
+                  "lyric-app-framework",
+                ].map((key) => projectsTable[key]);
                 for (const p of exampleProjects) {
                   if (
                     p.category === "concept" ||
@@ -115,7 +126,10 @@ export default function Page() {
           {renderAnimesigAbstract()}
         </div>
         <div className="ui basic right aligned segment">
-          <a className="ui primary button" href={href("http://chci.pages.dev/chi2025anime")}>
+          <a
+            className="ui primary button"
+            href={href("http://chci.pages.dev/chi2025anime")}
+          >
             {plainText(en ? "Event page" : "イベントページ")}
             <i className="chevron circle right icon"></i>
           </a>
@@ -215,7 +229,9 @@ export default function Page() {
     return (
       <>
         <h2 className="ui header">
-          {richText("Special Interest Group on Creativity and Cultures in Computing (SIGCCC)")}
+          {richText(
+            "Special Interest Group on Creativity and Cultures in Computing (SIGCCC)",
+          )}
         </h2>
         <div className="ui basic segment">
           <p>
@@ -226,7 +242,10 @@ export default function Page() {
           {renderSigcccAbstract()}
         </div>
         <div className="ui basic right aligned segment">
-          <a className="ui primary button" href={href("http://chci.pages.dev/chi2023")}>
+          <a
+            className="ui primary button"
+            href={href("http://chci.pages.dev/chi2023")}
+          >
             {plainText(en ? "Event page" : "イベントページ")}
             <i className="chevron circle right icon"></i>
           </a>
@@ -262,7 +281,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           {richText("On the Relationship between HCI Researchers and Creators")}
-          <div className="sub header">{richText("&mdash; or How I Became a Toolsmith")}</div>
+          <div className="sub header">
+            {richText("&mdash; or How I Became a Toolsmith")}
+          </div>
         </h2>
         <div className="ui basic segment">
           <p>
@@ -275,7 +296,9 @@ export default function Page() {
         <div className="ui basic right aligned segment">
           <a
             className="ui primary button"
-            href={href("https://xrds.acm.org/article.cfm?aid=3596927&doi=10.1145%2F3596927")}
+            href={href(
+              "https://xrds.acm.org/article.cfm?aid=3596927&doi=10.1145%2F3596927",
+            )}
           >
             {plainText(en ? "Online article" : "オンライン版の記事ページ")}
             <i className="chevron circle right icon"></i>
@@ -334,13 +357,17 @@ export default function Page() {
             <div className="event">
               <div className="content">
                 <div className="date">{richText("9/16/2024")}</div>
-                <div className="summary">{richText("Add a list of projects.")}</div>
+                <div className="summary">
+                  {richText("Add a list of projects.")}
+                </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="date">{richText("3/31/2023")}</div>
-                <div className="summary">{richText("Upload the initial revision.")}</div>
+                <div className="summary">
+                  {richText("Upload the initial revision.")}
+                </div>
               </div>
             </div>
           </div>
@@ -361,7 +388,9 @@ export default function Page() {
               <div className="ui divided list">
                 <a className="item" href={href("#body")}>
                   <i className="chevron circle up icon"></i>
-                  <div className="content">{plainText(en ? "Top" : "トップ")}</div>
+                  <div className="content">
+                    {plainText(en ? "Top" : "トップ")}
+                  </div>
                 </a>
                 <a className="item" href={href("#animesig")}>
                   <i className="right triangle icon"></i>

@@ -151,7 +151,11 @@ function Profile() {
           {" (personal)"}
         </dd>
         <dt>{"Mail"}</dt>
-        <dd>{"HIIRI, AIST Tsukuba Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan"}</dd>
+        <dd>
+          {
+            "HIIRI, AIST Tsukuba Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan"
+          }
+        </dd>
         <dt>{"URL"}</dt>
         <dd>
           <a className="link" href={"https://junkato.jp"}>
@@ -166,7 +170,11 @@ function Profile() {
           <p>
             {"Jun Kato is a chief senior researcher at "}
             <a href={"https://www.aist.go.jp/index_en.html"}>
-              <abbr title={"National Institute of Advanced Industrial Science and Technology"}>
+              <abbr
+                title={
+                  "National Institute of Advanced Industrial Science and Technology"
+                }
+              >
                 {"AIST"}
               </abbr>
             </a>
@@ -192,7 +200,9 @@ function Profile() {
               href={
                 "https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
               }
-              title={"IPSJ/ACM Award for Early Career Contributions to Global Research"}
+              title={
+                "IPSJ/ACM Award for Early Career Contributions to Global Research"
+              }
             >
               {"IPSJ/ACM Award"}
             </a>
@@ -234,7 +244,9 @@ function WorkExperience() {
           <div className="year"></div>
           <div className="content">
             <h3 className="first">
-              <a href={"https://www.universite-paris-saclay.fr/en"}>{"Université Paris-Saclay"}</a>
+              <a href={"https://www.universite-paris-saclay.fr/en"}>
+                {"Université Paris-Saclay"}
+              </a>
             </h3>
             <p className="small">
               {
@@ -254,7 +266,9 @@ function WorkExperience() {
             <a href={"https://ex-situ.lri.fr/about"}>{"ex)situ Group"}</a>
             {", "}
             <a href={"https://www.lisn.upsaclay.fr"}>
-              {"Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)"}
+              {
+                "Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)"
+              }
             </a>
           </div>
         </div>
@@ -265,7 +279,9 @@ function WorkExperience() {
           <div className="content">
             <h3 className="first">
               <a href={"https://www.aist.go.jp/index_en.html"}>
-                {"National Institute of Advanced Industrial Science and Technology (AIST)"}
+                {
+                  "National Institute of Advanced Industrial Science and Technology (AIST)"
+                }
               </a>
             </h3>
             <p className="small">
@@ -279,7 +295,9 @@ function WorkExperience() {
           <div className="year">{"April 2026-"}</div>
           <div className="content">
             {"Chief Senior Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>{"Media Interaction Group"}</a>
+            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
+              {"Media Interaction Group"}
+            </a>
             {", "}
             <a href={"https://unit.aist.go.jp/hiiri/index-en.html"}>
               {"Human Informatics and Interaction Research Institute (HIIRI)"}
@@ -290,7 +308,9 @@ function WorkExperience() {
           <div className="year">{"September 2018-"}</div>
           <div className="content">
             {"Senior Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>{"Media Interaction Group"}</a>
+            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
+              {"Media Interaction Group"}
+            </a>
             {", "}
             <a href={"https://unit.aist.go.jp/hiiri/index-en.html"}>
               {"Human Informatics and Interaction Research Institute (HIIRI)"}
@@ -305,7 +325,9 @@ function WorkExperience() {
           </div>
           <div className="content">
             {"Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>{"Media Interaction Group"}</a>
+            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
+              {"Media Interaction Group"}
+            </a>
             {", "}
             {"\n"}
             {"Information Technology Research Institute (ITRI)"}
@@ -350,10 +372,14 @@ function WorkExperience() {
           </div>
           <div className="content">
             {"Creative Technologies Lab, "}
-            <a href={"https://research.adobe.com/"}>{"Adobe Research Seattle"}</a>
+            <a href={"https://research.adobe.com/"}>
+              {"Adobe Research Seattle"}
+            </a>
             <p className="small">
               {"Worked with "}
-              <a href={"https://www.linkedin.com/in/jovan-cmu/"}>{"Jovan Popovic"}</a>
+              <a href={"https://www.linkedin.com/in/jovan-cmu/"}>
+                {"Jovan Popovic"}
+              </a>
               {" and "}
               <a href={"https://joelbrandt.com/cv/"}>{"Joel Brandt"}</a>
               {"; developed a research prototype of a new product."}
@@ -377,13 +403,21 @@ function WorkExperience() {
             </a>
             <p className="small">
               {"Worked with "}
-              <a href={"https://www.microsoft.com/en-us/research/people/sburckha/"}>
+              <a
+                href={
+                  "https://www.microsoft.com/en-us/research/people/sburckha/"
+                }
+              >
                 {"Sebastian Burckhardt"}
               </a>
               {" and "}
               <a href={"https://moskal.me/"}>{"Michał Moskal"}</a>
               {"; developed a live programming feature of "}
-              <a href={"https://www.microsoft.com/en-us/research/project/touchdevelop/"}>
+              <a
+                href={
+                  "https://www.microsoft.com/en-us/research/project/touchdevelop/"
+                }
+              >
                 {"TouchDevelop"}
               </a>
               {", whose research component was published as an "}
@@ -411,7 +445,9 @@ function WorkExperience() {
               {"Worked with "}
               <a href={"https://caoxiang.net/"}>{"Xiang Cao"}</a>
               {" and "}
-              <a href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}>{"Sean McDirmid"}</a>
+              <a href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}>
+                {"Sean McDirmid"}
+              </a>
               {
                 "; developed extensions to an integrated development environment and wrote a full research paper later published at "
               }
@@ -456,7 +492,9 @@ function WorkExperience() {
             {"Software Development Engineer Intern, "}
             <a href={"https://microsoft.com/"}>{"Microsoft"}</a>
             <p className="small">
-              {"Developed an online code reviewing tool to improve the team's productivity.       "}
+              {
+                "Developed an online code reviewing tool to improve the team's productivity.       "
+              }
             </p>
           </div>
         </div>
@@ -502,7 +540,9 @@ function ResearchGrants() {
           <a href={"https://www.jst.go.jp/EN"}>
             <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/cronos/en/index.html"}>{"CRONOS"}</a>
+          <a href={"https://www.jst.go.jp/kisoken/cronos/en/index.html"}>
+            {"CRONOS"}
+          </a>
           {" (Grant Number "}
           <code>{"JPMJCS25K1"}</code>
           {")"}
@@ -529,12 +569,16 @@ function ResearchGrants() {
           <a href={"https://www.jst.go.jp/EN"}>
             <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/presto/en/index.html"}>{"PRESTO"}</a>
+          <a href={"https://www.jst.go.jp/kisoken/presto/en/index.html"}>
+            {"PRESTO"}
+          </a>
           {" (Grant Number "}
           <code>{"JPMJPR25I1"}</code>
           {")"}
           <p className="small">
-            {"Principal investigator; funded 35M Japanese Yen for 3.5 years (expected) for "}
+            {
+              "Principal investigator; funded 35M Japanese Yen for 3.5 years (expected) for "
+            }
             {
               "technologies for time-aware sharing orchestration in collaborative content production"
             }
@@ -551,7 +595,9 @@ function ResearchGrants() {
         </div>
         <div className="content">
           <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>{"JSPS"}</abbr>
+            <abbr title={"Japan Society for the Promotion of Science"}>
+              {"JSPS"}
+            </abbr>
           </a>{" "}
           <a href={"https://www.jsps.go.jp/english/e-grants/grants01.html"}>
             {"Grant-in-Aid for Scientific Research (B)"}
@@ -560,7 +606,9 @@ function ResearchGrants() {
           <code>{"24K02972"}</code>
           {")"}
           <p className="small">
-            {"Co-investigator; funded 3.1M Japanese Yen for 4 years (expected)."}
+            {
+              "Co-investigator; funded 3.1M Japanese Yen for 4 years (expected)."
+            }
           </p>
         </div>
       </div>
@@ -574,12 +622,16 @@ function ResearchGrants() {
           <a href={"https://www.jst.go.jp/EN"}>
             <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/act-x/en/index.html"}>{"ACT-X"}</a>
+          <a href={"https://www.jst.go.jp/kisoken/act-x/en/index.html"}>
+            {"ACT-X"}
+          </a>
           {" (Grant Number "}
           <code>{"JPMJAX22A3"}</code>
           {")"}
           <p className="small">
-            {"Principal investigator; funded 11M Japanese Yen for 3.5 years for "}
+            {
+              "Principal investigator; funded 11M Japanese Yen for 3.5 years for "
+            }
             <a href={"https://junkato.jp/creativity-support-environments"}>
               {
                 "AI-enabled creativity support environments for a constructive study of creative culture"
@@ -597,17 +649,25 @@ function ResearchGrants() {
         </div>
         <div className="content">
           <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>{"JSPS"}</abbr>
+            <abbr title={"Japan Society for the Promotion of Science"}>
+              {"JSPS"}
+            </abbr>
           </a>{" "}
           <a href={"https://www.jsps.go.jp/english/e-grants/grants01.html"}>
             {"Grant-in-Aid for Scientific Research (A)"}
           </a>
           {" (Grant Number "}
           <code>
-            <a href={"https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-21H04917"}>{"21H04917"}</a>
+            <a
+              href={"https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-21H04917"}
+            >
+              {"21H04917"}
+            </a>
           </code>
           {")"}
-          <p className="small">{"Co-investigator; funded 2.6M Japanese Yen for 3 years."}</p>
+          <p className="small">
+            {"Co-investigator; funded 2.6M Japanese Yen for 3 years."}
+          </p>
         </div>
       </div>
       <div className="row">
@@ -618,12 +678,16 @@ function ResearchGrants() {
         </div>
         <div className="content">
           <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>{"JSPS"}</abbr>
+            <abbr title={"Japan Society for the Promotion of Science"}>
+              {"JSPS"}
+            </abbr>
           </a>{" "}
           <a href={"https://www.jsps.go.jp/english/e-pd"}>
             {"Research Fellowships for Young Scientists DC1"}
           </a>
-          <p className="small">{"Funded 1.9M Japanese Yen for 3 years as a research fellow."}</p>
+          <p className="small">
+            {"Funded 1.9M Japanese Yen for 3 years as a research fellow."}
+          </p>
         </div>
       </div>
       <div className="row">
@@ -637,7 +701,9 @@ function ResearchGrants() {
             {"Microsoft Research Asia Fellowship"}
           </a>
           <p className="small">
-            {"Awarded among around one hundred Ph.D candidates and funded $10,000 for a year."}
+            {
+              "Awarded among around one hundred Ph.D candidates and funded $10,000 for a year."
+            }
           </p>
         </div>
       </div>
@@ -655,13 +721,17 @@ function ResearchGrants() {
             }
           >
             {"Microsoft "}
-            <abbr title={"Institute for Japanese Academic Research Collaboration"}>
+            <abbr
+              title={"Institute for Japanese Academic Research Collaboration"}
+            >
               {"IJARC"}
             </abbr>{" "}
             <abbr title={"Collaborative Research"}>{"CORE"}</abbr>
             {" Program"}
           </a>
-          <p className="small">{"Principal investigator; funded $15,000 for a year."}</p>
+          <p className="small">
+            {"Principal investigator; funded $15,000 for a year."}
+          </p>
         </div>
       </div>
       <div className="row">
@@ -672,7 +742,9 @@ function ResearchGrants() {
         </div>
         <div className="content">
           <a href={"https://www.ipa.go.jp/index-e.html"}>
-            <abbr title={"Information-technology Promotion Agency"}>{"IPA"}</abbr>{" "}
+            <abbr title={"Information-technology Promotion Agency"}>
+              {"IPA"}
+            </abbr>{" "}
           </a>
           <a
             href={"https://www.ipa.go.jp/english/humandev/third.html"}
@@ -681,7 +753,9 @@ function ResearchGrants() {
             {"MITOU Program"}
           </a>
           <p className="small">
-            {"Project leader (principal investigator); funded 7M Japanese yen for half a year."}
+            {
+              "Project leader (principal investigator); funded 7M Japanese yen for half a year."
+            }
           </p>
         </div>
       </div>
@@ -756,7 +830,11 @@ function Innovations() {
           <div className="content">
             <a href={"https://junkato.jp/touchdevelop"}>{"TouchDevelop"}</a>
             {" ("}
-            <a href={"https://www.microsoft.com/en-us/research/project/touchdevelop"}>
+            <a
+              href={
+                "https://www.microsoft.com/en-us/research/project/touchdevelop"
+              }
+            >
               {"Microsoft"}
             </a>
             {")"}
@@ -797,7 +875,9 @@ function Innovations() {
             {richText(
               "Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux, Sean McDirmid, Michal Moskal, Nikolai Tillmann, <u>Jun Kato</u> (Microsoft). Interface development and operation. ",
             )}
-            <a href={"https://patents.google.com/patent/US9286038B2/en"}>{"US9286038B2"}</a>
+            <a href={"https://patents.google.com/patent/US9286038B2/en"}>
+              {"US9286038B2"}
+            </a>
             {"."}
           </div>
         </div>
@@ -811,7 +891,9 @@ function Innovations() {
             {richText(
               "Xiang Cao, <u>Jun Kato</u>, Sean McDirmid (Microsoft). Programming interface. ",
             )}
-            <a href={"https://patents.google.com/patent/US9639330B2/en"}>{"US9639330B2"}</a>
+            <a href={"https://patents.google.com/patent/US9639330B2/en"}>
+              {"US9639330B2"}
+            </a>
             {"."}
           </div>
         </div>
@@ -870,7 +952,9 @@ function Education() {
         </div>
         <div className="content">
           <p>
-            {"Master of Science / Information Science and Technology (Computer Science), Thesis: "}
+            {
+              "Master of Science / Information Science and Technology (Computer Science), Thesis: "
+            }
             <i>{"A Toolkit for Prototyping Interactive Robot Applications"}</i>
           </p>
           <p className="small">{"Supervisor: Takeo Igarashi"}</p>
@@ -886,7 +970,9 @@ function Education() {
         <div className="content">
           <p>
             {"Bachelor of Science / Information Science, Thesis: "}
-            <i>{"Multi-touch Interface for Controlling Multiple Mobile Robots"}</i>
+            <i>
+              {"Multi-touch Interface for Controlling Multiple Mobile Robots"}
+            </i>
           </p>
           <p className="small">{"Supervisor: Takeo Igarashi"}</p>
         </div>
@@ -916,7 +1002,10 @@ function References() {
                 "; National Institute of Advanced Industrial Science and Technology (AIST), Ibaraki, Japan"
               }
               <br />
-              <a className="link" href={"https://staff.aist.go.jp/m.goto/index-e.html"}>
+              <a
+                className="link"
+                href={"https://staff.aist.go.jp/m.goto/index-e.html"}
+              >
                 {"https://staff.aist.go.jp/m.goto/index-e.html"}
               </a>
             </p>
@@ -928,7 +1017,10 @@ function References() {
               <span className="year">{"2008-2014"}</span>
               {"; The University of Tokyo, Tokyo, Japan"}
               <br />
-              <a className="link" href={"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}>
+              <a
+                className="link"
+                href={"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
+              >
                 {"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
               </a>
             </p>
@@ -940,7 +1032,10 @@ function References() {
               <span className="year">{"2013"}</span>
               {"; Adobe Research Seattle, WA, US"}
               <br />
-              <a className="link" href={"https://www.linkedin.com/in/jovan-cmu/"}>
+              <a
+                className="link"
+                href={"https://www.linkedin.com/in/jovan-cmu/"}
+              >
                 {"https://www.linkedin.com/in/jovan-cmu/"}
               </a>
             </p>
@@ -954,7 +1049,9 @@ function References() {
               <br />
               <a
                 className="link"
-                href={"https://www.microsoft.com/en-us/research/people/sburckha/"}
+                href={
+                  "https://www.microsoft.com/en-us/research/people/sburckha/"
+                }
               >
                 {"https://www.microsoft.com/en-us/research/people/sburckha/"}
               </a>
@@ -979,7 +1076,10 @@ function References() {
               <span className="year">{"2012"}</span>
               {"; Microsoft Research Asia, Beijing, China"}
               <br />
-              <a className="link" href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}>
+              <a
+                className="link"
+                href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
+              >
                 {"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
               </a>
             </p>
@@ -1013,18 +1113,24 @@ function Honors({ awards }: { awards: SiteData["awards"] }) {
     <>
       <SectionHeading>Awards and Honors</SectionHeading>
       {awards
-        .filter((entry) => entry.entryType !== "domestic" && !entry.data?.funding)
+        .filter(
+          (entry) => entry.entryType !== "domestic" && !entry.data?.funding,
+        )
         .map((entry, index) => {
           let text = entry.getText("en");
           const coauthorNote = text.indexOf(" for the co-authored ");
           if (coauthorNote >= 0) text = text.substring(0, coauthorNote);
-          const description = Object.keys(honorDescriptions).find((title) => text.includes(title));
+          const description = Object.keys(honorDescriptions).find((title) =>
+            text.includes(title),
+          );
           return (
             <div className="row" key={index}>
               <div className="year">{entry.getDateString("en", true)}</div>
               <div className="content">
                 {richText(text)}
-                {description && <p className="small">{honorDescriptions[description]}</p>}
+                {description && (
+                  <p className="small">{honorDescriptions[description]}</p>
+                )}
               </div>
             </div>
           );
@@ -1150,7 +1256,10 @@ function Publications({ data }: { data: SiteData }) {
           >
             <div className="year" />
             <div className="content">
-              <PublicationCitation entry={entry} notes={data.misc.publications} />
+              <PublicationCitation
+                entry={entry}
+                notes={data.misc.publications}
+              />
             </div>
           </div>
         ))}
@@ -1169,12 +1278,16 @@ function Publications({ data }: { data: SiteData }) {
             key={entry.citationKey}
           >
             <div className="year">
-              {entry.entryTags.year !== otherPublications[index - 1]?.entryTags.year
+              {entry.entryTags.year !==
+              otherPublications[index - 1]?.entryTags.year
                 ? entry.entryTags.year
                 : null}
             </div>
             <div className="content">
-              <PublicationCitation entry={entry} notes={data.misc.publications} />
+              <PublicationCitation
+                entry={entry}
+                notes={data.misc.publications}
+              />
             </div>
           </div>
         ))}
@@ -1207,7 +1320,9 @@ type Organizer = Services["organizers"][number];
 function OrganizerTitle({ organizer }: { organizer: Organizer }) {
   return (
     <>
-      {organizer.track && <>{organizer.track.fullname || organizer.track.name} </>}
+      {organizer.track && (
+        <>{organizer.track.fullname || organizer.track.name} </>
+      )}
       {organizer.title}
       {organizer.subtitle && (
         <>
@@ -1224,13 +1339,20 @@ function OrganizerRows({ organizers }: { organizers: Organizer[] }) {
   return (
     <>
       {organizers.map((organizer, index) => (
-        <div className="row" key={`${organizer.year}-${organizer.event.name}-${index}`}>
+        <div
+          className="row"
+          key={`${organizer.year}-${organizer.event.name}-${index}`}
+        >
           <div className="year">
-            {index === 0 || organizers[index - 1].year !== organizer.year ? organizer.year : null}
+            {index === 0 || organizers[index - 1].year !== organizer.year
+              ? organizer.year
+              : null}
           </div>
           <div className="content">
             <a href={organizer.event.url || organizer.url}>
-              <abbr title={organizer.event.fullname}>{organizer.event.name}</abbr>
+              <abbr title={organizer.event.fullname}>
+                {organizer.event.name}
+              </abbr>
             </a>
             <p className="small">
               {organizer.event.url ? (
@@ -1243,7 +1365,9 @@ function OrganizerRows({ organizers }: { organizers: Organizer[] }) {
               {organizer.conference && (
                 <>
                   {"; held as part of  "}
-                  <a href={organizer.conference.url}>{organizer.conference.name}</a>
+                  <a href={organizer.conference.url}>
+                    {organizer.conference.name}
+                  </a>
                 </>
               )}
             </p>
@@ -1308,7 +1432,8 @@ function AcademicServices({ services }: { services: Services }) {
         </div>
         <OrganizerRows
           organizers={services.organizers.filter(
-            (organizer) => organizer.class === "chair" || organizer.class === "oc",
+            (organizer) =>
+              organizer.class === "chair" || organizer.class === "oc",
           )}
         />
       </section>
@@ -1321,7 +1446,8 @@ function AcademicServices({ services }: { services: Services }) {
         </div>
         <OrganizerRows
           organizers={services.organizers.filter(
-            (organizer) => organizer.class !== "chair" && organizer.class !== "oc",
+            (organizer) =>
+              organizer.class !== "chair" && organizer.class !== "oc",
           )}
         />
         <div className="row">

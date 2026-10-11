@@ -135,12 +135,12 @@ class Entry {
   get ja() {
     return this.data.ja;
   }
-  getYearString(lang?: "en" | "ja") {
+  getYearString(lang?: "en" | "ja", currentYear = new Date().getFullYear()) {
     var to: number;
     if (this.data.year && typeof this.data.year.to === "number") {
       to = this.data.year.to;
     } else {
-      to = new Date().getFullYear();
+      to = currentYear;
     }
     if (!this.data.year) {
       return `-${to}`;

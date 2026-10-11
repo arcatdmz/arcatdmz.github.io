@@ -1,7 +1,14 @@
 import { DeferredScript } from "@/site/components/DeferredScript";
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -76,7 +83,9 @@ export default function Page() {
             <div className="caption">
               <a
                 className="ui fluid primary small labeled icon button"
-                href={href(`${rootPath}publications/live2016-kato-livetuning.pdf`)}
+                href={href(
+                  `${rootPath}publications/live2016-kato-livetuning.pdf`,
+                )}
               >
                 <i className="book icon"></i>
                 {richText("Paper")}
@@ -139,7 +148,9 @@ export default function Page() {
                     <img
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-programming-environment.png`}
-                      style={style("position: absolute; display: none; z-index: 10")}
+                      style={style(
+                        "position: absolute; display: none; z-index: 10",
+                      )}
                     />
                     <img
                       className="ui fluid image"
@@ -154,8 +165,14 @@ export default function Page() {
                     <strong>{richText("programmers")}</strong>
                     {richText(", typically built in development environments")}
                   </li>
-                  <li>{richText("Prior knowledge of programming is required.")}</li>
-                  <li>{richText("The entire programs are always live and editable.")}</li>
+                  <li>
+                    {richText("Prior knowledge of programming is required.")}
+                  </li>
+                  <li>
+                    {richText(
+                      "The entire programs are always live and editable.",
+                    )}
+                  </li>
                   <li>
                     {richText(
                       "The programmer has full control and is responsible for every aspect of program details.",
@@ -170,7 +187,9 @@ export default function Page() {
                     <img
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-tuning-environment.png`}
-                      style={style("position: absolute; display: none; z-index: 10")}
+                      style={style(
+                        "position: absolute; display: none; z-index: 10",
+                      )}
                     />
                     <img
                       className="ui fluid image"
@@ -190,7 +209,11 @@ export default function Page() {
                     <strong>{richText("not")}</strong>
                     {richText(" required.")}
                   </li>
-                  <li>{richText("Only a certain number of variables are editable.")}</li>
+                  <li>
+                    {richText(
+                      "Only a certain number of variables are editable.",
+                    )}
+                  </li>
                   <li>
                     {richText(
                       "The programmer and end-user are separating their roles of specifying program details.",
@@ -207,19 +230,25 @@ export default function Page() {
           <div className="ui basic segment">
             <div className="ui stackable two columns grid">
               <div className="column">
-                <h3 className="ui header">{richText("Because programmers are tired")}</h3>
+                <h3 className="ui header">
+                  {richText("Because programmers are tired")}
+                </h3>
                 <ul>
                   <li>
                     {richText("There are more and more ")}
                     <a
                       href={href(`${rootPath}programming-with-examples`)}
-                      title={"Programming with Examples to Develop Data-Intensive User Interfaces"}
+                      title={
+                        "Programming with Examples to Develop Data-Intensive User Interfaces"
+                      }
                     >
                       {richText("data-intensive programs")}
                     </a>
                     {richText(" such as animation design, ")}
                     <abbr title={"Internet of Things"}>{richText("IoT")}</abbr>
-                    {richText(" application development, machine learning, etc.")}
+                    {richText(
+                      " application development, machine learning, etc.",
+                    )}
                   </li>
                   <li>
                     {richText(
@@ -250,7 +279,9 @@ export default function Page() {
         <section id={attribute("example-ides")}>
           <h2 className="ui header">
             {richText("Example &quot;Live Tuning&quot; ")}
-            <abbr title={"Integrated Development Environments"}>{richText("IDEs")}</abbr>
+            <abbr title={"Integrated Development Environments"}>
+              {richText("IDEs")}
+            </abbr>
           </h2>
           <div className="ui basic segment">
             <h3 className="ui header">{richText("TextAlive")}</h3>
@@ -288,7 +319,9 @@ export default function Page() {
                 </p>
               </div>
             </div>
-            <h3 className="ui header">{richText("f3.js: Form Follows Function()")}</h3>
+            <h3 className="ui header">
+              {richText("f3.js: Form Follows Function()")}
+            </h3>
             <p>
               <a href={href(`${basePath}f3js`)}>
                 <strong>{richText("f3.js")}</strong>
@@ -331,12 +364,18 @@ export default function Page() {
           <div className="ui basic segment">
             <p>
               {richText("Please refer to ")}
-              <a href={href(`${rootPath}publications/live2016-kato-livetuning.pdf#page=4`)}>
+              <a
+                href={href(
+                  `${rootPath}publications/live2016-kato-livetuning.pdf#page=4`,
+                )}
+              >
                 {richText("the paper (p.4-6)")}
               </a>
               {richText(" for the detailed discussion. ")}
               <u>{richText("Underlined")}</u>
-              {richText(" options are those we consider the most interesting and promising.")}
+              {richText(
+                " options are those we consider the most interesting and promising.",
+              )}
             </p>
             <ul>
               <li>
@@ -368,12 +407,18 @@ export default function Page() {
                 {richText(
                   "1) seriously implement conflict resolution mechanisms 2) discard old edits as typical Live Programming systems do 3) separate namespaces and resulting application instances ",
                 )}
-                <u>{richText("4) aggregate parameter values from different users")}</u>
+                <u>
+                  {richText(
+                    "4) aggregate parameter values from different users",
+                  )}
+                </u>
                 {richText(".")}
               </li>
               <li>
                 <strong>
-                  {richText("How can we achieve liveness when it takes time to apply edits? ")}
+                  {richText(
+                    "How can we achieve liveness when it takes time to apply edits? ",
+                  )}
                 </strong>
                 {richText(
                   "For instance, updating the 3D models is an instant process, but printing them takes time. 1) significantly progress the research of programmable matter ",
@@ -395,14 +440,19 @@ export default function Page() {
               <div className="event">
                 <div className="content">
                   <div className="date">{richText("7/16/2016")}</div>
-                  <div className="summary">{richText("Upload the initial revision.")}</div>
+                  <div className="summary">
+                    {richText("Upload the initial revision.")}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        {content.renderProjectPublications("live-tuning", "live2016-kato-livetuning")}
+        {content.renderProjectPublications(
+          "live-tuning",
+          "live2016-kato-livetuning",
+        )}
       </SiteLayout>
       <DeferredScript
         dangerouslySetInnerHTML={{

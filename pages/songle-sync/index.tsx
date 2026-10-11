@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -71,7 +78,10 @@ export default function Page() {
         <h2 className="ui header">{plainText(en ? "Abstract" : "概要")}</h2>
         <div className="ui basic segment">
           <p>
-            <img className="ui image" src={"/songle-sync/mm2018-songlesync-demo.jpg"} />
+            <img
+              className="ui image"
+              src={"/songle-sync/mm2018-songlesync-demo.jpg"}
+            />
           </p>
           <p>
             {richText(
@@ -112,7 +122,9 @@ export default function Page() {
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Presentation materials" : "発表内容")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Presentation materials" : "発表内容")}
+        </h2>
         <div className="ui basic segment">
           <div className="ui stackable two columns grid">
             <div className="column">
@@ -120,7 +132,9 @@ export default function Page() {
                 {richText("ACM Multimedia 2018 ")}
                 {plainText(en ? "Demo Video" : "デモ動画")}
               </h3>
-              {content.renderEmbedYoutube("//www.youtube.com/embed/dErV9oZw_uQ")}
+              {content.renderEmbedYoutube(
+                "//www.youtube.com/embed/dErV9oZw_uQ",
+              )}
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -165,7 +179,9 @@ export default function Page() {
       <>
         <h2 className="ui header">
           <i className="lab icon"></i>
-          <div className="content">{plainText(en ? "Related projects" : "関連プロジェクト")}</div>
+          <div className="content">
+            {plainText(en ? "Related projects" : "関連プロジェクト")}
+          </div>
         </h2>
         <div className="ui basic segment">
           {(() => {
@@ -174,14 +190,20 @@ export default function Page() {
               <>
                 <ul>
                   <li>
-                    {richText("Automatic music analysis of Songle Sync relies on ")}
+                    {richText(
+                      "Automatic music analysis of Songle Sync relies on ",
+                    )}
                     <a href={href("https://songle.jp")}>{richText("Songle")}</a>
                     {richText(
                       " whose research contributions have been published in multiple academic papers.",
                     )}
                     {richText("\n")}
                     {richText(" For more details, ")}
-                    <a href={href("https://staff.aist.go.jp/m.goto/publications.html")}>
+                    <a
+                      href={href(
+                        "https://staff.aist.go.jp/m.goto/publications.html",
+                      )}
+                    >
                       {richText(
                         "search for the keyword &quot;Songle&quot; in Dr. Goto's publications",
                       )}
@@ -190,14 +212,18 @@ export default function Page() {
                   </li>
                   <li>
                     {richText("Songle Sync has been released as part of ")}
-                    <a href={href("https://api.songle.jp/sync")}>{richText("Songle API")}</a>
+                    <a href={href("https://api.songle.jp/sync")}>
+                      {richText("Songle API")}
+                    </a>
                     {richText(".")}
                   </li>
                   <li>
                     <a href={href("https://tutorial.songle.jp/sync")}>
                       {richText("Interactive coding tutorials for Songle Sync")}
                     </a>
-                    {richText(" are implemented based on the DeployGround framework.")}
+                    {richText(
+                      " are implemented based on the DeployGround framework.",
+                    )}
                   </li>
                 </ul>
               </>,
@@ -205,7 +231,9 @@ export default function Page() {
             dg = projectsTable["deployground"];
             children152.push(
               <>
-                <div className="ui divided items projects">{content.renderProjectItem(dg)}</div>
+                <div className="ui divided items projects">
+                  {content.renderProjectItem(dg)}
+                </div>
               </>,
             );
             return keyed(children152);
@@ -238,14 +266,23 @@ export default function Page() {
             {richText("Media Interaction Group")}
           </a>
           {richText(". Please see ")}
-          <a href={href("//api.songle.jp/sync")}>{richText("the official project page")}</a>
+          <a href={href("//api.songle.jp/sync")}>
+            {richText("the official project page")}
+          </a>
           {richText(" for the complete list of the contributors.")}
         </div>
         <div className="ui hidden divider"></div>
         <section id={attribute("abstract")}>{renderAbstract()}</section>
-        <section id={attribute("presentations")}>{renderPresentations()}</section>
-        <section id={attribute("related-projects")}>{renderRelatedProjects()}</section>
-        {content.renderProjectPublications("songle-sync", "mm2018-kato-songlesync")}
+        <section id={attribute("presentations")}>
+          {renderPresentations()}
+        </section>
+        <section id={attribute("related-projects")}>
+          {renderRelatedProjects()}
+        </section>
+        {content.renderProjectPublications(
+          "songle-sync",
+          "mm2018-kato-songlesync",
+        )}
       </SiteLayout>
     </>
   );

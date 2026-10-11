@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { richText } from "@/site/components/RichText";
-import { classNames, style, text as plainText, keyed, href, attribute } from "@/site/rendering";
+import {
+  classNames,
+  style,
+  text as plainText,
+  keyed,
+  href,
+  attribute,
+} from "@/site/rendering";
 import { getSiteData } from "@/site/data";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 import { createContentComponents } from "@/site/components/ContentComponents";
@@ -81,7 +88,9 @@ export default function Page() {
             <div className="ui basic segment">
               <p>
                 {richText("このWebサイトは")}
-                <a href={href("https://semantic-ui.com")}>{richText("Semantic UI")}</a>
+                <a href={href("https://semantic-ui.com")}>
+                  {richText("Semantic UI")}
+                </a>
                 {richText(
                   " CSSフレームワークを利用して作られており、さまざまな閲覧環境を想定したレスポンシブデザインとなっています。",
                 )}
@@ -100,7 +109,9 @@ export default function Page() {
             </h3>
             <div className="ui basic segment">
               <p>
-                <a href={href("#code")}>{richText("下で詳しく触れているように")}</a>
+                <a href={href("#code")}>
+                  {richText("下で詳しく触れているように")}
+                </a>
                 {richText(
                   "、Webサイトは専用に開発されたデータ構造を持ち、データが更新されるたびに動的にビルドされるようにできています。",
                 )}
@@ -124,11 +135,17 @@ export default function Page() {
                 )}
               </p>
               <p>
-                {richText("唯一の例外は、読み込みに多少時間のかかるWebフォント")}
-                <a href={href("https://www.morisawa.co.jp/fonts/specimen/1091")}>
+                {richText(
+                  "唯一の例外は、読み込みに多少時間のかかるWebフォント",
+                )}
+                <a
+                  href={href("https://www.morisawa.co.jp/fonts/specimen/1091")}
+                >
                   {richText("UD 新ゴ R")}
                 </a>
-                {richText("ですが、これは綺麗なタイポグラフィのためには外せないものです。")}
+                {richText(
+                  "ですが、これは綺麗なタイポグラフィのためには外せないものです。",
+                )}
               </p>
             </div>
           </div>
@@ -139,7 +156,9 @@ export default function Page() {
   function renderCode(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Code and data" : "コードとデータ")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Code and data" : "コードとデータ")}
+        </h2>
         <div className="ui basic segment">
           <p>
             {richText(
@@ -154,7 +173,10 @@ export default function Page() {
           <div className="ui divided list">
             <div className="item">
               <div className="content">
-                <a className="header" href={href(`${rootPath}data/histories.json`)}>
+                <a
+                  className="header"
+                  href={href(`${rootPath}data/histories.json`)}
+                >
                   {richText("histories.json")}
                 </a>
                 <div className="description">
@@ -164,19 +186,27 @@ export default function Page() {
             </div>
             <div className="item">
               <div className="content">
-                <a className="header" href={href(`${rootPath}data/publications.json`)}>
+                <a
+                  className="header"
+                  href={href(`${rootPath}data/publications.json`)}
+                >
                   {richText("publications.json")}
                 </a>
                 <div className="description">
                   {richText("Publication history (generated from ")}
-                  <a href={href(`${rootPath}junkato.bib`)}>{richText("junkato.bib")}</a>
+                  <a href={href(`${rootPath}junkato.bib`)}>
+                    {richText("junkato.bib")}
+                  </a>
                   {richText(")")}
                 </div>
               </div>
             </div>
             <div className="item">
               <div className="content">
-                <a className="header" href={href(`${rootPath}data/awards.json`)}>
+                <a
+                  className="header"
+                  href={href(`${rootPath}data/awards.json`)}
+                >
                   {richText("awards.json")}
                 </a>
                 <div className="description">
@@ -196,15 +226,23 @@ export default function Page() {
             </div>
             <div className="item">
               <div className="content">
-                <a className="header" href={href(`${rootPath}data/lectures.json`)}>
+                <a
+                  className="header"
+                  href={href(`${rootPath}data/lectures.json`)}
+                >
                   {richText("lectures.json")}
                 </a>
-                <div className="description">{richText("All of the lectures information")}</div>
+                <div className="description">
+                  {richText("All of the lectures information")}
+                </div>
               </div>
             </div>
             <div className="item">
               <div className="content">
-                <a className="header" href={href(`${rootPath}data/projects.json`)}>
+                <a
+                  className="header"
+                  href={href(`${rootPath}data/projects.json`)}
+                >
                   {richText("projects.json")}
                 </a>
                 <div className="description">
@@ -222,7 +260,9 @@ export default function Page() {
   function renderAcknowledgement(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{plainText(en ? "Acknowledgement" : "謝辞")}</h2>
+        <h2 className="ui header">
+          {plainText(en ? "Acknowledgement" : "謝辞")}
+        </h2>
         <div className="ui basic segment">
           <p>
             {richText(
@@ -234,14 +274,18 @@ export default function Page() {
               <i className="large devicon-gulp-plain colored icon"></i>
               <div className="content">
                 <div className="header">{richText("Gulp v4")}</div>
-                <div className="description">{richText("for managing build pipelines")}</div>
+                <div className="description">
+                  {richText("for managing build pipelines")}
+                </div>
               </div>
             </div>
             <div className="item">
               <i className="large devicon-webpack-plain colored icon"></i>
               <div className="content">
                 <div className="header">{richText("Webpack v4")}</div>
-                <div className="description">{richText("for packing JavaScript code")}</div>
+                <div className="description">
+                  {richText("for packing JavaScript code")}
+                </div>
               </div>
             </div>
             <div className="item">
@@ -249,7 +293,9 @@ export default function Page() {
               <div className="content">
                 <div className="header">{richText("Babel v7.9")}</div>
                 <div className="description">
-                  {richText("for transpiling JS code to be compatible with outdated browsers")}
+                  {richText(
+                    "for transpiling JS code to be compatible with outdated browsers",
+                  )}
                 </div>
               </div>
             </div>
@@ -257,21 +303,27 @@ export default function Page() {
               <i className="large ellipsis horizontal icon"></i>
               <div className="content">
                 <div className="header">{richText("Pug v2")}</div>
-                <div className="description">{richText("for easier HTML coding")}</div>
+                <div className="description">
+                  {richText("for easier HTML coding")}
+                </div>
               </div>
             </div>
             <div className="item">
               <i className="large devicon-less-plain-wordmark colored icon"></i>
               <div className="content">
                 <div className="header">{richText("LESS")}</div>
-                <div className="description">{richText("for easier CSS coding")}</div>
+                <div className="description">
+                  {richText("for easier CSS coding")}
+                </div>
               </div>
             </div>
             <div className="item">
               <i className="large devicon-typescript-plain colored icon"></i>
               <div className="content">
                 <div className="header">{richText("TypeScript v5.3")}</div>
-                <div className="description">{richText("for easier JS coding")}</div>
+                <div className="description">
+                  {richText("for easier JS coding")}
+                </div>
               </div>
             </div>
           </div>
@@ -285,7 +337,10 @@ export default function Page() {
         context={context}
         head={
           <>
-            <link rel={"stylesheet"} href={href(`${rootPath}stylesheets/design.css`)} />
+            <link
+              rel={"stylesheet"}
+              href={href(`${rootPath}stylesheets/design.css`)}
+            />
           </>
         }
       >
