@@ -1,18 +1,32 @@
+import {
+  HomeHistory,
+  HistoryFeed,
+  HistoryMore,
+} from "@/site/components/HomeHistory";
+import { SnsLink } from "@/site/components/InteractiveLinks";
+import { Popup, SiteModal, Avatar } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment } from "react";
 import { ProjectCard } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href, attribute } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { histories, products, selectedProjects, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { histories, products, selectedProjects, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -26,8 +40,7 @@ export default function Page() {
 
   title = en ? "Portfolio of Jun Kato" : "加藤 淳のポートフォリオ";
   me = "";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -225,14 +238,14 @@ export default function Page() {
   }
   function renderHistory(): ReactNode {
     return (
-      <>
+      <HomeHistory lang={lang}>
         <h2 className="ui header">
           <i className="history icon"></i>
           <div className="content">{en ? "Recent updates" : "近況"}</div>
         </h2>
 
         <div className="ui basic segment">
-          <div className="ui divided feed">
+          <HistoryFeed className="ui divided feed">
             {(() => {
               const children39: ReactNode[] = [];
               var i = 0;
@@ -255,16 +268,16 @@ export default function Page() {
               }
               return keyed(children39);
             })()}
-          </div>
+          </HistoryFeed>
         </div>
 
-        {histories[lang].length > 5 ? (
+        {data.historyCount > 5 ? (
           <>
             <div className="ui right aligned basic segment">
-              <a className="ui left attached more disabled button">
+              <HistoryMore className="ui left attached more disabled button">
                 <i className="zoom icon"></i>
                 {en ? "More" : "もっと見る"}
-              </a>
+              </HistoryMore>
               <SiteLink
                 className="ui right attached all with-popup button"
                 href={href(`${basePath}timeline/`)}
@@ -281,7 +294,7 @@ export default function Page() {
             </div>
           </>
         ) : null}
-      </>
+      </HomeHistory>
     );
   }
   function renderProjects(): ReactNode {
@@ -347,7 +360,8 @@ export default function Page() {
                         className="ui fluid bordered image"
                         href={href(p.getLink(lang, basePath))}
                       >
-                        <img
+                        <SiteImage
+                          sizes="(max-width: 767px) calc(100vw - 2rem), 340px"
                           src={`${rootPath}images/panels/${p.getThumbnail(
                             lang,
                           )}`}
@@ -402,9 +416,9 @@ export default function Page() {
         <div className="ui basic segment">
           <p>
             {"Please contact me via email or "}
-            <a href={"#sns"} className={"sns"}>
+            <SnsLink href={"#sns"} className={"sns"}>
               {"social networking sites"}
-            </a>
+            </SnsLink>
             {
               " rather than telephone if possible. I rarely check these conventional machines."
             }
@@ -539,15 +553,20 @@ export default function Page() {
               </div>
             </div>
             <div className="ui secondary right aligned segment">
-              <SiteLink
-                className="ui primary large with-popup labeled icon button"
-                href={href(`${basePath}collaborations`)}
-                data-position={"top right"}
+              <Popup
+                className="ui popup"
+                position="top right"
+                trigger={
+                  <SiteLink
+                    className="ui primary large with-popup labeled icon button"
+                    href={href(`${basePath}collaborations`)}
+                    data-position={"top right"}
+                  >
+                    <i className="handshake icon"></i>
+                    {en ? "Collaborations?" : "共同研究しませんか？"}
+                  </SiteLink>
+                }
               >
-                <i className="handshake icon"></i>
-                {en ? "Collaborations?" : "共同研究しませんか？"}
-              </SiteLink>
-              <div className="ui popup">
                 <div className="header">
                   <i className="handshake icon"></i>{" "}
                   {en ? "Collaborations" : "共同研究"}
@@ -557,7 +576,7 @@ export default function Page() {
                     ? "I am actively seeking collaborators in both academia and industry. Click for more details."
                     : "学生の受け入れや技術提供などを行っています。クリックして詳細をご確認ください。"}
                 </div>
-              </div>
+              </Popup>
             </div>
           </div>
         </div>
@@ -600,10 +619,15 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
-              <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            <Popup
+              className="ui hidden popup-menu popup"
+              position="top left"
+              trigger={
+                <a className="ui circular icon popup-menu large grey hidden button">
+                  <i className="sidebar icon"></i>
+                </a>
+              }
+            >
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -630,8 +654,8 @@ export default function Page() {
                   <div className="content">{en ? "Contact" : "連絡先"}</div>
                 </a>
               </div>
-            </div>
-            <div className="ui large modal">
+            </Popup>
+            <SiteModal className="ui large modal">
               <div className="header">{en ? "Profile photo" : "著者近影"}</div>
               <div className="scrolling content">
                 <div className="ui stackable columns grid">
@@ -641,7 +665,7 @@ export default function Page() {
                         className="ui fluid circular bordered image"
                         href={href(`${rootPath}images/junkato.highres.jpg`)}
                       >
-                        <img src={`${rootPath}images/junkato.jpg`} />
+                        <SiteImage src={`${rootPath}images/junkato.jpg`} />
                       </SiteLink>
                     </div>
                     <div className="column">
@@ -651,7 +675,9 @@ export default function Page() {
                           `${rootPath}images/junkato.comics.highres.png`,
                         )}
                       >
-                        <img src={`${rootPath}images/junkato.comics.png`} />
+                        <SiteImage
+                          src={`${rootPath}images/junkato.comics.png`}
+                        />
                       </SiteLink>
                     </div>
                     <div className="column">
@@ -659,7 +685,7 @@ export default function Page() {
                         className="ui fluid circular bordered image"
                         href={href(`${rootPath}images/junkato.alt.highres.jpg`)}
                       >
-                        <img src={`${rootPath}images/junkato.alt.jpg`} />
+                        <SiteImage src={`${rootPath}images/junkato.alt.jpg`} />
                       </SiteLink>
                     </div>
                     <div className="column">
@@ -669,7 +695,7 @@ export default function Page() {
                           `${rootPath}images/junkato.alt2.highres.jpg`,
                         )}
                       >
-                        <img src={`${rootPath}images/junkato.alt2.jpg`} />
+                        <SiteImage src={`${rootPath}images/junkato.alt2.jpg`} />
                       </SiteLink>
                     </div>
                     <div className="column">
@@ -679,7 +705,7 @@ export default function Page() {
                           `${rootPath}images/junkato.alt3.highres.jpg`,
                         )}
                       >
-                        <img src={`${rootPath}images/junkato.alt3.jpg`} />
+                        <SiteImage src={`${rootPath}images/junkato.alt3.jpg`} />
                       </SiteLink>
                     </div>
                   </div>
@@ -724,14 +750,16 @@ export default function Page() {
                   </>
                 )}
               </div>
-            </div>
+            </SiteModal>
           </>
         }
       >
         <h1 className="ui header">
-          <img
+          <Avatar
             className="ui circular image"
             id={"avatar"}
+            loading="eager"
+            fetchPriority="high"
             src={`${rootPath}images/junkato.jpg`}
             data-alt-src={`${rootPath}images/junkato.comics.png`}
           />
@@ -755,4 +783,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/") }, "/") };
 }

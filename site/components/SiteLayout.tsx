@@ -1,3 +1,11 @@
+import { SiteImage } from "./SiteImage";
+import {
+  Dropdown,
+  SidebarButton,
+  Sidebar,
+  SitePusher,
+  SiteWidgets,
+} from "@/site/components/SiteWidgets";
 import { SiteLink } from "@/site/components/SiteLink";
 import { PageContextProvider, type PageContext } from "./SiteContext";
 import { SitePathContext } from "./SiteLink";
@@ -57,7 +65,7 @@ function ProjectMenuItem({
       href={typeof link === "string" ? link : undefined}
     >
       {project.icon && (
-        <img
+        <SiteImage
           className="ui avatar image"
           src={`${context.rootPath}images/icons/${project.icon}`}
         />
@@ -76,7 +84,7 @@ export function SiteSidebar({
   return (
     <>
       <SiteLink className={itemClass(context, "item", "")} href={basePath}>
-        <img
+        <SiteImage
           className="ui avatar image"
           src={`${rootPath}images/junkato.jpg`}
         />
@@ -183,7 +191,7 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
       {projectsHeaderMenu !== undefined ? (
         projectsHeaderMenu
       ) : (
-        <div
+        <Dropdown
           className="ui dropdown mobile hidden item"
           {...{ href: `${basePath}projects` }}
         >
@@ -196,8 +204,7 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
               {en ? "List of projects" : "プロジェクト一覧"}
             </SiteLink>
             <div className="ui divider" />
-            {projects
-              .filter((project) => products.includes(project))
+            {(context.headerProducts || projects.filter((project) => products.includes(project)))
               .map((project) => (
                 <ProjectMenuItem
                   key={project.project}
@@ -216,7 +223,7 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
               {en ? "Design and engineering" : "デザイン・開発"}
             </SiteLink>
           </div>
-        </div>
+        </Dropdown>
       )}
       <SiteLink
         className={itemClass(context, "mobile hidden item", "publications/")}
@@ -295,12 +302,12 @@ export function SiteRightHeaderMenu({ context }: SiteComponentProps) {
         <i className="translate icon" />
         <span className="print-hidden">{en ? "日本語" : "English"}</span>
       </SiteLink>
-      <a className="item print-hidden sidebar-button" href="#">
+      <SidebarButton className="item print-hidden sidebar-button" href="#">
         <i className="sidebar icon" />
         <span className="widescreen monitor only">
           {en ? "Menu" : "メニュー"}
         </span>
-      </a>
+      </SidebarButton>
     </>
   );
 }
@@ -352,37 +359,39 @@ export function SiteLayout({
   return (
     <PageContextProvider value={context}>
       <SitePathContext.Provider value={`${context.basePath}${context.me}`}>
-        <SiteHead context={context}>{head}</SiteHead>
-        <div className="ui right sidebar inverted vertical menu">
-          <SiteSidebar
-            context={context}
-            projectsSidebarMenu={projectsSidebarMenu}
-          />
-        </div>
-        {header !== undefined ? (
-          header
-        ) : (
-          <SiteHeader
-            context={context}
-            projectsHeaderMenu={projectsHeaderMenu}
-          />
-        )}
-        <div id="pusher" className="pusher">
-          <div id="body">
-            {mainContainer !== undefined ? (
-              mainContainer
-            ) : (
-              <>
-                {mainHero}
-                <div className="ui container" id="main">
-                  {children}
-                </div>
-                <SiteFooter context={context} />
-              </>
-            )}
-          </div>
-        </div>
-        <div id="post-footer">{postFooter}</div>
+        <SiteWidgets>
+          <SiteHead context={context}>{head}</SiteHead>
+          <Sidebar className="ui right sidebar inverted vertical menu">
+            <SiteSidebar
+              context={context}
+              projectsSidebarMenu={projectsSidebarMenu}
+            />
+          </Sidebar>
+          {header !== undefined ? (
+            header
+          ) : (
+            <SiteHeader
+              context={context}
+              projectsHeaderMenu={projectsHeaderMenu}
+            />
+          )}
+          <SitePusher id="pusher" className="pusher">
+            <div id="body">
+              {mainContainer !== undefined ? (
+                mainContainer
+              ) : (
+                <>
+                  {mainHero}
+                  <div className="ui container" id="main">
+                    {children}
+                  </div>
+                  <SiteFooter context={context} />
+                </>
+              )}
+            </div>
+          </SitePusher>
+          <div id="post-footer">{postFooter}</div>
+        </SiteWidgets>
       </SitePathContext.Provider>
     </PageContextProvider>
   );

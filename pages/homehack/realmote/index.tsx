@@ -1,3 +1,4 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHeader,
@@ -5,15 +6,17 @@ import {
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { classNames, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from homehack/realmote/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -43,8 +46,7 @@ export default function Page() {
   title = p.getTitle(lang) + (homehack ? ` (${titles[lang][homehack]})` : "");
   me = p.project + "/" + (homehack ? homehack + "/" : "");
 
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -171,7 +173,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/realmote-edit.jpg`)}
             >
-              <img src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`} />
+              <SiteImage src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`} />
             </SiteLink>
           </div>
           <div className="column">
@@ -179,11 +181,15 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/realmote.jpg`)}
             >
-              <img src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
+              <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
             </SiteLink>
           </div>
         </div>
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/homehack/realmote/", {"projects": ["homehack"], "publicationProjects": ["homehack"]}) }, "/homehack/realmote/") };
 }

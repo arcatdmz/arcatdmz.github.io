@@ -1,3 +1,4 @@
+import { Popup } from "@/site/components/SiteWidgets";
 import {
   MediaItem,
   ProjectItem,
@@ -8,14 +9,16 @@ import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href, attribute } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from timeline/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
   const {
     histories,
     awards,
@@ -24,7 +27,6 @@ export default function Page() {
     projects,
     publications,
     mediaList,
-    moment,
     rootPath,
   } = data;
   const lang: "en" | "ja" = "en";
@@ -44,8 +46,7 @@ export default function Page() {
     : "加藤 淳の研究・デザインのポートフォリオWebサイトの活動履歴です。Webサイトの更新情報と発表文献を時系列で紹介しています。";
   me = "timeline/";
   bodyClass = "with-rail";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -501,12 +502,11 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden mobile-only button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               {renderTimelineMenu()}
-            </div>
+            </Popup>
           </>
         }
       >
@@ -515,4 +515,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/timeline/") }, "/timeline/") };
 }

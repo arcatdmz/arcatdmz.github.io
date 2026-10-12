@@ -1,3 +1,4 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   ProjectPublications,
@@ -6,15 +7,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/pressing/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -29,8 +32,7 @@ export default function Page() {
   p = projectsTable["pressing"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -80,7 +82,7 @@ export default function Page() {
             </p>
             <div className="ui hidden divider"></div>
             <div className="ui fluid image">
-              <img
+              <SiteImage
                 src={
                   "https://digitalmuseum.jp/en/software/pressing/images/usage.png"
                 }
@@ -164,7 +166,7 @@ export default function Page() {
           className="ui fluid image"
           href={href(`${rootPath}pressing/pressing.png`)}
         >
-          <img src={`${rootPath}pressing/pressing.png`} />
+          <SiteImage src={`${rootPath}pressing/pressing.png`} />
         </SiteLink>
         <div className="caption">
           {en
@@ -176,7 +178,7 @@ export default function Page() {
           className="ui fluid image"
           href={"https://www.flickr.com/photos/zhiquan/3989241000/"}
         >
-          <img src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
+          <SiteImage src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
         </a>
         <div className="caption">
           {en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子"}
@@ -199,4 +201,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/pressing/", {"projects": ["pressing"], "publicationProjects": ["pressing"]}) }, "/ja/pressing/") };
 }

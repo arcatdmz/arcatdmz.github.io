@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   TranslateEn,
@@ -6,15 +8,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { classNames, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from homehack/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -43,8 +47,7 @@ export default function Page() {
   title = p.getTitle(lang) + (homehack ? ` (${titles[lang][homehack]})` : "");
   me = p.project + "/" + (homehack ? homehack + "/" : "");
 
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -65,7 +68,7 @@ export default function Page() {
             className="image"
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
-            <img src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
+            <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
           </SiteLink>
           <div className="content">
             <SiteLink
@@ -109,7 +112,7 @@ export default function Page() {
             className="image"
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
-            <img src={`${rootPath}homehack/rhythmkaden.jpg`} />
+            <SiteImage src={`${rootPath}homehack/rhythmkaden.jpg`} />
           </SiteLink>
           <div className="content">
             <SiteLink
@@ -167,7 +170,7 @@ export default function Page() {
             className="image"
             href={href(`${basePath}homehack/realmote/`)}
           >
-            <img src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
+            <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
           </SiteLink>
           <div className="content">
             <SiteLink
@@ -272,7 +275,7 @@ export default function Page() {
         <div className="ui basic segment">
           <div className="ui stackable grid">
             <div className="six wide column">
-              <div className="ui embed">
+              <Embed className="ui embed">
                 <iframe
                   src={"//www.slideshare.net/slideshow/embed_code/38527331"}
                   frameBorder={"0"}
@@ -281,7 +284,7 @@ export default function Page() {
                   scrolling={"no"}
                   allowFullScreen={Boolean(true)}
                 ></iframe>
-              </div>
+              </Embed>
             </div>
             <div className="ten wide column">
               <p>
@@ -335,4 +338,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/homehack/", {"projects": ["homehack"], "publicationProjects": ["homehack"]}) }, "/homehack/") };
 }

@@ -1,16 +1,19 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/teaparty/2016/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -25,8 +28,7 @@ export default function Page() {
   p = projectsTable["teaparty"];
   title = "第5回 名状しがたいお茶会";
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -154,19 +156,19 @@ export default function Page() {
             <section id={"photos"}>
               <h2 className="ui header">{"当日の様子"}</h2>
               <div className="ui basic segment">
-                <img className="ui fluid image" src={"DSC09983.jpg"} />
+                <SiteImage className="ui fluid image" src={"DSC09983.jpg"} />
                 <div className="caption">{"開場前"}</div>
                 <div className="ui hidden divider"></div>
-                <img className="ui fluid image" src={"DSC09990.jpg"} />
+                <SiteImage className="ui fluid image" src={"DSC09990.jpg"} />
                 <div className="caption">{"質疑"}</div>
                 <div className="ui hidden divider"></div>
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={"73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg"}
                 />
                 <div className="caption">{"名札"}</div>
                 <div className="ui hidden divider"></div>
-                <img className="ui fluid image" src={"DSC09993.jpg"} />
+                <SiteImage className="ui fluid image" src={"DSC09993.jpg"} />
                 <div className="caption">{"突発ゲーム会"}</div>
                 <div className="ui hidden divider"></div>
               </div>
@@ -184,4 +186,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/teaparty/2016/", {"projects": ["teaparty"]}) }, "/ja/teaparty/2016/") };
 }

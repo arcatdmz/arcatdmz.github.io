@@ -18,7 +18,8 @@ import rawPublications from "./generated/publications.json";
 /**
  * Preserve the existing data models, including their formatting methods and Date
  * values. Only the former build-time ${rootPath} substitution moves here. This
- * module deliberately has no Node-only imports, so Next can use it on either side.
+ * module is build-only: React pages import it only through page-data.server.ts
+ * in getStaticProps. Never import these all-site models from browser components.
  */
 function replaceRootPath(
   value: unknown,

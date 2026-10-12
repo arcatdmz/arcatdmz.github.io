@@ -1,3 +1,5 @@
+import { ModalImage, Popup, SiteModal } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment } from "react";
 
 import { SiteLink } from "@/site/components/SiteLink";
@@ -5,15 +7,17 @@ import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href, attribute } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout, SiteRightHeaderMenu } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/design/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projects, projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projects, projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -29,8 +33,7 @@ export default function Page() {
   title = p.getTitle(lang);
   me = p.project + "/";
   bodyClass = "without-header-menu design";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -108,7 +111,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Photoshop"}</div>
             <div className="description">
-              {moment([2002, 9, 1]).toNow(true)}
+              {data.durations["2002,9,1"]}
             </div>
           </div>
         </div>
@@ -117,7 +120,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Illustrator"}</div>
             <div className="description">
-              {moment([2002, 9, 1]).toNow(true)}
+              {data.durations["2002,9,1"]}
             </div>
           </div>
         </div>
@@ -152,7 +155,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"HTML"}</div>
             <div className="description">
-              {moment([2000, 10, 1]).toNow(true)}
+              {data.durations["2000,10,1"]}
             </div>
           </div>
         </div>
@@ -161,7 +164,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Pug (Jade)"}</div>
             <div className="description">
-              {moment([2015, 0, 5]).toNow(true)}
+              {data.durations["2015,0,5"]}
             </div>
           </div>
         </div>
@@ -170,7 +173,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"CSS"}</div>
             <div className="description">
-              {moment([2000, 10, 1]).toNow(true)}
+              {data.durations["2000,10,1"]}
             </div>
           </div>
         </div>
@@ -179,7 +182,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Stylus and LESS"}</div>
             <div className="description">
-              {moment([2015, 0, 5]).toNow(true)}
+              {data.durations["2015,0,5"]}
             </div>
           </div>
         </div>
@@ -188,7 +191,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Bootstrap (< 4)"}</div>
             <div className="description">
-              {moment([2012, 2, 19]).toNow(true)}
+              {data.durations["2012,2,19"]}
             </div>
           </div>
         </div>
@@ -197,7 +200,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Semantic UI"}</div>
             <div className="description">
-              {moment([2016, 1, 22]).toNow(true)}
+              {data.durations["2016,1,22"]}
             </div>
           </div>
         </div>
@@ -206,7 +209,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Grunt"}</div>
             <div className="description">
-              {moment([2015, 0, 5]).toNow(true)}
+              {data.durations["2015,0,5"]}
             </div>
           </div>
         </div>
@@ -215,7 +218,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Gulp"}</div>
             <div className="description">
-              {moment([2017, 11, 5]).toNow(true)}
+              {data.durations["2017,11,5"]}
             </div>
           </div>
         </div>
@@ -224,7 +227,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Vim"}</div>
             <div className="description">
-              {moment([2005, 5, 1]).toNow(true)}
+              {data.durations["2005,5,1"]}
             </div>
           </div>
         </div>
@@ -239,7 +242,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"JavaScript"}</div>
             <div className="description">
-              {moment([2000, 10, 1]).toNow(true)}
+              {data.durations["2000,10,1"]}
             </div>
           </div>
         </div>
@@ -264,7 +267,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"jQuery"}</div>
             <div className="description">
-              {moment([2012, 2, 19]).toNow(true)}
+              {data.durations["2012,2,19"]}
             </div>
           </div>
         </div>
@@ -273,7 +276,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"D3.js"}</div>
             <div className="description">
-              {moment([2017, 11, 7]).toNow(true)}
+              {data.durations["2017,11,7"]}
             </div>
           </div>
         </div>
@@ -282,7 +285,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Webpack"}</div>
             <div className="description">
-              {moment([2017, 11, 5]).toNow(true)}
+              {data.durations["2017,11,5"]}
             </div>
           </div>
         </div>
@@ -291,7 +294,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Babel"}</div>
             <div className="description">
-              {moment([2017, 11, 5]).toNow(true)}
+              {data.durations["2017,11,5"]}
             </div>
           </div>
         </div>
@@ -300,7 +303,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Node.js"}</div>
             <div className="description">
-              {moment([2015, 0, 5]).toNow(true)}
+              {data.durations["2015,0,5"]}
             </div>
           </div>
         </div>
@@ -309,7 +312,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"PHP (< 7)"}</div>
             <div className="description">
-              {moment([2005, 5, 1]).toNow(true)}
+              {data.durations["2005,5,1"]}
             </div>
           </div>
         </div>
@@ -318,7 +321,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"WordPress"}</div>
             <div className="description">
-              {moment([2005, 5, 1]).toNow(true)}
+              {data.durations["2005,5,1"]}
             </div>
           </div>
         </div>
@@ -336,7 +339,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Java (< 8)"}</div>
             <div className="description">
-              {moment([2008, 5, 1]).toNow(true)}
+              {data.durations["2008,5,1"]}
               {", for robot and desktop apps and browser applets"}
             </div>
           </div>
@@ -346,7 +349,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Processing"}</div>
             <div className="description">
-              {moment([2008, 5, 1]).toNow(true)}
+              {data.durations["2008,5,1"]}
               {", mostly for robot apps using "}
               <SiteLink href={href(`${rootPath}phybots`)}>{"Phybots"}</SiteLink>
               {" and "}
@@ -359,7 +362,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Visual Studio, Visual Studio Code"}</div>
             <div className="description">
-              {moment([2008, 5, 1]).toNow(true)}
+              {data.durations["2008,5,1"]}
               {" and since it was born, respectively"}
             </div>
           </div>
@@ -369,7 +372,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"MySQL"}</div>
             <div className="description">
-              {moment([2005, 9, 1]).toNow(true)}
+              {data.durations["2005,9,1"]}
             </div>
           </div>
         </div>
@@ -378,7 +381,7 @@ export default function Page() {
           <div className="content">
             <div className="header">{"Eclipse"}</div>
             <div className="description">
-              {moment([2008, 5, 1]).toNow(true)}
+              {data.durations["2008,5,1"]}
             </div>
           </div>
         </div>
@@ -406,9 +409,9 @@ export default function Page() {
               <div className="ui basic segment" id={attribute(p.project)}>
                 {link === false ? (
                   <>
-                    <img
+                    <SiteImage
                       className="ui small left floated image"
-                      src={`${rootPath}images/icons/${p.icon}`}
+                      sizes="150px" src={`${rootPath}images/icons/${p.icon}`}
                     />
                   </>
                 ) : (
@@ -417,7 +420,7 @@ export default function Page() {
                       className="ui small left floated image"
                       href={href(link)}
                     >
-                      <img src={`${rootPath}images/icons/${p.icon}`} />
+                      <SiteImage sizes="150px" src={`${rootPath}images/icons/${p.icon}`} />
                     </SiteLink>
                   </>
                 )}
@@ -433,9 +436,9 @@ export default function Page() {
                     <div className="ui tiny images">
                       {p.images.map((image, itemIndex) => (
                         <Fragment key={itemIndex}>
-                          <a className="ui for-modal image">
-                            <img src={image} />
-                          </a>
+                          <ModalImage className="ui for-modal image">
+                            <SiteImage src={image} displayHeight={70} />
+                          </ModalImage>
                         </Fragment>
                       ))}
                     </div>
@@ -523,10 +526,9 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -545,13 +547,13 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
-            <div className="ui large modal">
+            </Popup>
+            <SiteModal className="ui large modal">
               <div className="header">{"Header"}</div>
               <div className="image content">
-                <img className="image" />
+                <SiteImage className="image" />
               </div>
-            </div>
+            </SiteModal>
           </>
         }
       >
@@ -561,4 +563,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/design/", {"projects": ["design"]}) }, "/ja/design/") };
 }

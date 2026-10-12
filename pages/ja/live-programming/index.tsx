@@ -1,17 +1,21 @@
+import { Embed, Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { ProjectHero, ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/live-programming/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projects, moment, rootPath, protocol, domain } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projects, rootPath, protocol, domain } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -34,8 +38,7 @@ export default function Page() {
   me = "live-programming/";
   const slideUrl = `${protocol}://${domain}${rootPath}publications/live2017-kato-keynote-slides.pdf`;
   const slideImagePath = `${rootPath}live-programming/live2017/live2017-kato-keynote-slides`;
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -173,14 +176,14 @@ export default function Page() {
               <h3 className="ui header">
                 {en ? "Presentation Slides (Japanese)" : "発表スライド"}
               </h3>
-              <div
+              <Embed
                 className="ui embed"
                 data-url={
                   "https://docs.google.com/presentation/d/e/2PACX-1vSFvd9_lLppM-CnW9Qr2TXxPCETq9WAedQPIvgTebXe328vTvSP3-SUIJNGtimZR7ygSSb4LOHheLYq/embed"
                 }
                 data-placeholder={`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial.jpg`}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
               <div className="caption">
                 <h4 className="ui header">
                   {en
@@ -221,7 +224,7 @@ export default function Page() {
                   `${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`,
                 )}
               >
-                <img
+                <SiteImage
                   src={`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`}
                 />
               </SiteLink>
@@ -429,12 +432,12 @@ export default function Page() {
               <h3 className="ui header">
                 {en ? "Presentation Slides" : "発表スライド"}
               </h3>
-              <div
+              <Embed
                 className="ui embed"
                 data-url={slideUrl}
                 data-placeholder={`${slideImagePath}00.jpg`}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
               <div className="caption">
                 <h4 className="ui header">
                   {en
@@ -471,7 +474,7 @@ export default function Page() {
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}05.jpg`)}
               >
-                <img src={`${slideImagePath}05.jpg`} />
+                <SiteImage src={`${slideImagePath}05.jpg`} />
               </SiteLink>
               <div className="caption">
                 {en ? (
@@ -541,7 +544,7 @@ export default function Page() {
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}13.jpg`)}
               >
-                <img src={`${slideImagePath}13.jpg`} />
+                <SiteImage src={`${slideImagePath}13.jpg`} />
               </SiteLink>
             </div>
             <div className="column">
@@ -609,7 +612,7 @@ export default function Page() {
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}18.jpg`)}
               >
-                <img src={`${slideImagePath}18.jpg`} />
+                <SiteImage src={`${slideImagePath}18.jpg`} />
               </SiteLink>
               <div className="caption">
                 {en ? (
@@ -697,7 +700,7 @@ export default function Page() {
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}27.jpg`)}
               >
-                <img src={`${slideImagePath}27.jpg`} />
+                <SiteImage src={`${slideImagePath}27.jpg`} />
               </SiteLink>
               <div className="caption">
                 {en ? (
@@ -753,7 +756,7 @@ export default function Page() {
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}39.jpg`)}
               >
-                <img src={`${slideImagePath}39.jpg`} />
+                <SiteImage src={`${slideImagePath}39.jpg`} />
               </SiteLink>
               <div className="caption">
                 {en ? (
@@ -794,7 +797,7 @@ export default function Page() {
             className="ui fluid bordered image"
             href={href(`${slideImagePath}47.jpg`)}
           >
-            <img src={`${slideImagePath}47.jpg`} />
+            <SiteImage src={`${slideImagePath}47.jpg`} />
           </SiteLink>
           <div className="caption">
             {en ? (
@@ -1023,10 +1026,9 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -1063,7 +1065,7 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -1082,4 +1084,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/live-programming/", {"projects": ["live-programming"], "publicationProjects": ["live-programming"]}) }, "/ja/live-programming/") };
 }

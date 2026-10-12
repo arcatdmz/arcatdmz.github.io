@@ -1,3 +1,5 @@
+import { Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment } from "react";
 import { ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -5,15 +7,17 @@ import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from activities/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projects, misc, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projects, misc, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -68,8 +72,7 @@ export default function Page() {
     }
     return ranges.join(", ");
   }
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -738,10 +741,9 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#meetups"}>
                   <i className="users icon"></i>
@@ -762,7 +764,7 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -775,7 +777,7 @@ export default function Page() {
             <div className="ui feed">
               <div className="event">
                 <div className="label">
-                  <img src={`${rootPath}images/junkato.jpg`} />
+                  <SiteImage src={`${rootPath}images/junkato.jpg`} />
                 </div>
                 <div className="content">
                   {"Hi! I am open for collaborations. Please see "}
@@ -798,4 +800,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/activities/") }, "/activities/") };
 }

@@ -1,3 +1,4 @@
+import { Embed, Popup } from "@/site/components/SiteWidgets";
 import {
   EmbedYoutube,
   ProjectHero,
@@ -8,15 +9,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from textalive/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, publicationsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, publicationsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -31,8 +34,7 @@ export default function Page() {
   p = projectsTable["textalive"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -358,12 +360,12 @@ export default function Page() {
                 {en ? "Slides" : "発表スライド"}
               </h3>
 
-              <div
+              <Embed
                 className="ui embed"
                 data-url={publicationsTable[p.publication].entryTags.slides}
                 data-placeholder={`${rootPath}images/background-eee.png`}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
 
               <div className="caption">
                 <div className="ui horizontal list">
@@ -492,10 +494,9 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -530,7 +531,7 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -562,4 +563,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/textalive/", {"projects": ["creativity-support-environments", "lyric-app-framework", "textalive"], "publications": ["chi2015-kato-textalive"], "publicationProjects": ["textalive"]}) }, "/textalive/") };
 }

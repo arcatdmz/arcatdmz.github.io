@@ -1,3 +1,5 @@
+import { Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   ProjectItem,
@@ -6,15 +8,17 @@ import {
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from creativity-support-environments/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -29,8 +33,7 @@ export default function Page() {
   p = projectsTable["creativity-support-environments"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -170,7 +173,7 @@ export default function Page() {
     return (
       <>
         <p>
-          <img
+          <SiteImage
             className="ui bordered image"
             src={`${rootPath}creativity-support-environments/postgrowth-cst.jpg`}
           />
@@ -354,10 +357,9 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -380,7 +382,7 @@ export default function Page() {
                   <div className="content">{"ACM XRDS"}</div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -393,7 +395,7 @@ export default function Page() {
           <div className="ui basic segment">
             <HtmlContent html={p.getDescription(lang)} />
             <p>
-              <img
+              <SiteImage
                 className="ui image"
                 src={`${basePath}creativity-support-environments/creativity-support-environments.png`}
               />
@@ -420,4 +422,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/creativity-support-environments/", {"projects": ["creativity-support-environments", "griffith", "lyric-app-framework", "textalive"], "publications": ["chi2023-kato-sigccc"], "publicationProjects": ["creativity-support-environments"]}) }, "/creativity-support-environments/") };
 }
