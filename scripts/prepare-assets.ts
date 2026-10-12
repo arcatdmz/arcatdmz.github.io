@@ -9,6 +9,7 @@
 import { createRequire } from "node:module";
 import * as fs from "node:fs/promises";
 import path from "node:path";
+import { ensureImageManifest, prepareImageDerivatives } from "./image-derivatives";
 import type { Configuration } from "webpack";
 
 const root = process.cwd();
@@ -441,6 +442,7 @@ async function prepareRedirections(): Promise<void> {
 async function main(): Promise<void> {
   // Type checking a fresh clone only needs the two generated data modules.
   if (process.argv.includes("--ensure-data")) {
+    await ensureImageManifest(root);
     try {
       await fs.access(path.join(root, "site/generated/publications.json"));
       await fs.access(path.join(root, "site/generated/build-info.json"));
@@ -465,6 +467,7 @@ async function main(): Promise<void> {
   await fs.mkdir(buildDirectory, { recursive: true });
   await copySourceAssets();
   await prepareBibliography();
+  await prepareImageDerivatives({ root });
   const buildNow = new Date();
   await write(
     path.join(root, "site/generated/build-info.json"),

@@ -73,6 +73,7 @@ Thumbs.db
 out/
 public/
 site/generated/
+.cache/site-images/
 *.tsbuildinfo
 site-qa/
 

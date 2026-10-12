@@ -23,6 +23,14 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Restore image derivatives
+        uses: actions/cache@v5.1.0
+        with:
+          path: .cache/site-images
+          key: site-images-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package-lock.json', 'scripts/image-derivatives.ts') }}-${{ hashFiles('src/**/*.[pP][nN][gG]', 'src/**/*.[jJ][pP][gG]', 'src/**/*.[jJ][pP][eE][gG]', 'src/**/*.[wW][eE][bB][pP]') }}
+          restore-keys: |
+            site-images-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package-lock.json', 'scripts/image-derivatives.ts') }}-
+            site-images-v1-${{ runner.os }}-${{ runner.arch }}-
       - name: Build package
         run: npm run build
       - name: Archive assets
