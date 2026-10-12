@@ -67,9 +67,10 @@ tag controls, citation menus, and BibTeX copying verified by an actual paste.
 Browser-discovered hydration
 issues in Design and Japanese Science, and the floating Design navigation CSS,
 were repaired and rechecked. A final sweep of all 125 React routes reported zero
-hydration errors and zero new application errors. The 60 pre-existing empty-embed
-console errors across 40 routes matched the baseline exactly. Five legacy
-external redirects still reach unavailable/certificate-failing destinations;
+hydration errors and zero new application errors. The 60 pre-existing embed
+initialization console errors across 40 routes matched the baseline exactly;
+the affected elements contain iframes but lack Fomantic URL configuration. Five
+legacy external redirects still reach unavailable/certificate-failing destinations;
 they were preserved, and browser security warnings were not bypassed.
 
 ## Explicit differences
@@ -87,8 +88,13 @@ they were preserved, and browser security warnings were not bypassed.
 
 ## Existing limitations retained
 
-Some legacy links and empty embeds are already broken in the baseline, as
-reported above. Third-party maps, videos, and social widgets still depend on
+The pre-existing broken references and embed initialization errors are listed
+with affected pages, source files, and repair hints in
+[LEGACY_CONTENT_ISSUES.md](LEGACY_CONTENT_ISSUES.md). That inventory also records
+the legacy external redirect destinations and distinguishes historical browser
+findings from the latest local-file checks.
+
+Third-party maps, videos, and social widgets still depend on
 external services and can show transient loading states; settled Maps and
 TextAlive renders were verified to match the original.
 
