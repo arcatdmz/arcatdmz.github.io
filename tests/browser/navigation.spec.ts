@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 
 async function waitForWidgets(page: Page) {
   await page.waitForFunction(
-    () => !!(window as any).$?.(".ui.sidebar").data("module-sidebar"),
+    () => document.getElementById("__next")?.dataset.siteWidgets === "ready",
   );
 }
 async function menuLink(page: Page, href: string, mobile: boolean) {
@@ -25,11 +25,14 @@ test.beforeEach(async ({ page, baseURL }) => {
   });
 });
 
-test("slow widget downloads never expose the dark canvas", async ({ page }) => {
-  await page.route("**/javascripts/vendor/jquery.min.js", async (route) => {
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    await route.continue();
-  });
+test("slow page downloads never expose the dark canvas", async ({ page }) => {
+  await page.route(
+    "**/_next/static/chunks/pages/visionsketch-*",
+    async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      await route.continue();
+    },
+  );
   await page.addInitScript(() => {
     (window as any).backgroundFrames = [];
     const sample = () => {
@@ -94,10 +97,13 @@ test("internal navigation keeps the document and initializes every destination",
     await page
       .locator('script[src="/javascripts/vendor/jquery.min.js"]')
       .count(),
-  ).toBe(1);
+  ).toBe(0);
   expect(
     await page.locator('script[src="/javascripts/views/runtime.js"]').count(),
-  ).toBe(1);
+  ).toBe(0);
+  expect(await page.evaluate(() => typeof (window as any).jQuery)).toBe(
+    "undefined",
+  );
   expect(
     await page
       .locator('script[src="https://use.typekit.net/tor0txx.js"]')
@@ -123,7 +129,7 @@ test("menus and modals work again after leaving and returning", async ({
   await waitForWidgets(page);
   await page.locator("a.ui.for-modal.image").first().click();
   await expect(page.locator(".ui.modal")).toHaveClass(/active/);
-  // Navigate while the modal is attached to Fomantic's body-level dimmer.
+  // Navigate while the React modal portal is open.
   await page.evaluate(() => (window as any).next.router.push("/"));
   await waitForWidgets(page);
   await page.locator("#avatar").click();
@@ -391,4 +397,260 @@ test("the standalone resume uses document navigation and keeps its isolated styl
   await page.goForward();
   await expect(page).toHaveTitle("Portfolio of Jun Kato | junkato.jp");
   await waitForWidgets(page);
+});
+
+test("React widgets do not request legacy scripts or eagerly request interaction data", async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  page.on("request", (request) =>
+    requests.push(new URL(request.url()).pathname),
+  );
+  await page.goto("/");
+  await waitForWidgets(page);
+  expect(
+    requests.filter((url) =>
+      /jquery|semantic.*\.js|\/javascripts\/views\/runtime/.test(url),
+    ),
+  ).toEqual([]);
+  expect(
+    requests.filter((url) => /\/data\/(?:histories|project-tags)-/.test(url)),
+  ).toEqual([]);
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(5);
+  await page.locator("a.more").click();
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(10);
+  await page.locator("a.more").click();
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(15);
+  expect(
+    requests.filter((url) => url === "/data/histories-en.json"),
+  ).toHaveLength(1);
+});
+
+test("home history retries failed loading and uses Japanese data after navigation", async ({
+  page,
+}) => {
+  await page.route("**/data/histories-en.json", (route) =>
+    route.fulfill({ status: 503, body: "Unavailable" }),
+  );
+  await page.goto("/");
+  await waitForWidgets(page);
+  await page.locator("a.more").click();
+  await expect(
+    page.getByText("Could not load updates. Please try again."),
+  ).toBeVisible();
+  await page.unroute("**/data/histories-en.json");
+  await page.locator("a.more").click();
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(10);
+  await page.evaluate(() => (window as any).next.router.push("/ja/"));
+  await waitForWidgets(page);
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(5);
+  await page.locator("a.more").click();
+  await expect(page.locator("#history .ui.feed > .event")).toHaveCount(10);
+  await expect(page.locator("#history .ui.feed > .event").last()).toContainText(
+    /[年月]/,
+  );
+});
+
+test("dropdown keyboard selection, escape, and pointer dismissal work", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "The desktop dropdown is replaced by the phone sidebar.");
+  await page.goto("/visionsketch/");
+  await waitForWidgets(page);
+  const dropdown = page.locator("#fixed-menu .ui.dropdown");
+  await dropdown.focus();
+  await page.keyboard.press("ArrowUp");
+  await expect(dropdown).toHaveAttribute("aria-expanded", "true");
+  await expect(dropdown.locator("a").last()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(dropdown).toHaveAttribute("aria-expanded", "false");
+  await expect(dropdown).toBeFocused();
+  await page.keyboard.press("ArrowDown");
+  await expect(dropdown).toHaveAttribute("aria-expanded", "true");
+  await expect(dropdown.locator("a").first()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(dropdown).toHaveAttribute("aria-expanded", "false");
+  await page.keyboard.type("text");
+  await expect(
+    dropdown.locator("a").filter({ hasText: "TextAlive" }),
+  ).toBeFocused();
+  await page.keyboard.press("Escape");
+  await dropdown.click();
+  await expect(dropdown).toHaveAttribute("aria-expanded", "true");
+  await page.locator("h1").click();
+  await expect(dropdown).toHaveAttribute("aria-expanded", "false");
+});
+
+test("modal dismissal restores focus and embeds activate only on demand", async ({
+  page,
+}) => {
+  await page.goto("/design/");
+  await waitForWidgets(page);
+  const image = page.locator("a.ui.for-modal.image").first();
+  const original =
+    (await image.locator("img").getAttribute("data-original-src")) ||
+    (await image.locator("img").getAttribute("src"));
+  await image.click();
+  await expect(page.locator(".ui.modal.active img")).toHaveAttribute(
+    "src",
+    original!,
+  );
+  await page.keyboard.press("Escape");
+  await expect(image).toBeFocused();
+  await expect(page.locator(".site-modal-dimmer")).toHaveCount(0);
+  await page.evaluate(() => (window as any).next.router.push("/visionsketch/"));
+  await waitForWidgets(page);
+  const embed = page.locator(".ui.embed[data-url]").first();
+  await expect(embed.locator("iframe")).toHaveCount(0);
+  await embed.click();
+  await expect(embed.locator("iframe")).toHaveAttribute(
+    "src",
+    (await embed.getAttribute("data-url"))!,
+  );
+});
+
+test("cold deep URLs contain their content and links with JavaScript disabled", async ({
+  browser,
+  baseURL,
+}) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  try {
+    await page.route("**/*", (route) =>
+      new URL(route.request().url()).origin === baseURL
+        ? route.continue()
+        : route.abort(),
+    );
+    for (const route of ["/visionsketch/", "/ja/timeline/2025/", "/design/"]) {
+      await page.goto(`${baseURL}${route}`);
+      await expect(page.locator("#body")).toBeVisible();
+      await expect(page.locator("h1").first()).not.toBeEmpty();
+      expect(await page.locator("#body a[href]").count()).toBeGreaterThan(0);
+      await expect(page.locator(".ui.modal")).not.toBeVisible();
+    }
+  } finally {
+    await context.close();
+  }
+});
+
+test("Live Tuning previews work on hover or keyboard focus without a deferred jQuery script", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto("/live-tuning/");
+  await waitForWidgets(page);
+  const preview = page.locator("#live-programming");
+  if (isMobile) await preview.focus();
+  else await preview.hover();
+  await expect(preview.locator("img.hover")).toHaveCSS("opacity", "1");
+  await page.locator("h1").first().click();
+  await page.evaluate(() => (document.activeElement as HTMLElement)?.blur());
+  await expect(preview.locator("img.hover")).toHaveCSS("opacity", "0");
+});
+
+test("publication popup supports keyboard focus, Escape restoration, and outside click", async ({
+  page,
+}) => {
+  await page.goto("/publications/");
+  await waitForWidgets(page);
+  const trigger = page.locator(".publication .with-popup-menu.button").first();
+  const popup = page.locator(".publication .ui.popup").first();
+  await trigger.focus();
+  await expect(popup).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(popup.locator("a").first()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(popup).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await expect(popup).toBeVisible();
+  await page.locator("h1").first().click();
+  await expect(popup).not.toBeVisible();
+});
+
+test("Japanese tag popups and clipboard feedback stay localized across navigation", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/ja/visionsketch/");
+  await waitForWidgets(page);
+  await page.locator("a.project.tag").first().click();
+  await expect(page.locator(".ui.popup.project.tag")).toContainText(
+    "に関するものです。",
+  );
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".ui.popup.project.tag")).toHaveCount(0);
+  await page.evaluate(() =>
+    (window as any).next.router.push("/ja/publications/"),
+  );
+  await waitForWidgets(page);
+  await page.locator(".publication .with-popup-menu.button").first().click();
+  await page.locator(".publication .ui.popup .bibtex").first().click();
+  await expect(
+    page.getByText("BibTeXをクリップボードにコピーしました！", { exact: true }),
+  ).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("sidebar button supports Space, Enter, and Escape focus restoration", async ({
+  page,
+}) => {
+  await page.goto("/visionsketch/");
+  await waitForWidgets(page);
+  const trigger = page.locator(".sidebar-button");
+  const sidebar = page.locator(".ui.sidebar");
+  await trigger.focus();
+  await page.keyboard.press("Space");
+  await expect(sidebar).toHaveClass(/visible/);
+  await page.keyboard.press("Space");
+  await expect(sidebar).not.toHaveClass(/visible/);
+  await page.keyboard.press("Enter");
+  await expect(sidebar).toHaveClass(/visible/);
+  await sidebar.locator("a[href]").first().focus();
+  await page.keyboard.press("Escape");
+  await expect(sidebar).not.toHaveClass(/visible/);
+  await expect(trigger).toBeFocused();
+});
+
+test("home collaboration popup preserves its authored English and Japanese content on hover and focus", async ({
+  page,
+  isMobile,
+}) => {
+  for (const [route, label, heading, content] of [
+    [
+      "/",
+      "Collaborations?",
+      "Collaborations",
+      "I am actively seeking collaborators in both academia and industry. Click for more details.",
+    ],
+    [
+      "/ja/",
+      "共同研究しませんか？",
+      "共同研究",
+      "学生の受け入れや技術提供などを行っています。クリックして詳細をご確認ください。",
+    ],
+  ]) {
+    await page.goto(route);
+    await waitForWidgets(page);
+    const trigger = page.getByRole("link", { name: label, exact: true });
+    const popup = trigger.locator(
+      "xpath=following-sibling::div[contains(@class, 'popup')]",
+    );
+    await trigger.focus();
+    await expect(popup).toBeVisible();
+    await expect(popup.locator(".header")).toHaveText(heading);
+    await expect(popup.locator(".content")).toHaveText(content);
+    await page.keyboard.press("Escape");
+    await expect(popup).not.toBeVisible();
+    if (!isMobile) {
+      await page.locator("h1").first().hover();
+      await trigger.hover();
+      await expect(popup).toBeVisible();
+      await expect(popup.locator(".content")).toHaveText(content);
+    }
+    await trigger.click();
+    await expect(page).toHaveURL(new RegExp(`${route}collaborations/$`));
+  }
 });
