@@ -1,4 +1,4 @@
-import { SiteLink } from "@/site/components/SiteLink";
+import { SiteLink, SitePathContext } from "@/site/components/SiteLink";
 import Head from "next/head";
 import { Fragment, type ReactNode } from "react";
 import { getSiteData, type SiteData } from "@/site/data";
@@ -159,7 +159,7 @@ function Profile() {
         </dd>
         <dt>{"URL"}</dt>
         <dd>
-          <SiteLink className="link" href={"https://junkato.jp"}>
+          <SiteLink className="link" href="/">
             {"https://junkato.jp"}
           </SiteLink>
         </dd>
@@ -1497,7 +1497,7 @@ function AcademicServices({ services }: { services: Services }) {
 export default function ResumePage() {
   const data = getSiteData();
   return (
-    <>
+    <SitePathContext.Provider value="/resume/">
       <Head>
         <meta charSet="utf-8" />
         <meta name="author" content="Jun Kato" />
@@ -1543,6 +1543,6 @@ export default function ResumePage() {
           <p>© Jun Kato {/[0-9]+$/.exec(updated)?.[0]}</p>
         </footer>
       </div>
-    </>
+    </SitePathContext.Provider>
   );
 }

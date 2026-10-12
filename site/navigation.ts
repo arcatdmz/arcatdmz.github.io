@@ -16,7 +16,6 @@ const reactRoutes = new Set([
       `/${path.replace(/(?:\/)?index\.tsx$/, "")}`.replace(/\/$/, "") || "/",
     ];
   }),
-  "/resume",
 ]);
 
 /** Archive pages and downloads need a document load; only exported React routes use Link. */
@@ -24,6 +23,9 @@ export function resolveReactHref(
   href: string | undefined,
   currentPath = "/",
 ): string | undefined {
+  // The résumé has an independent print stylesheet and uses document loads
+  // in both directions, including links inside its trusted HTML data.
+  if (/^\/resume(?:\.html|\/)?(?:[?#]|$)/.test(currentPath)) return undefined;
   if (!href || href.startsWith("#")) return undefined;
   let url: URL;
   try {

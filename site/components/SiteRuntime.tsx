@@ -65,13 +65,15 @@ export function SiteRuntime() {
       dispose.current?.();
       dispose.current = undefined;
     };
-    // Clean detached modal/popup nodes before React removes the previous page.
+    // A pending navigation may be cancelled without changing this page. Keep
+    // its widgets alive until Next has loaded the destination and is about to
+    // replace the DOM, then restore detached modal/popup nodes before unmount.
     const beforeNavigation = (url: string) => {
       if (url.split("#")[0] !== pageKey) cleanup();
     };
-    router.events.on("routeChangeStart", beforeNavigation);
+    router.events.on("beforeHistoryChange", beforeNavigation);
     return () => {
-      router.events.off("routeChangeStart", beforeNavigation);
+      router.events.off("beforeHistoryChange", beforeNavigation);
       cleanup();
     };
   }, [router.events, pageKey]);

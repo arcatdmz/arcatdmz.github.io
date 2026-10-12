@@ -20,6 +20,8 @@ test("only React routes use client navigation, including relative and data-autho
     "https://blog.junkato.jp",
     "mailto:i@junkato.jp",
     "/resume.html",
+    "/resume",
+    "/resume/",
     "/visionsketch/fig1-overview.jpg",
     "/publications/paper.pdf",
     "/user-generated-variables.old/",
@@ -44,4 +46,14 @@ test("route metadata updates both language and section layout", () => {
     bodyClass: undefined,
   });
   assert.equal(getDocumentMetadata("/ja/talks/as-a-code").language, "en");
+});
+
+test("the standalone résumé keeps outbound links as document navigation", () => {
+  for (const path of ["/resume/", "/resume.html"]) {
+    assert.equal(resolveReactHref("/", path), undefined);
+    assert.equal(
+      resolveReactHref("https://junkato.jp/projects/", path),
+      undefined,
+    );
+  }
 });

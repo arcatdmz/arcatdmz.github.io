@@ -314,17 +314,7 @@ export default function Page() {
   }
   return (
     <>
-      <SiteLayout
-        context={context}
-        head={
-          <>
-            <link
-              rel={"stylesheet"}
-              href={href(`${rootPath}stylesheets/design.css`)}
-            />
-          </>
-        }
-      >
+      <SiteLayout context={context}>
         <ProjectHeader project={"website"} />
         <div className="ui hidden divider"></div>
         <section id={"design"}>{renderDesign()}</section>
