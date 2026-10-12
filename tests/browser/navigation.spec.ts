@@ -634,7 +634,8 @@ test("home collaboration popup preserves its authored English and Japanese conte
   ]) {
     await page.goto(route);
     await waitForWidgets(page);
-    const trigger = page.getByRole("link", { name: label, exact: true });
+    // Fomantic's decorative icon glyph is part of the accessible name.
+    const trigger = page.getByRole("link", { name: label });
     const popup = trigger.locator(
       "xpath=following-sibling::div[contains(@class, 'popup')]",
     );
