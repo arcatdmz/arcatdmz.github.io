@@ -1,3 +1,6 @@
+import { SiteImage } from "./SiteImage";
+import { CopyButton } from "@/site/components/InteractiveLinks";
+import { Embed, Popup } from "@/site/components/SiteWidgets";
 import { Fragment } from "react";
 import { SiteLink } from "@/site/components/SiteLink";
 import { buildYear } from "@/site/clock";
@@ -5,7 +8,7 @@ import { DeferredScript } from "@/site/components/DeferredScript";
 
 import { HtmlContent } from "@/site/components/RichText";
 import { classNames, href, attribute } from "@/site/rendering";
-import type { SiteData } from "@/site/data";
+import type { SiteData } from "@/site/page-data";
 import type { Project } from "@/site/types";
 import { useSiteContext } from "./SiteContext";
 type PublicationEntry = SiteData["publications"][number];
@@ -14,14 +17,14 @@ type MediaEntry = SiteData["mediaList"][number];
 export function EmbedYoutube({ src }: { src?: string }) {
   return (
     <>
-      <div className="ui embed">
+      <Embed className="ui embed">
         <iframe
           src={src}
           frameBorder={"0"}
           allow={"autoplay; encrypted-media"}
           allowFullScreen={Boolean(true)}
         ></iframe>
-      </div>
+      </Embed>
     </>
   );
 }
@@ -90,7 +93,7 @@ export function Share() {
           data-hatena-bookmark-lang={"ja"}
           title={"このエントリーをはてなブックマークに追加"}
         >
-          <img
+          <SiteImage
             src={
               "https://b.st-hatena.com/images/entry-button/button-only@2x.png"
             }
@@ -356,10 +359,15 @@ export function Publication({
         id={attribute(entry.citationKey)}
       >
         <div className="right floated content">
-          <div className="ui circular icon tiny with-popup-menu button">
-            <i className="sidebar icon"></i>
-          </div>
-          <div className="ui popup">
+          <Popup
+            className="ui popup"
+            position="top right"
+            trigger={
+              <div className="ui circular icon tiny with-popup-menu button">
+                <i className="sidebar icon"></i>
+              </div>
+            }
+          >
             <div className="ui divided list">
               {entry.entryTags.pdf ? (
                 <>
@@ -414,15 +422,16 @@ export function Publication({
                 </>
               ) : null}
 
-              <a
+              <CopyButton
+                lang={en ? "en" : "ja"}
                 className="bibtex item"
                 data-clipboard-text={entry.getBibTeX()}
               >
                 <i className="book icon"></i>
                 {en ? "Copy BibTeX" : "BibTeXをコピー"}
-              </a>
+              </CopyButton>
             </div>
-          </div>
+          </Popup>
         </div>
 
         {withIcon ? (
@@ -626,13 +635,14 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
         <div className="field bibtex">
           <label>{"BibTeX:"}</label>
           <textarea readOnly defaultValue={entry.getBibTeX()} />
-          <a
+          <CopyButton
+            lang={en ? "en" : "ja"}
             className="ui bottom attached tiny bibtex button"
             data-clipboard-text={entry.getBibTeX()}
           >
             <i className="copy icon"></i>
             {en ? "Copy to the clipboard" : "クリップボードにコピー"}
-          </a>
+          </CopyButton>
         </div>
       </div>
     </>
@@ -652,13 +662,17 @@ export function ProjectCard({ p }: { p: Project }) {
       data-project={p.project}
     >
       <SiteLink className="image" href={href(p.getLink(lang, basePath))}>
-        <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+        <SiteImage
+          sizes="(max-width:767px) calc(100vw - 2rem), (max-width:991px) 340px, (max-width:1199px) 450px, 540px"
+          src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`}
+        />
       </SiteLink>
       <div className="content">
         <SiteLink className="header" href={href(p.getLink(lang, basePath))}>
           {p.icon ? (
-            <img
+            <SiteImage
               className="ui avatar image"
+              sizes="40px"
               src={`${rootPath}images/icons/${p.icon}`}
             />
           ) : null}
@@ -702,12 +716,15 @@ export function ProjectItem({ p }: { p: Project }) {
   const link = p.getLink(lang, basePath);
   const description = p.getDescription(lang);
   const thumbnail = (
-    <img src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`} />
+    <SiteImage
+      sizes="175px"
+      src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`}
+    />
   );
   const heading = (
     <>
       {p.icon ? (
-        <img
+        <SiteImage
           className="ui avatar image mobile only"
           src={`${rootPath}images/icons/${p.icon}`}
         />

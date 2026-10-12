@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHeader,
@@ -8,18 +10,19 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/programming-as-communication/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
   const {
     projectsTable,
     publicationsTable,
-    moment,
     rootPath,
     protocol,
     domain,
@@ -41,8 +44,7 @@ export default function Page() {
     "Throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. A programming environment does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.";
   imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-as-communication.png`;
   me = "programming-as-communication/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -133,12 +135,12 @@ export default function Page() {
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "slides" : "発表スライド"}
               </h3>
-              <div
+              <Embed
                 className="ui embed"
                 data-url={publicationsTable[p.publication].entryTags.slides}
                 data-placeholder={`${rootPath}programming-as-communication/ccs2020/ccs2020-kato-slides00.jpg`}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -193,7 +195,7 @@ export default function Page() {
           </div>
         </h2>
         <div className="ui basic segment">
-          <img
+          <SiteImage
             className="ui fluid bordered image"
             src={`${rootPath}programming-as-communication/runtime-env-as-programming-env.png`}
           />
@@ -248,7 +250,7 @@ export default function Page() {
           </div>
         </h2>
         <div className="ui basic segment">
-          <img
+          <SiteImage
             className="ui fluid bordered image"
             src={`${rootPath}programming-as-communication/evangelist-in-env.png`}
           />
@@ -358,4 +360,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/programming-as-communication/", {"projects": ["live-tuning", "programming-as-communication", "user-generated-variables"], "publicationProjects": ["programming-as-communication"]}) }, "/ja/programming-as-communication/") };
 }

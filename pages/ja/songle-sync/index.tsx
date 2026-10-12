@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHero,
@@ -8,15 +10,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/songle-sync/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath, protocol, domain } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath, protocol, domain } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -34,8 +38,7 @@ export default function Page() {
   me = p.project + "/";
   const slideUrl = `${protocol}://${domain}${rootPath}publications/mm2018-kato-songlesync-slides.pdf`;
   const slideImagePath = `${rootPath}songle-sync/mm2018-kato-songlesync-slides.jpg`;
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -54,7 +57,7 @@ export default function Page() {
         <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
         <div className="ui basic segment">
           <p>
-            <img
+            <SiteImage
               className="ui image"
               src={"/songle-sync/songlesync-platform-ja.png"}
             />
@@ -116,7 +119,7 @@ export default function Page() {
                 "https://ongaaccel.jp/wp-content/uploads/2020/09/OngaACCEL20200912proceedings.pdf"
               }
             >
-              <img
+              <SiteImage
                 className="ui image"
                 src={"/songle-sync/songlesync-poster-extract.jpg"}
               />
@@ -167,12 +170,12 @@ export default function Page() {
                 {"ACM Multimedia 2018 "}
                 {en ? "Slides" : "発表スライド"}
               </h3>
-              <div
+              <Embed
                 className="ui embed"
                 data-url={slideUrl}
                 data-placeholder={slideImagePath}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -284,4 +287,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/songle-sync/", {"projects": ["deployground", "songle-sync"], "publications": ["mm2018-kato-songlesync"], "publicationProjects": ["songle-sync"]}) }, "/ja/songle-sync/") };
 }

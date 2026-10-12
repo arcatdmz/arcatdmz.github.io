@@ -2,15 +2,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import { DeferredScript } from "@/site/components/DeferredScript";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/teaparty/2015/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -25,8 +27,7 @@ export default function Page() {
   p = projectsTable["teaparty"];
   title = "第4回 名状しがたいお茶会";
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -231,4 +232,8 @@ export default function Page() {
       />
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/teaparty/2015/", {"projects": ["teaparty"]}) }, "/ja/teaparty/2015/") };
 }

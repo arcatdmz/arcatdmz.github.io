@@ -1,21 +1,27 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   ProjectPublications,
   Translate,
 } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
-import { DeferredScript } from "@/site/components/DeferredScript";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from live-tuning/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -30,8 +36,7 @@ export default function Page() {
   p = projectsTable["live-tuning"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -53,7 +58,9 @@ export default function Page() {
             className="ui right floated small bordered image"
             style={{ zIndex: "100", marginRight: "1em" }}
           >
-            <img src={`${rootPath}live-tuning/live2016-kato-livetuning.jpg`} />
+            <SiteImage
+              src={`${rootPath}live-tuning/live2016-kato-livetuning.jpg`}
+            />
             <div className="caption">
               <SiteLink
                 className="ui fluid primary small labeled icon button"
@@ -111,17 +118,20 @@ export default function Page() {
               <div className="column">
                 <h2 className="ui header">{"Live Programming"}</h2>
                 <p style={{ position: "relative" }}>
-                  <a id={"live-programming"}>
-                    <img
+                  <a
+                    id={"live-programming"}
+                    className="live-preview"
+                    tabIndex={0}
+                  >
+                    <SiteImage
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-programming-environment.png`}
                       style={{
                         position: "absolute",
-                        display: "none",
                         zIndex: "10",
                       }}
                     />
-                    <img
+                    <SiteImage
                       className="ui fluid image"
                       src={`${rootPath}live-tuning/live-programming-environment-shadow.png`}
                       style={{ zIndex: "5" }}
@@ -146,17 +156,16 @@ export default function Page() {
               <div className="column">
                 <h2 className="ui header">{"Live Tuning"}</h2>
                 <p style={{ position: "relative" }}>
-                  <a id={"live-tuning"}>
-                    <img
+                  <a id={"live-tuning"} className="live-preview" tabIndex={0}>
+                    <SiteImage
                       className="ui fluid image hover"
                       src={`${rootPath}live-tuning/live-tuning-environment.png`}
                       style={{
                         position: "absolute",
-                        display: "none",
                         zIndex: "10",
                       }}
                     />
-                    <img
+                    <SiteImage
                       className="ui fluid image"
                       src={`${rootPath}live-tuning/live-tuning-environment-shadow.png`}
                       style={{ zIndex: "5" }}
@@ -250,7 +259,7 @@ export default function Page() {
             </p>
             <div className="ui stackable two columns grid">
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/textalive-code.png`}
                 />
@@ -262,7 +271,7 @@ export default function Page() {
                 </p>
               </div>
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/textalive-tuning.png`}
                 />
@@ -286,7 +295,7 @@ export default function Page() {
             </p>
             <div className="ui stackable two columns grid">
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/f3js-code.png`}
                 />
@@ -298,7 +307,7 @@ export default function Page() {
                 </p>
               </div>
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/f3js-tuning.png`}
                 />
@@ -404,12 +413,22 @@ export default function Page() {
           majorPublication={"live2016-kato-livetuning"}
         />
       </SiteLayout>
-      <DeferredScript
-        dangerouslySetInnerHTML={{
-          __html:
-            "$(function(){\n  $('#live-programming').hover(function (){\n    $('#live-programming>img.hover').fadeIn('fast');\n  }, function (){\n    $('#live-programming>img.hover').fadeOut('fast');\n  });\n  $('#live-tuning').hover(function (){\n    $('#live-tuning>img.hover').fadeIn('fast');\n  }, function (){\n    $('#live-tuning>img.hover').fadeOut('fast');\n  });\n});",
-        }}
-      />
     </>
   );
+}
+
+export function getStaticProps() {
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/live-tuning/", {
+          projects: ["live-programming", "live-tuning"],
+          publications: ["live2016-kato-livetuning"],
+          publicationProjects: ["live-tuning"],
+        }),
+      },
+      "/live-tuning/",
+    ),
+  };
 }

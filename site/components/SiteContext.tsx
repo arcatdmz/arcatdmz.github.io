@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { SiteData } from "../data";
+import type { SiteData } from "../page-data";
 import type { SiteContext } from "../types";
 
 export type PageContext = SiteData & SiteContext;

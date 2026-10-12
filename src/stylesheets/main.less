@@ -667,3 +667,27 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
 #__next.pushable > .pusher::after {
   position: fixed;
 }
+
+/* React-controlled widgets retain Fomantic's markup without its DOM plugin. */
+.ui.site-modal-dimmer {
+  overflow-y: auto;
+  padding: 1rem;
+}
+.ui.site-modal-dimmer > .ui.modal {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: auto !important;
+  flex: 0 0 auto;
+  max-height: none;
+}
+.ui.site-modal-dimmer > .ui.modal:focus { outline: none; }
+[role="button"] { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  .ui.sidebar, .pushable > .pusher { transition: none !important; }
+}
+
+/* Live Tuning illustrations cross-fade with hover or keyboard focus. */
+.live-preview > img.hover { opacity: 0; transition: opacity 200ms; }
+.live-preview:hover > img.hover,
+.live-preview:focus > img.hover { opacity: 1; }

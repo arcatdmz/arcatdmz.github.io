@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHeader,
@@ -6,15 +8,17 @@ import {
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/picode/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, publicationsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, publicationsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -29,8 +33,7 @@ export default function Page() {
   p = projectsTable["picode"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -119,12 +122,12 @@ export default function Page() {
                   {en ? "Slides" : "発表スライド"}
                 </h3>
 
-                <div
+                <Embed
                   className="ui embed"
                   data-url={publicationsTable[p.publication].entryTags.slides}
                   data-placeholder={`${rootPath}images/background-eee.png`}
                   data-icon={"video play outline"}
-                ></div>
+                ></Embed>
 
                 <div className="caption">
                   <div className="ui horizontal list">
@@ -218,7 +221,7 @@ export default function Page() {
                 className="ui fluid image"
                 href={href(`${rootPath}picode/picode-ide.jpg`)}
               >
-                <img
+                <SiteImage
                   src={`${rootPath}picode/picode-ide.jpg`}
                   alt={"Overview"}
                 />
@@ -345,4 +348,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/picode/", {"projects": ["picode"], "publications": ["chi2013-kato-picode"], "publicationProjects": ["picode"]}) }, "/ja/picode/") };
 }

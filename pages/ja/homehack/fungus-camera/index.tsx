@@ -1,3 +1,4 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHeader,
@@ -5,15 +6,17 @@ import {
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { classNames, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/homehack/fungus-camera/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -43,8 +46,7 @@ export default function Page() {
   title = p.getTitle(lang) + (homehack ? ` (${titles[lang][homehack]})` : "");
   me = p.project + "/" + (homehack ? homehack + "/" : "");
 
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -118,7 +120,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-prototype.jpg`)}
             >
-              <img
+              <SiteImage
                 src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`}
               />
             </SiteLink>
@@ -128,7 +130,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}
             >
-              <img
+              <SiteImage
                 src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`}
               />
             </SiteLink>
@@ -138,7 +140,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-camera.jpg`)}
             >
-              <img src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`} />
+              <SiteImage src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`} />
             </SiteLink>
           </div>
           <div className="column">
@@ -146,7 +148,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-box.jpg`)}
             >
-              <img src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
+              <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
             </SiteLink>
           </div>
         </div>
@@ -198,7 +200,7 @@ export default function Page() {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
             >
-              <img src={`${rootPath}homehack/fungus-camera-image.jpg`} />
+              <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
             </SiteLink>
           </div>
         </div>
@@ -213,4 +215,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/homehack/fungus-camera/", {"projects": ["homehack"], "publicationProjects": ["homehack"]}) }, "/ja/homehack/fungus-camera/") };
 }

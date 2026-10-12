@@ -1,3 +1,5 @@
+import { Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { SiteLink } from "@/site/components/SiteLink";
 import { Fragment } from "react";
 import {
@@ -9,21 +11,22 @@ import {
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/animare/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
   const {
     projectsTable,
     publications,
     publicationsTable,
     mediaList,
     misc,
-    moment,
     rootPath,
   } = data;
   const lang: "en" | "ja" = "ja";
@@ -40,8 +43,7 @@ export default function Page() {
   p = projectsTable["animare"];
   title = p.getTitle(lang);
   me = "animare/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -264,10 +266,9 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden mobile-only button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -296,7 +297,7 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -320,7 +321,7 @@ export default function Page() {
             <div className="ui hidden divider"></div>
             <div className="ui stackable two columns grid">
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={`${basePath}animare/animare-workflow.jpg`}
                 />
@@ -331,7 +332,7 @@ export default function Page() {
                 </p>
               </div>
               <div className="column">
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={`${rootPath}images/panels/${
                     en ? "animare" : "animare-ja"
@@ -366,4 +367,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/animare/", {"projects": ["animare", "anime-sig", "griffith"], "publications": ["chi2023-kato-sigccc", "chi2024-kato-griffith", "chi2025-kato-animesig", "chi2025-kato-postgrowth-cst", "chi2025-mandai-super-kawaii-vocalics", "hi25-kato-ui-design-for-authoring-videos", "isid2021-kato-anime-storyboards", "isid2022-kato-toolsmiths-in-anime", "jssst39-1-kato-toolsmith", "sa2024-todo-style-transfer", "sas2021-kato-storyboarding-in-anime", "sas2022-kato-toolsmiths-in-anime", "sas2023-kato-lights-animation-interaction", "vc2024-kato-toolsmiths-in-anime", "xrds2023summer-kato-toolsmith"], "publicationProjects": ["animare"]}) }, "/ja/animare/") };
 }

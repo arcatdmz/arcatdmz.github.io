@@ -47,9 +47,8 @@ async function main(): Promise<void> {
       filename.startsWith(path.join(destination, "stylesheets") + path.sep) &&
       filename.endsWith(".css"),
   );
-  // The legacy interaction bundles contain all dynamically inserted Fomantic
-  // classes. Next's framework internals retain unrelated selectors by accident;
-  // rendered HTML already contains the classes in our statically exported JSX.
+  // Scan our React source for state-driven widget classes, without retaining
+  // unrelated selectors mentioned only by Next framework internals.
   const content = files.filter(
     (filename) =>
       /\.(?:html|js)$/.test(filename) &&
@@ -57,8 +56,23 @@ async function main(): Promise<void> {
   );
   const purged = await new PurgeCSS().purge({
     css: styles,
-    content,
-    safelist: ["house", "procedures"],
+    content: [
+      ...content,
+      ...(await filesIn(path.join(root, "site"))).filter((file) =>
+        /\.tsx?$/.test(file),
+      ),
+    ],
+    safelist: [
+      "house",
+      "procedures",
+      "visible",
+      "active",
+      "transition",
+      "uncover",
+      "dimmed",
+      "modals",
+      "site-modal-dimmer",
+    ],
   });
   for (const stylesheet of purged) {
     if (!stylesheet.file)

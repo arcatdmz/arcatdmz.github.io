@@ -1,7 +1,9 @@
 import { SiteLink, SitePathContext } from "@/site/components/SiteLink";
 import Head from "next/head";
 import { Fragment, type ReactNode } from "react";
-import { getSiteData, type SiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { HtmlContent } from "@/site/components/RichText";
 
 /** The résumé retains its independent print layout and original inline stylesheet. */
@@ -1494,8 +1496,8 @@ function AcademicServices({ services }: { services: Services }) {
 }
 
 /** Standalone résumé, migrated from the original resume Pug templates. */
-export default function ResumePage() {
-  const data = getSiteData();
+export default function ResumePage({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
   return (
     <SitePathContext.Provider value="/resume/">
       <Head>
@@ -1545,4 +1547,8 @@ export default function ResumePage() {
       </div>
     </SitePathContext.Provider>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(ResumePage, { pageData: getPageData("/resume/", {"projects": ["griffith", "textalive", "touchdevelop"]}) }, "/resume/") };
 }

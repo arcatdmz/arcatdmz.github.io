@@ -1,17 +1,20 @@
+import { Popup } from "@/site/components/SiteWidgets";
 import { ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from projects/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projects, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projects, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -26,8 +29,7 @@ export default function Page() {
   title = en ? "Projects" : "プロジェクト";
   me = "projects/";
   bodyClass = "with-rail";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -158,12 +160,11 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden mobile-only button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               {renderPublicationsMenu()}
-            </div>
+            </Popup>
           </>
         }
       >
@@ -184,4 +185,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/projects/") }, "/projects/") };
 }

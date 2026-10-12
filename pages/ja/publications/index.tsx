@@ -1,18 +1,21 @@
+import { Popup } from "@/site/components/SiteWidgets";
 import { Fragment } from "react";
 import { MediaItem, Publication } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { classNames, keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/publications/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { awards, talks, lectures, publications, mediaList, moment, rootPath } =
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { awards, talks, lectures, publications, mediaList, rootPath } =
     data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
@@ -28,8 +31,7 @@ export default function Page() {
   title = en ? "Awards and Publications" : "受賞歴と発表文献";
   me = "publications/";
   bodyClass = "with-rail";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -96,8 +98,7 @@ export default function Page() {
         {(() => {
           const children248: ReactNode[] = [];
           const isAward = (award) =>
-            award.getText("ja").indexOf("受賞") >= 0 ||
-            award.getText("ja").indexOf("選定") >= 0;
+            award.isAward;
           const filteredAwards = awards.filter(isAward);
           const honors = awards.filter((award) => !isAward(award));
           const numInternationalAwards = filteredAwards.reduce(
@@ -474,7 +475,7 @@ export default function Page() {
             0,
           );
           const numDomesticMediaCoverage =
-            mediaList.length - numInternationalMediaCoverage;
+            data.mediaCount - numInternationalMediaCoverage;
           children260.push(
             <>
               <p>
@@ -521,12 +522,11 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden mobile-only button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               {renderPublicationsMenu()}
-            </div>
+            </Popup>
           </>
         }
       >
@@ -580,4 +580,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/publications/") }, "/ja/publications/") };
 }

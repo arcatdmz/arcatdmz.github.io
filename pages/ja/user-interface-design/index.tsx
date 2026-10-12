@@ -1,3 +1,5 @@
+import { Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   Publication,
@@ -6,18 +8,19 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/user-interface-design/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
   const {
     projectsTable,
     publicationsTable,
-    moment,
     rootPath,
     protocol,
     domain,
@@ -37,8 +40,7 @@ export default function Page() {
   title = p.getTitle(lang);
   imageUrl = `${protocol}://${domain}${rootPath}images/panels/user-interface-design.png`;
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -131,7 +133,7 @@ export default function Page() {
                     "https://www.amazon.co.jp/dp/4621304674?&linkCode=li2&tag=digitalmuseum-22&linkId=d6b76ffeb310e30945263f85e702914c&language=ja_JP&ref_=as_li_ss_il"
                   }
                 >
-                  <img
+                  <SiteImage
                     src={
                       "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4621304674&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
                     }
@@ -282,7 +284,7 @@ export default function Page() {
             }
           </p>
           <a className="ui right floated medium stackable image">
-            <img
+            <SiteImage
               src={`${rootPath}user-interface-design/uidesign-fig2-fits-law.png`}
             />
           </a>
@@ -486,7 +488,7 @@ export default function Page() {
             }
           </p>
           <a className="ui right floated medium stackable image">
-            <img
+            <SiteImage
               src={`${rootPath}user-interface-design/uidesign-fig2-steering.png`}
             />
           </a>
@@ -742,7 +744,7 @@ export default function Page() {
               "https://www.amazon.co.jp/Designing-User-Interface-Human-Computer-Interaction/dp/013438038X?&linkCode=li3&tag=digitalmuseum-22&linkId=74398046208ff478ab54959a153fe1de&language=ja_JP&ref_=as_li_ss_il"
             }
           >
-            <img
+            <SiteImage
               src={
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=013438038X&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
@@ -871,7 +873,7 @@ export default function Page() {
               `${rootPath}images/thumbnails/user-interface-design.png`,
             )}
           >
-            <img
+            <SiteImage
               src={`${rootPath}images/thumbnails/user-interface-design.png`}
             />
           </SiteLink>
@@ -924,7 +926,7 @@ export default function Page() {
               "https://www.amazon.co.jp/Usability-Engineering-Interactive-Technologies-English-ebook/dp/B0029ZBK80?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=usability+engineering&qid=1624013132&s=digital-text&sr=1-1&linkCode=li2&tag=digitalmuseum-22&linkId=24dd480fbbec4c7a2314591233e29d3b&language=ja_JP&ref_=as_li_ss_il"
             }
           >
-            <img
+            <SiteImage
               src={
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0029ZBK80&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
@@ -1248,7 +1250,7 @@ export default function Page() {
               "https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&linkCode=li2&tag=digitalmuseum-22&linkId=e636a05eb62ab11181a5af2591c5dcc7&language=ja_JP&ref_=as_li_ss_il"
             }
           >
-            <img
+            <SiteImage
               src={
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4861008212&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
@@ -1357,10 +1359,9 @@ export default function Page() {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -1387,7 +1388,7 @@ export default function Page() {
                   <div className="content">{"情報提示のデザイン"}</div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -1436,7 +1437,7 @@ export default function Page() {
         <section id={"conclusion"}>{renderConclusion()}</section>
         <div className="ui divider"></div>
         <section id={"revision"}>{renderRevision()}</section>
-        <img
+        <SiteImage
           src={
             "https://ir-jp.amazon-adsystem.com/e/ir?t=digitalmuseum-22&language=ja_JP&l=li3&o=9&a=B0844T1CKC"
           }
@@ -1444,7 +1445,7 @@ export default function Page() {
           height={"1"}
           {...{ border: "0" }}
         />
-        <img
+        <SiteImage
           src={
             "https://ir-jp.amazon-adsystem.com/e/ir?t=digitalmuseum-22&language=ja_JP&l=li3&o=9&a=013438038X"
           }
@@ -1455,4 +1456,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/user-interface-design/", {"projects": ["user-interface-design"], "publications": ["asj-v77n4-kato-ui-design"], "publicationProjects": ["user-interface-design"]}) }, "/ja/user-interface-design/") };
 }

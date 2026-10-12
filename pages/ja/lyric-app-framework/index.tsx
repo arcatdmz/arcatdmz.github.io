@@ -1,3 +1,5 @@
+import { Embed, Popup } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHero,
@@ -8,15 +10,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/lyric-app-framework/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, publicationsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, publicationsTable, rootPath } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -31,8 +35,7 @@ export default function Page() {
   p = projectsTable["lyric-app-framework"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -139,7 +142,7 @@ export default function Page() {
                   </div>
                   <div className="column">
                     <div className="ui basic segment">
-                      <div
+                      <Embed
                         className="ui embed"
                         data-url={
                           publicationsTable[
@@ -148,7 +151,7 @@ export default function Page() {
                         }
                         data-placeholder={`${basePath}lyric-app-framework/interaction2024-kato-lyric-apps-slides.png`}
                         data-icon={"video play outline"}
-                      ></div>
+                      ></Embed>
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
@@ -250,7 +253,7 @@ export default function Page() {
                   </div>
                   <div className="column">
                     <div className="ui basic segment">
-                      <div
+                      <Embed
                         className="ui embed"
                         data-url={
                           publicationsTable[
@@ -259,7 +262,7 @@ export default function Page() {
                         }
                         data-placeholder={`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides.png`}
                         data-icon={"video play outline"}
-                      ></div>
+                      ></Embed>
                       <div className="caption">
                         <div className="ui horizontal list">
                           <div className="item">
@@ -550,10 +553,9 @@ export default function Page() {
         }
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -586,7 +588,7 @@ export default function Page() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Popup>
           </>
         }
       >
@@ -601,7 +603,7 @@ export default function Page() {
                   {en ? (
                     <>
                       <p>
-                        <img
+                        <SiteImage
                           className="ui bordered image"
                           src={"/images/thumbnails/lyric-app-framework.png"}
                         />
@@ -610,7 +612,7 @@ export default function Page() {
                   ) : (
                     <>
                       <p>
-                        <img
+                        <SiteImage
                           className="ui bordered image"
                           src={`${basePath}lyric-app-framework/sigmus138-kato-lyric-apps-slides-p4_thumbnail.png`}
                         />
@@ -652,7 +654,7 @@ export default function Page() {
                   {en ? (
                     <>
                       <p>
-                        <img
+                        <SiteImage
                           className="ui bordered image"
                           src={`${basePath}lyric-app-framework/magicalmirai2026-banner.jpg`}
                         />
@@ -728,7 +730,7 @@ export default function Page() {
                   ) : (
                     <>
                       <p>
-                        <img
+                        <SiteImage
                           className="ui bordered image"
                           src={`${basePath}lyric-app-framework/interaction2024-kato-lyric-apps-slides-p27_thumbnail.png`}
                         />
@@ -870,4 +872,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/ja/lyric-app-framework/", {"projects": ["creativity-support-environments", "lyric-app-framework", "textalive"], "publications": ["chi2023-kato-lyric-app-framework", "interaction2024-kato-lyric-app-framework", "sigmus138-kato-lyric-app-framework"], "publicationProjects": ["lyric-app-framework"]}) }, "/ja/lyric-app-framework/") };
 }

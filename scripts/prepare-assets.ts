@@ -9,8 +9,12 @@
 import { createRequire } from "node:module";
 import * as fs from "node:fs/promises";
 import path from "node:path";
-import { ensureImageManifest, prepareImageDerivatives } from "./image-derivatives";
 import type { Configuration } from "webpack";
+import {
+  ensureImageManifest,
+  prepareImageDerivatives,
+} from "./image-derivatives";
+import { preparePageData } from "./prepare-page-data";
 
 const root = process.cwd();
 const require = createRequire(path.join(root, "package.json"));
@@ -440,7 +444,7 @@ async function prepareRedirections(): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  // Type checking a fresh clone only needs the two generated data modules.
+  // Type checking a fresh clone needs only lightweight generated data modules.
   if (process.argv.includes("--ensure-data")) {
     await ensureImageManifest(root);
     try {
@@ -466,8 +470,8 @@ async function main(): Promise<void> {
   await fs.mkdir(publicDirectory, { recursive: true });
   await fs.mkdir(buildDirectory, { recursive: true });
   await copySourceAssets();
-  await prepareBibliography();
   await prepareImageDerivatives({ root });
+  await prepareBibliography();
   const buildNow = new Date();
   await write(
     path.join(root, "site/generated/build-info.json"),
@@ -477,6 +481,9 @@ async function main(): Promise<void> {
       2,
     ) + "\n",
   );
+  // page-data imports the generated bibliography and build clock. Both must
+  // exist before that first dynamic import, including in a clean checkout.
+  await preparePageData(root);
   await buildSemantic();
   await Promise.all([
     compileStyles(),

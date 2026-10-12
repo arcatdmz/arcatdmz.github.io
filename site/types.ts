@@ -1,7 +1,7 @@
-import type projects from "../src/javascripts/projects";
+import type { Project as PageProject } from "./page-data";
 
 export type Language = "en" | "ja";
-export type Project = (typeof projects)[number];
+export type Project = PageProject;
 
 /** Values shared by the original templates and the React page components. */
 export interface SiteContext {

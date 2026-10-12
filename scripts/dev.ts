@@ -164,7 +164,12 @@ try {
   watchSource("semantic", true);
   watchSource("site", true, (name) => !/^generated(?:[/\\]|$)/.test(name));
   watchSource("scripts", false, (name) =>
-    ["prepare-assets.ts", "blog-redirections.json"].includes(name),
+    [
+      "prepare-assets.ts",
+      "image-derivatives.ts",
+      "prepare-page-data.ts",
+      "blog-redirections.json",
+    ].includes(name),
   );
   watchSource(".", false, (name) =>
     [

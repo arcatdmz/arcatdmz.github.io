@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment } from "react";
 import {
   ProjectHeader,
@@ -7,15 +9,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from openpool/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, mediaList, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, mediaList, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -33,8 +37,7 @@ export default function Page() {
   var additionalLabels = [
     '<span class="ui tiny green basic label"><i class="student icon"></i>SxSW \'13 Gaming Expo, Trade Show</span>',
   ];
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -162,7 +165,7 @@ export default function Page() {
     return (
       <>
         <section id={"videos"}>
-          <div className="ui embed">
+          <Embed className="ui embed">
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=608850275796418"
@@ -170,10 +173,10 @@ export default function Page() {
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
-          </div>
+          </Embed>
           <div className="caption">{"Playing 8 ball pool with OpenPool"}</div>
           <div className="ui hidden divider"></div>
-          <div className="ui embed">
+          <Embed className="ui embed">
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=614971478517631"
@@ -181,12 +184,12 @@ export default function Page() {
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
-          </div>
+          </Embed>
           <div className="caption">
             {"Collision detection between balls and virtual objects"}
           </div>
           <div className="ui hidden divider"></div>
-          <div className="ui embed">
+          <Embed className="ui embed">
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=615808058433973"
@@ -194,7 +197,7 @@ export default function Page() {
               frameBorder={"0"}
               allowFullScreen={true}
             ></iframe>
-          </div>
+          </Embed>
           <div className="caption">
             {
               "Animation effect triggered by an OpenPool pocket detection sensor"
@@ -222,7 +225,7 @@ export default function Page() {
                         href={href(e.archive || e.permalink)}
                         title={e.text.en}
                       >
-                        <img
+                        <SiteImage
                           className="ui fluid image"
                           src={`${rootPath}openpool/${e.media.en
                             .split(/[\s.()]+/g)
@@ -287,4 +290,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/openpool/", {"projects": ["openpool"], "publications": ["gcce2013-kato-openpool"], "publicationProjects": ["openpool"], "mediaProjects": ["openpool"]}) }, "/openpool/") };
 }

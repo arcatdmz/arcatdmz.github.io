@@ -1,3 +1,4 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   MajorPublication,
   Share,
@@ -6,15 +7,17 @@ import {
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from programming-with-examples/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { publicationsTable, moment, rootPath, protocol, domain } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { publicationsTable, rootPath, protocol, domain } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -33,8 +36,7 @@ export default function Page() {
     "The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and userss understand applications and configure them to meet their needs. The web page provides summary and additional information for the journal article discussing PwE that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces.";
   imageUrl = `${protocol}://${domain}${rootPath}images/panels/programming-with-examples.png`;
   me = "programming-with-examples/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -56,7 +58,7 @@ export default function Page() {
             className="ui right floated small bordered image"
             style={{ zIndex: "100", marginRight: "1em" }}
           >
-            <img
+            <SiteImage
               src={`${rootPath}programming-with-examples/programming-with-examples.jpg`}
             />
             <div className="caption">
@@ -126,7 +128,7 @@ export default function Page() {
           <div className="ui basic segment">
             <div className="ui two columns grid">
               <div className="sixteen wide tablet ten wide computer column">
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={`${rootPath}programming-with-examples/pwe-fig1.jpg`}
                   alt={"(Programming by Example vs Programming with Examples)"}
@@ -261,7 +263,7 @@ export default function Page() {
                   className="ui small image"
                   href={href(`${basePath}picode`)}
                 >
-                  <img src={`${rootPath}images/thumbnails/picode.jpg`} />
+                  <SiteImage src={`${rootPath}images/thumbnails/picode.jpg`} />
                 </SiteLink>
                 <div className="content">
                   <SiteLink className="header" href={href(`${basePath}picode`)}>
@@ -279,7 +281,7 @@ export default function Page() {
                   className="ui small image"
                   href={href(`${basePath}dejavu`)}
                 >
-                  <img src={`${rootPath}images/thumbnails/dejavu.png`} />
+                  <SiteImage src={`${rootPath}images/thumbnails/dejavu.png`} />
                 </SiteLink>
                 <div className="content">
                   <SiteLink className="header" href={href(`${basePath}dejavu`)}>
@@ -297,7 +299,7 @@ export default function Page() {
                   className="ui small image"
                   href={href(`${basePath}visionsketch`)}
                 >
-                  <img src={`${rootPath}images/thumbnails/visionsketch.jpg`} />
+                  <SiteImage src={`${rootPath}images/thumbnails/visionsketch.jpg`} />
                 </SiteLink>
                 <div className="content">
                   <SiteLink
@@ -318,7 +320,7 @@ export default function Page() {
                   className="ui small image"
                   href={href(`${basePath}textalive`)}
                 >
-                  <img src={`${rootPath}images/thumbnails/textalive.png`} />
+                  <SiteImage src={`${rootPath}images/thumbnails/textalive.png`} />
                 </SiteLink>
                 <div className="content">
                   <SiteLink
@@ -539,4 +541,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/programming-with-examples/", {"projects": ["programming-with-examples"], "publications": ["programming-with-examples"]}) }, "/programming-with-examples/") };
 }

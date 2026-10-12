@@ -1,3 +1,5 @@
+import { Embed } from "@/site/components/SiteWidgets";
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHeader,
@@ -7,15 +9,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from deployground/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath, protocol, domain } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath, protocol, domain } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -32,8 +36,7 @@ export default function Page() {
   me = p.project + "/";
   const slideUrl = `${protocol}://${domain}${rootPath}publications/vlhcc2018-kato-deployground-slides.pdf`;
   const slideImagePath = `${rootPath}deployground/vlhcc2018-kato-deployground-slides.png`;
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -54,7 +57,7 @@ export default function Page() {
           <div className="ui stackable two columns grid">
             <div className="column">
               <p>
-                <img
+                <SiteImage
                   className="ui image"
                   src={"/deployground/vlhcc2018-kato-deployground-fig1.png"}
                 />
@@ -131,12 +134,12 @@ export default function Page() {
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Slides" : "発表スライド"}
               </h3>
-              <div
+              <Embed
                 className="ui embed"
                 data-url={slideUrl}
                 data-placeholder={slideImagePath}
                 data-icon={"video play outline"}
-              ></div>
+              ></Embed>
               <div className="caption">
                 <div className="ui horizontal list">
                   <div className="item">
@@ -251,7 +254,7 @@ export default function Page() {
           <div className="ui stackable three columns grid">
             <div className="column">
               <p>
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-1.jpg"}
                 />
@@ -259,7 +262,7 @@ export default function Page() {
             </div>
             <div className="column">
               <p>
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-2.jpg"}
                 />
@@ -267,7 +270,7 @@ export default function Page() {
             </div>
             <div className="column">
               <p>
-                <img
+                <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-3.jpg"}
                 />
@@ -433,4 +436,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/deployground/", {"projects": ["deployground"], "publications": ["vlhcc2018-kato-deployground"], "publicationProjects": ["deployground"]}) }, "/deployground/") };
 }

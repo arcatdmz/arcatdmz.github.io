@@ -1,3 +1,4 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
   ProjectHero,
@@ -8,15 +9,17 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from griffith/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -31,8 +34,7 @@ export default function Page() {
   p = projectsTable["griffith"];
   title = p.getTitle(lang);
   me = p.project + "/";
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -134,7 +136,7 @@ export default function Page() {
           <div className="ui two stackable cards projects">
             <div className="card">
               <a className="image" href={"https://gsw.archinc.jp"}>
-                <img
+                <SiteImage
                   src={`${rootPath}griffith/griffith-stopwatch-thumbnail.png`}
                 />
               </a>
@@ -164,7 +166,7 @@ export default function Page() {
                     : "https://research.archinc.jp/griffith/sketch",
                 )}
               >
-                <img
+                <SiteImage
                   src={`${rootPath}griffith/griffith-sketch-screenshot.png`}
                 />
               </SiteLink>
@@ -301,4 +303,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/griffith/", {"projects": ["creativity-support-environments", "griffith"], "publications": ["chi2024-kato-griffith"], "publicationProjects": ["griffith"]}) }, "/griffith/") };
 }

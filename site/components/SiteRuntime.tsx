@@ -1,6 +1,6 @@
 import { runDeferredScripts } from "@/site/deferred-scripts";
 import { getDocumentMetadata, resolveReactHref } from "@/site/navigation";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 
 type SiteWindow = Window & {
@@ -9,9 +9,6 @@ type SiteWindow = Window & {
   basePath: string;
   dataLayer?: unknown[];
   Typekit?: { load: (options: unknown) => void };
-  siteInteractions?: {
-    initialize: (view: "index" | "design" | "default") => () => void;
-  };
   twttr?: { widgets?: { load: (root: HTMLElement) => void } };
   FB?: { XFBML?: { parse: (root: HTMLElement) => void } };
 };
@@ -37,11 +34,10 @@ function loadScript(src: string): Promise<void> {
 const useBrowserLayoutEffect =
   typeof window === "undefined" ? useEffect : useLayoutEffect;
 
-/** Load the retained widget library once, then own one initialization per page. */
+/** Document-level integrations; page widgets are owned by React components. */
 export function SiteRuntime() {
   const router = useRouter();
   const pageKey = router.asPath.split("#")[0];
-  const dispose = useRef<(() => void) | undefined>(undefined);
   useBrowserLayoutEffect(() => {
     const metadata = getDocumentMetadata(router.pathname);
     document.documentElement.lang = metadata.language;
@@ -61,61 +57,25 @@ export function SiteRuntime() {
   }, [router.pathname]);
 
   useEffect(() => {
-    const cleanup = () => {
-      dispose.current?.();
-      dispose.current = undefined;
-    };
-    // A pending navigation may be cancelled without changing this page. Keep
-    // its widgets alive until Next has loaded the destination and is about to
-    // replace the DOM, then restore detached modal/popup nodes before unmount.
-    const beforeNavigation = (url: string) => {
-      if (url.split("#")[0] !== pageKey) cleanup();
-    };
-    router.events.on("beforeHistoryChange", beforeNavigation);
-    return () => {
-      router.events.off("beforeHistoryChange", beforeNavigation);
-      cleanup();
-    };
-  }, [router.events, pageKey]);
-
-  useEffect(() => {
     const root = document.getElementById("__next");
     if (!root?.querySelector("#pusher")) return;
     const controller = new AbortController();
-    let cleanup: (() => void) | undefined;
-    void (async () => {
-      try {
-        await loadScript("/javascripts/vendor/jquery.min.js");
-        if (controller.signal.aborted) return;
-        await loadScript("/javascripts/views/runtime.js");
-        if (controller.signal.aborted) return;
-        const pathname = router.pathname.replace(/^\/ja(?=\/|$)/, "");
-        const view =
-          !pathname || pathname === "/"
-            ? "index"
-            : pathname === "/design"
-              ? "design"
-              : "default";
-        cleanup = (
-          window as unknown as SiteWindow
-        ).siteInteractions?.initialize(view);
-        await runDeferredScripts(document, controller.signal);
+    root.dataset.siteWidgets = "ready";
+    void runDeferredScripts(document, controller.signal)
+      .then(() => {
         if (controller.signal.aborted) return;
         const site = window as unknown as SiteWindow;
         site.twttr?.widgets?.load(root);
         site.FB?.XFBML?.parse(root);
-      } catch (error) {
+      })
+      .catch((error) => {
         if (!controller.signal.aborted)
-          console.error("Site interactions could not initialize", error);
-      }
-    })();
-    const stop = () => {
+          console.error("Page integration could not initialize", error);
+      });
+    return () => {
       controller.abort();
-      cleanup?.();
-      cleanup = undefined;
+      delete root.dataset.siteWidgets;
     };
-    dispose.current = stop;
-    return stop;
   }, [router.pathname, pageKey]);
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+import { Popup } from "@/site/components/SiteWidgets";
 import { Fragment } from "react";
 import {
   MediaItem,
@@ -9,7 +10,9 @@ import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href, attribute } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
@@ -22,11 +25,13 @@ export function getStaticPaths() {
   };
 }
 export function getStaticProps({ params }: { params: { year: string } }) {
-  return { props: { pageYear: Number(params.year) } };
+  const pageYear = Number(params.year);
+  const route = `/timeline/${pageYear}/`;
+  return { props: withPageImages(Page, { pageYear, pageData: getPageData(`/timeline/${pageYear}/`) }, route) };
 }
 /** React page migrated from timeline/_year.pug; edit this TSX source directly. */
-export default function Page({ pageYear }: { pageYear: number }) {
-  const data = getSiteData();
+export default function Page({ pageYear, pageData }: PageDataProps & { pageYear: number }) {
+  const data = hydratePageData(pageData);
   const {
     histories,
     awards,
@@ -35,7 +40,6 @@ export default function Page({ pageYear }: { pageYear: number }) {
     projects,
     publications,
     mediaList,
-    moment,
     rootPath,
   } = data;
   const lang: "en" | "ja" = "en";
@@ -57,8 +61,7 @@ export default function Page({ pageYear }: { pageYear: number }) {
   bodyClass = "with-rail";
   const currentYear = buildYear;
   const oldestYear = en ? 2011 : 2010;
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -450,12 +453,11 @@ export default function Page({ pageYear }: { pageYear: number }) {
         context={context}
         postFooter={
           <>
-            <a className="ui circular icon popup-menu large grey hidden mobile-only button">
+            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden mobile-only button">
               <i className="sidebar icon"></i>
-            </a>
-            <div className="ui hidden popup-menu popup">
+            </a>}>
               {renderTimelineYearNav()}
-            </div>
+            </Popup>
           </>
         }
       >

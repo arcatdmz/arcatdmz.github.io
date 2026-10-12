@@ -1,17 +1,20 @@
+import { SiteImage } from "@/site/components/SiteImage";
 import { ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href } from "@/site/rendering";
-import { getSiteData } from "@/site/data";
+import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from in-the-wild/index.pug; edit this TSX source directly. */
-export default function Page() {
-  const data = getSiteData();
-  const { projectsTable, moment, rootPath } = data;
+export default function Page({ pageData }: PageDataProps) {
+  const data = hydratePageData(pageData);
+  const { projectsTable, rootPath } = data;
   const lang: "en" | "ja" = "en";
   const en: boolean = true;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -26,8 +29,7 @@ export default function Page() {
   title = "Creativity support research &quot;in the wild&quot;";
   description =
     'Research on creativity support tools (CSTs) has long been conducted in the field of human-computer interaction (HCI), but there is growing criticism that applied computer science, including HCI, has typically been conducted and evaluated in a limited cultural context, such as the fast-paced academic community and the WEIRD (Western, educated, industrialized, rich, and developed) part of the world. This poster presents recent efforts in creativity support research "in the wild", taking a longitudinal and constructive approach with the help of creators outside the research community to build computational tools for creative activities. Examples include TextAlive and its API for creating lyric-driven visual art [ACM CHI 2015, 2023] and Griffith for creating animation storyboards [ACM CHI 2024], both of which contribute to the discussion of how to develop human-centered AI that nurtures the creativity of people with diverse technical and cultural backgrounds.';
-  moment.locale(lang);
-  const context: ReturnType<typeof getSiteData> & SiteContext = {
+  const context: SiteData & SiteContext = {
     ...data,
     lang,
     en,
@@ -67,7 +69,7 @@ export default function Page() {
                   `${rootPath}publications/trilateral-ai-conf-2024-kato-poster.pdf`,
                 )}
               >
-                <img
+                <SiteImage
                   src={`${rootPath}in-the-wild/trilateral-ai-conf-2024-kato-poster-thumbnail.jpg`}
                 />
               </SiteLink>
@@ -244,4 +246,8 @@ export default function Page() {
       </SiteLayout>
     </>
   );
+}
+
+export function getStaticProps() {
+  return { props: withPageImages(Page, { pageData: getPageData("/in-the-wild/", {"projects": ["griffith", "lyric-app-framework", "textalive"]}) }, "/in-the-wild/") };
 }
