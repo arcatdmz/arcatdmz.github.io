@@ -356,3 +356,394 @@ test("React route hrefs compare equivalent trailing slashes while archive URLs s
     canonicalPage('<html><body><a href="/archive/">Archive</a></body></html>'),
   );
 });
+
+const imageManifest = {
+  "/photo.jpg": {
+    width: 1000,
+    height: 500,
+    srcSet: [
+      { src: "/_images/photo-320.webp", width: 320, height: 160 },
+      { src: "/_images/photo-640.webp", width: 640, height: 320 },
+    ],
+  },
+};
+const optimizedImage =
+  '<img alt="Photo" src="/_images/photo-640.webp" data-original-src="/photo.jpg" width="1000" height="500" loading="lazy" decoding="async" sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 933px, 1127px" srcset="/_images/photo-320.webp 320w, /_images/photo-640.webp 640w, /photo.jpg 1000w">';
+async function compareOptimized(
+  before: string,
+  after: string,
+  page = "projects/index.html",
+  manifest = imageManifest,
+  pageImages = manifest,
+) {
+  const { optimizedDifferences } = await import("../scripts/verify-site.ts");
+  return optimizedDifferences(document(before), document(after), {
+    page,
+    manifest,
+    pageImages,
+  });
+}
+
+test("optimized images validate exact manifest/srcset and original source, while strict mode still rejects them", async () => {
+  const original = '<img src="/photo.jpg" alt="Photo">';
+  assert.notDeepEqual(
+    compare(document(original), document(optimizedImage)),
+    [],
+  );
+  assert.deepEqual(await compareOptimized(original, optimizedImage), []);
+  for (const changed of [
+    optimizedImage.replace(
+      'src="/_images/photo-640.webp"',
+      'src="/_images/other.webp"',
+    ),
+    optimizedImage.replace(
+      'data-original-src="/photo.jpg"',
+      'data-original-src="/other.jpg"',
+    ),
+    optimizedImage.replace("320w", "300w"),
+    optimizedImage.replace('width="1000"', 'width="900"'),
+    optimizedImage.replace('height="500"', 'height="450"'),
+    optimizedImage.replace('loading="lazy"', 'loading="eager"'),
+    optimizedImage.replace('decoding="async"', 'decoding="sync"'),
+    optimizedImage.replace("1127px", "100px"),
+    optimizedImage.replace('alt="Photo"', 'alt="Changed"'),
+    optimizedImage.replace(
+      'alt="Photo"',
+      'alt="Photo" data-content="Inserted"',
+    ),
+  ])
+    assert.notDeepEqual(await compareOptimized(original, changed), [], changed);
+  assert.notDeepEqual(
+    await compareOptimized(
+      original,
+      optimizedImage,
+      undefined,
+      imageManifest,
+      {},
+    ),
+    [],
+  );
+  assert.notDeepEqual(
+    await compareOptimized(original, optimizedImage, undefined, imageManifest, {
+      "/photo.jpg": { ...imageManifest["/photo.jpg"], width: 900 },
+    }),
+    [],
+  );
+});
+
+test("optimized images preserve authored dimensions, styles, download URLs and metadata", async () => {
+  const original =
+    '<a href="/photo.jpg"><img src="/photo.jpg" width="250" style="border:1px solid red" alt="Photo"></a>';
+  const candidate = `<a href="/photo.jpg">${optimizedImage.replace(
+    'width="1000"',
+    'width="250" style="border:1px solid red"',
+  )}</a>`;
+  assert.deepEqual(await compareOptimized(original, candidate), []);
+  for (const changed of [
+    candidate.replace('width="250"', 'width="251"'),
+    candidate.replace("border:1px", "border:2px"),
+    candidate.replace('href="/photo.jpg"', 'href="/_images/photo-640.webp"'),
+  ])
+    assert.notDeepEqual(await compareOptimized(original, changed), []);
+  const { optimizedDifferences } = await import("../scripts/verify-site.ts");
+  assert.notDeepEqual(
+    optimizedDifferences(
+      document(original),
+      document(candidate, "<title>Changed</title>"),
+      {
+        page: "index.html",
+        manifest: imageManifest,
+        pageImages: imageManifest,
+      },
+    ),
+    [],
+  );
+});
+
+test("widget allowances apply only to documented selectors and exact initial states", async () => {
+  const original =
+    '<div class="ui right sidebar inverted vertical menu"><a href="/projects">Projects</a></div><a class="sidebar-button" href="#">Menu</a><div class="ui dropdown item"><div class="menu"><a href="/one">One</a></div></div>';
+  const candidate =
+    '<div id="site-sidebar" class="ui right sidebar inverted vertical menu uncover" aria-label="Site navigation"><a href="/projects">Projects</a></div><a class="sidebar-button" href="#" role="button" aria-controls="site-sidebar" aria-expanded="false">Menu</a><div class="ui dropdown item" role="button" tabindex="0" aria-haspopup="menu" aria-expanded="false" data-site-popup-trigger="_R_123_"><div class="menu transition hidden" role="menu"><a href="/one">One</a></div></div>';
+  assert.deepEqual(await compareOptimized(original, candidate), []);
+  assert.notDeepEqual(compare(document(original), document(candidate)), []);
+  for (const changed of [
+    candidate.replace('aria-expanded="false"', 'aria-expanded="true"'),
+    candidate.replace('aria-controls="site-sidebar"', 'aria-controls="other"'),
+    candidate.replace("transition hidden", "transition visible"),
+    candidate.replace('href="/one"', 'href="/two"'),
+    candidate.replace("One</a>", "Changed</a>"),
+    candidate.replace("_R_123_", "not-react"),
+  ])
+    assert.notDeepEqual(await compareOptimized(original, changed), []);
+  assert.notDeepEqual(
+    await compareOptimized(
+      "<p>Text</p>",
+      '<p role="button" aria-expanded="false">Text</p>',
+    ),
+    [],
+  );
+});
+
+test("inline popups validate shared ids and preserve all authored content", async () => {
+  const original =
+    '<div><div class="with-popup-menu button">Open</div><div class="ui popup"><a href="/file.pdf" data-clipboard-text="Original">Download</a></div></div>';
+  const candidate =
+    '<div><div class="with-popup-menu button" data-site-popup-trigger="_R_1_" aria-expanded="false" aria-controls="_R_1_" tabindex="0" role="button">Open</div><div class="ui popup top right transition hidden" id="_R_1_" data-site-popup="_R_1_"><a href="/file.pdf" data-clipboard-text="Original">Download</a></div></div>';
+  assert.deepEqual(await compareOptimized(original, candidate), []);
+  for (const changed of [
+    candidate.replace('aria-controls="_R_1_"', 'aria-controls="_R_2_"'),
+    candidate.replace('id="_R_1_"', 'id="_R_2_"'),
+    candidate.replace(
+      'data-clipboard-text="Original"',
+      'data-clipboard-text="Changed"',
+    ),
+    candidate.replace("top right", "top left"),
+    candidate.replace("Download</a>", "Changed</a>"),
+  ])
+    assert.notDeepEqual(await compareOptimized(original, changed), []);
+});
+
+test("static embeds permit only exact icon/image placeholders derived from unchanged parent data", async () => {
+  const original =
+    '<div class="ui embed" data-url="https://example.org/embed" data-placeholder="/photo.jpg" data-alt="Photo"></div>';
+  const candidate = original.replace(
+    "></div>",
+    ' role="button" tabindex="0" aria-label="Open embedded content"><i class="video play icon"></i>' +
+      optimizedImage.replace("<img ", '<img class="placeholder" ') +
+      "</div>",
+  );
+  assert.deepEqual(await compareOptimized(original, candidate), []);
+  for (const changed of [
+    candidate.replace("video play", "delete"),
+    candidate.replace('alt="Photo" src=', 'alt="Changed" src='),
+    candidate.replace("</div>", '<a href="/extra">Inserted</a></div>'),
+    candidate.replace(
+      'data-url="https://example.org/embed"',
+      'data-url="https://elsewhere.org/embed"',
+    ),
+  ])
+    assert.notDeepEqual(await compareOptimized(original, changed), []);
+  assert.notDeepEqual(
+    await compareOptimized(
+      original.replace("></div>", ">Authored</div>"),
+      candidate,
+    ),
+    [],
+  );
+});
+
+test("only the two Live Tuning hover styles may lose display:none", async () => {
+  const original =
+    '<a id="live-programming"><img class="hover" src="/illustration.svg" style="position:absolute;display:none;z-index:10"></a>';
+  const candidate =
+    '<a id="live-programming" class="live-preview" tabindex="0"><img class="hover" src="/illustration.svg" style="position:absolute;z-index:10" loading="lazy" decoding="async"></a>';
+  assert.deepEqual(
+    await compareOptimized(original, candidate, "live-tuning/index.html"),
+    [],
+  );
+  assert.notDeepEqual(
+    await compareOptimized(original, candidate, "other/index.html"),
+    [],
+  );
+  assert.notDeepEqual(
+    await compareOptimized(
+      original,
+      candidate.replace("z-index:10", "z-index:11"),
+      "live-tuning/index.html",
+    ),
+    [],
+  );
+});
+
+test("optimized stylesheet links and widget rules are exact, while baseline CSS retention stays strict", async () => {
+  const { optimizedDifferences, optimizedCssDifferences, optimizedWidgetCss } =
+    await import("../scripts/verify-site.ts");
+  const before = document(
+    "Content",
+    '<link rel="stylesheet" href="/stylesheets/main.css">',
+  );
+  const after = document(
+    "Content",
+    '<link rel="stylesheet" href="/stylesheets/main.css"><link rel="stylesheet" href="/stylesheets/design.css">',
+  );
+  const context = { page: "index.html", manifest: {}, pageImages: {} };
+  assert.deepEqual(optimizedDifferences(before, after, context), []);
+  assert.notDeepEqual(
+    optimizedDifferences(
+      before,
+      after.replace(
+        'href="/stylesheets/design.css"',
+        'href="/stylesheets/design.css" media="print"',
+      ),
+      context,
+    ),
+    [],
+  );
+  assert.deepEqual(optimizedCssDifferences(optimizedWidgetCss), []);
+  assert.notDeepEqual(
+    optimizedCssDifferences(
+      optimizedWidgetCss.replace("opacity 200ms", "opacity 2s"),
+    ),
+    [],
+  );
+  assert.notDeepEqual(
+    compareCss(
+      ".existing{color:red}",
+      ".existing{color:blue}" + optimizedWidgetCss,
+    ).missing,
+    [],
+  );
+});
+
+test("URL validation checks every srcset candidate and original image URL", () => {
+  const refs = localReferences(document(optimizedImage), "index.html");
+  assert.deepEqual(
+    refs.filter((ref) => ref.attribute === "srcset").map((ref) => ref.target),
+    ["_images/photo-320.webp", "_images/photo-640.webp", "photo.jpg"],
+  );
+  assert.equal(
+    refs.find((ref) => ref.attribute === "data-original-src")?.target,
+    "photo.jpg",
+  );
+});
+
+test("deprecated render mode fails clearly before pretending to validate pages without getStaticProps", async () => {
+  const { verifySite } = await import("../scripts/verify-site.ts");
+  await assert.rejects(
+    verifySite({
+      root: "/missing",
+      baseline: "/missing",
+      candidate: "/missing",
+      render: true,
+    }),
+    /getStaticProps.*npm run build/,
+  );
+});
+
+test("optimized export verifies route JSON and never normalizes archival bytes", async () => {
+  const fs = await import("node:fs/promises"),
+    os = await import("node:os"),
+    path = await import("node:path");
+  const { verifySite } = await import("../scripts/verify-site.ts");
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "optimized-parity-"));
+  try {
+    const baseline = path.join(root, "before"),
+      candidate = path.join(root, "after");
+    for (const directory of [
+      baseline,
+      candidate,
+      path.join(root, "site/generated"),
+      path.join(root, "pages"),
+      path.join(candidate, "_next/data/build"),
+    ])
+      await fs.mkdir(directory, { recursive: true });
+    await fs.writeFile(path.join(root, "site/routes.json"), "[]");
+    await fs.writeFile(path.join(root, "site/generated/images.json"), "{}");
+    const props = {
+      pageProps: {
+        pageData: {
+          images: {},
+          text: "Original",
+          metadata: { title: "Resume" },
+        },
+      },
+      __N_SSG: true,
+    };
+    for (const directory of [baseline, candidate]) {
+      await fs.writeFile(
+        path.join(directory, "index.html"),
+        document("Archive"),
+      );
+      await fs.writeFile(
+        path.join(directory, "resume.html"),
+        document(
+          'Resume<script id="__NEXT_DATA__" type="application/json">' +
+            JSON.stringify({ buildId: "build", gsp: true, props }) +
+            "</script>",
+        ),
+      );
+      await fs.writeFile(
+        path.join(directory, "archive.js"),
+        "const value = 1;",
+      );
+      await fs.writeFile(
+        path.join(directory, "archive.css"),
+        "a { color: red; }",
+      );
+    }
+    await fs.writeFile(
+      path.join(candidate, "_next/data/build/resume.json"),
+      JSON.stringify(props),
+    );
+    const options = {
+      root,
+      baseline,
+      candidate,
+      render: false,
+      optimized: true,
+    };
+    assert.deepEqual((await verifySite(options)).failures, []);
+    await fs.writeFile(
+      path.join(candidate, "index.html"),
+      document("Changed archive"),
+    );
+    await fs.writeFile(path.join(candidate, "archive.js"), "const value = 2;");
+    await fs.writeFile(path.join(candidate, "archive.css"), "a{color:red}");
+    await fs.writeFile(
+      path.join(candidate, "_next/data/build/resume.json"),
+      JSON.stringify({
+        ...props,
+        pageProps: { ...props.pageProps, changed: true },
+      }),
+    );
+    const report = await verifySite(options);
+    assert.ok(
+      report.failures.some(
+        (failure) => failure.category === "static-html-bytes",
+      ),
+    );
+    for (const page of ["archive.js", "archive.css"])
+      assert.ok(
+        report.failures.some(
+          (failure) =>
+            failure.page === page && failure.category === "static-asset-bytes",
+        ),
+      );
+    assert.ok(
+      report.failures.some(
+        (failure) => failure.category === "route-data-consistency",
+      ),
+    );
+  } finally {
+    await fs.rm(root, { recursive: true, force: true });
+  }
+});
+
+test("new CSS cannot silently override retained selectors or approved widget rules", async () => {
+  const { optimizedCssDifferences, optimizedWidgetCss } = await import(
+    "../scripts/verify-site.ts"
+  );
+  assert.notDeepEqual(
+    optimizedCssDifferences(
+      ".old{color:red}" + optimizedWidgetCss + ".old{color:blue}",
+      ".old{color:red}",
+    ),
+    [],
+  );
+  assert.notDeepEqual(
+    optimizedCssDifferences(
+      optimizedWidgetCss + ".live-preview > img.hover { opacity:1 }",
+    ),
+    [],
+  );
+});
+
+test("non-executable structured data is content, not an ignored framework script", () => {
+  const before = document(
+    "Content",
+    '<script type="application/ld+json">{"name":"Original"}</script>',
+  );
+  const after = before.replace("Original", "Changed");
+  assert.notDeepEqual(compare(before, after), []);
+});

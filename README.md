@@ -23,10 +23,11 @@ needed in production.
 - `dist/`: complete production site, ready for GitHub Pages
 
 Edit source files, not the generated directories. Pug is no longer part of page
-rendering. This first migration keeps Fomantic and locally bundled jQuery 3.2.1
-behind a React effect bridge (`site/components/SiteRuntime.tsx`). Existing menus
-and widgets still use the original interaction code; they have not all been
-rewritten as React components.
+rendering. React state and lifecycle now own menus, sidebars, popups, modals,
+clipboard feedback, embedded content and home-page history expansion. Main React
+routes use the existing Fomantic CSS without downloading jQuery, Fomantic
+JavaScript, Clipboard.js or the legacy interaction bundle. Archival standalone
+HTML and its historical assets remain unchanged.
 
 Current React pages use `SiteLink` to select Next's `Link` for internal React
 routes. Downloads, external URLs, and archival pages retain native anchors.
@@ -39,10 +40,10 @@ isolated. Main-site documents load `main.css` followed by the small `design.css`
 up front, so client navigation never shows a destination before its styles are
 ready. Both existing public stylesheet URLs are preserved.
 
-The widget bridge loads jQuery and its interaction bundle once per document,
-initializes each destination, and disposes listeners, timers, clipboard handlers,
-modals, and popups immediately before committing a new page. Pending navigation
-can be cancelled without disabling the current page’s widgets. Language and section
+Widgets unmount with their page, cleaning up listeners, timers, pending history
+requests and modal portals. Shared state resets on `beforeHistoryChange`, so a
+pending navigation can be cancelled without disabling the current page. Popups
+and history fetch compact, localized JSON only when used. Language and section
 classes update before painting the destination. Fonts and analytics scripts load once.
 
 ## Development
@@ -102,10 +103,12 @@ npx playwright install chromium
 npx playwright test
 ```
 
-The suite covers desktop and phone navigation, slow widget loading without a dark
+The suite covers desktop and phone navigation, slow page loading without a dark
 background flash, English/Japanese switches, Back/Forward, year routes, contact
 anchors, menus, modals, tag popups, citations, and links embedded in trusted HTML.
-It also checks that navigation keeps the document and reuses scripts.
+It also checks keyboard controls, clipboard feedback, lazy history retry,
+on-demand embeds, cold deep links without JavaScript, and navigation that keeps
+the document without requesting legacy widget scripts.
 
 For a route sweep and an optional comparison with a previous export:
 
@@ -116,10 +119,59 @@ SITE_BASELINE=/path/to/previous/dist node --import tsx scripts/check-browser.ts
 Without `SITE_BASELINE`, it checks the current export. The comparison saves
 screenshots and `site-qa/navigation/report.json`, measures five menu transitions,
 and compares nine representative pages at desktop and phone widths. External
-requests are blocked for repeatability. The timing scenario deliberately delays
-jQuery by 1.2 seconds; its results are a controlled regression measurement, not
-an estimate of every visitor's connection. Seven historical redirects are listed
-separately, while their unchanged markup is checked by the static verifier.
+requests are blocked for repeatability. For an old baseline, the timing scenario
+deliberately delays jQuery by 1.2 seconds; the React candidate no longer requests
+it. Results are a controlled regression measurement, not an estimate of every
+visitor's connection. Seven historical redirects are listed separately, while
+their unchanged markup is checked by the static verifier.
+
+The optional screenshot comparison remains pixel-strict: re-encoded images and
+lazy loading can produce expected nonzero image diffs. Review those screenshots,
+image dimensions and page geometry alongside the optimized markup verifier;
+do not interpret that pixel-only failure as a content regression or silently
+accept an unexplained layout change.
+
+## Responsive images and incremental cache
+
+Asset preparation uses `sharp` as a required build dependency to create static WebP
+derivatives under `public/_images/`. Keep optional npm packages enabled when
+installing (`npm ci`), as Next's SWC and sharp's native encoders need them. The
+original files and URLs under `src/` are copied unchanged, so downloads,
+full-resolution modal targets, archival pages, and external images retain their
+original content. SVG, GIF, and animated WebP/PNG files are not converted.
+
+Images use their intrinsic aspect ratio without cropping or upscaling. Icon
+candidates are 32/64/96/160/320px, project thumbnails 160/320/480/640/960px,
+and other raster images 320/640/960/1280/1920px, capped at the source width.
+PNG graphics use WebP quality 90 to retain text and linework; photographs use
+quality 84, with alpha quality 100. A derivative larger than its source is
+discarded. Responsive `sizes`/`srcset` let the browser choose for its layout and
+pixel density. Full-resolution originals remain available for closer inspection.
+
+The full manifest in `site/generated/images.json` is build-only. Each page gets
+only the image entries used by its rendered markup, rather than adding the
+all-site image list to a shared browser bundle. Intrinsic dimensions, fallback
+source URLs, and stable content-addressed derivative URLs travel with those
+page entries. `npm run typecheck` only ensures a tiny manifest placeholder on a
+fresh checkout; `npm run build` always creates the real manifest and outputs.
+
+`.cache/site-images/` is a disposable, ignored incremental cache that survives
+`npm run clean`. Each entry hashes the original bytes, resize/encoding settings,
+pipeline version, and all sharp/libvips encoder versions. An unchanged input
+needs no decode/resize/encode on a warm build. Missing or damaged entries are
+regenerated, and a cache miss never prevents a complete export. Every successful
+pass removes obsolete entries and rebuilds the public derivative directory, so
+deleted or changed sources do not accumulate there. Remove `.cache/site-images/`
+explicitly to test a completely cold build.
+
+Both publishing workflows restore/save this directory with `actions/cache`.
+Exact keys cover the source image set, platform, lockfile, and image pipeline;
+prefix restores reuse unchanged entries when images are added or edited. Pure
+text changes reuse the same snapshot. Only current content remains in each
+snapshot; GitHub manages older immutable snapshots under its cache retention
+and storage limits. Derivatives, cache data, and generated manifests are not
+committed to Git. The build log reports image transforms, cache hits, and
+pruned entries. Cache/invalidation coverage is included in `npm test`.
 
 ## Blog redirects
 
@@ -153,12 +205,47 @@ can be supplied explicitly:
 npm run test:parity -- --baseline /path/to/baseline/dist --json parity-report.json
 ```
 
-The verifier compares rendered markup, metadata, styles, public assets, redirects,
-and URL targets while ignoring framework-only differences. Its unit tests do not
-need a baseline: `npm run test:verifier`. Existing broken links are reported
-separately from regressions. The only content-link exception is that five existing
-translation links now point to their replacement `pages/**/index.tsx` source on
-the same GitHub `main` branch instead of the removed Pug files.
+The default comparison remains strict. For the responsive-image and React-widget
+optimizations, opt into the separately tested contracts:
+
+```sh
+npm run test:parity -- --optimized --baseline /path/to/baseline/dist --json parity-report.json
+```
+
+Both modes compare full rendered text, metadata, authored links/data attributes,
+inline styles, stylesheet order, public assets, feeds, redirects and URL targets.
+The optimized mode validates each allowed change before comparison:
+
+- Responsive image originals, intrinsic dimensions, fallback and every `srcset`
+  candidate must match `site/generated/images.json` and that route's serialized
+  image props. Added `sizes`, loading/decoding and avatar priority must match their
+  component/layout contract. Authored dimensions, styles, alt text and download
+  links remain strict. Original and derivative URLs must exist in the export.
+- Widget accessibility/state attributes and classes are checked only on their
+  documented sidebar, dropdown, popup, modal, clipboard and history elements.
+  Inline popup IDs must match their triggers; all original content stays compared.
+- An empty `data-url` embed may gain only the exact icon and placeholder image
+  specified by its unchanged parent data. No arbitrary children are discarded.
+- Only the two Live Tuning illustrations may replace their exact `display:none`
+  hover style with the reviewed opacity rules. The exact Design stylesheet link
+  may be added immediately after the main stylesheet for client navigation.
+- Every baseline CSS rule must remain in its original relative order. Reviewed
+  widget rules must be present and unchanged; unreviewed overrides of existing or
+  approved selectors fail. Additional retained vendor selectors remain listed in
+  the report. Archival HTML, CSS and scripts remain byte-identical.
+- Each SSG route's complete exported JSON props must equal its HTML's serialized
+  props, covering client-navigation data as well as initial document content.
+
+Use the supported Next export renderer (`npm run build`) before verification.
+The old `--render` shortcut is explicitly unsupported: it bypassed `getStaticProps`,
+`_app` providers and router context. Browser behavior still needs the browser
+suite; markup parity does not simulate interaction.
+
+Verifier unit tests do not need a baseline: `npm run test:verifier`. Existing
+broken links are reported separately from regressions. The only content-link
+exception is that five existing translation links now point to their replacement
+`pages/**/index.tsx` source on the same GitHub `main` branch instead of the removed
+Pug files.
 
 Time-dependent server-rendered content uses the generated build clock, including
 project year ranges and relative dates, so an old export hydrates consistently

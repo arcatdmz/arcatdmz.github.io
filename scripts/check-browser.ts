@@ -51,14 +51,18 @@ async function prepare(page: Page, origin: string, delayed = false) {
 }
 async function settled(page: Page) {
   await page.waitForFunction(
-    () => !!(window as any).$?.(".ui.sidebar").data("module-sidebar"),
+    () =>
+      document.getElementById("__next")?.dataset.siteWidgets === "ready" ||
+      !!(window as any).$?.(".ui.sidebar").data("module-sidebar"),
   );
 }
 
 async function main() {
   await fs.rm(artifactDirectory, { recursive: true, force: true });
   await fs.mkdir(artifactDirectory, { recursive: true });
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({
+    executablePath: process.env.CHROMIUM_EXECUTABLE_PATH || undefined,
+  });
   try {
     const candidateOrigin = await serve("dist");
     const baselineOrigin = baseline ? await serve(baseline) : undefined;
