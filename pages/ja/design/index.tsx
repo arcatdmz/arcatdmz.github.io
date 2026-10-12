@@ -484,14 +484,6 @@ export default function Page() {
     <>
       <SiteLayout
         context={context}
-        head={
-          <>
-            <link
-              rel={"stylesheet"}
-              href={href(`${rootPath}stylesheets/design.css`)}
-            />
-          </>
-        }
         header={
           <>
             <div className="ui text fixed menu">

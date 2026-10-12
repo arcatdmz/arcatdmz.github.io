@@ -214,3 +214,181 @@ test("links in trusted HTML data use client navigation", async ({ page }) => {
   );
   await expect(page).toHaveTitle(/Lyric App Framework.*junkato\.jp/);
 });
+
+for (const destination of ["/", "/#contact"]) {
+  test(`cancelled navigation back to ${destination} keeps current-page widgets`, async ({
+    page,
+  }) => {
+    let release: () => void = () => {};
+    const heldChunk = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    await page.route(
+      "**/_next/static/chunks/pages/activities-*",
+      async (route) => {
+        await heldChunk;
+        await route.continue().catch(() => {});
+      },
+    );
+    try {
+      await page.goto("/");
+      await waitForWidgets(page);
+      await page.evaluate(() => {
+        const site = window as any;
+        site.documentSentinel = true;
+        site.pendingNavigation = false;
+        site.cancelledNavigation = false;
+        site.next.router.events.on("routeChangeStart", (url: string) => {
+          if (url === "/activities/") site.pendingNavigation = true;
+        });
+        site.next.router.events.on(
+          "routeChangeError",
+          (error: any, url: string) => {
+            if (error.cancelled && url === "/activities/")
+              site.cancelledNavigation = true;
+          },
+        );
+        // Hold the destination before commit, independently of menu animations.
+        void site.next.router.push("/activities/");
+      });
+      await page.waitForFunction(() => (window as any).pendingNavigation);
+      if (destination === "/") {
+        await page.locator('#fixed-menu a[href="/"]').click();
+      } else {
+        await page.locator('footer a[href="/#contact"]').click();
+      }
+      await page.waitForFunction(() => (window as any).cancelledNavigation);
+      await expect(page).toHaveURL(destination === "/" ? /\/$/ : /\/#contact$/);
+      await waitForWidgets(page);
+      expect(await page.evaluate(() => (window as any).documentSentinel)).toBe(
+        true,
+      );
+      await page.locator("#avatar").click();
+      await expect(page.locator(".ui.modal")).toHaveClass(/active/);
+      await page.keyboard.press("Escape");
+      await expect(page.locator(".ui.modal")).not.toBeVisible();
+      await page.locator(".sidebar-button").click();
+      await expect(page.locator(".ui.sidebar")).toHaveClass(/visible/);
+    } finally {
+      release();
+    }
+  });
+}
+
+test("slow Design CSS loads before the first page and is reused by client navigation", async ({
+  page,
+  isMobile,
+}) => {
+  let stylesheetRequests = 0;
+  await page.route("**/stylesheets/design.css", async (route) => {
+    stylesheetRequests++;
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    await route.continue();
+  });
+  await page.goto("/");
+  await waitForWidgets(page);
+  expect(stylesheetRequests).toBe(1);
+  expect(
+    await page
+      .locator('link[href="/stylesheets/design.css"]')
+      .evaluate((link: HTMLLinkElement) => !!link.sheet),
+  ).toBe(true);
+  await page.evaluate(() => {
+    (window as any).documentSentinel = true;
+    (window as any).unstyledDesignFrames = 0;
+    const sample = () => {
+      const hero = document.querySelector("body.design #body > .hero-unit");
+      if (
+        hero &&
+        getComputedStyle(hero).backgroundColor !== "rgb(238, 238, 238)"
+      ) {
+        (window as any).unstyledDesignFrames++;
+      }
+      requestAnimationFrame(sample);
+    };
+    requestAnimationFrame(sample);
+  });
+  await menuLink(page, "/design", isMobile);
+  await expect(page).toHaveURL(/\/design\/$/);
+  await waitForWidgets(page);
+  await expect(page.locator("#body > .hero-unit")).toHaveCSS(
+    "background-color",
+    "rgb(238, 238, 238)",
+  );
+  await page.goBack();
+  await expect(page).toHaveURL(/\/$/);
+  await page.goForward();
+  await expect(page).toHaveURL(/\/design\/$/);
+  await waitForWidgets(page);
+  expect(stylesheetRequests).toBe(1);
+  expect(await page.evaluate(() => (window as any).documentSentinel)).toBe(
+    true,
+  );
+  expect(await page.evaluate(() => (window as any).unstyledDesignFrames)).toBe(
+    0,
+  );
+});
+
+test("the standalone resume uses document navigation and keeps its isolated styles", async ({
+  page,
+}) => {
+  let homeDocumentRequests = 0;
+  page.on("request", (request) => {
+    if (
+      request.isNavigationRequest() &&
+      request.frame() === page.mainFrame() &&
+      new URL(request.url()).pathname === "/"
+    ) {
+      homeDocumentRequests++;
+    }
+  });
+  await page.route("**/stylesheets/main.css", async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    await route.continue();
+  });
+  await page.addInitScript(() => {
+    (window as any).unstyledHomeFrames = 0;
+    const sample = () => {
+      const main = document.querySelector("#main");
+      if (
+        location.pathname === "/" &&
+        main &&
+        getComputedStyle(main).fontFamily.includes("Times New Roman")
+      ) {
+        (window as any).unstyledHomeFrames++;
+      }
+      requestAnimationFrame(sample);
+    };
+    requestAnimationFrame(sample);
+  });
+  await page.goto("/resume/");
+  await expect(page).toHaveTitle("Resume of Dr. Jun Kato");
+  await expect(page.locator('link[href="/stylesheets/main.css"]')).toHaveCount(
+    0,
+  );
+  await expect(
+    page.locator('link[href="/stylesheets/design.css"]'),
+  ).toHaveCount(0);
+  await page.evaluate(() => {
+    (window as any).resumeDocumentSentinel = true;
+  });
+  await page.locator('#profile a[href="/"]').click();
+  await expect(page).toHaveTitle("Portfolio of Jun Kato | junkato.jp");
+  await waitForWidgets(page);
+  expect(homeDocumentRequests).toBe(1);
+  expect(
+    await page.evaluate(() => (window as any).resumeDocumentSentinel),
+  ).toBeUndefined();
+  expect(await page.evaluate(() => (window as any).unstyledHomeFrames)).toBe(0);
+  await page.goBack();
+  await expect(page).toHaveTitle("Resume of Dr. Jun Kato");
+  await expect(page.locator('link[href="/stylesheets/main.css"]')).toHaveCount(
+    0,
+  );
+  await expect(
+    page.locator('link[href="/stylesheets/design.css"]'),
+  ).toHaveCount(0);
+  await page.goForward();
+  await expect(page).toHaveTitle("Portfolio of Jun Kato | junkato.jp");
+  await waitForWidgets(page);
+});

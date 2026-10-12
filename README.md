@@ -33,10 +33,17 @@ routes. Downloads, external URLs, and archival pages retain native anchors.
 Trusted HTML fragments in the existing data go through `HtmlContent`; fixed page
 content is ordinary JSX. Shared content uses typed components and page context.
 
+The standalone résumé uses document navigation in both directions, including
+`/resume/` and the historical `/resume.html`, to keep its print stylesheet
+isolated. Main-site documents load `main.css` followed by the small `design.css`
+up front, so client navigation never shows a destination before its styles are
+ready. Both existing public stylesheet URLs are preserved.
+
 The widget bridge loads jQuery and its interaction bundle once per document,
 initializes each destination, and disposes listeners, timers, clipboard handlers,
-modals, and popups before leaving a page. Language and section classes update
-before painting the destination. Fonts and analytics scripts load once.
+modals, and popups immediately before committing a new page. Pending navigation
+can be cancelled without disabling the current page’s widgets. Language and section
+classes update before painting the destination. Fonts and analytics scripts load once.
 
 ## Development
 
