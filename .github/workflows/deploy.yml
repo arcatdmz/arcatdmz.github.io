@@ -27,6 +27,16 @@ jobs:
       - name: Install dependencies
         # Next's platform-specific SWC compiler is an optional npm dependency.
         run: npm ci
+      - name: Restore image derivatives
+        uses: actions/cache@v5.1.0
+        with:
+          path: .cache/site-images
+          # Only changed image inputs/settings create a new snapshot. Restore
+          # the previous image set to reuse unchanged content-addressed entries.
+          key: site-images-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package-lock.json', 'scripts/image-derivatives.ts') }}-${{ hashFiles('src/**/*.[pP][nN][gG]', 'src/**/*.[jJ][pP][gG]', 'src/**/*.[jJ][pP][eE][gG]', 'src/**/*.[wW][eE][bB][pP]') }}
+          restore-keys: |
+            site-images-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package-lock.json', 'scripts/image-derivatives.ts') }}-
+            site-images-v1-${{ runner.os }}-${{ runner.arch }}-
       - name: Build pages
         run: npm run build
       - name: Test built pages
