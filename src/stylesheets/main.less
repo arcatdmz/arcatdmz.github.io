@@ -11,6 +11,12 @@ html {
   scroll-padding-top: 64px;
 }
 
+/* Intrinsic dimensions reserve space; constrained widths must still scale height.
+   Explicit height attributes and more specific avatar/icon CSS keep their sizing. */
+img[data-site-responsive] {
+  height: auto;
+}
+
 @media only print {
   .ui.top.fixed.menu {
     position: absolute !important;

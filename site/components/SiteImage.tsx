@@ -63,6 +63,24 @@ export function SiteImage({
         : "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 933px, 1127px");
   const fallback =
     candidates.find((candidate) => candidate.width >= 640) || candidates.at(-1);
+  const numericDimension = (value: number | string | undefined) =>
+    typeof value === "number"
+      ? value
+      : typeof value === "string" && /^\d+(?:\.\d+)?$/.test(value)
+        ? Number(value)
+        : undefined;
+  const explicitWidth = numericDimension(width);
+  const explicitHeight = numericDimension(height);
+  const intrinsicWidth =
+    width ??
+    (asset && explicitHeight !== undefined
+      ? Math.round((explicitHeight * asset.width) / asset.height)
+      : asset?.width);
+  const intrinsicHeight =
+    height ??
+    (asset && explicitWidth !== undefined
+      ? Math.round((explicitWidth * asset.height) / asset.width)
+      : asset?.height);
   return (
     <img
       {...props}
@@ -76,8 +94,9 @@ export function SiteImage({
           : undefined)
       }
       sizes={srcSet || candidates.length ? displaySizes : sizes}
-      width={width ?? asset?.width}
-      height={height ?? asset?.height}
+      width={intrinsicWidth}
+      height={intrinsicHeight}
+      data-site-responsive={asset && height === undefined ? "" : undefined}
       loading={loading}
       decoding={decoding}
       data-original-src={asset ? src : undefined}
