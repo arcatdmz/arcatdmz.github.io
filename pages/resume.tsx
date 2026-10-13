@@ -432,7 +432,7 @@ function WorkExperience() {
                 {"TouchDevelop"}
               </a>
               {", whose research component was published as an "}
-              <a href={"#pldi2013-alive"}>{"ACM PLDI'13"}</a>
+              <a href={"#pldi2013-kato-alive"}>{"ACM PLDI'13"}</a>
               {" full paper."}
             </p>
           </div>
@@ -462,7 +462,7 @@ function WorkExperience() {
               {
                 "; developed extensions to an integrated development environment and wrote a full research paper later published at "
               }
-              <a href={"#uist2012-dejavu"}>{"ACM UIST'12"}</a>
+              <a href={"#uist2012-kato-dejavu"}>{"ACM UIST'12"}</a>
               {"."}
             </p>
           </div>
