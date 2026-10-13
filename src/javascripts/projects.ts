@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/projects.json";
+import json from "../data/projects.json";
 
-const data: ProjectData = json.default ? json.default : json;
+const data: ProjectData = json as ProjectData;
 
 const defaultImageType = "png";
 
@@ -41,7 +41,7 @@ interface RawEntry {
     from: number;
     to?: number;
   };
-  category?: "collaboration" | "committee" | "private";
+  category?: "collaboration" | "committee" | "private" | "concept";
   publication?: string;
   title: string;
   "title-design"?: string;
@@ -135,12 +135,12 @@ class Entry {
   get ja() {
     return this.data.ja;
   }
-  getYearString(lang?: "en" | "ja") {
+  getYearString(lang?: "en" | "ja", currentYear = new Date().getFullYear()) {
     var to: number;
     if (this.data.year && typeof this.data.year.to === "number") {
       to = this.data.year.to;
     } else {
-      to = new Date().getFullYear();
+      to = currentYear;
     }
     if (!this.data.year) {
       return `-${to}`;
@@ -286,7 +286,8 @@ class Entry {
   }
 }
 
-export function namesToHTML(namesArr: string[]) {
+export function namesToHTML(names: string[]) {
+  const namesArr = [...names];
   var i = -1,
     j = -1;
   if (

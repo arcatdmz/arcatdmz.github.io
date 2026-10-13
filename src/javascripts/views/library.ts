@@ -3,113 +3,167 @@
 
 import Clipboard from "clipboard";
 import "../../../dist/semantic/semantic.min";
-const lang: "en" | "ja" = (<any>self)["lang"];
-const basePath: string = (<any>self)["basePath"];
+import { type PageScope } from "./scope";
+let lang: "en" | "ja";
+let basePath: string;
 
-// initialize sidebar
-var onSidebarHidden: (this: JQuery) => void;
-export function setSidebarHiddenListener(func: (this: JQuery) => void) {
-  onSidebarHidden = func;
-}
-$(".ui.sidebar").sidebar({
-  onHidden: function () {
-    // console.log('sidebar is hidden (library side)');
-    if (onSidebarHidden) {
-      onSidebarHidden.call(this);
-    }
-  },
-});
-$(".sidebar-button").on("click touch", (ev) => {
-  ev.preventDefault();
-  $(".ui.sidebar").sidebar("toggle");
-  return false;
-});
-
-// initialize embed
-$("#body .ui.embed").embed();
-
-// initialize dropdown menus
-$(".ui.dropdown").dropdown();
-
-// initialize popup tiphelp if exists
-$(".with-popup").popup({
-  hoverable: true,
-  addTouchEvents: true,
-});
-
-// initialize popup menu if exists
-$(".publication .with-popup-menu").popup({
-  inline: true,
-  position: "top right",
-  lastResort: "top right",
-  hoverable: true,
-  addTouchEvents: true,
-});
-
-// initialize left bottom popup menu if exists
-const $popupButton = $("a.popup-menu.button");
-$popupButton.removeClass("hidden").popup({
-  inline: true,
-  position: "top left",
-  lastResort: "top left",
-  hoverable: true,
-  addTouchEvents: true,
-});
-
-if ($popupButton.is(":visible")) {
-  $popupButton.transition("bounce");
-}
-
-// initialize tag popup
-const $tagLink = $("a.project.tag");
-if ($tagLink.length > 0) {
-  var $currentTarget: JQuery | null = null,
-    loading = false;
-  $tagLink.on("click touch", (ev) => {
+export function initializeLibrary(scope: PageScope) {
+  lang = (<any>self).lang;
+  basePath = (<any>self).basePath;
+  const popups: JQuery[] = [];
+  const modals = $(".ui.modal")
+    .toArray()
+    .map((element) => ({
+      element,
+      parent: element.parentNode,
+      next: element.nextSibling,
+    }));
+  $(".ui.sidebar").sidebar({
+    context: $("#__next").length ? "#__next" : "body",
+  });
+  scope.on($(".sidebar-button"), "click touch", (ev) => {
     ev.preventDefault();
-
-    // do not show anything when loading projects data in background
-    if (loading) {
-      return false;
-    }
-
-    if ($currentTarget) {
-      // keep showing the current popup
-      if ($currentTarget[0] === ev.currentTarget) {
-        return false;
-      }
-      // immediately remove the previous popup
-      $currentTarget.popup("hide");
-    }
-
-    // load project data
-    loading = true;
-    loadProjects().then((projects: any) => {
-      // setup popup menu
-      const $ct = $(ev.currentTarget);
-      if (!$ct.data("initialized")) {
-        var $content = listProjectsByTag(
-          projects,
-          $ct.data("tag"),
-          $ct.parents("[data-project]").data("project"),
-        );
-        $("body").append($content);
-        $ct.popup({
-          popup: $content,
-          on: "click",
-          hoverable: true,
-          addTouchEvents: true,
-        });
-        $ct.data("initialized", true);
-      }
-
-      // show popup menu
-      $ct.popup("show");
-      $currentTarget = $ct;
-      loading = false;
-    });
+    $(".ui.sidebar").sidebar("toggle");
     return false;
   });
+
+  scope.on($(".ui.sidebar a[href]"), "click", () => {
+    $(".ui.sidebar").sidebar("hide");
+  });
+
+  // initialize embed
+  $("#body .ui.embed").embed();
+
+  // initialize dropdown menus
+  $(".ui.dropdown").dropdown();
+
+  // initialize popup tiphelp if exists
+  $(".with-popup").popup({
+    hoverable: true,
+    addTouchEvents: true,
+  });
+
+  // initialize popup menu if exists
+  $(".publication .with-popup-menu").popup({
+    inline: true,
+    position: "top right",
+    lastResort: "top right",
+    hoverable: true,
+    addTouchEvents: true,
+  });
+
+  // initialize left bottom popup menu if exists
+  const $popupButton = $("a.popup-menu.button");
+  $popupButton.removeClass("hidden").popup({
+    inline: true,
+    position: "top left",
+    lastResort: "top left",
+    hoverable: true,
+    addTouchEvents: true,
+  });
+
+  if ($popupButton.is(":visible")) {
+    $popupButton.transition("bounce");
+  }
+
+  // initialize tag popup
+  const $tagLink = $("a.project.tag");
+  if ($tagLink.length > 0) {
+    var $currentTarget: JQuery | null = null,
+      loading = false;
+    scope.on($tagLink, "click touch", (ev) => {
+      ev.preventDefault();
+
+      // do not show anything when loading projects data in background
+      if (loading) {
+        return false;
+      }
+
+      if ($currentTarget) {
+        // keep showing the current popup
+        if ($currentTarget[0] === ev.currentTarget) {
+          return false;
+        }
+        // immediately remove the previous popup
+        $currentTarget.popup("hide");
+      }
+
+      // load project data
+      loading = true;
+      loadProjects().then((projects: any) => {
+        if (!scope.active) return;
+        // setup popup menu
+        const $ct = $(ev.currentTarget);
+        if (!$ct.data("initialized")) {
+          var $content = listProjectsByTag(
+            projects,
+            $ct.data("tag"),
+            $ct.parents("[data-project]").data("project"),
+          );
+          $("body").append($content);
+          popups.push($content);
+          $ct.popup({
+            popup: $content,
+            on: "click",
+            hoverable: true,
+            addTouchEvents: true,
+          });
+          $ct.data("initialized", true);
+        }
+
+        // show popup menu
+        $ct.popup("show");
+        $currentTarget = $ct;
+        loading = false;
+      });
+      return false;
+    });
+  }
+
+  // clipboard
+  const copyText =
+    lang === "en"
+      ? "Copied the BibTeX entry to your clipboard!"
+      : "BibTeXをクリップボードにコピーしました！";
+  scope.on($("a.bibtex"), "click touch", (ev) => {
+    const $a = $(ev.currentTarget);
+    var closable = false;
+    $a.popup("destroy")
+      .popup(<any>{
+        content: copyText,
+        position: "left center",
+        onHide: () => closable,
+      })
+      .popup("show");
+    scope.timeout(() => {
+      closable = true;
+      $a.popup("hide");
+    }, 1000);
+  });
+
+  const clipboard = new Clipboard("a.bibtex");
+
+  return () => {
+    clipboard.destroy();
+    $("body,html").stop(true);
+    $(".ui.sidebar").sidebar("destroy");
+    $(".ui.dropdown").dropdown("destroy");
+    $(
+      ".with-popup, .with-popup-menu, a.popup-menu.button, a.project.tag, a.bibtex",
+    ).each(function () {
+      if ($(this).data("module-popup")) $(this).popup("destroy");
+    });
+    $("#body .ui.embed").embed("destroy");
+    for (const { element, parent, next } of modals) {
+      if ($(element).data("module-modal")) $(element).modal("destroy");
+      if (parent && element.parentNode !== parent)
+        parent.insertBefore(element, next?.parentNode === parent ? next : null);
+    }
+    popups.forEach((popup) => popup.remove());
+    $("body > .ui.dimmer").remove();
+    $("body").removeClass("dimmed dimmable blurring scrolling");
+    $("#__next").removeClass("dimmed");
+  };
 }
 
 function listProjectsByTag(projects: any, tag: string, currentProject: string) {
@@ -167,7 +221,7 @@ function listProjectsByTag(projects: any, tag: string, currentProject: string) {
           ? `Following projects are also tagged with <strong>${tags[tag].label}</strong>.`
           : `No other project is tagged with <strong>${tags[tag].label}</strong>.`,
     );
-  setSmoothScroll($list.find("a"));
+  $popupContent.find("a[href]").attr("data-site-navigation", "");
   return $popupContent;
 }
 
@@ -177,83 +231,9 @@ function loadProjects() {
     if (projects) {
       return resolve(projects);
     }
-    import(/* webpackChunkName: "projects" */ "../projects").then(
-      (projects) => {
-        resolve(projects);
-      },
-    );
+    import(/* webpackChunkName: "projects" */ "../projects").then((module) => {
+      projects = module;
+      resolve(module);
+    }, reject);
   });
-}
-
-// smooth scroll when possible
-setSmoothScroll(
-  $("#pusher a[href*=\\#]")
-    .add("#fixed-menu a[href*=\\#]")
-    .add("#post-footer a[href*=\\#]"),
-);
-
-// clipboard
-const copyText =
-  lang === "en"
-    ? "Copied the BibTeX entry to your clipboard!"
-    : "BibTeXをクリップボードにコピーしました！";
-$("a.bibtex").on("click touch", (ev) => {
-  const $a = $(ev.currentTarget);
-  var closable = false;
-  $a.popup("destroy")
-    .popup(<any>{
-      content: copyText,
-      position: "left center",
-      onHide: () => closable,
-    })
-    .popup("show");
-  setTimeout(() => {
-    closable = true;
-    $a.popup("hide");
-  }, 1000);
-});
-
-new Clipboard("a.bibtex");
-
-export function setSmoothScroll($e: JQuery) {
-  $e.on("click touch", function (ev) {
-    doSmoothScroll(<HTMLAnchorElement>this, ev);
-  });
-}
-
-export function doSmoothScroll(a: HTMLAnchorElement, ev?: JQuery.Event) {
-  if (!checkSmoothScrollable(a)) {
-    return true;
-  }
-  if (ev) {
-    ev.preventDefault();
-  }
-  const offset = <JQuery.Coordinates>$(a.hash).offset();
-  $("body,html").animate(
-    {
-      scrollTop: offset.top - 64,
-    },
-    700,
-    () => {
-      history.pushState({}, "", a.href);
-    },
-  );
-  return false;
-}
-
-export function checkSmoothScrollable(a: HTMLAnchorElement) {
-  // console.log('check scrollability', a);
-  return (
-    location.pathname === a.pathname &&
-    typeof $(a.hash).offset() !== "undefined"
-  );
-}
-
-export default class Library {
-  constructor() {
-    // Do nothing.
-  }
-  test(a: number, b: number) {
-    return a + b;
-  }
 }

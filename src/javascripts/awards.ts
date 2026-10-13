@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/awards.json";
+import json from "../data/awards.json";
 import { Entry, RawEntry } from "./library";
-const awards: RawEntry[] = json.default || json;
+const awards: RawEntry[] = json as RawEntry[];
 
 const entries: Entry[] = [];
 for (const re of awards) {

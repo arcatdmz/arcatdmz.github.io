@@ -67,3 +67,16 @@ Thumbs.db
 
 # macOS Thumbnail
 .DS_Store
+
+# React / Next static build outputs
+.next/
+out/
+public/
+site/generated/
+.cache/site-images/
+*.tsbuildinfo
+site-qa/
+
+# Playwright reports
+test-results/
+playwright-report/

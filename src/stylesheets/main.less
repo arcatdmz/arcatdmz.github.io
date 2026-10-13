@@ -2,10 +2,22 @@
 @import "../../semantic/src/semantic.less";
 @import "../../semantic/src/themes/default/globals/site.variables";
 @import "../../semantic/src/site/globals/site.variables";
+// Scoped lecture styles must also be ready for client navigation into a talk.
+@import "talks.less";
 
 /*!
  * # junkato.jp
  */
+
+html {
+  scroll-padding-top: 64px;
+}
+
+/* Intrinsic dimensions reserve space; constrained widths must still scale height.
+   Explicit height attributes and more specific avatar/icon CSS keep their sizing. */
+img[data-site-responsive] {
+  height: auto;
+}
 
 @media only print {
   .ui.top.fixed.menu {
@@ -649,3 +661,46 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
     display: none !important;
   }
 }
+
+/* Next owns one root element; preserve the former body-level sidebar geometry. */
+#__next.pushable {
+  transform: none;
+  overflow-y: visible;
+  min-height: 100%;
+  height: auto;
+  background: @pageBackground;
+}
+#__next.pushable > .ui.sidebar,
+#__next.pushable > .fixed,
+#__next.pushable > .pusher::after {
+  position: fixed;
+}
+
+/* React-controlled widgets retain Fomantic's markup without its DOM plugin. */
+.ui.site-modal-dimmer {
+  overflow-y: auto;
+  padding: 1rem;
+}
+.ui.site-modal-dimmer > .ui.modal {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: auto !important;
+  flex: 0 0 auto;
+  max-height: none;
+}
+.ui.site-modal-dimmer > .ui.modal:focus { outline: none; }
+[role="button"] { cursor: pointer; }
+.animating.ui.uncover.sidebar {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui.sidebar, .pushable > .pusher, .pushable > .fixed, .pushable > .pusher::after { transition: none !important; }
+  .transition, .site-attention { animation: none !important; }
+}
+
+/* Live Tuning illustrations cross-fade with hover or keyboard focus. */
+.live-preview > img.hover { opacity: 0; transition: opacity 200ms; }
+.live-preview:hover > img.hover,
+.live-preview:focus > img.hover { opacity: 1; }

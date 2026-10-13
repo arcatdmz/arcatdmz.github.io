@@ -1,7 +1,7 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/lectures.json";
+import json from "../data/lectures.json";
 import { MultipleDateEntry, RawMultipleDateEntry } from "./library";
-const lectures: RawMultipleDateEntry[] = json.default || json;
+const lectures: RawMultipleDateEntry[] = json as RawMultipleDateEntry[];
 
 const entries: MultipleDateEntry[] = [];
 for (const re of lectures) {

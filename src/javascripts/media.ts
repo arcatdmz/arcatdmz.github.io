@@ -1,5 +1,5 @@
 /// <reference path='./typings.d.ts' />
-import * as json from "../data/media.json";
+import json from "../data/media.json";
 import { EntryDate, EntryDateType, I18nText } from "./library";
 import { tagsToHTML } from "./projects";
 
@@ -82,7 +82,7 @@ class MediaEntry {
   }
 }
 
-const rawEntries: RawMediaEntry[] = json.default || json;
+const rawEntries: RawMediaEntry[] = json as RawMediaEntry[];
 const entries: MediaEntry[] = [];
 for (const re of rawEntries) {
   entries.push(new MediaEntry(re));
