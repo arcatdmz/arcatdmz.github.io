@@ -14,7 +14,9 @@ const reactRoutes = new Set([
       );
     }
     return [
-      `/${path.replace(/(?:\/)?index\.tsx$/, "")}`.replace(/\/$/, "") || "/",
+      `/${path
+        .replace(/(?:\/)?index\.tsx$/, "")
+        .replace(/\.tsx$/, "")}`.replace(/\/$/, "") || "/",
     ];
   }),
 ]);
@@ -41,21 +43,16 @@ export function resolveReactHref(
 }
 
 export function getDocumentMetadata(pathname: string) {
-  const legacyEnglishRedirect =
-    pathname === "/ja/talks/as-a-code" ||
-    pathname === "/ja/talks/people-are-programmers";
   const section = pathname.replace(/^\/ja(?=\/|$)/, "").split("/")[1];
   return {
-    language:
-      !legacyEnglishRedirect &&
-      (pathname.startsWith("/ja/") || pathname === "/ja")
-        ? "ja"
-        : "en",
+    language: pathname.startsWith("/ja/") || pathname === "/ja" ? "ja" : "en",
     bodyClass: ["projects", "publications", "timeline"].includes(section)
       ? "with-rail"
       : section === "design"
         ? "without-header-menu design"
-        : undefined,
+        : section === "talks"
+          ? "talks"
+          : undefined,
   };
 }
 

@@ -1,11 +1,19 @@
-import { RedirectPage } from "@/site/components/RedirectPage";
-export default function Page() {
-  const url = "http://junkato.digitalmuseum.jp/ja/talks/as-a-code";
+import { Chapter1 } from "@/site/talks/as-a-code";
+import { TalkPage } from "@/site/talks/TalkPage";
+import { type PageDataProps } from "@/site/page-data";
+import { getPageData } from "@/site/page-data.server";
+import { withPageImages } from "@/site/page-images.server";
+export default function Page(props: PageDataProps) {
   return (
-    <RedirectPage url={url}>
-      {
-        "This web application does not run on HTTPS and is currently hosted at http://junkato.digitalmuseum.jp/ja/talks/as-a-code."
-      }
-    </RedirectPage>
+    <TalkPage {...props} slug="as-a-code" chapter={1} Content={Chapter1} />
   );
+}
+export function getStaticProps() {
+  return {
+    props: withPageImages(
+      Page,
+      { pageData: getPageData("/ja/talks/as-a-code/") },
+      "/ja/talks/as-a-code/",
+    ),
+  };
 }
