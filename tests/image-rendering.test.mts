@@ -59,6 +59,7 @@ test("responsive images reserve original proportions, defer by default, and reta
     'sizes="150px"',
     'width="1200"',
     'height="800"',
+    'data-site-responsive=""',
     'loading="lazy"',
     'data-original-src="/images/photo.jpg"',
   ])
@@ -84,6 +85,22 @@ test("eager above-fold images and explicit layout dimensions are preserved", () 
   assert.ok(html.includes('fetchPriority="high"'));
   assert.ok(html.includes('sizes="96px"'));
   assert.ok(html.includes('width="96" height="96"'));
+  assert.ok(!html.includes('data-site-responsive=""'));
+});
+
+test("single-axis image dimensions reserve the matching aspect ratio", () => {
+  const render = (props: { width?: number | string; height?: number }) =>
+    renderToStaticMarkup(
+      createElement(
+        SiteImagesContext.Provider,
+        { value: manifest },
+        createElement(SiteImage, { src: "/images/photo.jpg", ...props }),
+      ),
+    );
+  assert.match(render({ width: "600" }), /width="600" height="400"/);
+  assert.match(render({ height: 200 }), /width="300" height="200"/);
+  assert.ok(render({ width: 600 }).includes('data-site-responsive=""'));
+  assert.ok(!render({ height: 200 }).includes('data-site-responsive=""'));
 });
 
 test("unknown, external, animated, and empty modal sources retain their original URL", () => {
