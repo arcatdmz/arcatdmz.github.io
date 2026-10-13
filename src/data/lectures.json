@@ -106,7 +106,7 @@
   {
     "dates": ["2015/12/9"],
     "text": {
-      "ja": "明治大学 コンテンツ・エンタテインメント概論（CE概論）ゲスト講義「* as a Code -- コンテンツをプログラミングする方法」",
+      "ja": "明治大学 コンテンツ・エンタテインメント概論（CE概論）ゲスト講義「* as a Code -- コンテンツをプログラミングする方法」, <a href=\"${rootPath}ja/talks/as-a-code/\"><i class=\"world icon\"></i>Webページ</a>, <a href=\"${rootPath}publications/151209-ce-slides.pdf\"><i class=\"video play icon\"></i>スライド</a>",
       "en": "Meiji University Content and Entertainment Guest Lecture \"* as a Code -- Render any content with code\""
     },
     "entryType": "domestic"
