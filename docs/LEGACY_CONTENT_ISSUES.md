@@ -2,7 +2,8 @@
 
 React 移行時に引き継いだ不具合を、後日修正するための一覧です。
 2026-10-12 に現行の `dist/` とソースを照合しました。
-2026-10-13 に L1〜L4 を対応済みに更新しました。以降の項目は修正待ちとして残しています。
+2026-10-13 に L1〜L4、2026-10-14 に L5〜L10 を対応しました。
+各項目の症状・欠落先は初回確認時の記録で、対応内容を併記しています。外部サービスの確認待ちは引き続き残しています。
 
 ## 初回確認の範囲と件数（2026-10-12）
 
@@ -22,6 +23,15 @@ React 移行時に引き継いだ不具合を、後日修正するための一�
 初回の60箇所から、L1の3箇所、L2の3箇所、L3の2箇所、L4の4箇所が解消しています。
 L3の外部URLの誤記修正は、このサイト内参照の集計とは別です。
 L4の出力PDFは復旧されたソースとバイト単位で一致します。
+
+### L5〜L10 対応後の確認（2026-10-14）
+
+ビルド後の `dist/` 全体でサイト内参照を再集計し、**参照切れは48箇所から0箇所** になりました。
+旧VPSから回収したCSS5ファイル、国旗画像2ファイル、フォント5ファイルは、取得内容・`src/`・`dist/` の間でバイト単位の一致を確認しています。
+復元CSS内の `url(...)` が参照するローカルファイルもすべて存在します。
+追加の目視確認では、1440×900と390×844のスクリーンショットで、Fun、旧講演2ページ、TextAlive APIテスト（6）、UGVの曲リンクとサムネイルの表示を確認しました。
+日本語フォントを備えた確認用ブラウザを使用し、外部ウィジェット通信は停止しています。旧スライドはスマートフォンでは全体を縮小表示するため、文字が小さくなる状態は残っています。
+この集計は外部サービスの到達性や、旧UGVデモの操作機能を保証するものではありません。
 
 ## 1. 現行ページのリンク切れ
 
@@ -61,7 +71,7 @@ L4の出力PDFは復旧されたソースとバイト単位で一致します。
 以下は `src/` に保存されたHTMLが、そのまま `public/` → `dist/` にコピーされるページです。
 修正する場合は、生成物ではなく表の `src/` のファイルを編集します。
 
-### L5. 旧共通CSSが欠落（22箇所）
+### L5. 【対応済み】旧共通CSSが欠落（22箇所）
 
 次の11ページすべてが、存在しない `/css/bootstrap.min.css` と `/css/main.css` を各1回参照しています。
 CSSを取得できず、当時のレイアウトや装飾が再現できない原因になります。
@@ -80,10 +90,9 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 | `/textalive/embed/api/embed-5.html` | [embed-5.html](../src/textalive/embed/api/embed-5.html) |
 | `/textalive/embed/api/embed-6.html` | [embed-6.html](../src/textalive/embed/api/embed-6.html) |
 
-**修正の手がかり:** 当時使用していたBootstrapと共通CSSを探して復元する。
-現在の `/stylesheets/main.css` は存在するが、旧Bootstrapページと互換とは限らないため、単純な差し替えには表示確認が必要。
+**対応（2026-10-14）:** `ssh dm` で参照できる旧サイトルート `~/www/jk_old` から `css/bootstrap.min.css` と `css/main.css` を回収し、同じパスの `src/css/` に復元。旧共通CSSが参照する `css/jp.png`・`css/us.png` と、Bootstrapが参照する `fonts/glyphicons-halflings-regular.{eot,woff2,woff,ttf,svg}` も復元した。現行React版の `/stylesheets/main.css` とは独立した、当時の個別CSSを使用する。
 
-### L6. 旧スライダー用CSSが欠落（3箇所）
+### L6. 【対応済み】旧スライダー用CSSが欠落（3箇所）
 
 | 対象ページ | 存在しない宛先 | 箇所数 |
 | --- | --- | ---: |
@@ -92,17 +101,17 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 | `/textalive/embed/api/embed-6.html` | `/talks/people-are-programmers/rangeslider.css` | 1 |
 
 **症状:** スライダーのCSSを取得できない。修正元は L5 の対応するHTML。
-**修正の手がかり:** `src/` 内にも `rangeslider.css` がないので、参照先を変えるだけでは復元できない。当時の依存ファイルの回収が必要。
+**対応（2026-10-14）:** 旧VPSの `talks/as-a-code/rangeslider.css` と `talks/people-are-programmers/rangeslider.css` を、それぞれ同じパスの `src/` 以下に復元。TextAliveの `embed-6.html` も既存の参照先で読み込める。
 
-### L7. TextAlive APIサンプルの構文強調CSSが欠落（7箇所）
+### L7. 【対応済み】TextAlive APIサンプルの構文強調CSSが欠落（7箇所）
 
 - **場所:** `/textalive/embed/api/` と `embed-1.html`〜`embed-6.html`。
 - **参照:** 各HTMLの `href="prism.css"`。解決先は `/textalive/embed/api/prism.css`。
 - **症状:** サンプルコードの構文強調用CSSを取得できない。
 - **修正元:** L5 の TextAlive API 関連7ファイル。
-- **修正の手がかり:** 使用していたPrismのテーマを回収し `src/textalive/embed/api/prism.css` に置くか、適切なCSSへの参照に変更する。
+- **対応（2026-10-14）:** 旧VPSの `textalive/embed/api/prism.css` を `src/textalive/embed/api/prism.css` に復元。各HTMLの相対参照は維持した。
 
-### L8. 旧講演ページの英語切り替え先がない（4箇所）
+### L8. 【対応済み】旧講演ページの英語切り替え先がない（4箇所）
 
 | 対象ページ | 存在しない宛先 | 箇所数・場所 |
 | --- | --- | --- |
@@ -110,16 +119,16 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 | `/ja/talks/people-are-programmers.old/` | `/talks/people-are-programmers/` | 2：上部メニュー、フッターの English |
 
 **修正元:** L5 の対応する講演HTML。
-**修正の手がかり:** 英語版の所在を調べるか、日本語の保存版への導線にする。`/ja/talks/…` の現行ルートは外部リダイレクトなので、それを使う場合は後述の R1/R2 も確認する。
+**対応（2026-10-14）:** 英語版がない両ページで、上部メニューとフッターの English リンクを削除。リンク削除後の空のメニュー項目も除去した。
 
-### L9. people-are-programmers の画像パスが保存先とずれている（10箇所）
+### L9. 【対応済み】people-are-programmers の画像パスが保存先とずれている（10箇所）
 
 - **場所・修正元:** [src/ja/talks/people-are-programmers.old/index.html](../src/ja/talks/people-are-programmers.old/index.html)。
 - **存在しない宛先:** `/talks/people-are-programmers/P9206331-trim.jpg` と、`/talks/people-are-programmers/slides/wakate2015-kato-slides-01.jpg`〜`wakate2015-kato-slides-09.jpg`（01, 02, 03, 04, 05, 06, 07, 08, 09 の9枚）。
 - **症状:** 写真1枚とスライド画像9枚を取得できない。
-- **修正の手がかり:** これら10ファイルはすべて `src/ja/talks/people-are-programmers.old/` 以下に存在する。保存先に合わせて参照を修正できる候補。
+- **対応（2026-10-14）:** 10枚すべての `src` を `/ja/talks/people-are-programmers.old/` 以下の実際の保存先に変更した。
 
-### L10. User-Generated Variables の旧デモ・サムネイルがない（2箇所）
+### L10. 【対応済み】User-Generated Variables の旧デモ・サムネイルがない（2箇所）
 
 **場所・修正元:** [src/user-generated-variables.old/index.html](../src/user-generated-variables.old/index.html)。
 
@@ -127,6 +136,14 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 | --- | --- | --- |
 | 遅延読み込みiframeの `data-src` | `/videos/new?song=staff.aist.go.jp%2Fm.goto%2FRWC-MDB%2FMP3%2FRWC-MDB-P-2001.No.087.mp3&style=pop&skipProposalCommit=true&skipTutorial=true&tutorial=true&ugv=true&fontSize=16` | 旧TextAliveのデモをこのサイトの `/videos/new` で開こうとするが、ページもサーバー側機能もない。デモの現在の所在とクエリ互換性を確認する |
 | 画像の `src` | `http://junkato.jp/thumbnails/live-tuning.jpg` | 画像ファイルがない。`src/images/thumbnails/live-tuning.png` は存在するが、同じ画像として差し替えてよいか確認する。HTTP参照も見直す |
+
+**対応（2026-10-14）:** 旧TextAliveデモの遅延iframe用要素を、[当該曲をTextAliveで開くリンク](https://textalive.jp/songs/staff.aist.go.jp%2Fm.goto%2FRWC-MDB%2FMP3%2FRWC-MDB-P-2001.No.087.mp3)に置き換えた。現行の `/songs/{songPath}` の実装はローカルの `~/Source/textalive-client-app/pages/songs/[songPath].tsx` を参照し、公開ページのHTTP 200と曲名「I think of you」のデータを確認した。
+
+初回一覧では `data-src` をサイト内相対参照として集計したが、実際の旧スクリプト `js/vendor/px17.js` は既定で `http://textalive.jp` を前置していた。今回、その旧 `/videos/new` 導線を現行の曲ページへの通常リンクに更新した。
+
+旧デモにあったUGVの変数提案・コード更新の操作は再実装していない。再現する場合は `textalive-api` 等を使う別の実装作業が必要で、private registryの認証情報を `TEXTALIVE_NPM_TOKEN` のようなGitHub Actions secretとして用意し、ビルド工程の認証設定を追加する。今回のリンク化にはprivateパッケージを使用せず、認証情報やActions設定を追加していない。
+
+サムネイルは `/images/thumbnails/live-tuning.png` に変更し、このサイトに保存されている画像を使用する。
 
 ## 3. 埋め込みの初期化エラー
 
