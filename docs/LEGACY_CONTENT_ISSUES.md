@@ -3,6 +3,7 @@
 React 移行時に引き継いだ不具合を、後日修正するための一覧です。
 2026-10-12 に現行の `dist/` とソースを照合しました。
 2026-10-13 に L1〜L4、2026-10-14 に L5〜L10 を対応しました。
+2026-10-14 に E1 と R1〜R5 の解消も確認しました。
 各項目の症状・欠落先は初回確認時の記録で、対応内容を併記しています。外部サービスの確認待ちは引き続き残しています。
 
 ## 初回確認の範囲と件数（2026-10-12）
@@ -32,6 +33,12 @@ L4の出力PDFは復旧されたソースとバイト単位で一致します。
 追加の目視確認では、1440×900と390×844のスクリーンショットで、Fun、旧講演2ページ、TextAlive APIテスト（6）、UGVの曲リンクとサムネイルの表示を確認しました。
 日本語フォントを備えた確認用ブラウザを使用し、外部ウィジェット通信は停止しています。旧スライドはスマートフォンでは全体を縮小表示するため、文字が小さくなる状態は残っています。
 この集計は外部サービスの到達性や、旧UGVデモの操作機能を保証するものではありません。
+
+### 講演全章・UGV復元後の追加確認（2026-10-14）
+
+復元した `/ja/talks/people-are-programmers/p2.html` からの `/publications/spro2014-kato-live-condensed.pdf` が欠落していました。旧VPSの `~/www/jk_old/publications/` に原本が残っていたため、[同PDF](../src/publications/spro2014-kato-live-condensed.pdf)を復旧しました。
+
+静的ビルド後、全296 HTMLページ・23,335箇所のサイト内参照を再集計し、**参照切れは0箇所** です。原本・`src/`・`public/`・`out/`・`dist/` のPDFはSHA-256が一致し、プレビュー配信でも第2章とPDFのHTTP 200、PDFのContent-Typeと内容の一致を確認しました。
 
 ## 1. 現行ページのリンク切れ
 
@@ -145,26 +152,26 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 
 サムネイルは `/images/thumbnails/live-tuning.png` に変更し、このサイトに保存されている画像を使用する。
 
-## 3. 埋め込みの初期化エラー
+## 3. 【対応済み】埋め込みの初期化エラー
 
-### E1. iframeを持つ `.ui.embed` にFomanticのURL設定がない（40ページ・60要素）
+### E1. 【対応済み】iframeを持つ `.ui.embed` にFomanticのURL設定がない（40ページ・60要素）
 
-移行レポートの「empty-embed console errors」は、正確には次の状態を指しています。
+移行レポートの「empty-embed console errors」は、初回確認時の次の状態を指しています。
 
-- HTMLには `<div class="ui embed"><iframe src="…"></iframe></div>` がある。
-- [initializeLibrary](../src/javascripts/views/library.ts) が `$("#body .ui.embed").embed()` で一括初期化する。
-- 外側の `div` に `data-url` や `data-source` / `data-id` がないため、[Fomanticのembed実装](../semantic/src/definitions/modules/embed.js)は既存iframeとは別に空の `.embed` 要素を追加し、`Embed: No URL specified` を出す。
+- HTMLには `<div class="ui embed"><iframe src="…"></iframe></div>` があった。
+- [initializeLibrary](../src/javascripts/views/library.ts) が `$("#body .ui.embed").embed()` で一括初期化していた。
+- 外側の `div` に `data-url` や `data-source` / `data-id` がないため、[Fomanticのembed実装](../semantic/src/definitions/modules/embed.js)は既存iframeとは別に空の `.embed` 要素を追加し、`Embed: No URL specified` を出していた。
 
-今回照合した60要素には、すべて `src` のあるiframeが入っていました。
+初回に照合した60要素には、すべて `src` のあるiframeが入っていました。
 **動画やスライドのURLが空という意味ではなく、初期化方法の不整合です。**
 各外部サービスで今も再生・表示できるかは別の確認事項で、このエラーだけでは判断できません。
 
-**修正の手がかり:** 既存iframeを持つ要素をFomanticの自動生成対象から外すか、Fomanticの設定を使って生成する形に揃える。
-通常のYouTubeは [EmbedYoutube](../site/components/ContentComponents.tsx)、FacebookとSlideShareは各ページに直接書かれたiframeを確認する。
-`data-url` を指定したPDFの埋め込みはこの60要素に含まれないので、初期化対象を変える際にはそれらの動作も確認する。
+**対応:** `02405a0`（`perf: render scoped page data and native React widgets`）で、[Embed](../site/components/SiteWidgets.tsx) をReactコンポーネントに置き換えた。既存iframeはそのまま表示し、`data-url` のあるPDF等だけをクリック時に生成する。[SiteRuntime](../site/components/SiteRuntime.tsx) は旧 `initializeLibrary` を呼ばないため、現行ReactページではFomanticの一括初期化による不整合が発生しない。
+
+**検証（2026-10-14）:** 表にある全40ページ・60要素を静的出力のブラウザーで再確認。`No URL specified` は0件、既存iframeの横に追加される空の `.embed` 要素も0件。英日両方のVisionSketchページでは、PDFのクリック前にiframeがないこと、クリック後に正しいURLのiframeが1つ生成されることも確認した。外部サービスへの通信は遮断しており、各サービス側の再生・表示の可否はこの確認に含めない。
 
 次の表で **英語版は `/<パス>/`、日本語版は `/ja/<パス>/`** です。
-「英／日」はそれぞれのページの対象要素数。リンク先は各ページの修正元で、合わせて40ページ・60要素を網羅します。
+「英／日」はそれぞれのページの初回確認時の対象要素数。リンク先は各ページの編集元で、合わせて40ページ・60要素を網羅します。
 
 | パス | 英／日 | 該当する埋め込み（動画ID等） | 修正元 |
 | --- | --- | --- | --- |
@@ -212,6 +219,19 @@ R3は独立したスライド資料として、元の表示・キーボード操
 以前の外部遷移先はR1・R2が `http://junkato.digitalmuseum.jp/ja/talks/{slug}`、R3が `http://junkato.digitalmuseum.jp/user-generated-variables`、R4・R5がR3経由の同じ宛先だった。今回の復旧は、その外部サービスの到達性や証明書を修正したものではない。
 
 `/science/` → `/ja/science` と `/user-interface-design/` → `/ja/user-interface-design` は以前からサイト内の案内で、この5入口には含めていない。
+
+## 5. 残っている対応・確認事項
+
+L1〜L10、E1、R1〜R5 は対応済み。以下は保留した操作機能や、これまでの検証に含めていない確認事項です。
+
+| 対象 | 残っていること | 現在の状態 |
+| --- | --- | --- |
+| [people-are-programmers 第3章](../site/talks/people-are-programmers.tsx) | TextAlive APIデモ3件の時刻指定・花びら枚数・拡大率の操作 | 説明とTextAliveへのリンクを表示。APIの復旧は保留。詳細は [TALK_MIGRATION.md](TALK_MIGRATION.md#textalive-api-の残作業) |
+| [UGV発表資料](../src/user-generated-variables/index.html) | TextAliveの変数提案・コード更新と、f3.jsデモのスライド内操作 | TextAliveの曲ページとf3.jsのプロジェクトへのリンクに置換済み。操作機能の再実装は保留 |
+| 外部サービス | 1,377 URLの到達性、49 URLの埋め込み表示、旧TextAlive APIサンプル7ページを確認 | 問題のあるURL・掲載ページ・編集元・次の対応を [EXTERNAL_CONTENT_AUDIT.md](EXTERNAL_CONTENT_AUDIT.md) と [CSV](EXTERNAL_LINK_AUDIT.csv) に整理。動画の公開設定、地図URL、旧APIのHTTPS対応など具体的なTODOを記録 |
+| ページ内アンカー | 全296 HTMLページのフラグメント付き `href` 2,206箇所を照合 | **対応済み。** 履歴書の論文リンク2種類（2入口・計4箇所）を実在するIDに修正し、再ビルド後の欠落は0箇所。詳細は [EXTERNAL_CONTENT_AUDIT.md](EXTERNAL_CONTENT_AUDIT.md#確認範囲と結果) |
+
+任意の表示改善として、UGVの旧Reveal.jsスライドはスマートフォンでも文字を読みやすくする余地があります。現在は元のレイアウト全体を縮小して表示しています。
 
 ## 修正時の再確認
 

@@ -67,7 +67,7 @@ tag controls, citation menus, and BibTeX copying verified by an actual paste.
 Browser-discovered hydration
 issues in Design and Japanese Science, and the floating Design navigation CSS,
 were repaired and rechecked. A final sweep of all 125 React routes reported zero
-hydration errors and zero new application errors. The 60 pre-existing embed
+hydration errors and zero new application errors. At that stage, the 60 pre-existing embed
 initialization console errors across 40 routes matched the baseline exactly;
 the affected elements contain iframes but lack Fomantic URL configuration. Five
 legacy external redirects still reach unavailable/certificate-failing destinations;
@@ -86,20 +86,33 @@ they were preserved, and browser security warnings were not bypassed.
 - Date-dependent static content uses a generated build clock so old exports do
   not develop hydration errors at New Year. Rebuild to refresh that content.
 
-## Existing limitations retained
+## Initial limitations and follow-up repairs
 
-The pre-existing broken references and embed initialization errors are listed
+The initially inherited broken references and embed initialization errors are recorded
 with affected pages, source files, and repair hints in
 [LEGACY_CONTENT_ISSUES.md](LEGACY_CONTENT_ISSUES.md). That inventory also records
 the legacy external redirect destinations and distinguishes historical browser
-findings from the latest local-file checks.
+findings from the latest local-file checks. The native React widgets introduced
+in `02405a0` resolved the embed initialization mismatch (E1); a 2026-10-14 browser
+sweep confirmed all 40 affected pages and 60 iframe elements are free of that
+error. The five historical external redirect entry points (R1–R5) have also
+been restored to local content or internal redirects.
+
+A subsequent 2026-10-14 audit checked 1,377 external URLs and 2,206 internal
+anchor references. Two resume anchor targets were corrected; the rebuilt HTML
+has no missing anchor targets. External failures, replacement URLs, and the
+remaining playback or publication-setting tasks are recorded in
+[EXTERNAL_CONTENT_AUDIT.md](EXTERNAL_CONTENT_AUDIT.md), with per-URL results in
+[EXTERNAL_LINK_AUDIT.csv](EXTERNAL_LINK_AUDIT.csv).
 
 Third-party maps, videos, and social widgets still depend on
 external services and can show transient loading states; settled Maps and
 TextAlive renders were verified to match the original.
 
-Fomantic and jQuery 3.2.1 remain for interaction/appearance compatibility. This
-migration does not claim a complete replacement of that legacy widget stack.
+The initial compatibility build retained Fomantic and jQuery 3.2.1. Current React
+pages retain Fomantic CSS and use native React widgets; their runtime no longer
+loads jQuery or Fomantic JavaScript. Standalone archival documents can still use
+their original vendor scripts.
 
 See [README.md](../README.md) for installation, development, build, preview, and
 baseline-comparison commands. No remote branch was pushed and no deployment was
