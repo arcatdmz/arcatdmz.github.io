@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { HtmlContent } from "./RichText";
+import { playAttention } from "./useTransition";
 interface Entry {
   date: string;
   text: string;
@@ -89,15 +90,22 @@ export function HistoryFeed({
     <div {...props}>
       {children}
       {history?.entries.map((entry, index) => (
-        <div className="event" key={index}>
-          <div className="content">
-            <div className="date">{entry.date}</div>
-            <div className="header">
-              <HtmlContent html={entry.text} />
-            </div>
-          </div>
-        </div>
+        <AddedHistoryEntry key={index} entry={entry} />
       ))}
+    </div>
+  );
+}
+function AddedHistoryEntry({ entry }: { entry: Entry }) {
+  const element = useRef<HTMLDivElement>(null);
+  useEffect(() => playAttention(element.current, "jiggle"), []);
+  return (
+    <div ref={element} className="event">
+      <div className="content">
+        <div className="date">{entry.date}</div>
+        <div className="header">
+          <HtmlContent html={entry.text} />
+        </div>
+      </div>
     </div>
   );
 }

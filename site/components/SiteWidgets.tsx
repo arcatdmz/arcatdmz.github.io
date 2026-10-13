@@ -21,6 +21,7 @@ import {
 import { createPortal } from "react-dom";
 import { useRouter } from "next/router";
 import { SiteImage } from "./SiteImage";
+import { useTransition, playAttention } from "./useTransition";
 
 const useBrowserLayoutEffect =
   typeof window === "undefined" ? useEffect : useLayoutEffect;
@@ -104,11 +105,15 @@ export function Sidebar({
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
   const widgets = useWidgets();
+  const motion = useTransition(!!widgets?.sidebar, "", 500);
   return (
     <div
       {...props}
       id="site-sidebar"
-      className={`${className} uncover${widgets?.sidebar ? " visible" : ""}`}
+      className={`${className} uncover${widgets?.sidebar ? " visible" : ""}${
+        motion.animating ? " animating" : ""
+      }`}
+      inert={!widgets?.sidebar}
       aria-label="Site navigation"
       onClick={(event) => {
         if ((event.target as Element).closest("a[href]"))
@@ -166,15 +171,16 @@ export function Dropdown({
   const widgets = useWidgets();
   const id = useId();
   const open = widgets?.popup === id;
+  const motion = useTransition(open, "slide down", 200);
   const root = useRef<HTMLDivElement>(null);
   const search = useRef({ value: "", time: 0 });
   const pendingFocus = useRef<HTMLAnchorElement | null>(null);
   useBrowserLayoutEffect(() => {
-    if (open && pendingFocus.current) {
+    if (open && motion.present && pendingFocus.current) {
       pendingFocus.current.focus();
       pendingFocus.current = null;
     }
-  }, [open]);
+  }, [open, motion.present]);
   const focusItem = (item?: HTMLAnchorElement) => {
     if (!item) return;
     if (open) item.focus();
@@ -252,7 +258,10 @@ export function Dropdown({
         isValidElement<HTMLAttributes<HTMLDivElement>>(child) &&
         child.props.className === "menu"
           ? cloneElement(child, {
-              className: `menu transition${open ? " visible" : " hidden"}`,
+              className: `menu ${motion.className}`,
+              style: { ...child.props.style, ...motion.style },
+              onAnimationEnd: motion.onAnimationEnd,
+              inert: !open,
               role: "menu",
             })
           : child,
@@ -314,6 +323,7 @@ export function Popup({
   const widgets = useWidgets();
   const id = useId();
   const open = widgets?.popup === id;
+  const motion = useTransition(open, "scale", 200);
   const anchor = useRef<HTMLElement>(null);
   const popup = useRef<HTMLDivElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -335,6 +345,15 @@ export function Popup({
       );
   };
   useEffect(() => () => clearTimeout(timer.current), []);
+  useEffect(() => {
+    const classes = trigger.props.className?.split(/\s+/) || [];
+    if (!classes.includes("popup-menu") || !classes.includes("button")) return;
+    const element = document.querySelector<HTMLElement>(
+      `[data-site-popup-trigger="${CSS.escape(id)}"]`,
+    );
+    if (element && element.getBoundingClientRect().width)
+      return playAttention(element, "bounce");
+  }, [id, trigger.props.className]);
   useBrowserLayoutEffect(() => {
     if (!open || !anchor.current || !popup.current) return;
     const positionPopup = () => {
@@ -348,17 +367,19 @@ export function Popup({
       window.removeEventListener("resize", positionPopup);
       window.removeEventListener("scroll", positionPopup, true);
     };
-  }, [open, position, children]);
+  }, [open, position, children, motion.present]);
   const popupContent = (
     <div
       ref={popup}
       id={id}
       data-site-popup={id}
-      className={`${className.replace(
-        /\bhidden\b/g,
-        "",
-      )} ${position} transition ${open ? "visible" : "hidden"}`}
-      style={open ? style : undefined}
+      className={`${className.replace(/\bhidden\b/g, "")} ${position} ${
+        motion.className
+      }`}
+      style={motion.present ? { ...style, ...motion.style } : undefined}
+      onAnimationEnd={motion.onAnimationEnd}
+      aria-hidden={!open}
+      inert={!open}
       onMouseEnter={() => clearTimeout(timer.current)}
       onMouseLeave={hover ? hide : undefined}
       onClick={(event) => {
@@ -410,7 +431,7 @@ export function Popup({
         },
       })}
       {portal
-        ? open
+        ? motion.present
           ? createPortal(popupContent, document.body)
           : null
         : popupContent}
@@ -425,33 +446,38 @@ export function SiteModal({
 }: HTMLAttributes<HTMLDivElement>) {
   const widgets = useWidgets();
   const modal = widgets?.modal;
+  const motion = useTransition(!!modal, "scale", 500);
+  const dimmerMotion = useTransition(!!modal, "fade", 500);
+  const lastModal = useRef(modal);
+  if (modal) lastModal.current = modal;
+  const displayedModal = modal || lastModal.current;
   const element = useRef<HTMLDivElement>(null);
   const titleId = useId();
   useEffect(() => {
-    if (!modal) return;
+    if (!motion.present || !displayedModal) return;
     const oldOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     element.current?.focus();
     return () => {
       document.body.style.overflow = oldOverflow;
-      if (modal.trigger.isConnected) modal.trigger.focus();
+      if (displayedModal.trigger.isConnected) displayedModal.trigger.focus();
     };
-  }, [modal]);
-  const content = modal?.src ? (
+  }, [motion.present, displayedModal]);
+  const content = displayedModal?.src ? (
     <>
       <div
         className="header"
         id={titleId}
-        dangerouslySetInnerHTML={{ __html: modal.title || "" }}
+        dangerouslySetInnerHTML={{ __html: displayedModal.title || "" }}
       />
       <div className="image content">
-        <img className="image" src={modal.src} alt="" />
+        <img className="image" src={displayedModal.src} alt="" />
       </div>
     </>
   ) : (
     children
   );
-  if (!modal)
+  if (!motion.present)
     return (
       <div {...props} className={className} aria-hidden="true">
         {children}
@@ -459,7 +485,11 @@ export function SiteModal({
     );
   return createPortal(
     <div
-      className="ui page modals dimmer transition visible active site-modal-dimmer"
+      className={`ui page modals dimmer active site-modal-dimmer ${dimmerMotion.className}`}
+      style={dimmerMotion.style}
+      onAnimationEnd={dimmerMotion.onAnimationEnd}
+      aria-hidden={!modal}
+      inert={!modal}
       onClick={(event) => {
         if (event.target === event.currentTarget) widgets?.setModal(null);
       }}
@@ -467,11 +497,13 @@ export function SiteModal({
       <div
         {...props}
         ref={element}
-        className={`${className} transition visible active`}
+        className={`${className} active ${motion.className}`}
+        style={{ ...props.style, ...motion.style }}
+        onAnimationEnd={motion.onAnimationEnd}
         role="dialog"
         aria-modal="true"
-        aria-label={modal.src ? undefined : "Profile photo"}
-        aria-labelledby={modal.src ? titleId : undefined}
+        aria-label={displayedModal?.src ? undefined : "Profile photo"}
+        aria-labelledby={displayedModal?.src ? titleId : undefined}
         tabIndex={-1}
         onKeyDown={(event) => {
           if (event.key !== "Tab") return;

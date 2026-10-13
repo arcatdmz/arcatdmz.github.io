@@ -72,6 +72,15 @@ async function main(): Promise<void> {
       "dimmed",
       "modals",
       "site-modal-dimmer",
+      "animating",
+      "in",
+      "out",
+      "scale",
+      "fade",
+      "slide",
+      "down",
+      "bounce",
+      "jiggle",
     ],
   });
   for (const stylesheet of purged) {

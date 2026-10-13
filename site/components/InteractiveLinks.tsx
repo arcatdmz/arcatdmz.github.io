@@ -7,6 +7,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { Popup } from "./SiteWidgets";
+import { useTransition, playAttention } from "./useTransition";
 
 interface TagData {
   tags: Record<string, { title: string; label: string; href?: string }>;
@@ -164,6 +165,9 @@ export function CopyButton({
   lang?: "en" | "ja";
 }) {
   const [status, setStatus] = useState<"copied" | "failed" | null>(null);
+  const motion = useTransition(!!status, "scale", 200);
+  const lastStatus = useRef(status);
+  if (status) lastStatus.current = status;
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const mounted = useRef(true);
@@ -229,14 +233,15 @@ export function CopyButton({
       >
         {children}
       </a>
-      {status &&
+      {motion.present &&
         createPortal(
           <div
             role="status"
-            className="ui popup left center transition visible"
-            style={{ position: "fixed", ...position }}
+            className={`ui popup left center ${motion.className}`}
+            style={{ position: "fixed", ...position, ...motion.style }}
+            onAnimationEnd={motion.onAnimationEnd}
           >
-            {status === "copied"
+            {lastStatus.current === "copied"
               ? ja
                 ? "BibTeXをクリップボードにコピーしました！"
                 : "Copied the BibTeX entry to your clipboard!"
@@ -254,11 +259,11 @@ export function SnsLink({
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const animation = useRef<Animation | undefined>(undefined);
+  const animation = useRef<(() => void) | undefined>(undefined);
   useEffect(
     () => () => {
       clearTimeout(timer.current);
-      animation.current?.cancel();
+      animation.current?.();
     },
     [],
   );
@@ -268,17 +273,11 @@ export function SnsLink({
       onClick={() => {
         clearTimeout(timer.current);
         timer.current = setTimeout(() => {
-          animation.current = document
-            .getElementById("sns")
-            ?.animate(
-              [
-                { transform: "rotate(0)" },
-                { transform: "rotate(2deg)" },
-                { transform: "rotate(-2deg)" },
-                { transform: "rotate(0)" },
-              ],
-              { duration: 700 },
-            );
+          animation.current?.();
+          animation.current = playAttention(
+            document.getElementById("sns"),
+            "jiggle",
+          );
         }, 700);
       }}
     >
