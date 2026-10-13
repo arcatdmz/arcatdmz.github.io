@@ -14,6 +14,7 @@ import type { ReactNode } from "react";
 import type { Project, SiteContext } from "../types";
 import { HtmlContent } from "@/site/components/RichText";
 import { SiteHead } from "./SiteHead";
+import { alternateLanguageHref } from "../navigation";
 
 export interface SiteComponentProps {
   context: PageContext;
@@ -50,10 +51,6 @@ function itemClass(
   return active ? `${classes} ${active}` : classes;
 }
 
-function alternateLanguageHref(context: SiteContext): string {
-  return `${context.rootPath}${context.en ? "ja/" : ""}${context.me}`;
-}
-
 function ProjectMenuItem({
   context,
   project,
@@ -80,6 +77,7 @@ export function SiteSidebar({
   projectsSidebarMenu,
 }: SiteSidebarProps) {
   const { basePath, en, products, rootPath } = context;
+  const languageHref = alternateLanguageHref(context);
 
   return (
     <>
@@ -169,10 +167,12 @@ export function SiteSidebar({
         <i className="handshake icon" />
         {en ? "Collaborations" : "共同研究"}
       </SiteLink>
-      <SiteLink className="item" href={alternateLanguageHref(context)}>
-        <i className="translate icon" />
-        {en ? "日本語" : "English"}
-      </SiteLink>
+      {languageHref && (
+        <SiteLink className="item" href={languageHref}>
+          <i className="translate icon" />
+          {en ? "日本語" : "English"}
+        </SiteLink>
+      )}
     </>
   );
 }
@@ -204,14 +204,16 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
               {en ? "List of projects" : "プロジェクト一覧"}
             </SiteLink>
             <div className="ui divider" />
-            {(context.headerProducts || projects.filter((project) => products.includes(project)))
-              .map((project) => (
-                <ProjectMenuItem
-                  key={project.project}
-                  context={context}
-                  project={project}
-                />
-              ))}
+            {(
+              context.headerProducts ||
+              projects.filter((project) => products.includes(project))
+            ).map((project) => (
+              <ProjectMenuItem
+                key={project.project}
+                context={context}
+                project={project}
+              />
+            ))}
             <div className="ui divider" />
             <SiteLink className="item" href={`${basePath}projects/#research`}>
               {en ? "Research" : "研究"}
@@ -287,6 +289,7 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
 
 export function SiteRightHeaderMenu({ context }: SiteComponentProps) {
   const { en } = context;
+  const languageHref = alternateLanguageHref(context);
   return (
     <>
       <SiteLink
@@ -298,10 +301,12 @@ export function SiteRightHeaderMenu({ context }: SiteComponentProps) {
           en ? "Blog" : "ブログ"
         }`}</span>
       </SiteLink>
-      <SiteLink className="item" href={alternateLanguageHref(context)}>
-        <i className="translate icon" />
-        <span className="print-hidden">{en ? "日本語" : "English"}</span>
-      </SiteLink>
+      {languageHref && (
+        <SiteLink className="item" href={languageHref}>
+          <i className="translate icon" />
+          <span className="print-hidden">{en ? "日本語" : "English"}</span>
+        </SiteLink>
+      )}
       <SidebarButton className="item print-hidden sidebar-button" href="#">
         <i className="sidebar icon" />
         <span className="widescreen monitor only">
@@ -314,6 +319,7 @@ export function SiteRightHeaderMenu({ context }: SiteComponentProps) {
 
 export function SiteFooter({ context }: SiteComponentProps) {
   const { basePath, en } = context;
+  const languageHref = alternateLanguageHref(context);
   return (
     <footer className="ui center aligned basic segment">
       <div className="ui container">
@@ -332,12 +338,14 @@ export function SiteFooter({ context }: SiteComponentProps) {
               {` ${en ? "Privacy Policy" : "プライバシーポリシー"}`}
             </SiteLink>
           </div>
-          <div className="item">
-            <SiteLink className="item" href={alternateLanguageHref(context)}>
-              <i className="translate icon" />
-              {en ? " 日本語" : "English"}
-            </SiteLink>
-          </div>
+          {languageHref && (
+            <div className="item">
+              <SiteLink className="item" href={languageHref}>
+                <i className="translate icon" />
+                {en ? " 日本語" : "English"}
+              </SiteLink>
+            </div>
+          )}
         </div>
       </div>
     </footer>

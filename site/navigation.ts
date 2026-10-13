@@ -1,6 +1,7 @@
 import routes from "./routes.json";
 import website from "../website.json";
 import { buildYear } from "./clock";
+import type { SiteContext } from "./types";
 
 const reactRoutes = new Set([
   ...routes.flatMap(({ path, language }) => {
@@ -56,4 +57,13 @@ export function getDocumentMetadata(pathname: string) {
         ? "without-header-menu design"
         : undefined,
   };
+}
+
+/** Offer language switching only when the corresponding content route exists. */
+export function alternateLanguageHref(
+  context: Pick<SiteContext, "rootPath" | "en"> & { me?: string },
+): string | undefined {
+  if (typeof context.me !== "string") return undefined;
+  const href = `${context.rootPath}${context.en ? "ja/" : ""}${context.me}`;
+  return resolveReactHref(href);
 }
