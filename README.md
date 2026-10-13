@@ -36,9 +36,11 @@ content is ordinary JSX. Shared content uses typed components and page context.
 
 The standalone résumé uses document navigation in both directions, including
 `/resume/` and the historical `/resume.html`, to keep its print stylesheet
-isolated. Main-site documents load `main.css` followed by the small `design.css`
-up front, so client navigation never shows a destination before its styles are
-ready. Both existing public stylesheet URLs are preserved.
+isolated. The development server rewrites `/resume.html` to `/resume/`; static
+exports provide the same URL as a generated HTML file. Main-site documents load
+`main.css` followed by the small `design.css` up front, so client navigation
+never shows a destination before its styles are ready. Both existing public
+stylesheet URLs are preserved.
 
 Widgets unmount with their page, cleaning up listeners, timers, pending history
 requests and modal portals. Shared state resets on `beforeHistoryChange`, so a
