@@ -16,6 +16,9 @@ import { SiteLayout } from "@/site/components/SiteLayout";
 
 import type { SiteContext } from "@/site/types";
 
+const contentImageSizes =
+  "(max-width: 767px) calc(100vw - 4rem), (max-width: 991px) 691px, (max-width: 1199px) 900px, 1093px";
+
 /** React page migrated from ja/creativity-support-environments/index.pug; edit this TSX source directly. */
 export default function Page({ pageData }: PageDataProps) {
   const data = hydratePageData(pageData);
@@ -180,6 +183,7 @@ export default function Page({ pageData }: PageDataProps) {
         <p>
           <SiteImage
             className="ui bordered image"
+            sizes={contentImageSizes}
             src={`${rootPath}creativity-support-environments/postgrowth-cst.jpg`}
           />
         </p>
@@ -451,6 +455,7 @@ export default function Page({ pageData }: PageDataProps) {
             <p>
               <SiteImage
                 className="ui image"
+                sizes={contentImageSizes}
                 src={`${basePath}creativity-support-environments/creativity-support-environments.png`}
               />
             </p>
