@@ -1,0 +1,101 @@
+﻿
+  /* body { padding-top: 60px; } */
+  #firstsection { padding-top: 10px; }
+  #firstsection #profile { padding-top: 60px; }
+  h1 { margin-top: 20px; padding-top: 50px; }
+
+  .affix, .navbar-fixed-top{ -webkit-transform: scale3d(1,1,1); }
+
+  i.icon-ja {
+    width: 20px;
+    height: 1em;
+    display: inline-block;
+    vertical-align: text-top;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url("./jp.png");
+  }
+
+  i.icon-en {
+    width: 20px;
+    height: 1em;
+    display: inline-block;
+    vertical-align: text-top;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url("./us.png");
+  }
+
+  i.blog, i.translation {
+    margin-left: 3px;
+  }
+
+  .thumbnails .thumbnail .caption {
+    padding: 4px 0;
+  }
+
+  #blogfeed .rssBody ul {
+    padding-left: 30px;
+  }
+  #blogfeed .rssBody .rssRow h4 {
+    font-size: 100%;
+  }
+
+  .thumbnail div.caption {
+    padding: 0;
+  }
+
+  div.caption p, div.caption h4, div.caption h5, .gallery .thumbnail {
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  div.caption p div.tooltip {
+    white-space: normal;
+    overflow: visible;
+  }
+
+  div.project a.thumbnail {
+    text-decoration: none;
+  }
+
+  td.nowrap {
+    white-space: nowrap;
+  }
+
+  div.biblinks {
+    display: inline;
+    vertical-align: initial;
+  }
+
+  .tooltip.bibtex.in {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+  .tooltip.bibtex div.tooltip-inner {
+    max-width: none;
+  }
+
+  .tooltip.bibtex div.tooltip-inner textarea {
+    width: 480px;
+    height: 72px;
+    margin: 9px 4px;
+    resize: none;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  b.addition {
+    color: #e33;
+  }
+
+  abbr {
+    text-decoration: none !important;
+  }
