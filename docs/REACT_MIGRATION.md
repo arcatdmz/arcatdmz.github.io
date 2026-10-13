@@ -153,3 +153,23 @@ Browser comparison artifacts and measurements are generated locally in
 `site-qa/navigation/` by `scripts/check-browser.ts`. Third-party services are
 blocked in this repeatable comparison; the initial migration's settled external
 Maps and TextAlive verification remains described above.
+
+## Follow-up: CSS animation compatibility
+
+The React widgets now drive Fomantic's existing CSS keyframes through a small
+visibility lifecycle, without loading its jQuery transition plugin. Dropdowns
+use slide animations (200 ms), popups and clipboard feedback use scale (200 ms),
+and modals use scale with a fading dimmer (500 ms). Sidebar uncover motion keeps
+the existing CSS transitions. Closing elements remain mounted until the animation
+ends, are inert during exit, and have a timed cleanup fallback. Reopening cancels
+pending cleanup; unmounting releases timers, scroll locking, and focus state.
+
+The floating navigation button again uses bounce, and SNS attention and newly
+added history entries use the original jiggle keyframes. Required dynamic CSS
+classes are retained in the production purge. Reduced-motion preferences skip
+these animations, including when changed during an active transition.
+
+Browser regression checks verify entry/exit keyframes, interrupted modal exits,
+sidebar motion, dropdown keyboard focus, attention animations, and immediate
+cleanup with reduced motion on desktop and phone layouts. Screenshot inspection
+covers the entering modal and settled modal, popup, and phone sidebar.
