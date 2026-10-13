@@ -7,7 +7,9 @@ import Document, {
 } from "next/document";
 
 import { getDocumentMetadata } from "@/site/navigation";
-import { rootPath } from "@/website.json";
+import website from "@/website.json";
+
+const { rootPath } = website;
 
 interface SiteDocumentProps {
   language: string;
@@ -18,15 +20,14 @@ export default class SiteDocument extends Document<SiteDocumentProps> {
   static async getInitialProps(context: DocumentContext) {
     const initial = await Document.getInitialProps(context);
     const pathname = context.pathname;
-    const redirect = new Set([
-      "/science",
-      "/ugv",
-      "/user-generated-variables",
-      "/user-interface-design",
-      "/ja/user-generated-variables",
-      "/ja/talks/as-a-code",
-      "/ja/talks/people-are-programmers",
-    ]).has(pathname);
+    const redirect =
+      new Set([
+        "/science",
+        "/ugv",
+        "/user-generated-variables",
+        "/user-interface-design",
+        "/ja/user-generated-variables",
+      ]).has(pathname) || /^\/ja\/talks\/[^/]+\/p1\.html$/.test(pathname);
     if (redirect)
       initial.head = initial.head.filter(
         (node: any) =>

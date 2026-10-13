@@ -65,6 +65,10 @@ test("header, sidebar and footer omit unavailable language controls and retain v
 });
 
 test("only React routes use client navigation, including relative and data-authored URLs", () => {
+  assert.equal(
+    resolveReactHref("/ja/talks/people-are-programmers/p2.html"),
+    "/ja/talks/people-are-programmers/p2.html",
+  );
   assert.equal(resolveReactHref("/projects/#research"), "/projects/#research");
   assert.equal(resolveReactHref("../projects", "/visionsketch/"), "/projects");
   assert.equal(
@@ -106,7 +110,7 @@ test("route metadata updates both language and section layout", () => {
     language: "en",
     bodyClass: undefined,
   });
-  assert.equal(getDocumentMetadata("/ja/talks/as-a-code").language, "en");
+  assert.equal(getDocumentMetadata("/ja/talks/as-a-code").language, "ja");
 });
 
 test("the standalone résumé keeps outbound links as document navigation", () => {

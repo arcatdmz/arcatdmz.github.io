@@ -41,7 +41,7 @@ function initSlide($slide) {
             return;
         clearInterval(i);
         $slide.find('pre>code>.clickable.line').click(function (e) {
-            var $target = $($(e.target).data('target'));
+            var $target = $($(e.target).closest('[data-target]').data('target'));
             if ($target.length <= 0)
                 return;
             $target.fadeIn().removeClass('hidden');

@@ -15,9 +15,23 @@ export default function nextConfig(phase: string): NextConfig {
     return {
       ...config,
       output: undefined,
-      // Production gets this historical URL from finalize-export.ts.
+      // Serve historical aliases and standalone HTML like the static host.
       async rewrites() {
-        return [{ source: "/resume.html", destination: "/resume/" }];
+        return [
+          { source: "/resume.html", destination: "/resume/" },
+          {
+            source: "/user-generated-variables/",
+            destination: "/user-generated-variables/index.html",
+          },
+          {
+            source: "/user-generated-variables.old",
+            destination: "/user-generated-variables.old/index.html",
+          },
+          ...["as-a-code", "people-are-programmers"].map((slug) => ({
+            source: `/ja/talks/${slug}/index.html`,
+            destination: `/ja/talks/${slug}/`,
+          })),
+        ];
       },
     };
   }

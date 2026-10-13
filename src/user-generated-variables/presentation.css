@@ -1,0 +1,19 @@
+/* Keep presentation downloads available on narrow screens. */
+@media (max-width: 767px) {
+  body > header {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    font-size: 14px;
+  }
+  body > header a {
+    float: none;
+    padding: 6px 10px;
+  }
+  body > header .pull-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    float: none;
+  }
+}

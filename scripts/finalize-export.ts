@@ -30,6 +30,29 @@ async function main(): Promise<void> {
   await fs.rm(destination, { recursive: true, force: true });
   await fs.cp(exportDirectory, destination, { recursive: true });
 
+  // Next appends an export suffix to Pages routes that already end in .html.
+  // Publish lecture chapters as files at their canonical URLs, rather than
+  // requiring a directory index or a second .html extension on static hosts.
+  for (const slug of ["as-a-code", "people-are-programmers"]) {
+    for (const chapter of [1, 2, 3]) {
+      const filename = path.join(
+        destination,
+        "ja/talks",
+        slug,
+        `p${chapter}.html`,
+      );
+      const existing = await fs.stat(filename).catch(() => undefined);
+      if (existing?.isFile()) continue;
+      if (existing?.isDirectory()) {
+        const html = await fs.readFile(path.join(filename, "index.html"));
+        await fs.rm(filename, { recursive: true });
+        await fs.writeFile(filename, html);
+      } else {
+        await fs.rename(`${filename}.html`, filename);
+      }
+    }
+  }
+
   // Next exports this route as a directory; keep the long-standing .html URL.
   // A build without the resume page must not publish an empty or stale alias.
   try {

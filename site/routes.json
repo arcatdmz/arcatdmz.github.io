@@ -514,5 +514,47 @@
     "path": "ja/timeline/[year].tsx",
     "language": "ja",
     "bodyClass": "with-rail"
+  },
+  {
+    "source": "talks/as-a-code/index.php",
+    "path": "ja/talks/as-a-code/index.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/as-a-code/index.php",
+    "path": "ja/talks/as-a-code/p2.html.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/as-a-code/index.php",
+    "path": "ja/talks/as-a-code/p3.html.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/people-are-programmers/index.php",
+    "path": "ja/talks/people-are-programmers/index.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/people-are-programmers/index.php",
+    "path": "ja/talks/people-are-programmers/p2.html.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/people-are-programmers/index.php",
+    "path": "ja/talks/people-are-programmers/p3.html.tsx",
+    "language": "ja",
+    "bodyClass": ""
+  },
+  {
+    "source": "talks/as-a-code/ide.html",
+    "path": "ja/talks/as-a-code/ide/index.tsx",
+    "language": "ja",
+    "bodyClass": ""
   }
 ]
