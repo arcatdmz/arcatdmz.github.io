@@ -189,25 +189,29 @@ CSSを取得できず、当時のレイアウトや装飾が再現できない�
 | `touchdevelop` | 2/2 | `GaVbYx-NN0o`、`D1UB73y4GGo` | [英](../pages/touchdevelop/index.tsx)・[日](../pages/ja/touchdevelop/index.tsx) |
 | `visionsketch` | 1/1 | `I6FTOVygHxc` | [英](../pages/visionsketch/index.tsx)・[日](../pages/ja/visionsketch/index.tsx) |
 
-## 4. 外部リダイレクトの確認待ち
+## 4. 【対応済み】外部サーバーへのリダイレクト（5入口）
 
-移行時のブラウザ検証（2026-10-11）では、次の5入口が外部の到達不能／証明書エラーにつながると報告されています。
-残っている記録は全体の要約で、宛先ごとのHTTPステータスや証明書エラー名は記録されていません。
-**以下はソースから特定した導線であり、2026-10-12 時点の外部障害を再確認した結果ではありません。**
+移行時のブラウザ検証（2026-10-11）では、以下の5入口が外部の到達不能／証明書エラーにつながると報告されていた。2026-10-14、保存されていたコンテンツを復旧し、すべて現行サイト内で表示または案内できるようにした。
 
-| ID | 入口 | ソースに書かれた遷移先 | 修正元 |
+| ID | 入口 | 現在の動作 | 編集元 |
 | --- | --- | --- | --- |
-| R1 | `/ja/talks/as-a-code/` | `http://junkato.digitalmuseum.jp/ja/talks/as-a-code` | [pages/ja/talks/as-a-code/index.tsx](../pages/ja/talks/as-a-code/index.tsx) |
-| R2 | `/ja/talks/people-are-programmers/` | `http://junkato.digitalmuseum.jp/ja/talks/people-are-programmers` | [pages/ja/talks/people-are-programmers/index.tsx](../pages/ja/talks/people-are-programmers/index.tsx) |
-| R3 | `/user-generated-variables/` | `http://junkato.digitalmuseum.jp/user-generated-variables` | [pages/user-generated-variables/index.tsx](../pages/user-generated-variables/index.tsx) |
-| R4 | `/ja/user-generated-variables/` | `https://junkato.jp/user-generated-variables` → R3の外部宛先 | [pages/ja/user-generated-variables/index.tsx](../pages/ja/user-generated-variables/index.tsx) |
-| R5 | `/ugv/` | `https://junkato.jp/user-generated-variables` → R3の外部宛先 | [pages/ugv/index.tsx](../pages/ugv/index.tsx) |
+| R1 | `/ja/talks/as-a-code/` | 旧VPSのPHPから復元した全3章のReactページを表示 | [pages/ja/talks/as-a-code/index.tsx](../pages/ja/talks/as-a-code/index.tsx) |
+| R2 | `/ja/talks/people-are-programmers/` | 旧VPSのPHPから復元した全3章のReactページを表示 | [pages/ja/talks/people-are-programmers/index.tsx](../pages/ja/talks/people-are-programmers/index.tsx) |
+| R3 | `/user-generated-variables/` | 保存済みのPX/17発表スライドを元のReveal.js形式で直接表示 | [src/user-generated-variables/index.html](../src/user-generated-variables/index.html) |
+| R4 | `/ja/user-generated-variables/` | 英語資料 `/user-generated-variables/` へサイト内転送 | [pages/ja/user-generated-variables/index.tsx](../pages/ja/user-generated-variables/index.tsx) |
+| R5 | `/ugv/` | 省略URLから `/user-generated-variables/` へサイト内転送 | [pages/ugv/index.tsx](../pages/ugv/index.tsx) |
 
-**修正の手がかり:** 最終宛先3種類をブラウザで確認し、現在の障害の種類と移転先の有無を記録する。
-旧アプリはHTTPでのみ動作する旨の説明があるので、HTTPSへの書き換えだけで直るとは限らない。
-保存版は `/ja/talks/as-a-code.old/`、`/ja/talks/people-are-programmers.old/`、`/user-generated-variables.old/` にあるが、L5〜L10 の参照切れも確認してから代替導線を決める。
+R1・R2のBootstrapはFomantic UIに置き換えた。章URL、旧 `.old/` 入口、コード実行デモ、TextAlive APIデモの残作業は [TALK_MIGRATION.md](TALK_MIGRATION.md) を参照。
 
-`/science/` → `/ja/science` と `/user-interface-design/` → `/ja/user-interface-design` はサイト内の案内で、上の外部障害5入口には含めていません。
+R3は独立したスライド資料として、元の表示・キーボード操作・コード例の詳細表示を保つ。スタイル・フォント・スクリプトは保存済みの `/user-generated-variables.old/` 以下の資産を利用する。依存スクリプトのパスを絶対パスにし、WebフォントのHTTP参照をHTTPSへ変更した。f3.jsの旧HTTP iframeは通常リンクに替え、L10で更新したTextAliveの曲リンクも引き継ぐ。これらの外部デモの操作は再実装していない。
+
+プロジェクト一覧のUGVリンクも外部サーバーから `/user-generated-variables/` に変更した。`/user-generated-variables.old/` の旧入口は現行資料へ転送する。開発サーバーには静的HTMLへのrewriteを設け、静的ホスティングと同じURLで表示する。
+
+**検証:** 静的ビルドと `npm test` が通過。PC・スマートフォンの [UGVブラウザーテスト6件](../tests/browser/legacy-presentation.spec.ts) で、全入口、プロジェクト一覧からの文書遷移、スライド送り、ハッシュURL、コード詳細、PDFリンクを確認した。スクリーンショットでも表示を確認し、開発サーバーでも現行URLと旧URLの応答を確認した。
+
+以前の外部遷移先はR1・R2が `http://junkato.digitalmuseum.jp/ja/talks/{slug}`、R3が `http://junkato.digitalmuseum.jp/user-generated-variables`、R4・R5がR3経由の同じ宛先だった。今回の復旧は、その外部サービスの到達性や証明書を修正したものではない。
+
+`/science/` → `/ja/science` と `/user-interface-design/` → `/ja/user-interface-design` は以前からサイト内の案内で、この5入口には含めていない。
 
 ## 修正時の再確認
 
