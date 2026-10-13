@@ -7,10 +7,12 @@ import Document, {
 } from "next/document";
 
 import { getDocumentMetadata } from "@/site/navigation";
+import { rootPath } from "@/website.json";
 
 interface SiteDocumentProps {
   language: string;
   bodyClass?: string;
+  sharedStyles: boolean;
 }
 export default class SiteDocument extends Document<SiteDocumentProps> {
   static async getInitialProps(context: DocumentContext) {
@@ -36,12 +38,25 @@ export default class SiteDocument extends Document<SiteDocumentProps> {
     return {
       ...initial,
       ...getDocumentMetadata(pathname),
+      sharedStyles:
+        !redirect && !["/resume", "/404", "/_error"].includes(pathname),
     };
   }
   render() {
     return (
       <Html lang={this.props.language}>
-        <Head />
+        <Head>
+          {this.props.sharedStyles && (
+            <>
+              <link rel="stylesheet" href={`${rootPath}stylesheets/main.css`} />
+              {/* Load Design styles before any client navigation can use them. */}
+              <link
+                rel="stylesheet"
+                href={`${rootPath}stylesheets/design.css`}
+              />
+            </>
+          )}
+        </Head>
         <body className={this.props.bodyClass}>
           <Main />
           <NextScript />

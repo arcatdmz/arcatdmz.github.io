@@ -75,10 +75,6 @@ export function SiteHead({ context, children }: SiteHeadProps) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <link rev="made" href="mailto:i@junkato.jp" />
-      <link rel="stylesheet" href={`${rootPath}stylesheets/main.css`} />
-      {/* Load the small Design sheet with every main-site document so client
-          navigation never commits a destination before its CSS is available. */}
-      <link rel="stylesheet" href={`${rootPath}stylesheets/design.css`} />
       {children}
     </Head>
   );
