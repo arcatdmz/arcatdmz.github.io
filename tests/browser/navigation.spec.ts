@@ -25,6 +25,163 @@ test.beforeEach(async ({ page, baseURL }) => {
   });
 });
 
+test("attention motion restores the floating menu bounce and added-history jiggle", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript({
+    content: `
+    window.widgetMotion = [];
+    document.addEventListener('animationstart', event => {
+      window.widgetMotion.push({name: event.animationName, classes: event.target.className});
+    }, true);
+  `,
+  });
+  await page.goto("/projects/");
+  await waitForWidgets(page);
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        (window as any).widgetMotion.some(
+          (event: any) =>
+            event.name === "bounce" &&
+            event.classes.split(/\s+/).includes("popup-menu"),
+        ),
+      ),
+    )
+    .toBeTruthy();
+  expect(
+    await page.evaluate(() =>
+      (window as any).widgetMotion.some(
+        (event: any) =>
+          event.name === "bounce" && event.classes.includes("with-popup-menu"),
+      ),
+    ),
+  ).toBeFalsy();
+  await page.goto("/");
+  await waitForWidgets(page);
+  await page.locator("a.more").click();
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        (window as any).widgetMotion.some(
+          (event: any) =>
+            event.name === "jiggle" && event.classes.includes("event"),
+        ),
+      ),
+    )
+    .toBeTruthy();
+});
+
+test("dropdown motion uses the original slide keyframes", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "The phone layout uses the sidebar.");
+  await page.goto("/visionsketch/");
+  await waitForWidgets(page);
+  const dropdown = page.locator("#fixed-menu .ui.dropdown");
+  await dropdown.click();
+  await expect
+    .poll(() =>
+      dropdown
+        .locator(".menu")
+        .evaluate((el) => getComputedStyle(el).animationName),
+    )
+    .toBe("slideInY");
+  await page.keyboard.press("Escape");
+  await expect
+    .poll(() =>
+      dropdown
+        .locator(".menu")
+        .evaluate((el) => getComputedStyle(el).animationName),
+    )
+    .toBe("slideOutY");
+  await expect(dropdown.locator(".menu")).not.toBeVisible();
+});
+
+test("modal and sidebar play CSS motion and finish interrupted exits", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await waitForWidgets(page);
+  await page.locator("#avatar").click();
+  const dialog = page.locator('[role="dialog"]');
+  await expect
+    .poll(() => dialog.evaluate((el) => getComputedStyle(el).animationName))
+    .toBe("scaleIn");
+  await expect
+    .poll(() =>
+      page
+        .locator(".site-modal-dimmer")
+        .evaluate((el) => getComputedStyle(el).animationName),
+    )
+    .toBe("fadeIn");
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveClass(/\bout\b/);
+  await expect(page.locator(".site-modal-dimmer")).toHaveAttribute("inert", "");
+  await page.locator("#avatar").evaluate((el: HTMLElement) => el.click());
+  await expect(dialog).toHaveClass(/\bin\b/);
+  await expect(dialog).not.toHaveClass(/\bout\b/);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(page.locator(".site-modal-dimmer")).toHaveCount(0);
+  await expect(page.locator("#avatar")).toBeFocused();
+  await page.locator(".sidebar-button").click();
+  await expect
+    .poll(() =>
+      page
+        .locator("#pusher")
+        .evaluate((el) =>
+          el.getAnimations().some((a) => a instanceof CSSTransition),
+        ),
+    )
+    .toBeTruthy();
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".ui.sidebar")).not.toHaveClass(
+    /animating|visible/,
+  );
+  expect(await page.evaluate(() => typeof (window as any).jQuery)).toBe(
+    "undefined",
+  );
+});
+
+test("popup entry and exit use the retained scale keyframes", async ({
+  page,
+}) => {
+  await page.goto("/projects/");
+  await waitForWidgets(page);
+  await page.locator("a.project.tag").first().click();
+  const popup = page.locator(".ui.popup.project.tag");
+  await expect
+    .poll(() => popup.evaluate((el) => getComputedStyle(el).animationName))
+    .toBe("scaleIn");
+  await page.keyboard.press("Escape");
+  await expect(popup).toHaveClass(/\bout\b/);
+  await expect(popup).toHaveAttribute("inert", "");
+  await expect(popup).not.toBeVisible();
+});
+
+test("reduced motion skips widget animations and releases modal resources immediately", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await waitForWidgets(page);
+  await page.locator("#avatar").click();
+  const dialog = page.locator('[role="dialog"]');
+  await expect(dialog).toBeVisible();
+  expect(
+    await dialog.evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("none");
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(page.locator("#avatar")).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).not.toBe(
+    "hidden",
+  );
+});
+
 test("slow page downloads never expose the dark canvas", async ({ page }) => {
   await page.route(
     "**/_next/static/chunks/pages/visionsketch-*",
