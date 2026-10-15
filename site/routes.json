@@ -556,5 +556,17 @@
     "path": "ja/talks/as-a-code/ide/index.tsx",
     "language": "ja",
     "bodyClass": ""
+  },
+  {
+    "source": "slides/index.tsx",
+    "path": "slides/index.tsx",
+    "language": "en",
+    "bodyClass": ""
+  },
+  {
+    "source": "ja/slides/index.tsx",
+    "path": "ja/slides/index.tsx",
+    "language": "ja",
+    "bodyClass": ""
   }
 ]

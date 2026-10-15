@@ -1,4 +1,3 @@
-import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
@@ -8,7 +7,11 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { classNames, href } from "@/site/rendering";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -275,16 +278,14 @@ export default function Page({ pageData }: PageDataProps) {
         <div className="ui basic segment">
           <div className="ui stackable grid">
             <div className="six wide column">
-              <Embed className="ui embed">
-                <iframe
-                  src={"//www.slideshare.net/slideshow/embed_code/38527331"}
-                  frameBorder={"0"}
-                  marginWidth={Number("0")}
-                  marginHeight={Number("0")}
-                  scrolling={"no"}
-                  allowFullScreen={Boolean(true)}
-                ></iframe>
-              </Embed>
+              <a href={rootPath + "slides/home-hack.pdf"}>
+                <SiteImage
+                  src={rootPath + "slides/home-hack.png"}
+                  alt="もっとおうちハックできるおうち開発環境に向けて"
+                  className="ui fluid image"
+                />
+                {en ? "Open presentation (PDF)" : "発表スライドを開く (PDF)"}
+              </a>
             </div>
             <div className="ten wide column">
               <p>
@@ -298,7 +299,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </a>
                 {"」でキーノートスピーカーを拝命し、「"}
                 <a
-                  href={"https://www.slideshare.net/arcatdmz/home-hack"}
+                  href={rootPath + "slides/home-hack.pdf"}
                   title={
                     "もっとおうちハックできるおうち開発環境に向けて─おうちハック事例集─"
                   }
@@ -341,5 +342,16 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/homehack/", {"projects": ["homehack"], "publicationProjects": ["homehack"]}) }, "/homehack/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/homehack/", {
+          projects: ["homehack"],
+          publicationProjects: ["homehack"],
+        }),
+      },
+      "/homehack/",
+    ),
+  };
 }

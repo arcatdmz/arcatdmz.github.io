@@ -1,0 +1,42 @@
+[
+  {
+    "id": "programming-environments",
+    "title": "コンピュータを変幻自在の道具にするためのプログラミング環境技術",
+    "language": "ja",
+    "pages": 18,
+    "bytes": 7896757,
+    "sha256": "9868f4a53d1d5e2a8e67951996e145d331c49a66a47ff35fbb0c2892882472d4"
+  },
+  {
+    "id": "science-through-programming",
+    "title": "百考は一行にしかず──これからの科学論──",
+    "language": "ja",
+    "pages": 11,
+    "bytes": 1369181,
+    "sha256": "00f007ef24d8b9195d4936eefc5a228abdae4ae866a4a976eb7cbd20e6081baf"
+  },
+  {
+    "id": "home-hack",
+    "title": "もっとおうちハックできるおうち開発環境に向けて──おうちハック事例集──",
+    "language": "ja",
+    "pages": 29,
+    "bytes": 4556738,
+    "sha256": "97471bafd90238c374797019b31a6ac1e393d192cf55adbeb340a10691a829fd"
+  },
+  {
+    "id": "live-programming",
+    "title": "実世界 Live Programming の実現に向けて",
+    "language": "ja",
+    "pages": 36,
+    "bytes": 2720698,
+    "sha256": "4254802a13cd353f27040b15db824dd1b11ff886715607aedbd7359dab876892"
+  },
+  {
+    "id": "multitouch-robots",
+    "title": "Multi-touch Interface for Controlling Multiple Mobile Robots",
+    "language": "en",
+    "pages": 21,
+    "bytes": 1157849,
+    "sha256": "865bba3d5177ce10010692274baa8dfa0952ed09e058c0996dd25357ea94c395"
+  }
+]
