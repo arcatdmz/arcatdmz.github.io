@@ -167,6 +167,13 @@ export function SiteSidebar({
         <i className="handshake icon" />
         {en ? "Collaborations" : "共同研究"}
       </SiteLink>
+      <SiteLink
+        className={itemClass(context, "item", "slides/")}
+        href={`${basePath}slides/`}
+      >
+        <i className="file powerpoint outline icon" />
+        {en ? "Slides" : "スライド"}
+      </SiteLink>
       {languageHref && (
         <SiteLink className="item" href={languageHref}>
           <i className="translate icon" />
@@ -234,6 +241,15 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
         <i className="text file icon" />
         <span className="print-hidden tablet or lower hidden">
           {en ? "Publications" : "発表文献"}
+        </span>
+      </SiteLink>
+      <SiteLink
+        className={itemClass(context, "mobile hidden item", "slides/")}
+        href={`${basePath}slides/`}
+      >
+        <i className="file powerpoint outline icon" />
+        <span className="print-hidden tablet or lower hidden">
+          {en ? "Slides" : "スライド"}
         </span>
       </SiteLink>
       <SiteLink

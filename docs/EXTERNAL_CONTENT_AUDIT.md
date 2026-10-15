@@ -170,7 +170,7 @@
 | 対象ページ | URL・現状 | 次の確認と完了条件 |
 | --- | --- | --- |
 | `/openpool/`、`/ja/openpool/` | Facebook動画ID `608850275796418`、`614971478517631`、`615808058433973`。HTTP 200とプレイヤーUI・Cookie案内までは確認。再生試行はログイン先への遷移と検証環境の通信制限があり、未確定 | 通常ブラウザーのログアウト状態で各動画を再生。3件とも時刻が進めば完了。ログイン必須なら動画所有者に公開範囲を確認し、公開動画への置換またはリンク化を判断。編集元は英日 `pages/**/openpool/index.tsx` |
-| `/homehack/`、`/ja/homehack/` | SlideShare `38527331`。転送先はHTTP 200、ブラウザーでは「cookies are disabled」のClient Challenge | 通常ブラウザーで当該スライドの1枚目・ページ送りが動くか確認。動くなら維持。制限が残るなら手元のスライドをPDFとして配信して置換、または通常リンク化。編集元は英日 `pages/**/homehack/index.tsx` |
+| `/homehack/`、`/ja/homehack/` | SlideShare `38527331` の外部埋め込みを、検証済み原本から作成したローカル PDF と表紙リンクへ置換済み | `/slides/home-hack.pdf` を配信。公開範囲と検証方法は [SLIDES_MIGRATION.md](SLIDES_MIGRATION.md) を参照 |
 | `/live-programming/`、`/ja/live-programming/` | Google Slides `2PACX-1vSFvd9_lLppM-CnW9Qr2TXxPCETq9WAedQPIvgTebXe328vTvSP3-SUIJNGtimZR7ygSSb4LOHheLYq`。HTTP 200と「JSSST チュートリアル (公開版)」の枠を確認、スライド本文の描画完了は確認できず | 通常ブラウザーで埋め込みを開いて1枚目・次のスライドが描画されることを確認。表示されなければ資料所有者が「ウェブに公開」を再設定し、新しい埋め込みURLに置換 |
 | `/ja/teaparty/2016/` | Google Mapsの住所埋め込みはHTTP 200だが検証環境のフレームは空 | 通常ブラウザーで会場のピンが出るか確認。出れば完了。出なければGoogle Mapsから同じ会場の現行埋め込みURLを取り直す。編集元は `pages/ja/teaparty/2016/index.tsx` |
 

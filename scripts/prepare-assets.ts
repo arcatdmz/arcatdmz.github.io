@@ -292,6 +292,7 @@ async function prepareFeeds(): Promise<void> {
     "",
     "projects",
     "publications",
+    "slides",
     "design",
     "activities",
     "timeline",
