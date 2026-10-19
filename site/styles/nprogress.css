@@ -1,0 +1,6 @@
+@media (prefers-reduced-motion: reduce) {
+  #nprogress,
+  #nprogress .bar {
+    transition: none !important;
+  }
+}
