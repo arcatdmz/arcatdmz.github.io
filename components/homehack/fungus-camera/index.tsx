@@ -1,4 +1,4 @@
-import { Grid, GridColumn, Header } from "react-fomantic-ui";
+import { Grid, Header } from "react-fomantic-ui";
 
 import { LinkedImage } from "@/site/components/LinkedImage";
 
@@ -25,7 +25,7 @@ function Content() {
   return (
     <>
       <Grid stackable columns={3}>
-        <GridColumn>
+        <Grid.Column>
           <LinkedImage
             fluid
             href={href(`${rootPath}homehack/fungus-prototype.jpg`)}
@@ -34,8 +34,8 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`}
             />
           </LinkedImage>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <LinkedImage
             fluid
             href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}
@@ -44,8 +44,8 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`}
             />
           </LinkedImage>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <LinkedImage
             fluid
             href={href(`${rootPath}homehack/fungus-camera.jpg`)}
@@ -54,10 +54,10 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`}
             />
           </LinkedImage>
-        </GridColumn>
+        </Grid.Column>
       </Grid>
       <Grid stackable columns={2}>
-        <GridColumn>
+        <Grid.Column>
           <p>
             {
               "なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。"
@@ -96,25 +96,25 @@ function Content() {
               <a href={"//www.youtube.com/watch?v=ggH3Y_goGtM"}>{"YouTube"}</a>
             </li>
           </ul>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <LinkedImage fluid href={href(`${rootPath}homehack/fungus-box.jpg`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
           </LinkedImage>
-        </GridColumn>
+        </Grid.Column>
       </Grid>
       <Grid stackable columns={2}>
-        <GridColumn>
+        <Grid.Column>
           <LinkedImage
             fluid
             href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
           >
             <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
           </LinkedImage>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <EmbedYoutube src={"//www.youtube.com/embed/rFeTAwY_d_Y"} />
-        </GridColumn>
+        </Grid.Column>
       </Grid>
     </>
   );

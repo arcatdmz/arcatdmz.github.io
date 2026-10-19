@@ -1,11 +1,4 @@
-import {
-  Button,
-  type ButtonProps,
-  Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-} from "react-fomantic-ui";
+import { Button, type ButtonProps, Feed } from "react-fomantic-ui";
 
 import {
   createContext,
@@ -107,14 +100,14 @@ function AddedHistoryEntry({ entry }: { entry: Entry }) {
   const element = useRef<HTMLDivElement>(null);
   useEffect(() => playAttention(element.current, "jiggle"), []);
   return (
-    <FeedEvent ref={element}>
-      <FeedContent>
-        <FeedDate>{entry.date}</FeedDate>
+    <Feed.Event ref={element}>
+      <Feed.Content>
+        <Feed.Date>{entry.date}</Feed.Date>
         <div className="header">
           <HtmlContent html={entry.text} />
         </div>
-      </FeedContent>
-    </FeedEvent>
+      </Feed.Content>
+    </Feed.Event>
   );
 }
 export function HistoryMore({

@@ -1,11 +1,4 @@
-import {
-  Divider,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  Segment,
-} from "react-fomantic-ui";
+import { Divider, Grid, Header, Icon, Segment } from "react-fomantic-ui";
 
 import {
   hydratePageData,
@@ -60,7 +53,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Active Deadlines" : "現在の〆切"}</Header>
           <Segment>
             <Grid stackable divided columns={3}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"ACM CHI 2019"}</Header>
                 <Segment basic>
                   <iframe
@@ -82,8 +75,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </Segment>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">{"LIVE 2018"}</Header>
                 <Segment basic>
                   <iframe
@@ -105,8 +98,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </Segment>
-              </GridColumn>
-              <GridColumn></GridColumn>
+              </Grid.Column>
+              <Grid.Column></Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -115,7 +108,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Past Deadlines" : "過去の〆切"}</Header>
           <Segment>
             <Grid stackable divided columns={3}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"ACM UIST 2018"}</Header>
                 <Segment basic>
                   <iframe
@@ -137,8 +130,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </Segment>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">{"ACM MM 2018"}</Header>
                 <Segment basic>
                   <iframe
@@ -160,8 +153,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </Segment>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">{"IEEE VL/HCC 2018"}</Header>
                 <Segment basic>
                   <iframe
@@ -183,7 +176,7 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </Segment>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>

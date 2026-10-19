@@ -2,7 +2,6 @@ import {
   Button,
   Divider,
   Grid,
-  GridColumn,
   Header,
   Image,
   Message,
@@ -76,7 +75,7 @@ export function Chapter1({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={4}>
+          <Grid.Column width={4}>
             <LinkedImage bordered fluid href={"http://digitalmuseum.jp"}>
               <SiteImage
                 ui
@@ -90,8 +89,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </LinkedImage>
-          </GridColumn>
-          <GridColumn width={4}>
+          </Grid.Column>
+          <Grid.Column width={4}>
             <LinkedImage bordered fluid href={"http://sci.digitalmuseum.jp"}>
               <SiteImage
                 ui
@@ -105,8 +104,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </LinkedImage>
-          </GridColumn>
-          <GridColumn width={4}>
+          </Grid.Column>
+          <Grid.Column width={4}>
             <LinkedImage bordered fluid href={"/ja/homehack"}>
               <SiteImage
                 ui
@@ -120,8 +119,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </LinkedImage>
-          </GridColumn>
-          <GridColumn width={4}>
+          </Grid.Column>
+          <Grid.Column width={4}>
             <LinkedImage bordered fluid href={"/ja/openpool"}>
               <SiteImage
                 ui
@@ -135,11 +134,11 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </LinkedImage>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -153,8 +152,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {"今は何をやっているかというと、"}
               <SiteLink href={"http://www.aist.go.jp/"}>
@@ -223,11 +222,11 @@ export function Chapter1({ active }: { active: boolean }) {
               </SiteLink>
               {"も参考になると思います。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={4}>
+          <Grid.Column width={4}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -241,8 +240,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={4}>
+          </Grid.Column>
+          <Grid.Column width={4}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -256,8 +255,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {"突然ですが、僕"}
               <b>{"仕組み"}</b>
@@ -270,11 +269,11 @@ export function Chapter1({ active }: { active: boolean }) {
                 "一度作ったらずっと機能するのって、素敵じゃないですか。とくに、美しい仕組みを見ると本当に胸が震えます。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={4}>
+          <Grid.Column width={4}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -288,8 +287,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={4}>
+          </Grid.Column>
+          <Grid.Column width={4}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -303,8 +302,8 @@ export function Chapter1({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {"これまでやってきたことの共通点を考えてみると、僕はずっと、"}
               <b>{"仕組み"}</b>
@@ -326,7 +325,7 @@ export function Chapter1({ active }: { active: boolean }) {
               <SiteLink href={"/ja"}>{"トップページ"}</SiteLink>
               {"にあります。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </section>
     </>
@@ -346,7 +345,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -360,8 +359,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -375,7 +374,7 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -384,7 +383,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -398,8 +397,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -413,11 +412,11 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -431,8 +430,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "統合開発環境が文字ベースのインタフェース主体のままである一方、開発されるアプリケーションの種類はだいぶ変わって、増えてきました。"
@@ -443,7 +442,7 @@ export function Chapter2({ active }: { active: boolean }) {
                 "最近だと、実世界のデータを利用するプログラムが増えてきています。カメラからの入力を受け取ったり、ロボットに出力を返したりするものです。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -457,7 +456,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -471,8 +470,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -486,7 +485,7 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -529,7 +528,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -543,8 +542,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/cQv0-4f8LEA"} />
             <p className={"talk-note"}>
               {"※詳細は"}
@@ -553,7 +552,7 @@ export function Chapter2({ active }: { active: boolean }) {
                 "の紹介ページを見てみてください。写真入りのサンプルコードも掲載されています。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -572,7 +571,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -586,15 +585,15 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/k5USoB7ZPPk"} />
             <p className={"talk-note"}>
               {"※詳細は"}
               <SiteLink href={"/ja/dejavu"}>{"DejaVu"}</SiteLink>
               {"の紹介ページを見てみてください。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -615,7 +614,7 @@ export function Chapter2({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -629,19 +628,19 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/I6FTOVygHxc"} />
             <p className={"talk-note"}>
               {"※詳細は"}
               <SiteLink href={"/ja/visionsketch"}>{"VisionSketch"}</SiteLink>
               {"の紹介ページを見てみてください。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -655,8 +654,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "これまで見てきたように、最近のプログラムはさまざまな種類のデータを取り扱う必要があります。そのようなプログラムを開発するためには、ロジックだけを文字で開発するような統合開発環境では不十分です。"
@@ -677,11 +676,11 @@ export function Chapter2({ active }: { active: boolean }) {
                 "「開発」には、プログラム開発だけでなくデータの「制作」も必須となり、プログラム開発のプロセスの中でその間の境界が消失する時代がくると思います。そんな時代の開発環境では、プログラムを開発する機能と同等、あるいはそれ以上に、データを編集、制作できる機能が重要視されるでしょう。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -695,8 +694,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "これからの開発環境は、プログラムで利用されるデータを直感的に扱えるようなインタフェースが必要になります。その際は、データを制作・編集できるツールの知見を活かせるはずです。（例えば写真を使うなら写真編集ツール、動画を使うなら動画編集ツールのインタフェースを援用できるでしょう。）"
@@ -717,7 +716,7 @@ export function Chapter2({ active }: { active: boolean }) {
                 "お気づきの方もいらっしゃるかと思いますが、そんな統合デザイン環境を実際に作ってみました、というのがこれからお話しする「みんなのプログラミング」です。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </section>
     </>
@@ -737,7 +736,7 @@ export function Chapter3({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -751,8 +750,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube
               src={
                 "https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvxmoCh_KNaBzu1-RyCeHeW"
@@ -765,7 +764,7 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"を見てみてください。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -776,7 +775,7 @@ export function Chapter3({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -790,8 +789,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/LFA9eLvuHxo"} />
             <p className={"talk-note"}>
               {
@@ -808,7 +807,7 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"しました。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -817,7 +816,7 @@ export function Chapter3({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -831,8 +830,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/n88NsJvkLBM"} />
             <p className={"talk-note"}>
               {"※講演ではTextAliveのウェブサイトを表示してデモしました。"}
@@ -847,12 +846,12 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"しました。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={4} />
-          <GridColumn width={8}>
+          <Grid.Column width={4} />
+          <Grid.Column width={8}>
             <p>
               {
                 "…ちょっと待てよ、と。この講演、タイトルに「プログラミング」って入ってます。単なる歌詞アニメーション制作ツールの紹介をして何なんだろう、とお思いの方もいるかもしれません。どこが「プログラミング」なのかと。"
@@ -871,8 +870,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={4} />
+          </Grid.Column>
+          <Grid.Column width={4} />
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -881,7 +880,7 @@ export function Chapter3({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -895,8 +894,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <Message>
               <p>この講演のTextAlive APIデモは移行準備中です。</p>
               <Button
@@ -913,7 +912,7 @@ export function Chapter3({ active }: { active: boolean }) {
                 "※講演当時のデモでは、時刻tを指定して、その時刻の文字アニメーションを描画できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -924,7 +923,7 @@ export function Chapter3({ active }: { active: boolean }) {
           {"と呼ばれています。"}
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -938,8 +937,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/5XdhGCTJEXA"} />
             <p className={"talk-note"}>
               {"※講演ではTextAliveのウェブサイトを表示してデモしました。"}
@@ -950,12 +949,12 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"をお見せしました。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={4} />
-          <GridColumn width={8}>
+          <Grid.Column width={4} />
+          <Grid.Column width={8}>
             <p>
               {
                 "また重大な疑問が浮かんできますね。この講演、タイトルに「みんなの」って入ってます。今のままでは、プログラミングが初めからできる人しか嬉しくなくて、「みんなの」プログラミングではありません。"
@@ -974,8 +973,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={4} />
+          </Grid.Column>
+          <Grid.Column width={4} />
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -989,7 +988,7 @@ export function Chapter3({ active }: { active: boolean }) {
           {"のがTextAliveです。"}
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1003,8 +1002,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <pre className={"talk-code"}>
               {"// "}
               <b>{"@ui"}</b>
@@ -1028,11 +1027,11 @@ export function Chapter3({ active }: { active: boolean }) {
                 "※講演当時のデモでは、スライダーで花びらの枚数を3〜30枚に変更できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1046,8 +1045,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {"TextAliveには、プログラマが普段から利用しているさまざまな"}
               <b>{"仕組み"}</b>
@@ -1071,7 +1070,7 @@ export function Chapter3({ active }: { active: boolean }) {
                 "このように、動画制作支援サービスでありながら、随所にプログラマ的思想が反映されているのが、TextAliveです。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <p>
@@ -1085,7 +1084,7 @@ export function Chapter3({ active }: { active: boolean }) {
           }
         </p>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1099,8 +1098,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <Message>
               <p>この講演のTextAlive APIデモは移行準備中です。</p>
               <Button
@@ -1117,12 +1116,12 @@ export function Chapter3({ active }: { active: boolean }) {
                 "※講演当時のデモでは、スライダーで動画を100倍まで拡大できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={4} />
-          <GridColumn width={8}>
+          <Grid.Column width={4} />
+          <Grid.Column width={8}>
             <p>
               {"そんなTextAliveですが、先日"}
               <SiteLink
@@ -1149,12 +1148,12 @@ export function Chapter3({ active }: { active: boolean }) {
                 />
               </SiteLink>
             </Image>
-          </GridColumn>
-          <GridColumn width={4} />
+          </Grid.Column>
+          <Grid.Column width={4} />
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1168,8 +1167,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "ここで、講演前半「ぼくらのプログラミング」の最後にお見せしたスライドを再掲します。"
@@ -1194,11 +1193,11 @@ export function Chapter3({ active }: { active: boolean }) {
                 "を紹介しました。どのあたりが未来なのか、改めてその特徴を振り返ってみましょう。"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1212,8 +1211,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "統合デザイン環境は、データの編集機能が非常に直感的なためプログラマ以外でも利用できます。しかしながら、基本的には統合開発環境の延長上にあり、当然ですがプログラミングできなくてはいけません。それも、環境そのものをユーザがプログラミングして強化していけることが必要だと、僕は考えています。そうして機能を強化・拡張した結果は、みんなで活用できるべきです。"
@@ -1258,11 +1257,11 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"までご連絡ください。"}
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider section as="hr" />
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <Image bordered fluid as="div">
               <SiteImage
                 ui
@@ -1276,8 +1275,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 }
               />
             </Image>
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <p>
               {
                 "以上、駆け足でしたが、プログラミングの過去を振り返り、未来について考えてきました。"
@@ -1297,7 +1296,7 @@ export function Chapter3({ active }: { active: boolean }) {
                 "改めて講演冒頭のスライドを再掲しました。いかがだったでしょうか？ご清聴ありがとうございました！"
               }
             </p>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </section>
     </>

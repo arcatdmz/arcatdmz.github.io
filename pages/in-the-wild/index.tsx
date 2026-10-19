@@ -2,12 +2,9 @@ import {
   Container,
   Divider,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   Segment,
 } from "react-fomantic-ui";
 
@@ -80,8 +77,8 @@ export default function Page({ pageData }: PageDataProps) {
       >
         <Header as="h2">{"Poster"}</Header>
         <Grid stackable>
-          <GridRow>
-            <GridColumn width={4}>
+          <Grid.Row>
+            <Grid.Column width={4}>
               <LinkedImage
                 bordered
                 fluid
@@ -93,8 +90,8 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}in-the-wild/trilateral-ai-conf-2024-kato-poster-thumbnail.jpg`}
                 />
               </LinkedImage>
-            </GridColumn>
-            <GridColumn width={12}>
+            </Grid.Column>
+            <Grid.Column width={12}>
               <p>
                 {
                   "Research on creativity support tools (CSTs) has long been conducted in the field of human-computer interaction (HCI), but there is growing criticism that applied computer science, including HCI, has typically been conducted and evaluated in a limited cultural context, such as the fast-paced academic community and the WEIRD (Western, educated, industrialized, rich, and developed) part of the world."
@@ -119,8 +116,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ", held at the Akasaka Intercity Conference Center in Tokyo, Japan, on November 12-13, 2024. The conference was organized by DWIH Tokyo, the Embassy of France in Japan, and the AI Japan R&D Network, reflecting its trilateral collaboration between Germany, France, and Japan."
                 }
               </p>
-            </GridColumn>
-          </GridRow>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
         <Divider hidden />
         <Header as="h2">{"References"}</Header>
@@ -241,10 +238,10 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <Header as="h2">
           <Icon name="lab" />
-          <HeaderContent>{"Projects"}</HeaderContent>
+          <Header.Content>{"Projects"}</Header.Content>
         </Header>
         <Segment>
-          <ItemGroup divided className="projects">
+          <Item.Group divided className="projects">
             {(() => {
               const children89: ReactNode[] = [];
               const exampleProjects = [
@@ -261,7 +258,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children89);
             })()}
-          </ItemGroup>
+          </Item.Group>
         </Segment>
       </SiteLayout>
     </>

@@ -1,12 +1,4 @@
-import {
-  Divider,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  Image,
-  Segment,
-} from "react-fomantic-ui";
+import { Divider, Grid, Header, Icon, Image, Segment } from "react-fomantic-ui";
 
 import { LinkedImage } from "@/site/components/LinkedImage";
 
@@ -256,8 +248,8 @@ export default function Page({ pageData }: PageDataProps) {
         <ProjectHeader project={"pressing"} />
         <Divider hidden />
         <Grid stackable>
-          <GridColumn width={10}>{renderBody()}</GridColumn>
-          <GridColumn width={6}>{renderImages()}</GridColumn>
+          <Grid.Column width={10}>{renderBody()}</Grid.Column>
+          <Grid.Column width={6}>{renderImages()}</Grid.Column>
         </Grid>
         <Divider hidden />
         <ProjectPublications project={"pressing"} />

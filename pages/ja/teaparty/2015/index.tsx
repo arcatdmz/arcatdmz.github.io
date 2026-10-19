@@ -1,12 +1,10 @@
 import {
   Breadcrumb,
-  BreadcrumbSection,
   Divider,
   Header,
   Icon,
   Label,
   List,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -61,22 +59,22 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第4回 (2015)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第4回 (2015)"}</Breadcrumb.Section>
         </Breadcrumb>
         <Divider />
         <section>
           <Header as="h1">{"第4回 名状しがたいお茶会"}</Header>
           <List divided horizontal>
-            <ListItem>
+            <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
                 {"2015/1/24"}
               </Label>
-            </ListItem>
+            </List.Item>
           </List>
         </section>
         <Divider hidden />
@@ -103,7 +101,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
             <List horizontal>
-              <ListItem>
+              <List.Item>
                 <a
                   href={"https://www.facebook.com/events/873913542653717/"}
                   title={"Facebook イベントページ"}
@@ -111,8 +109,8 @@ export default function Page({ pageData }: PageDataProps) {
                   <Icon name="facebook" />
                   {"Facebook"}
                 </a>
-              </ListItem>
-              <ListItem>
+              </List.Item>
+              <List.Item>
                 <a
                   href={
                     "https://docs.google.com/forms/d/1xUDrcGYtj45wCRggYmnZGlljlsemq7DMZbj6oHJdZq8/viewform"
@@ -121,7 +119,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <Icon name="google" />
                   {"事後アンケート"}
                 </a>
-              </ListItem>
+              </List.Item>
             </List>
           </Segment>
         </section>
@@ -228,11 +226,11 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider />
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第4回 (2015)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第4回 (2015)"}</Breadcrumb.Section>
         </Breadcrumb>
       </SiteLayout>
       <DeferredScript

@@ -1,12 +1,9 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -78,7 +75,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -125,7 +122,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {"GI 2014 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -133,16 +130,16 @@ export default function Page({ pageData }: PageDataProps) {
                 <EmbedYoutube src={"//www.youtube.com/embed/I6FTOVygHxc"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=I6FTOVygHxc"}>
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {"GI 2014 "}
                   {en ? "Slides" : "発表スライド"}
@@ -154,7 +151,7 @@ export default function Page({ pageData }: PageDataProps) {
                 ></DeferredEmbed>
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
@@ -163,10 +160,10 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -174,7 +171,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section>
           <Header as="h2">{"VisionSketch IDE"}</Header>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <LinkedImage
                 fluid
                 href={href(`${rootPath}visionsketch/fig1-overview.jpg`)}
@@ -204,8 +201,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ? "Prototype of the VisionSketch IDE (PLDI '13)"
                   : "PLDI '13発表時の初版の概観"}
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <LinkedImage
                 fluid
                 href={href(`${rootPath}visionsketch/visionsketch-example.jpg`)}
@@ -221,7 +218,7 @@ export default function Page({ pageData }: PageDataProps) {
                   ? "An example image processing pipeline"
                   : "構築した画像処理パイプラインの例"}
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </section>
         <Divider hidden />

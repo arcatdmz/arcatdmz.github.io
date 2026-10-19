@@ -2,13 +2,10 @@ import {
   Button,
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -153,12 +150,12 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"https://ongaaccel.jp/symposium2020/"}>
                         <Icon name="file pdf" />
                         {"OngaACCELシンポジウム2020予稿集"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
               </Segment>
@@ -217,7 +214,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h3">
                 {"ACM Multimedia 2018 "}
                 {en ? "Demo Video" : "デモ動画"}
@@ -225,16 +222,16 @@ export default function Page({ pageData }: PageDataProps) {
               <EmbedYoutube src={"//www.youtube.com/embed/dErV9oZw_uQ"} />
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <a href={"//www.youtube.com/watch?v=dErV9oZw_uQ"}>
                       <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h3">
                 {"ACM Multimedia 2018 "}
                 {en ? "Slides" : "発表スライド"}
@@ -246,15 +243,15 @@ export default function Page({ pageData }: PageDataProps) {
               ></DeferredEmbed>
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <SiteLink href={href(slideUrl)}>
                       <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Divider hidden />
@@ -266,9 +263,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="lab" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Related projects" : "関連プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           {(() => {
@@ -349,9 +346,9 @@ export default function Page({ pageData }: PageDataProps) {
             dg = projectsTable["deployground"];
             children.push(
               <>
-                <ItemGroup divided className="projects">
+                <Item.Group divided className="projects">
                   <ProjectItem p={dg} />
-                </ItemGroup>
+                </Item.Group>
               </>,
             );
             return keyed(children);

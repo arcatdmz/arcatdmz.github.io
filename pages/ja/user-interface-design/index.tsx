@@ -2,21 +2,12 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
-  HeaderContent,
   Icon,
   Image,
   Label,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -79,13 +70,13 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {"日本音響学会「やさしい解説」"}
             <Label basic size="tiny" as="span">
               <Icon name="calendar" />
               {"2021"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -134,7 +125,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>{"インタフェース設計の理論"}</HeaderContent>
+          <Header.Content>{"インタフェース設計の理論"}</Header.Content>
         </Header>
         <Segment basic>
           <Grid
@@ -143,8 +134,8 @@ export default function Page({ pageData }: PageDataProps) {
             id={"theory-introduction"}
             className="divided rail-like"
           >
-            <GridRow>
-              <GridColumn width={11}>
+            <Grid.Row>
+              <Grid.Column width={11}>
                 {" "}
                 <p>
                   {"ユーザインタフェース設計に有用な基礎理論の多くは、"}
@@ -175,8 +166,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </a>
                   {"」をおすすめします。"}
                 </p>
-              </GridColumn>
-              <GridColumn width={5}>
+              </Grid.Column>
+              <Grid.Column width={5}>
                 <p>
                   {
                     "Steve Jobs が Xerox Alto を見たのが 1979 年、 Macintosh が発売されたのが 1984 年です。（"
@@ -207,8 +198,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </a>
                   {"）"}
                 </p>
-              </GridColumn>
-            </GridRow>
+              </Grid.Column>
+            </Grid.Row>
           </Grid>
         </Segment>
         <Segment basic>
@@ -218,7 +209,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"theory-cognitive-science"}
             className="divided rail-like"
           >
-            <GridRow>{renderTheoryCognitiveScience()}</GridRow>
+            <Grid.Row>{renderTheoryCognitiveScience()}</Grid.Row>
           </Grid>
           <Grid
             stackable
@@ -226,7 +217,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"theory-direct-manipulation"}
             className="divided rail-like"
           >
-            <GridRow>{renderTheoryDirectManipulation()}</GridRow>
+            <Grid.Row>{renderTheoryDirectManipulation()}</Grid.Row>
           </Grid>
           <Grid
             stackable
@@ -234,7 +225,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"theory-gulf-of-execution-and-evaluation"}
             className="divided rail-like"
           >
-            <GridRow>{renderTheoryGulfOfExecutionAndEvaluation()}</GridRow>
+            <Grid.Row>{renderTheoryGulfOfExecutionAndEvaluation()}</Grid.Row>
           </Grid>
           {renderTheoryLimitation()}
         </Segment>
@@ -244,11 +235,11 @@ export default function Page({ pageData }: PageDataProps) {
   function renderTheoryCognitiveScience(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           <Header as="h3" id={"theory-model-human-processor"}>
-            <HeaderContent>
+            <Header.Content>
               {"人間情報処理モデル（Model Human Processor; HMP）"}
-            </HeaderContent>
+            </Header.Content>
           </Header>
           <p>
             {"Card らは 1983 年の書籍「"}
@@ -305,7 +296,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </p>
           <Header as="h3" id={"theory-fitts-law"}>
-            <HeaderContent>{"フィッツの法則（Fitts' law）"}</HeaderContent>
+            <Header.Content>{"フィッツの法則（Fitts' law）"}</Header.Content>
           </Header>
           <p>
             {"Card は、"}
@@ -663,8 +654,8 @@ export default function Page({ pageData }: PageDataProps) {
               "このようなモデルを活用することで、ユーザテストを何度も繰り返さなくても、作業効率の高いユーザインタフェース設計を行うことができます。"
             }
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <p>
             {
               "Stuart Card は認知心理学分野のさまざまな知見をコンピュータのユーザインタフェース設計に応用した人で、書籍刊行時は Xerox "
@@ -700,19 +691,19 @@ export default function Page({ pageData }: PageDataProps) {
               " が分かりやすいです。 Web サイト上での人の情報探索行動を説明するための理論として、今でも盛んに研究されています。"
             }
           </p>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
   function renderTheoryDirectManipulation(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           {" "}
           <Header as="h3">
-            <HeaderContent>
+            <Header.Content>
               {"ダイレクトマニピュレーション（Direct Manipulation; DM）"}
-            </HeaderContent>
+            </Header.Content>
           </Header>
           <p>
             {"Shneiderman は"}
@@ -757,8 +748,8 @@ export default function Page({ pageData }: PageDataProps) {
               "DM の WIMP 以外の実装例として、スマートフォンのタッチインタフェースが挙げられます。これは、複数のウィンドウをディスプレイ上に置くことを諦め、ポインタをなくし、指で直接操作できるようにしたものです。また、近年 Virtual Reality（VR） 用の高性能なヘッドマウントディスプレイが安価に市販されています。これは、3Dで表現されたオブジェクトを直接操作できる新たな DM プラットフォームと言えます。"
             }
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <p>
             {
               "Ben Shneiderman は HCI 分野に特化した名門ラボでもっとも歴史が古いものの一つ "
@@ -793,19 +784,19 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"」を編纂している人でもあります。"}
           </p>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
   function renderTheoryGulfOfExecutionAndEvaluation(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           {" "}
           <Header as="h3">
-            <HeaderContent>
+            <Header.Content>
               {"実行の溝と評価の溝（Gulf of Execution and Evaluation）"}
-            </HeaderContent>
+            </Header.Content>
           </Header>
           <p>
             {"Norman は 1986 年に書籍「"}
@@ -873,8 +864,8 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"）"}
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <p>
             {"Don Norman は 1988 年の書籍「"}
             <a href={"https://www.shin-yo-sha.co.jp/book/b455574.html"}>
@@ -913,7 +904,7 @@ export default function Page({ pageData }: PageDataProps) {
           <div className="caption">
             <p>{"ユーザとシステムの間の実行・評価の溝"}</p>
           </div>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
@@ -921,7 +912,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h3">
-          <HeaderContent>{"モデル化手法の限界"}</HeaderContent>
+          <Header.Content>{"モデル化手法の限界"}</Header.Content>
         </Header>
         <p>
           {
@@ -950,7 +941,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>{"ユーザビリティ"}</HeaderContent>
+          <Header.Content>{"ユーザビリティ"}</Header.Content>
         </Header>
         <Segment basic>
           <LinkedImage
@@ -996,7 +987,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"usability-heuristics"}
             className="divided rail-like"
           >
-            <GridRow>{renderUsabilityHeuristics()}</GridRow>
+            <Grid.Row>{renderUsabilityHeuristics()}</Grid.Row>
           </Grid>
         </Segment>
         <Segment basic>
@@ -1006,7 +997,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"usability-qualitative-test"}
             className="divided rail-like"
           >
-            <GridRow>{renderUsabilityQualitativeTest()}</GridRow>
+            <Grid.Row>{renderUsabilityQualitativeTest()}</Grid.Row>
           </Grid>
         </Segment>
         <Segment basic>
@@ -1016,7 +1007,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"usability-quantitative-test"}
             className="divided rail-like"
           >
-            <GridRow>{renderUsabilityQuantitativeTest()}</GridRow>
+            <Grid.Row>{renderUsabilityQuantitativeTest()}</Grid.Row>
           </Grid>
         </Segment>
         <Segment basic>
@@ -1026,7 +1017,7 @@ export default function Page({ pageData }: PageDataProps) {
             id={"usability-test-limitations"}
             className="divided rail-like"
           >
-            <GridRow>{renderUsabilityTestLimitations()}</GridRow>
+            <Grid.Row>{renderUsabilityTestLimitations()}</Grid.Row>
           </Grid>
         </Segment>
       </>
@@ -1035,9 +1026,9 @@ export default function Page({ pageData }: PageDataProps) {
   function renderUsabilityHeuristics(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           <Header as="h3">
-            <HeaderContent>{"ヒューリスティック評価"}</HeaderContent>
+            <Header.Content>{"ヒューリスティック評価"}</Header.Content>
           </Header>
           <p>
             {"ユーザビリティ評価の最も簡単な方法は、"}
@@ -1066,8 +1057,8 @@ export default function Page({ pageData }: PageDataProps) {
               "と呼ばれることがあり、とくに大規模な制作現場で開発されることが増えています。"
             }
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <dl>
             <dt>
               <a
@@ -1109,16 +1100,16 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
   function renderUsabilityQualitativeTest(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           <Header as="h3">
-            <HeaderContent>{"定性的ユーザビリティテスト"}</HeaderContent>
+            <Header.Content>{"定性的ユーザビリティテスト"}</Header.Content>
           </Header>
           <p>
             {
@@ -1138,8 +1129,8 @@ export default function Page({ pageData }: PageDataProps) {
             <strong>{"認知的ウォークスルー（Cognitive Walkthrough）"}</strong>
             {"と呼ばれています。"}
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <dl>
             <dt>
               <a href={"https://u-site.jp/alertbox/20000319/"}>
@@ -1170,16 +1161,16 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
   function renderUsabilityQuantitativeTest(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           <Header as="h3">
-            <HeaderContent>{"定量的ユーザビリティテスト"}</HeaderContent>
+            <Header.Content>{"定量的ユーザビリティテスト"}</Header.Content>
           </Header>
           <p>
             {
@@ -1209,8 +1200,8 @@ export default function Page({ pageData }: PageDataProps) {
               " が有効です。これは「このシステムをどれだけ友人に勧めますか？」という質問に 0-10 の 11 段階のスケールで回答してもらうものです。Webサイトやスマートフォンのアプリケーションで、一度は目にしたことがあるのではないでしょうか。"
             }
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <dl>
             <dt>
               <a href={"https://uxmilk.jp/83709"}>
@@ -1233,16 +1224,16 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
   function renderUsabilityTestLimitations(): ReactNode {
     return (
       <>
-        <GridColumn width={11}>
+        <Grid.Column width={11}>
           <Header as="h3">
-            <HeaderContent>{"ユーザビリティテストの限界"}</HeaderContent>
+            <Header.Content>{"ユーザビリティテストの限界"}</Header.Content>
           </Header>
           <p>
             {
@@ -1267,8 +1258,8 @@ export default function Page({ pageData }: PageDataProps) {
               "このように、ユーザにとっての価値を高めるために考えることは多く、デザイン手法も様々です。もっと具体的な手法を知りたい場合は、 100 手法を紹介しているカタログ的書籍がありますので、ぜひ読んでみてください。"
             }
           </p>
-        </GridColumn>
-        <GridColumn width={5}>
+        </Grid.Column>
+        <Grid.Column width={5}>
           <p>
             {"「"}
             <a href={"https://www.billbuxton.com/usabilityHarmful.pdf"}>
@@ -1312,7 +1303,7 @@ export default function Page({ pageData }: PageDataProps) {
               "」はデザインのためのリサーチ手法を 100 個、各々見開き 2 ページで簡潔に紹介したカタログ的な書籍です。"
             }
           </p>
-        </GridColumn>
+        </Grid.Column>
       </>
     );
   }
@@ -1320,13 +1311,13 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>{"情報提示のデザイン"}</HeaderContent>
+          <Header.Content>{"情報提示のデザイン"}</Header.Content>
         </Header>
         <Header as="h3">
-          <HeaderContent>{"色のデザイン"}</HeaderContent>
+          <Header.Content>{"色のデザイン"}</Header.Content>
         </Header>
         <Header as="h3">
-          <HeaderContent>{"動きのデザイン"}</HeaderContent>
+          <Header.Content>{"動きのデザイン"}</Header.Content>
         </Header>
       </>
     );
@@ -1335,7 +1326,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>{"おわりに"}</HeaderContent>
+          <Header.Content>{"おわりに"}</Header.Content>
         </Header>
       </>
     );
@@ -1349,10 +1340,10 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Feed className="divided">
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"10/6/2021"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"10/6/2021"}</Feed.Date>
+                <Feed.Summary>
                   {
                     "本文無償公開に伴い、日本音響学会 学会誌 77 巻 4 号（2021）記事「"
                   }
@@ -1360,35 +1351,37 @@ export default function Page({ pageData }: PageDataProps) {
                     {"インタフェース・デザインの勘所"}
                   </a>
                   {"」へのリンクを有効化"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"6/19/2021"}</FeedDate>
-                <FeedSummary>{"ユーザビリティのセクションを追加"}</FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"5/19/2021"}</FeedDate>
-                <FeedSummary>{"執筆中の範囲への導入を追加"}</FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"4/12/2021"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"6/19/2021"}</Feed.Date>
+                <Feed.Summary>
+                  {"ユーザビリティのセクションを追加"}
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"5/19/2021"}</Feed.Date>
+                <Feed.Summary>{"執筆中の範囲への導入を追加"}</Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"4/12/2021"}</Feed.Date>
+                <Feed.Summary>
                   {"フィッツの法則について加筆; 執筆中の範囲の目次を掲載"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"4/11/2021"}</FeedDate>
-                <FeedSummary>{"初版を掲載"}</FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"4/11/2021"}</Feed.Date>
+                <Feed.Summary>{"初版を掲載"}</Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>
@@ -1417,26 +1410,26 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#asj"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#asj"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"日本音響学会「やさしい解説」"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#theory"}>
+                  <List.Content>{"日本音響学会「やさしい解説」"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#theory"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"インタフェース設計の基礎理論"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#usability"}>
+                  <List.Content>{"インタフェース設計の基礎理論"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#usability"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"ユーザビリティ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#visualization"}>
+                  <List.Content>{"ユーザビリティ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#visualization"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"情報提示のデザイン"}</ListContent>
-                </ListItem>
+                  <List.Content>{"情報提示のデザイン"}</List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -1446,7 +1439,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"introduction"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Introduction" : "はじめに"}</HeaderContent>
+            <Header.Content>{en ? "Introduction" : "はじめに"}</Header.Content>
           </Header>
           <Segment basic>
             <p>

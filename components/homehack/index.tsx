@@ -2,16 +2,9 @@ import {
   Divider,
   Embed,
   Grid,
-  GridColumn,
   Header,
-  HeaderSubheader,
   Icon,
   Item,
-  ItemContent,
-  ItemDescription,
-  ItemExtra,
-  ItemGroup,
-  ItemHeader,
   Label,
   Segment,
 } from "react-fomantic-ui";
@@ -48,14 +41,14 @@ function Content() {
           >
             <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
           </LinkedImage>
-          <ItemContent>
-            <ItemHeader
+          <Item.Content>
+            <Item.Header
               as={SiteLink}
               href={href(`${basePath}homehack/fungus-camera/`)}
             >
               {en ? "Fungus Camera" : "なめこカメラ"}
-            </ItemHeader>
-            <ItemDescription>
+            </Item.Header>
+            <Item.Description>
               <p>
                 {
                   "なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。"
@@ -75,14 +68,14 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </ItemDescription>
-            <ItemExtra>
+            </Item.Description>
+            <Item.Extra>
               <Label horizontal>
                 <Icon name="calendar" />
                 {"'12-13"}
               </Label>
-            </ItemExtra>
-          </ItemContent>
+            </Item.Extra>
+          </Item.Content>
         </Item>
         <Divider hidden />
         <Item>
@@ -92,14 +85,14 @@ function Content() {
           >
             <SiteImage src={`${rootPath}homehack/rhythmkaden.jpg`} />
           </LinkedImage>
-          <ItemContent>
-            <ItemHeader
+          <Item.Content>
+            <Item.Header
               as={SiteLink}
               href={href(`${basePath}homehack/rhythm-kaden/`)}
             >
               {en ? "Rhythm-Kaden" : "リズム家電"}
-            </ItemHeader>
-            <ItemDescription>
+            </Item.Header>
+            <Item.Description>
               <p>
                 {
                   "ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム"
@@ -133,28 +126,28 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </ItemDescription>
-            <ItemExtra>
+            </Item.Description>
+            <Item.Extra>
               <Label horizontal>
                 <Icon name="calendar" />
                 {"'12"}
               </Label>
-            </ItemExtra>
-          </ItemContent>
+            </Item.Extra>
+          </Item.Content>
         </Item>
         <Divider hidden />
         <Item>
           <LinkedImage ui={false} href={href(`${basePath}homehack/realmote/`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
           </LinkedImage>
-          <ItemContent>
-            <ItemHeader
+          <Item.Content>
+            <Item.Header
               as={SiteLink}
               href={href(`${basePath}homehack/realmote/`)}
             >
               {"Realmote"}
-            </ItemHeader>
-            <ItemDescription>
+            </Item.Header>
+            <Item.Description>
               <p>
                 {
                   "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
@@ -168,14 +161,14 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </ItemDescription>
-            <ItemExtra>
+            </Item.Description>
+            <Item.Extra>
               <Label horizontal>
                 <Icon name="calendar" />
                 {"'11-12"}
               </Label>
-            </ItemExtra>
-          </ItemContent>
+            </Item.Extra>
+          </Item.Content>
         </Item>
       </>
     );
@@ -187,9 +180,9 @@ function Content() {
           <>
             {"Keynote speech at Home Hack Workshop"}
 
-            <HeaderSubheader>
+            <Header.Subheader>
               {"Japanese presentation at the domestic workshop"}
-            </HeaderSubheader>
+            </Header.Subheader>
           </>
         ) : (
           <>{"おうちハック発表会キーノートスピーチ"}</>
@@ -197,7 +190,7 @@ function Content() {
       </Header>
       <Segment basic>
         <Grid stackable>
-          <GridColumn width={6}>
+          <Grid.Column width={6}>
             <Embed active icon={false}>
               <iframe
                 src={"//www.slideshare.net/slideshow/embed_code/38527331"}
@@ -208,8 +201,8 @@ function Content() {
                 allowFullScreen={Boolean(true)}
               ></iframe>
             </Embed>
-          </GridColumn>
-          <GridColumn width={10}>
+          </Grid.Column>
+          <Grid.Column width={10}>
             <p>
               {"Sony CSL大和田さんとPhysVis湯村さん主催のイベント「"}
               <a
@@ -249,12 +242,12 @@ function Content() {
                 </p>
               </>
             ) : null}
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </Segment>
       <Header as="h2">{en ? "Past projects" : "プロジェクト一覧"}</Header>
       <Segment basic>
-        <ItemGroup>{renderProjects()}</ItemGroup>
+        <Item.Group>{renderProjects()}</Item.Group>
       </Segment>
     </>
   );

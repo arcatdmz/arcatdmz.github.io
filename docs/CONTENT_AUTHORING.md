@@ -118,11 +118,11 @@ The site already builds its custom CSS from `fomantic-ui`. Use the pinned
 `react-fomantic-ui` components with that stylesheet:
 
 ```tsx
-import { Grid, GridColumn } from "react-fomantic-ui";
+import { Grid } from "react-fomantic-ui";
 
 <Grid stackable columns={2}>
-  <GridColumn>...</GridColumn>
-  <GridColumn>...</GridColumn>
+  <Grid.Column>...</Grid.Column>
+  <Grid.Column>...</Grid.Column>
 </Grid>;
 ```
 
@@ -138,7 +138,9 @@ but would create another API to maintain as requirements expand. The maintained
 React component API is a better fit here. Use it for headers, labels, dividers,
 segments, lists, cards, items, feeds, menus, tables, forms, buttons, icons, grids,
 and embeds. For example, use `<Label horizontal>` and `<Divider hidden />`,
-with `as` when a heading, anchor, or list needs a specific HTML tag. Keep custom
+with `as` when a heading, anchor, or list needs a specific HTML tag. Import
+only the parent for compound components: `Item.Content`, `Item.Header`,
+`Grid.Column`, and `List.Item` rather than individual subcomponent imports. Keep custom
 classes only for site styling and variations without library props.
 
 Use `SiteLink` through a component's `as` prop for internal navigation. Use

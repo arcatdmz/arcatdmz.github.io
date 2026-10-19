@@ -1,13 +1,4 @@
-import {
-  Divider,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  List,
-  ListItem,
-  Segment,
-} from "react-fomantic-ui";
+import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
 import { DeferredEmbed } from "@/site/components/DeferredEmbed";
 
@@ -67,15 +58,15 @@ export default function Page({ pageData }: PageDataProps) {
         <Header as="h2">{en ? "Abstract" : "概要"}</Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <p>
                 <SiteImage
                   ui
                   src={"/deployground/vlhcc2018-kato-deployground-fig1.png"}
                 />
               </p>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <p>
                 {
                   "Interactive web pages for learning programming languages and application programming interfaces (APIs), called "
@@ -109,7 +100,7 @@ export default function Page({ pageData }: PageDataProps) {
                   "As a case study, we created a web-based tutorial for browser-based and Node.js-based JavaScript APIs. A preliminary user study found appreciation of the streamlined and social workflow of the DeployGround framework."
                 }
               </p>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Divider hidden />
@@ -122,7 +113,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h3">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Demo Video" : "デモ動画"}
@@ -130,16 +121,16 @@ export default function Page({ pageData }: PageDataProps) {
               <EmbedYoutube src={"//www.youtube.com/embed/dE6mCZVWIms"} />
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <a href={"//www.youtube.com/watch?v=dE6mCZVWIms"}>
                       <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h3">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Slides" : "発表スライド"}
@@ -151,15 +142,15 @@ export default function Page({ pageData }: PageDataProps) {
               ></DeferredEmbed>
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <SiteLink href={href(slideUrl)}>
                       <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Divider hidden />
@@ -261,21 +252,21 @@ export default function Page({ pageData }: PageDataProps) {
           </p>
           <Divider hidden />
           <Grid stackable columns={3}>
-            <GridColumn>
+            <Grid.Column>
               <p>
                 <SiteImage ui fluid src={"/deployground/fig-1.jpg"} />
               </p>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <p>
                 <SiteImage ui fluid src={"/deployground/fig-2.jpg"} />
               </p>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <p>
                 <SiteImage ui fluid src={"/deployground/fig-3.jpg"} />
               </p>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
           <p className="caption">
             <strong>{"Figure."}</strong>

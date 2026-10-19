@@ -1,19 +1,11 @@
 import {
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -147,7 +139,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Header as="h2">{en ? "Presentation materials" : "発表資料"}</Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h3">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "talk" : "講演動画"}
@@ -159,7 +151,7 @@ export default function Page({ pageData }: PageDataProps) {
               />
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <a
                       href={
                         "//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1"
@@ -168,17 +160,17 @@ export default function Page({ pageData }: PageDataProps) {
                       <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </ListItem>
-                  <ListItem>
+                  </List.Item>
+                  <List.Item>
                     <a href={"//vimeo.com/416361135"}>
                       <Icon name="vimeo" />
                       {"Vimeo"}
                     </a>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h3">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "slides" : "発表スライド"}
@@ -190,7 +182,7 @@ export default function Page({ pageData }: PageDataProps) {
               ></DeferredEmbed>
               <div className="caption">
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <SiteLink
                       href={href(
                         publicationsTable[p.publication].entryTags.slides,
@@ -199,14 +191,14 @@ export default function Page({ pageData }: PageDataProps) {
                       <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
           <Divider />
           <List>
-            <ListItem>
+            <List.Item>
               {en
                 ? "YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by "
                 : "YouTube版は音量が調整され、字幕もついています。Vimeo版は加藤の発表に続いて"}
@@ -214,8 +206,8 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? " and Q&A session."
                 : "氏によるクリティークとQ&Aセッションの録画がついています。"}
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               {en
                 ? "For more details on the salon, please refer to "
                 : "Convivial Computing Salon 2020については"}
@@ -225,14 +217,14 @@ export default function Page({ pageData }: PageDataProps) {
                 {en ? "its website" : "サロンの公式サイト"}
               </a>
               {en ? "." : "をご覧ください。"}
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               {en ? "The paper can be downloaded in the " : "論文はページ下部"}
               <a href={"#publications"}>{en ? "Publications" : "発表文献"}</a>
               {en
                 ? " section at the bottom of this page."
                 : "からダウンロードできます。"}
-            </ListItem>
+            </List.Item>
           </List>
         </Segment>
       </>
@@ -243,9 +235,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon className="laptop code" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Technical environment design" : "技術的環境設計"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <SiteImage
@@ -281,7 +273,7 @@ export default function Page({ pageData }: PageDataProps) {
             </LocalizedContent>
           </div>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 let technicalProjects = [
@@ -308,7 +300,7 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -319,9 +311,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon className="user friends" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Social environment design" : "社会的環境設計"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <SiteImage
@@ -350,9 +342,9 @@ export default function Page({ pageData }: PageDataProps) {
                 </div>
                 <Header as="h3">{"関連リンク"}</Header>
                 <List divided size="small">
-                  <ListItem>
+                  <List.Item>
                     <Icon name="triangle right" />
-                    <ListContent>
+                    <List.Content>
                       <a
                         href={
                           "https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"
@@ -362,11 +354,11 @@ export default function Page({ pageData }: PageDataProps) {
                           "産業技術総合研究所との共同研究を開始しました - OTON GLASS／FabBiotope"
                         }
                       </a>
-                    </ListContent>
-                  </ListItem>
-                  <ListItem>
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
                     <Icon name="triangle right" />
-                    <ListContent>
+                    <List.Content>
                       <a
                         href={
                           "https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar"
@@ -376,8 +368,8 @@ export default function Page({ pageData }: PageDataProps) {
                           'Rethinking Programming "Environment" (Convivial Computing Salon 2020) - ‹Programming› 2020'
                         }
                       </a>
-                    </ListContent>
-                  </ListItem>
+                    </List.Content>
+                  </List.Item>
                 </List>
               </>
             }
@@ -423,36 +415,36 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Feed className="divided">
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"5/15/2020"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"5/15/2020"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Add preprint of the paper."
                     : "論文のプレプリントを追加しました。"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"5/9/2020"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"5/9/2020"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Add presentation recording and slides."
                     : "プレゼンテーションの録画とスライド資料を追加しました。"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"4/1/2020"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"4/1/2020"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Upload the initial revision."
                     : "初版をアップロードしました。"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>

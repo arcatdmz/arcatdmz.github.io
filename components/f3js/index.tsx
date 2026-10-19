@@ -1,19 +1,11 @@
 import {
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
-  HeaderSubheader,
   Icon,
   Image,
   List,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -85,14 +77,14 @@ export default function Page({ pageData }: PageDataProps) {
             <section id={"news"}>
               <Header as="h2">
                 <Icon name="announcement" />
-                <HeaderContent>{en ? "News" : "ニュース"}</HeaderContent>
+                <Header.Content>{en ? "News" : "ニュース"}</Header.Content>
               </Header>
               <Segment basic>
                 <Feed size="small" className="divided">
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{en ? "6/14/2017" : "2017/6/14"}</FeedDate>
-                      <FeedSummary>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{en ? "6/14/2017" : "2017/6/14"}</Feed.Date>
+                      <Feed.Summary>
                         {en
                           ? "f3.js was presented at ACM DIS 2017 and is available on the web at "
                           : "国際会議ACM DIS 2017でf3.jsに関する登壇発表を行いました。"}
@@ -100,9 +92,9 @@ export default function Page({ pageData }: PageDataProps) {
                         {en
                           ? ". Please try it out!"
                           : "で実際にIoTデバイス製作を試すことができます。"}
-                      </FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
                 </Feed>
               </Segment>
               <Divider hidden />
@@ -111,7 +103,7 @@ export default function Page({ pageData }: PageDataProps) {
           <div className="left-content">
             <section id={"abstract"}>
               <Header as="h2">
-                <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+                <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
               </Header>
               <Segment basic>
                 <LocalizedContent
@@ -160,7 +152,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {"DIS 2017 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -168,16 +160,16 @@ export default function Page({ pageData }: PageDataProps) {
                 <EmbedYoutube src={"//www.youtube.com/embed/BwPXXjfUUVw"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=BwPXXjfUUVw"}>
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {"DIS 2017 "}
                   {en ? "Slides" : "発表スライド"}
@@ -191,7 +183,7 @@ export default function Page({ pageData }: PageDataProps) {
 
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
@@ -200,7 +192,7 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
 
@@ -218,7 +210,7 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -231,7 +223,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {en ? (
                     <>{"Parametric Design for Interaction Designers"}</>
@@ -239,9 +231,9 @@ export default function Page({ pageData }: PageDataProps) {
                     <>
                       {"インタラクションデザイナ向けの特長"}
 
-                      <HeaderSubheader>
+                      <Header.Subheader>
                         {"ハードとソフトの一体開発"}
-                      </HeaderSubheader>
+                      </Header.Subheader>
                     </>
                   )}
                 </Header>
@@ -358,7 +350,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </div>
                 <Divider hidden />
                 <Grid stackable columns={2}>
-                  <GridColumn>
+                  <Grid.Column>
                     <LinkedImage
                       fluid
                       href={href(
@@ -375,8 +367,8 @@ export default function Page({ pageData }: PageDataProps) {
                         : "矩形を押し出すと箱型ができる。"}
                     </p>
                     <Divider hidden />
-                  </GridColumn>
-                  <GridColumn>
+                  </Grid.Column>
+                  <Grid.Column>
                     <LinkedImage
                       fluid
                       href={href(`${rootPath}f3js/circle-layout.jpg`)}
@@ -437,10 +429,10 @@ export default function Page({ pageData }: PageDataProps) {
                     )}
 
                     <Divider hidden />
-                  </GridColumn>
+                  </Grid.Column>
                 </Grid>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {en ? (
                     <>{"Parametric Design for End-uesrs"}</>
@@ -448,9 +440,9 @@ export default function Page({ pageData }: PageDataProps) {
                     <>
                       {"エンドユーザ向けの特長"}
 
-                      <HeaderSubheader>
+                      <Header.Subheader>
                         {"プラモデルのようなデバイス組み立て"}
-                      </HeaderSubheader>
+                      </Header.Subheader>
                     </>
                   )}
                 </Header>
@@ -562,7 +554,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <Divider hidden />
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -572,7 +564,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {en ? "Videos of 17 applications" : "17個の作例動画"}
                 </Header>
@@ -611,8 +603,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <Divider hidden />
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {en ? "Explanations on the first 5 apps" : "冒頭5例の紹介"}
                 </Header>
@@ -700,7 +692,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </Segment>
                 <Divider hidden />
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>

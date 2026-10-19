@@ -2,22 +2,12 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderSubheader,
   Icon,
   Image,
   Label,
   List,
-  ListContent,
-  ListDescription,
-  ListHeader,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -110,20 +100,20 @@ export default function Page({ pageData }: PageDataProps) {
         <section>
           <Header as="h1">
             {title}
-            <HeaderSubheader>{subtitle}</HeaderSubheader>
+            <Header.Subheader>{subtitle}</Header.Subheader>
           </Header>
           <List divided horizontal className="project-meta-list">
-            <ListItem>
+            <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
                 {"7/15/2016"}
               </Label>
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               <Label basic size="tiny" color="red" as="span">
                 {"IEEE Computer Special Issue on 21st Century User Interfaces"}
               </Label>
-            </ListItem>
+            </List.Item>
           </List>
           <Share />
           <Message>
@@ -162,22 +152,22 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
           <Segment basic>
             <Grid columns={2}>
-              <GridColumn tablet={16} computer={10}>
+              <Grid.Column tablet={16} computer={10}>
                 <SiteImage
                   ui
                   fluid
                   src={`${rootPath}programming-with-examples/pwe-fig1.jpg`}
                   alt={"(Programming by Example vs Programming with Examples)"}
                 />
-              </GridColumn>
-              <GridColumn tablet={16} computer={6}>
+              </Grid.Column>
+              <Grid.Column tablet={16} computer={6}>
                 <p className="caption">
                   <strong>{"Figure 1."}</strong>
                   {
                     " Two workflows for developing data-intensive interactive systems. (a) Programming by example (PbE). (b) Programming with examples (PwE). Unlike PbE systems, PwE systems allow the representation of example data and enable explicit programming. IDE: integrated development environment."
                   }
                 </p>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
             <Divider hidden />
           </Segment>
@@ -188,7 +178,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"It is..."}</Header>
                 <ul>
                   <li>
@@ -218,8 +208,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {" to provide fluid programming experience."}
                   </li>
                 </ul>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">{"It is NOT..."}</Header>
                 <ul>
                   <li>
@@ -260,7 +250,7 @@ export default function Page({ pageData }: PageDataProps) {
                     {" denote data used in the programs."}
                   </li>
                 </ul>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -294,37 +284,37 @@ export default function Page({ pageData }: PageDataProps) {
               {" projects for more details."}
             </p>
             <List divided>
-              <ListItem>
+              <List.Item>
                 <LinkedImage size="small" href={href(`${basePath}picode`)}>
                   <SiteImage src={`${rootPath}images/thumbnails/picode.jpg`} />
                 </LinkedImage>
-                <ListContent>
-                  <ListHeader as={SiteLink} href={href(`${basePath}picode`)}>
+                <List.Content>
+                  <List.Header as={SiteLink} href={href(`${basePath}picode`)}>
                     {"Picode [CHI '13]"}
-                  </ListHeader>
-                  <ListDescription>
+                  </List.Header>
+                  <List.Description>
                     {
                       "It supports handling robot/human posture information with the code editor that shows inline photos representing the posture data."
                     }
-                  </ListDescription>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <LinkedImage size="small" href={href(`${basePath}dejavu`)}>
                   <SiteImage src={`${rootPath}images/thumbnails/dejavu.png`} />
                 </LinkedImage>
-                <ListContent>
-                  <ListHeader as={SiteLink} href={href(`${basePath}dejavu`)}>
+                <List.Content>
+                  <List.Header as={SiteLink} href={href(`${basePath}dejavu`)}>
                     {"DejaVu [UIST '12]"}
-                  </ListHeader>
-                  <ListDescription>
+                  </List.Header>
+                  <List.Description>
                     {
                       "It supports creating interacitve camera-based apps with the timeline and canvas interfaces for built-in record-and-replay and re-evaluation feature."
                     }
-                  </ListDescription>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <LinkedImage
                   size="small"
                   href={href(`${basePath}visionsketch`)}
@@ -333,41 +323,44 @@ export default function Page({ pageData }: PageDataProps) {
                     src={`${rootPath}images/thumbnails/visionsketch.jpg`}
                   />
                 </LinkedImage>
-                <ListContent>
-                  <ListHeader
+                <List.Content>
+                  <List.Header
                     as={SiteLink}
                     href={href(`${basePath}visionsketch`)}
                   >
                     {"VisionSketch [GI '13]"}
-                  </ListHeader>
-                  <ListDescription>
+                  </List.Header>
+                  <List.Description>
                     {
                       "It implements graphical annotation-based code completion where methods are suggested based on sketched shapes on input images."
                     }
-                  </ListDescription>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <LinkedImage size="small" href={href(`${basePath}textalive`)}>
                   <SiteImage
                     src={`${rootPath}images/thumbnails/textalive.png`}
                   />
                 </LinkedImage>
-                <ListContent>
-                  <ListHeader as={SiteLink} href={href(`${basePath}textalive`)}>
+                <List.Content>
+                  <List.Header
+                    as={SiteLink}
+                    href={href(`${basePath}textalive`)}
+                  >
                     {"TextAlive [CHI '15]"}
-                  </ListHeader>
-                  <ListDescription>
+                  </List.Header>
+                  <List.Description>
                     {
                       "It supports authoring Kinetic Typography videos of lyrics text synchronized with songs equipped with "
                     }
-                  </ListDescription>
+                  </List.Description>
                   <SiteLink href={href(`${basePath}live-tuning`)}>
                     {"Live Tuning"}
                   </SiteLink>
                   {" interfaces for end-users."}
-                </ListContent>
-              </ListItem>
+                </List.Content>
+              </List.Item>
             </List>
             <p>
               {
@@ -547,20 +540,20 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment basic>
             <Feed className="divided">
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"1/21/2018"}</FeedDate>
-                  <FeedSummary>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"1/21/2018"}</Feed.Date>
+                  <Feed.Summary>
                     {"Check missing links and update style."}
-                  </FeedSummary>
-                </FeedContent>
-              </FeedEvent>
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"7/15/2016"}</FeedDate>
-                  <FeedSummary>{"Upload the initial revision."}</FeedSummary>
-                </FeedContent>
-              </FeedEvent>
+                  </Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"7/15/2016"}</Feed.Date>
+                  <Feed.Summary>{"Upload the initial revision."}</Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
             </Feed>
           </Segment>
         </section>

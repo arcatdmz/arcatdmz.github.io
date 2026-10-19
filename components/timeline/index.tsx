@@ -2,17 +2,10 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -81,27 +74,27 @@ export default function Page({ pageData }: PageDataProps) {
   function renderUpdate(entry: any = undefined): ReactNode {
     return (
       <>
-        <FeedEvent>
-          <FeedContent>
+        <Feed.Event>
+          <Feed.Content>
             {entry ? (
               <>
-                <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
+                <Feed.Date>{entry.getDateString(lang, true)}</Feed.Date>
 
-                <FeedSummary>
+                <Feed.Summary>
                   <HtmlContent html={entry.text} />
-                </FeedSummary>
+                </Feed.Summary>
               </>
             ) : (
               <>
-                <FeedSummary>
+                <Feed.Summary>
                   {en
                     ? "No updates found in this year."
                     : "この年の更新内容はありません。"}
-                </FeedSummary>
+                </Feed.Summary>
               </>
             )}
-          </FeedContent>
-        </FeedEvent>
+          </Feed.Content>
+        </Feed.Event>
       </>
     );
   }
@@ -190,14 +183,14 @@ export default function Page({ pageData }: PageDataProps) {
               for (entry of as) {
                 children.push(
                   <>
-                    <FeedEvent>
-                      <FeedContent>
-                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
-                        <FeedSummary>
+                    <Feed.Event>
+                      <Feed.Content>
+                        <Feed.Date>{entry.getDateString(lang, true)}</Feed.Date>
+                        <Feed.Summary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </FeedSummary>
-                      </FeedContent>
-                    </FeedEvent>
+                        </Feed.Summary>
+                      </Feed.Content>
+                    </Feed.Event>
                   </>,
                 );
               }
@@ -223,14 +216,14 @@ export default function Page({ pageData }: PageDataProps) {
               for (entry of ts) {
                 children.push(
                   <>
-                    <FeedEvent>
-                      <FeedContent>
-                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
-                        <FeedSummary>
+                    <Feed.Event>
+                      <Feed.Content>
+                        <Feed.Date>{entry.getDateString(lang, true)}</Feed.Date>
+                        <Feed.Summary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </FeedSummary>
-                      </FeedContent>
-                    </FeedEvent>
+                        </Feed.Summary>
+                      </Feed.Content>
+                    </Feed.Event>
                   </>,
                 );
               }
@@ -260,19 +253,19 @@ export default function Page({ pageData }: PageDataProps) {
               for (entry of ls) {
                 children.push(
                   <>
-                    <FeedEvent>
-                      <FeedContent>
-                        <FeedDate>
+                    <Feed.Event>
+                      <Feed.Content>
+                        <Feed.Date>
                           {entry.dateObjs
                             .filter((o) => f(o.date.getFullYear()))
                             .map((o) => o.getDateString(lang, true))
                             .join(", ")}
-                        </FeedDate>
-                        <FeedSummary>
+                        </Feed.Date>
+                        <Feed.Summary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </FeedSummary>
-                      </FeedContent>
-                    </FeedEvent>
+                        </Feed.Summary>
+                      </Feed.Content>
+                    </Feed.Event>
                   </>,
                 );
               }
@@ -292,7 +285,7 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "New Projects" : "開始したプロジェクト"}
         </Header>
         <Segment>
-          <ItemGroup divided className="projects">
+          <Item.Group divided className="projects">
             {(() => {
               const children: ReactNode[] = [];
               for (p of prs) {
@@ -304,7 +297,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </ItemGroup>
+          </Item.Group>
         </Segment>
       </>
     );
@@ -372,20 +365,20 @@ export default function Page({ pageData }: PageDataProps) {
             const children: ReactNode[] = [];
             children.push(
               <>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{title}</ListContent>
-                </ListItem>
+                  <List.Content>{title}</List.Content>
+                </List.Item>
               </>,
             );
             const oldestYear = en ? 2011 : 2010;
             for (var year = buildYear; year >= oldestYear; year--) {
               children.push(
                 <>
-                  <ListItem role="link" as={SiteLink} href={href(`#${year}`)}>
+                  <List.Item role="link" as={SiteLink} href={href(`#${year}`)}>
                     <Icon name="triangle right" />
-                    <ListContent>{year}</ListContent>
-                  </ListItem>
+                    <List.Content>{year}</List.Content>
+                  </List.Item>
                 </>,
               );
             }
@@ -405,7 +398,7 @@ export default function Page({ pageData }: PageDataProps) {
               <section>
                 <Header as="h1">
                   <Icon name="history" />
-                  <HeaderContent>{title}</HeaderContent>
+                  <Header.Content>{title}</Header.Content>
                 </Header>
                 <p>
                   {en

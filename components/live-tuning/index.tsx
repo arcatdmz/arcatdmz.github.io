@@ -2,14 +2,8 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   Image,
   Message,
@@ -120,7 +114,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <p>
@@ -138,7 +132,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section id={"live-tuning-comparison"}>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h2">{"Live Programming"}</Header>
                 <p style={{ position: "relative" }}>
                   <a
@@ -178,8 +172,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h2">{"Live Tuning"}</Header>
                 <p style={{ position: "relative" }}>
                   <a id={"live-tuning"} className="live-preview" tabIndex={0}>
@@ -219,7 +213,7 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -228,7 +222,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{"Motivation"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"Because programmers are tired"}</Header>
                 <ul>
                   <li>
@@ -251,8 +245,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <h3>{"Because users are demanding"}</h3>
                 <ul>
                   <li>
@@ -266,7 +260,7 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -287,7 +281,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <SiteImage
                   ui
                   bordered
@@ -300,8 +294,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time."
                   }
                 </p>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <SiteImage
                   ui
                   bordered
@@ -314,7 +308,7 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size."
                   }
                 </p>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
             <Header as="h3">{"f3.js: Form Follows Function()"}</Header>
             <p>
@@ -327,7 +321,7 @@ export default function Page({ pageData }: PageDataProps) {
               {" applications."}
             </p>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <SiteImage
                   ui
                   bordered
@@ -340,8 +334,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience."
                   }
                 </p>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <SiteImage
                   ui
                   bordered
@@ -354,7 +348,7 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera."
                   }
                 </p>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -433,12 +427,12 @@ export default function Page({ pageData }: PageDataProps) {
           </h2>
           <Segment basic>
             <Feed className="divided">
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"7/16/2016"}</FeedDate>
-                  <FeedSummary>{"Upload the initial revision."}</FeedSummary>
-                </FeedContent>
-              </FeedEvent>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"7/16/2016"}</Feed.Date>
+                  <Feed.Summary>{"Upload the initial revision."}</Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
             </Feed>
           </Segment>
         </section>

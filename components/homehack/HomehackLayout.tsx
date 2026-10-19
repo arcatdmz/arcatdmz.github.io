@@ -1,4 +1,4 @@
-import { Icon, Label, Menu, MenuItem } from "react-fomantic-ui";
+import { Icon, Label, Menu } from "react-fomantic-ui";
 
 import type { ReactNode } from "react";
 import { hydratePageData, type PageDataProps } from "@/site/page-data";
@@ -47,15 +47,15 @@ export function HomehackLayout({
     <SiteLayout context={context}>
       <ProjectHeader project="homehack" />
       <Menu pointing secondary>
-        <MenuItem
+        <Menu.Item
           as={SiteLink}
           active={!active}
           href={href(`${basePath}homehack/`)}
         >
           {en ? "Overview" : "概要"}
-        </MenuItem>
+        </Menu.Item>
         {projects.map((project) => (
-          <MenuItem
+          <Menu.Item
             as={SiteLink}
             key={project.slug}
             active={active === project.slug}
@@ -66,7 +66,7 @@ export function HomehackLayout({
               <Icon name="calendar" />
               {project.year}
             </Label>
-          </MenuItem>
+          </Menu.Item>
         ))}
       </Menu>
       {children}
