@@ -33,7 +33,7 @@ HTML and its historical assets remain unchanged.
 Current React pages use `SiteLink` to select Next's `Link` for internal React
 routes. Downloads, external URLs, and archival pages retain native anchors.
 The two 2015 Japanese lectures now use React pages and Fomantic UI, including
-their restored second and third chapters; see [the migration notes](docs/TALK_MIGRATION.md).
+their restored second and third chapters; see [the migration notes](docs/REACT_MIGRATION.md#follow-up-2015-lecture-pages).
 The User-Generated Variables presentation is served locally at
 `/user-generated-variables/`, preserving its original Reveal.js slide format.
 `/ugv/` and `/ja/user-generated-variables/` point to that presentation.

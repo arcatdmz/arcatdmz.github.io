@@ -164,8 +164,9 @@ were restored locally:
 | R4  | `/ja/user-generated-variables/`     | Internal redirect to `/user-generated-variables/`.                         |
 | R5  | `/ugv/`                             | Internal redirect to `/user-generated-variables/`.                         |
 
-[TALK_MIGRATION.md](TALK_MIGRATION.md) owns lecture chapter URLs, `.old/` redirects,
-the Fomantic layout conversion, and restored code-execution demos.
+The [lecture migration section](#follow-up-2015-lecture-pages) records chapter
+URLs, `.old/` redirects, the Fomantic layout conversion, and restored
+code-execution demos.
 
 The [UGV document](../src/user-generated-variables/index.html) preserves slide
 navigation and code-detail views, reusing styles, fonts, and scripts under
@@ -185,10 +186,10 @@ former external server or its certificate.
 
 ### Deferred functionality
 
-| Content                          | Remaining work                                                                 | Current fallback                                                                                                                 |
-| -------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| people-are-programmers chapter 3 | Restore three TextAlive API demos: time input, petal count, and zoom controls. | Explanation and TextAlive links; implementation details remain in [TALK_MIGRATION.md](TALK_MIGRATION.md#textalive-api-の残作業). |
-| UGV presentation                 | Restore TextAlive variable proposals/code updates and the in-slide f3.js demo. | Links to the TextAlive song page and f3.js project.                                                                              |
+| Content                          | Remaining work                                                                 | Current fallback                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| people-are-programmers chapter 3 | Restore three TextAlive API demos: time input, petal count, and zoom controls. | Explanation and TextAlive links; see [TextAlive API demo details](#deferred-textalive-api-demos). |
+| UGV presentation                 | Restore TextAlive variable proposals/code updates and the in-slide f3.js demo. | Links to the TextAlive song page and f3.js project.                                               |
 
 The old UGV script `js/vendor/px17.js` prefixed its `/videos/new` URL with
 `http://textalive.jp`; that relative URL was initially counted as a local missing
@@ -306,3 +307,89 @@ Browser regression checks verify entry/exit keyframes, interrupted modal exits,
 sidebar motion, dropdown keyboard focus, attention animations, and immediate
 cleanup with reduced motion on desktop and phone layouts. Screenshot inspection
 covers the entering modal and settled modal, popup, and phone sidebar.
+
+## Follow-up: 2015 lecture pages
+
+On 2026-10-14, all three chapters of each of the two lectures were restored from
+the PHP sources under `~/www/jk_old` on the old VPS (accessible through `ssh dm`).
+The saved `.old/index.html` documents contained only chapter 1, so chapters 2
+and 3 were recovered from the original sources.
+
+| Lecture                                              | Original source                                       | Current content                                                        |
+| ---------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------- |
+| \* as a Code                                         | `~/www/jk_old/talks/as-a-code/index.php`              | [as-a-code.tsx](../site/talks/as-a-code.tsx)                           |
+| ぼくらのプログラミングから、みんなのプログラミングへ | `~/www/jk_old/talks/people-are-programmers/index.php` | [people-are-programmers.tsx](../site/talks/people-are-programmers.tsx) |
+
+The Japanese PHP routes originally included those shared sources. The migration
+retains the original prose and linked slides as editable JSX. Bootstrap
+navigation, grids, labels, forms, and buttons now use Fomantic UI, with the site's
+shared header, sidebar, and footer. Lecture-specific CSS is included in
+`main.css` so it is available before client navigation. Neither lecture has an
+English counterpart, so language switches are hidden.
+
+### Lecture URLs
+
+Both lectures use the following URL structure, with `slug` equal to `as-a-code`
+or `people-are-programmers`:
+
+| URL                                | Content                                                      |
+| ---------------------------------- | ------------------------------------------------------------ |
+| `/ja/talks/{slug}/` / `index.html` | Chapter 1                                                    |
+| `/ja/talks/{slug}/p1.html`         | Redirect to chapter 1                                        |
+| `/ja/talks/{slug}/p2.html`         | Chapter 2                                                    |
+| `/ja/talks/{slug}/p3.html`         | Chapter 3                                                    |
+| `/ja/talks/{slug}/?p=2` / `?p=3`   | Redirect to the requested chapter when JavaScript is enabled |
+| `/ja/talks/{slug}.old/`            | Redirect to the migrated lecture                             |
+| `/ja/talks/as-a-code/ide/`         | Restored simple IDE                                          |
+| `/ja/talks/as-a-code.old/ide.html` | Redirect to the simple IDE                                   |
+
+Chapter links use Next Link. The development server rewrites `index.html`, while
+static hosting uses directory indexes. [finalize-export.ts](../scripts/finalize-export.ts)
+normalizes Next's exported chapter filenames to these `.html` URLs. Images keep
+using the existing files under the `.old/` directories.
+
+### Code execution demos
+
+The discontinued jsdo.it embeds, RawGit CDN, and old Ace/EaselJS/jQuery
+dependencies were removed. `CodePlayground` provides a text editor and Canvas
+for the chapter 2 static drawing demo and the simple IDE in chapter 3 and its
+standalone page.
+
+- A 128×128 drawing surface supports `color(r, g, b)`, `dot(x, y)`,
+  `line(x, y, ex, ey)`, and `print(text)`.
+- Editing runs the code automatically; the Run button also executes it.
+- Each run uses a new Web Worker with a one-second timeout. Leaving the page
+  releases the timer and Worker.
+- Static drawings can be shared through `p2.html?code=...`; the simple IDE can
+  save code in browser localStorage.
+- A local, pinned copy of the original JS-Interpreter preserves the ES5 execution
+  environment. Interpreted code has no DOM or network API access. Its license and
+  recovery source are included under `src/talks/as-a-code/vendor/`.
+
+The chapter 1 browser-console examples remain as historical lecture content;
+they do not restore the old Twitter widgets.
+
+### Deferred TextAlive API demos
+
+Three API demos in `people-are-programmers/p3.html` remain deferred. Explanations
+and TextAlive links replace the inactive controls; the existing YouTube demo
+videos remain.
+
+| Original element | Demo                                    | Original control                                    |
+| ---------------- | --------------------------------------- | --------------------------------------------------- |
+| `#tapl1`         | Render a video as a function of time    | Enter 0–15000 ms and render a frame with `v = f(t)` |
+| `#tapl2`         | Adjust an effect through UI metadata    | Set the number of petals from 3 to 30, initially 5  |
+| `#tapl3`         | Independent time and spatial resolution | Set zoom from 1 to 100 in steps of 0.001            |
+
+The original implementation remains at the end of the VPS's
+`talks/people-are-programmers/index.php`, under `if ($page == 3)`. It depends on
+the HTTP `textalive.jp/javascripts/api/embed-v1.js` script and the old rangeslider.
+
+### Lecture validation
+
+On 2026-10-14, type checking, the static build, and six desktop/phone
+[lecture browser checks](../tests/browser/talks.spec.ts) passed. Screenshots
+confirmed the layout. Checks covered all six chapters, chapter links and Back
+navigation, compatibility redirects, image loading and aspect ratios, and
+horizontal overflow. Code execution checks covered drawing, shared URLs,
+computed results, errors, infinite-loop interruption, and save/reload behavior.
