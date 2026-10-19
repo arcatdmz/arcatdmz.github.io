@@ -16,6 +16,15 @@ export default function nextConfig(phase: string): NextConfig {
     return {
       ...config,
       output: undefined,
+      async redirects() {
+        return [
+          {
+            source: "/textalive/embed/:path*",
+            destination: "https://developer.textalive.jp/",
+            permanent: true,
+          },
+        ];
+      },
       // Serve historical aliases and standalone HTML like the static host.
       async rewrites() {
         return [

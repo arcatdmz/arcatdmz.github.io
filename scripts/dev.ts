@@ -175,6 +175,7 @@ try {
       "image-derivatives.ts",
       "prepare-page-data.ts",
       "blog-redirections.json",
+      "legacy-redirects.ts",
     ].includes(name),
   );
   watchSource(".", false, (name) =>

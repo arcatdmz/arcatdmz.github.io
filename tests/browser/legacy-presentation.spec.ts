@@ -17,7 +17,12 @@ test("UGV is served locally and the original slides, deep links and code details
 }) => {
   const errors: string[] = [];
   const failedLocalAssets: string[] = [];
+  const oldAssetRequests: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  page.on("request", (request) => {
+    if (request.url().includes("/user-generated-variables.old/"))
+      oldAssetRequests.push(request.url());
+  });
   page.on("response", (response) => {
     if (
       response.status() >= 400 &&
@@ -61,6 +66,41 @@ test("UGV is served locally and the original slides, deep links and code details
   await expect(page.locator("#impl-2-last-field-code")).toBeHidden();
   expect(errors).toEqual([]);
   expect(failedLocalAssets).toEqual([]);
+  expect(oldAssetRequests).toEqual([]);
+});
+
+test("speaker notes open without missing Markdown scripts or old asset paths", async ({
+  page,
+  context,
+}) => {
+  const errors: string[] = [];
+  const failedAssets: string[] = [];
+  context.on("page", (popup) => {
+    popup.on("pageerror", (error) => errors.push(error.message));
+  });
+  context.on("response", (response) => {
+    if (
+      response.url().includes("/user-generated-variables/") &&
+      response.status() >= 400
+    )
+      failedAssets.push(response.url());
+  });
+  await page.goto("/user-generated-variables/#/interaction-design");
+  await presentationReady(page);
+  const popupPromise = page.waitForEvent("popup");
+  await page.keyboard.press("s");
+  const popup = await popupPromise;
+  await expect(popup).toHaveURL(
+    /\/user-generated-variables\/js\/vendor\/notes\/notes.html$/,
+  );
+  await expect(popup.locator("#current-slide iframe")).toBeAttached();
+  await expect(
+    popup.frameLocator("#current-slide iframe").locator("#interaction-design"),
+  ).toHaveClass(/present/);
+  expect(await popup.locator('script[src*="marked.js"]').count()).toBe(0);
+  expect(errors).toEqual([]);
+  expect(failedAssets).toEqual([]);
+  await popup.close();
 });
 
 test("all UGV entry points end at the local presentation", async ({

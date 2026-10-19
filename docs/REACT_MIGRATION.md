@@ -107,7 +107,7 @@ original issue identifiers; all are resolved.
 | L4  | Four references to missing f3.js presentation slides                                               | Restored [interaction2016-kato-f3js-slides.pdf](../src/publications/interaction2016-kato-f3js-slides.pdf), preserving the BibTeX destination.                                                                           |
 | L5  | Eleven archival pages lacked `/css/bootstrap.min.css` and `/css/main.css` (22 references)          | Restored both stylesheets, `jp.png`/`us.png`, and five Glyphicons font formats under `src/css/` and `src/fonts/`. Affected pages were English/Japanese Fun, two `.old/` lecture pages, and seven TextAlive API samples. |
 | L6  | Two old lectures and TextAlive `embed-6.html` lacked slider CSS (three references)                 | Restored `rangeslider.css` under both `src/talks/as-a-code/` and `src/talks/people-are-programmers/`.                                                                                                                   |
-| L7  | Seven TextAlive API samples lacked syntax-highlighting CSS                                         | Restored [prism.css](../src/textalive/embed/api/prism.css), keeping their relative references.                                                                                                                          |
+| L7  | Seven TextAlive API samples lacked syntax-highlighting CSS                                         | Restored `prism.css`, keeping their relative references.                                                                                                                                                                |
 | L8  | Two old Japanese lecture pages linked to nonexistent English versions (four references)            | Removed their header/footer language links and empty menu items.                                                                                                                                                        |
 | L9  | The old people-are-programmers page referenced a photograph and nine slides in the wrong directory | Corrected all ten image paths to `/ja/talks/people-are-programmers.old/`.                                                                                                                                               |
 | L10 | UGV referenced an obsolete TextAlive demo and a missing thumbnail                                  | Replaced the demo with a TextAlive song-page link for “I think of you” and used `/images/thumbnails/live-tuning.png`. Interactive demo restoration remains deferred below.                                              |
@@ -170,7 +170,9 @@ code-execution demos.
 
 The [UGV document](../src/user-generated-variables/index.html) preserves slide
 navigation and code-detail views, reusing styles, fonts, and scripts under
-`/user-generated-variables.old/`. Script references are absolute and the external
+`/user-generated-variables.old/` at restoration time. Those assets were moved to
+`/user-generated-variables/` on 2026-10-20; the old entry URL remains a redirect.
+Script references are absolute and the external
 font uses HTTPS. The obsolete HTTP f3.js iframe became a project link; the
 TextAlive song link from L10 was retained. Project listings now link to the local
 presentation, and `/user-generated-variables.old/` redirects there. Development
@@ -183,6 +185,24 @@ routes, document navigation from project listings, slide controls, hash URLs,
 code details, and the PDF link. Screenshots and development-server responses
 were also checked. These changes restore local access without repairing the
 former external server or its certificate.
+
+### Archival cleanup (2026-10-20)
+
+The owner retired English/Japanese Fun and all old TextAlive API samples. Fun
+pages are removed. Historical `/textalive/embed/` entry and sample-page URLs
+redirect to `https://developer.textalive.jp/` through generated static HTML;
+development uses HTTP redirects. The API sample CSS/JavaScript is no longer
+published. See [legacy-redirects.ts](../scripts/legacy-redirects.ts).
+
+UGV was compared with the original `4a40653` document: all 33 sections and their
+IDs/order, plus all 32 headings, match. Slide text differs only by the previously
+added replacement links for the TextAlive and f3.js demos. The old index was
+already a redirect, but the current presentation still used `.old/` assets.
+Those assets were moved into `src/user-generated-variables/`, all references
+were updated, and the old source directory was removed. Its historical entry
+still redirects while retaining query parameters and the slide hash. The speaker
+notes' missing Markdown script and unused conversion branch were removed because
+the presentation has no Markdown notes; HTML notes remain supported.
 
 ### Deferred functionality
 
@@ -211,8 +231,7 @@ remaining playback or publication-setting tasks are recorded in
 [EXTERNAL_LINK_AUDIT.csv](EXTERNAL_LINK_AUDIT.csv).
 
 That audit owns the individual link replacements, publication/access settings,
-playback checks, old TextAlive API sample compatibility, and additional missing
-legacy script references. It records 49 embedded URLs and seven API sample pages
+playback checks, retirement of old TextAlive API samples, and legacy script cleanup. It records 49 embedded URLs and seven API sample pages
 alongside the URL inventory; these are inspection counts, rather than counts of
 unresolved issues. Third-party maps, videos, and social widgets still depend on
 external services. Initial settled Maps and TextAlive renders matched the

@@ -28,7 +28,8 @@ rendering. React state and lifecycle now own menus, sidebars, popups, modals,
 clipboard feedback, embedded content and home-page history expansion. Main React
 routes use the existing Fomantic CSS without downloading jQuery, Fomantic
 JavaScript, Clipboard.js or the legacy interaction bundle. Archival standalone
-HTML and its historical assets remain unchanged.
+documents remain static HTML. Retired Fun pages are removed; old TextAlive
+embed sample URLs redirect to https://developer.textalive.jp/.
 
 Current React pages use `SiteLink` to select Next's `Link` for internal React
 routes. Downloads, external URLs, and archival pages retain native anchors.
@@ -36,7 +37,8 @@ The two 2015 Japanese lectures now use React pages and Fomantic UI, including
 their restored second and third chapters; see [the migration notes](docs/REACT_MIGRATION.md#follow-up-2015-lecture-pages).
 The User-Generated Variables presentation is served locally at
 `/user-generated-variables/`, preserving its original Reveal.js slide format.
-`/ugv/` and `/ja/user-generated-variables/` point to that presentation.
+`/ugv/`, `/ja/user-generated-variables/`, and `/user-generated-variables.old/`
+point to that presentation. Its assets live under `/user-generated-variables/`.
 Trusted HTML fragments in the existing data go through `HtmlContent`; fixed page
 content is ordinary JSX. Shared content uses typed components and page context.
 Author one route with `localizedPageProps` and one template in `components/`;
