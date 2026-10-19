@@ -16,12 +16,12 @@
 
 ## 優先する具体的なTODO
 
-### W1. Fungus Cameraの非公開YouTube動画
+### W1. Fungus Cameraの非公開YouTube動画（対応済み）
 
 - **場所:** `/homehack/fungus-camera/`、`/ja/homehack/fungus-camera/`。編集元は [英語](../pages/homehack/fungus-camera/index.tsx)・[日本語](../pages/ja/homehack/fungus-camera/index.tsx)。
 - **対象:** [6etDXqnFnSM](https://www.youtube.com/watch?v=6etDXqnFnSM)。プレイヤーに「この動画は非公開です」と表示され、再生できません。
-- **TODO:** 動画所有者のYouTube Studioで一般閲覧できる公開設定にするか、公開できる代替動画のIDを決めて両ページの埋め込みを置換する。公開しない場合は当該埋め込みを削除する。
-- **完了条件:** ログアウトした閲覧者が両ページの埋め込みから再生できる。同じページの `rFeTAwY_d_Y` は今回再生できました。
+- **対応:** 2026-10-20、公開しない動画の埋め込みを両言語から削除。写真の配置を整理し、成長記録画像を更新しました。同じページの `rFeTAwY_d_Y` は残しています（2026-10-14の検査で再生確認済み）。
+- **完了条件:** 両ページに当該非公開動画の埋め込みがなく、写真と残した動画への案内が表示される。残した動画の公開設定変更や新しい動画の再生確認は今回の対応に含みません。
 
 ### W2. people-are-programmers第3章の再生不能プレイリスト
 

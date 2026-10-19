@@ -6,7 +6,11 @@ import {
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { classNames, href } from "@/site/rendering";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -114,7 +118,7 @@ export default function Page({ pageData }: PageDataProps) {
             </div>
           </SiteLink>
         </div>
-        <div className="ui stackable four columns grid">
+        <div className="ui stackable three columns grid">
           <div className="column">
             <SiteLink
               className="ui fluid image"
@@ -140,15 +144,9 @@ export default function Page({ pageData }: PageDataProps) {
               className="ui fluid image"
               href={href(`${rootPath}homehack/fungus-camera.jpg`)}
             >
-              <SiteImage src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`} />
-            </SiteLink>
-          </div>
-          <div className="column">
-            <SiteLink
-              className="ui fluid image"
-              href={href(`${rootPath}homehack/fungus-box.jpg`)}
-            >
-              <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
+              <SiteImage
+                src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`}
+              />
             </SiteLink>
           </div>
         </div>
@@ -198,15 +196,22 @@ export default function Page({ pageData }: PageDataProps) {
           <div className="column">
             <SiteLink
               className="ui fluid image"
-              href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
+              href={href(`${rootPath}homehack/fungus-box.jpg`)}
             >
-              <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
+              <SiteImage
+                src={`${rootPath}homehack/thumbnails/fungus-box.jpg`}
+              />
             </SiteLink>
           </div>
         </div>
         <div className="ui stackable two columns grid">
           <div className="column">
-            <EmbedYoutube src={"//www.youtube.com/embed/6etDXqnFnSM"} />
+            <SiteLink
+              className="ui fluid image"
+              href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
+            >
+              <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
+            </SiteLink>
           </div>
           <div className="column">
             <EmbedYoutube src={"//www.youtube.com/embed/rFeTAwY_d_Y"} />
@@ -218,5 +223,16 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/homehack/fungus-camera/", {"projects": ["homehack"], "publicationProjects": ["homehack"]}) }, "/homehack/fungus-camera/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/homehack/fungus-camera/", {
+          projects: ["homehack"],
+          publicationProjects: ["homehack"],
+        }),
+      },
+      "/homehack/fungus-camera/",
+    ),
+  };
 }
