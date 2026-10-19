@@ -2,26 +2,13 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
-  HeaderContent,
-  HeaderSubheader,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
   Table,
-  TableBody,
-  TableCell,
-  TableRow,
 } from "react-fomantic-ui";
 
 import { DeferredEmbed } from "@/site/components/DeferredEmbed";
@@ -81,48 +68,48 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {en ? "Presentation materials" : "発表内容"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           {" "}
           {!en ? (
             <>
               <Header as="h3" id={"interaction2024"}>
-                <HeaderContent>
+                <Header.Content>
                   {
                     "第28回 一般社団法人情報処理学会シンポジウム インタラクション2024"
                   }
-                  <HeaderSubheader>
+                  <Header.Subheader>
                     <Icon name="trophy" />
                     {"最優秀論文賞・インタラクティブ発表賞 (一般投票)"}
-                  </HeaderSubheader>
-                </HeaderContent>
+                  </Header.Subheader>
+                </Header.Content>
               </Header>
 
               <Table striped basic="very">
-                <TableBody>
-                  <TableRow>
-                    <TableCell width={3}>{"会場"}</TableCell>
-                    <TableCell width={13}>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"会場"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="map pin" />
-                          <ListContent>
+                          <List.Content>
                             {"学術総合センター内 一橋記念講堂"}
-                          </ListContent>
-                        </ListItem>
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell width={3}>{"日時"}</TableCell>
-                    <TableCell width={13}>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"日時"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="clock" />
-                          <ListContent>
+                          <List.Content>
                             <a
                               href={
                                 "https://www.interaction-ipsj.org/2024/program/#video"
@@ -130,18 +117,18 @@ export default function Page({ pageData }: PageDataProps) {
                             >
                               {"2024/3/6 (水) 9:30-9:50"}
                             </a>
-                          </ListContent>
-                        </ListItem>
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell width={3}>{"論文"}</TableCell>
-                    <TableCell width={13}>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"論文"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="file text" />
-                          <ListContent>
+                          <List.Content>
                             <SiteLink
                               href={href(
                                 `${rootPath}publications/interaction2024-kato-lyric-apps.pdf`,
@@ -151,25 +138,25 @@ export default function Page({ pageData }: PageDataProps) {
                                 "Lyric App Framework: インタラクティブな歌詞駆動型視覚表現の開発用フレームワーク"
                               }
                             </SiteLink>
-                          </ListContent>
-                        </ListItem>
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
               </Table>
 
               <Grid columns={2}>
-                <GridRow className="stackable">
-                  <GridColumn>
+                <Grid.Row className="stackable">
+                  <Grid.Column>
                     <Segment basic>
                       <EmbedYoutube
                         src={"//www.youtube.com/embed/tBBcweuGdrc?start=2061"}
                       />
                       <p className="caption">{"講演の録画"}</p>
                     </Segment>
-                  </GridColumn>
-                  <GridColumn>
+                  </Grid.Column>
+                  <Grid.Column>
                     <Segment basic>
                       <DeferredEmbed
                         url={
@@ -182,7 +169,7 @@ export default function Page({ pageData }: PageDataProps) {
                       ></DeferredEmbed>
                       <div className="caption">
                         <List horizontal>
-                          <ListItem>
+                          <List.Item>
                             <SiteLink
                               href={href(
                                 publicationsTable[
@@ -193,44 +180,46 @@ export default function Page({ pageData }: PageDataProps) {
                               <Icon name="download" />
                               {en ? "Download" : "ダウンロード"}
                             </SiteLink>
-                          </ListItem>
+                          </List.Item>
                         </List>
                       </div>
                     </Segment>
-                  </GridColumn>
-                </GridRow>
+                  </Grid.Column>
+                </Grid.Row>
               </Grid>
 
               <Header as="h3" id={"sigmus138"}>
-                <HeaderContent>
+                <Header.Content>
                   {"第138回音楽情報科学研究発表会 (SIGMUS)"}
-                  <HeaderSubheader>
+                  <Header.Subheader>
                     <Icon name="trophy" />
                     {"ベストプレゼンテーション賞 (Best Research部門)"}
-                  </HeaderSubheader>
-                </HeaderContent>
+                  </Header.Subheader>
+                </Header.Content>
               </Header>
 
               <Table striped basic="very">
-                <TableBody>
-                  <TableRow>
-                    <TableCell width={3}>{"会場"}</TableCell>
-                    <TableCell width={13}>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"会場"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="map pin" />
-                          <ListContent>{"明治大学 中野キャンパス"}</ListContent>
-                        </ListItem>
+                          <List.Content>
+                            {"明治大学 中野キャンパス"}
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell width={3}>{"日時"}</TableCell>
-                    <TableCell width={13}>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"日時"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="clock" />
-                          <ListContent>
+                          <List.Content>
                             <a
                               href={
                                 "https://www.ipsj.or.jp/kenkyukai/event/mus138.html"
@@ -238,18 +227,18 @@ export default function Page({ pageData }: PageDataProps) {
                             >
                               {"2023/8/27 (日) 13:30-13:55"}
                             </a>
-                          </ListContent>
-                        </ListItem>
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell width={3}>{"論文"}</TableCell>
-                    <TableCell width={13}>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell width={3}>{"論文"}</Table.Cell>
+                    <Table.Cell width={13}>
                       <List>
-                        <ListItem>
+                        <List.Item>
                           <Icon name="file text" />
-                          <ListContent>
+                          <List.Content>
                             <SiteLink
                               href={href(
                                 `${rootPath}publications/sigmus138-kato-lyric-apps.pdf`,
@@ -259,25 +248,25 @@ export default function Page({ pageData }: PageDataProps) {
                                 "TextAlive App API:「リリックアプリ」の提案とプログラミング・コンテストでの実証実験"
                               }
                             </SiteLink>
-                          </ListContent>
-                        </ListItem>
+                          </List.Content>
+                        </List.Item>
                       </List>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
               </Table>
 
               <Grid columns={2}>
-                <GridRow className="stackable">
-                  <GridColumn>
+                <Grid.Row className="stackable">
+                  <Grid.Column>
                     <Segment basic>
                       <EmbedYoutube
                         src={"//www.youtube.com/embed/yTS5600B4pg"}
                       />
                       <p className="caption">{"プレゼンテーション再録"}</p>
                     </Segment>
-                  </GridColumn>
-                  <GridColumn>
+                  </Grid.Column>
+                  <Grid.Column>
                     <Segment basic>
                       <DeferredEmbed
                         url={
@@ -290,7 +279,7 @@ export default function Page({ pageData }: PageDataProps) {
                       ></DeferredEmbed>
                       <div className="caption">
                         <List horizontal>
-                          <ListItem>
+                          <List.Item>
                             <SiteLink
                               href={href(
                                 publicationsTable[
@@ -301,53 +290,53 @@ export default function Page({ pageData }: PageDataProps) {
                               <Icon name="download" />
                               {en ? "Download" : "ダウンロード"}
                             </SiteLink>
-                          </ListItem>
+                          </List.Item>
                         </List>
                       </div>
                     </Segment>
-                  </GridColumn>
-                </GridRow>
+                  </Grid.Column>
+                </Grid.Row>
               </Grid>
 
               <Divider hidden />
 
               <Header as="h3" id={"chi2023"}>
-                <HeaderContent>
+                <Header.Content>
                   {"ACM CHI 2023"}
                   {!en ? (
                     <>
-                      <HeaderSubheader>
+                      <Header.Subheader>
                         <Icon name="trophy" />
                         {"Honorable Mention Award"}
-                      </HeaderSubheader>
+                      </Header.Subheader>
                     </>
                   ) : null}
-                </HeaderContent>
+                </Header.Content>
               </Header>
             </>
           ) : null}
           <Table striped basic="very">
-            <TableBody>
-              <TableRow>
-                <TableCell width={3}>{en ? "Where?" : "会場"}</TableCell>
-                <TableCell width={13}>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell width={3}>{en ? "Where?" : "会場"}</Table.Cell>
+                <Table.Cell width={13}>
                   <List>
-                    <ListItem>
+                    <List.Item>
                       <Icon name="map pin" />
-                      <ListContent>
+                      <List.Content>
                         {"Room Y07 + Y08, Congress Center Hamburg (CCH)"}
-                      </ListContent>
-                    </ListItem>
+                      </List.Content>
+                    </List.Item>
                   </List>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell width={3}>{en ? "When?" : "日時"}</TableCell>
-                <TableCell width={13}>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell width={3}>{en ? "When?" : "日時"}</Table.Cell>
+                <Table.Cell width={13}>
                   <List>
-                    <ListItem>
+                    <List.Item>
                       <Icon name="clock" />
-                      <ListContent>
+                      <List.Content>
                         <a
                           href={
                             "https://www.timeanddate.com/worldclock/fixedtime.html?msg=ACM+CHI+2023%3A+Lyric+App+Framework+paper+presentation&iso=20230427T09&p1=307&am=14"
@@ -355,18 +344,18 @@ export default function Page({ pageData }: PageDataProps) {
                         >
                           {"Thu, Apr 27 | 09:00 - 09:14"}
                         </a>
-                      </ListContent>
-                    </ListItem>
+                      </List.Content>
+                    </List.Item>
                   </List>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell width={3}>{"CHI '23 Program"}</TableCell>
-                <TableCell width={13}>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell width={3}>{"CHI '23 Program"}</Table.Cell>
+                <Table.Cell width={13}>
                   <List>
-                    <ListItem>
+                    <List.Item>
                       <Icon name="book" />
-                      <ListContent>
+                      <List.Content>
                         <a
                           href={
                             "https://programs.sigchi.org/chi/2023/program/content/96444"
@@ -376,17 +365,17 @@ export default function Page({ pageData }: PageDataProps) {
                             "Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications - CHI '23"
                           }
                         </a>
-                      </ListContent>
-                    </ListItem>
+                      </List.Content>
+                    </List.Item>
                   </List>
-                </TableCell>
-              </TableRow>
-            </TableBody>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
           </Table>
         </Segment>
         <Grid columns={2}>
-          <GridRow className="stackable">
-            <GridColumn>
+          <Grid.Row className="stackable">
+            <Grid.Column>
               <Segment basic>
                 <EmbedYoutube src={"//www.youtube.com/embed/7XpDPghxdCE"} />
                 <p className="caption">
@@ -395,16 +384,16 @@ export default function Page({ pageData }: PageDataProps) {
                     : "CHI 2023 Video Preview（30秒）"}
                 </p>
               </Segment>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Segment basic>
                 <EmbedYoutube src={"//www.youtube.com/embed/sX4Cdcljqd0"} />
                 <p className="caption">
                   {"CHI 2023 Pre-recorded Presentation Video"}
                 </p>
               </Segment>
-            </GridColumn>
-          </GridRow>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
       </>
     );
@@ -420,126 +409,126 @@ export default function Page({ pageData }: PageDataProps) {
           <Feed className="divided">
             {en ? (
               <>
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"04/20/2026"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"04/20/2026"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "Added project hero image and updated project text and 2026 thumbnail"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"03/29/2026"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"03/29/2026"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         'Updated links to "Hatsune Miku Magical Mirai" programming contest websites.'
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"09/02/2023"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"09/02/2023"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         'Added links to "Hatsune Miku Magical Mirai" programming contest websites.'
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
               </>
             ) : (
               <>
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"04/20/2026"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"04/20/2026"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "文章などを更新、2026年のプログラミング・コンテスト サムネイルを追加"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"03/29/2026"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"03/29/2026"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "「初音ミク『マジカルミライ』」プログラミング・コンテスト関連のリンクを更新"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"03/11/2024"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"03/11/2024"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "インタラクションでの講演の録画を追加、「初音ミク『マジカルミライ』」プログラミング・コンテスト入選作品一覧へのリンクを追加"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"09/02/2023"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"09/02/2023"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "SIGMUSでのプレゼン再録動画を追加、「初音ミク『マジカルミライ』」プログラミング・コンテストへのリンクを追加"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"08/27/2023"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"08/27/2023"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "第138回音楽情報科学研究発表会 (SIGMUS) での発表資料を追加"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
               </>
             )}
 
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"04/19/2023"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"04/19/2023"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Added a pre-recorded presentation video"
                     : "事前録画のプレゼンテーション動画を追加"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
 
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"04/16/2023"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"04/16/2023"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Added a video preview" : "Video Preview を追加"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
 
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"03/31/2023"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"03/31/2023"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Added a project page" : "プロジェクトページを仮公開"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>
@@ -550,18 +539,18 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="gift" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               <ProjectItem p={projectsTable["textalive"]} />
               <ProjectItem
                 p={projectsTable["creativity-support-environments"]}
               />
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -595,43 +584,47 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#abstract"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#abstract"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#presentations"}>
+                  <List.Content>{en ? "Abstract" : "概要"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#presentations"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Presentations" : "発表内容"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#publications"}>
+                  <List.Content>
+                    {en ? "Presentations" : "発表内容"}
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#publications"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#revisions"}>
+                  <List.Content>
+                    {en ? "Publications" : "発表文献"}
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#revisions"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Revisions" : "更新履歴"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#further-readings"}>
+                  <List.Content>{en ? "Revisions" : "更新履歴"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#further-readings"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
         }
       >
         <Grid columns={2}>
-          <GridRow className="stackable">
-            <GridColumn>
+          <Grid.Row className="stackable">
+            <Grid.Column>
               <section id={"abstract"}>
                 <Header as="h2">
-                  <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+                  <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
                 </Header>
                 <Segment basic>
                   {en ? (
@@ -677,13 +670,13 @@ export default function Page({ pageData }: PageDataProps) {
                   )}
                 </Segment>
               </section>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <section id={"programming-contest"}>
                 <Header as="h2">
-                  <HeaderContent>
+                  <Header.Content>
                     {en ? "Programming Contests" : "プログラミング・コンテスト"}
-                  </HeaderContent>
+                  </Header.Content>
                 </Header>
                 <Segment basic>
                   {" "}
@@ -710,21 +703,21 @@ export default function Page({ pageData }: PageDataProps) {
                       </p>
 
                       <List divided horizontal as="ul">
-                        <ListItem
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2020/procon"}
                         >
                           {"2020 (ja)"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2021/procon"}
                         >
                           {"2021 (ja)"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -732,8 +725,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2022"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -741,8 +734,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2023"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -750,8 +743,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2024"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -759,8 +752,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2025"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -768,7 +761,7 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2026"}
-                        </ListItem>
+                        </List.Item>
                       </List>
                     </>
                   ) : (
@@ -794,61 +787,61 @@ export default function Page({ pageData }: PageDataProps) {
                       </p>
 
                       <List divided horizontal as="ul">
-                        <ListItem as="strong">{"公式サイト"}</ListItem>
-                        <ListItem
+                        <List.Item as="strong">{"公式サイト"}</List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2020/procon"}
                         >
                           {"2020"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2021/procon"}
                         >
                           {"2021"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/10th/procon"}
                         >
                           {"2022 (10th Anniversary)"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2023/procon"}
                         >
                           {"2023"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2024/procon"}
                         >
                           {"2024"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2025/procon"}
                         >
                           {"2025"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={"https://magicalmirai.com/2026/procon"}
                         >
                           {"2026"}
-                        </ListItem>
+                        </List.Item>
                       </List>
 
                       <List divided horizontal as="ul">
-                        <ListItem as="strong">{"入選作品一覧"}</ListItem>
-                        <ListItem
+                        <List.Item as="strong">{"入選作品一覧"}</List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -856,8 +849,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2020"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -865,8 +858,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2021"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -874,8 +867,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2022 (10th Anniversary)"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -883,8 +876,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2023"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -892,8 +885,8 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2024"}
-                        </ListItem>
-                        <ListItem
+                        </List.Item>
+                        <List.Item
                           role="link"
                           as="a"
                           href={
@@ -901,14 +894,14 @@ export default function Page({ pageData }: PageDataProps) {
                           }
                         >
                           {"2025"}
-                        </ListItem>
+                        </List.Item>
                       </List>
                     </>
                   )}
                 </Segment>
               </section>
-            </GridColumn>
-          </GridRow>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
         <Segment basic textAlign="right">
           <Button role="link" primary as="a" href={"//developer.textalive.jp"}>

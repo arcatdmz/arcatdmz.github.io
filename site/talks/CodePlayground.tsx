@@ -1,13 +1,4 @@
-import {
-  Button,
-  Form,
-  FormField,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  Segment,
-} from "react-fomantic-ui";
+import { Button, Form, Grid, Header, Icon, Segment } from "react-fomantic-ui";
 
 import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/router";
@@ -120,9 +111,9 @@ export function CodePlayground({
   return (
     <div className="talk-playground">
       <Grid stackable columns={2}>
-        <GridColumn>
+        <Grid.Column>
           <Form as="div">
-            <FormField>
+            <Form.Field>
               <label htmlFor={id}>JavaScript</label>
               <textarea
                 id={id}
@@ -131,7 +122,7 @@ export function CodePlayground({
                 onChange={(event) => setCode(event.target.value)}
                 rows={10}
               />
-            </FormField>
+            </Form.Field>
           </Form>
           <Segment basic className="talk-actions">
             <Button
@@ -160,8 +151,8 @@ export function CodePlayground({
               "color(r, g, b)、dot(x, y)、line(x, y, ex, ey)、print(text) が使えます。"}
           </p>
           <p role="status">{saved}</p>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           {drawing && (
             <canvas
               ref={canvas}
@@ -174,7 +165,7 @@ export function CodePlayground({
           <pre className="talk-code" role="status" aria-live="polite">
             {output}
           </pre>
-        </GridColumn>
+        </Grid.Column>
       </Grid>
     </div>
   );

@@ -1,16 +1,13 @@
 import { HtmlContent } from "./RichText";
 import {
   Button,
-  DropdownMenu,
+  Dropdown,
   Image,
   Menu,
-  MenuItem,
   type MenuItemProps,
-  ModalContent,
-  ModalHeader,
+  Modal,
   Sidebar as FomanticSidebar,
   type SidebarProps,
-  SidebarPusher,
 } from "react-fomantic-ui";
 
 import { LinkedImage } from "./LinkedImage";
@@ -141,7 +138,7 @@ export function SiteSidebarPanel({ children, ...props }: SidebarProps) {
 export function SidebarButton({ children, ...props }: MenuItemProps) {
   const widgets = useWidgets();
   return (
-    <MenuItem
+    <Menu.Item
       as="a"
       {...props}
       role="button"
@@ -159,12 +156,12 @@ export function SidebarButton({ children, ...props }: MenuItemProps) {
       }}
     >
       {children}
-    </MenuItem>
+    </Menu.Item>
   );
 }
 export function SitePusher(props: HTMLAttributes<HTMLDivElement>) {
   const widgets = useWidgets();
-  return <SidebarPusher {...props} dimmed={!!widgets?.sidebar} />;
+  return <FomanticSidebar.Pusher {...props} dimmed={!!widgets?.sidebar} />;
 }
 
 export function NavigationDropdown({
@@ -195,7 +192,7 @@ export function NavigationDropdown({
       root.current?.querySelectorAll<HTMLAnchorElement>(".menu a[href]") || [],
     );
   return (
-    <MenuItem
+    <Menu.Item
       as="div"
       {...props}
       ref={root}
@@ -262,7 +259,7 @@ export function NavigationDropdown({
     >
       {Children.map(children, (child) =>
         isValidElement<HTMLAttributes<HTMLDivElement>>(child) &&
-        (child.type === DropdownMenu || child.props.className === "menu")
+        (child.type === Dropdown.Menu || child.props.className === "menu")
           ? cloneElement(child, {
               className: motion.className,
               style: { ...child.props.style, ...motion.style },
@@ -272,7 +269,7 @@ export function NavigationDropdown({
             })
           : child,
       )}
-    </MenuItem>
+    </Menu.Item>
   );
 }
 
@@ -479,12 +476,12 @@ export function SiteModal({
   }, [motion.present, displayedModal]);
   const content = displayedModal?.src ? (
     <>
-      <ModalHeader id={titleId}>
+      <Modal.Header id={titleId}>
         <HtmlContent html={displayedModal.title || ""} />
-      </ModalHeader>
-      <ModalContent image>
+      </Modal.Header>
+      <Modal.Content image>
         <Image ui={false} src={displayedModal.src} alt="" />
-      </ModalContent>
+      </Modal.Content>
     </>
   ) : (
     children

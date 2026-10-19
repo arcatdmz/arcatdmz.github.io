@@ -1,14 +1,11 @@
 import {
   Breadcrumb,
-  BreadcrumbSection,
   Divider,
   Grid,
-  GridColumn,
   Header,
   Icon,
   Label,
   List,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -119,22 +116,22 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第5回 (2016)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第5回 (2016)"}</Breadcrumb.Section>
         </Breadcrumb>
         <Divider />
         <section>
           <Header as="h1">{"第5回 名状しがたいお茶会"}</Header>
           <List divided horizontal>
-            <ListItem>
+            <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
                 {"2016/2/13"}
               </Label>
-            </ListItem>
+            </List.Item>
           </List>
         </section>
         <Divider hidden />
@@ -155,7 +152,7 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <section id={"timetable"}>
               <Header as="h2">{"タイムテーブル"}</Header>
               <Segment basic>
@@ -169,8 +166,8 @@ export default function Page({ pageData }: PageDataProps) {
             </section>
             <Divider hidden />
             {renderDetails()}
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <section id={"photos"}>
               <Header as="h2">{"当日の様子"}</Header>
               <Segment basic>
@@ -192,15 +189,15 @@ export default function Page({ pageData }: PageDataProps) {
                 <Divider hidden />
               </Segment>
             </section>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider />
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第5回 (2016)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第5回 (2016)"}</Breadcrumb.Section>
         </Breadcrumb>
       </SiteLayout>
     </>

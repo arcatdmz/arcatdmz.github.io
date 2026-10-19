@@ -3,21 +3,13 @@ import {
   Container,
   Divider,
   Grid,
-  GridColumn,
   Header,
   Icon,
-  ImageGroup,
+  Image,
   Label,
   List,
-  ListContent,
-  ListDescription,
-  ListHeader,
-  ListItem,
   Menu,
-  MenuItem,
-  MenuMenu,
-  ModalContent,
-  ModalHeader,
+  Modal,
   Segment,
 } from "react-fomantic-ui";
 
@@ -126,18 +118,18 @@ export default function Page({ pageData }: PageDataProps) {
         </p>
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <Header as="h3">
               {en ? "As a graphic designer" : "グラフィックデザイン"}
             </Header>
             <List divided>{renderSkillsetGraphic()}</List>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <Header as="h3">
               {en ? "As an interaction designer" : "インタラクションデザイン"}
             </Header>
             <List divided>{renderSkillsetIxd()}</List>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </>
     );
@@ -145,127 +137,127 @@ export default function Page({ pageData }: PageDataProps) {
   function renderSkillsetGraphic(): ReactNode {
     return (
       <>
-        <ListItem>
+        <List.Item>
           <Icon size="large" className="devicon-photoshop-plain colored" />
-          <ListContent>
-            <ListHeader>{"Photoshop"}</ListHeader>
-            <ListDescription>{data.durations["2002,9,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Photoshop"}</List.Header>
+            <List.Description>{data.durations["2002,9,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-illustrator-plain colored" />
-          <ListContent>
-            <ListHeader>{"Illustrator"}</ListHeader>
-            <ListDescription>{data.durations["2002,9,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Illustrator"}</List.Header>
+            <List.Description>{data.durations["2002,9,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
-          <ListContent>
+          <List.Content>
             {en ? (
               <>
-                <ListHeader>{"Other Adobe products"}</ListHeader>
+                <List.Header>{"Other Adobe products"}</List.Header>
 
-                <ListDescription>
+                <List.Description>
                   {"Premier for producing demo videos and InDesign for basic "}
                   <abbr title={"Desktop Publishing"}>{"DTP"}</abbr>
                   {" tasks"}
-                </ListDescription>
+                </List.Description>
               </>
             ) : (
               <>
-                <ListHeader>{"その他のAdobe製品"}</ListHeader>
+                <List.Header>{"その他のAdobe製品"}</List.Header>
 
-                <ListDescription>
+                <List.Description>
                   {"Premier (デモ動画制作), InDesign ("}
                   <abbr title={"Desktop Publishing"}>{"DTP"}</abbr>
                   {")"}
-                </ListDescription>
+                </List.Description>
               </>
             )}
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-html5-plain colored" />
-          <ListContent>
-            <ListHeader>{"HTML"}</ListHeader>
-            <ListDescription>{data.durations["2000,10,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"HTML"}</List.Header>
+            <List.Description>{data.durations["2000,10,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
-          <ListContent>
-            <ListHeader>{"Pug (Jade)"}</ListHeader>
-            <ListDescription>{data.durations["2015,0,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Pug (Jade)"}</List.Header>
+            <List.Description>{data.durations["2015,0,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-css3-plain colored" />
-          <ListContent>
-            <ListHeader>{"CSS"}</ListHeader>
-            <ListDescription>{data.durations["2000,10,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"CSS"}</List.Header>
+            <List.Description>{data.durations["2000,10,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-less-plain-wordmark colored" />
-          <ListContent>
-            <ListHeader>{"Stylus and LESS"}</ListHeader>
-            <ListDescription>{data.durations["2015,0,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Stylus and LESS"}</List.Header>
+            <List.Description>{data.durations["2015,0,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-bootstrap-plain colored" />
-          <ListContent>
-            <ListHeader>{"Bootstrap (< 4)"}</ListHeader>
-            <ListDescription>{data.durations["2012,2,19"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Bootstrap (< 4)"}</List.Header>
+            <List.Description>{data.durations["2012,2,19"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
-          <ListContent>
-            <ListHeader>{"Semantic UI"}</ListHeader>
-            <ListDescription>{data.durations["2016,1,22"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Semantic UI"}</List.Header>
+            <List.Description>{data.durations["2016,1,22"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-grunt-line colored" />
-          <ListContent>
-            <ListHeader>{"Grunt"}</ListHeader>
-            <ListDescription>{data.durations["2015,0,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Grunt"}</List.Header>
+            <List.Description>{data.durations["2015,0,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-gulp-plain colored" />
-          <ListContent>
-            <ListHeader>{"Gulp"}</ListHeader>
-            <ListDescription>{data.durations["2017,11,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Gulp"}</List.Header>
+            <List.Description>{data.durations["2017,11,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-vim-plain colored" />
-          <ListContent>
-            <ListHeader>{"Vim"}</ListHeader>
-            <ListDescription>{data.durations["2005,5,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
+          <List.Content>
+            <List.Header>{"Vim"}</List.Header>
+            <List.Description>{data.durations["2005,5,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
       </>
     );
   }
   function renderSkillsetIxd(): ReactNode {
     return (
       <>
-        <ListItem>
+        <List.Item>
           <Icon size="large" className="devicon-javascript-plain colored" />
-          <ListContent>
-            <ListHeader>{"JavaScript"}</ListHeader>
-            <ListDescription>{data.durations["2000,10,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"JavaScript"}</List.Header>
+            <List.Description>{data.durations["2000,10,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-typescript-plain colored" />
-          <ListContent>
-            <ListHeader>{"TypeScript"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"TypeScript"}</List.Header>
+            <List.Description>
               {"since it was called "}
               <a
                 href={
@@ -274,124 +266,124 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 {'"Strada"'}
               </a>
-            </ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-jquery-plain colored" />
-          <ListContent>
-            <ListHeader>{"jQuery"}</ListHeader>
-            <ListDescription>{data.durations["2012,2,19"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"jQuery"}</List.Header>
+            <List.Description>{data.durations["2012,2,19"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-d3js-plain colored" />
-          <ListContent>
-            <ListHeader>{"D3.js"}</ListHeader>
-            <ListDescription>{data.durations["2017,11,7"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"D3.js"}</List.Header>
+            <List.Description>{data.durations["2017,11,7"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-webpack-plain colored" />
-          <ListContent>
-            <ListHeader>{"Webpack"}</ListHeader>
-            <ListDescription>{data.durations["2017,11,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Webpack"}</List.Header>
+            <List.Description>{data.durations["2017,11,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-babel-plain colored" />
-          <ListContent>
-            <ListHeader>{"Babel"}</ListHeader>
-            <ListDescription>{data.durations["2017,11,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Babel"}</List.Header>
+            <List.Description>{data.durations["2017,11,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-nodejs-plain colored" />
-          <ListContent>
-            <ListHeader>{"Node.js"}</ListHeader>
-            <ListDescription>{data.durations["2015,0,5"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Node.js"}</List.Header>
+            <List.Description>{data.durations["2015,0,5"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-php-plain colored" />
-          <ListContent>
-            <ListHeader>{"PHP (< 7)"}</ListHeader>
-            <ListDescription>{data.durations["2005,5,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"PHP (< 7)"}</List.Header>
+            <List.Description>{data.durations["2005,5,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-wordpress-plain colored" />
-          <ListContent>
-            <ListHeader>{"WordPress"}</ListHeader>
-            <ListDescription>{data.durations["2005,5,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"WordPress"}</List.Header>
+            <List.Description>{data.durations["2005,5,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-csharp-plain colored" />
-          <ListContent>
-            <ListHeader>{"C#"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"C#"}</List.Header>
+            <List.Description>
               {"for desktop apps and ASP.NET apps"}
-            </ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-java-plain colored" />
-          <ListContent>
-            <ListHeader>{"Java (< 8)"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"Java (< 8)"}</List.Header>
+            <List.Description>
               {data.durations["2008,5,1"]}
               {", for robot and desktop apps and browser applets"}
-            </ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-java-plain colored" />
-          <ListContent>
-            <ListHeader>{"Processing"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"Processing"}</List.Header>
+            <List.Description>
               {data.durations["2008,5,1"]}
               {", mostly for robot apps using "}
               <SiteLink href={href(`${rootPath}phybots`)}>{"Phybots"}</SiteLink>
               {" and "}
               <SiteLink href={href(`${rootPath}picode`)}>{"Picode"}</SiteLink>
-            </ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-visualstudio-plain colored" />
-          <ListContent>
-            <ListHeader>{"Visual Studio, Visual Studio Code"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"Visual Studio, Visual Studio Code"}</List.Header>
+            <List.Description>
               {data.durations["2008,5,1"]}
               {" and since it was born, respectively"}
-            </ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-mysql-plain colored" />
-          <ListContent>
-            <ListHeader>{"MySQL"}</ListHeader>
-            <ListDescription>{data.durations["2005,9,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"MySQL"}</List.Header>
+            <List.Description>{data.durations["2005,9,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
-          <ListContent>
-            <ListHeader>{"Eclipse"}</ListHeader>
-            <ListDescription>{data.durations["2008,5,1"]}</ListDescription>
-          </ListContent>
-        </ListItem>
-        <ListItem>
+          <List.Content>
+            <List.Header>{"Eclipse"}</List.Header>
+            <List.Description>{data.durations["2008,5,1"]}</List.Description>
+          </List.Content>
+        </List.Item>
+        <List.Item>
           <Icon size="large" className="devicon-github-plain colored" />
-          <ListContent>
-            <ListHeader>{"GitHub"}</ListHeader>
-            <ListDescription>
+          <List.Content>
+            <List.Header>{"GitHub"}</List.Header>
+            <List.Description>
               {"see "}
               <a href={"https://github.com/arcatdmz"}>{"my repos"}</a>
-            </ListDescription>
-          </ListContent>
-        </ListItem>
+            </List.Description>
+          </List.Content>
+        </List.Item>
       </>
     );
   }
@@ -433,7 +425,7 @@ export default function Page({ pageData }: PageDataProps) {
 
                 {p.images ? (
                   <>
-                    <ImageGroup className="tiny">
+                    <Image.Group className="tiny">
                       {p.images.map((image, itemIndex) => (
                         <Fragment key={itemIndex}>
                           <ModalImage className="for-modal">
@@ -441,7 +433,7 @@ export default function Page({ pageData }: PageDataProps) {
                           </ModalImage>
                         </Fragment>
                       ))}
-                    </ImageGroup>
+                    </Image.Group>
                   </>
                 ) : null}
 
@@ -450,12 +442,12 @@ export default function Page({ pageData }: PageDataProps) {
                     const children: ReactNode[] = [];
                     children.push(
                       <>
-                        <ListItem>
+                        <List.Item>
                           <Label basic>
                             <Icon name="calendar" />
                             {p.getYearString(lang, buildYear)}
                           </Label>
-                        </ListItem>
+                        </List.Item>
                       </>,
                     );
                     const tags = p.getDesignTags(lang);
@@ -463,9 +455,9 @@ export default function Page({ pageData }: PageDataProps) {
                       for (const tag of tags) {
                         children.push(
                           <>
-                            <ListItem>
+                            <List.Item>
                               <HtmlContent html={tag} />
-                            </ListItem>
+                            </List.Item>
                           </>,
                         );
                       }
@@ -490,8 +482,8 @@ export default function Page({ pageData }: PageDataProps) {
         header={
           <>
             <Menu text fixed="top">
-              <MenuMenu id={"research-menu"}>
-                <MenuItem as={SiteLink} href={href(basePath)}>
+              <Menu.Menu id={"research-menu"}>
+                <Menu.Item as={SiteLink} href={href(basePath)}>
                   <Icon name="lab" />
 
                   {en ? (
@@ -503,11 +495,11 @@ export default function Page({ pageData }: PageDataProps) {
                       <span className="mobile hidden">{"に戻る"}</span>
                     </>
                   )}
-                </MenuItem>
-              </MenuMenu>
-              <MenuMenu position="right" id={"design-menu"}>
+                </Menu.Item>
+              </Menu.Menu>
+              <Menu.Menu position="right" id={"design-menu"}>
                 <SiteRightHeaderMenu context={context} />
-              </MenuMenu>
+              </Menu.Menu>
             </Menu>
           </>
         }
@@ -543,27 +535,29 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#portfolio"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#portfolio"}>
                   <Icon name="history" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Portfolio" : "ポートフォリオ"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#skillset"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#skillset"}>
                   <Icon name="user" />
-                  <ListContent>{en ? "Skillset" : "スキルセット"}</ListContent>
-                </ListItem>
+                  <List.Content>
+                    {en ? "Skillset" : "スキルセット"}
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
             <SiteModal size="large">
-              <ModalHeader>{"Header"}</ModalHeader>
-              <ModalContent image>
+              <Modal.Header>{"Header"}</Modal.Header>
+              <Modal.Content image>
                 <SiteImage className="image" />
-              </ModalContent>
+              </Modal.Content>
             </SiteModal>
           </>
         }

@@ -2,19 +2,11 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -81,7 +73,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Segment basic>
           <p>{description}</p>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               {en ? (
                 <>
                   <p>
@@ -127,8 +119,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               )}
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               {en ? (
                 <>
                   <p>
@@ -169,7 +161,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               )}
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
       </>
@@ -195,7 +187,7 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h3">
                 {en ? "Presentation Slides (Japanese)" : "発表スライド"}
               </Header>
@@ -213,7 +205,7 @@ export default function Page({ pageData }: PageDataProps) {
                     : "試して作って知る Live Programming入門"}
                 </Header>
                 <List divided horizontal>
-                  <ListItem>
+                  <List.Item>
                     <a
                       href={
                         "https://docs.google.com/presentation/d/1MIDPeccko-oce83eaWLKuEctzjt2NF_R9b-ouhc_yCI/edit?usp=sharing"
@@ -222,19 +214,19 @@ export default function Page({ pageData }: PageDataProps) {
                       <Icon name="external" />
                       {"Google Slides"}
                     </a>
-                  </ListItem>
-                  <ListItem>
+                  </List.Item>
+                  <List.Item>
                     <a href={"https://jssst2023.wordpress.com/tutorial"}>
                       <Icon name="external" />
                       {en
                         ? "Tutorial official page (Japanese)"
                         : "大会公式ページ"}
                     </a>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h3">
                 {en
                   ? "What is Live Programming?"
@@ -280,7 +272,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Segment basic>
@@ -453,7 +445,7 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h3">
                 {en ? "Presentation Slides" : "発表スライド"}
               </Header>
@@ -469,13 +461,13 @@ export default function Page({ pageData }: PageDataProps) {
                     : "ライブプログラミングのためのユーザインタフェース"}
                 </Header>
                 <List divided horizontal>
-                  <ListItem>
+                  <List.Item>
                     <SiteLink href={href(slideUrl)}>
                       <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </ListItem>
-                  <ListItem>
+                  </List.Item>
+                  <List.Item>
                     <a
                       href={
                         "https://2017.splashcon.org/event/live-2017-keynote-a"
@@ -484,11 +476,11 @@ export default function Page({ pageData }: PageDataProps) {
                       <Icon name="external" />
                       {en ? "LIVE 2017 Website" : "LIVE 2017 Webサイト"}
                     </a>
-                  </ListItem>
+                  </List.Item>
                 </List>
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h3">
                 {en
                   ? "What is Live Programming?"
@@ -528,7 +520,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Segment basic>
@@ -564,7 +556,7 @@ export default function Page({ pageData }: PageDataProps) {
         </Segment>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <LinkedImage
                 bordered
                 fluid
@@ -572,8 +564,8 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 <SiteImage src={`${slideImagePath}13.jpg`} />
               </LinkedImage>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <div className="caption">
                 {en ? (
                   <>
@@ -605,7 +597,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Segment basic>
@@ -628,7 +620,7 @@ export default function Page({ pageData }: PageDataProps) {
           )}
 
           <Grid stackable columns={3}>
-            <GridColumn>
+            <Grid.Column>
               <Header as="h4">
                 {en
                   ? "Programming with End-users"
@@ -716,8 +708,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h4">
                 {en
                   ? "Programming this Material World"
@@ -773,8 +765,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <Header as="h4">
                 {en
                   ? "Programming with Time Travel"
@@ -818,7 +810,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
         <Segment basic>
@@ -890,9 +882,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="lab" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           {en ? (
@@ -914,7 +906,7 @@ export default function Page({ pageData }: PageDataProps) {
           )}
 
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 for (const p of projects) {
@@ -937,7 +929,7 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -954,30 +946,32 @@ export default function Page({ pageData }: PageDataProps) {
           <Feed className="divided">
             {!en ? (
               <>
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"9/28/2023"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"9/28/2023"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "日本ソフトウェア科学会 第40回大会 チュートリアルの概要を追加"
                       }
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
 
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"9/27/2023"}</FeedDate>
-                    <FeedSummary>{"LIVE 2017基調講演の内容を和訳"}</FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"9/27/2023"}</Feed.Date>
+                    <Feed.Summary>
+                      {"LIVE 2017基調講演の内容を和訳"}
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
               </>
             ) : (
               <>
-                <FeedEvent>
-                  <FeedContent>
-                    <FeedDate>{"9/28/2023"}</FeedDate>
-                    <FeedSummary>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>{"9/28/2023"}</Feed.Date>
+                    <Feed.Summary>
                       {
                         "Add introduction to the tutorial course held as part of "
                       }
@@ -993,31 +987,31 @@ export default function Page({ pageData }: PageDataProps) {
                         {" Annual Conference"}
                       </a>
                       {" (content in Japanese)."}
-                    </FeedSummary>
-                  </FeedContent>
-                </FeedEvent>
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
               </>
             )}
 
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"2/15/2018"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"2/15/2018"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? 'Replace "Further reading" with the list of relevant projects. Please visit each project page for further readings.'
                     : "関連プロジェクトの一覧を公開"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
 
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"1/21/2018"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"1/21/2018"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Upload the initial prototype version." : "初版を公開"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>
@@ -1069,40 +1063,40 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#abstract"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#abstract"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Summary" : "概要"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#presentation-jssst2023"}>
+                  <List.Content>{en ? "Summary" : "概要"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#presentation-jssst2023"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en
                       ? "JSSST 2023 Tutorial"
                       : "日本ソフトウェア科学会 第40回大会 チュートリアル"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#presentation-live2017"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#presentation-live2017"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "LIVE 2017 Keynote" : "LIVE 2017 基調講演"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#further-readings"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#further-readings"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#revisions"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#revisions"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Revision history" : "更新履歴"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>

@@ -1,11 +1,9 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -100,7 +98,7 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <section id={"gestures"}>
               <Header as="h2">
                 {en ? "Recognizable gestures" : "検出可能なジェスチャ"}
@@ -157,17 +155,17 @@ export default function Page({ pageData }: PageDataProps) {
               </Segment>
             </section>
             <Divider hidden />
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <EmbedYoutube src={"//www.youtube.com/embed/QKtzsOU-sA8"} />
             <div className="caption">
               <List horizontal>
-                <ListItem>
+                <List.Item>
                   <a href={"//www.youtube.com/watch?v=QKtzsOU-sA8"}>
                     <Icon name="youtube" />
                     {"YouTube"}
                   </a>
-                </ListItem>
+                </List.Item>
               </List>
             </div>
             <Divider hidden />
@@ -182,7 +180,7 @@ export default function Page({ pageData }: PageDataProps) {
                 ? "Microphones attached close to keyboards"
                 : "キーボードの近くに設置されたマイク"}
             </div>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <Divider hidden />
         <ProjectPublications

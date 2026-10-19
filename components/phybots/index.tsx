@@ -1,19 +1,12 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
   Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
 } from "react-fomantic-ui";
 
 import { DeferredEmbed } from "@/site/components/DeferredEmbed";
@@ -89,7 +82,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section id={"abstract"}>
           <Segment basic>
             <Grid stackable>
-              <GridColumn width={10}>
+              <Grid.Column width={10}>
                 <Header as="h2">{en ? "Abstract" : "概要"}</Header>
                 <LocalizedContent
                   ja={
@@ -123,8 +116,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </p>
                 </LocalizedContent>
-              </GridColumn>
-              <GridColumn width={6}>
+              </Grid.Column>
+              <Grid.Column width={6}>
                 <LinkedImage
                   fluid
                   href={href(`${rootPath}phybots/fig1-overview.jpg`)}
@@ -134,7 +127,7 @@ export default function Page({ pageData }: PageDataProps) {
                     alt={"Overview of hardware setup for Phybots"}
                   />
                 </LinkedImage>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -143,7 +136,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"Example applications"}</Header>
                 <EmbedYoutube
                   src={
@@ -152,7 +145,7 @@ export default function Page({ pageData }: PageDataProps) {
                 />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a
                         href={
                           "//www.youtube.com/playlist?list=PL5EC9CECDDBEA183A"
@@ -161,11 +154,11 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {"DIS 2012 "}
                   {en ? "Slides" : "発表スライド"}
@@ -179,7 +172,7 @@ export default function Page({ pageData }: PageDataProps) {
 
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
@@ -188,7 +181,7 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
 
@@ -206,7 +199,7 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -217,73 +210,73 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment basic>
             <Table className="fluid">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
                     {en ? "Toolkits for:" : "目的:"}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
                     {en ? "Physical UIs" : "フィジカルコンピューティング"}
-                  </TableHeaderCell>
-                  <TableHeaderCell textAlign="center">
+                  </Table.HeaderCell>
+                  <Table.HeaderCell textAlign="center">
                     {"Phybots"}
-                  </TableHeaderCell>
-                  <TableHeaderCell textAlign="right">
+                  </Table.HeaderCell>
+                  <Table.HeaderCell textAlign="right">
                     {en ? "Robots" : "ロボット"}
-                  </TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell>
+                  </Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>
                     <strong>
                       {en ? "Target users:" : "ターゲット ユーザー:"}
                     </strong>
-                  </TableCell>
-                  <TableCell positive colSpan={Number("2")}>
+                  </Table.Cell>
+                  <Table.Cell positive colSpan={Number("2")}>
                     {en
                       ? "HCI researchers & interaction designers"
                       : "HCI研究者 & インタラクション デザイナー"}
-                  </TableCell>
-                  <TableCell negative textAlign="right">
+                  </Table.Cell>
+                  <Table.Cell negative textAlign="right">
                     {en ? "Robotics people" : "ロボット工学の研究者"}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
                     <strong>{en ? "Focus:" : "重視すること:"}</strong>
-                  </TableCell>
-                  <TableCell positive colSpan={Number("2")}>
+                  </Table.Cell>
+                  <Table.Cell positive colSpan={Number("2")}>
                     {en ? "Prototyping" : "プロトタイピング"}
-                  </TableCell>
-                  <TableCell negative textAlign="right">
+                  </Table.Cell>
+                  <Table.Cell negative textAlign="right">
                     {en ? "Reliability" : "信頼性"}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
                     <strong>
                       {en ? "Software APIs:" : "ソフトウェアAPI:"}
                     </strong>
-                  </TableCell>
-                  <TableCell negative>
+                  </Table.Cell>
+                  <Table.Cell negative>
                     {en ? "Low-level and static" : "低レベルで拡張性に乏しい"}
-                  </TableCell>
-                  <TableCell positive textAlign="right" colSpan={Number("2")}>
+                  </Table.Cell>
+                  <Table.Cell positive textAlign="right" colSpan={Number("2")}>
                     {en
                       ? "High-level and extensible"
                       : "高レベルで拡張性に富む"}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
                     <strong>
                       {en
                         ? "Hardware size & cost:"
                         : "ハードウェアの大きさ & 価格:"}
                     </strong>
-                  </TableCell>
-                  <TableCell positive colSpan={Number("2")}>
+                  </Table.Cell>
+                  <Table.Cell positive colSpan={Number("2")}>
                     {en
                       ? "Small & cheap (Phidget Kit $200, "
                       : "小さい & 安い (Phidget Kit $200, "}
@@ -295,21 +288,21 @@ export default function Page({ pageData }: PageDataProps) {
                       {"Ikimo Robot"}
                     </a>
                     {" $160)"}
-                  </TableCell>
-                  <TableCell negative textAlign="right">
+                  </Table.Cell>
+                  <Table.Cell negative textAlign="right">
                     {en
                       ? "Medium to large & expensive ($700-)"
                       : "大きい & 高価 ($700-)"}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
             </Table>
             <div className="caption">
               {en ? "Comparison between toolkits" : "ツールキットの比較"}
             </div>
             <Divider hidden />
             <Grid stackable columns={3}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {en
                     ? "APIs for 2D Locomotion"
@@ -335,8 +328,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {en
                     ? "Centralized and Extensible Architecture"
@@ -386,8 +379,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {en ? "Runtime Debug Tool" : "ランタイムデバッグツール"}
                 </Header>
@@ -421,7 +414,7 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
+              </Grid.Column>
             </Grid>
             <Divider hidden />
             <p>

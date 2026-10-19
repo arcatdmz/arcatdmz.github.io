@@ -1,27 +1,15 @@
 import {
   Button,
-  CardGroup,
+  Card,
   Divider,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
+  Feed,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
-  HeaderContent,
-  HeaderSubheader,
   Icon,
   List,
-  ListContent,
-  ListItem,
-  ModalContent,
-  ModalHeader,
-  PopupContent,
-  PopupHeader,
+  Modal,
+  Popup,
   Segment,
-  SegmentGroup,
 } from "react-fomantic-ui";
 
 import { LinkedImage } from "@/site/components/LinkedImage";
@@ -83,7 +71,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Segment basic id={"about"}>
           <Grid stackable>
-            <GridColumn width={8}>
+            <Grid.Column width={8}>
               <Header as="h5">{en ? "Research area" : "研究内容"}</Header>
               <p>
                 {en
@@ -162,8 +150,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ? " is an important sub-goal to support the creativity of people with diverse technical backgrounds."
                   : "を支援する研究など、人々が創造性を発揮できる環境づくりに取り組んできました。"}
               </p>
-            </GridColumn>
-            <GridColumn width={8}>
+            </Grid.Column>
+            <Grid.Column width={8}>
               <Header as="h5">{en ? "Bio" : "略歴"}</Header>
               <p>
                 <LocalizedContent
@@ -282,19 +270,19 @@ export default function Page({ pageData }: PageDataProps) {
                   {" (2021)."}
                 </LocalizedContent>
               </p>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
           <Segment basic id={"sns"}>
             <List horizontal>
-              <ListItem>
+              <List.Item>
                 <Icon name="address card" />
-                <ListContent>
+                <List.Content>
                   <a href={"#contact"}>{en ? "Contact" : "連絡先"}</a>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="file" />
-                <ListContent>
+                <List.Content>
                   <SiteLink href={href(`${rootPath}resume.html`)}>
                     <HtmlContent
                       html={
@@ -304,11 +292,11 @@ export default function Page({ pageData }: PageDataProps) {
                       }
                     />
                   </SiteLink>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="google" />
-                <ListContent>
+                <List.Content>
                   <SiteLink
                     href={href(
                       "https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=" +
@@ -317,30 +305,30 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"Google Scholar"}
                   </SiteLink>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="linkedin" />
-                <ListContent>
+                <List.Content>
                   <a
                     href={"https://jp.linkedin.com/in/jkato"}
                     title={"LinkedIn"}
                   >
                     {"jkato"}
                   </a>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="facebook" />
-                <ListContent>
+                <List.Content>
                   <a href={"https://facebook.com/jun.kato"} title={"Facebook"}>
                     {"jun.kato"}
                   </a>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="twitter" />
-                <ListContent>
+                <List.Content>
                   <SiteLink
                     href={href(
                       "https://twitter.com/" + (en ? "junkato" : "arcatdmz"),
@@ -349,24 +337,24 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {en ? "junkato" : "arcatdmz"}
                   </SiteLink>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon className="mastodon" />
-                <ListContent>
+                <List.Content>
                   <a rel={"me"} href={"https://hci.social/@junkato"}>
                     {"@junkato@hci.social"}
                   </a>
-                </ListContent>
-              </ListItem>
-              <ListItem>
+                </List.Content>
+              </List.Item>
+              <List.Item>
                 <Icon name="github" />
-                <ListContent>
+                <List.Content>
                   <a href={"https://github.com/arcatdmz"} title={"GitHub"}>
                     {"arcatdmz"}
                   </a>
-                </ListContent>
-              </ListItem>
+                </List.Content>
+              </List.Item>
             </List>
           </Segment>
         </Segment>
@@ -378,7 +366,7 @@ export default function Page({ pageData }: PageDataProps) {
       <HomeHistory lang={lang}>
         <Header as="h2">
           <Icon name="history" />
-          <HeaderContent>{en ? "Recent updates" : "近況"}</HeaderContent>
+          <Header.Content>{en ? "Recent updates" : "近況"}</Header.Content>
         </Header>
 
         <Segment basic>
@@ -390,14 +378,14 @@ export default function Page({ pageData }: PageDataProps) {
                 if (++i > 5) break;
                 children.push(
                   <>
-                    <FeedEvent>
-                      <FeedContent>
-                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
-                        <FeedSummary>
+                    <Feed.Event>
+                      <Feed.Content>
+                        <Feed.Date>{entry.getDateString(lang, true)}</Feed.Date>
+                        <Feed.Summary>
                           <HtmlContent html={entry.text} />
-                        </FeedSummary>
-                      </FeedContent>
-                    </FeedEvent>
+                        </Feed.Summary>
+                      </Feed.Content>
+                    </Feed.Event>
                   </>,
                 );
               }
@@ -439,7 +427,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="gift" />
-          <HeaderContent>{en ? "Projects" : "プロジェクト"}</HeaderContent>
+          <Header.Content>{en ? "Projects" : "プロジェクト"}</Header.Content>
         </Header>
         {renderProducts()}
         {renderTopics()}
@@ -451,7 +439,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h3" id={"products"}>
           <Icon name="star" />
-          <HeaderContent>{en ? "Products" : "プロダクト"}</HeaderContent>
+          <Header.Content>{en ? "Products" : "プロダクト"}</Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -474,7 +462,7 @@ export default function Page({ pageData }: PageDataProps) {
             </LocalizedContent>
           </p>
           <Divider hidden />
-          <CardGroup
+          <Card.Group
             stackable
             itemsPerRow={2}
             id="products-list"
@@ -485,7 +473,7 @@ export default function Page({ pageData }: PageDataProps) {
                 <ProjectCard p={p} />
               </Fragment>
             ))}
-          </CardGroup>
+          </Card.Group>
         </Segment>
       </>
     );
@@ -495,9 +483,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h3" id={"topics"}>
           <Icon name="lightbulb" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Research topics" : "研究トピック"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           {(() => {
@@ -512,7 +500,7 @@ export default function Page({ pageData }: PageDataProps) {
                     columns={2}
                     id={attribute(`topics-${p.project}`)}
                   >
-                    <GridColumn width={5}>
+                    <Grid.Column width={5}>
                       <LinkedImage
                         bordered
                         fluid
@@ -525,8 +513,8 @@ export default function Page({ pageData }: PageDataProps) {
                           )}`}
                         />
                       </LinkedImage>
-                    </GridColumn>
-                    <GridColumn width={11}>
+                    </Grid.Column>
+                    <Grid.Column width={11}>
                       <Header
                         as={SiteLink}
                         href={href(p.getLink(lang, basePath))}
@@ -536,7 +524,7 @@ export default function Page({ pageData }: PageDataProps) {
                       <div className="description">
                         <HtmlContent html={p.getDescription(lang)} />
                       </div>
-                    </GridColumn>
+                    </Grid.Column>
                   </Grid>
                 </>,
               );
@@ -582,7 +570,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="address card" />
-          <HeaderContent>{en ? "Contact" : "連絡先"}</HeaderContent>
+          <Header.Content>{en ? "Contact" : "連絡先"}</Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -598,12 +586,12 @@ export default function Page({ pageData }: PageDataProps) {
               ? " rather than telephone if possible. I rarely check these conventional machines."
               : "経由でのご連絡をおすすめします。"}
           </p>
-          <SegmentGroup>
+          <Segment.Group>
             <Segment>
               <List>
-                <ListItem>
+                <List.Item>
                   <Icon name="building" />
-                  <ListContent>
+                  <List.Content>
                     {en ? (
                       <>
                         <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
@@ -661,22 +649,22 @@ export default function Page({ pageData }: PageDataProps) {
                         </a>
                       </>
                     )}
-                  </ListContent>
-                </ListItem>
-                <ListItem>
+                  </List.Content>
+                </List.Item>
+                <List.Item>
                   <Icon name="marker" />
-                  <ListContent>
+                  <List.Content>
                     {en
                       ? "Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan"
                       : "305-8568 茨城県つくば市梅園1-1-1 中央事業所2群"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
               <Divider as="hr" />
               <List>
-                <ListItem>
+                <List.Item>
                   <Icon name="building" />
-                  <ListContent>
+                  <List.Content>
                     {en ? (
                       <>
                         <a href={"https://research.archinc.jp/en"}>
@@ -698,33 +686,33 @@ export default function Page({ pageData }: PageDataProps) {
                         </a>
                       </>
                     )}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
 
                 {en ? (
                   <>
-                    <ListItem>
+                    <List.Item>
                       <Icon name="marker" />
-                      <ListContent>{"Tokyo, Japan"}</ListContent>
-                    </ListItem>
+                      <List.Content>{"Tokyo, Japan"}</List.Content>
+                    </List.Item>
                   </>
                 ) : null}
               </List>
               <Divider as="hr" />
               <List horizontal>
-                <ListItem>
+                <List.Item>
                   <Icon name="mail" />
-                  <ListContent>
+                  <List.Content>
                     <a href={"mailto:i@junkato.jp"}>{"i@junkato.jp"}</a>
-                  </ListContent>
-                </ListItem>
-                <ListItem>
+                  </List.Content>
+                </List.Item>
+                <List.Item>
                   <Icon name="phone" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "+81" : "0"}
                     {"50-3522-3432"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
             </Segment>
             <Segment secondary textAlign="right">
@@ -747,17 +735,17 @@ export default function Page({ pageData }: PageDataProps) {
                   </Button>
                 }
               >
-                <PopupHeader>
+                <Popup.Header>
                   <Icon name="handshake" /> {en ? "Collaborations" : "共同研究"}
-                </PopupHeader>
-                <PopupContent>
+                </Popup.Header>
+                <Popup.Content>
                   {en
                     ? "I am actively seeking collaborators in both academia and industry. Click for more details."
                     : "学生の受け入れや技術提供などを行っています。クリックして詳細をご確認ください。"}
-                </PopupContent>
+                </Popup.Content>
               </SitePopup>
             </Segment>
-          </SegmentGroup>
+          </Segment.Group>
         </Segment>
       </>
     );
@@ -777,19 +765,19 @@ export default function Page({ pageData }: PageDataProps) {
         }
         projectsSidebarMenu={
           <>
-            <ListItem
+            <List.Item
               role="link"
               as={SiteLink}
               href={href(`${basePath}projects`)}
             >
               <Icon name="gift" />
               {en ? "Projects" : "プロジェクト"}
-            </ListItem>
+            </List.Item>
           </>
         }
         projectsHeaderMenu={
           <>
-            <ListItem
+            <List.Item
               role="link"
               as={SiteLink}
               href={href(`${basePath}projects`)}
@@ -799,7 +787,7 @@ export default function Page({ pageData }: PageDataProps) {
               <span className="tablet or lower hidden">
                 {en ? "Projects" : "プロジェクト"}
               </span>
-            </ListItem>
+            </List.Item>
           </>
         }
         postFooter={
@@ -821,36 +809,36 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#history"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#history"}>
                   <Icon name="history" />
-                  <ListContent>{en ? "Updates" : "近況"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#products"}>
+                  <List.Content>{en ? "Updates" : "近況"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#products"}>
                   <Icon name="gift" />
-                  <ListContent>{en ? "Products" : "プロダクト"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#topics"}>
+                  <List.Content>{en ? "Products" : "プロダクト"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#topics"}>
                   <Icon name="lightbulb" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Research topics" : "研究トピック"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#contact"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#contact"}>
                   <Icon name="address card" />
-                  <ListContent>{en ? "Contact" : "連絡先"}</ListContent>
-                </ListItem>
+                  <List.Content>{en ? "Contact" : "連絡先"}</List.Content>
+                </List.Item>
               </List>
             </SitePopup>
             <SiteModal size="large">
-              <ModalHeader>{en ? "Profile photo" : "著者近影"}</ModalHeader>
-              <ModalContent scrolling>
+              <Modal.Header>{en ? "Profile photo" : "著者近影"}</Modal.Header>
+              <Modal.Content scrolling>
                 <Grid stackable>
-                  <GridRow columns={5}>
-                    <GridColumn>
+                  <Grid.Row columns={5}>
+                    <Grid.Column>
                       <LinkedImage
                         bordered
                         circular
@@ -859,8 +847,8 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.jpg`} />
                       </LinkedImage>
-                    </GridColumn>
-                    <GridColumn>
+                    </Grid.Column>
+                    <Grid.Column>
                       <LinkedImage
                         bordered
                         circular
@@ -873,8 +861,8 @@ export default function Page({ pageData }: PageDataProps) {
                           src={`${rootPath}images/junkato.comics.png`}
                         />
                       </LinkedImage>
-                    </GridColumn>
-                    <GridColumn>
+                    </Grid.Column>
+                    <Grid.Column>
                       <LinkedImage
                         bordered
                         circular
@@ -883,8 +871,8 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt.jpg`} />
                       </LinkedImage>
-                    </GridColumn>
-                    <GridColumn>
+                    </Grid.Column>
+                    <Grid.Column>
                       <LinkedImage
                         bordered
                         circular
@@ -895,8 +883,8 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt2.jpg`} />
                       </LinkedImage>
-                    </GridColumn>
-                    <GridColumn>
+                    </Grid.Column>
+                    <Grid.Column>
                       <LinkedImage
                         bordered
                         circular
@@ -907,11 +895,11 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt3.jpg`} />
                       </LinkedImage>
-                    </GridColumn>
-                  </GridRow>
+                    </Grid.Column>
+                  </Grid.Row>
                 </Grid>
-              </ModalContent>
-              <ModalContent>
+              </Modal.Content>
+              <Modal.Content>
                 {en ? (
                   <>
                     <ul>
@@ -949,7 +937,7 @@ export default function Page({ pageData }: PageDataProps) {
                     </ul>
                   </>
                 )}
-              </ModalContent>
+              </Modal.Content>
             </SiteModal>
           </>
         }
@@ -964,16 +952,16 @@ export default function Page({ pageData }: PageDataProps) {
             src={`${rootPath}images/junkato.jpg`}
             data-alt-src={`${rootPath}images/junkato.comics.png`}
           />
-          <HeaderContent>
+          <Header.Content>
             {author}
-            <HeaderSubheader>
+            <Header.Subheader>
               {en ? (
                 <>{"Human-Computer Interaction researcher, Ph.D."}</>
               ) : (
                 <>{"博士（情報理工学）"}</>
               )}
-            </HeaderSubheader>
-          </HeaderContent>
+            </Header.Subheader>
+          </Header.Content>
         </Header>
         {renderAbout()}
         <section id={"history"}>{renderHistory()}</section>

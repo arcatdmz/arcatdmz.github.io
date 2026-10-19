@@ -2,12 +2,9 @@ import {
   Button,
   Divider,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -60,16 +57,16 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <List divided>
-          <ListItem role="link" as="a" href={"#research"}>
+          <List.Item role="link" as="a" href={"#research"}>
             <Icon name="lab" />
-            <ListContent>{en ? "Research" : "研究"}</ListContent>
-          </ListItem>
-          <ListItem role="link" as="a" href={"#design-and-engineering"}>
+            <List.Content>{en ? "Research" : "研究"}</List.Content>
+          </List.Item>
+          <List.Item role="link" as="a" href={"#design-and-engineering"}>
             <Icon name="paint brush" />
-            <ListContent>
+            <List.Content>
               {en ? "Design and Engineering" : "デザイン・開発"}
-            </ListContent>
-          </ListItem>
+            </List.Content>
+          </List.Item>
         </List>
       </>
     );
@@ -110,9 +107,9 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="lab" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Research projects" : "研究プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -120,7 +117,7 @@ export default function Page({ pageData }: PageDataProps) {
               ? "The following research-oriented projects have been conducted under a certain scientific context and most of them have been published at archival venues."
               : "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。"}
           </p>
-          <ItemGroup divided id={"other-projects-list"} className="projects">
+          <Item.Group divided id={"other-projects-list"} className="projects">
             {(() => {
               const children: ReactNode[] = [];
               for (const p of projects) {
@@ -139,7 +136,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </ItemGroup>
+          </Item.Group>
         </Segment>
       </>
     );
@@ -149,11 +146,11 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="paint brush" />
-          <HeaderContent>
+          <Header.Content>
             {en
               ? "Design and/or engineering projects"
               : "デザイン・開発プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -161,7 +158,7 @@ export default function Page({ pageData }: PageDataProps) {
               ? "The following design and engineering projects have been conducted as part of my hobby or probono activities."
               : "デザインや開発に主眼が置かれたプロジェクトです。趣味またはプロボノ的活動として取り組んできました。"}
           </p>
-          <ItemGroup
+          <Item.Group
             divided
             id={"design-and-engineering-projects-list"}
             className="projects"
@@ -179,7 +176,7 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </ItemGroup>
+          </Item.Group>
         </Segment>
       </>
     );
@@ -215,7 +212,7 @@ export default function Page({ pageData }: PageDataProps) {
         <div className="right-content">
           <Header as="h1">
             <Icon name="gift" />
-            <HeaderContent>{en ? "Projects" : "プロジェクト"}</HeaderContent>
+            <Header.Content>{en ? "Projects" : "プロジェクト"}</Header.Content>
           </Header>
           {renderAbout()}
           <Divider hidden />

@@ -1,31 +1,15 @@
 import {
   Button,
   Card,
-  CardContent,
-  CardDescription,
-  CardGroup,
-  CardHeader,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Segment,
   Table,
-  TableBody,
-  TableCell,
-  TableRow,
 } from "react-fomantic-ui";
 import { LinkedImage } from "@/site/components/LinkedImage";
 
@@ -83,43 +67,43 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {en ? "Presentation materials" : "発表内容"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Table striped basic="very">
-          <TableBody>
-            <TableRow>
-              <TableCell width={3}>{en ? "Where?" : "会場"}</TableCell>
-              <TableCell width={13}>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell width={3}>{en ? "Where?" : "会場"}</Table.Cell>
+              <Table.Cell width={13}>
                 <List>
-                  <ListItem>
+                  <List.Item>
                     <Icon name="map pin" />
-                    <ListContent>
+                    <List.Content>
                       {"Room 324 (Floor Level 3), Hawaii Convention Center"}
-                    </ListContent>
-                  </ListItem>
+                    </List.Content>
+                  </List.Item>
                 </List>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell width={3}>{en ? "When?" : "日時"}</TableCell>
-              <TableCell width={13}>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={3}>{en ? "When?" : "日時"}</Table.Cell>
+              <Table.Cell width={13}>
                 <List>
-                  <ListItem>
+                  <List.Item>
                     <Icon name="clock" />
-                    <ListContent>{"Mon, May 13 | 14:00 - 14:15"}</ListContent>
-                  </ListItem>
+                    <List.Content>{"Mon, May 13 | 14:00 - 14:15"}</List.Content>
+                  </List.Item>
                 </List>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell width={3}>{"CHI '24 Program"}</TableCell>
-              <TableCell width={13}>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={3}>{"CHI '24 Program"}</Table.Cell>
+              <Table.Cell width={13}>
                 <List>
-                  <ListItem>
+                  <List.Item>
                     <Icon name="book" />
-                    <ListContent>
+                    <List.Content>
                       <a
                         href={
                           "https://programs.sigchi.org/chi/2024/program/content/147403"
@@ -129,12 +113,12 @@ export default function Page({ pageData }: PageDataProps) {
                           "Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals - CHI '24"
                         }
                       </a>
-                    </ListContent>
-                  </ListItem>
+                    </List.Content>
+                  </List.Item>
                 </List>
-              </TableCell>
-            </TableRow>
-          </TableBody>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
         <Segment basic>
           <EmbedYoutube src={"//www.youtube.com/embed/rlJ1Fe53Lw8"} />
@@ -158,34 +142,34 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="gift" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
-          <CardGroup stackable itemsPerRow={2} className="projects">
+          <Card.Group stackable itemsPerRow={2} className="projects">
             <Card>
               <LinkedImage ui={false} href={"https://gsw.archinc.jp"}>
                 <SiteImage
                   src={`${rootPath}griffith/griffith-stopwatch-thumbnail.png`}
                 />
               </LinkedImage>
-              <CardContent>
-                <CardHeader as="a" href={"https://gsw.archinc.jp"}>
+              <Card.Content>
+                <Card.Header as="a" href={"https://gsw.archinc.jp"}>
                   {"Griffith Stopwatch"}
-                </CardHeader>
-                <CardDescription as="p">
+                </Card.Header>
+                <Card.Description as="p">
                   {en
                     ? "Griffith Stopwatch is a web-based stopwatch tool with a user interface designed specifically for anime creators."
                     : "日本のアニメ制作に特化したユーザインタフェースを持つストップウォッチのWebアプリケーションです。"}
-                </CardDescription>
-              </CardContent>
-              <CardContent extra>
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
                 <span className="right floated">
                   <Icon name="calendar" />
                   {"2024-"}
                 </span>
-              </CardContent>
+              </Card.Content>
             </Card>
             <Card>
               <LinkedImage
@@ -200,8 +184,8 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}griffith/griffith-sketch-screenshot.png`}
                 />
               </LinkedImage>
-              <CardContent>
-                <CardHeader
+              <Card.Content>
+                <Card.Header
                   as={SiteLink}
                   href={href(
                     en
@@ -210,27 +194,27 @@ export default function Page({ pageData }: PageDataProps) {
                   )}
                 >
                   {"Griffith Sketch"}
-                </CardHeader>
-                <CardDescription as="p">
+                </Card.Header>
+                <Card.Description as="p">
                   {en
                     ? "Griffith Sketch is a lightweight web-based sketching tool with a pressure-sensitive brush and easy layering."
                     : "感圧式キャンバスやレイヤー機能などを備えたシンプルなスケッチ用のWebアプリケーションです。"}
-                </CardDescription>
-              </CardContent>
-              <CardContent extra>
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
                 <span className="right floated">
                   <Icon name="calendar" />
                   {"2020"}
                 </span>
-              </CardContent>
+              </Card.Content>
             </Card>
-          </CardGroup>
+          </Card.Group>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               <ProjectItem
                 p={projectsTable["creativity-support-environments"]}
               />
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -245,22 +229,22 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Feed className="divided">
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"12/30/2025"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"12/30/2025"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Added a link to Animāre" : "Animāreへのリンクを追加"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{"09/13/2024"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{"09/13/2024"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Added a project page" : "プロジェクトページを仮公開"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>
@@ -278,7 +262,7 @@ export default function Page({ pageData }: PageDataProps) {
       >
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Project summary" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Project summary" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -325,18 +309,18 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridRow>
-            <GridColumn>
+          <Grid.Row>
+            <Grid.Column>
               <section id={"presentations"}>{renderPresentations()}</section>
               <Divider hidden />
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <section id={"further-readings"}>
                 {renderFurtherReadings()}
               </section>
               <Divider hidden />
-            </GridColumn>
-          </GridRow>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
         <ProjectPublications
           project={p.project}

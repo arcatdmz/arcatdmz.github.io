@@ -3,10 +3,7 @@ import {
   Button,
   type ButtonProps,
   List,
-  ListItem,
   Popup as FomanticPopup,
-  PopupContent,
-  PopupHeader,
 } from "react-fomantic-ui";
 
 import {
@@ -95,15 +92,15 @@ export function TagLink({
       {tag ? (
         <>
           {tag.href ? (
-            <PopupHeader as="a" href={tag.href} data-site-navigation>
+            <FomanticPopup.Header as="a" href={tag.href} data-site-navigation>
               <HtmlContent html={title} />
-            </PopupHeader>
+            </FomanticPopup.Header>
           ) : (
-            <PopupHeader>
+            <FomanticPopup.Header>
               <HtmlContent html={title} />
-            </PopupHeader>
+            </FomanticPopup.Header>
           )}
-          <PopupContent>
+          <FomanticPopup.Content>
             <p>
               {lang === "ja" ? (
                 <>
@@ -124,7 +121,7 @@ export function TagLink({
             </p>
             <List divided>
               {projects.map((p) => (
-                <ListItem
+                <List.Item
                   role="link"
                   as="a"
                   key={p.project}
@@ -134,10 +131,10 @@ export function TagLink({
                   data-site-navigation
                 >
                   <HtmlContent html={p.title} />
-                </ListItem>
+                </List.Item>
               ))}
             </List>
-          </PopupContent>
+          </FomanticPopup.Content>
         </>
       ) : (
         <div role="status">
@@ -160,7 +157,9 @@ export function TooltipLink({ trigger }: { trigger: ReactElement<any> }) {
       trigger={trigger}
       position={trigger.props["data-position"] || "top center"}
     >
-      <PopupContent>{trigger.props["data-content"]}</PopupContent>
+      <FomanticPopup.Content>
+        {trigger.props["data-content"]}
+      </FomanticPopup.Content>
     </SitePopup>
   );
 }

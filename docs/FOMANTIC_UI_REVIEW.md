@@ -25,27 +25,27 @@ the library for standard primitives and retain small adapters for site behavior.
 
 ## Coverage
 
-| Previous markup                           | Component API                                                              |
-| ----------------------------------------- | -------------------------------------------------------------------------- |
-| `ui ... grid`, columns, rows              | `Grid`, `GridColumn`, `GridRow`                                            |
-| `ui ... header`, subheaders               | `Header`, `HeaderContent`, `HeaderSubheader`                               |
-| `ui ... label`, divider, segment, message | `Label`, `Divider`, `Segment`, `SegmentGroup`, `Message`                   |
-| Lists and their content                   | `List`, `ListItem`, `ListContent`, `ListHeader`, `ListDescription`         |
-| Cards and project items                   | `Card`, `CardGroup`, card subcomponents, `Item`, item subcomponents        |
-| Feeds                                     | `Feed`, `FeedEvent`, `FeedContent`, `FeedDate`, `FeedLabel`, `FeedSummary` |
-| Menus and breadcrumbs                     | `Menu`, `MenuItem`, `MenuMenu`, `DropdownMenu`, breadcrumb subcomponents   |
-| Tables and forms                          | `Table` and its subcomponents, `Form`, `FormField`, `TextArea`             |
-| Buttons, icons, images                    | `Button`, `Icon`, `Image` through the responsive/link adapters             |
-| Embedded media                            | `Embed`; `DeferredEmbed` adds keyboard access and responsive placeholders  |
-| Sidebar and pusher                        | `Sidebar` rendered as `Menu`, `SidebarPusher`                              |
-| Clipboard feedback                        | `Popup` supplies positioning and portal behavior                           |
-| Modal and popup content                   | `ModalHeader`, `ModalContent`, `PopupHeader`, `PopupContent`               |
+| Previous markup                           | Component API                                                                   |
+| ----------------------------------------- | ------------------------------------------------------------------------------- |
+| `ui ... grid`, columns, rows              | `Grid`, `Grid.Column`, `Grid.Row`                                               |
+| `ui ... header`, subheaders               | `Header`, `Header.Content`, `Header.Subheader`                                  |
+| `ui ... label`, divider, segment, message | `Label`, `Divider`, `Segment`, `Segment.Group`, `Message`                       |
+| Lists and their content                   | `List`, `List.Item`, `List.Content`, `List.Header`, `List.Description`          |
+| Cards and project items                   | `Card`, `Card.Group`, card subcomponents, `Item`, item subcomponents            |
+| Feeds                                     | `Feed`, `Feed.Event`, `Feed.Content`, `Feed.Date`, `Feed.Label`, `Feed.Summary` |
+| Menus and breadcrumbs                     | `Menu`, `Menu.Item`, `Menu.Menu`, `Dropdown.Menu`, breadcrumb subcomponents     |
+| Tables and forms                          | `Table` and its subcomponents, `Form`, `Form.Field`, `TextArea`                 |
+| Buttons, icons, images                    | `Button`, `Icon`, `Image` through the responsive/link adapters                  |
+| Embedded media                            | `Embed`; `DeferredEmbed` adds keyboard access and responsive placeholders       |
+| Sidebar and pusher                        | `Sidebar` rendered as `Menu`, `Sidebar.Pusher`                                  |
+| Clipboard feedback                        | `Popup` supplies positioning and portal behavior                                |
+| Modal and popup content                   | `Modal.Header`, `Modal.Content`, `Popup.Header`, `Popup.Content`                |
 
 Generated HTML remains the source for CSS purging, so library-generated classes
 are retained. Unsupported variations (such as a divided feed), responsive
 visibility utilities, Devicon classes, and site-specific slots keep their classes.
 List/feed `meta` and `header` slots without equivalent library subcomponents also
-remain native elements. Navigable `Button` and `ListItem` elements explicitly
+remain native elements. Navigable `Button` and `List.Item` elements explicitly
 keep the link role; controls retain button semantics.
 
 ## Remaining adapters
@@ -68,7 +68,7 @@ where the APIs fit:
 - `NavigationDropdown` keeps anchor navigation, typeahead, and focus restoration.
   The library dropdown is an option-selection control whose Enter handler
   prevents the default action of a focused link. The site adapter uses
-  `MenuItem` and `DropdownMenu` and owns its navigation state and transitions.
+  `Menu.Item` and `Dropdown.Menu` and owns its navigation state and transitions.
 - `SitePopup` keeps authored sibling content in static HTML, shared popup
   exclusivity, trigger focus restoration, and reduced-motion transitions.
 - `SiteModal` keeps static closed content, a focus trap, focus restoration,

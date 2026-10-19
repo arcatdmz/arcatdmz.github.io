@@ -2,18 +2,10 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Header,
-  HeaderContent,
-  HeaderSubheader,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -83,7 +75,7 @@ export default function Page({ pageData }: PageDataProps) {
               : "私はこれまで、クリエータの方々やクリエイティブ産業の企業のみなさまの協力をいただきながら、以下のプロジェクトに取り組んできました。"}
           </p>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 const exampleProjects = [
@@ -106,7 +98,7 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -321,7 +313,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           {"On the Relationship between HCI Researchers and Creators"}
-          <HeaderSubheader>{"— or How I Became a Toolsmith"}</HeaderSubheader>
+          <Header.Subheader>{"— or How I Became a Toolsmith"}</Header.Subheader>
         </Header>
         <Segment basic>
           <p>
@@ -400,10 +392,10 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <>
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{"5/10/2025"}</FeedDate>
-                      <FeedSummary>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{"5/10/2025"}</Feed.Date>
+                      <Feed.Summary>
                         <a
                           href={
                             "https://programs.sigchi.org/chi/2025/program/content/189764"
@@ -417,30 +409,30 @@ export default function Page({ pageData }: PageDataProps) {
                         {
                           " と Post-growth HCI におけるポジションペーパーについて追記"
                         }
-                      </FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{"9/16/2024"}</FeedDate>
-                      <FeedSummary>{"プロジェクト一覧を追加"}</FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{"6/20/2023"}</FeedDate>
-                      <FeedSummary>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{"9/16/2024"}</Feed.Date>
+                      <Feed.Summary>{"プロジェクト一覧を追加"}</Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{"6/20/2023"}</Feed.Date>
+                      <Feed.Summary>
                         <a href={"https://doi.org/10.1145/3596927"}>
                           {"ACM XRDS"}
                         </a>
                         {" について追記"}
-                      </FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{"3/31/2023"}</FeedDate>
-                      <FeedSummary>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{"3/31/2023"}</Feed.Date>
+                      <Feed.Summary>
                         <a
                           href={
                             "https://programs.sigchi.org/chi/2023/program/session/99391"
@@ -456,42 +448,44 @@ export default function Page({ pageData }: PageDataProps) {
                           {"AIST Creative HCI Seminar"}
                         </a>
                         {" について追記"}
-                      </FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
-                  <FeedEvent>
-                    <FeedContent>
-                      <FeedDate>{"10/23/2022"}</FeedDate>
-                      <FeedSummary>{"プロジェクトページを仮公開"}</FeedSummary>
-                    </FeedContent>
-                  </FeedEvent>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  <Feed.Event>
+                    <Feed.Content>
+                      <Feed.Date>{"10/23/2022"}</Feed.Date>
+                      <Feed.Summary>
+                        {"プロジェクトページを仮公開"}
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
                 </>
               }
             >
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"5/10/2025"}</FeedDate>
-                  <FeedSummary>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"5/10/2025"}</Feed.Date>
+                  <Feed.Summary>
                     {
                       "Add information on the Anime SIG event and the post-growth "
                     }
                     <abbr title={"Creativity Support Tools"}>{"CST"}</abbr>
                     {" position paper at CHI 2025."}
-                  </FeedSummary>
-                </FeedContent>
-              </FeedEvent>
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"9/16/2024"}</FeedDate>
-                  <FeedSummary>{"Add a list of projects."}</FeedSummary>
-                </FeedContent>
-              </FeedEvent>
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"3/31/2023"}</FeedDate>
-                  <FeedSummary>{"Upload the initial revision."}</FeedSummary>
-                </FeedContent>
-              </FeedEvent>
+                  </Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"9/16/2024"}</Feed.Date>
+                  <Feed.Summary>{"Add a list of projects."}</Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"3/31/2023"}</Feed.Date>
+                  <Feed.Summary>{"Upload the initial revision."}</Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
             </LocalizedContent>
           </Feed>
         </Segment>
@@ -521,26 +515,26 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#animesig"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#animesig"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Anime SIG"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#postgrowth"}>
+                  <List.Content>{"Anime SIG"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#postgrowth"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Post-growth HCI"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#sigccc"}>
+                  <List.Content>{"Post-growth HCI"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#sigccc"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"SIGCCC"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#xrds"}>
+                  <List.Content>{"SIGCCC"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#xrds"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"ACM XRDS"}</ListContent>
-                </ListItem>
+                  <List.Content>{"ACM XRDS"}</List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -550,7 +544,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Summary" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Summary" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <HtmlContent html={p.getDescription(lang)} />

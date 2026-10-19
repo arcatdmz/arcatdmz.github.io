@@ -1,16 +1,4 @@
-import {
-  Divider,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  List,
-  ListContent,
-  ListDescription,
-  ListHeader,
-  ListItem,
-  Segment,
-} from "react-fomantic-ui";
+import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { ProjectHeader } from "@/site/components/ContentComponents";
@@ -67,7 +55,7 @@ export default function Page({ pageData }: PageDataProps) {
         </p>
         <Divider hidden />
         <Grid stackable columns={3}>
-          <GridColumn>
+          <Grid.Column>
             <Header as="h3">
               <Icon name="user" />
               {en ? "Usability" : "ユーザビリティ"}
@@ -103,8 +91,8 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </Segment>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <Header as="h3">
               <Icon name="configure" />
               {en ? "Maintainability" : "メンテナンス性"}
@@ -141,8 +129,8 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </Segment>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <Header as="h3">
               <Icon name="plane" />
               {en ? "Speed" : "速度"}
@@ -186,7 +174,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </Segment>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </>
     );
@@ -221,90 +209,90 @@ export default function Page({ pageData }: PageDataProps) {
               : "ビルド中は、以下のファイルの内容が何度も参照されています。もし似たようなWebサイトを作ってみたい場合、データ構造を参考にしてみてください。また、このポートフォリオ上の情報を機械的に処理したい場合にも使えるかもしれません。"}
           </p>
           <List divided>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/histories.json`)}
                 >
                   {"histories.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {'All of the "Recent updates" entries'}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/publications.json`)}
                 >
                   {"publications.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {"Publication history (generated from "}
                   <SiteLink href={href(`${rootPath}junkato.bib`)}>
                     {"junkato.bib"}
                   </SiteLink>
                   {")"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/awards.json`)}
                 >
                   {"awards.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {"All of the received awards information"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/talks.json`)}
                 >
                   {"talks.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {"All of the invited talks information"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/lectures.json`)}
                 >
                   {"lectures.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {"All of the lectures information"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
-              <ListContent>
-                <ListHeader
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header
                   as={SiteLink}
                   href={href(`${rootPath}data/projects.json`)}
                 >
                   {"projects.json"}
-                </ListHeader>
-                <ListDescription>
+                </List.Header>
+                <List.Description>
                   {
                     "All of the projects information as well as the project tags information"
                   }
-                </ListDescription>
-              </ListContent>
-            </ListItem>
+                </List.Description>
+              </List.Content>
+            </List.Item>
           </List>
         </Segment>
       </>
@@ -339,59 +327,59 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "." : "をご覧ください。"}
           </p>
           <List divided>
-            <ListItem>
+            <List.Item>
               <Icon size="large" className="devicon-gulp-plain colored" />
-              <ListContent>
-                <ListHeader>{"Gulp v4"}</ListHeader>
-                <ListDescription>
+              <List.Content>
+                <List.Header>{"Gulp v4"}</List.Header>
+                <List.Description>
                   {"for managing build pipelines"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
               <Icon size="large" className="devicon-webpack-plain colored" />
-              <ListContent>
-                <ListHeader>{"Webpack v4"}</ListHeader>
-                <ListDescription>
+              <List.Content>
+                <List.Header>{"Webpack v4"}</List.Header>
+                <List.Description>
                   {"for packing JavaScript code"}
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
               <Icon size="large" className="devicon-babel-plain colored" />
-              <ListContent>
-                <ListHeader>{"Babel v7.9"}</ListHeader>
-                <ListDescription>
+              <List.Content>
+                <List.Header>{"Babel v7.9"}</List.Header>
+                <List.Description>
                   {
                     "for transpiling JS code to be compatible with outdated browsers"
                   }
-                </ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
+                </List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
               <Icon size="large" name="ellipsis horizontal" />
-              <ListContent>
-                <ListHeader>{"Pug v2"}</ListHeader>
-                <ListDescription>{"for easier HTML coding"}</ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
+              <List.Content>
+                <List.Header>{"Pug v2"}</List.Header>
+                <List.Description>{"for easier HTML coding"}</List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
               <Icon
                 size="large"
                 className="devicon-less-plain-wordmark colored"
               />
-              <ListContent>
-                <ListHeader>{"LESS"}</ListHeader>
-                <ListDescription>{"for easier CSS coding"}</ListDescription>
-              </ListContent>
-            </ListItem>
-            <ListItem>
+              <List.Content>
+                <List.Header>{"LESS"}</List.Header>
+                <List.Description>{"for easier CSS coding"}</List.Description>
+              </List.Content>
+            </List.Item>
+            <List.Item>
               <Icon size="large" className="devicon-typescript-plain colored" />
-              <ListContent>
-                <ListHeader>{"TypeScript v5.3"}</ListHeader>
-                <ListDescription>{"for easier JS coding"}</ListDescription>
-              </ListContent>
-            </ListItem>
+              <List.Content>
+                <List.Header>{"TypeScript v5.3"}</List.Header>
+                <List.Description>{"for easier JS coding"}</List.Description>
+              </List.Content>
+            </List.Item>
           </List>
         </Segment>
       </>
@@ -405,18 +393,18 @@ export default function Page({ pageData }: PageDataProps) {
         <section id={"design"}>{renderDesign()}</section>
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <section id={"code"}>
               {renderCode()}
               <Divider hidden />
             </section>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <section id={"acknowledgement"}>
               {renderAcknowledgement()}
               <Divider hidden />
             </section>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </SiteLayout>
     </>

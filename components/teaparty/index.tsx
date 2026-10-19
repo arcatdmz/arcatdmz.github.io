@@ -2,7 +2,6 @@ import {
   Button,
   Divider,
   Grid,
-  GridColumn,
   Header,
   Icon,
   Segment,
@@ -321,8 +320,8 @@ export default function Page({ pageData }: PageDataProps) {
         <ProjectHeader project={"teaparty"} />
         <Divider hidden />
         <Grid stackable>
-          <GridColumn width={10}>{renderBody()}</GridColumn>
-          <GridColumn width={6}>{renderImages()}</GridColumn>
+          <Grid.Column width={10}>{renderBody()}</Grid.Column>
+          <Grid.Column width={6}>{renderImages()}</Grid.Column>
         </Grid>
       </SiteLayout>
     </>

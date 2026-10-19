@@ -2,15 +2,9 @@ import {
   Button,
   Divider,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListContent,
-  ListDescription,
-  ListHeader,
-  ListItem,
   Segment,
-  SegmentGroup,
 } from "react-fomantic-ui";
 
 import { LocalizedContent } from "@/site/components/LocalizedContent";
@@ -71,81 +65,81 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <List divided>
-          <ListItem role="link" as="a" href={"#awards"}>
+          <List.Item role="link" as="a" href={"#awards"}>
             <Icon name="trophy" />
-            <ListContent>{en ? "Awards" : "受賞歴"}</ListContent>
-          </ListItem>
-          <ListItem role="link" as="a" href={"#talks"}>
+            <List.Content>{en ? "Awards" : "受賞歴"}</List.Content>
+          </List.Item>
+          <List.Item role="link" as="a" href={"#talks"}>
             <Icon name="talk" />
-            <ListContent>{en ? "Invited Talks" : "招待講演"}</ListContent>
-          </ListItem>
-          <ListItem role="link" as="a" href={"#lectures"}>
+            <List.Content>{en ? "Invited Talks" : "招待講演"}</List.Content>
+          </List.Item>
+          <List.Item role="link" as="a" href={"#lectures"}>
             <Icon name="graduation cap" />
-            <ListContent>{en ? "Lectures" : "講義"}</ListContent>
-          </ListItem>
-          <ListItem role="link" as="a" href={"#academic-publications"}>
+            <List.Content>{en ? "Lectures" : "講義"}</List.Content>
+          </List.Item>
+          <List.Item role="link" as="a" href={"#academic-publications"}>
             <Icon name="book" />
-            <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
-          </ListItem>
-          <ListItem>
+            <List.Content>{en ? "Publications" : "発表文献"}</List.Content>
+          </List.Item>
+          <List.Item>
             <List>
               <LocalizedContent
                 ja={
                   <>
-                    <ListItem
+                    <List.Item
                       role="link"
                       as="a"
                       href={"#international-publications"}
                     >
                       <Icon name="triangle right" />
-                      <ListContent>{"国際"}</ListContent>
-                    </ListItem>
-                    <ListItem
+                      <List.Content>{"国際"}</List.Content>
+                    </List.Item>
+                    <List.Item
                       role="link"
                       as="a"
                       href={"#domestic-publications"}
                     >
                       <Icon name="triangle right" />
-                      <ListContent>{"国内"}</ListContent>
-                    </ListItem>
-                    <ListItem role="link" as="a" href={"#dissertation"}>
+                      <List.Content>{"国内"}</List.Content>
+                    </List.Item>
+                    <List.Item role="link" as="a" href={"#dissertation"}>
                       <Icon name="triangle right" />
-                      <ListContent>{"学位論文"}</ListContent>
-                    </ListItem>
+                      <List.Content>{"学位論文"}</List.Content>
+                    </List.Item>
                   </>
                 }
               >
-                <ListItem role="link" as="a" href={"#selected-publications"}>
+                <List.Item role="link" as="a" href={"#selected-publications"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Selected"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#reviewed-publications"}>
+                  <List.Content>{"Selected"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#reviewed-publications"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Reviewed"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#other-publications"}>
+                  <List.Content>{"Reviewed"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#other-publications"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Others"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#dissertation"}>
+                  <List.Content>{"Others"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#dissertation"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"Dissertation"}</ListContent>
-                </ListItem>
+                  <List.Content>{"Dissertation"}</List.Content>
+                </List.Item>
               </LocalizedContent>
             </List>
-          </ListItem>
-          <ListItem role="link" as="a" href={"#media"}>
+          </List.Item>
+          <List.Item role="link" as="a" href={"#media"}>
             <Icon className="broadcast tower" />
-            <ListContent>{en ? "Media" : "メディア"}</ListContent>
-          </ListItem>
-          <ListItem
+            <List.Content>{en ? "Media" : "メディア"}</List.Content>
+          </List.Item>
+          <List.Item
             role="link"
             as={SiteLink}
             href={href(`${basePath}timeline/`)}
           >
             <Icon name="history" />
-            <ListContent>{en ? "Timeline" : "活動履歴"}</ListContent>
-          </ListItem>
+            <List.Content>{en ? "Timeline" : "活動履歴"}</List.Content>
+          </List.Item>
         </List>
       </>
     );
@@ -187,12 +181,12 @@ export default function Page({ pageData }: PageDataProps) {
           );
           children.push(
             <>
-              <SegmentGroup>
+              <Segment.Group>
                 <Segment secondary>
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <Icon name="circle" />
-                      <ListContent>
+                      <List.Content>
                         <HtmlContent
                           html={
                             en
@@ -200,11 +194,11 @@ export default function Page({ pageData }: PageDataProps) {
                               : `国内 <strong>${numDomesticAwards}</strong> 件`
                           }
                         />
-                      </ListContent>
-                    </ListItem>
-                    <ListItem>
+                      </List.Content>
+                    </List.Item>
+                    <List.Item>
                       <Icon name="world" />
-                      <ListContent>
+                      <List.Content>
                         <HtmlContent
                           html={
                             en
@@ -212,35 +206,35 @@ export default function Page({ pageData }: PageDataProps) {
                               : `国際 <strong>${numInternationalAwards}</strong> 件`
                           }
                         />
-                      </ListContent>
-                    </ListItem>
+                      </List.Content>
+                    </List.Item>
                   </List>
                 </Segment>
                 <Segment>
                   <List divided>
                     {filteredAwards.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <ListItem className={classNames(entry.entryType)}>
+                        <List.Item className={classNames(entry.entryType)}>
                           <Icon className={entry.getIconClass()}></Icon>
-                          <ListContent>
-                            <ListHeader>
+                          <List.Content>
+                            <List.Header>
                               <HtmlContent html={entry.getText(lang)} />
-                            </ListHeader>
-                            <ListDescription className="date">
+                            </List.Header>
+                            <List.Description className="date">
                               {entry.getDateString(lang, true)}
-                            </ListDescription>
-                          </ListContent>
-                        </ListItem>
+                            </List.Description>
+                          </List.Content>
+                        </List.Item>
                       </Fragment>
                     ))}
                   </List>
                 </Segment>
-              </SegmentGroup>
+              </Segment.Group>
             </>,
           );
           children.push(
             <>
-              <SegmentGroup>
+              <Segment.Group>
                 <Segment secondary>
                   <p>
                     <HtmlContent
@@ -256,22 +250,22 @@ export default function Page({ pageData }: PageDataProps) {
                   <List divided>
                     {honors.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <ListItem className={classNames(entry.entryType)}>
+                        <List.Item className={classNames(entry.entryType)}>
                           <Icon className={entry.getIconClass()}></Icon>
-                          <ListContent>
-                            <ListHeader>
+                          <List.Content>
+                            <List.Header>
                               <HtmlContent html={entry.getText(lang)} />
-                            </ListHeader>
-                            <ListDescription className="date">
+                            </List.Header>
+                            <List.Description className="date">
                               {entry.getDateString(lang, true)}
-                            </ListDescription>
-                          </ListContent>
-                        </ListItem>
+                            </List.Description>
+                          </List.Content>
+                        </List.Item>
                       </Fragment>
                     ))}
                   </List>
                 </Segment>
-              </SegmentGroup>
+              </Segment.Group>
             </>,
           );
           return keyed(children);
@@ -296,16 +290,16 @@ export default function Page({ pageData }: PageDataProps) {
                       continue;
                     children.push(
                       <>
-                        <ListItem className={classNames(entry.entryType)}>
-                          <ListContent>
-                            <ListHeader>
+                        <List.Item className={classNames(entry.entryType)}>
+                          <List.Content>
+                            <List.Header>
                               <HtmlContent html={entry.getText(lang)} />
-                            </ListHeader>
-                            <ListDescription className="date">
+                            </List.Header>
+                            <List.Description className="date">
                               {entry.getDateString(lang, true)}
-                            </ListDescription>
-                          </ListContent>
-                        </ListItem>
+                            </List.Description>
+                          </List.Content>
+                        </List.Item>
                       </>,
                     );
                   }
@@ -316,17 +310,17 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         ) : (
           <>
-            <SegmentGroup>
+            <Segment.Group>
               <Segment secondary>
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <Icon name="circle" />
-                    <ListContent>{"国内"}</ListContent>
-                  </ListItem>
-                  <ListItem>
+                    <List.Content>{"国内"}</List.Content>
+                  </List.Item>
+                  <List.Item>
                     <Icon name="world" />
-                    <ListContent>{"国際"}</ListContent>
-                  </ListItem>
+                    <List.Content>{"国際"}</List.Content>
+                  </List.Item>
                 </List>
               </Segment>
               <Segment>
@@ -337,17 +331,17 @@ export default function Page({ pageData }: PageDataProps) {
                       if (entry.entryType === "private") continue;
                       children.push(
                         <>
-                          <ListItem className={classNames(entry.entryType)}>
+                          <List.Item className={classNames(entry.entryType)}>
                             <Icon className={entry.getIconClass()}></Icon>
-                            <ListContent>
-                              <ListHeader>
+                            <List.Content>
+                              <List.Header>
                                 <HtmlContent html={entry.getText(lang)} />
-                              </ListHeader>
-                              <ListDescription className="date">
+                              </List.Header>
+                              <List.Description className="date">
                                 {entry.getDateString(lang, true)}
-                              </ListDescription>
-                            </ListContent>
-                          </ListItem>
+                              </List.Description>
+                            </List.Content>
+                          </List.Item>
                         </>,
                       );
                     }
@@ -355,7 +349,7 @@ export default function Page({ pageData }: PageDataProps) {
                   })()}
                 </List>
               </Segment>
-            </SegmentGroup>
+            </Segment.Group>
           </>
         )}
       </>
@@ -378,16 +372,16 @@ export default function Page({ pageData }: PageDataProps) {
                       continue;
                     children.push(
                       <>
-                        <ListItem className={classNames(entry.entryType)}>
-                          <ListContent>
-                            <ListHeader>
+                        <List.Item className={classNames(entry.entryType)}>
+                          <List.Content>
+                            <List.Header>
                               <HtmlContent html={entry.getText(lang)} />
-                            </ListHeader>
-                            <ListDescription className="date">
+                            </List.Header>
+                            <List.Description className="date">
                               {entry.getDatesString(lang).join(", ")}
-                            </ListDescription>
-                          </ListContent>
-                        </ListItem>
+                            </List.Description>
+                          </List.Content>
+                        </List.Item>
                       </>,
                     );
                   }
@@ -398,17 +392,17 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         ) : (
           <>
-            <SegmentGroup>
+            <Segment.Group>
               <Segment secondary>
                 <List horizontal>
-                  <ListItem>
+                  <List.Item>
                     <Icon name="circle" />
-                    <ListContent>{"国内"}</ListContent>
-                  </ListItem>
-                  <ListItem>
+                    <List.Content>{"国内"}</List.Content>
+                  </List.Item>
+                  <List.Item>
                     <Icon name="world" />
-                    <ListContent>{"国際"}</ListContent>
-                  </ListItem>
+                    <List.Content>{"国際"}</List.Content>
+                  </List.Item>
                 </List>
               </Segment>
               <Segment>
@@ -419,17 +413,17 @@ export default function Page({ pageData }: PageDataProps) {
                       if (entry.entryType === "private") continue;
                       children.push(
                         <>
-                          <ListItem className={classNames(entry.entryType)}>
+                          <List.Item className={classNames(entry.entryType)}>
                             <Icon className={entry.getIconClass()}></Icon>
-                            <ListContent>
-                              <ListHeader>
+                            <List.Content>
+                              <List.Header>
                                 <HtmlContent html={entry.getText(lang)} />
-                              </ListHeader>
-                              <ListDescription className="date">
+                              </List.Header>
+                              <List.Description className="date">
                                 {entry.getDatesString(lang).join(", ")}
-                              </ListDescription>
-                            </ListContent>
-                          </ListItem>
+                              </List.Description>
+                            </List.Content>
+                          </List.Item>
                         </>,
                       );
                     }
@@ -437,7 +431,7 @@ export default function Page({ pageData }: PageDataProps) {
                   })()}
                 </List>
               </Segment>
-            </SegmentGroup>
+            </Segment.Group>
           </>
         )}
       </>
@@ -704,9 +698,9 @@ export default function Page({ pageData }: PageDataProps) {
           <section id={"awards"}>
             <Header as="h1">
               <Icon name="trophy" />
-              <HeaderContent>
+              <Header.Content>
                 {en ? "Awards and Honors" : "受賞歴"}
-              </HeaderContent>
+              </Header.Content>
             </Header>
             {renderAwards()}
           </section>
@@ -714,7 +708,9 @@ export default function Page({ pageData }: PageDataProps) {
           <section id={"talks"}>
             <Header as="h1">
               <Icon name="talk" />
-              <HeaderContent>{en ? "Invited Talks" : "招待講演"}</HeaderContent>
+              <Header.Content>
+                {en ? "Invited Talks" : "招待講演"}
+              </Header.Content>
             </Header>
             {renderTalks()}
           </section>
@@ -722,7 +718,7 @@ export default function Page({ pageData }: PageDataProps) {
           <section id={"lectures"}>
             <Header as="h1">
               <Icon name="graduation cap" />
-              <HeaderContent>{en ? "Lectures" : "講義"}</HeaderContent>
+              <Header.Content>{en ? "Lectures" : "講義"}</Header.Content>
             </Header>
             {renderLectures()}
           </section>
@@ -730,7 +726,9 @@ export default function Page({ pageData }: PageDataProps) {
           <section id={"academic-publications"}>
             <Header as="h1">
               <Icon name="book" />
-              <HeaderContent>{en ? "Publications" : "発表文献"}</HeaderContent>
+              <Header.Content>
+                {en ? "Publications" : "発表文献"}
+              </Header.Content>
             </Header>
             {renderPublications()}
           </section>
@@ -739,9 +737,9 @@ export default function Page({ pageData }: PageDataProps) {
             <Header as="h1">
               {" "}
               <Icon className="broadcast tower" />
-              <HeaderContent>
+              <Header.Content>
                 {en ? "Media coverage" : "メディア掲載"}
-              </HeaderContent>
+              </Header.Content>
             </Header>
             {renderMedia()}
           </section>

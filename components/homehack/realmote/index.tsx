@@ -1,4 +1,4 @@
-import { Grid, GridColumn, Header, Icon } from "react-fomantic-ui";
+import { Grid, Header, Icon } from "react-fomantic-ui";
 
 import { LinkedImage } from "@/site/components/LinkedImage";
 
@@ -26,7 +26,7 @@ function Content() {
     <>
       <Header as="h3">{"概要"}</Header>
       <Grid stackable columns={2}>
-        <GridColumn>
+        <Grid.Column>
           <p>
             {
               "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
@@ -72,11 +72,11 @@ function Content() {
               </a>
             </li>
           </ul>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <EmbedYoutube src={"//www.youtube.com/embed/bhbW39zoxyg"} />
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <LinkedImage
             fluid
             href={href(`${rootPath}homehack/realmote-edit.jpg`)}
@@ -85,12 +85,12 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`}
             />
           </LinkedImage>
-        </GridColumn>
-        <GridColumn>
+        </Grid.Column>
+        <Grid.Column>
           <LinkedImage fluid href={href(`${rootPath}homehack/realmote.jpg`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
           </LinkedImage>
-        </GridColumn>
+        </Grid.Column>
       </Grid>
     </>
   );

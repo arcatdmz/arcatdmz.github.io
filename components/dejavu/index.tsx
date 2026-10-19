@@ -1,12 +1,9 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -89,7 +86,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -172,7 +169,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {"UIST 2012 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -180,16 +177,16 @@ export default function Page({ pageData }: PageDataProps) {
                 <EmbedYoutube src={"//www.youtube.com/embed/k5USoB7ZPPk"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=k5USoB7ZPPk"}>
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {"UIST 2012 "}
                   {en ? "Slides" : "発表スライド"}
@@ -201,7 +198,7 @@ export default function Page({ pageData }: PageDataProps) {
                 ></DeferredEmbed>
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
@@ -210,10 +207,10 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -246,7 +243,7 @@ export default function Page({ pageData }: PageDataProps) {
               </LocalizedContent>
             </p>
             <Grid stackable columns={2}>
-              <GridColumn width={6}>
+              <Grid.Column width={6}>
                 <p>
                   <LinkedImage
                     fluid
@@ -271,8 +268,8 @@ export default function Page({ pageData }: PageDataProps) {
                     />
                   </LinkedImage>
                 </p>
-              </GridColumn>
-              <GridColumn width={10}>
+              </Grid.Column>
+              <Grid.Column width={10}>
                 <Header as="h3">{"Canvas"}</Header>
                 <ul>
                   <li>
@@ -322,7 +319,7 @@ export default function Page({ pageData }: PageDataProps) {
                     <li>{"Contents synchronized with canvas"}</li>
                   </LocalizedContent>
                 </ul>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>

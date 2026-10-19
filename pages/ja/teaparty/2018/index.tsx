@@ -1,12 +1,10 @@
 import {
   Breadcrumb,
-  BreadcrumbSection,
   Divider,
   Header,
   Icon,
   Label,
   List,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -60,22 +58,22 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第7回 (2018)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第7回 (2018)"}</Breadcrumb.Section>
         </Breadcrumb>
         <Divider />
         <section>
           <Header as="h1">{"第7回 名状しがたいお茶会"}</Header>
           <List divided horizontal>
-            <ListItem>
+            <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
                 {"2018/1/28"}
               </Label>
-            </ListItem>
+            </List.Item>
           </List>
         </section>
         <Divider hidden />
@@ -110,11 +108,11 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider />
         <Breadcrumb>
-          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
+          <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </BreadcrumbSection>
+          </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <BreadcrumbSection active>{"第7回 (2018)"}</BreadcrumbSection>
+          <Breadcrumb.Section active>{"第7回 (2018)"}</Breadcrumb.Section>
         </Breadcrumb>
       </SiteLayout>
     </>

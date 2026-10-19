@@ -1,13 +1,4 @@
-import {
-  Divider,
-  Grid,
-  GridColumn,
-  Header,
-  Icon,
-  List,
-  ListItem,
-  Segment,
-} from "react-fomantic-ui";
+import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
 import { LinkedImage } from "@/site/components/LinkedImage";
 
@@ -200,12 +191,12 @@ export default function Page({ pageData }: PageDataProps) {
         <EmbedYoutube src={"//www.youtube.com/embed/zGioJvhsoIY"} />
         <div className="caption">
           <List horizontal>
-            <ListItem>
+            <List.Item>
               <a href={"//www.youtube.com/watch?v=QKtzsOU-sA8"}>
                 <Icon name="youtube" />
                 {"YouTube"}
               </a>
-            </ListItem>
+            </List.Item>
           </List>
         </div>
         <Divider hidden />
@@ -225,13 +216,13 @@ export default function Page({ pageData }: PageDataProps) {
         <ProjectHeader project={"multirobot"} />
         <Divider hidden />
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <section id={"abstract"}>{renderAbstract()}</section>
             <section id={"interaction"}>{renderInteraction()}</section>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <section id={"videos"}>{renderVideos()}</section>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
         <ProjectPublications
           project={"multirobot"}

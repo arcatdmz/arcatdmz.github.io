@@ -1,23 +1,12 @@
 import {
   Button,
   Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
   Divider,
   Feed,
-  FeedContent,
-  FeedEvent,
-  FeedLabel,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListContent,
-  ListHeader,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 import { LinkedImage } from "@/site/components/LinkedImage";
@@ -71,7 +60,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Grid stackable>
-          <GridColumn width={8}>
+          <Grid.Column width={8}>
             <LocalizedContent
               ja={
                 <>
@@ -170,8 +159,8 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </LocalizedContent>
             {renderServices()}
-          </GridColumn>
-          <GridColumn width={8}>
+          </Grid.Column>
+          <Grid.Column width={8}>
             <LocalizedContent
               ja={
                 <>
@@ -193,26 +182,26 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </p>
                   <List>
-                    <ListItem>
-                      <ListHeader>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://research.archinc.jp/members/"}>
                           {"Arch Research"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"2019/04- アーチ株式会社 研究開発部門"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://baku89.com"}>{"橋本 麦"}</a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"2023/02- "}
                         <abbr title={"産業技術総合研究所"}>{"産総研"}</abbr>
                         {" 協力研究員"}
                       </div>
-                    </ListItem>
+                    </List.Item>
                   </List>
                   <Header as="h2" id={"students"}>
                     <Icon name="student" />
@@ -277,170 +266,170 @@ export default function Page({ pageData }: PageDataProps) {
                     {"が付いています。"}
                   </p>
                   <List>
-                    <ListItem>
-                      <ListHeader>{"山根 壮一、小林 和弘"}</ListHeader>
+                    <List.Item>
+                      <List.Header>{"山根 壮一、小林 和弘"}</List.Header>
                       <div className="meta">
                         {"奈良先端科学技術大学院大学（2014/09-10）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://ryosuzuki.org/"}>
                           <Icon name="check circle" />
                           {"鈴木 遼"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"東京大学大学院 経済学研究科 （2015/02-03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         {"赤堀 渉、"}
                         <a href={"https://www.komazawa-u.ac.jp/~thirai/"}>
                           {"平井 辰典"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"早稲田大学 先進理工学部（2015/02-03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>{"吉館 要"}</ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>{"吉館 要"}</List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2015/02-03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://site.kkunihir.com/"}>{"加藤 邦拓"}</a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"明治大学大学院 理工学研究科 （2015/09-10）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <Icon name="check circle" />
                         {"若林 裕太、"}
                         <a href={"https://github.com/FMS-Cat/"}>
                           <Icon name="check circle" />
                           {"小渕 豊"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"明治大学 総合数理学部（2015/09-10）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"http://pushl.net/"}>
                           <Icon name="check circle" />
                           {"今井 朝貴"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"東京工業大学大学院 情報理工学研究科（2015/09-10）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://scrapbox.io/mactkg-pub/mactkg"}>
                           <Icon name="check circle" />
                           {"原 健太"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"明治大学 総合数理学部（2016/02-03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>{"若狭 健太"}</ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>{"若狭 健太"}</List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2016/08-2016/09）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://iis-lab.org/members/"}>
                           {"有賀 竣哉"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"東京大学 工学系研究科（2016/09-2016/09）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         {"吉館 要、"}
                         <a href={"https://hiromu.phd"}>{"矢倉 大夢"}</a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2015/04-2017/03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://www.0x0c.me/profile/"}>
                           <Icon name="check circle" />
                           {"松田 暁"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"東京大学大学院 学際情報学府（2017/02-2017/03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a
                           href={"https://sites.google.com/view/smygw72/home-jp"}
                         >
                           {"宮川 翔貴"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"早稲田大学 先進理工学部（2017/08-2017/09）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://73ch.work/"}>{"浪川 洪作"}</a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2019/10-2021/03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://atarapi.com/"}>
                           <Icon name="check circle" />
                           {"新 由衣"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2020/09-2022/09）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <a href={"https://kamiwork.com/"}>
                           <Icon name="check circle" />
                           {"村上 貴人"}
                         </a>
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"筑波大学 情報学群（2021/05-2025/03）"}
                       </div>
-                    </ListItem>
-                    <ListItem>
-                      <ListHeader>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
                         <Icon name="check circle" />
                         {"上村 宙"}
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {"北海道情報大学 情報メディア学部（2025/08-2025/09）"}
                       </div>
-                    </ListItem>
+                    </List.Item>
                   </List>
                   <Header as="h3">{"その他の学生向け情報"}</Header>
                   <p>
@@ -530,7 +519,7 @@ export default function Page({ pageData }: PageDataProps) {
                 {"."}
               </p>
             </LocalizedContent>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </>
     );
@@ -548,8 +537,8 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`}
                 />
               </LinkedImage>
-              <CardContent>
-                <CardHeader
+              <Card.Content>
+                <Card.Header
                   as={SiteLink}
                   href={href(p.getLink(lang, basePath))}
                 >
@@ -563,11 +552,11 @@ export default function Page({ pageData }: PageDataProps) {
                     </>
                   ) : null}
                   <HtmlContent html={p.getTitle(lang)} />
-                </CardHeader>
-                <CardDescription>
+                </Card.Header>
+                <Card.Description>
                   <HtmlContent html={p.getDescription(lang)} />
-                </CardDescription>
-              </CardContent>
+                </Card.Description>
+              </Card.Content>
             </Card>
           </Fragment>
         ))}
@@ -598,14 +587,14 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               >
                 <List divided>
-                  <ListItem role="link" as="a" href={"#tech-transfer"}>
+                  <List.Item role="link" as="a" href={"#tech-transfer"}>
                     <Icon name="gift" />
-                    <ListContent>{"Tech transfer"}</ListContent>
-                  </ListItem>
-                  <ListItem role="link" as="a" href={"#students"}>
+                    <List.Content>{"Tech transfer"}</List.Content>
+                  </List.Item>
+                  <List.Item role="link" as="a" href={"#students"}>
                     <Icon name="student" />
-                    <ListContent>{"Students"}</ListContent>
-                  </ListItem>
+                    <List.Content>{"Students"}</List.Content>
+                  </List.Item>
                 </List>
               </SitePopup>
             </>
@@ -628,20 +617,20 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               >
                 <List divided>
-                  <ListItem role="link" as="a" href={"#tech-transfer"}>
+                  <List.Item role="link" as="a" href={"#tech-transfer"}>
                     <Icon name="gift" />
-                    <ListContent>{"外部連携"}</ListContent>
-                  </ListItem>
-                  <ListItem role="link" as="a" href={"#collaborators"}>
+                    <List.Content>{"外部連携"}</List.Content>
+                  </List.Item>
+                  <List.Item role="link" as="a" href={"#collaborators"}>
                     <Icon name="users" />
-                    <ListContent>
+                    <List.Content>
                       {"リサーチエンジニア・協力研究員"}
-                    </ListContent>
-                  </ListItem>
-                  <ListItem role="link" as="a" href={"#students"}>
+                    </List.Content>
+                  </List.Item>
+                  <List.Item role="link" as="a" href={"#students"}>
                     <Icon name="student" />
-                    <ListContent>{"技術研修生"}</ListContent>
-                  </ListItem>
+                    <List.Content>{"技術研修生"}</List.Content>
+                  </List.Item>
                 </List>
               </SitePopup>
             </>
@@ -651,15 +640,15 @@ export default function Page({ pageData }: PageDataProps) {
         <section id={"collaborations"}>
           <Header as="h1">
             <Icon name="handshake" />
-            <HeaderContent>{title}</HeaderContent>
+            <Header.Content>{title}</Header.Content>
           </Header>
           <Segment>
             <Feed>
-              <FeedEvent>
-                <FeedLabel>
+              <Feed.Event>
+                <Feed.Label>
                   <SiteImage src={`${rootPath}images/junkato.jpg`} />
-                </FeedLabel>
-                <FeedContent>
+                </Feed.Label>
+                <Feed.Content>
                   {en
                     ? "Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via "
                     : "外部連携や技術研修生のお問合せは"}
@@ -675,8 +664,8 @@ export default function Page({ pageData }: PageDataProps) {
                       : "メールやソーシャルネットワークサービス"}
                   </SiteLink>
                   {en ? "." : "で受け付けています。"}
-                </FeedContent>
-              </FeedEvent>
+                </Feed.Content>
+              </Feed.Event>
             </Feed>
           </Segment>
           <Divider clearing hidden />

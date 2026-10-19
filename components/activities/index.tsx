@@ -2,18 +2,11 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedEvent,
-  FeedLabel,
   Grid,
-  GridColumn,
   Header,
   Icon,
-  ItemGroup,
+  Item,
   List,
-  ListContent,
-  ListHeader,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -128,7 +121,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         )}
 
-        <ItemGroup divided id={"meetups-list"} className="projects">
+        <Item.Group divided id={"meetups-list"} className="projects">
           {(() => {
             const children: ReactNode[] = [];
             for (const p of projects) {
@@ -141,7 +134,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </ItemGroup>
+        </Item.Group>
       </>
     );
   }
@@ -171,12 +164,12 @@ export default function Page({ pageData }: PageDataProps) {
           )}
 
           <Grid stackable columns={2}>
-            <GridColumn>{renderServicesOcHci()}</GridColumn>
-            <GridColumn>
+            <Grid.Column>{renderServicesOcHci()}</Grid.Column>
+            <Grid.Column>
               {renderServicesOcMisc()}
               {renderServicesOcPx()}
               {renderServicesOcDomestic()}
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </section>
 
@@ -204,14 +197,14 @@ export default function Page({ pageData }: PageDataProps) {
           )}
 
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               {renderServicesPcHci()}
               {renderServicesPcMisc()}
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               {renderServicesPcPx()}
               {renderServicesPcDomestic()}
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </section>
 
@@ -250,15 +243,15 @@ export default function Page({ pageData }: PageDataProps) {
   function renderPrintServiceOrganizer(organizer: any = undefined): ReactNode {
     return (
       <>
-        <ListItem>
-          <ListHeader>
+        <List.Item>
+          <List.Header>
             <SiteLink
               href={href(organizer.event.url || organizer.url)}
               title={organizer.event.fullname}
             >
               {organizer.event.name}
             </SiteLink>
-          </ListHeader>
+          </List.Header>
           <div className="meta">
             {organizer.track ? (
               <>{organizer.track.fullname || organizer.track.name} </>
@@ -272,7 +265,7 @@ export default function Page({ pageData }: PageDataProps) {
               </>
             ) : null}
           </div>
-        </ListItem>
+        </List.Item>
       </>
     );
   }
@@ -353,21 +346,21 @@ export default function Page({ pageData }: PageDataProps) {
             <Header as="h4">{"国内会議"}</Header>
 
             <List>
-              <ListItem>
-                <ListHeader>
+              <List.Item>
+                <List.Header>
                   {"情報処理学会シンポジウム "}
                   <a href={"https://www.interaction-ipsj.org"}>
                     {"インタラクション"}
                   </a>
-                </ListHeader>
+                </List.Header>
                 <div className="meta">
                   {"プログラム委員 (2017-"}
                   {buildYear}
                   {")"}
                 </div>
-              </ListItem>
-              <ListItem>
-                <ListHeader>
+              </List.Item>
+              <List.Item>
+                <List.Header>
                   {"日本ソフトウェア科学会 "}
                   <a
                     href={"https://wiss.org/"}
@@ -377,9 +370,9 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"WISS"}
                   </a>
-                </ListHeader>
+                </List.Header>
                 <div className="meta">{"プログラム委員 (2015-2019, 2025)"}</div>
-              </ListItem>
+              </List.Item>
             </List>
           </>
         ) : null}
@@ -463,8 +456,8 @@ export default function Page({ pageData }: PageDataProps) {
             <Header as="h4">{"国内会議"}</Header>
 
             <List>
-              <ListItem>
-                <ListHeader>
+              <List.Item>
+                <List.Header>
                   {"日本ソフトウェア科学会 "}
                   <a
                     href={"https://wiss.org/"}
@@ -474,18 +467,18 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"WISS"}
                   </a>
-                </ListHeader>
+                </List.Header>
                 <div className="meta">
                   {
                     "Web/投票/ローカルサーバ担当 運営委員 (2015-2019), Web担当 運営委員 (2025)"
                   }
                 </div>
-              </ListItem>
-              <ListItem>
-                <ListHeader>
+              </List.Item>
+              <List.Item>
+                <List.Header>
                   {"情報処理学会 "}
                   <a href={"https://ipsj-one.org/"}>{"IPSJ-ONE"}</a>
-                </ListHeader>
+                </List.Header>
                 <div className="meta">
                   {"Web担当 運営委員 ("}
                   <a href={"https://ipsj-one.org/2015/"}>{"2015"}</a>
@@ -493,7 +486,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <a href={"https://ipsj-one.org/2017/"}>{"2017"}</a>
                   {")"}
                 </div>
-              </ListItem>
+              </List.Item>
             </List>
           </>
         ) : null}
@@ -505,12 +498,12 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {misc.services.reviewers.map((reviewer, itemIndex) => (
           <Fragment key={itemIndex}>
-            <ListItem>
-              <ListHeader>
+            <List.Item>
+              <List.Header>
                 <abbr title={reviewer.title}>{reviewer.venue}</abbr>
-              </ListHeader>
+              </List.Header>
               <div className="meta">{formatYears(reviewer.years)}</div>
-            </ListItem>
+            </List.Item>
           </Fragment>
         ))}
       </>
@@ -545,9 +538,9 @@ export default function Page({ pageData }: PageDataProps) {
                 : description;
               children.push(
                 <>
-                  <ListItem>
-                    <ListContent>
-                      <ListHeader>
+                  <List.Item>
+                    <List.Content>
+                      <List.Header>
                         <HtmlContent
                           html={
                             en || !(activity.ja && activity.ja.title)
@@ -555,7 +548,7 @@ export default function Page({ pageData }: PageDataProps) {
                               : activity.ja.title
                           }
                         />
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         <HtmlContent
                           html={[date, linkOrDescription]
@@ -563,21 +556,21 @@ export default function Page({ pageData }: PageDataProps) {
                             .join(", ")}
                         />
                       </div>
-                    </ListContent>
-                  </ListItem>
+                    </List.Content>
+                  </List.Item>
                 </>,
               );
             }
             children.push(
               <>
-                <ListItem>
+                <List.Item>
                   <Icon name="paint brush" />
-                  <ListContent>
-                    <ListHeader>
+                  <List.Content>
+                    <List.Header>
                       {en
                         ? "Graphic & Interaction Design"
                         : "グラフィック & インタラクションデザイン"}
-                    </ListHeader>
+                    </List.Header>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -587,16 +580,18 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </>,
             );
             children.push(
               <>
-                <ListItem>
+                <List.Item>
                   <Icon name="talk" />
-                  <ListContent>
-                    <ListHeader>{en ? "Invited talks" : "招待講演"}</ListHeader>
+                  <List.Content>
+                    <List.Header>
+                      {en ? "Invited talks" : "招待講演"}
+                    </List.Header>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -606,16 +601,16 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </>,
             );
             children.push(
               <>
-                <ListItem>
+                <List.Item>
                   <Icon name="graduation cap" />
-                  <ListContent>
-                    <ListHeader>{en ? "Lectures" : "講義"}</ListHeader>
+                  <List.Content>
+                    <List.Header>{en ? "Lectures" : "講義"}</List.Header>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -625,8 +620,8 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </>,
             );
             return keyed(children);
@@ -643,7 +638,7 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Visited places" : "訪問先"}
         </Header>
         <Grid stackable columns={2}>
-          <GridColumn>
+          <Grid.Column>
             <iframe
               width={"100%"}
               height={"360"}
@@ -652,8 +647,8 @@ export default function Page({ pageData }: PageDataProps) {
                 "https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"
               }
             ></iframe>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <List divided>
               {(() => {
                 const children: ReactNode[] = [];
@@ -662,12 +657,12 @@ export default function Page({ pageData }: PageDataProps) {
                   .forEach((conference) => {
                     children.push(
                       <>
-                        <ListItem>
-                          <ListHeader>
+                        <List.Item>
+                          <List.Header>
                             <abbr title={conference.title}>
                               {conference.name}
                             </abbr>
-                          </ListHeader>
+                          </List.Header>
                           <div className="meta">
                             {(() => {
                               const children: ReactNode[] = [];
@@ -693,16 +688,16 @@ export default function Page({ pageData }: PageDataProps) {
                               return keyed(children);
                             })()}
                           </div>
-                        </ListItem>
+                        </List.Item>
                       </>,
                     );
                   });
                 children.push(
                   <>
-                    <ListItem>
-                      <ListHeader>
+                    <List.Item>
+                      <List.Header>
                         {en ? "Other attended conferences" : "その他の国際会議"}
-                      </ListHeader>
+                      </List.Header>
                       <div className="meta">
                         {(() => {
                           const children: ReactNode[] = [];
@@ -737,13 +732,13 @@ export default function Page({ pageData }: PageDataProps) {
                           return keyed(children);
                         })()}
                       </div>
-                    </ListItem>
+                    </List.Item>
                   </>,
                 );
                 return keyed(children);
               })()}
             </List>
-          </GridColumn>
+          </Grid.Column>
         </Grid>
       </>
     );
@@ -771,22 +766,24 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#meetups"}>
+                <List.Item role="link" as="a" href={"#meetups"}>
                   <Icon name="users" />
-                  <ListContent>{en ? "Meetups" : "勉強会"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#services"}>
+                  <List.Content>{en ? "Meetups" : "勉強会"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#services"}>
                   <Icon name="lab" />
-                  <ListContent>{en ? "Academic" : "学会活動"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#miscellaneous"}>
+                  <List.Content>{en ? "Academic" : "学会活動"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#miscellaneous"}>
                   <Icon name="book" />
-                  <ListContent>{en ? "Others" : "その他"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#places"}>
+                  <List.Content>{en ? "Others" : "その他"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#places"}>
                   <Icon name="world" />
-                  <ListContent>{en ? "Visited places" : "訪問先"}</ListContent>
-                </ListItem>
+                  <List.Content>
+                    {en ? "Visited places" : "訪問先"}
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -799,11 +796,11 @@ export default function Page({ pageData }: PageDataProps) {
           </Header>
           <Segment>
             <Feed>
-              <FeedEvent>
-                <FeedLabel>
+              <Feed.Event>
+                <Feed.Label>
                   <SiteImage src={`${rootPath}images/junkato.jpg`} />
-                </FeedLabel>
-                <FeedContent>
+                </Feed.Label>
+                <Feed.Content>
                   {en
                     ? "Hi! I am open for collaborations. Please see "
                     : "共同研究の相談やお仕事の依頼については "}
@@ -812,8 +809,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {en ? "Collaborations" : "共同研究"}
                   </SiteLink>
                   {en ? " for more details." : " のページを見てみてください。"}
-                </FeedContent>
-              </FeedEvent>
+                </Feed.Content>
+              </Feed.Event>
             </Feed>
           </Segment>
         </section>

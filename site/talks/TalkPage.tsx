@@ -1,14 +1,10 @@
 import {
   Button,
   Grid,
-  GridColumn,
   Header,
-  HeaderSubheader,
   Icon,
   Label,
-  LabelGroup,
   Menu,
-  MenuItem,
   Message,
 } from "react-fomantic-ui";
 
@@ -107,9 +103,9 @@ export function TalkPage({
         <header>
           <Header as="h1">
             {info.title}
-            <HeaderSubheader>{info.subtitle}</HeaderSubheader>
+            <Header.Subheader>{info.subtitle}</Header.Subheader>
           </Header>
-          <LabelGroup>
+          <Label.Group>
             <Label as="span">
               <Icon name="calendar" />
               <time dateTime={info.date}>{info.date}</time>
@@ -120,7 +116,7 @@ export function TalkPage({
             <Label color="red" as="span">
               {info.event}
             </Label>
-          </LabelGroup>
+          </Label.Group>
           <p className="talk-materials">
             <SiteLink href={`/publications/${info.pdf}`}>
               <Icon name="file pdf" />
@@ -159,7 +155,7 @@ export function TalkPage({
             widths={3}
           >
             {info.chapters.map((title, index) => (
-              <MenuItem
+              <Menu.Item
                 as={SiteLink}
                 key={title}
                 active={!ide && chapter === index + 1}
@@ -169,7 +165,7 @@ export function TalkPage({
                 href={chapterHref(slug, index + 1)}
               >
                 {index + 1}. {title}
-              </MenuItem>
+              </Menu.Item>
             ))}
           </Menu>
         </header>
@@ -183,7 +179,7 @@ export function TalkPage({
             aria-label="前後の章"
             className="talk-pagination"
           >
-            <GridColumn>
+            <Grid.Column>
               {chapter > 1 ? (
                 <Button
                   role="link"
@@ -198,8 +194,8 @@ export function TalkPage({
                   « 前の章
                 </Button>
               )}
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               {chapter < 3 ? (
                 <Button
                   role="link"
@@ -215,7 +211,7 @@ export function TalkPage({
                   次の章 »
                 </Button>
               )}
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         )}
       </article>

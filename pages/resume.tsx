@@ -1,4 +1,4 @@
-import { GridColumn, ListItem } from "react-fomantic-ui";
+import { Grid, List } from "react-fomantic-ui";
 
 import { SiteLink, SitePathContext } from "@/site/components/SiteLink";
 import Head from "next/head";
@@ -1024,7 +1024,7 @@ function References() {
       <div className="row">
         <div className="year"></div>
         <div className="content column-host">
-          <GridColumn>
+          <Grid.Column>
             <h3>{"Dr. Masataka Goto"}</h3>
             <p className="small">
               {"Relationship: research director and colleague "}
@@ -1040,8 +1040,8 @@ function References() {
                 {"https://staff.aist.go.jp/m.goto/index-e.html"}
               </a>
             </p>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <h3>{"Dr. Takeo Igarashi"}</h3>
             <p className="small">
               {"Relationship: academic supervisor "}
@@ -1055,8 +1055,8 @@ function References() {
                 {"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
               </a>
             </p>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <h3>{"Dr. Jovan Popovic"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1070,8 +1070,8 @@ function References() {
                 {"https://www.linkedin.com/in/jovan-cmu/"}
               </a>
             </p>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <h3>{"Dr. Sebastian Burckhardt"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1087,8 +1087,8 @@ function References() {
                 {"https://www.microsoft.com/en-us/research/people/sburckha/"}
               </a>
             </p>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <h3>{"Dr. Xiang Cao"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1099,8 +1099,8 @@ function References() {
                 {"https://caoxiang.net"}
               </a>
             </p>
-          </GridColumn>
-          <GridColumn>
+          </Grid.Column>
+          <Grid.Column>
             <h3>{"Dr. Sean McDirmid"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1114,7 +1114,7 @@ function References() {
                 {"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
               </a>
             </p>
-          </GridColumn>
+          </Grid.Column>
         </div>
       </div>
     </>
@@ -1240,10 +1240,10 @@ function PublicationCitation({
       {entry.hasDOIUrl() && (
         <>
           {" "}
-          <ListItem role="link" as={SiteLink} href={entry.getDOIUrl()}>
+          <List.Item role="link" as={SiteLink} href={entry.getDOIUrl()}>
             {"DOI: "}
             {entry.entryTags.doi}
-          </ListItem>
+          </List.Item>
           {"."}
         </>
       )}

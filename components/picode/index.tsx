@@ -1,12 +1,9 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -116,7 +113,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -153,27 +150,27 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">{"CHI 2013 Fast-forward"}</Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/NCou4Q1STE8"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=NCou4Q1STE8"}>
                         <Icon name="youtube" />
                         {"Fast-forward"}
                       </a>
-                    </ListItem>
-                    <ListItem>
+                    </List.Item>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=cQv0-4f8LEA"}>
                         <Icon name="youtube" />
                         {"Full version"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   {"CHI 2013 "}
                   {en ? "Slides" : "発表スライド"}
@@ -187,7 +184,7 @@ export default function Page({ pageData }: PageDataProps) {
 
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
@@ -196,7 +193,7 @@ export default function Page({ pageData }: PageDataProps) {
                         <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
 
@@ -214,7 +211,7 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
@@ -295,7 +292,7 @@ export default function Page({ pageData }: PageDataProps) {
             </LocalizedContent>
           </Segment>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <LinkedImage
                 fluid
                 href={href(`${rootPath}picode/picode-ide.jpg`)}
@@ -308,8 +305,8 @@ export default function Page({ pageData }: PageDataProps) {
               <div className="caption">
                 {en ? "Overview of the Picode IDE" : "Picode IDEの概観"}
               </div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <LocalizedContent
                 ja={
                   <dl>
@@ -417,7 +414,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <dd>{"play this action."}</dd>
                 </dl>
               </LocalizedContent>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </section>
         {!en ? (

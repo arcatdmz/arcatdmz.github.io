@@ -2,20 +2,13 @@ import {
   Button,
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
-  ItemGroup,
+  Item,
   Label,
   List,
-  ListContent,
-  ListItem,
   Segment,
   Table,
-  TableBody,
-  TableCell,
-  TableRow,
 } from "react-fomantic-ui";
 
 import { DeferredEmbed } from "@/site/components/DeferredEmbed";
@@ -80,18 +73,18 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {"科学と未来"}
             <Label basic size="tiny" as="span">
               <Icon name="calendar" />
               {"2018-2019"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <p>{"科学技術が切り拓く未来についての論考などを書いています。"}</p>
         <Segment basic id={"canna"}>
           <Header as="h3">
-            <HeaderContent>{"カンナたちの研究"}</HeaderContent>
+            <Header.Content>{"カンナたちの研究"}</Header.Content>
           </Header>
           <p>
             {
@@ -121,7 +114,7 @@ export default function Page({ pageData }: PageDataProps) {
         </Segment>
         <Segment basic id={"cs-in-100years"}>
           <Header as="h3">
-            <HeaderContent>{"100年後のコンピュータ科学"}</HeaderContent>
+            <Header.Content>{"100年後のコンピュータ科学"}</Header.Content>
           </Header>
           <p>
             {
@@ -164,17 +157,17 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {"非アカデミア駆動型研究"}
             <Label basic size="tiny" as="span">
               <Icon name="calendar" />
               {"2019"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <Grid stackable columns={2}>
-            <GridColumn>
+            <Grid.Column>
               <p>
                 {"2019年5月27日、Japan Open Science Summitのパネルセッション「"}
                 <a
@@ -192,16 +185,16 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </p>
               <List as="ul">
-                <ListItem as="li">
+                <List.Item as="li">
                   {"在野の人々による自発的活動（"}
                   <a href={"#tsemi"}>{"立花隆ゼミ"}</a>
                   {"）"}
-                </ListItem>
-                <ListItem as="li">
+                </List.Item>
+                <List.Item as="li">
                   {"企業における放課後R&D（"}
                   <a href={"https://research.archinc.jp/"}>{"Arch Research"}</a>
                   {"）"}
-                </ListItem>
+                </List.Item>
               </List>
               <p>
                 {
@@ -219,14 +212,14 @@ export default function Page({ pageData }: PageDataProps) {
                 </a>
                 {"をご覧ください。"}
               </p>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <DeferredEmbed
                 url={publicationsTable["joss2019-kato"].entryTags.slides}
                 placeholder={`${rootPath}science/joss2019-kato.png`}
                 icon={"video play outline"}
               ></DeferredEmbed>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
           <Segment>
             <List divided>
@@ -241,7 +234,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             <abbr title={"Human-Computer Interaction"}>{"HCI"}</abbr>
             {"と研究再現性問題"}
 
@@ -249,7 +242,7 @@ export default function Page({ pageData }: PageDataProps) {
               <Icon name="calendar" />
               {"2018"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -394,7 +387,7 @@ export default function Page({ pageData }: PageDataProps) {
         </Segment>
         <Segment basic>
           <Header as="h3">
-            <HeaderContent>{"特集号掲載論文"}</HeaderContent>
+            <Header.Content>{"特集号掲載論文"}</Header.Content>
           </Header>
           <p>
             {
@@ -402,10 +395,10 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </p>
           <Table striped size="small">
-            <TableBody>
-              <TableRow>
-                <TableCell width={4}>{"松田 昌史"}</TableCell>
-                <TableCell width={12}>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell width={4}>{"松田 昌史"}</Table.Cell>
+                <Table.Cell width={12}>
                   <a
                     href={
                       "https://www.dropbox.com/s/0sme5as2cqupiyq/Matsuda2018HI.pdf?dl=0"
@@ -413,11 +406,11 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"特集によせて: 心理学界を他山の石とする"}
                   </a>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>{"三浦 麻子"}</TableCell>
-                <TableCell>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>{"三浦 麻子"}</Table.Cell>
+                <Table.Cell>
                   <a
                     href={
                       "https://www.dropbox.com/s/dzliec1cr9usyds/Miura2018HI.pdf?dl=0"
@@ -425,46 +418,46 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"人を対象とした行動学研究における再現性問題"}
                   </a>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>{"樋口 匡貴・藤島 喜嗣"}</TableCell>
-                <TableCell>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>{"樋口 匡貴・藤島 喜嗣"}</Table.Cell>
+                <Table.Cell>
                   <a href={"https://osf.io/zua7d/"}>
                     {"アスタリスク～真実の意思を求め(すぎ)て"}
                   </a>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>{"山田 祐樹"}</TableCell>
-                <TableCell>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>{"山田 祐樹"}</Table.Cell>
+                <Table.Cell>
                   <a href={"https://osf.io/w9u6d"}>
                     {
                       "再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―"
                     }
                   </a>
-                </TableCell>
-              </TableRow>
-            </TableBody>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
           </Table>
         </Segment>
         <Segment basic>
           <Header as="h3">
-            <HeaderContent>{"著者Webページ"}</HeaderContent>
+            <Header.Content>{"著者Webページ"}</Header.Content>
           </Header>
           <List divided size="small">
-            <ListItem>
+            <List.Item>
               <a href={"http://team1mile.com/asarinlab/2018/02/26/his2018/"}>
                 {"論文が公刊されました – 関西学院大学文学部社会心理学研究室"}
               </a>
               {" (三浦 麻子)"}
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               <a href={"https://note.mu/momentumyy/n/n3b1ee3bcf81a"}>
                 {"心理学の再現可能性問題は心理学的問題"}
               </a>
               {" (山田 祐樹)"}
-            </ListItem>
+            </List.Item>
           </List>
         </Segment>
       </>
@@ -474,13 +467,13 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {"MIT原子力理工学部による原子力発電の解説（翻訳）"}
             <Label basic size="tiny" as="span">
               <Icon name="calendar" />
               {"2011"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -547,7 +540,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Header as="h2">
-          <HeaderContent>
+          <Header.Content>
             {"立花隆ゼミ"}
             <Label basic size="tiny" as="span">
               <Icon name="calendar" />
@@ -557,7 +550,7 @@ export default function Page({ pageData }: PageDataProps) {
               <Icon name="calendar" />
               {"2021"}
             </Label>
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <p>
@@ -626,11 +619,11 @@ export default function Page({ pageData }: PageDataProps) {
         </Segment>
         <Segment basic>
           <Header as="h3" id={"tsemi-cms"}>
-            <HeaderContent>
+            <Header.Content>
               {"コンテンツ管理システム（"}
               <abbr title={"Contents Management System"}>{"CMS"}</abbr>
               {"）開発"}
-            </HeaderContent>
+            </Header.Content>
           </Header>
           <p>
             {
@@ -655,14 +648,14 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </p>
           <Segment>
-            <ItemGroup divided>
+            <Item.Group divided>
               <ProjectItem p={chippie} />
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
         <Segment basic>
           <Header as="h3" id={"tsemi-projects"}>
-            <HeaderContent>{"企画立案・冊子刊行"}</HeaderContent>
+            <Header.Content>{"企画立案・冊子刊行"}</Header.Content>
           </Header>
           <p>
             {
@@ -676,7 +669,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </p>
           <Grid stackable columns={3}>
-            <GridColumn>
+            <Grid.Column>
               <LinkedImage
                 fluid
                 href={"https://sci.digitalmuseum.jp/project/gis/"}
@@ -687,8 +680,8 @@ export default function Page({ pageData }: PageDataProps) {
                 />
               </LinkedImage>
               <div className="caption">{"イノセンスに見る最先端科学"}</div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <LinkedImage fluid href={"https://bit.ly/scinote-dl"}>
                 <SiteImage
                   src={`${rootPath}science/060526-scinote.png`}
@@ -696,8 +689,8 @@ export default function Page({ pageData }: PageDataProps) {
                 />
               </LinkedImage>
               <div className="caption">{"SCInote [PDF]"}</div>
-            </GridColumn>
-            <GridColumn>
+            </Grid.Column>
+            <Grid.Column>
               <LinkedImage fluid href={"https://bit.ly/scinote2-dl"}>
                 <SiteImage
                   src={`${rootPath}science/070518-scinote2.png`}
@@ -705,7 +698,7 @@ export default function Page({ pageData }: PageDataProps) {
                 />
               </LinkedImage>
               <div className="caption">{"SCInote2 [PDF]"}</div>
-            </GridColumn>
+            </Grid.Column>
           </Grid>
         </Segment>
       </>
@@ -734,30 +727,30 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#science-future"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#science-future"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"科学と未来"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#non-academic"}>
+                  <List.Content>{"科学と未来"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#non-academic"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"非アカデミア駆動型研究"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#reproducibility"}>
+                  <List.Content>{"非アカデミア駆動型研究"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#reproducibility"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"HCIと研究再現性問題"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#mitnse"}>
+                  <List.Content>{"HCIと研究再現性問題"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#mitnse"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"原子力発電の解説翻訳"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#tsemi"}>
+                  <List.Content>{"原子力発電の解説翻訳"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#tsemi"}>
                   <Icon name="triangle right" />
-                  <ListContent>{"立花隆ゼミ"}</ListContent>
-                </ListItem>
+                  <List.Content>{"立花隆ゼミ"}</List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -767,7 +760,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <HtmlContent html={p.getDescription(lang)} />

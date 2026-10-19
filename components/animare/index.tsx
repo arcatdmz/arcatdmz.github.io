@@ -2,23 +2,11 @@ import {
   Button,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   Item,
-  ItemContent,
-  ItemExtra,
-  ItemGroup,
-  ItemHeader,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -85,16 +73,16 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="gift" />
-          <HeaderContent>
+          <Header.Content>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </HeaderContent>
+          </Header.Content>
         </Header>
         <Segment basic>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               <ProjectItem p={projectsTable["anime-sig"]} />
               <ProjectItem p={projectsTable["griffith"]} />
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
         <Segment basic>
@@ -104,23 +92,23 @@ export default function Page({ pageData }: PageDataProps) {
               : "他にも関連イベントを主催・開催してきました。"}
           </p>
           <Segment>
-            <ItemGroup divided className="projects">
+            <Item.Group divided className="projects">
               {misc.miscellaneous["past-anime-events"].map((e, itemIndex) => (
                 <Fragment key={itemIndex}>
                   <Item as={SiteLink} href={href(e.url)}>
-                    <ItemContent>
-                      <ItemHeader>{e.title}</ItemHeader>
-                      <ItemExtra>
+                    <Item.Content>
+                      <Item.Header>{e.title}</Item.Header>
+                      <Item.Extra>
                         <span className="right floated">
                           <Icon name="calendar" />
                           {en ? e.dates : (e.ja && e.ja.dates) || e.dates}
                         </span>
-                      </ItemExtra>
-                    </ItemContent>
+                      </Item.Extra>
+                    </Item.Content>
                   </Item>
                 </Fragment>
               ))}
-            </ItemGroup>
+            </Item.Group>
           </Segment>
         </Segment>
       </>
@@ -131,7 +119,7 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <Header as="h2">
           <Icon name="book" />
-          <HeaderContent>{en ? "Publications" : "発表文献"}</HeaderContent>
+          <Header.Content>{en ? "Publications" : "発表文献"}</Header.Content>
         </Header>
         <Segment basic>
           <List divided>
@@ -207,9 +195,9 @@ export default function Page({ pageData }: PageDataProps) {
               <Header as="h2">
                 {" "}
                 <Icon className="broadcast tower" />
-                <HeaderContent>
+                <Header.Content>
                   {en ? "Media coverage" : "メディア掲載"}
-                </HeaderContent>
+                </Header.Content>
               </Header>
             </>,
           );
@@ -240,10 +228,10 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Feed className="divided">
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{en ? "3/29/2026" : "2026/3/29"}</FeedDate>
-                <FeedSummary>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{en ? "3/29/2026" : "2026/3/29"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Add publications funded by the project (e.g., "
                     : "プロジェクト関連の発表文献を追加（例: "}
@@ -257,37 +245,37 @@ export default function Page({ pageData }: PageDataProps) {
                     {en ? "a talk" : "UndoneCS '26 講演スライド"}
                   </SiteLink>
                   {en ? " at UndoneCS '26)." : "）"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{en ? "12/30/2025" : "2025/12/30"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{en ? "12/30/2025" : "2025/12/30"}</Feed.Date>
+                <Feed.Summary>
                   {en ? "Update Animare visuals." : "Animareのビジュアルを更新"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{en ? "12/19/2025" : "2025/12/19"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{en ? "12/19/2025" : "2025/12/19"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Add link to the project website."
                     : "公式ページへのリンクを追加"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
-            <FeedEvent>
-              <FeedContent>
-                <FeedDate>{en ? "9/14/2025" : "2025/9/14"}</FeedDate>
-                <FeedSummary>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{en ? "9/14/2025" : "2025/9/14"}</Feed.Date>
+                <Feed.Summary>
                   {en
                     ? "Upload the initial revision."
                     : "プロジェクトページを仮公開"}
-                </FeedSummary>
-              </FeedContent>
-            </FeedEvent>
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
           </Feed>
         </Segment>
       </>
@@ -321,30 +309,32 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#abstract"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#abstract"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#further-readings"}>
+                  <List.Content>{en ? "Abstract" : "概要"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#further-readings"}>
                   <Icon name="gift" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#publications"}>
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#publications"}>
                   <Icon name="book" />
-                  <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#media"}>
+                  <List.Content>
+                    {en ? "Publications" : "発表文献"}
+                  </List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#media"}>
                   <Icon className="broadcast tower" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Media coverage" : "メディア掲載"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -352,7 +342,7 @@ export default function Page({ pageData }: PageDataProps) {
       >
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Summary" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Summary" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <p>
@@ -369,7 +359,7 @@ export default function Page({ pageData }: PageDataProps) {
             </p>
             <Divider hidden />
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <SiteImage
                   ui
                   fluid
@@ -380,8 +370,8 @@ export default function Page({ pageData }: PageDataProps) {
                     ? "A representative anime production workflow and the strengths of each group"
                     : "代表的なアニメ制作のワークフローと各グループの担当範囲"}
                 </p>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <SiteImage
                   ui
                   fluid
@@ -394,7 +384,7 @@ export default function Page({ pageData }: PageDataProps) {
                     ? "A mutually beneficial platform for anime production to be built in the project"
                     : "プロジェクトで構築を目指す互恵的プラットフォーム"}
                 </p>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
           <Segment basic textAlign="center">

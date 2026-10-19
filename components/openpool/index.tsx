@@ -2,12 +2,10 @@ import {
   Divider,
   Embed,
   Grid,
-  GridColumn,
-  GridRow,
   Header,
   Icon,
   Label,
-  ListItem,
+  List,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -227,7 +225,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Header as="h2">{en ? "Media Coverage" : "メディア掲載"}</Header>
         <Segment basic style={{ marginBottom: "-0.5em" }}>
           <Grid stackable>
-            <GridRow columns={3}>
+            <Grid.Row columns={3}>
               {mediaList
                 .filter(
                   (e) =>
@@ -237,8 +235,8 @@ export default function Page({ pageData }: PageDataProps) {
                 )
                 .map((e, itemIndex) => (
                   <Fragment key={itemIndex}>
-                    <GridColumn style={{ marginBottom: "0.5em" }}>
-                      <ListItem
+                    <Grid.Column style={{ marginBottom: "0.5em" }}>
+                      <List.Item
                         role="link"
                         as={SiteLink}
                         href={href(e.archive || e.permalink)}
@@ -253,11 +251,11 @@ export default function Page({ pageData }: PageDataProps) {
                             .toLowerCase()}.png`}
                           alt={e.media.en}
                         />
-                      </ListItem>
-                    </GridColumn>
+                      </List.Item>
+                    </Grid.Column>
                   </Fragment>
                 ))}
-            </GridRow>
+            </Grid.Row>
           </Grid>
         </Segment>
         <Divider />
@@ -326,8 +324,8 @@ export default function Page({ pageData }: PageDataProps) {
       </Message>
       <Divider hidden />
       <Grid stackable columns={2}>
-        <GridColumn>{renderBody()}</GridColumn>
-        <GridColumn>{renderVideos()}</GridColumn>
+        <Grid.Column>{renderBody()}</Grid.Column>
+        <Grid.Column>{renderVideos()}</Grid.Column>
       </Grid>
       <Divider hidden />
       <ProjectPublications

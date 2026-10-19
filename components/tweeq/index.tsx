@@ -1,18 +1,10 @@
 import {
   Button,
-  ButtonGroup,
   Divider,
   Feed,
-  FeedContent,
-  FeedDate,
-  FeedEvent,
-  FeedSummary,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListContent,
-  ListItem,
   Segment,
 } from "react-fomantic-ui";
 
@@ -91,20 +83,20 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <ListItem role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href={"#body"}>
                   <Icon name="chevron circle up" />
-                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#abstract"}>
+                  <List.Content>{en ? "Top" : "トップ"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#abstract"}>
                   <Icon name="triangle right" />
-                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
-                </ListItem>
-                <ListItem role="link" as="a" href={"#implementation"}>
+                  <List.Content>{en ? "Abstract" : "概要"}</List.Content>
+                </List.Item>
+                <List.Item role="link" as="a" href={"#implementation"}>
                   <Icon name="triangle right" />
-                  <ListContent>
+                  <List.Content>
                     {en ? "Reference implementation" : "リファレンス実装"}
-                  </ListContent>
-                </ListItem>
+                  </List.Content>
+                </List.Item>
               </List>
             </SitePopup>
           </>
@@ -112,7 +104,7 @@ export default function Page({ pageData }: PageDataProps) {
       >
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -283,7 +275,7 @@ export default function Page({ pageData }: PageDataProps) {
             </LocalizedContent>
           </Segment>
           <Segment basic textAlign="center">
-            <ButtonGroup size="huge">
+            <Button.Group size="huge">
               <Button
                 role="link"
                 primary
@@ -296,7 +288,7 @@ export default function Page({ pageData }: PageDataProps) {
               <Button role="link" as="a" href={"//baku89.github.io/tweeq"}>
                 {en ? "Documents" : "デモ"}
               </Button>
-            </ButtonGroup>
+            </Button.Group>
           </Segment>
         </section>
         <Divider hidden />
@@ -307,10 +299,10 @@ export default function Page({ pageData }: PageDataProps) {
           </h2>
           <Segment basic>
             <Feed className="divided">
-              <FeedEvent>
-                <FeedContent>
-                  <FeedDate>{"8/1/2025"}</FeedDate>
-                  <FeedSummary>
+              <Feed.Event>
+                <Feed.Content>
+                  <Feed.Date>{"8/1/2025"}</Feed.Date>
+                  <Feed.Summary>
                     <LocalizedContent
                       ja={
                         <>
@@ -323,9 +315,9 @@ export default function Page({ pageData }: PageDataProps) {
                     >
                       {"Upload the initial revision."}
                     </LocalizedContent>
-                  </FeedSummary>
-                </FeedContent>
-              </FeedEvent>
+                  </Feed.Summary>
+                </Feed.Content>
+              </Feed.Event>
             </Feed>
           </Segment>
         </section>

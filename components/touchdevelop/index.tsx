@@ -1,12 +1,9 @@
 import {
   Divider,
   Grid,
-  GridColumn,
   Header,
-  HeaderContent,
   Icon,
   List,
-  ListItem,
   Message,
   Segment,
 } from "react-fomantic-ui";
@@ -123,7 +120,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id={"abstract"}>
           <Header as="h2">
-            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+            <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <LocalizedContent
@@ -222,7 +219,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
-              <GridColumn>
+              <Grid.Column>
                 <Header as="h3">
                   {"PLDI 2013 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -230,16 +227,16 @@ export default function Page({ pageData }: PageDataProps) {
                 <EmbedYoutube src={"//www.youtube.com/embed/GaVbYx-NN0o"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=GaVbYx-NN0o"}>
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
-              <GridColumn>
+              </Grid.Column>
+              <Grid.Column>
                 <Header as="h3">
                   <HtmlContent
                     html={
@@ -252,15 +249,15 @@ export default function Page({ pageData }: PageDataProps) {
                 <EmbedYoutube src={"//www.youtube.com/embed/D1UB73y4GGo"} />
                 <div className="caption">
                   <List horizontal>
-                    <ListItem>
+                    <List.Item>
                       <a href={"//www.youtube.com/watch?v=D1UB73y4GGo"}>
                         <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </ListItem>
+                    </List.Item>
                   </List>
                 </div>
-              </GridColumn>
+              </Grid.Column>
             </Grid>
           </Segment>
         </section>
