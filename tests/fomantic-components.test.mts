@@ -80,6 +80,6 @@ test("authored views use React primitives for standard Fomantic markup", () => {
   assert.deepEqual(
     violations,
     [],
-    "Use the matching react-fomantic-ui component; see docs/FOMANTIC_UI_REVIEW.md",
+    "Use the matching react-fomantic-ui component; see docs/CONTENT_AUTHORING.md#fomantic-react-components",
   );
 });

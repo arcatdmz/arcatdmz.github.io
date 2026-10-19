@@ -44,9 +44,8 @@ the other language entry is generated automatically.
 Default content is defined once, with optional localized rich sections and short
 inline labels. This preserves the original Pug inheritance, including Japanese
 prose used on English pages and English sections used on Japanese pages.
-See [content authoring](docs/CONTENT_AUTHORING.md) for defaults, overrides, and the
-choice of React components. The [Fomantic review](docs/FOMANTIC_UI_REVIEW.md)
-records the component migration and remaining domain adapters.
+See [content authoring](docs/CONTENT_AUTHORING.md) for defaults, overrides, and
+using UI components, images, and interactive content.
 
 The standalone résumé uses document navigation in both directions, including
 `/resume/` and the historical `/resume.html`, to keep its print stylesheet
