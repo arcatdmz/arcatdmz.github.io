@@ -62,6 +62,10 @@ pending navigation can be cancelled without disabling the current page. Popups
 and history fetch compact, localized JSON only when used. Language and section
 classes update before painting the destination. Fonts and analytics scripts load once.
 
+GA4 sends an explicit page view after each committed page change, with its URL,
+title, and previous page as the referrer. Fragment-only changes and cancelled
+navigation do not count. See [Analytics](docs/ANALYTICS.md) for setup and validation.
+
 ## Development
 
 Use Node.js 24 and the checked-in lockfile. No global Gulp installation is needed.

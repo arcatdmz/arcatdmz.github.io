@@ -1,6 +1,7 @@
 import { runDeferredScripts } from "@/site/deferred-scripts";
 import { getDocumentMetadata, resolveReactHref } from "@/site/navigation";
-import { useEffect, useLayoutEffect } from "react";
+import { createPageTracker, measurementId } from "@/site/analytics";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useRouter } from "next/router";
 
 type SiteWindow = Window & {
@@ -38,6 +39,7 @@ const useBrowserLayoutEffect =
 export function SiteRuntime() {
   const router = useRouter();
   const pageKey = router.asPath.split("#")[0];
+  const trackPage = useRef<ReturnType<typeof createPageTracker> | null>(null);
   useBrowserLayoutEffect(() => {
     const metadata = getDocumentMetadata(router.pathname);
     document.documentElement.lang = metadata.language;
@@ -111,7 +113,7 @@ export function SiteRuntime() {
     return () => document.removeEventListener("click", navigateWidgetLink);
   }, [router]);
 
-  // Fonts and analytics are document-level resources, not page-level widgets.
+  // Fonts are document-level resources, not page-level widgets.
   useEffect(() => {
     const site = window as unknown as SiteWindow;
     const html = document.documentElement;
@@ -134,25 +136,26 @@ export function SiteRuntime() {
         }
       })
       .catch(fallback);
-    site.dataLayer = site.dataLayer || [];
-    function gtag(..._args: unknown[]) {
-      site.dataLayer!.push(arguments);
-    }
-    gtag("js", new Date());
-    void loadScript(
-      "https://www.googletagmanager.com/gtag/js?id=G-W5KXWN8CJD",
-    ).catch(() => {});
     return () => window.clearTimeout(timer);
   }, []);
 
+  // Effects run after the destination and next/head commit. Pending or cancelled
+  // navigation never reaches this point; fragment-only changes keep pageKey.
   useEffect(() => {
+    if (!router.isReady) return;
     const site = window as unknown as SiteWindow;
-    site.dataLayer = site.dataLayer || [];
-    // gtag reads array-like arguments objects from this queue.
-    function gtag(..._args: unknown[]) {
-      site.dataLayer!.push(arguments);
+    if (!trackPage.current) {
+      site.dataLayer = site.dataLayer || [];
+      trackPage.current = createPageTracker(site.dataLayer);
+      void loadScript(
+        `https://www.googletagmanager.com/gtag/js?id=${measurementId}`,
+      ).catch(() => {});
     }
-    gtag("config", "G-W5KXWN8CJD", { page_path: router.asPath });
-  }, [router.asPath]);
+    trackPage.current({
+      location: window.location.href,
+      title: document.title,
+      referrer: document.referrer,
+    });
+  }, [router.isReady, pageKey]);
   return null;
 }
