@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -291,20 +292,20 @@ export default function Page({ pageData }: PageDataProps) {
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
+        <Grid stackable columns={2}>
           <div className="row">
-            <div className="column">
+            <GridColumn>
               <section id={"presentations"}>{renderPresentations()}</section>
               <div className="ui hidden divider"></div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <section id={"further-readings"}>
                 {renderFurtherReadings()}
               </section>
               <div className="ui hidden divider"></div>
-            </div>
+            </GridColumn>
           </div>
-        </div>
+        </Grid>
         <ProjectPublications
           project={p.project}
           majorPublication={"chi2024-kato-griffith"}

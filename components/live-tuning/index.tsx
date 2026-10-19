@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
@@ -110,8 +111,8 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <section id={"live-tuning-comparison"}>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h2 className="ui header">{"Live Programming"}</h2>
                 <p style={{ position: "relative" }}>
                   <a
@@ -148,8 +149,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h2 className="ui header">{"Live Tuning"}</h2>
                 <p style={{ position: "relative" }}>
                   <a id={"live-tuning"} className="live-preview" tabIndex={0}>
@@ -186,16 +187,16 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
         <section id={"motivation"}>
           <h2 className="ui header">{"Motivation"}</h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">{"Because programmers are tired"}</h3>
                 <ul>
                   <li>
@@ -218,8 +219,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3>{"Because users are demanding"}</h3>
                 <ul>
                   <li>
@@ -233,8 +234,8 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
@@ -253,8 +254,8 @@ export default function Page({ pageData }: PageDataProps) {
                 " is an Integrated Design Environment for authoring Kinetic Typography videos."
               }
             </p>
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/textalive-code.png`}
@@ -265,8 +266,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time."
                   }
                 </p>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/textalive-tuning.png`}
@@ -277,8 +278,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size."
                   }
                 </p>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
             <h3 className="ui header">{"f3.js: Form Follows Function()"}</h3>
             <p>
               <SiteLink href={href(`${basePath}f3js`)}>
@@ -289,8 +290,8 @@ export default function Page({ pageData }: PageDataProps) {
               <abbr title={"Internet of Things"}>{"IoT"}</abbr>
               {" applications."}
             </p>
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/f3js-code.png`}
@@ -301,8 +302,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience."
                   }
                 </p>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid bordered image"
                   src={`${rootPath}live-tuning/f3js-tuning.png`}
@@ -313,8 +314,8 @@ export default function Page({ pageData }: PageDataProps) {
                     " it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera."
                   }
                 </p>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>

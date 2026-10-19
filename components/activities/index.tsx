@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Popup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
@@ -153,14 +154,14 @@ export default function Page({ pageData }: PageDataProps) {
             </>
           )}
 
-          <div className="ui stackable two columns grid">
-            <div className="column">{renderServicesOcHci()}</div>
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>{renderServicesOcHci()}</GridColumn>
+            <GridColumn>
               {renderServicesOcMisc()}
               {renderServicesOcPx()}
               {renderServicesOcDomestic()}
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </section>
 
         <div className="ui divider"></div>
@@ -188,16 +189,16 @@ export default function Page({ pageData }: PageDataProps) {
             </>
           )}
 
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               {renderServicesPcHci()}
               {renderServicesPcMisc()}
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               {renderServicesPcPx()}
               {renderServicesPcDomestic()}
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </section>
 
         <div className="ui divider"></div>
@@ -629,8 +630,8 @@ export default function Page({ pageData }: PageDataProps) {
           <i className="world icon"></i>
           {en ? "Visited places" : "訪問先"}
         </h2>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Grid stackable columns={2}>
+          <GridColumn>
             <iframe
               width={"100%"}
               height={"360"}
@@ -639,8 +640,8 @@ export default function Page({ pageData }: PageDataProps) {
                 "https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"
               }
             ></iframe>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <div className="ui divided list">
               {(() => {
                 const children: ReactNode[] = [];
@@ -730,8 +731,8 @@ export default function Page({ pageData }: PageDataProps) {
                 return keyed(children);
               })()}
             </div>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </>
     );
   }

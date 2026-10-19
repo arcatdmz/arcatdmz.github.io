@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Embed, Popup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -131,17 +132,17 @@ export default function Page({ pageData }: PageDataProps) {
                 </tbody>
               </table>
 
-              <div className="ui two columns grid">
+              <Grid columns={2}>
                 <div className="stackable row">
-                  <div className="column">
+                  <GridColumn>
                     <div className="ui basic segment">
                       <EmbedYoutube
                         src={"//www.youtube.com/embed/tBBcweuGdrc?start=2061"}
                       />
                       <p className="caption">{"講演の録画"}</p>
                     </div>
-                  </div>
-                  <div className="column">
+                  </GridColumn>
+                  <GridColumn>
                     <div className="ui basic segment">
                       <Embed
                         className="ui embed"
@@ -170,9 +171,9 @@ export default function Page({ pageData }: PageDataProps) {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </GridColumn>
                 </div>
-              </div>
+              </Grid>
 
               <h3 className="ui header" id={"sigmus138"}>
                 <div className="content">
@@ -242,17 +243,17 @@ export default function Page({ pageData }: PageDataProps) {
                 </tbody>
               </table>
 
-              <div className="ui two columns grid">
+              <Grid columns={2}>
                 <div className="stackable row">
-                  <div className="column">
+                  <GridColumn>
                     <div className="ui basic segment">
                       <EmbedYoutube
                         src={"//www.youtube.com/embed/yTS5600B4pg"}
                       />
                       <p className="caption">{"プレゼンテーション再録"}</p>
                     </div>
-                  </div>
-                  <div className="column">
+                  </GridColumn>
+                  <GridColumn>
                     <div className="ui basic segment">
                       <Embed
                         className="ui embed"
@@ -281,9 +282,9 @@ export default function Page({ pageData }: PageDataProps) {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </GridColumn>
                 </div>
-              </div>
+              </Grid>
 
               <div className="ui hidden divider"></div>
 
@@ -360,9 +361,9 @@ export default function Page({ pageData }: PageDataProps) {
             </tbody>
           </table>
         </div>
-        <div className="ui two columns grid">
+        <Grid columns={2}>
           <div className="stackable row">
-            <div className="column">
+            <GridColumn>
               <div className="ui basic segment">
                 <EmbedYoutube src={"//www.youtube.com/embed/7XpDPghxdCE"} />
                 <p className="caption">
@@ -371,17 +372,17 @@ export default function Page({ pageData }: PageDataProps) {
                     : "CHI 2023 Video Preview（30秒）"}
                 </p>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <div className="ui basic segment">
                 <EmbedYoutube src={"//www.youtube.com/embed/sX4Cdcljqd0"} />
                 <p className="caption">
                   {"CHI 2023 Pre-recorded Presentation Video"}
                 </p>
               </div>
-            </div>
+            </GridColumn>
           </div>
-        </div>
+        </Grid>
       </>
     );
   }
@@ -599,9 +600,9 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         }
       >
-        <div className="ui two columns grid">
+        <Grid columns={2}>
           <div className="stackable row">
-            <div className="column">
+            <GridColumn>
               <section id={"abstract"}>
                 <h2 className="ui header">
                   <div className="content">{en ? "Abstract" : "概要"}</div>
@@ -648,8 +649,8 @@ export default function Page({ pageData }: PageDataProps) {
                   )}
                 </div>
               </section>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <section id={"programming-contest"}>
                 <h2 className="ui header">
                   <div className="content">
@@ -856,9 +857,9 @@ export default function Page({ pageData }: PageDataProps) {
                   )}
                 </div>
               </section>
-            </div>
+            </GridColumn>
           </div>
-        </div>
+        </Grid>
         <div className="ui basic right aligned segment">
           <a className="ui primary button" href={"//developer.textalive.jp"}>
             <i className="external icon"></i>

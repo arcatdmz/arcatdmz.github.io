@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -209,7 +210,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section id={"press"}></section>
         <h2 className="ui header">{en ? "Media Coverage" : "メディア掲載"}</h2>
         <div className="ui basic segment" style={{ marginBottom: "-0.5em" }}>
-          <div className="ui stackable grid">
+          <Grid stackable>
             <div className="three columns row">
               {mediaList
                 .filter(
@@ -220,7 +221,7 @@ export default function Page({ pageData }: PageDataProps) {
                 )
                 .map((e, itemIndex) => (
                   <Fragment key={itemIndex}>
-                    <div className="column" style={{ marginBottom: "0.5em" }}>
+                    <GridColumn style={{ marginBottom: "0.5em" }}>
                       <SiteLink
                         className="item"
                         href={href(e.archive || e.permalink)}
@@ -235,11 +236,11 @@ export default function Page({ pageData }: PageDataProps) {
                           alt={e.media.en}
                         />
                       </SiteLink>
-                    </div>
+                    </GridColumn>
                   </Fragment>
                 ))}
             </div>
-          </div>
+          </Grid>
         </div>
         <div className="ui divider"></div>
         <section id={"related-work"}>
@@ -303,10 +304,10 @@ export default function Page({ pageData }: PageDataProps) {
         </LocalizedContent>
       </div>
       <div className="ui hidden divider"></div>
-      <div className="ui stackable two columns grid">
-        <div className="column">{renderBody()}</div>
-        <div className="column">{renderVideos()}</div>
-      </div>
+      <Grid stackable columns={2}>
+        <GridColumn>{renderBody()}</GridColumn>
+        <GridColumn>{renderVideos()}</GridColumn>
+      </Grid>
       <div className="ui hidden divider"></div>
       <ProjectPublications
         project="openpool"

@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -85,8 +86,8 @@ export default function Page({ pageData }: PageDataProps) {
           </div>
         </section>
         <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Grid stackable columns={2}>
+          <GridColumn>
             <section id={"gestures"}>
               <h2 className="ui header">
                 {en ? "Recognizable gestures" : "検出可能なジェスチャ"}
@@ -143,8 +144,8 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </section>
             <div className="ui hidden divider"></div>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <EmbedYoutube src={"//www.youtube.com/embed/QKtzsOU-sA8"} />
             <div className="caption">
               <div className="ui horizontal list">
@@ -168,8 +169,8 @@ export default function Page({ pageData }: PageDataProps) {
                 ? "Microphones attached close to keyboards"
                 : "キーボードの近くに設置されたマイク"}
             </div>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
         <div className="ui hidden divider"></div>
         <ProjectPublications
           project={"surfboard"}

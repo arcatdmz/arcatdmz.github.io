@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { ProjectHeader } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -52,8 +53,8 @@ export default function Page({ pageData }: PageDataProps) {
             : "このWebサイトは、ユーザビリティ、メンテナンス性、そして速度を念頭に設計されています。"}
         </p>
         <div className="ui hidden divider"></div>
-        <div className="ui stackable three columns grid">
-          <div className="column">
+        <Grid stackable columns={3}>
+          <GridColumn>
             <h3 className="ui header">
               <i className="user icon"></i>
               {en ? "Usability" : "ユーザビリティ"}
@@ -89,8 +90,8 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </div>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3 className="ui header">
               <i className="configure icon"></i>
               {en ? "Maintainability" : "メンテナンス性"}
@@ -127,8 +128,8 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </div>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3 className="ui header">
               <i className="plane icon"></i>
               {en ? "Speed" : "速度"}
@@ -172,8 +173,8 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </LocalizedContent>
             </div>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </>
     );
   }
@@ -387,20 +388,20 @@ export default function Page({ pageData }: PageDataProps) {
         <div className="ui hidden divider"></div>
         <section id={"design"}>{renderDesign()}</section>
         <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Grid stackable columns={2}>
+          <GridColumn>
             <section id={"code"}>
               {renderCode()}
               <div className="ui hidden divider"></div>
             </section>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <section id={"acknowledgement"}>
               {renderAcknowledgement()}
               <div className="ui hidden divider"></div>
             </section>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </SiteLayout>
     </>
   );

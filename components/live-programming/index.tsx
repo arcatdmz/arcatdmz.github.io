@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Embed, Popup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { ProjectHero, ProjectItem } from "@/site/components/ContentComponents";
@@ -57,8 +58,8 @@ export default function Page({ pageData }: PageDataProps) {
         <h2 className="ui header">{en ? "Summary" : "概要"}</h2>
         <div className="ui basic segment">
           <p>{description}</p>
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               {en ? (
                 <>
                   <p>
@@ -104,8 +105,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               )}
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               {en ? (
                 <>
                   <p>
@@ -146,8 +147,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               )}
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
       </>
     );
@@ -171,8 +172,8 @@ export default function Page({ pageData }: PageDataProps) {
           )}
         </h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">
                 {en ? "Presentation Slides (Japanese)" : "発表スライド"}
               </h3>
@@ -211,8 +212,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 {en
                   ? "What is Live Programming?"
@@ -257,8 +258,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui basic segment">
           {en ? (
@@ -427,8 +428,8 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "LIVE 2017 Keynote" : "LIVE 2017 基調講演"}
         </h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">
                 {en ? "Presentation Slides" : "発表スライド"}
               </h3>
@@ -463,8 +464,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 {en
                   ? "What is Live Programming?"
@@ -503,8 +504,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui basic segment">
           {en ? (
@@ -538,16 +539,16 @@ export default function Page({ pageData }: PageDataProps) {
           )}
         </div>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <SiteLink
                 className="ui fluid bordered image"
                 href={href(`${slideImagePath}13.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}13.jpg`} />
               </SiteLink>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <div className="caption">
                 {en ? (
                   <>
@@ -579,8 +580,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui basic segment">
           {en ? (
@@ -601,8 +602,8 @@ export default function Page({ pageData }: PageDataProps) {
             </>
           )}
 
-          <div className="ui stackable three columns grid">
-            <div className="column">
+          <Grid stackable columns={3}>
+            <GridColumn>
               <h4 className="ui header">
                 {en
                   ? "Programming with End-users"
@@ -689,8 +690,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h4 className="ui header">
                 {en
                   ? "Programming this Material World"
@@ -745,8 +746,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h4 className="ui header">
                 {en
                   ? "Programming with Time Travel"
@@ -789,8 +790,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </>
                 )}
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui basic segment">
           <SiteLink

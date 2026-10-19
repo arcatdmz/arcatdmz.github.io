@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -214,15 +215,15 @@ export default function Page({ pageData }: PageDataProps) {
       <SiteLayout context={context}>
         <ProjectHeader project={"multirobot"} />
         <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Grid stackable columns={2}>
+          <GridColumn>
             <section id={"abstract"}>{renderAbstract()}</section>
             <section id={"interaction"}>{renderInteraction()}</section>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <section id={"videos"}>{renderVideos()}</section>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
         <ProjectPublications
           project={"multirobot"}
           majorPublication={"chi2009-kato-multirobot"}

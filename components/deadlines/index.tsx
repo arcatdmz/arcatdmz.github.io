@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import {
   hydratePageData,
   type PageDataProps,
@@ -52,8 +53,8 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "Active Deadlines" : "現在の〆切"}
           </h2>
           <div className="ui segment">
-            <div className="ui stackable divided three columns grid">
-              <div className="column">
+            <Grid stackable divided columns={3}>
+              <GridColumn>
                 <h3 className="ui header">{"ACM CHI 2019"}</h3>
                 <div className="basic segment">
                   <iframe
@@ -75,8 +76,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">{"LIVE 2018"}</h3>
                 <div className="basic segment">
                   <iframe
@@ -98,17 +99,17 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </div>
-              </div>
-              <div className="column"></div>
-            </div>
+              </GridColumn>
+              <GridColumn></GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
         <section>
           <h2 className="ui header">{en ? "Past Deadlines" : "過去の〆切"}</h2>
           <div className="ui segment">
-            <div className="ui stackable divided three columns grid">
-              <div className="column">
+            <Grid stackable divided columns={3}>
+              <GridColumn>
                 <h3 className="ui header">{"ACM UIST 2018"}</h3>
                 <div className="basic segment">
                   <iframe
@@ -130,8 +131,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">{"ACM MM 2018"}</h3>
                 <div className="basic segment">
                   <iframe
@@ -153,8 +154,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">{"IEEE VL/HCC 2018"}</h3>
                 <div className="basic segment">
                   <iframe
@@ -176,8 +177,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Show the countdown timer"}
                   </a>
                 </div>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
       </SiteLayout>
