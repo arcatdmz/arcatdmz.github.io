@@ -1,21 +1,23 @@
-# Shared page content
+# コンテンツの追加・翻訳
 
-`pages/` owns URLs and build-time data selection. Author one route and its
-matching shared component. `localizedPageProps` opts the route into bilingual
-output; `npm run dev`, `npm run build`, and `npm run typecheck` create the other
-language's entry automatically. The template reads `pageData.language`.
+## 編集するファイル
 
-Generated `*.localized.tsx` entries are ignored by Git. They import the shared
-component directly and delegate data selection to the authored route, overriding
-only the language. There is no copied configuration or central route list to
-maintain. An explicit counterpart page takes precedence. Either English or
-Japanese can be the authored route; dynamic timeline routes retain their own
-explicit `getStaticPaths`.
+| 内容                           | 編集先                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| ページの本文・画像・レイアウト | 対応する `components/` のファイル。例: `components/homehack/index.tsx` |
+| URL・ページで参照するデータ    | 対応する `pages/` のファイル                                           |
+| プロジェクト名・説明・期間     | `src/data/projects.json`                                               |
+| 論文・発表資料                 | `src/junkato.bib` と `src/publications/`                               |
+| 活動履歴・受賞・報道など       | `src/data/` の対応するJSON                                             |
+| 画像・配布ファイル             | `src/` 以下。公開時は `src/` を除いたパスになる                        |
 
-## Adding a project
+英日で本文を共有するページは、共通の本文を一度だけ定義します。翻訳を指定しない部分には共通本文が表示されます。英語URLにあるページでも、共通本文が日本語の場合があります。
 
-First add its title, description, dates, and other project metadata to
-`src/data/projects.json`, as for existing projects. Then add these two files:
+講演・UGV・履歴書など、独立した構成のページの編集先は[保守ガイド](MAINTENANCE.md)を参照してください。
+
+## プロジェクトページの追加
+
+最初に `src/data/projects.json` にプロジェクトの情報を追加します。次に、ルートと共通本文の2ファイルを作成します。
 
 ```tsx
 // pages/example/index.tsx
@@ -50,37 +52,17 @@ export default function Page({ pageData }: PageDataProps) {
 }
 ```
 
-This produces `/example/` and `/ja/example/`, their localized metadata and data,
-and the language-switch links. `ProjectPage` supplies the standard project
-header, layout, and publications. Use `useSiteContext` in child components for
-localized labels, links, or project data. Keep custom layouts for pages that
-need them. For uncommon locale-specific data references, the factory accepts a
-fourth argument such as `{ ja: { projects: [...], publications: [...] } }`.
-`npm run routes` refreshes entries and route metadata without rebuilding assets.
+これで `/example/` と `/ja/example/` が生成されます。`ProjectPage` はプロジェクトの見出し・共通レイアウト・関連文献を表示します。
 
-The original Pug sources, immediately before their removal in `7814f69`, define
-the content ownership. Japanese pages extend the default page and replace only
-named blocks. In particular:
+`localizedPageProps` を使うと、開発・ビルド・型検査の際にもう一方の言語の `*.localized.tsx` が自動生成されます。生成ファイルは編集・コミットしません。日本語側を元のルートにすることもできます。片方に明示的なルートがあれば、そのファイルが使われます。
 
-| Template                        | Japanese overrides in Pug       | Current ownership                                                  |
-| ------------------------------- | ------------------------------- | ------------------------------------------------------------------ |
-| DeployGround                    | Only `lang`                     | One shared template; English prose in both locales                 |
-| Homehack and its three projects | Only `lang`                     | Japanese default prose in both locales; one shared Homehack layout |
-| Griffith                        | `abstract`                      | Shared presentation and layout, localized abstract                 |
-| VisionSketch                    | `message`, `abstract`           | Localized message and abstract; shared presentation                |
-| Live Programming                | Title and description in `lang` | Localized metadata; inherited page sections                        |
+ルートだけを再生成する場合は `npm run routes` を実行します。年別履歴などの動的ルートは、言語ごとに `getStaticPaths` を定義します。
 
-Other shared templates note their original Japanese block names in their leading
-comment. Japanese-only pages and English redirects to them retain their existing
-behavior. A default template's language is determined by its source content; do
-not assume that an English URL makes all of its prose English.
+言語別に参照データを変える場合は、第4引数に `{ ja: { projects: [...] } }` のように指定します。その言語では、指定した参照一覧が第3引数の代わりに使われます。
 
-## Editing defaults and translations
+## 本文と翻訳
 
-Edit the matching `components/` file. Put shared prose, images, embeds, and
-layout there once. A missing translation inherits that same content, including
-future corrections. Use ordinary conditional expressions for short labels.
-For rich sections, `LocalizedContent` supplies an optional locale override:
+短いラベルは `en ? "English" : "日本語"` のように書けます。段落などのまとまった内容には `LocalizedContent` を使います。
 
 ```tsx
 <LocalizedContent ja={<p>日本語の概要。</p>}>
@@ -88,57 +70,9 @@ For rich sections, `LocalizedContent` supplies an optional locale override:
 </LocalizedContent>
 ```
 
-Omitting `ja` inherits the children. Japanese default content can likewise have
-an `en` override. An explicit `null` or `false` override suppresses the section;
-`undefined` inherits it. The component renders no extra DOM element and reads
-the locale from `SiteLayout` context. Keep JSX construction free of mutations:
-React evaluates props and children before selecting which content to render.
+`ja` を省略すると共通本文を表示します。日本語を共通本文にし、`en` だけ指定することもできます。`undefined` は共通本文の使用、`null` と `false` はその部分の非表示を表します。
 
-This uses React composition to preserve Pug's default/override behavior. It
-avoids maintaining a second page tree or a separate translation of shared media.
-Related translations stay beside their default content. The tradeoff is larger
-template files and browser modules containing both languages' authored prose.
-Large future translations can be extracted into named section components;
-shared layout and fallback content should still have one owner.
-
-String dictionaries work well for repeated interface labels, but rich paragraphs
-with links and differing structures are easier to edit as JSX. MDX or a full i18n
-framework would add parsing, message keys, and build configuration without
-removing the need to share layouts and media. Keeping shared JSX inside a Next route would couple content to routing and
-server-only build functions. Shared JSX lives in `components/`; generated route
-entries delegate only the build-time data function to the authored route.
-
-Translation contribution links point to the shared component. The audit CSV
-retains its original inspection locations as a historical snapshot; the audit
-Markdown links point to current authoring files.
-
-## Fomantic React components
-
-Use `react-fomantic-ui` components for standard UI. The site layout already loads
-the theme; content templates do not need additional framework styles or jQuery
-initialization.
-
-```tsx
-import { Grid } from "react-fomantic-ui";
-
-<Grid stackable columns={2}>
-  <Grid.Column>...</Grid.Column>
-  <Grid.Column>...</Grid.Column>
-</Grid>;
-```
-
-Use props for variations: `<Label horizontal>` and `<Divider hidden />` replace
-handwritten `ui horizontal label` and `ui hidden divider` classes. The same rule
-applies to headers, segments, lists, cards, items, feeds, menus, tables, forms,
-buttons, and icons. Import only the parent for compound components:
-`Item.Content`, `Item.Header`, `Grid.Column`, and `List.Item`, rather than
-individual subcomponent imports.
-
-Choose appropriate HTML elements with `as`, such as `<Header as="h2">` for a
-section heading. Use `SiteLink` directly for links, or through a UI component's
-`as` prop. Navigable `Button` and `List.Item` components also need `role="link"`;
-actions should retain button semantics. Build localized destinations from
-`useSiteContext().basePath`:
+ラベル・リンク・ページデータは `useSiteContext` から取得します。`ProjectPage` または `SiteLayout` の内側にある子コンポーネントで使ってください。
 
 ```tsx
 import { Button } from "react-fomantic-ui";
@@ -155,41 +89,59 @@ function ProjectLink() {
 }
 ```
 
-Keep custom classes for site styling and variations without library props, such
-as responsive visibility utilities, Devicon icons, divided feeds, and list/feed
-slots without matching subcomponents. Production CSS purging reads rendered HTML,
-so ordinary classes generated by components are retained automatically.
+`basePath` は表示言語に応じたリンク先、`rootPath` は共通画像などのパスに使います。本文は `<p>説明文</p>` のような通常のJSXで書きます。
 
-### Images, embeds, and interactive content
+## UI部品
 
-Use the existing site components for these behaviors:
+標準的なUIには `react-fomantic-ui` のコンポーネントを使います。
 
-| Content to add                | Component and usage                                                                                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Responsive image              | `SiteImage` from `site/components/SiteImage`; provide meaningful `alt` text and use image props such as `fluid` and `bordered`.                                                   |
-| Linked image                  | `LinkedImage` from `site/components/LinkedImage`, wrapping `SiteImage`; put `href` and outer styling props on `LinkedImage`.                                                      |
-| Video or other embedded media | `DeferredEmbed` from `site/components/DeferredEmbed`; supply the source or URL and placeholder. It supports click and keyboard activation without loading the iframe immediately. |
-| Popup with authored content   | `SitePopup` from `site/components/SiteWidgets`; pass the interactive element as `trigger` and popup content as children.                                                          |
-| Image enlarged in a modal     | `ModalImage` from `site/components/SiteWidgets`, wrapping `SiteImage`; include one `SiteModal` in the page, as in `components/design/index.tsx`.                                  |
-| Navigation dropdown           | `NavigationDropdown` from `site/components/SiteWidgets`, with `Dropdown.Menu` and linked `Menu.Item` children; see `site/components/SiteLayout.tsx`.                              |
-| Copy-to-clipboard control     | `CopyButton` from `site/components/InteractiveLinks`; set `data-clipboard-text` and `lang` for localized feedback.                                                                |
+```tsx
+import { Grid } from "react-fomantic-ui";
 
-For example:
+<Grid stackable columns={2}>
+  <Grid.Column>...</Grid.Column>
+  <Grid.Column>...</Grid.Column>
+</Grid>;
+```
+
+装飾は `<Label horizontal>`、`<Divider hidden />` のようにpropsで指定します。サブコンポーネントは親だけをインポートし、`Item.Content`、`Item.Header`、`Grid.Column`、`List.Item` として参照してください。
+
+見出しには `<Header as="h2">` など適切なHTML要素を指定します。リンクには `SiteLink` を使い、UI部品に組み込む場合は `as={SiteLink}` とします。移動用の `Button` や `List.Item` は `role="link"`、操作ボタンはボタンとして扱います。
+
+サイト独自の装飾、表示幅による出し分け、Devicon、ライブラリに対応するpropsがない表現にはクラスを使えます。共通レイアウトがスタイルを読み込むので、本文で追加のCSS読み込みやjQueryの初期化は不要です。
+
+## 画像と埋め込み
+
+| 用途                             | 使う部品                                                                                                                     |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| レスポンシブ画像                 | `site/components/SiteImage` の `SiteImage`。`alt` と、必要に応じて `fluid`・`bordered`・`sizes` を指定する                   |
+| リンク付き画像                   | `site/components/LinkedImage` の `LinkedImage` で `SiteImage` を囲む。`href` と外側の装飾は `LinkedImage` に指定する         |
+| クリック・キー操作で開く埋め込み | `site/components/DeferredEmbed` の `DeferredEmbed` にURLまたは動画情報とプレースホルダーを指定する                           |
+| 本文を持つポップアップ           | `site/components/SiteWidgets` の `SitePopup`。`trigger` に操作要素、childrenに内容を指定する                                 |
+| 拡大画像                         | `SiteWidgets` の `ModalImage` で `SiteImage` を囲み、ページ内に `SiteModal` を一つ置く。`components/design/index.tsx` を参照 |
+| ナビゲーションメニュー           | `SiteWidgets` の `NavigationDropdown`。使用例は `site/components/SiteLayout.tsx` を参照                                      |
+| コピー操作                       | `site/components/InteractiveLinks` の `CopyButton` に `data-clipboard-text` と `lang` を指定する                             |
 
 ```tsx
 import { LinkedImage } from "@/site/components/LinkedImage";
 import { SiteImage } from "@/site/components/SiteImage";
 
 <LinkedImage fluid href="/example/detail.jpg">
-  <SiteImage
-    src="/example/detail-thumbnail.jpg"
-    alt="Close-up of the prototype"
-  />
+  <SiteImage src="/example/detail-thumbnail.jpg" alt="試作品の拡大写真" />
 </LinkedImage>;
 ```
 
-`ProjectPage` and `SiteLayout` provide the shared widget context. Use these site
-components within that layout to preserve keyboard access, focus restoration,
-and page navigation behavior. Popup and custom modal content should be ordinary
-JSX children so it is also present in the static HTML. Within `SiteModal`, use
-`Modal.Header` and `Modal.Content` for its contents.
+画像は説明に合う `alt` を付けます。装飾だけの画像は `alt=""` とします。画像の原本は残し、ビルドで表示用の縮小画像を生成します。
+
+ポップアップやモーダルは `ProjectPage`・`SiteLayout` の内側で使います。内容は通常のJSXのchildrenとして渡し、`SiteModal` 内の見出しと本文には `Modal.Header`、`Modal.Content` を使います。
+
+## 編集後の確認
+
+```sh
+npm run prettify
+npm test
+npm run build
+npm run preview
+```
+
+英日両方のページを開き、本文・翻訳・言語切り替え・画像・資料リンクを確認してください。埋め込みは実際に開いて再生やページ送りを試します。詳しい検証コマンドは[保守ガイド](MAINTENANCE.md#ビルドと確認)にあります。

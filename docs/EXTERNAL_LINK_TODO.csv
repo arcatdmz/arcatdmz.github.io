@@ -1,0 +1,145 @@
+ID,URL,編集元,掲載ページ,確認状況,置換候補,次の対応,最終確認日
+X0012,http://blogs.msdn.com/b/nikolait/archive/2012/10/22/announcing-touchdevelop-web-app-preview.aspx,src/data/histories.json,/ja/timeline/2012/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0022,http://ci.nii.ac.jp/naid/110008507978/,src/junkato.bib,/ja/phybots/; /ja/publications/; /ja/timeline/2011/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0023,http://conference.vrsj.org/ac2013/,src/data/histories.json; src/data/talks.json,/ja/publications/; /ja/timeline/2013/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0024,http://conference.vrsj.org/ac2013/program/252/,src/data/histories.json; src/data/talks.json,/ja/publications/; /ja/timeline/2013/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0027,http://designinterface.jp/projects/CRISTAL/cristal-2009.pdf,src/junkato.bib,/ja/publications/; /ja/timeline/; /publications/; /timeline/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0033,http://dl.acm.org/citation.cfm?id=2619648.2619668,src/junkato.bib,/ja/publications/; /ja/timeline/2014/; /ja/timeline/; /publications/; /timeline/2014/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0039,http://doi.acm.org/10.1145/1520340.1520500,src/junkato.bib,/ja/multirobot/; /ja/publications/; /ja/timeline/; /multirobot/; /publications/; /resume.html; /resume/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0041,http://doi.acm.org/10.1145/1866218.1866233,src/junkato.bib,/ja/publications/; /ja/surfboard/; /ja/timeline/2010/; /ja/timeline/; /publications/; /surfboard/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0042,http://doi.acm.org/10.1145/2317956.2317996,src/junkato.bib,/ja/phybots/; /ja/publications/; /ja/timeline/2012/; /ja/timeline/; /phybots/; /publications/; /resume.html; /resume/; /timeline/2012/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0043,http://doi.acm.org/10.1145/2380116.2380142,src/junkato.bib,/dejavu/; /ja/dejavu/; /ja/publications/; /ja/timeline/2012/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/2012/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0053,http://doi.acm.org/10.1145/3064663.3064681,src/junkato.bib,/f3js/; /ja/f3js/; /ja/publications/; /ja/timeline/2017/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/2017/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0055,http://doi.acm.org/10.1145/3173574.3173773,src/junkato.bib,/ja/publications/; /ja/timeline/2018/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/2018/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0078,http://gibber.mat.ucsb.edu/,site/talks/as-a-code.tsx,/ja/talks/as-a-code/p2.html,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0079,http://hackathon.songle.jp/,src/data/histories.json,/ja/timeline/2018/; /ja/timeline/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0085,http://hci.tokyo/seminar/chi2015,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0090,http://iclc.livecodenetwork.org/,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0105,http://id.nii.ac.jp/1001/182949/,src/junkato.bib,/ja/publications/; /ja/timeline/2017/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0106,http://ide.digitalmuseum.jp/Integrated_development_environment/ja,site/talks/as-a-code.tsx; site/talks/people-are-programmers.tsx,/ja/talks/as-a-code/; /ja/talks/people-are-programmers/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0109,http://itri.aist-go.jp/,site/talks/people-are-programmers.tsx,/ja/talks/people-are-programmers/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0110,http://kadecot.net/ouch-hack/,components/homehack/index.tsx; src/data/histories.json,/ja/timeline/2014/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0112,http://miraist.com/2016/2/textalive,src/data/histories.json,/ja/timeline/2016/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0117,http://phybots.com/jp,src/junkato.bib,/ja/phybots/; /ja/publications/; /ja/timeline/2010/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0136,http://shapejs.shapeways.com/,site/talks/as-a-code.tsx,/ja/talks/as-a-code/p2.html,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0145,http://sketchpad.cc/,site/talks/as-a-code.tsx,/ja/talks/as-a-code/p2.html,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0149,http://songmash.jp/,src/data/projects.json,/design/; /ja/design/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0155,http://textalive.jp/paper,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0161,http://tutorons.com/,components/deployground/index.tsx,/deployground/; /ja/deployground/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0163,http://up.csail.mit.edu/collabode/,src/user-generated-variables/index.html,/user-generated-variables/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0164,http://users.comnet.aalto.fi/oulasvir/pubs/hci-research-as-problem-solving-chi2016.pdf,pages/ja/science/index.tsx,/ja/science/,修正先確認済み,https://users.comnet.aalto.fi/oulasvir/pubs/hci-research-as-problem-solving-chi2016.pdf,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0172,http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio_en.html,src/data/projects.json,/live-programming/; /projects/; /publications/; /timeline/2012/; /timeline/2014/; /timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0173,http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/capstudio.html,src/data/projects.json,/ja/live-programming/; /ja/projects/; /ja/publications/; /ja/timeline/2012/; /ja/timeline/2014/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0174,http://www-ui.is.s.u-tokyo.ac.jp/~fukahori/capstudio/CHI_WIP_cameraready2.pdf,src/junkato.bib,/ja/publications/; /ja/timeline/2014/; /ja/timeline/; /publications/; /timeline/2014/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0184,http://www.cs.umanitoba.ca/events/event.php?event=2014-06-23-dr-jun-kato,src/data/talks.json,/ja/publications/; /ja/timeline/2014/; /ja/timeline/; /publications/; /timeline/2014/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0193,http://www.ieee-gcce.org/2013/,src/data/histories.json; src/data/misc.json,/activities/; /ja/activities/; /ja/timeline/2013/; /ja/timeline/,修正先確認済み,https://www.ieee-gcce.org/2013/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0196,http://www.interaction-ipsj.org/2016/,src/data/awards.json; src/data/histories.json,/ja/timeline/2016/; /ja/timeline/,修正先確認済み,https://www.interaction-ipsj.org/2016/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0197,http://www.interaction-ipsj.org/2016/award,src/data/awards.json,/ja/publications/; /ja/timeline/2016/; /ja/timeline/; /publications/,修正先確認済み,https://www.interaction-ipsj.org/2016/award,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0198,http://www.interaction-ipsj.org/2024/,src/data/histories.json,/ja/timeline/2024/; /ja/timeline/,修正先確認済み,https://www.interaction-ipsj.org/2024/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0199,http://www.ipa.go.jp/english/humandev/third.html,src/data/awards.json,/publications/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0209,http://www.jsps.go.jp/english/e-pd/pddc.htm,src/data/awards.json,/publications/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0212,http://www.jst.go.jp/erato/igarashi/en/projects/CRISTAL,src/data/projects.json,/projects/; /publications/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0213,http://www.jst.go.jp/erato/igarashi/projects/CRISTAL,src/data/projects.json,/ja/projects/; /ja/publications/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0214,http://www.maynoothuniversity.ie/smc15/,src/data/histories.json,/timeline/2015/; /timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0216,http://www.openpool.cc/,components/openpool/index.tsx,/ja/openpool/; /openpool/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0219,http://www.s.u-tokyo.ac.jp/ja/map/map06.html,src/data/histories.json,/ja/timeline/2014/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0221,http://www.sei.pku.edu.cn/people/zhanglu/my-papers/ICSE13-Tool,src/user-generated-variables/index.html,/user-generated-variables/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0223,http://www.sharedo.info/,components/sharedo/index.tsx,/ja/sharedo/; /sharedo/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0225,http://www.sigmodj.org/conf/detail.php?conf_no=72,src/data/talks.json,/ja/publications/; /ja/timeline/2019/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0226,http://www.sigmus.jp/?page_id=2780,src/data/awards.json; src/data/histories.json,/ja/publications/; /ja/timeline/2014/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0294,https://arch-research.booth.pm/,src/data/histories.json,/ja/timeline/2019/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0356,https://blog.adobe.com/en/publish/2017/08/28/where-did-the-term-user-experience-come-from.html,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0406,https://blog.junkato.jp/ja/posts/2015-6-29-cs-research-internship-abroad/,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,修正先確認済み,https://blog.junkato.jp/ja/posts/2015-06-29-cs-research-internship-abroad/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0407,https://blog.junkato.jp/ja/posts/2015-6-30-cs-research-internship-abroad-2/,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,修正先確認済み,https://blog.junkato.jp/ja/posts/2015-06-30-cs-research-internship-abroad-2/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0418,https://blog.junkato.jp/ja/posts/2016-3-16-ipsj-one-px-science-as-a-service/,src/data/histories.json,/ja/timeline/2016/; /ja/timeline/,修正先確認済み,https://blog.junkato.jp/ja/posts/2016-03-16-ipsj-one-px-science-as-a-service/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0425,https://blog.junkato.jp/ja/posts/2017-10-8-live-programming/,src/data/histories.json,/ja/timeline/2017/; /ja/timeline/,修正先確認済み,https://blog.junkato.jp/ja/posts/2017-10-08-live-programming/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0428,https://blog.junkato.jp/ja/posts/2018-06-09-arch-inc-technical-advisor/,src/data/histories.json,/ja/timeline/2018/; /ja/timeline/,修正先確認済み,https://blog.junkato.jp/ja/posts/2018-07-09-arch-inc-technical-advisor/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0518,https://codeshare.io/,src/user-generated-variables/index.html,/user-generated-variables/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0524,https://dblp.org/db/conf/mm/mm2018,src/data/histories.json,/ja/timeline/2018/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0531,https://dl.acm.org/doi/10.1145/169059.169166,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0532,https://dl.acm.org/doi/10.1145/2470654.2466180,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0533,https://dl.acm.org/doi/10.1145/258549.258760,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0534,https://dl.acm.org/doi/10.5555/2487085.2487100,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0535,https://dl.acm.org/doi/10.5555/578027,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0555,https://doi.acm.org/10.1145/2501988.2502052,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0556,https://doi.acm.org/10.1145/2556288.2556986,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0557,https://doi.acm.org/10.1145/2568225.2568313,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0558,https://doi.acm.org/10.1145/2647868.2654949,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0560,https://doi.acm.org/10.1145/2807442.2807446,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0561,https://doi.acm.org/10.1145/3017680.3017728,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0562,https://doi.acm.org/10.1145/3064663.3064681,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0563,https://doi.acm.org/10.1145/3126594.3126642,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0564,https://doi.acm.org/10.1145/3126594.3126663,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0575,https://doi.org/10.1145/2370216.2370238,pages/in-the-wild/index.tsx,/in-the-wild/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0588,https://doi.org/10.1145/3596927,components/creativity-support-environments/index.tsx; pages/in-the-wild/index.tsx; src/data/histories.json; src/junkato.bib,/animare/; /creativity-support-environments/; /in-the-wild/; /ja/animare/; /ja/creativity-support-environments/; /ja/publications/; /ja/timeline/2023/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/2023/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0606,https://dx.doi.org/10.1145/22339.22349,components/programming-with-examples/index.tsx,/ja/programming-with-examples/; /programming-with-examples/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0633,https://github.com/arcatdmz/arcatdmz.github.io/blog/main/package.json,components/website/index.tsx,/ja/website/; /website/,修正先確認済み,https://github.com/arcatdmz/arcatdmz.github.io/blob/main/package.json,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X0659,https://haremi.xyz/projects/oden/oden.html,src/data/projects.json,/ja/live-programming/; /ja/projects/; /ja/timeline/2022/; /ja/timeline/; /live-programming/; /projects/; /timeline/2022/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0670,https://ibakira.tv/movies/view/105398,src/data/media.json,/ja/publications/; /ja/timeline/2025/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0672,https://iclc.livecodenetwork.org/,src/data/histories.json,/timeline/2015/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0677,https://ieeexplore.ieee.org/document/7202990,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0678,https://ieeexplore.ieee.org/document/7357193,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0681,https://interactions.acm.org/archive/view/may-june-2016/research-contribution-in-human-computer-interaction,pages/ja/science/index.tsx,/ja/science/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0697,https://jp.linkedin.com/in/jkato,components/index.tsx,/; /ja/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0698,https://jpop.fandom.com/wiki/Bellring_Shoujo_Heart,components/textalive/index.tsx,/textalive/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0717,https://m.wantedly.com/,pages/ja/teaparty/2016/index.tsx,/ja/teaparty/2016/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0751,https://mi-lab.org/portfolio-item/cristal,src/data/awards.json,/ja/publications/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0773,https://otonglass.jp/,components/programming-as-communication/index.tsx; src/data/histories.json,/ja/programming-as-communication/; /ja/timeline/2020/; /ja/timeline/; /timeline/2020/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0777,https://peraichi.com/landing_pages/view/otoge,components/homehack/index.tsx; components/homehack/rhythm-kaden/index.tsx,/homehack/; /homehack/rhythm-kaden/; /ja/homehack/; /ja/homehack/rhythm-kaden/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0791,https://prtimes.jp/main/html/rd/p/000000076.000072682.html,src/data/media.json,/ja/publications/; /ja/timeline/2024/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0807,https://queue.acm.org/detail.cfm?id=1071731,site/talks/people-are-programmers.tsx,/ja/talks/people-are-programmers/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0831,https://runkit.com/,components/deployground/index.tsx,/deployground/; /ja/deployground/,証明書期限切れ,,証明書を再確認し、有効な公開先または保存版へ案内する,2026-10-14
+X0833,https://ryosuzuki.org/publications/chi-2018-reactile-slide.pdf,src/data/histories.json; src/junkato.bib,/ja/publications/; /ja/timeline/2018/; /ja/timeline/; /publications/; /timeline/2018/; /timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0834,https://ryosuzuki.org/publications/chi-2018-reactile.pdf,src/junkato.bib,/ja/publications/; /ja/timeline/2018/; /ja/timeline/; /publications/; /timeline/2018/; /timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0839,https://sa2021.siggraph.org/en,src/data/misc.json,/activities/; /ja/activities/; /resume.html; /resume/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0840,https://sa2021.siggraph.org/en/about-us/siggraph-asia-2021-committee/real-time-live-committee,src/data/misc.json,/resume.html; /resume/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0841,https://sa2024.siggraph.org/,src/data/histories.json,/ja/timeline/2024/; /ja/timeline/; /timeline/2024/; /timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X0845,https://scholar.google.com/citations?user=EFCqkUsAAAAJ&hl=en,components/dejavu/index.tsx; components/touchdevelop/index.tsx,/dejavu/; /ja/dejavu/; /ja/touchdevelop/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0852,https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F,components/programming-as-communication/index.tsx,/ja/programming-as-communication/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0866,https://sigchi.org/conferences/conference-history/chi/,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0882,https://src.acm.org/candidates/2010,src/data/awards.json,/ja/publications/; /ja/timeline/2010/; /ja/timeline/; /publications/; /resume.html; /resume/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0883,https://src.acm.org/winners/2010,components/multirobot/index.tsx; src/data/awards.json,/ja/multirobot/; /ja/publications/; /ja/timeline/; /multirobot/; /publications/; /resume.html; /resume/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0884,https://stackoverflow.com/,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X0901,https://tcher.tech/,components/programming-as-communication/index.tsx,/ja/programming-as-communication/; /programming-as-communication/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0905,https://textalive.jp/about,site/talks/people-are-programmers.tsx,/ja/talks/people-are-programmers/p3.html,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X0919,https://touchdevelop.com/,components/touchdevelop/index.tsx,/ja/touchdevelop/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1004,https://uist.acm.org/2025/program.html,components/tweeq/index.tsx,/ja/tweeq/,修正先確認済み,https://uist.acm.org/2025/papers/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X1025,https://uist.acm.org/uist2025/organizers,src/data/misc.json,/resume.html; /resume/,修正先確認済み,https://uist.acm.org/2025/organizers/,候補の記事・資料名を確認してURLを置き換える,2026-10-14
+X1032,https://uxmilk.jp/72387,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1033,https://uxmilk.jp/83709,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1034,https://uxpajournal.org/sus-a-retrospective/,pages/ja/user-interface-design/index.tsx,/ja/user-interface-design/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1068,https://web.archive.org/web/20180711105900/http://hci.tools/,pages/ja/science/index.tsx,/ja/science/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1087,https://www.acm.org/,components/intelliviewer/index.tsx; components/pressing/index.tsx; src/data/histories.json; src/data/media.json; src/data/misc.json,/resume.html; /resume/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1088,https://www.acm.org/articles/people-of-acm/2023/jun-kato,src/data/histories.json; src/data/media.json,/ja/publications/; /ja/timeline/2023/; /ja/timeline/; /publications/; /timeline/2023/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1089,https://www.acm.org/uist/uist2009/call/contest.html,components/pressing/index.tsx,/ja/pressing/; /pressing/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1090,https://www.acm.org/uist/uist2010/Student_Contest.html,components/intelliviewer/index.tsx,/intelliviewer/; /ja/intelliviewer/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1091,https://www.acm.org/uist/uist2012/,src/data/histories.json,/ja/timeline/2012/; /ja/timeline/; /timeline/2012/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1092,https://www.acm.org/uist/uist2012/program.html,src/data/histories.json,/ja/timeline/2012/; /ja/timeline/; /timeline/2012/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1093,https://www.acm.org/uist/uist2013/,src/data/histories.json; src/data/misc.json,/ja/timeline/2012/; /ja/timeline/2013/; /ja/timeline/; /timeline/2012/; /timeline/2013/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1094,https://www.acm.org/uist/uist2013/organizers.php,src/data/misc.json,/resume.html; /resume/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1095,https://www.acm.org/uist/uist2014/organizers.php,src/data/histories.json,/ja/timeline/2014/; /ja/timeline/; /timeline/2014/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1096,https://www.acm.org/uist/uist2015/,src/data/histories.json,/ja/timeline/2015/; /ja/timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1097,https://www.acm.org/uist/uist2016/,src/data/histories.json,/ja/timeline/2016/; /ja/timeline/; /timeline/2016/; /timeline/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1124,https://www.connichi.de/en,src/data/histories.json; src/data/talks.json,/ja/publications/; /ja/timeline/2021/; /ja/timeline/; /publications/; /timeline/2021/; /timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1137,https://www.daiwahouse.co.jp/lab/HousingAPI/symposium/index.html,components/homehack/index.tsx; components/homehack/rhythm-kaden/index.tsx,/homehack/; /homehack/rhythm-kaden/; /ja/homehack/; /ja/homehack/rhythm-kaden/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1144,https://www.elsevier.com/physical-sciences/computer-science/executable-papers-improving-the-article-format-in-computer-science,pages/ja/science/index.tsx,/ja/science/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1163,https://www.hokkaido-np.co.jp/article/448189,src/data/media.json,/ja/publications/; /ja/timeline/2020/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1166,https://www.ieice.org/ken/program/index.php?tgs_regid=abed63bc529af3a3885b0721e912ca90b17fc69c5bec01f73c25fda12290ef49&tgid=IEICE-DE,src/data/talks.json,/ja/publications/; /ja/timeline/2019/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1176,https://www.ipa.go.jp/english/humandev/third.html,pages/resume.tsx,/resume.html; /resume/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1177,https://www.ipa.go.jp/index-e.html,pages/resume.tsx,/resume.html; /resume/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1195,https://www.itri.aist.go.jp/,src/data/histories.json,/ja/timeline/2014/; /ja/timeline/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1199,https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/,components/programming-as-communication/index.tsx,/programming-as-communication/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1209,https://www.jst.go.jp/EN,pages/resume.tsx,/resume.html; /resume/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1213,https://www.jst.go.jp/kisoken/boshuu/r02/teian/top/ryoiki/ryoiki_a03.html,src/data/histories.json,/ja/timeline/2022/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1223,https://www.lightupnippon-hokkaido.net/,src/data/histories.json,/ja/timeline/2019/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1228,https://www.meiji.ac.jp/koho/press/2018/6t5h7p00000u2st3.html,src/data/talks.json,/ja/publications/; /ja/timeline/2019/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1247,https://www.msra.cn/zh-cn/um/events/21ccc/2012/html5/xsjs_en.html,src/data/histories.json,/ja/timeline/2012/; /ja/timeline/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1261,https://www.npmjs.com/,components/deployground/index.tsx,/deployground/; /ja/deployground/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
+X1266,https://www.siggraph.org/asia2009/,src/data/misc.json,/activities/; /ja/activities/,再確認が必要な通信エラー,,通常のブラウザーで再確認し、失敗が続く場合は移転先・保存版を探す,2026-10-14
+X1272,https://www.sparkfun.com/products/684,components/homehack/realmote/index.tsx,/homehack/realmote/; /ja/homehack/realmote/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1274,https://www.taf.or.jp/files/2198/552880864.pdf,src/data/histories.json,/ja/timeline/2025/; /ja/timeline/,HTTP 404,,移転先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1282,https://www.touchdevelop.com/app/,src/data/histories.json,/ja/timeline/2013/; /ja/timeline/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1283,https://www.touchdevelop.com/docs/pages-and-boxes,components/touchdevelop/index.tsx,/ja/touchdevelop/; /touchdevelop/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1284,https://www.touchdevelop.com/rthv,components/touchdevelop/index.tsx,/ja/touchdevelop/,DNS名前解決失敗,,現行の公開先・保存版を探す。見つからなければ説明を残してリンクを外す,2026-10-14
+X1299,https://www.wsj.com/articles/SB10001424053111903480904576512250915629460,components/deployground/index.tsx,/deployground/; /ja/deployground/,認証要求,,公開範囲を確認し、必要なら公開版への案内に置き換える,2026-10-14
+X1377,https://xrds.acm.org/article.cfm?aid=3596927&doi=10.1145%2F3596927,components/creativity-support-environments/index.tsx,/creativity-support-environments/; /ja/creativity-support-environments/,自動検査制限・表示未確定,,通常のブラウザーで本文を確認する。DOIは登録情報と論文タイトルも確認する,2026-10-14
