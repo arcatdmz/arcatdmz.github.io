@@ -66,6 +66,10 @@ GA4 sends an explicit page view after each committed page change, with its URL,
 title, and previous page as the referrer. Fragment-only changes and cancelled
 navigation do not count. See [Analytics](docs/ANALYTICS.md) for setup and validation.
 
+`useRouteProgressAndTracking` also controls NProgress: a 200ms display delay and
+200ms minimum display time prevent flicker during short or consecutive
+transitions. Shallow routing and fragment changes do not display progress.
+
 ## Development
 
 Use Node.js 24 and the checked-in lockfile. No global Gulp installation is needed.

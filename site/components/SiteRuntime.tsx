@@ -1,37 +1,18 @@
 import { runDeferredScripts } from "@/site/deferred-scripts";
 import { getDocumentMetadata, resolveReactHref } from "@/site/navigation";
-import { createPageTracker, measurementId } from "@/site/analytics";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { loadScript } from "@/site/load-script";
+import { useRouteProgressAndTracking } from "@/site/hooks/useRouteProgressAndTracking";
+import { useEffect, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 
 type SiteWindow = Window & {
   lang: "en" | "ja";
   en: boolean;
   basePath: string;
-  dataLayer?: unknown[];
   Typekit?: { load: (options: unknown) => void };
   twttr?: { widgets?: { load: (root: HTMLElement) => void } };
   FB?: { XFBML?: { parse: (root: HTMLElement) => void } };
 };
-const scripts = new Map<string, Promise<void>>();
-function loadScript(src: string): Promise<void> {
-  const existing = scripts.get(src);
-  if (existing) return existing;
-  const loaded = new Promise<void>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => {
-      scripts.delete(src);
-      script.remove();
-      reject(new Error(`Unable to load ${src}`));
-    };
-    document.body.appendChild(script);
-  });
-  scripts.set(src, loaded);
-  return loaded;
-}
 const useBrowserLayoutEffect =
   typeof window === "undefined" ? useEffect : useLayoutEffect;
 
@@ -39,7 +20,6 @@ const useBrowserLayoutEffect =
 export function SiteRuntime() {
   const router = useRouter();
   const pageKey = router.asPath.split("#")[0];
-  const trackPage = useRef<ReturnType<typeof createPageTracker> | null>(null);
   useBrowserLayoutEffect(() => {
     const metadata = getDocumentMetadata(router.pathname);
     document.documentElement.lang = metadata.language;
@@ -139,23 +119,6 @@ export function SiteRuntime() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  // Effects run after the destination and next/head commit. Pending or cancelled
-  // navigation never reaches this point; fragment-only changes keep pageKey.
-  useEffect(() => {
-    if (!router.isReady) return;
-    const site = window as unknown as SiteWindow;
-    if (!trackPage.current) {
-      site.dataLayer = site.dataLayer || [];
-      trackPage.current = createPageTracker(site.dataLayer);
-      void loadScript(
-        `https://www.googletagmanager.com/gtag/js?id=${measurementId}`,
-      ).catch(() => {});
-    }
-    trackPage.current({
-      location: window.location.href,
-      title: document.title,
-      referrer: document.referrer,
-    });
-  }, [router.isReady, pageKey]);
+  useRouteProgressAndTracking();
   return null;
 }

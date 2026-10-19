@@ -1,7 +1,9 @@
 # Google Analytics
 
-The React site uses GA4 measurement ID `G-W5KXWN8CJD`. `SiteRuntime` loads the
-Google tag once per document and creates a tracker from `site/analytics.ts`.
+The React site uses GA4 measurement ID `G-W5KXWN8CJD`. `SiteRuntime` mounts
+`site/hooks/useRouteProgressAndTracking.ts` once outside the keyed page. The hook
+loads the Google tag once per document and creates a tracker from
+`site/analytics.ts`.
 
 The tracker calls `config` once with `send_page_view: false`, then sends an
 explicit `page_view` after each committed page change. Repeating `config` does
@@ -39,3 +41,20 @@ titles, and referrers; fragment-only navigation produced no additional view.
 Collection requests were intercepted before reaching Google. This verifies
 client request generation; ingestion and reporting require access to the GA4
 property's Realtime report or DebugView after deployment.
+
+## Navigation feedback
+
+The same hook controls NProgress through Pages Router events. It waits 200ms
+before showing a bar and keeps a displayed bar for at least 200ms, followed by
+NProgress's completion animation. Fast transitions never show a bar. Consecutive
+transitions share an active bar; outdated completion/error events cannot finish
+another destination's progress. Completion, cancellation, and errors clear
+pending timers. Shallow routing and fragment-only navigation do not start progress.
+
+The bar has an accessible loading label and no spinner. Reduced-motion users get
+no trickling or animated transitions. Global CSS is imported in `pages/_app.tsx`
+so progress also works on pages with independent stylesheets. Validate with:
+
+```sh
+npx playwright test tests/browser/route-progress.spec.ts tests/browser/analytics.spec.ts
+```

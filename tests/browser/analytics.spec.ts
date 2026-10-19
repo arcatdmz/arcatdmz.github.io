@@ -129,8 +129,10 @@ test("cancelled navigation does not count and a blocked tag does not stop later 
       void (window as any).next.router.push("/activities/").catch(() => {});
     });
     await page.waitForFunction(() => (window as any).pendingNavigation);
+    await expect(page.locator("#nprogress .bar")).toBeVisible();
     await page.evaluate(() => (window as any).next.router.push("/#contact"));
     await page.waitForFunction(() => (window as any).cancelledNavigation);
+    await expect(page.locator("#nprogress")).toHaveCount(0);
     expect(await views(page)).toHaveLength(1);
     await page.evaluate(() => (window as any).next.router.push("/ja/"));
     await expect.poll(() => views(page)).toHaveLength(2);
