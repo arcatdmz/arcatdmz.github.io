@@ -619,7 +619,7 @@ export default function Page({ pageData }: PageDataProps) {
                         one to four buzzers. It is connected to a host PC and
                         creates sound according to user operations on the host.
                         The enclosure is centrosymmetrical with curves and the
-                        buzzers are placed with the Circle layout.{" "}
+                        buzzers are placed with the Circle layout.
                       </li>
                       <li>
                         <strong>Music Kiosk</strong> plays musical melodies in
@@ -632,7 +632,7 @@ export default function Page({ pageData }: PageDataProps) {
                         <strong>Card Matching Game</strong> allows a user to
                         choose a number of players from one or two and changes
                         the number of printed controllers, as well as the
-                        available game modes.{" "}
+                        available game modes.
                       </li>
                       <li>
                         <strong>Rhythm Game on a Drum</strong> is an interactive

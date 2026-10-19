@@ -340,7 +340,7 @@ export default function Page({ pageData }: PageDataProps) {
                   </List.Header>
                   <List.Description>
                     It supports authoring Kinetic Typography videos of lyrics
-                    text synchronized with songs equipped with{" "}
+                    text synchronized with songs equipped with
                   </List.Description>
                   <SiteLink href={href(`${basePath}live-tuning`)}>
                     Live Tuning

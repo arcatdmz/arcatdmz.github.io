@@ -219,7 +219,6 @@ export default function Page({ pageData }: PageDataProps) {
           />
         </p>
         <Message>
-          {" "}
           <p>
             In contemporary capitalism, particularly in computer-science-related
             fields, capital-driven innovation tends to dominate discourse and
@@ -415,7 +414,7 @@ export default function Page({ pageData }: PageDataProps) {
           <p>
             These examples emphasize the need for a slow-paced yet in-depth
             research process that blends technological innovation with a deep
-            appreciation of the cultural contexts of the creative process.{" "}
+            appreciation of the cultural contexts of the creative process.
           </p>
         </Message>
       </>

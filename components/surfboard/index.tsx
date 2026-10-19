@@ -144,7 +144,7 @@ export default function Page({ pageData }: PageDataProps) {
                     Our prototype implementation uses a monaural microphone
                     attached close to the keyboard of a personal computer. It
                     needs to be attached near the right or left edge of the
-                    keyboard to distinguish surfing direction effectively.{" "}
+                    keyboard to distinguish surfing direction effectively.
                   </p>
                   <p>
                     Fortunately at present, many laptop computers are equipped

@@ -228,7 +228,6 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <p>
-                  {" "}
                   本論文におけるプロのクリエータ向けのウィジェット設計に関する3原則に基づくリファレンス実装{" "}
                   <Icon>Tweeq</Icon> は Vue.js と TypeScript で開発され、{" "}
                   <a href="//github.com/baku89/tweeq">
@@ -240,7 +239,6 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <p>
-                {" "}
                 The reference implementation of the design principles,{" "}
                 <Icon>Tweeq</Icon>, developed with Vue.js and TypeScript, is
                 available as an open-source project on{" "}
