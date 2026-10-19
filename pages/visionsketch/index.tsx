@@ -1,21 +1,10 @@
 import Page from "@/components/visionsketch/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/visionsketch/", {
-          projects: ["visionsketch"],
-          publications: ["gi2014-kato-visionsketch"],
-          publicationProjects: ["visionsketch"],
-        }),
-      },
-      "/visionsketch/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/visionsketch/", {
+  projects: ["visionsketch"],
+  publications: ["gi2014-kato-visionsketch"],
+  publicationProjects: ["visionsketch"],
+});

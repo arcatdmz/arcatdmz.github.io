@@ -42,15 +42,19 @@ test("rich blocks inherit their default in either language and use explicit over
 
 test("each consolidated route pair exports the same content component", async () => {
   const routes = JSON.parse(
-    readFileSync(new URL("../site/routes.json", import.meta.url), "utf8"),
-  ) as { path: string; language: Language }[];
+    readFileSync(
+      new URL("../site/generated/routes.json", import.meta.url),
+      "utf8",
+    ),
+  ) as { path: string; source: string; language: Language }[];
   let pairs = 0;
   for (const route of routes) {
     if (route.language !== "en") continue;
     if (!existsSync(new URL(`../components/${route.path}`, import.meta.url)))
       continue;
-    const english = await import(`../pages/${route.path}`);
-    const japanese = await import(`../pages/ja/${route.path}`);
+    const english = await import(`../pages/${route.source}`);
+    const ja = routes.find((entry) => entry.path === `ja/${route.path}`)!;
+    const japanese = await import(`../pages/${ja.source}`);
     assert.equal(english.default, japanese.default, route.path);
     pairs++;
   }
@@ -58,7 +62,12 @@ test("each consolidated route pair exports the same content component", async ()
 });
 
 async function renderPage(route: string) {
-  const page = await import(`../pages/${route}index.tsx`);
+  const source = existsSync(
+    new URL(`../pages/${route}index.tsx`, import.meta.url),
+  )
+    ? `../pages/${route}index.tsx`
+    : `../pages/${route}index.localized.tsx`;
+  const page = await import(source);
   const { props } = page.getStaticProps();
   const pathname = `/${route}`;
   const router = {

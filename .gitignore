@@ -80,3 +80,6 @@ site-qa/
 # Playwright reports
 test-results/
 playwright-report/
+
+# Generated counterpart routes; author one localizedPageProps route instead.
+pages/**/*.localized.tsx

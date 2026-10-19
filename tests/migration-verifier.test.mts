@@ -230,11 +230,11 @@ test("export verifier preserves archives/assets/feeds and separates pre-existing
     for (const directory of [
       baseline,
       candidate,
-      path.join(root, "site"),
+      path.join(root, "site/generated"),
       path.join(root, "pages"),
     ])
-      await fs.mkdir(directory);
-    await fs.writeFile(path.join(root, "site/routes.json"), "[]");
+      await fs.mkdir(directory, { recursive: true });
+    await fs.writeFile(path.join(root, "site/generated/routes.json"), "[]");
     const html = document(
       '<a href="/old-missing">Old</a><img src="/image.png">',
     );
@@ -640,7 +640,7 @@ test("optimized export verifies route JSON and never normalizes archival bytes",
       path.join(candidate, "_next/data/build"),
     ])
       await fs.mkdir(directory, { recursive: true });
-    await fs.writeFile(path.join(root, "site/routes.json"), "[]");
+    await fs.writeFile(path.join(root, "site/generated/routes.json"), "[]");
     await fs.writeFile(path.join(root, "site/generated/images.json"), "{}");
     const props = {
       pageProps: {

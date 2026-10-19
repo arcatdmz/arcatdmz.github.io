@@ -3,6 +3,7 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 const config: NextConfig = {
   output: "export",
+  pageExtensions: ["localized.tsx", "tsx", "ts", "jsx", "js"],
   trailingSlash: true,
   images: { unoptimized: true },
   poweredByHeader: false,

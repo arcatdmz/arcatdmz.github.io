@@ -1,9 +1,62 @@
 # Shared page content
 
-`pages/` owns URLs and `getStaticProps`. Forty English/Japanese route pairs
-import the same component from the matching path in `components/`. The template
-reads `pageData.language`; route-specific data and image manifests stay in the
-route's static props. Site infrastructure remains in `site/components/`.
+`pages/` owns URLs and build-time data selection. Author one route and its
+matching shared component. `localizedPageProps` opts the route into bilingual
+output; `npm run dev`, `npm run build`, and `npm run typecheck` create the other
+language's entry automatically. The template reads `pageData.language`.
+
+Generated `*.localized.tsx` entries are ignored by Git. They import the shared
+component directly and delegate data selection to the authored route, overriding
+only the language. There is no copied configuration or central route list to
+maintain. An explicit counterpart page takes precedence. Either English or
+Japanese can be the authored route; dynamic timeline routes retain their own
+explicit `getStaticPaths`.
+
+## Adding a project
+
+First add its title, description, dates, and other project metadata to
+`src/data/projects.json`, as for existing projects. Then add these two files:
+
+```tsx
+// pages/example/index.tsx
+import Page from "@/components/example";
+import { localizedPageProps } from "@/site/page-props.server";
+
+export default Page;
+export const getStaticProps = localizedPageProps(Page, "/example/", {
+  projects: ["example"],
+  publicationProjects: ["example"],
+});
+```
+
+```tsx
+// components/example/index.tsx
+import { Header, Segment } from "react-fomantic-ui";
+import { ProjectPage } from "@/site/components/ProjectPage";
+import { LocalizedContent } from "@/site/components/LocalizedContent";
+import type { PageDataProps } from "@/site/page-data";
+
+export default function Page({ pageData }: PageDataProps) {
+  return (
+    <ProjectPage pageData={pageData} project="example">
+      <Header as="h2">Overview</Header>
+      <Segment basic>
+        <LocalizedContent ja={<p>日本語の紹介。</p>}>
+          <p>The default project description.</p>
+        </LocalizedContent>
+      </Segment>
+    </ProjectPage>
+  );
+}
+```
+
+This produces `/example/` and `/ja/example/`, their localized metadata and data,
+and the language-switch links. `ProjectPage` supplies the standard project
+header, layout, and publications. Use `useSiteContext` in child components for
+localized labels, links, or project data. Keep custom layouts for pages that
+need them. For uncommon locale-specific data references, the factory accepts a
+fourth argument such as `{ ja: { projects: [...], publications: [...] } }`.
+`npm run routes` refreshes entries and route metadata without rebuilding assets.
 
 The original Pug sources, immediately before their removal in `7814f69`, define
 the content ownership. Japanese pages extend the default page and replace only

@@ -2,7 +2,7 @@
 import { chromium, type Page } from "@playwright/test";
 import { createPreviewServer } from "./serve-static";
 import { filesIn } from "./verify-site";
-import routes from "../site/routes.json";
+import routes from "../site/generated/routes.json";
 import { buildYear } from "../site/clock";
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -83,7 +83,7 @@ async function main() {
         !source.endsWith(".tsx") ||
         path.basename(source).startsWith("_") ||
         source.includes("[") ||
-        knownSources.has(source) ||
+        knownSources.has(source.replace(/\.localized\.tsx$/, ".tsx")) ||
         source === "resume.tsx"
       )
         continue;

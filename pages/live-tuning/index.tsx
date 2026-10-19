@@ -1,21 +1,10 @@
 import Page from "@/components/live-tuning/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/live-tuning/", {
-          projects: ["live-programming", "live-tuning"],
-          publications: ["live2016-kato-livetuning"],
-          publicationProjects: ["live-tuning"],
-        }),
-      },
-      "/live-tuning/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/live-tuning/", {
+  projects: ["live-programming", "live-tuning"],
+  publications: ["live2016-kato-livetuning"],
+  publicationProjects: ["live-tuning"],
+});

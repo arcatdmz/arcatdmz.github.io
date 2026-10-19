@@ -1,20 +1,9 @@
 import Page from "@/components/teaparty/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/teaparty/", {
-          projects: ["teaparty"],
-          publicationProjects: ["teaparty"],
-        }),
-      },
-      "/teaparty/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/teaparty/", {
+  projects: ["teaparty"],
+  publicationProjects: ["teaparty"],
+});

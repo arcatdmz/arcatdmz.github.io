@@ -15,6 +15,7 @@ import {
   prepareImageDerivatives,
 } from "./image-derivatives";
 import { preparePageData } from "./prepare-page-data";
+import { prepareRoutes } from "./prepare-routes";
 
 const root = process.cwd();
 const require = createRequire(path.join(root, "package.json"));
@@ -444,6 +445,7 @@ async function prepareRedirections(): Promise<void> {
 }
 
 async function main(): Promise<void> {
+  await prepareRoutes(root);
   // Type checking a fresh clone needs only lightweight generated data modules.
   if (process.argv.includes("--ensure-data")) {
     await ensureImageManifest(root);

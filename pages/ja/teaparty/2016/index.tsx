@@ -3,7 +3,11 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -189,5 +193,13 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/ja/teaparty/2016/", {"projects": ["teaparty"]}) }, "/ja/teaparty/2016/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/ja/teaparty/2016/", { projects: ["teaparty"] }),
+      },
+      "/ja/teaparty/2016/",
+    ),
+  };
 }
