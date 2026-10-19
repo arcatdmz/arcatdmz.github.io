@@ -203,7 +203,7 @@ function attributes(element: Element): Record<string, string> {
         if (name === "href")
           value = value.replace(
             /^(https:\/\/github\.com\/arcatdmz\/arcatdmz\.github\.io\/blob\/main)\/src\/(phybots|homehack|live-tuning|openpool|programming-with-examples)\/index\.pug$/,
-            "$1/pages/$2/index.tsx",
+            "$1/components/$2/index.tsx",
           );
         if (name === "href" && resolveReactHref(value)) {
           const url = new URL(value, "https://junkato.jp/");

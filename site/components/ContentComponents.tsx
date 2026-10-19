@@ -35,7 +35,7 @@ export function Translate({ path }: { path?: string }) {
       <SiteLink
         className="ui red tag with-popup label"
         href={href(
-          `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/pages/${path.replace(
+          `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/components/${path.replace(
             /\.pug$/,
             ".tsx",
           )}`,
@@ -56,7 +56,7 @@ export function TranslateEn({ path }: { path?: string }) {
       <SiteLink
         className="ui red tag with-popup label"
         href={href(
-          `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/pages/${path.replace(
+          `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/components/${path.replace(
             /\.pug$/,
             ".tsx",
           )}`,

@@ -323,7 +323,9 @@ test("only the five migrated translation-source links may change to TSX", () => 
     assert.deepEqual(
       compare(
         document(`<a href="${root}/src/${name}/index.pug">Translate</a>`),
-        document(`<a href="${root}/pages/${name}/index.tsx">Translate</a>`),
+        document(
+          `<a href="${root}/components/${name}/index.tsx">Translate</a>`,
+        ),
       ),
       [],
     );
@@ -331,14 +333,14 @@ test("only the five migrated translation-source links may change to TSX", () => 
   assert.notDeepEqual(
     compare(
       document(`<a href="${root}/src/other/index.pug">Translate</a>`),
-      document(`<a href="${root}/pages/other/index.tsx">Translate</a>`),
+      document(`<a href="${root}/components/other/index.tsx">Translate</a>`),
     ),
     [],
   );
   assert.notDeepEqual(
     compare(
       document(`<a href="${root}/src/phybots/index.pug">Translate</a>`),
-      document(`<a href="${root}/pages/homehack/index.tsx">Translate</a>`),
+      document(`<a href="${root}/components/homehack/index.tsx">Translate</a>`),
     ),
     [],
   );

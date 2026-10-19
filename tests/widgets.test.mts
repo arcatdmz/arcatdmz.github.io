@@ -109,15 +109,16 @@ test("authored sibling popups are handled explicitly and never replaced by empty
   );
   assert.doesNotMatch(html, /data-site-popup-trigger/);
   assert.match(html, /Collaborations\?/);
-  for (const path of ["../pages/index.tsx", "../pages/ja/index.tsx"]) {
-    const source = readFileSync(new URL(path, import.meta.url), "utf8");
-    assert.match(
-      source,
-      /<Popup[\s\S]*?trigger=\{[\s\S]*?className="ui primary large with-popup labeled icon button"/,
-    );
-    assert.match(
-      source,
-      /I am actively seeking collaborators in both academia and industry/,
-    );
-  }
+  const source = readFileSync(
+    new URL("../components/index.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    source,
+    /<Popup[\s\S]*?trigger=\{[\s\S]*?className="ui primary large with-popup labeled icon button"/,
+  );
+  assert.match(
+    source,
+    /I am actively seeking collaborators in both academia and industry/,
+  );
 });
