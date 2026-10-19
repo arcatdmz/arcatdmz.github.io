@@ -108,20 +108,17 @@ export default function Page({ pageData }: PageDataProps) {
         {en ? (
           <>
             <p>
-              {
-                "I have founded and regularly held seminars and meetups for researchers and creators."
-              }
+              I have founded and regularly held seminars and meetups for
+              researchers and creators.
             </p>
           </>
         ) : (
           <>
-            <p>
-              {"研究者とクリエータのための講演会や勉強会を運営しています。"}
-            </p>
+            <p>研究者とクリエータのための講演会や勉強会を運営しています。</p>
           </>
         )}
 
-        <Item.Group divided id={"meetups-list"} className="projects">
+        <Item.Group divided id="meetups-list" className="projects">
           {(() => {
             const children: ReactNode[] = [];
             for (const p of projects) {
@@ -146,20 +143,19 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Academic services" : "学会活動"}
         </Header>
 
-        <section id={"oc"}>
+        <section id="oc">
           <Header as="h3">{en ? "Organizing committee" : "運営委員"}</Header>
 
           {en ? (
             <>
               <p>
-                {
-                  "I have served as organizing committee members for academic conferences and workshops."
-                }
+                I have served as organizing committee members for academic
+                conferences and workshops.
               </p>
             </>
           ) : (
             <>
-              <p>{"国際会議やワークショップなどを運営してきました。"}</p>
+              <p>国際会議やワークショップなどを運営してきました。</p>
             </>
           )}
 
@@ -175,23 +171,20 @@ export default function Page({ pageData }: PageDataProps) {
 
         <Divider />
 
-        <section id={"pc"}>
+        <section id="pc">
           <Header as="h3">{en ? "Program committee" : "プログラム委員"}</Header>
 
           {en ? (
             <>
               <p>
-                {
-                  "I have served as program committee members for academic conferences and journals."
-                }
+                I have served as program committee members for academic
+                conferences and journals.
               </p>
             </>
           ) : (
             <>
               <p>
-                {
-                  "国際会議、ワークショップやジャーナルなどのプログラム委員を務めてきました。"
-                }
+                国際会議、ワークショップやジャーナルなどのプログラム委員を務めてきました。
               </p>
             </>
           )}
@@ -215,17 +208,14 @@ export default function Page({ pageData }: PageDataProps) {
         {en ? (
           <>
             <p>
-              {
-                "I have served as regular reviewers for academic conferences and journals."
-              }
+              I have served as regular reviewers for academic conferences and
+              journals.
             </p>
           </>
         ) : (
           <>
             <p>
-              {
-                "以下の国際会議や国際ジャーナルにおいて、学術論文の査読を行ってきました。"
-              }
+              以下の国際会議や国際ジャーナルにおいて、学術論文の査読を行ってきました。
             </p>
           </>
         )}
@@ -236,7 +226,7 @@ export default function Page({ pageData }: PageDataProps) {
 
         <Divider hidden />
 
-        <section id={"miscellaneous"}>{renderServicesMiscellaneous()}</section>
+        <section id="miscellaneous">{renderServicesMiscellaneous()}</section>
       </>
     );
   }
@@ -257,13 +247,7 @@ export default function Page({ pageData }: PageDataProps) {
               <>{organizer.track.fullname || organizer.track.name} </>
             ) : null}
             {organizer.title}
-            {organizer.subtitle ? (
-              <>
-                {" ("}
-                {organizer.subtitle}
-                {")"}
-              </>
-            ) : null}
+            {organizer.subtitle ? <> ({organizer.subtitle})</> : null}
           </div>
         </List.Item>
       </>
@@ -272,7 +256,7 @@ export default function Page({ pageData }: PageDataProps) {
   function renderServicesPcHci(): ReactNode {
     return (
       <>
-        <Header as="h4">{"Human-Computer Interaction"}</Header>
+        <Header as="h4">Human-Computer Interaction</Header>
         <List>
           {(() => {
             const children: ReactNode[] = [];
@@ -343,35 +327,32 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {!en ? (
           <>
-            <Header as="h4">{"国内会議"}</Header>
+            <Header as="h4">国内会議</Header>
 
             <List>
               <List.Item>
                 <List.Header>
-                  {"情報処理学会シンポジウム "}
-                  <a href={"https://www.interaction-ipsj.org"}>
-                    {"インタラクション"}
+                  情報処理学会シンポジウム{" "}
+                  <a href="https://www.interaction-ipsj.org">
+                    インタラクション
                   </a>
                 </List.Header>
                 <div className="meta">
-                  {"プログラム委員 (2017-"}
-                  {buildYear}
-                  {")"}
+                  プログラム委員 (2017-
+                  {buildYear})
                 </div>
               </List.Item>
               <List.Item>
                 <List.Header>
-                  {"日本ソフトウェア科学会 "}
+                  日本ソフトウェア科学会{" "}
                   <a
-                    href={"https://wiss.org/"}
-                    title={
-                      "インタラクティブシステムとソフトウェアに関するワークショップ"
-                    }
+                    href="https://wiss.org/"
+                    title="インタラクティブシステムとソフトウェアに関するワークショップ"
                   >
-                    {"WISS"}
+                    WISS
                   </a>
                 </List.Header>
-                <div className="meta">{"プログラム委員 (2015-2019, 2025)"}</div>
+                <div className="meta">プログラム委員 (2015-2019, 2025)</div>
               </List.Item>
             </List>
           </>
@@ -382,7 +363,7 @@ export default function Page({ pageData }: PageDataProps) {
   function renderServicesOcHci(): ReactNode {
     return (
       <>
-        <Header as="h4">{"Human-Computer Interaction"}</Header>
+        <Header as="h4">Human-Computer Interaction</Header>
         <List>
           {(() => {
             const children: ReactNode[] = [];
@@ -453,38 +434,32 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {!en ? (
           <>
-            <Header as="h4">{"国内会議"}</Header>
+            <Header as="h4">国内会議</Header>
 
             <List>
               <List.Item>
                 <List.Header>
-                  {"日本ソフトウェア科学会 "}
+                  日本ソフトウェア科学会{" "}
                   <a
-                    href={"https://wiss.org/"}
-                    title={
-                      "インタラクティブシステムとソフトウェアに関するワークショップ"
-                    }
+                    href="https://wiss.org/"
+                    title="インタラクティブシステムとソフトウェアに関するワークショップ"
                   >
-                    {"WISS"}
+                    WISS
                   </a>
                 </List.Header>
                 <div className="meta">
-                  {
-                    "Web/投票/ローカルサーバ担当 運営委員 (2015-2019), Web担当 運営委員 (2025)"
-                  }
+                  Web/投票/ローカルサーバ担当 運営委員 (2015-2019), Web担当
+                  運営委員 (2025)
                 </div>
               </List.Item>
               <List.Item>
                 <List.Header>
-                  {"情報処理学会 "}
-                  <a href={"https://ipsj-one.org/"}>{"IPSJ-ONE"}</a>
+                  情報処理学会 <a href="https://ipsj-one.org/">IPSJ-ONE</a>
                 </List.Header>
                 <div className="meta">
-                  {"Web担当 運営委員 ("}
-                  <a href={"https://ipsj-one.org/2015/"}>{"2015"}</a>
-                  {", "}
-                  <a href={"https://ipsj-one.org/2017/"}>{"2017"}</a>
-                  {")"}
+                  Web担当 運営委員 (
+                  <a href="https://ipsj-one.org/2015/">2015</a>,{" "}
+                  <a href="https://ipsj-one.org/2017/">2017</a>)
                 </div>
               </List.Item>
             </List>
@@ -640,12 +615,10 @@ export default function Page({ pageData }: PageDataProps) {
         <Grid stackable columns={2}>
           <Grid.Column>
             <iframe
-              width={"100%"}
-              height={"360"}
-              frameBorder={"0"}
-              src={
-                "https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"
-              }
+              width="100%"
+              height="360"
+              frameBorder="0"
+              src="https://www.google.com/maps/d/embed?mid=1DBSXYXwQgOVT29JJVTur1dulUC4"
             ></iframe>
           </Grid.Column>
           <Grid.Column>
@@ -673,12 +646,8 @@ export default function Page({ pageData }: PageDataProps) {
                                     <>
                                       <SiteLink href={href(location.link)}>
                                         {location.year}
-                                      </SiteLink>
-                                      {" ("}
-                                      {location.city}
-                                      {", "}
-                                      {location.country}
-                                      {")"}
+                                      </SiteLink>{" "}
+                                      ({location.city}, {location.country})
                                     </>,
                                   );
                                   if (index < totalLocations - 1)
@@ -716,11 +685,11 @@ export default function Page({ pageData }: PageDataProps) {
                                   </SiteLink>
                                 </>,
                               );
-                              children.push(<>{" ("}</>);
+                              children.push(<> (</>);
                               children.push(<>{location.city}</>);
-                              children.push(<>{", "}</>);
+                              children.push(<>, </>);
                               children.push(<>{location.country}</>);
-                              children.push(<>{")"}</>);
+                              children.push(<>)</>);
                               if (
                                 locIndex < conf.locations.length - 1 ||
                                 confIndex < oConfArr.length - 1
@@ -766,19 +735,19 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <List.Item role="link" as="a" href={"#meetups"}>
+                <List.Item role="link" as="a" href="#meetups">
                   <Icon name="users" />
                   <List.Content>{en ? "Meetups" : "勉強会"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#services"}>
+                <List.Item role="link" as="a" href="#services">
                   <Icon name="lab" />
                   <List.Content>{en ? "Academic" : "学会活動"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#miscellaneous"}>
+                <List.Item role="link" as="a" href="#miscellaneous">
                   <Icon name="book" />
                   <List.Content>{en ? "Others" : "その他"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#places"}>
+                <List.Item role="link" as="a" href="#places">
                   <Icon name="world" />
                   <List.Content>
                     {en ? "Visited places" : "訪問先"}
@@ -815,11 +784,11 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider clearing hidden />
-        <section id={"meetups"}>{renderMeetups()}</section>
+        <section id="meetups">{renderMeetups()}</section>
         <Divider hidden />
-        <section id={"services"}>{renderServices()}</section>
+        <section id="services">{renderServices()}</section>
         <Divider hidden />
-        <section id={"places"}>{renderPlaces()}</section>
+        <section id="places">{renderPlaces()}</section>
       </SiteLayout>
     </>
   );

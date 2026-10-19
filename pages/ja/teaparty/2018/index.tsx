@@ -59,49 +59,43 @@ export default function Page({ pageData }: PageDataProps) {
       <SiteLayout context={context}>
         <Breadcrumb>
           <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
-            {"名状しがたいお茶会"}
+            名状しがたいお茶会
           </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <Breadcrumb.Section active>{"第7回 (2018)"}</Breadcrumb.Section>
+          <Breadcrumb.Section active>第7回 (2018)</Breadcrumb.Section>
         </Breadcrumb>
         <Divider />
         <section>
-          <Header as="h1">{"第7回 名状しがたいお茶会"}</Header>
+          <Header as="h1">第7回 名状しがたいお茶会</Header>
           <List divided horizontal>
             <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
-                {"2018/1/28"}
+                2018/1/28
               </Label>
             </List.Item>
           </List>
         </section>
         <Divider hidden />
-        <section id={"summary"}>
-          <Header as="h2">{"概要"}</Header>
+        <section id="summary">
+          <Header as="h2">概要</Header>
           <Segment basic>
             <p>
-              {
-                "32名が参加し、「科学」「技術」そして「語る」「奏でる」「動かす」「描く」のセッションで発表しました。おやつのマカロンが好評だったようです。懇親会の時間を長く取ることができました。発表のバックチャネルとしてSlackチャットを活用しました。"
-              }
+              32名が参加し、「科学」「技術」そして「語る」「奏でる」「動かす」「描く」のセッションで発表しました。おやつのマカロンが好評だったようです。懇親会の時間を長く取ることができました。発表のバックチャネルとしてSlackチャットを活用しました。
             </p>
             <p>
-              {"会場は2年前からWantedlyさんにご提供いただいています。様子は"}
-              <SiteLink href={href(`${basePath + me}2016`)}>
-                {"こちら"}
-              </SiteLink>
-              {"からご覧ください。"}
+              会場は2年前からWantedlyさんにご提供いただいています。様子は
+              <SiteLink href={href(`${basePath + me}2016`)}>こちら</SiteLink>
+              からご覧ください。
             </p>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"timetable"}>
-          <Header as="h2">{"タイムテーブル"}</Header>
+        <section id="timetable">
+          <Header as="h2">タイムテーブル</Header>
           <Segment basic>
             <iframe
-              src={
-                "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmYZaNWiUzNorraA1ZsFgUT3hDZyZQZmwrfLdoRwRXJfN4Lur1zaWsCu2lRXrDtStn25x-3gQ6eclr/pubhtml?gid=318679183&amp;single=true&amp;widget=true&amp;headers=false"
-              }
+              src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQmYZaNWiUzNorraA1ZsFgUT3hDZyZQZmwrfLdoRwRXJfN4Lur1zaWsCu2lRXrDtStn25x-3gQ6eclr/pubhtml?gid=318679183&amp;amp;single=true&amp;amp;widget=true&amp;amp;headers=false"
               style={{ width: "100%", height: "640px" }}
             ></iframe>
           </Segment>
@@ -109,10 +103,10 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider />
         <Breadcrumb>
           <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
-            {"名状しがたいお茶会"}
+            名状しがたいお茶会
           </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <Breadcrumb.Section active>{"第7回 (2018)"}</Breadcrumb.Section>
+          <Breadcrumb.Section active>第7回 (2018)</Breadcrumb.Section>
         </Breadcrumb>
       </SiteLayout>
     </>

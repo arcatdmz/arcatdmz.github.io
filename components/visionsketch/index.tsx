@@ -64,16 +64,16 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"visionsketch"} />
+        <ProjectHeader project="visionsketch" />
         <Message>
           {en ? "Source code is available on " : "ソースコードが"}
-          <a href={"https://github.com/arcatdmz/visionsketch/"}>{"GitHub"}</a>
+          <a href="https://github.com/arcatdmz/visionsketch/">GitHub</a>
           {en
             ? "! It works on both Windows and Mac OS X."
             : "で公開されています。WindowsとMac両用です。"}
         </Message>
         <Divider hidden />
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">
             <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
@@ -82,58 +82,59 @@ export default function Page({ pageData }: PageDataProps) {
               ja={
                 <>
                   <p>
-                    {
-                      'プログラムの手順を表すのに文字が最善手とは限らない。とくに画像処理のパイプライン処理では、入力と出力は画像および動画であり、アルゴリズムに渡すパラメタは二次元座標系上の領域など画像や動画上で何らかの意味を持っていることが多い。我々は画像処理のプログラミングが持つこれらのビジュアルな特徴に着目し、画像処理のパイプラインを素早く構築して実行できるプロトタイピング目的の言語および開発環境"VisionSketch"を提案する。'
-                    }
+                    プログラムの手順を表すのに文字が最善手とは限らない。とくに画像処理のパイプライン処理では、入力と出力は画像および動画であり、アルゴリズムに渡すパラメタは二次元座標系上の領域など画像や動画上で何らかの意味を持っていることが多い。我々は画像処理のプログラミングが持つこれらのビジュアルな特徴に着目し、画像処理のパイプラインを素早く構築して実行できるプロトタイピング目的の言語および開発環境"VisionSketch"を提案する。
                   </p>
                   <p>
-                    {
-                      "VisionSketchのユーザは、まず操作対象となる画像または動画のソースを開き、その上で図形を描いて着目する領域(ROI, region of interest)を指定する。次に、VisionSketchの開発環境がROIに対して適用できる操作を一覧表示する。ユーザがその中から一つを選ぶと、操作の適用結果がインタラクティブに表示される。ユーザは、このようにして望みの操作を探すことができる。さらに、必要であれば、出力として得られた画像または動画を入力として用い、ROIの指定と画像処理の適用を繰り返すことができる。"
-                    }
+                    VisionSketchのユーザは、まず操作対象となる画像または動画のソースを開き、その上で図形を描いて着目する領域(ROI,
+                    region of
+                    interest)を指定する。次に、VisionSketchの開発環境がROIに対して適用できる操作を一覧表示する。ユーザがその中から一つを選ぶと、操作の適用結果がインタラクティブに表示される。ユーザは、このようにして望みの操作を探すことができる。さらに、必要であれば、出力として得られた画像または動画を入力として用い、ROIの指定と画像処理の適用を繰り返すことができる。
                   </p>
                   <p>
-                    {
-                      "VisionSketchでは、従来の文字列ベースの言語ではメソッド呼び出しの繰り返しとしてタイピングにより記述していた処理が、図形の描画と必要な操作の選択をGUIの直接操作で繰り返すことにより指示可能となっている。"
-                    }
+                    VisionSketchでは、従来の文字列ベースの言語ではメソッド呼び出しの繰り返しとしてタイピングにより記述していた処理が、図形の描画と必要な操作の選択をGUIの直接操作で繰り返すことにより指示可能となっている。
                   </p>
                 </>
               }
             >
               <p>
-                {
-                  'We propose an integrated development environment (IDE) called "VisionSketch", which supports example-centric programming for easily building image processing pipelines.'
-                }
+                We propose an integrated development environment (IDE) called
+                "VisionSketch", which supports example-centric programming for
+                easily building image processing pipelines.
               </p>
               <p>
-                {
-                  "With VisionSketch, a programmer is first asked to select the input video. Then, he can start building the pipeline with a visual programming language that provides immediate graphical feedback for algorithms applied to the video. He can also use a text-based editor to create or edit the implementation of each algorithm."
-                }
+                With VisionSketch, a programmer is first asked to select the
+                input video. Then, he can start building the pipeline with a
+                visual programming language that provides immediate graphical
+                feedback for algorithms applied to the video. He can also use a
+                text-based editor to create or edit the implementation of each
+                algorithm.
               </p>
               <p>
-                {
-                  "During the development, the pipeline is always ready for execution with a video player-like interface enabling rapid iterative prototyping. In a preliminary user study, VisionSketch was positively received by five programmers, who had prior experience of writing text-based image processing programs and could successfully build interesting applications."
-                }
+                During the development, the pipeline is always ready for
+                execution with a video player-like interface enabling rapid
+                iterative prototyping. In a preliminary user study, VisionSketch
+                was positively received by five programmers, who had prior
+                experience of writing text-based image processing programs and
+                could successfully build interesting applications.
               </p>
             </LocalizedContent>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"presentations"}>
+        <section id="presentations">
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
               <Grid.Column>
                 <Header as="h3">
-                  {"GI 2014 "}
-                  {en ? "Demo Video" : "デモ動画"}
+                  GI 2014 {en ? "Demo Video" : "デモ動画"}
                 </Header>
-                <EmbedYoutube src={"//www.youtube.com/embed/I6FTOVygHxc"} />
+                <EmbedYoutube src="//www.youtube.com/embed/I6FTOVygHxc" />
                 <div className="caption">
                   <List horizontal>
                     <List.Item>
-                      <a href={"//www.youtube.com/watch?v=I6FTOVygHxc"}>
+                      <a href="//www.youtube.com/watch?v=I6FTOVygHxc">
                         <Icon name="youtube" />
-                        {"YouTube"}
+                        YouTube
                       </a>
                     </List.Item>
                   </List>
@@ -141,13 +142,12 @@ export default function Page({ pageData }: PageDataProps) {
               </Grid.Column>
               <Grid.Column>
                 <Header as="h3">
-                  {"GI 2014 "}
-                  {en ? "Slides" : "発表スライド"}
+                  GI 2014 {en ? "Slides" : "発表スライド"}
                 </Header>
                 <DeferredEmbed
                   url={publicationsTable[p.publication].entryTags.slides}
                   placeholder={`${rootPath}images/background-eee.png`}
-                  icon={"video play outline"}
+                  icon="video play outline"
                 ></DeferredEmbed>
                 <div className="caption">
                   <List horizontal>
@@ -169,7 +169,7 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <section>
-          <Header as="h2">{"VisionSketch IDE"}</Header>
+          <Header as="h2">VisionSketch IDE</Header>
           <Grid stackable columns={2}>
             <Grid.Column>
               <LinkedImage
@@ -178,7 +178,7 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 <SiteImage
                   src={`${rootPath}visionsketch/fig1-overview.jpg`}
-                  alt={"Overview"}
+                  alt="Overview"
                 />
               </LinkedImage>
               <div className="caption">
@@ -193,7 +193,7 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 <SiteImage
                   src={`${rootPath}visionsketch/visionsketch-overview.jpg`}
-                  alt={"Overview (original version)"}
+                  alt="Overview (original version)"
                 />
               </LinkedImage>
               <div className="caption">
@@ -209,8 +209,8 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 <SiteImage
                   src={`${rootPath}visionsketch/visionsketch-example.jpg`}
-                  alt={"Example use case #1: counting grinds"}
-                  width={"560"}
+                  alt="Example use case #1: counting grinds"
+                  width="560"
                 />
               </LinkedImage>
               <div className="caption">
@@ -223,8 +223,8 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <ProjectPublications
-          project={"visionsketch"}
-          majorPublication={"gi2014-kato-visionsketch"}
+          project="visionsketch"
+          majorPublication="gi2014-kato-visionsketch"
         />
       </SiteLayout>
     </>

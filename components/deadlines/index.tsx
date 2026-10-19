@@ -54,48 +54,36 @@ export default function Page({ pageData }: PageDataProps) {
           <Segment>
             <Grid stackable divided columns={3}>
               <Grid.Column>
-                <Header as="h3">{"ACM CHI 2019"}</Header>
+                <Header as="h3">ACM CHI 2019</Header>
                 <Segment basic>
                   <iframe
-                    src={
-                      "//free.timeanddate.com/countdown/i6begvps/n137/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs120/szw320/szh135/iso2018-09-14T11:59:59/pa10"
-                    }
+                    src="//free.timeanddate.com/countdown/i6begvps/n137/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs120/szw320/szh135/iso2018-09-14T11:59:59/pa10"
                     {...{ allowtransparency: "true" }}
-                    frameBorder={"0"}
-                    width={"155"}
-                    height={"55"}
+                    frameBorder="0"
+                    width="155"
+                    height="55"
                   ></iframe>
                 </Segment>
                 <Segment basic textAlign="right">
-                  <a
-                    href={
-                      "//www.timeanddate.com/countdown/generic?iso=20180914T115959&p0=234&msg=ACM+CHI+submission+deadline&font=cursive"
-                    }
-                  >
-                    {"Show the countdown timer"}
+                  <a href="//www.timeanddate.com/countdown/generic?iso=20180914T115959&amp;p0=234&amp;msg=ACM+CHI+submission+deadline&amp;font=cursive">
+                    Show the countdown timer
                   </a>
                 </Segment>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h3">{"LIVE 2018"}</Header>
+                <Header as="h3">LIVE 2018</Header>
                 <Segment basic>
                   <iframe
-                    src={
-                      "//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-08-17T23:59:59/pa10"
-                    }
+                    src="//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-08-17T23:59:59/pa10"
                     {...{ allowtransparency: "true" }}
-                    frameBorder={"0"}
-                    width={"155"}
-                    height={"55"}
+                    frameBorder="0"
+                    width="155"
+                    height="55"
                   ></iframe>
                 </Segment>
                 <Segment basic textAlign="right">
-                  <a
-                    href={
-                      "//www.timeanddate.com/countdown/generic?iso=20180817T235959&p0=3399&msg=LIVE+submission+deadline&font=cursive"
-                    }
-                  >
-                    {"Show the countdown timer"}
+                  <a href="//www.timeanddate.com/countdown/generic?iso=20180817T235959&amp;p0=3399&amp;msg=LIVE+submission+deadline&amp;font=cursive">
+                    Show the countdown timer
                   </a>
                 </Segment>
               </Grid.Column>
@@ -109,71 +97,53 @@ export default function Page({ pageData }: PageDataProps) {
           <Segment>
             <Grid stackable divided columns={3}>
               <Grid.Column>
-                <Header as="h3">{"ACM UIST 2018"}</Header>
+                <Header as="h3">ACM UIST 2018</Header>
                 <Segment basic>
                   <iframe
-                    src={
-                      "//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-05T17:00:00/pa10"
-                    }
+                    src="//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-05T17:00:00/pa10"
                     {...{ allowtransparency: "true" }}
-                    frameBorder={"0"}
-                    width={"155"}
-                    height={"55"}
+                    frameBorder="0"
+                    width="155"
+                    height="55"
                   ></iframe>
                 </Segment>
                 <Segment basic textAlign="right">
-                  <a
-                    href={
-                      "//www.timeanddate.com/countdown/generic?iso=20180405T17&p0=234&msg=ACM+UIST+submission+deadline&font=cursive"
-                    }
-                  >
-                    {"Show the countdown timer"}
+                  <a href="//www.timeanddate.com/countdown/generic?iso=20180405T17&amp;p0=234&amp;msg=ACM+UIST+submission+deadline&amp;font=cursive">
+                    Show the countdown timer
                   </a>
                 </Segment>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h3">{"ACM MM 2018"}</Header>
+                <Header as="h3">ACM MM 2018</Header>
                 <Segment basic>
                   <iframe
-                    src={
-                      "//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-08T23:59:59/pa10"
-                    }
+                    src="//free.timeanddate.com/countdown/i66i8uke/n234/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-08T23:59:59/pa10"
                     {...{ allowtransparency: "true" }}
-                    frameBorder={"0"}
-                    width={"155"}
-                    height={"55"}
+                    frameBorder="0"
+                    width="155"
+                    height="55"
                   ></iframe>
                 </Segment>
                 <Segment basic textAlign="right">
-                  <a
-                    href={
-                      "//www.timeanddate.com/countdown/generic?iso=20180408T235959&p0=234&msg=ACM+Multimedia+submission+deadline&font=cursive"
-                    }
-                  >
-                    {"Show the countdown timer"}
+                  <a href="//www.timeanddate.com/countdown/generic?iso=20180408T235959&amp;p0=234&amp;msg=ACM+Multimedia+submission+deadline&amp;font=cursive">
+                    Show the countdown timer
                   </a>
                 </Segment>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h3">{"IEEE VL/HCC 2018"}</Header>
+                <Header as="h3">IEEE VL/HCC 2018</Header>
                 <Segment basic>
                   <iframe
-                    src={
-                      "//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-27T23:59:59/pa10"
-                    }
+                    src="//free.timeanddate.com/countdown/i66i8uke/n3399/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpcf00/pct/tcf1d8e7/fs120/szw320/szh135/iso2018-04-27T23:59:59/pa10"
                     {...{ allowtransparency: "true" }}
-                    frameBorder={"0"}
-                    width={"155"}
-                    height={"55"}
+                    frameBorder="0"
+                    width="155"
+                    height="55"
                   ></iframe>
                 </Segment>
                 <Segment basic textAlign="right">
-                  <a
-                    href={
-                      "//www.timeanddate.com/countdown/generic?iso=20180427T235959&p0=3399&msg=IEEE+VL/HCC+submission+deadline&font=cursive"
-                    }
-                  >
-                    {"Show the countdown timer"}
+                  <a href="//www.timeanddate.com/countdown/generic?iso=20180427T235959&amp;p0=3399&amp;msg=IEEE+VL/HCC+submission+deadline&amp;font=cursive">
+                    Show the countdown timer
                   </a>
                 </Segment>
               </Grid.Column>

@@ -65,29 +65,24 @@ export default function Page({ pageData }: PageDataProps) {
                 ja={
                   <>
                     <p>
-                      {"このWebサイトは"}
-                      <a href={"https://semantic-ui.com"}>{"Semantic UI"}</a>
-                      {
-                        " CSSフレームワークを利用して作られており、さまざまな閲覧環境を想定したレスポンシブデザインとなっています。"
-                      }
+                      このWebサイトは
+                      <a href="https://semantic-ui.com">Semantic UI</a>{" "}
+                      CSSフレームワークを利用して作られており、さまざまな閲覧環境を想定したレスポンシブデザインとなっています。
                     </p>
                     <p>
-                      {
-                        "また、色はモノトーンを基調としてアクセントカラーにアドニスブルーを採用し、肝心の内容が引き立つよう控え目に配色されています。"
-                      }
+                      また、色はモノトーンを基調としてアクセントカラーにアドニスブルーを採用し、肝心の内容が引き立つよう控え目に配色されています。
                     </p>
                   </>
                 }
               >
                 <p>
-                  {"This website is built on top of the "}
-                  <a href={"https://semantic-ui.com"}>{"Semantic UI"}</a>
-                  {" CSS framework and fully implements responsive design."}
+                  This website is built on top of the{" "}
+                  <a href="https://semantic-ui.com">Semantic UI</a> CSS
+                  framework and fully implements responsive design.
                 </p>
                 <p>
-                  {
-                    "The color scheme is almost monotone with a slight accent of adonis blue so that the actual content gets enough attention."
-                  }
+                  The color scheme is almost monotone with a slight accent of
+                  adonis blue so that the actual content gets enough attention.
                 </p>
               </LocalizedContent>
             </Segment>
@@ -102,30 +97,23 @@ export default function Page({ pageData }: PageDataProps) {
                 ja={
                   <>
                     <p>
-                      <a href={"#code"}>{"下で詳しく触れているように"}</a>
-                      {
-                        "、Webサイトは専用に開発されたデータ構造を持ち、データが更新されるたびに動的にビルドされるようにできています。"
-                      }
+                      <a href="#code">下で詳しく触れているように</a>
+                      、Webサイトは専用に開発されたデータ構造を持ち、データが更新されるたびに動的にビルドされるようにできています。
                     </p>
                     <p>
-                      {
-                        "このビルドパイプラインにより、メンテナンスとテストが容易になっています。"
-                      }
+                      このビルドパイプラインにより、メンテナンスとテストが容易になっています。
                     </p>
                   </>
                 }
               >
                 <p>
-                  {"As detailed "}
-                  <a href={"#code"}>{"below"}</a>
-                  {
-                    ", a certain part of this website is dynamically built from a set of well-structured data source, every time the data source is updated."
-                  }
+                  As detailed <a href="#code">below</a>, a certain part of this
+                  website is dynamically built from a set of well-structured
+                  data source, every time the data source is updated.
                 </p>
                 <p>
-                  {
-                    "The building pipeline makes a low-maintenance and easy-to-test website."
-                  }
+                  The building pipeline makes a low-maintenance and easy-to-test
+                  website.
                 </p>
               </LocalizedContent>
             </Segment>
@@ -140,37 +128,30 @@ export default function Page({ pageData }: PageDataProps) {
                 ja={
                   <>
                     <p>
-                      {
-                        "このWebサイトはほとんどが静的なHTML/CSSファイルからなっており、サーバ側でも、クライアント側でも、画面に描画される前に必要な処理が少なくて済むように設計されています。"
-                      }
+                      このWebサイトはほとんどが静的なHTML/CSSファイルからなっており、サーバ側でも、クライアント側でも、画面に描画される前に必要な処理が少なくて済むように設計されています。
                     </p>
                     <p>
-                      {"唯一の例外は、読み込みに多少時間のかかるWebフォント"}
-                      <a
-                        href={"https://www.morisawa.co.jp/fonts/specimen/1091"}
-                      >
-                        {"UD 新ゴ R"}
+                      唯一の例外は、読み込みに多少時間のかかるWebフォント
+                      <a href="https://www.morisawa.co.jp/fonts/specimen/1091">
+                        UD 新ゴ R
                       </a>
-                      {
-                        "ですが、これは綺麗なタイポグラフィのためには外せないものです。"
-                      }
+                      ですが、これは綺麗なタイポグラフィのためには外せないものです。
                     </p>
                   </>
                 }
               >
                 <p>
-                  {
-                    "The website is mostly made of static HTML/CSS files and does not require much server- nor client-side processing before rendering."
-                  }
+                  The website is mostly made of static HTML/CSS files and does
+                  not require much server- nor client-side processing before
+                  rendering.
                 </p>
                 <p>
-                  {"The only exception is a Japanese web font ("}
-                  <a href={"https://www.morisawa.co.jp/fonts/specimen/1091"}>
-                    {"UD Shin Go"}
+                  The only exception is a Japanese web font (
+                  <a href="https://www.morisawa.co.jp/fonts/specimen/1091">
+                    UD Shin Go
                   </a>
-                  {
-                    ") that could take some time to load, but is essential for the beautiful typography."
-                  }
+                  ) that could take some time to load, but is essential for the
+                  beautiful typography.
                 </p>
               </LocalizedContent>
             </Segment>
@@ -188,18 +169,15 @@ export default function Page({ pageData }: PageDataProps) {
             {en
               ? "This website is a collection of static HTML/CSS/JavaScript files. It is built from code and data every time something is pushed to the master branch of the "
               : "このWebサイトはほとんどが静的なHTML/CSS/JavaScriptファイルの塊です。そうしたファイルは、"}
-            <a href={"https://github.com/arcatdmz/arcatdmz.github.io"}>
+            <a href="https://github.com/arcatdmz/arcatdmz.github.io">
               <Icon name="github" />
-              {"GitHub"}
+              GitHub
             </a>
             {en
               ? " repository. The build pipeline is executed on "
               : "リポジトリのmasterブランチに何かがpushされるたび、コードとデータをもとにビルドされています。ビルドパイプラインは"}
-            <a
-              href={"https://travis-ci.org/arcatdmz/arcatdmz.github.io/builds"}
-            >
-              {"Travis "}
-              <abbr title={"Continuous Integration"}>{"CI"}</abbr>
+            <a href="https://travis-ci.org/arcatdmz/arcatdmz.github.io/builds">
+              Travis <abbr title="Continuous Integration">CI</abbr>
             </a>
             {en ? "." : "上で実行されています。"}
           </p>
@@ -215,10 +193,10 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/histories.json`)}
                 >
-                  {"histories.json"}
+                  histories.json
                 </List.Header>
                 <List.Description>
-                  {'All of the "Recent updates" entries'}
+                  All of the "Recent updates" entries
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -228,14 +206,14 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/publications.json`)}
                 >
-                  {"publications.json"}
+                  publications.json
                 </List.Header>
                 <List.Description>
-                  {"Publication history (generated from "}
+                  Publication history (generated from{" "}
                   <SiteLink href={href(`${rootPath}junkato.bib`)}>
-                    {"junkato.bib"}
+                    junkato.bib
                   </SiteLink>
-                  {")"}
+                  )
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -245,10 +223,10 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/awards.json`)}
                 >
-                  {"awards.json"}
+                  awards.json
                 </List.Header>
                 <List.Description>
-                  {"All of the received awards information"}
+                  All of the received awards information
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -258,10 +236,10 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/talks.json`)}
                 >
-                  {"talks.json"}
+                  talks.json
                 </List.Header>
                 <List.Description>
-                  {"All of the invited talks information"}
+                  All of the invited talks information
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -271,10 +249,10 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/lectures.json`)}
                 >
-                  {"lectures.json"}
+                  lectures.json
                 </List.Header>
                 <List.Description>
-                  {"All of the lectures information"}
+                  All of the lectures information
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -284,12 +262,11 @@ export default function Page({ pageData }: PageDataProps) {
                   as={SiteLink}
                   href={href(`${rootPath}data/projects.json`)}
                 >
-                  {"projects.json"}
+                  projects.json
                 </List.Header>
                 <List.Description>
-                  {
-                    "All of the projects information as well as the project tags information"
-                  }
+                  All of the projects information as well as the project tags
+                  information
                 </List.Description>
               </List.Content>
             </List.Item>
@@ -307,22 +284,18 @@ export default function Page({ pageData }: PageDataProps) {
             {en
               ? "This website is made possible with help of various "
               : "このWebサイトはさまざまな"}
-            <abbr title={"Open-Source Software"}>{"OSS"}</abbr>
+            <abbr title="Open-Source Software">OSS</abbr>
             {en
               ? " projects. As noted in "
               : "プロジェクトを利用して開発されています。"}
-            <a href={"https://github.com/arcatdmz/arcatdmz.github.io#readme"}>
-              {"README.md"}
+            <a href="https://github.com/arcatdmz/arcatdmz.github.io#readme">
+              README.md
             </a>
             {en
               ? ", it is built with the following tools, libraries, and languages. For the complete list of dependent libraries, see "
               : "に書いてあるように、以下のツール、ライブラリ、プログラミング言語が主に使われています。その他も含めたすべての依存ライブラリの一覧は"}
-            <a
-              href={
-                "https://github.com/arcatdmz/arcatdmz.github.io/blog/main/package.json"
-              }
-            >
-              {"package.json"}
+            <a href="https://github.com/arcatdmz/arcatdmz.github.io/blog/main/package.json">
+              package.json
             </a>
             {en ? "." : "をご覧ください。"}
           </p>
@@ -330,37 +303,34 @@ export default function Page({ pageData }: PageDataProps) {
             <List.Item>
               <Icon size="large" className="devicon-gulp-plain colored" />
               <List.Content>
-                <List.Header>{"Gulp v4"}</List.Header>
+                <List.Header>Gulp v4</List.Header>
                 <List.Description>
-                  {"for managing build pipelines"}
+                  for managing build pipelines
                 </List.Description>
               </List.Content>
             </List.Item>
             <List.Item>
               <Icon size="large" className="devicon-webpack-plain colored" />
               <List.Content>
-                <List.Header>{"Webpack v4"}</List.Header>
-                <List.Description>
-                  {"for packing JavaScript code"}
-                </List.Description>
+                <List.Header>Webpack v4</List.Header>
+                <List.Description>for packing JavaScript code</List.Description>
               </List.Content>
             </List.Item>
             <List.Item>
               <Icon size="large" className="devicon-babel-plain colored" />
               <List.Content>
-                <List.Header>{"Babel v7.9"}</List.Header>
+                <List.Header>Babel v7.9</List.Header>
                 <List.Description>
-                  {
-                    "for transpiling JS code to be compatible with outdated browsers"
-                  }
+                  for transpiling JS code to be compatible with outdated
+                  browsers
                 </List.Description>
               </List.Content>
             </List.Item>
             <List.Item>
               <Icon size="large" name="ellipsis horizontal" />
               <List.Content>
-                <List.Header>{"Pug v2"}</List.Header>
-                <List.Description>{"for easier HTML coding"}</List.Description>
+                <List.Header>Pug v2</List.Header>
+                <List.Description>for easier HTML coding</List.Description>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -369,15 +339,15 @@ export default function Page({ pageData }: PageDataProps) {
                 className="devicon-less-plain-wordmark colored"
               />
               <List.Content>
-                <List.Header>{"LESS"}</List.Header>
-                <List.Description>{"for easier CSS coding"}</List.Description>
+                <List.Header>LESS</List.Header>
+                <List.Description>for easier CSS coding</List.Description>
               </List.Content>
             </List.Item>
             <List.Item>
               <Icon size="large" className="devicon-typescript-plain colored" />
               <List.Content>
-                <List.Header>{"TypeScript v5.3"}</List.Header>
-                <List.Description>{"for easier JS coding"}</List.Description>
+                <List.Header>TypeScript v5.3</List.Header>
+                <List.Description>for easier JS coding</List.Description>
               </List.Content>
             </List.Item>
           </List>
@@ -388,19 +358,19 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"website"} />
+        <ProjectHeader project="website" />
         <Divider hidden />
-        <section id={"design"}>{renderDesign()}</section>
+        <section id="design">{renderDesign()}</section>
         <Divider hidden />
         <Grid stackable columns={2}>
           <Grid.Column>
-            <section id={"code"}>
+            <section id="code">
               {renderCode()}
               <Divider hidden />
             </section>
           </Grid.Column>
           <Grid.Column>
-            <section id={"acknowledgement"}>
+            <section id="acknowledgement">
               {renderAcknowledgement()}
               <Divider hidden />
             </section>

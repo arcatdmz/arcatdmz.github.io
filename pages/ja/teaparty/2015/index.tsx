@@ -60,159 +60,131 @@ export default function Page({ pageData }: PageDataProps) {
       <SiteLayout context={context}>
         <Breadcrumb>
           <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
-            {"名状しがたいお茶会"}
+            名状しがたいお茶会
           </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <Breadcrumb.Section active>{"第4回 (2015)"}</Breadcrumb.Section>
+          <Breadcrumb.Section active>第4回 (2015)</Breadcrumb.Section>
         </Breadcrumb>
         <Divider />
         <section>
-          <Header as="h1">{"第4回 名状しがたいお茶会"}</Header>
+          <Header as="h1">第4回 名状しがたいお茶会</Header>
           <List divided horizontal>
             <List.Item>
               <Label basic size="tiny" as="span">
                 <Icon name="calendar" />
-                {"2015/1/24"}
+                2015/1/24
               </Label>
             </List.Item>
           </List>
         </section>
         <Divider hidden />
-        <section id={"summary"}>
+        <section id="summary">
           <Segment basic>
             <p>
-              {
-                "アニメ、ゲーム、絵、音楽、小説など、面白いコンテンツを作る・作れる・作りたい人たちと、その活動を応援したい人たちの集まりです。お茶を飲みながらざっくばらんに語ります。カジュアルな勉強会のようなものとお考えください。2012年から、毎年一回程度のペースで開催しています。"
-              }
+              アニメ、ゲーム、絵、音楽、小説など、面白いコンテンツを作る・作れる・作りたい人たちと、その活動を応援したい人たちの集まりです。お茶を飲みながらざっくばらんに語ります。カジュアルな勉強会のようなものとお考えください。2012年から、毎年一回程度のペースで開催しています。
             </p>
             <p>
-              {
-                "目的はいろいろありますが、その一つは、コンテンツ制作・鑑賞支援研究者、コンテンツ制作者、鑑賞者の距離を縮めることです。毎回、立場を超えて交流し、立場を超えて活動していきたいメンタリティの持ち主が集まっています。"
-              }
+              目的はいろいろありますが、その一つは、コンテンツ制作・鑑賞支援研究者、コンテンツ制作者、鑑賞者の距離を縮めることです。毎回、立場を超えて交流し、立場を超えて活動していきたいメンタリティの持ち主が集まっています。
             </p>
             <p>
-              {
-                "業界横断で濃い人たちの参加をお待ちしてます。初対面同士が多いお茶会なので、知り合いが少なくてちょっとひよりそうな人も、物怖じせずご参加ください。ついでに、濃い友達がいたら、ぜひ連れてきてください。"
-              }
+              業界横断で濃い人たちの参加をお待ちしてます。初対面同士が多いお茶会なので、知り合いが少なくてちょっとひよりそうな人も、物怖じせずご参加ください。ついでに、濃い友達がいたら、ぜひ連れてきてください。
             </p>
             <p>
-              {
-                "今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。"
-              }
+              今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。
             </p>
             <List horizontal>
               <List.Item>
                 <a
-                  href={"https://www.facebook.com/events/873913542653717/"}
-                  title={"Facebook イベントページ"}
+                  href="https://www.facebook.com/events/873913542653717/"
+                  title="Facebook イベントページ"
                 >
                   <Icon name="facebook" />
-                  {"Facebook"}
+                  Facebook
                 </a>
               </List.Item>
               <List.Item>
-                <a
-                  href={
-                    "https://docs.google.com/forms/d/1xUDrcGYtj45wCRggYmnZGlljlsemq7DMZbj6oHJdZq8/viewform"
-                  }
-                >
+                <a href="https://docs.google.com/forms/d/1xUDrcGYtj45wCRggYmnZGlljlsemq7DMZbj6oHJdZq8/viewform">
                   <Icon name="google" />
-                  {"事後アンケート"}
+                  事後アンケート
                 </a>
               </List.Item>
             </List>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"timetable"}>
-          <Header as="h2">{"タイムテーブル"}</Header>
+        <section id="timetable">
+          <Header as="h2">タイムテーブル</Header>
           <Segment basic>
             <p>
-              {
-                "例年になく人数が増えたため、話題ごとにセッションとしてまとまりを作りました。クリエータの方々の作品紹介「"
-              }
-              <b>{"Creators' Showcase #1, #2"}</b>
-              {"」と、テーマごとの「"}
-              <b>{"科学・教育"}</b>
-              {"」「"}
-              <b>{"人・コンピュータ・知能"}</b>
-              {"」「"}
-              <b>{"ゲーム"}</b>
-              {"」「"}
-              <b>{"海外動向"}</b>
-              {"」「"}
-              <b>{"五感に訴えるコンテンツ"}</b>
-              {"」「"}
-              <b>{"コンテンツ理解・生成"}</b>
-              {"」、そして1分自己紹介「"}
-              <b>{"Shotgun Session"}</b>
-              {"」です。"}
+              例年になく人数が増えたため、話題ごとにセッションとしてまとまりを作りました。クリエータの方々の作品紹介「
+              <b>Creators' Showcase #1, #2</b>
+              」と、テーマごとの「
+              <b>科学・教育</b>
+              」「
+              <b>人・コンピュータ・知能</b>
+              」「
+              <b>ゲーム</b>
+              」「
+              <b>海外動向</b>
+              」「
+              <b>五感に訴えるコンテンツ</b>
+              」「
+              <b>コンテンツ理解・生成</b>
+              」、そして1分自己紹介「
+              <b>Shotgun Session</b>
+              」です。
             </p>
             <p>
-              {"計"}
-              <b>{"9"}</b>
-              {"セッション、"}
-              <b>{"7時間"}</b>
-              {
-                "に及ぶ発表と議論からなる欲張りなタイムテーブルです。頭をフル回転させ、全速力でお楽しみください。"
-              }
+              計<b>9</b>
+              セッション、
+              <b>7時間</b>
+              に及ぶ発表と議論からなる欲張りなタイムテーブルです。頭をフル回転させ、全速力でお楽しみください。
             </p>
             <iframe
-              src={
-                "https://docs.google.com/spreadsheets/d/1FqBKPyTiFDegmcOIcpRNEujx9yga4crkXvjVKMxsf9Y/pubhtml?gid=1689693383&single=true&widget=true&headers=false"
-              }
+              src="https://docs.google.com/spreadsheets/d/1FqBKPyTiFDegmcOIcpRNEujx9yga4crkXvjVKMxsf9Y/pubhtml?gid=1689693383&amp;single=true&amp;widget=true&amp;headers=false"
               style={{ width: "100%", height: "400px" }}
             ></iframe>
             <Divider hidden />
           </Segment>
         </section>
-        <section id={"details"}>
-          <Header as="h2">{"時と場所"}</Header>
+        <section id="details">
+          <Header as="h2">時と場所</Header>
           <Segment basic>
+            <p>2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。</p>
             <p>
-              {"2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。"}
-            </p>
-            <p>
-              {
-                "DMM.make AKIBA BASEは入り口にセキュリティゲートがあります。開場時間近辺はスタッフの方が開けてくださいますが、もし遅れる場合は"
-              }
-              <a href={"https://twitter.com/arcatdmz"}>{"@arcatdmz"}</a>
-              {
-                "または #teaparty2015 でツイートするなどして中の人にご連絡ください。"
-              }
+              DMM.make AKIBA
+              BASEは入り口にセキュリティゲートがあります。開場時間近辺はスタッフの方が開けてくださいますが、もし遅れる場合は
+              <a href="https://twitter.com/arcatdmz">@arcatdmz</a>
+              または #teaparty2015
+              でツイートするなどして中の人にご連絡ください。
             </p>
           </Segment>
-          <div id={"map-canvas"}></div>
-          <Header as="h2">{"設備"}</Header>
+          <div id="map-canvas"></div>
+          <Header as="h2">設備</Header>
           <Segment basic>
             <p>
-              {
-                "電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。"
-              }
+              電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。
             </p>
             <p>
-              {
-                "プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。"
-              }
+              プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini
+              DisplayPort、VGA接続が可能です。
             </p>
           </Segment>
-          <Header as="h2">{"参加費"}</Header>
+          <Header as="h2">参加費</Header>
           <Segment basic>
             <p>
-              {"学生"}
-              <b>{"1000"}</b>
-              {"円、社会人"}
-              <b>{"2500"}</b>
-              {
-                "円を予定しています。13-18時までお菓子とお茶が出るほか、18-20時まで夕飯とドリンクのケータリングが手配されています。"
-              }
+              学生
+              <b>1000</b>
+              円、社会人
+              <b>2500</b>
+              円を予定しています。13-18時までお菓子とお茶が出るほか、18-20時まで夕飯とドリンクのケータリングが手配されています。
             </p>
           </Segment>
           <Header as="h2">
-            {"Togetter"}
+            Togetter
             <Segment basic className="togetter">
               <DeferredScript
-                src={"//togetter.com/js/parts.js"}
+                src="//togetter.com/js/parts.js"
                 dangerouslySetInnerHTML={{ __html: "" }}
               />
               <DeferredScript
@@ -227,15 +199,15 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider />
         <Breadcrumb>
           <Breadcrumb.Section as={SiteLink} href={href(basePath + me)}>
-            {"名状しがたいお茶会"}
+            名状しがたいお茶会
           </Breadcrumb.Section>
           <Icon name="angle right" className="divider" />
-          <Breadcrumb.Section active>{"第4回 (2015)"}</Breadcrumb.Section>
+          <Breadcrumb.Section active>第4回 (2015)</Breadcrumb.Section>
         </Breadcrumb>
       </SiteLayout>
       <DeferredScript
-        type={"text/javascript"}
-        src={"//maps.googleapis.com/maps/api/js?v=3.exp"}
+        type="text/javascript"
+        src="//maps.googleapis.com/maps/api/js?v=3.exp"
         dangerouslySetInnerHTML={{ __html: "" }}
       />
       <DeferredScript

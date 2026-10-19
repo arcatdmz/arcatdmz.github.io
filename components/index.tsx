@@ -69,7 +69,7 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbout(): ReactNode {
     return (
       <>
-        <Segment basic id={"about"}>
+        <Segment basic id="about">
           <Grid stackable>
             <Grid.Column width={8}>
               <Header as="h5">{en ? "Research area" : "研究内容"}</Header>
@@ -81,15 +81,11 @@ export default function Page({ pageData }: PageDataProps) {
                   <LocalizedContent
                     ja={
                       <>
-                        {'"'}
-                        <abbr title={"Human-Computer Interaction"}>
-                          {"HCI"}
-                        </abbr>
-                        {'"'}
+                        "<abbr title="Human-Computer Interaction">HCI</abbr>"
                       </>
                     }
                   >
-                    {"Human-Computer Interaction (HCI)"}
+                    Human-Computer Interaction (HCI)
                   </LocalizedContent>
                 </strong>
                 {en
@@ -113,15 +109,15 @@ export default function Page({ pageData }: PageDataProps) {
                   <LocalizedContent
                     ja={
                       <>
-                        {"統合開発環境 ("}
-                        <abbr title={"Integrated Development Environment"}>
-                          {"IDE"}
+                        統合開発環境 (
+                        <abbr title="Integrated Development Environment">
+                          IDE
                         </abbr>
-                        {")"}
+                        )
                       </>
                     }
                   >
-                    {"integrated environments"}
+                    integrated environments
                   </LocalizedContent>
                 </strong>
                 {en ? " for " : "で"}
@@ -129,13 +125,12 @@ export default function Page({ pageData }: PageDataProps) {
                   <LocalizedContent
                     ja={
                       <>
-                        {"プログラミング体験 ("}
-                        <abbr title={"Programming Experience"}>{"PX"}</abbr>
-                        {")"}
+                        プログラミング体験 (
+                        <abbr title="Programming Experience">PX</abbr>)
                       </>
                     }
                   >
-                    {"creativity support"}
+                    creativity support
                   </LocalizedContent>
                 </strong>
                 {en
@@ -157,127 +152,92 @@ export default function Page({ pageData }: PageDataProps) {
                 <LocalizedContent
                   ja={
                     <>
-                      {
-                        "2014年 東京大学大学院コンピュータ科学専攻 博士課程を修了。同年より"
-                      }
-                      <a href={"https://www.aist.go.jp/"}>
-                        {"産業技術総合研究所 ("}
-                        <abbr
-                          title={
-                            "National Institute of Advanced Industrial Science and Technology"
-                          }
-                        >
-                          {"AIST"}
+                      2014年 東京大学大学院コンピュータ科学専攻
+                      博士課程を修了。同年より
+                      <a href="https://www.aist.go.jp/">
+                        産業技術総合研究所 (
+                        <abbr title="National Institute of Advanced Industrial Science and Technology">
+                          AIST
                         </abbr>
-                        {")"}
+                        )
                       </a>
-                      {
-                        "研究員、2018年 主任研究員、2026年 上級主任研究員。2018年より"
-                      }
-                      <a href={"https://research.archinc.jp/"}>
-                        {"アーチ株式会社"}
-                      </a>
-                      {
-                        "技術顧問を兼務。2024年度パリ＝サクレ大学にVisiting Scientistとして滞在。"
-                      }
+                      研究員、2018年 主任研究員、2026年
+                      上級主任研究員。2018年より
+                      <a href="https://research.archinc.jp/">アーチ株式会社</a>
+                      技術顧問を兼務。2024年度パリ＝サクレ大学にVisiting
+                      Scientistとして滞在。
                     </>
                   }
                 >
-                  {"He is a Chief Senior Researcher at "}
-                  <a href={"https://www.aist.go.jp/index_en.html"}>
-                    <abbr
-                      title={
-                        "National Institute of Advanced Industrial Science and Technology"
-                      }
-                    >
-                      {"AIST"}
+                  He is a Chief Senior Researcher at{" "}
+                  <a href="https://www.aist.go.jp/index_en.html">
+                    <abbr title="National Institute of Advanced Industrial Science and Technology">
+                      AIST
                     </abbr>
-                  </a>
-                  {" and the Technical Advisor ("}
-                  <abbr title={"Principal Investigator"}>{"PI"}</abbr>
-                  {") at "}
-                  <a href={"https://research.archinc.jp/en"}>
-                    {"Arch Research"}
-                  </a>
-                  {" with a focus on "}
-                  <abbr title={"Programming Experience"}>{"PX"}</abbr>
-                  {" and creativity support research. "}
-                  {"\n"}
-                  {
-                    "From April 2024 to March 2025, he was a Visiting Scientist at "
-                  }
-                  <a href={"https://ex-situ.lri.fr/about"}>{"ex)situ"}</a>
-                  {" group, LISN, Université Paris-Saclay. "}
+                  </a>{" "}
+                  and the Technical Advisor (
+                  <abbr title="Principal Investigator">PI</abbr>) at{" "}
+                  <a href="https://research.archinc.jp/en">Arch Research</a>{" "}
+                  with a focus on <abbr title="Programming Experience">PX</abbr>{" "}
+                  and creativity support research. {"\n"}
+                  From April 2024 to March 2025, he was a Visiting Scientist at{" "}
+                  <a href="https://ex-situ.lri.fr/about">ex)situ</a> group,
+                  LISN, Université Paris-Saclay.{" "}
                 </LocalizedContent>
                 {"\n"}
                 <LocalizedContent
                   ja={
                     <>
-                      {"Human-Computer Interaction、とくに"}
-                      <abbr
-                        title={"Programming Experience; プログラミング体験"}
-                      >
-                        {"PX"}
+                      Human-Computer Interaction、とくに
+                      <abbr title="Programming Experience; プログラミング体験">
+                        PX
                       </abbr>
-                      {
-                        "向上や創造性支援ツールの研究に従事。ACM CHI Honorable Mention (2013, 2015, 2023) や"
-                      }
-                      <a
-                        href={
-                          "https://blog.junkato.jp/ja/posts/2025-12-28-nistep-sti-hz-vol11no4/"
-                        }
-                      >
-                        {"ナイスステップな研究者"}
+                      向上や創造性支援ツールの研究に従事。ACM CHI Honorable
+                      Mention (2013, 2015, 2023) や
+                      <a href="https://blog.junkato.jp/ja/posts/2025-12-28-nistep-sti-hz-vol11no4/">
+                        ナイスステップな研究者
                       </a>
-                      {"選定 (2024) など"}
+                      選定 (2024) など
                       <SiteLink href={href(`${basePath}publications/#awards`)}>
-                        {"受賞多数"}
+                        受賞多数
                       </SiteLink>
-                      {"。"}
+                      。
                     </>
                   }
                 >
-                  {"He received a Ph.D. from "}
+                  He received a Ph.D. from{" "}
                   <a
-                    href={"https://www-ui.is.s.u-tokyo.ac.jp/en/"}
-                    title={"Prof. Takeo Igarashi (User Interface Research Lab)"}
+                    href="https://www-ui.is.s.u-tokyo.ac.jp/en/"
+                    title="Prof. Takeo Igarashi (User Interface Research Lab)"
                   >
-                    {"The University of Tokyo"}
-                  </a>
-                  {" (2014) and has regularly gained "}
+                    The University of Tokyo
+                  </a>{" "}
+                  (2014) and has regularly gained{" "}
                   <SiteLink href={href(`${basePath}publications/#awards`)}>
-                    {"academic recognitions"}
-                  </SiteLink>
-                  {" such as Honorable Mentions at ACM "}
-                  <abbr
-                    title={
-                      "The SIGCHI conference on Human Factors in Computing Systems"
-                    }
-                  >
-                    {"CHI"}
-                  </abbr>
-                  {" (2013, 2015, 2023) and "}
+                    academic recognitions
+                  </SiteLink>{" "}
+                  such as Honorable Mentions at ACM{" "}
+                  <abbr title="The SIGCHI conference on Human Factors in Computing Systems">
+                    CHI
+                  </abbr>{" "}
+                  (2013, 2015, 2023) and{" "}
                   <a
-                    href={
-                      "https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
-                    }
-                    title={
-                      "IPSJ/ACM Award for Early Career Contributions to Global Research"
-                    }
+                    href="https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
+                    title="IPSJ/ACM Award for Early Career Contributions to Global Research"
                   >
-                    {"IPSJ/ACM Award"}
-                  </a>
-                  {" (2021)."}
+                    IPSJ/ACM Award
+                  </a>{" "}
+                  (2021).
                 </LocalizedContent>
               </p>
             </Grid.Column>
           </Grid>
-          <Segment basic id={"sns"}>
+          <Segment basic id="sns">
             <List horizontal>
               <List.Item>
                 <Icon name="address card" />
                 <List.Content>
-                  <a href={"#contact"}>{en ? "Contact" : "連絡先"}</a>
+                  <a href="#contact">{en ? "Contact" : "連絡先"}</a>
                 </List.Content>
               </List.Item>
               <List.Item>
@@ -303,26 +263,23 @@ export default function Page({ pageData }: PageDataProps) {
                         (en ? "en" : "ja"),
                     )}
                   >
-                    {"Google Scholar"}
+                    Google Scholar
                   </SiteLink>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <Icon name="linkedin" />
                 <List.Content>
-                  <a
-                    href={"https://jp.linkedin.com/in/jkato"}
-                    title={"LinkedIn"}
-                  >
-                    {"jkato"}
+                  <a href="https://jp.linkedin.com/in/jkato" title="LinkedIn">
+                    jkato
                   </a>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <Icon name="facebook" />
                 <List.Content>
-                  <a href={"https://facebook.com/jun.kato"} title={"Facebook"}>
-                    {"jun.kato"}
+                  <a href="https://facebook.com/jun.kato" title="Facebook">
+                    jun.kato
                   </a>
                 </List.Content>
               </List.Item>
@@ -333,7 +290,7 @@ export default function Page({ pageData }: PageDataProps) {
                     href={href(
                       "https://twitter.com/" + (en ? "junkato" : "arcatdmz"),
                     )}
-                    title={"Twitter"}
+                    title="Twitter"
                   >
                     {en ? "junkato" : "arcatdmz"}
                   </SiteLink>
@@ -342,16 +299,16 @@ export default function Page({ pageData }: PageDataProps) {
               <List.Item>
                 <Icon className="mastodon" />
                 <List.Content>
-                  <a rel={"me"} href={"https://hci.social/@junkato"}>
-                    {"@junkato@hci.social"}
+                  <a rel="me" href="https://hci.social/@junkato">
+                    @junkato@hci.social
                   </a>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <Icon name="github" />
                 <List.Content>
-                  <a href={"https://github.com/arcatdmz"} title={"GitHub"}>
-                    {"arcatdmz"}
+                  <a href="https://github.com/arcatdmz" title="GitHub">
+                    arcatdmz
                   </a>
                 </List.Content>
               </List.Item>
@@ -410,7 +367,7 @@ export default function Page({ pageData }: PageDataProps) {
                     ? "Show the timeline of updates and publications"
                     : "時系列で全ての更新履歴と発表文献を見ることができます"
                 }
-                data-position={"top right"}
+                data-position="top right"
                 className="right attached all with-popup"
               >
                 <Icon name="expand" />
@@ -437,7 +394,7 @@ export default function Page({ pageData }: PageDataProps) {
   function renderProducts(): ReactNode {
     return (
       <>
-        <Header as="h3" id={"products"}>
+        <Header as="h3" id="products">
           <Icon name="star" />
           <Header.Content>{en ? "Products" : "プロダクト"}</Header.Content>
         </Header>
@@ -446,19 +403,14 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <>
-                  {
-                    "以下の研究成果はクリエイタ向けのWebサービスやプログラマ向けの"
-                  }
-                  <abbr title={"Application Programming Interface"}>
-                    {"API"}
-                  </abbr>
-                  {"として一般公開されています。"}
+                  以下の研究成果はクリエイタ向けのWebサービスやプログラマ向けの
+                  <abbr title="Application Programming Interface">API</abbr>
+                  として一般公開されています。
                 </>
               }
             >
-              {
-                "The following services and tools are beyond research prototypes and used in production."
-              }
+              The following services and tools are beyond research prototypes
+              and used in production.
             </LocalizedContent>
           </p>
           <Divider hidden />
@@ -481,7 +433,7 @@ export default function Page({ pageData }: PageDataProps) {
   function renderTopics(): ReactNode {
     return (
       <>
-        <Header as="h3" id={"topics"}>
+        <Header as="h3" id="topics">
           <Icon name="lightbulb" />
           <Header.Content>
             {en ? "Research topics" : "研究トピック"}
@@ -539,22 +491,22 @@ export default function Page({ pageData }: PageDataProps) {
                 <LocalizedContent
                   ja={
                     <p>
-                      {"すべての研究プロジェクトを見るには「"}
+                      すべての研究プロジェクトを見るには「
                       <SiteLink href={href(`${rootPath}ja/projects`)}>
                         <Icon name="gift" />
-                        {"プロジェクト"}
+                        プロジェクト
                       </SiteLink>
-                      {"」をご覧ください。"}
+                      」をご覧ください。
                     </p>
                   }
                 >
                   <p>
-                    {"For the exhaustive list of projects, see "}
+                    For the exhaustive list of projects, see{" "}
                     <SiteLink href={href(`${rootPath}projects`)}>
                       <Icon name="lab" />
-                      {"Projects"}
+                      Projects
                     </SiteLink>
-                    {"."}
+                    .
                   </p>
                 </LocalizedContent>
               </>,
@@ -577,7 +529,7 @@ export default function Page({ pageData }: PageDataProps) {
             {en
               ? "Please contact me via email or "
               : "電話は原則チェックしていないため、メールか"}
-            <SnsLink href={"#sns"} className={"sns"}>
+            <SnsLink href="#sns" className="sns">
               {en
                 ? "social networking sites"
                 : "ソーシャルネットワークサービス"}
@@ -594,58 +546,40 @@ export default function Page({ pageData }: PageDataProps) {
                   <List.Content>
                     {en ? (
                       <>
-                        <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
-                          {"Media Interaction Group"}
+                        <a href="https://unit.aist.go.jp/hiiri/meirg/">
+                          Media Interaction Group
                         </a>
-
-                        {", "}
-
-                        <a href={"https://unit.aist.go.jp/hiiri/index-en.html"}>
-                          {
-                            "Human Informatics and Interaction Research Institute (HIIRI)"
-                          }
+                        ,{" "}
+                        <a href="https://unit.aist.go.jp/hiiri/index-en.html">
+                          Human Informatics and Interaction Research Institute
+                          (HIIRI)
                         </a>
-
-                        {", "}
-
-                        <a href={"https://www.aist.go.jp/index_en.html"}>
-                          {
-                            "National Institute of Advanced Industrial Science and Technology (AIST)"
-                          }
+                        ,{" "}
+                        <a href="https://www.aist.go.jp/index_en.html">
+                          National Institute of Advanced Industrial Science and
+                          Technology (AIST)
                         </a>
                       </>
                     ) : (
                       <>
-                        <a href={"https://www.aist.go.jp/"}>
-                          {"国立研究開発法人 産業技術総合研究所 ("}
-                          <abbr
-                            title={
-                              "National Institute of Advanced Industrial Science and Technology"
-                            }
-                          >
-                            {"AIST"}
+                        <a href="https://www.aist.go.jp/">
+                          国立研究開発法人 産業技術総合研究所 (
+                          <abbr title="National Institute of Advanced Industrial Science and Technology">
+                            AIST
                           </abbr>
-                          {")"}
+                          )
                         </a>
-
-                        {", "}
-
-                        <a href={"https://unit.aist.go.jp/hiiri/"}>
-                          {"人間情報インタラクション研究部門 ("}
-                          <abbr
-                            title={
-                              "Human Informatics and Interaction Research Institute"
-                            }
-                          >
-                            {"HIIRI"}
+                        ,{" "}
+                        <a href="https://unit.aist.go.jp/hiiri/">
+                          人間情報インタラクション研究部門 (
+                          <abbr title="Human Informatics and Interaction Research Institute">
+                            HIIRI
                           </abbr>
-                          {")"}
+                          )
                         </a>
-
-                        {", "}
-
-                        <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
-                          {"メディアインタラクション研究グループ"}
+                        ,{" "}
+                        <a href="https://unit.aist.go.jp/hiiri/meirg/">
+                          メディアインタラクション研究グループ
                         </a>
                       </>
                     )}
@@ -667,23 +601,15 @@ export default function Page({ pageData }: PageDataProps) {
                   <List.Content>
                     {en ? (
                       <>
-                        <a href={"https://research.archinc.jp/en"}>
-                          {"Arch Research"}
+                        <a href="https://research.archinc.jp/en">
+                          Arch Research
                         </a>
-
-                        {", "}
-
-                        <a href={"https://archinc.jp/en"}>{"Arch Inc."}</a>
+                        , <a href="https://archinc.jp/en">Arch Inc.</a>
                       </>
                     ) : (
                       <>
-                        <a href={"https://archinc.jp/"}>{"アーチ株式会社"}</a>
-
-                        {", "}
-
-                        <a href={"https://research.archinc.jp/"}>
-                          {"Arch Research"}
-                        </a>
+                        <a href="https://archinc.jp/">アーチ株式会社</a>,{" "}
+                        <a href="https://research.archinc.jp/">Arch Research</a>
                       </>
                     )}
                   </List.Content>
@@ -693,7 +619,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <>
                     <List.Item>
                       <Icon name="marker" />
-                      <List.Content>{"Tokyo, Japan"}</List.Content>
+                      <List.Content>Tokyo, Japan</List.Content>
                     </List.Item>
                   </>
                 ) : null}
@@ -703,14 +629,14 @@ export default function Page({ pageData }: PageDataProps) {
                 <List.Item>
                   <Icon name="mail" />
                   <List.Content>
-                    <a href={"mailto:i@junkato.jp"}>{"i@junkato.jp"}</a>
+                    <a href="mailto:i@junkato.jp">i@junkato.jp</a>
                   </List.Content>
                 </List.Item>
                 <List.Item>
                   <Icon name="phone" />
                   <List.Content>
                     {en ? "+81" : "0"}
-                    {"50-3522-3432"}
+                    50-3522-3432
                   </List.Content>
                 </List.Item>
               </List>
@@ -727,7 +653,7 @@ export default function Page({ pageData }: PageDataProps) {
                     labelPosition="left"
                     as={SiteLink}
                     href={href(`${basePath}collaborations`)}
-                    data-position={"top right"}
+                    data-position="top right"
                     className="with-popup"
                   >
                     <Icon name="handshake" />
@@ -757,8 +683,8 @@ export default function Page({ pageData }: PageDataProps) {
         head={
           <>
             <link
-              rel={"alternate"}
-              type={"application/rss+xml"}
+              rel="alternate"
+              type="application/rss+xml"
               href={href(`${basePath}rss.xml`)}
             />
           </>
@@ -809,25 +735,25 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <List.Item role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href="#body">
                   <Icon name="chevron circle up" />
                   <List.Content>{en ? "Top" : "トップ"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#history"}>
+                <List.Item role="link" as="a" href="#history">
                   <Icon name="history" />
                   <List.Content>{en ? "Updates" : "近況"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#products"}>
+                <List.Item role="link" as="a" href="#products">
                   <Icon name="gift" />
                   <List.Content>{en ? "Products" : "プロダクト"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#topics"}>
+                <List.Item role="link" as="a" href="#topics">
                   <Icon name="lightbulb" />
                   <List.Content>
                     {en ? "Research topics" : "研究トピック"}
                   </List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#contact"}>
+                <List.Item role="link" as="a" href="#contact">
                   <Icon name="address card" />
                   <List.Content>{en ? "Contact" : "連絡先"}</List.Content>
                 </List.Item>
@@ -903,36 +829,27 @@ export default function Page({ pageData }: PageDataProps) {
                 {en ? (
                   <>
                     <ul>
-                      <li>{"Click to download full resolution images."}</li>
+                      <li>Click to download full resolution images.</li>
                       <li>
-                        {
-                          "The comic version was drawn by Akira Shinohara as part of the "
-                        }
-                        <a
-                          href={
-                            "https://www.aist.go.jp/aist_j/magazine/20240415.html"
-                          }
-                        >
-                          {"AIST magazine"}
+                        The comic version was drawn by Akira Shinohara as part
+                        of the{" "}
+                        <a href="https://www.aist.go.jp/aist_j/magazine/20240415.html">
+                          AIST magazine
                         </a>
-                        {"."}
+                        .
                       </li>
                     </ul>
                   </>
                 ) : (
                   <>
                     <ul>
-                      <li>{"クリックでフル解像度をダウンロードできます"}</li>
+                      <li>クリックでフル解像度をダウンロードできます</li>
                       <li>
-                        {"漫画版は"}
-                        <a
-                          href={
-                            "https://www.aist.go.jp/aist_j/magazine/20240415.html"
-                          }
-                        >
-                          {"産総研マガジン"}
+                        漫画版は
+                        <a href="https://www.aist.go.jp/aist_j/magazine/20240415.html">
+                          産総研マガジン
                         </a>
-                        {"に掲載された篠原 彬氏の手によるものです"}
+                        に掲載された篠原 彬氏の手によるものです
                       </li>
                     </ul>
                   </>
@@ -946,7 +863,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Avatar
             ui
             circular
-            id={"avatar"}
+            id="avatar"
             loading="eager"
             fetchPriority="high"
             src={`${rootPath}images/junkato.jpg`}
@@ -956,19 +873,19 @@ export default function Page({ pageData }: PageDataProps) {
             {author}
             <Header.Subheader>
               {en ? (
-                <>{"Human-Computer Interaction researcher, Ph.D."}</>
+                <>Human-Computer Interaction researcher, Ph.D.</>
               ) : (
-                <>{"博士（情報理工学）"}</>
+                <>博士（情報理工学）</>
               )}
             </Header.Subheader>
           </Header.Content>
         </Header>
         {renderAbout()}
-        <section id={"history"}>{renderHistory()}</section>
+        <section id="history">{renderHistory()}</section>
         <Divider hidden />
-        <section id={"projects"}>{renderProjects()}</section>
+        <section id="projects">{renderProjects()}</section>
         <Divider hidden />
-        <section id={"contact"}>{renderContact()}</section>
+        <section id="contact">{renderContact()}</section>
       </SiteLayout>
     </>
   );

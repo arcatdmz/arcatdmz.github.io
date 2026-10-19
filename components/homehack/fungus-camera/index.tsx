@@ -59,41 +59,31 @@ function Content() {
       <Grid stackable columns={2}>
         <Grid.Column>
           <p>
-            {
-              "なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。"
-            }
+            なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。
           </p>
           <p>
-            {
-              "ついでに、玄関の明かりのスイッチがドアから遠い問題（明かりをつけようとしている間にドアが閉まって真っ暗になる）を解決するため、このデバイスに近づくと明かりをONにして、遠ざかってしばらくするとOFFにする機能もつけた。"
-            }
+            ついでに、玄関の明かりのスイッチがドアから遠い問題（明かりをつけようとしている間にドアが閉まって真っ暗になる）を解決するため、このデバイスに近づくと明かりをONにして、遠ざかってしばらくするとOFFにする機能もつけた。
           </p>
-          <Header as="h3">{"開発環境"}</Header>
+          <Header as="h3">開発環境</Header>
           <ul>
-            <li>{"Arduino, Bash script, Java"}</li>
-            <li>{"Mac mini"}</li>
+            <li>Arduino, Bash script, Java</li>
+            <li>Mac mini</li>
           </ul>
-          <Header as="h3">{"資料"}</Header>
+          <Header as="h3">資料</Header>
           <ul>
             <li>
-              {"ブログ記事: "}
-              <a
-                href={
-                  "https://blog.junkato.jp/ja/posts/2012-12-18-mac-os-x-launchd/"
-                }
-              >
-                {"Mac OS Xでスクリプトを定期実行する"}
+              ブログ記事:{" "}
+              <a href="https://blog.junkato.jp/ja/posts/2012-12-18-mac-os-x-launchd/">
+                Mac OS Xでスクリプトを定期実行する
               </a>
             </li>
             <li>
-              {"ソースコード: "}
-              <a href={"https://github.com/arcatdmz/namekocam-server"}>
-                {"GitHub"}
-              </a>
+              ソースコード:{" "}
+              <a href="https://github.com/arcatdmz/namekocam-server">GitHub</a>
             </li>
             <li>
-              {"半年間の全成長記録: "}
-              <a href={"//www.youtube.com/watch?v=ggH3Y_goGtM"}>{"YouTube"}</a>
+              半年間の全成長記録:{" "}
+              <a href="//www.youtube.com/watch?v=ggH3Y_goGtM">YouTube</a>
             </li>
           </ul>
         </Grid.Column>
@@ -113,7 +103,7 @@ function Content() {
           </LinkedImage>
         </Grid.Column>
         <Grid.Column>
-          <EmbedYoutube src={"//www.youtube.com/embed/rFeTAwY_d_Y"} />
+          <EmbedYoutube src="//www.youtube.com/embed/rFeTAwY_d_Y" />
         </Grid.Column>
       </Grid>
     </>

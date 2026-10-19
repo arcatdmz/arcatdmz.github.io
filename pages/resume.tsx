@@ -116,31 +116,31 @@ function ResumeMenu() {
     <>
       <ul>
         <li>
-          <a href={"#profile"}>{"Profile"}</a>
+          <a href="#profile">Profile</a>
         </li>
         <li>
-          <a href={"#work"}>{"Work Experience"}</a>
+          <a href="#work">Work Experience</a>
         </li>
         <li>
-          <a href={"#grants"}>{"Grants"}</a>
+          <a href="#grants">Grants</a>
         </li>
         <li>
-          <a href={"#innovations"}>{"Innnovations"}</a>
+          <a href="#innovations">Innnovations</a>
         </li>
         <li>
-          <a href={"#education"}>{"Education"}</a>
+          <a href="#education">Education</a>
         </li>
         <li>
-          <a href={"#honors"}>{"Honors"}</a>
+          <a href="#honors">Honors</a>
         </li>
         <li>
-          <a href={"#publications"}>{"Publications"}</a>
+          <a href="#publications">Publications</a>
         </li>
         <li>
-          <a href={"#services"}>{"Services"}</a>
+          <a href="#services">Services</a>
         </li>
         <li>
-          <a href={"#references"}>{"References"}</a>
+          <a href="#references">References</a>
         </li>
       </ul>
     </>
@@ -150,25 +150,22 @@ function ResumeMenu() {
 function Profile() {
   return (
     <>
-      <h1>{"Jun Kato"}</h1>
+      <h1>Jun Kato</h1>
       <dl>
-        <dt>{"E-mail"}</dt>
+        <dt>E-mail</dt>
         <dd>
-          <code>{"jun.kato@aist.go.jp"}</code>
-          {" (work), "}
-          <code>{"i@junkato.jp"}</code>
-          {" (personal)"}
+          <code>jun.kato@aist.go.jp</code> (work), <code>i@junkato.jp</code>{" "}
+          (personal)
         </dd>
-        <dt>{"Mail"}</dt>
+        <dt>Mail</dt>
         <dd>
-          {
-            "HIIRI, AIST Tsukuba Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan"
-          }
+          HIIRI, AIST Tsukuba Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki,
+          305-8568, Japan
         </dd>
-        <dt>{"URL"}</dt>
+        <dt>URL</dt>
         <dd>
           <SiteLink className="link" href="/">
-            {"https://junkato.jp"}
+            https://junkato.jp
           </SiteLink>
         </dd>
       </dl>
@@ -177,69 +174,51 @@ function Profile() {
         <div className="content">
           <hr />
           <p>
-            {"Jun Kato is a chief senior researcher at "}
-            <a href={"https://www.aist.go.jp/index_en.html"}>
-              <abbr
-                title={
-                  "National Institute of Advanced Industrial Science and Technology"
-                }
-              >
-                {"AIST"}
+            Jun Kato is a chief senior researcher at{" "}
+            <a href="https://www.aist.go.jp/index_en.html">
+              <abbr title="National Institute of Advanced Industrial Science and Technology">
+                AIST
               </abbr>
             </a>
-            {
-              ", where he works on Human-Computer Interaction research, more specifically, designing user interfaces and integrated environments for creativity support. He also serves as a technical advisor at "
-            }
-            <a href={"https://archinc.jp/en"}>{"Arch Inc."}</a>
-            {", a Japanese animation production company, and leads "}
-            <a href={"https://research.archinc.jp/en"}>{"Arch Research"}</a>
-            {"."}
+            , where he works on Human-Computer Interaction research, more
+            specifically, designing user interfaces and integrated environments
+            for creativity support. He also serves as a technical advisor at{" "}
+            <a href="https://archinc.jp/en">Arch Inc.</a>, a Japanese animation
+            production company, and leads{" "}
+            <a href="https://research.archinc.jp/en">Arch Research</a>.
           </p>
           <p>
-            {
-              "He received a Ph.D. from The University of Tokyo (2014). Prior to graduation, he worked as a research intern at Microsoft Research and Adobe Research. "
-            }
-            {"\n"}
-            {"He has regularly gained academic recognitions such as "}
-            {"\n"}
-
-            {"Honorable Mentions at ACM "}
-            <abbr
-              title={
-                "The SIGCHI conference on Human Factors in Computing Systems"
-              }
-            >
-              {"CHI"}
-            </abbr>
-            {" (2013, 2015, 2023) and "}
-
+            He received a Ph.D. from The University of Tokyo (2014). Prior to
+            graduation, he worked as a research intern at Microsoft Research and
+            Adobe Research. {"\n"}
+            He has regularly gained academic recognitions such as {"\n"}
+            Honorable Mentions at ACM{" "}
+            <abbr title="The SIGCHI conference on Human Factors in Computing Systems">
+              CHI
+            </abbr>{" "}
+            (2013, 2015, 2023) and{" "}
             <a
-              href={
-                "https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
-              }
-              title={
-                "IPSJ/ACM Award for Early Career Contributions to Global Research"
-              }
+              href="https://www.ipsj.or.jp/english/organization/aboutipsj/award/ACM-Award-E.html#hdg6"
+              title="IPSJ/ACM Award for Early Career Contributions to Global Research"
             >
-              {"IPSJ/ACM Award"}
-            </a>
-            {" (2021)."}
+              IPSJ/ACM Award
+            </a>{" "}
+            (2021).
           </p>
         </div>
       </div>
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2 id={"interest"}>{"Research Interests"}</h2>
+          <h2 id="interest">Research Interests</h2>
         </div>
       </div>
       <div className="row">
         <div className="year"></div>
         <div className="content">
           <p>
-            {
-              "Human-computer interaction, creativity support, physical computing, programming experience, animation studies"
-            }
+            Human-computer interaction, creativity support, physical computing,
+            programming experience, animation studies
           </p>
         </div>
       </div>
@@ -253,283 +232,252 @@ function WorkExperience() {
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2>{"Work Experience"}</h2>
+          <h2>Work Experience</h2>
         </div>
       </div>
-      <section id={"work-exsitu"}>
+      <section id="work-exsitu">
         <div className="row">
           <div className="year"></div>
           <div className="content">
             <h3 className="first">
-              <a href={"https://www.universite-paris-saclay.fr/en"}>
-                {"Université Paris-Saclay"}
+              <a href="https://www.universite-paris-saclay.fr/en">
+                Université Paris-Saclay
               </a>
             </h3>
             <p className="small">
-              {
-                "Visiting position, in parallel with continuing current positions (AIST and Arch Inc.), to conduct research on human-computer interaction, particularly theories and tools for creativity support."
-              }
+              Visiting position, in parallel with continuing current positions
+              (AIST and Arch Inc.), to conduct research on human-computer
+              interaction, particularly theories and tools for creativity
+              support.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"April 2024-"}
+            April 2024-
             <br />
-            {"March 2025"}
+            March 2025
           </div>
           <div className="content">
-            {"Visiting Scientist, "}
-            <a href={"https://ex-situ.lri.fr/about"}>{"ex)situ Group"}</a>
-            {", "}
-            <a href={"https://www.lisn.upsaclay.fr"}>
-              {
-                "Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)"
-              }
+            Visiting Scientist,{" "}
+            <a href="https://ex-situ.lri.fr/about">ex)situ Group</a>,{" "}
+            <a href="https://www.lisn.upsaclay.fr">
+              Laboratoire Interdisciplinaire des Sciences du Numérique (LISN)
             </a>
           </div>
         </div>
       </section>
-      <section id={"work-aist"}>
+      <section id="work-aist">
         <div className="row">
           <div className="year"></div>
           <div className="content">
             <h3 className="first">
-              <a href={"https://www.aist.go.jp/index_en.html"}>
-                {
-                  "National Institute of Advanced Industrial Science and Technology (AIST)"
-                }
+              <a href="https://www.aist.go.jp/index_en.html">
+                National Institute of Advanced Industrial Science and Technology
+                (AIST)
               </a>
             </h3>
             <p className="small">
-              {
-                "Tenured position to lead research projects, aimed not only at publishing academic papers but also deploying outcomes as publicly-available software; actively collaborating with companies to drive societal impact."
-              }
+              Tenured position to lead research projects, aimed not only at
+              publishing academic papers but also deploying outcomes as
+              publicly-available software; actively collaborating with companies
+              to drive societal impact.
             </p>
           </div>
         </div>
         <div className="row">
-          <div className="year">{"April 2026-"}</div>
+          <div className="year">April 2026-</div>
           <div className="content">
-            {"Chief Senior Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
-              {"Media Interaction Group"}
+            Chief Senior Researcher,{" "}
+            <a href="https://unit.aist.go.jp/hiiri/meirg/">
+              Media Interaction Group
             </a>
-            {", "}
-            <a href={"https://unit.aist.go.jp/hiiri/index-en.html"}>
-              {"Human Informatics and Interaction Research Institute (HIIRI)"}
+            ,{" "}
+            <a href="https://unit.aist.go.jp/hiiri/index-en.html">
+              Human Informatics and Interaction Research Institute (HIIRI)
             </a>
           </div>
         </div>
         <div className="row">
-          <div className="year">{"September 2018-"}</div>
+          <div className="year">September 2018-</div>
           <div className="content">
-            {"Senior Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
-              {"Media Interaction Group"}
+            Senior Researcher,{" "}
+            <a href="https://unit.aist.go.jp/hiiri/meirg/">
+              Media Interaction Group
             </a>
-            {", "}
-            <a href={"https://unit.aist.go.jp/hiiri/index-en.html"}>
-              {"Human Informatics and Interaction Research Institute (HIIRI)"}
+            ,{" "}
+            <a href="https://unit.aist.go.jp/hiiri/index-en.html">
+              Human Informatics and Interaction Research Institute (HIIRI)
             </a>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"April 2014-"}
+            April 2014-
             <br />
-            {"August 2018"}
+            August 2018
           </div>
           <div className="content">
-            {"Researcher, "}
-            <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
-              {"Media Interaction Group"}
+            Researcher,{" "}
+            <a href="https://unit.aist.go.jp/hiiri/meirg/">
+              Media Interaction Group
             </a>
-            {", "}
-            {"\n"}
-            {"Information Technology Research Institute (ITRI)"}
+            , {"\n"}
+            Information Technology Research Institute (ITRI)
           </div>
         </div>
       </section>
-      <section id={"work-arch"}>
+      <section id="work-arch">
         <div className="row">
           <div className="year"></div>
           <div className="content">
             <h3>
-              <a href={"https://archinc.jp/en"}>{"Arch Inc."}</a>
+              <a href="https://archinc.jp/en">Arch Inc.</a>
             </h3>
             <p className="small">
-              {
-                "Founder of the research and development division and principal investigator; leading research projects to publish academic papers and deploy outcomes in the Japanese animation industry."
-              }
+              Founder of the research and development division and principal
+              investigator; leading research projects to publish academic papers
+              and deploy outcomes in the Japanese animation industry.
             </p>
           </div>
         </div>
         <div className="row">
-          <div className="year">{"July 2018-"}</div>
+          <div className="year">July 2018-</div>
           <div className="content">
-            {"Technical Advisor, "}
-            <a href={"https://research.archinc.jp"}>{"Arch Research"}</a>
+            Technical Advisor,{" "}
+            <a href="https://research.archinc.jp">Arch Research</a>
           </div>
         </div>
       </section>
-      <section id={"work-interns"}>
+      <section id="work-interns">
         <div className="row">
           {" "}
           <div className="year"></div>
           <div className="content">
-            <h3>{"Research Internships "}</h3>
+            <h3>Research Internships </h3>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"August 2013-"}
+            August 2013-
             <br />
-            {"November 2013"}
+            November 2013
           </div>
           <div className="content">
-            {"Creative Technologies Lab, "}
-            <a href={"https://research.adobe.com/"}>
-              {"Adobe Research Seattle"}
-            </a>
+            Creative Technologies Lab,{" "}
+            <a href="https://research.adobe.com/">Adobe Research Seattle</a>
             <p className="small">
-              {"Worked with "}
-              <a href={"https://www.linkedin.com/in/jovan-cmu/"}>
-                {"Jovan Popovic"}
-              </a>
-              {" and "}
-              <a href={"https://joelbrandt.com/cv/"}>{"Joel Brandt"}</a>
-              {"; developed a research prototype of a new product."}
+              Worked with{" "}
+              <a href="https://www.linkedin.com/in/jovan-cmu/">Jovan Popovic</a>{" "}
+              and <a href="https://joelbrandt.com/cv/">Joel Brandt</a>;
+              developed a research prototype of a new product.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"June 2012-"}
+            June 2012-
             <br />
-            {"September 2012"}
+            September 2012
           </div>
           <div className="content">
-            {"Research in Software Engineering (RiSE) Group, "}
-            <a
-              href={
-                "https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/"
-              }
-            >
-              {"Microsoft Research Redmond"}
+            Research in Software Engineering (RiSE) Group,{" "}
+            <a href="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/">
+              Microsoft Research Redmond
             </a>
             <p className="small">
-              {"Worked with "}
-              <a
-                href={
-                  "https://www.microsoft.com/en-us/research/people/sburckha/"
-                }
-              >
-                {"Sebastian Burckhardt"}
+              Worked with{" "}
+              <a href="https://www.microsoft.com/en-us/research/people/sburckha/">
+                Sebastian Burckhardt
+              </a>{" "}
+              and <a href="https://moskal.me/">Michał Moskal</a>; developed a
+              live programming feature of{" "}
+              <a href="https://www.microsoft.com/en-us/research/project/touchdevelop/">
+                TouchDevelop
               </a>
-              {" and "}
-              <a href={"https://moskal.me/"}>{"Michał Moskal"}</a>
-              {"; developed a live programming feature of "}
-              <a
-                href={
-                  "https://www.microsoft.com/en-us/research/project/touchdevelop/"
-                }
-              >
-                {"TouchDevelop"}
-              </a>
-              {", whose research component was published as an "}
-              <a href={"#pldi2013-kato-alive"}>{"ACM PLDI'13"}</a>
-              {" full paper."}
+              , whose research component was published as an{" "}
+              <a href="#pldi2013-kato-alive">ACM PLDI'13</a> full paper.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"January 2012-"}
+            January 2012-
             <br />
-            {"April 2012"}
+            April 2012
           </div>
           <div className="content">
-            {"Human-Computer Interaction (HCI) Group, "}
-            <a
-              href={
-                "https://web.archive.org/web/20120408040100/http://research.microsoft.com/en-us/um/beijing/groups/hci/"
-              }
-            >
-              {"Microsoft Research Asia"}
+            Human-Computer Interaction (HCI) Group,{" "}
+            <a href="https://web.archive.org/web/20120408040100/http://research.microsoft.com/en-us/um/beijing/groups/hci/">
+              Microsoft Research Asia
             </a>
             <p className="small">
-              {"Worked with "}
-              <a href={"https://caoxiang.net/"}>{"Xiang Cao"}</a>
-              {" and "}
-              <a href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}>
-                {"Sean McDirmid"}
+              Worked with <a href="https://caoxiang.net/">Xiang Cao</a> and{" "}
+              <a href="https://www.linkedin.com/in/sean-mcdirmid-52b0aa90">
+                Sean McDirmid
               </a>
-              {
-                "; developed extensions to an integrated development environment and wrote a full research paper later published at "
-              }
-              <a href={"#uist2012-kato-dejavu"}>{"ACM UIST'12"}</a>
-              {"."}
+              ; developed extensions to an integrated development environment
+              and wrote a full research paper later published at{" "}
+              <a href="#uist2012-kato-dejavu">ACM UIST'12</a>.
             </p>
           </div>
         </div>
       </section>
-      <section id={"work-misc"}>
+      <section id="work-misc">
         <div className="row">
           <div className="year"></div>
           <div className="content">
-            <h3>{"Miscellaneous"}</h3>
+            <h3>Miscellaneous</h3>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"July 2010-"}
+            July 2010-
             <br />
-            {"August 2010"}
+            August 2010
           </div>
           <div className="content">
-            {"Intern, "}
-            <a href={"https://www.ut-ec.co.jp/english/"}>
-              {"The University of Tokyo Edge Capital"}
+            Intern,{" "}
+            <a href="https://www.ut-ec.co.jp/english/">
+              The University of Tokyo Edge Capital
             </a>
             <p className="small">
-              {
-                "Led a team of 3 students; surveyed previous industrial effort on home automation and proposed a new business plan with a working prototype."
-              }
+              Led a team of 3 students; surveyed previous industrial effort on
+              home automation and proposed a new business plan with a working
+              prototype.
             </p>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"August 2009-"}
+            August 2009-
             <br />
-            {"September 2009"}
+            September 2009
           </div>
           <div className="content">
-            {"Software Development Engineer Intern, "}
-            <a href={"https://microsoft.com/"}>{"Microsoft"}</a>
+            Software Development Engineer Intern,{" "}
+            <a href="https://microsoft.com/">Microsoft</a>
             <p className="small">
-              {
-                "Developed an online code reviewing tool to improve the team's productivity.       "
-              }
+              Developed an online code reviewing tool to improve the team's
+              productivity.{"       "}
             </p>
           </div>
         </div>
         <div className="row">
           <div className="year">
-            {"April 2008-"}
+            April 2008-
             <br />
-            {"March 2013"}
+            March 2013
           </div>
           <div className="content">
-            {"Assistant Researcher, "}
-            <a href={"https://www.jst.go.jp/erato/igarashi/en/"}>
-              {"JST ERATO Igarashi Design UI Project"}
+            Assistant Researcher,{" "}
+            <a href="https://www.jst.go.jp/erato/igarashi/en/">
+              JST ERATO Igarashi Design UI Project
             </a>
             <p className="small">
-              {
-                "Developed an interactive and graphical simulator and a software toolkit for controlling mobile robots; built a FTIR multi-touch display and developed its middleware for tracking fingers."
-              }
+              Developed an interactive and graphical simulator and a software
+              toolkit for controlling mobile robots; built a FTIR multi-touch
+              display and developed its middleware for tracking fingers.
             </p>
           </div>
         </div>
@@ -544,237 +492,191 @@ function ResearchGrants() {
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2>{"Research Grants"}</h2>
+          <h2>Research Grants</h2>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"October 2025-"}
+          October 2025-
           <br />
-          {"March 2031"}
+          March 2031
         </div>
         <div className="content">
-          <a href={"https://www.jst.go.jp/EN"}>
-            <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
+          <a href="https://www.jst.go.jp/EN">
+            <abbr title="Japan Science and Technology Agency">JST</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/cronos/en/index.html"}>
-            {"CRONOS"}
-          </a>
-          {" (Grant Number "}
-          <code>{"JPMJCS25K1"}</code>
-          {")"}
+          <a href="https://www.jst.go.jp/kisoken/cronos/en/index.html">
+            CRONOS
+          </a>{" "}
+          (Grant Number <code>JPMJCS25K1</code>)
           <p className="small">
-            {
-              "Principal investigator; funded 194M Japanese Yen for 5.5 years (expected least amount; additional funding possible) for "
-            }
-            <a href={"https://anime.pj.aist.go.jp/en"}>
-              {
-                "foundational techniques for malleable tools for a reciprocal anime co-creation environment"
-              }
+            Principal investigator; funded 194M Japanese Yen for 5.5 years
+            (expected least amount; additional funding possible) for{" "}
+            <a href="https://anime.pj.aist.go.jp/en">
+              foundational techniques for malleable tools for a reciprocal anime
+              co-creation environment
             </a>
-            {". Acceptance rate: 6.8% (6/88)."}
+            . Acceptance rate: 6.8% (6/88).
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"October 2025-"}
+          October 2025-
           <br />
-          {"March 2026"}
+          March 2026
         </div>
         <div className="content">
-          <a href={"https://www.jst.go.jp/EN"}>
-            <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
+          <a href="https://www.jst.go.jp/EN">
+            <abbr title="Japan Science and Technology Agency">JST</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/presto/en/index.html"}>
-            {"PRESTO"}
-          </a>
-          {" (Grant Number "}
-          <code>{"JPMJPR25I1"}</code>
-          {")"}
+          <a href="https://www.jst.go.jp/kisoken/presto/en/index.html">
+            PRESTO
+          </a>{" "}
+          (Grant Number <code>JPMJPR25I1</code>)
           <p className="small">
-            {
-              "Principal investigator; funded 35M Japanese Yen for 3.5 years (expected) for "
-            }
-            {
-              "technologies for time-aware sharing orchestration in collaborative content production"
-            }
-            {"\n"}
-            {". Acceptance rate: 8.3% (11/132)."}
+            Principal investigator; funded 35M Japanese Yen for 3.5 years
+            (expected) for technologies for time-aware sharing orchestration in
+            collaborative content production
+            {"\n"}. Acceptance rate: 8.3% (11/132).
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"April 2024-"}
+          April 2024-
           <br />
-          {"March 2028"}
+          March 2028
         </div>
         <div className="content">
-          <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>
-              {"JSPS"}
-            </abbr>
+          <a href="https://www.jsps.go.jp/english">
+            <abbr title="Japan Society for the Promotion of Science">JSPS</abbr>
           </a>{" "}
-          <a href={"https://www.jsps.go.jp/english/e-grants/grants01.html"}>
-            {"Grant-in-Aid for Scientific Research (B)"}
-          </a>
-          {" (Grant Number "}
-          <code>{"24K02972"}</code>
-          {")"}
+          <a href="https://www.jsps.go.jp/english/e-grants/grants01.html">
+            Grant-in-Aid for Scientific Research (B)
+          </a>{" "}
+          (Grant Number <code>24K02972</code>)
           <p className="small">
-            {
-              "Co-investigator; funded 3.1M Japanese Yen for 4 years (expected)."
-            }
+            Co-investigator; funded 3.1M Japanese Yen for 4 years (expected).
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"October 2022-"}
+          October 2022-
           <br />
-          {"March 2026"}
+          March 2026
         </div>
         <div className="content">
-          <a href={"https://www.jst.go.jp/EN"}>
-            <abbr title={"Japan Science and Technology Agency"}>{"JST"}</abbr>
+          <a href="https://www.jst.go.jp/EN">
+            <abbr title="Japan Science and Technology Agency">JST</abbr>
           </a>{" "}
-          <a href={"https://www.jst.go.jp/kisoken/act-x/en/index.html"}>
-            {"ACT-X"}
-          </a>
-          {" (Grant Number "}
-          <code>{"JPMJAX22A3"}</code>
-          {")"}
+          <a href="https://www.jst.go.jp/kisoken/act-x/en/index.html">ACT-X</a>{" "}
+          (Grant Number <code>JPMJAX22A3</code>)
           <p className="small">
-            {
-              "Principal investigator; funded 11M Japanese Yen for 3.5 years for "
-            }
-            <SiteLink
-              href={"https://junkato.jp/creativity-support-environments"}
-            >
-              {
-                "AI-enabled creativity support environments for a constructive study of creative culture"
-              }
+            Principal investigator; funded 11M Japanese Yen for 3.5 years for{" "}
+            <SiteLink href="https://junkato.jp/creativity-support-environments">
+              AI-enabled creativity support environments for a constructive
+              study of creative culture
             </SiteLink>
-            {". Acceptance rate: 20% (23/115)."}
+            . Acceptance rate: 20% (23/115).
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"April 2021-"}
+          April 2021-
           <br />
-          {"March 2024"}
+          March 2024
         </div>
         <div className="content">
-          <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>
-              {"JSPS"}
-            </abbr>
+          <a href="https://www.jsps.go.jp/english">
+            <abbr title="Japan Society for the Promotion of Science">JSPS</abbr>
           </a>{" "}
-          <a href={"https://www.jsps.go.jp/english/e-grants/grants01.html"}>
-            {"Grant-in-Aid for Scientific Research (A)"}
-          </a>
-          {" (Grant Number "}
+          <a href="https://www.jsps.go.jp/english/e-grants/grants01.html">
+            Grant-in-Aid for Scientific Research (A)
+          </a>{" "}
+          (Grant Number{" "}
           <code>
-            <a
-              href={"https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-21H04917"}
-            >
-              {"21H04917"}
+            <a href="https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-21H04917">
+              21H04917
             </a>
           </code>
-          {")"}
+          )
           <p className="small">
-            {"Co-investigator; funded 2.6M Japanese Yen for 3 years."}
+            Co-investigator; funded 2.6M Japanese Yen for 3 years.
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"April 2011-"}
+          April 2011-
           <br />
-          {"March 2014"}
+          March 2014
         </div>
         <div className="content">
-          <a href={"https://www.jsps.go.jp/english"}>
-            <abbr title={"Japan Society for the Promotion of Science"}>
-              {"JSPS"}
-            </abbr>
+          <a href="https://www.jsps.go.jp/english">
+            <abbr title="Japan Society for the Promotion of Science">JSPS</abbr>
           </a>{" "}
-          <a href={"https://www.jsps.go.jp/english/e-pd"}>
-            {"Research Fellowships for Young Scientists DC1"}
+          <a href="https://www.jsps.go.jp/english/e-pd">
+            Research Fellowships for Young Scientists DC1
           </a>
           <p className="small">
-            {"Funded 1.9M Japanese Yen for 3 years as a research fellow."}
+            Funded 1.9M Japanese Yen for 3 years as a research fellow.
           </p>
         </div>
       </div>
       <div className="row">
-        <div className="year">{"2012"}</div>
+        <div className="year">2012</div>
         <div className="content">
-          <a
-            href={
-              "https://www.microsoft.com/en-us/research/academic-program/fellowships-microsoft-research-asia"
-            }
-          >
-            {"Microsoft Research Asia Fellowship"}
+          <a href="https://www.microsoft.com/en-us/research/academic-program/fellowships-microsoft-research-asia">
+            Microsoft Research Asia Fellowship
           </a>
           <p className="small">
-            {
-              "Awarded among around one hundred Ph.D candidates and funded $10,000 for a year."
-            }
+            Awarded among around one hundred Ph.D candidates and funded $10,000
+            for a year.
           </p>
         </div>
       </div>
       <div className="row">
         {" "}
         <div className="year">
-          {"April 2011-"}
+          April 2011-
           <br />
-          {"March 2012"}
+          March 2012
         </div>
         <div className="content">
-          <a
-            href={
-              "https://web.archive.org/web/20150921173330/http://research.microsoft.com/en-us/collaboration/global/asia-pacific/regions/japan-ijarc.aspx"
-            }
-          >
-            {"Microsoft "}
-            <abbr
-              title={"Institute for Japanese Academic Research Collaboration"}
-            >
-              {"IJARC"}
+          <a href="https://web.archive.org/web/20150921173330/http://research.microsoft.com/en-us/collaboration/global/asia-pacific/regions/japan-ijarc.aspx">
+            Microsoft{" "}
+            <abbr title="Institute for Japanese Academic Research Collaboration">
+              IJARC
             </abbr>{" "}
-            <abbr title={"Collaborative Research"}>{"CORE"}</abbr>
-            {" Program"}
+            <abbr title="Collaborative Research">CORE</abbr> Program
           </a>
           <p className="small">
-            {"Principal investigator; funded $15,000 for a year."}
+            Principal investigator; funded $15,000 for a year.
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"December 2008-"}
+          December 2008-
           <br />
-          {"August 2009"}
+          August 2009
         </div>
         <div className="content">
-          <a href={"https://www.ipa.go.jp/index-e.html"}>
-            <abbr title={"Information-technology Promotion Agency"}>
-              {"IPA"}
-            </abbr>{" "}
+          <a href="https://www.ipa.go.jp/index-e.html">
+            <abbr title="Information-technology Promotion Agency">IPA</abbr>{" "}
           </a>
           <a
-            href={"https://www.ipa.go.jp/english/humandev/third.html"}
-            title={"Exploratory IT Human Resources Project"}
+            href="https://www.ipa.go.jp/english/humandev/third.html"
+            title="Exploratory IT Human Resources Project"
           >
-            {"MITOU Program"}
+            MITOU Program
           </a>
           <p className="small">
-            {
-              "Project leader (principal investigator); funded 7M Japanese yen for half a year."
-            }
+            Project leader (principal investigator); funded 7M Japanese yen for
+            half a year.
           </p>
         </div>
       </div>
@@ -782,9 +684,8 @@ function ResearchGrants() {
         <div className="year"></div>
         <div className="content">
           <p className="small">
-            {
-              "*Private fundings for collaborative research are unlisted for their confidential nature."
-            }
+            *Private fundings for collaborative research are unlisted for their
+            confidential nature.
           </p>
         </div>
       </div>
@@ -798,77 +699,86 @@ function Innovations() {
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2>{"Research-driven Innovations"}</h2>
+          <h2>Research-driven Innovations</h2>
         </div>
       </div>
-      <section id={"innovations-products"}>
+      <section id="innovations-products">
         <div className="row">
           <div className="year"></div>
           <div className="content">
-            <h3>{"Products and Services"}</h3>
+            <h3>Products and Services</h3>
           </div>
         </div>
-        <div className="row" id={"griffith"}>
-          <div className="year">{"2018-"}</div>
+        <div className="row" id="griffith">
+          <div className="year">2018-</div>
           <div className="content">
-            <SiteLink href={"https://junkato.jp/griffith"}>
-              {"Griffith"}
-            </SiteLink>
-            {" (Arch Inc.)"}
+            <SiteLink href="https://junkato.jp/griffith">Griffith</SiteLink>{" "}
+            (Arch Inc.)
             <p className="small">
-              {
-                "Griffith is a web-based tool for authoring and sharing Japanese animation storyboards (e-conte). As the principal investigator at Arch Research, I have been responsible for its research and development. To design the tool appropriately, it was necessary to deeply explore the historical and cultural aspects of the animation production process, which we reported at the Society for Animation Studies annual conferences and published as an ACM CHI '14 paper."
-              }
+              Griffith is a web-based tool for authoring and sharing Japanese
+              animation storyboards (e-conte). As the principal investigator at
+              Arch Research, I have been responsible for its research and
+              development. To design the tool appropriately, it was necessary to
+              deeply explore the historical and cultural aspects of the
+              animation production process, which we reported at the Society for
+              Animation Studies annual conferences and published as an ACM CHI
+              '14 paper.
             </p>
           </div>
         </div>
-        <div className="row" id={"songlesync"}>
-          <div className="year">{"2017-"}</div>
+        <div className="row" id="songlesync">
+          <div className="year">2017-</div>
           <div className="content">
-            <SiteLink href={"https://junkato.jp/songle-sync"}>
-              {"Songle Sync"}
-            </SiteLink>
-            {" (AIST)"}
+            <SiteLink href="https://junkato.jp/songle-sync">
+              Songle Sync
+            </SiteLink>{" "}
+            (AIST)
             <p className="small">
-              {
-                "Songle Sync is a large-scale web-based platform for synchronizing various devices to music playback. It has been used in commercial events to synchronize city lights, fireworks, and thousands of smartphones. I was involved in the discussion of core algorithm development, developed it as a toolkit, wrote an ACM Multimedia '18 paper, and have continuously served as the producer of commercial events."
-              }
+              Songle Sync is a large-scale web-based platform for synchronizing
+              various devices to music playback. It has been used in commercial
+              events to synchronize city lights, fireworks, and thousands of
+              smartphones. I was involved in the discussion of core algorithm
+              development, developed it as a toolkit, wrote an ACM Multimedia
+              '18 paper, and have continuously served as the producer of
+              commercial events.
             </p>
           </div>
         </div>
-        <div className="row" id={"textalive"}>
-          <div className="year">{"2014-"}</div>
+        <div className="row" id="textalive">
+          <div className="year">2014-</div>
           <div className="content">
-            <SiteLink href={"https://junkato.jp/textalive"}>
-              {"TextAlive"}
-            </SiteLink>
-            {" (AIST)"}
+            <SiteLink href="https://junkato.jp/textalive">TextAlive</SiteLink>{" "}
+            (AIST)
             <p className="small">
-              {
-                "TextAlive is a web-based authoring tool for lyric videos, used by both professional and amateur artists (>23k video revisions), recently featured in professional VR live performances (4 events and 61 songs in 2023). As its project leader, I have been responsible for its research, development, and service operation. Relevant topics have been covered in several academic articles including ACM CHI '15 and '23 award-winning papers."
-              }
+              TextAlive is a web-based authoring tool for lyric videos, used by
+              both professional and amateur artists (&gt;23k video revisions),
+              recently featured in professional VR live performances (4 events
+              and 61 songs in 2023). As its project leader, I have been
+              responsible for its research, development, and service operation.
+              Relevant topics have been covered in several academic articles
+              including ACM CHI '15 and '23 award-winning papers.
             </p>
           </div>
         </div>
-        <div className="row" id={"touchdevelop"}>
-          <div className="year">{"2012"}</div>
+        <div className="row" id="touchdevelop">
+          <div className="year">2012</div>
           <div className="content">
-            <SiteLink href={"https://junkato.jp/touchdevelop"}>
-              {"TouchDevelop"}
-            </SiteLink>
-            {" ("}
-            <a
-              href={
-                "https://www.microsoft.com/en-us/research/project/touchdevelop"
-              }
-            >
-              {"Microsoft"}
+            <SiteLink href="https://junkato.jp/touchdevelop">
+              TouchDevelop
+            </SiteLink>{" "}
+            (
+            <a href="https://www.microsoft.com/en-us/research/project/touchdevelop">
+              Microsoft
             </a>
-            {")"}
+            )
             <p className="small">
-              {
-                "TouchDevelop is a programming environment optimized for touch-enabled devices, which was retired in 2018. Thanks to the team's open and creative culture, as a research intern, I could take an essential role in developing its novel live programming feature, which displays interactive user interfaces for editing a running program. The core technologies we developed were published at ACM PLDI '13 and filed as a patent US9286038B2."
-              }
+              TouchDevelop is a programming environment optimized for
+              touch-enabled devices, which was retired in 2018. Thanks to the
+              team's open and creative culture, as a research intern, I could
+              take an essential role in developing its novel live programming
+              feature, which displays interactive user interfaces for editing a
+              running program. The core technologies we developed were published
+              at ACM PLDI '13 and filed as a patent US9286038B2.
             </p>
           </div>
         </div>
@@ -876,56 +786,51 @@ function Innovations() {
           <div className="year"></div>
           <div className="content">
             <p className="small">
-              {"*The complete list of projects can be found at "}
-              <SiteLink className="link" href={"https://junkato.jp/projects"}>
-                {"https://junkato.jp/projects"}
+              *The complete list of projects can be found at{" "}
+              <SiteLink className="link" href="https://junkato.jp/projects">
+                https://junkato.jp/projects
               </SiteLink>
-              {"."}
+              .
             </p>
           </div>
         </div>
       </section>
-      <section id={"innovations-patents"}>
+      <section id="innovations-patents">
         <div className="row">
           <div className="year"></div>
           <div className="content">
-            <h3>{"Patents"}</h3>
+            <h3>Patents</h3>
           </div>
         </div>
-        <div className="row patent" id={"US9639330B2"}>
+        <div className="row patent" id="US9639330B2">
           <div className="year">
-            {"2013 (applied)"}
+            2013 (applied)
             <br />
-            {"2016 (granted)"}
+            2016 (granted)
           </div>
           <div className="content">
-            {
-              "Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux, Sean McDirmid, Michal Moskal, Nikolai Tillmann, "
-            }
-            <u>{"Jun Kato"}</u>
-            {" (Microsoft). Interface development and operation. "}
-
-            <a href={"https://patents.google.com/patent/US9286038B2/en"}>
-              {"US9286038B2"}
+            Sebastian Burckhardt, Manuel Fahndrich, Peli de Halleux, Sean
+            McDirmid, Michal Moskal, Nikolai Tillmann, <u>Jun Kato</u>{" "}
+            (Microsoft). Interface development and operation.{" "}
+            <a href="https://patents.google.com/patent/US9286038B2/en">
+              US9286038B2
             </a>
-            {"."}
+            .
           </div>
         </div>
-        <div className="row patent" id={"US9286038B2"}>
+        <div className="row patent" id="US9286038B2">
           <div className="year">
-            {"2013 (applied)"}
+            2013 (applied)
             <br />
-            {"2017 (granted)"}
+            2017 (granted)
           </div>
           <div className="content">
-            {"Xiang Cao, "}
-            <u>{"Jun Kato"}</u>
-            {", Sean McDirmid (Microsoft). Programming interface. "}
-
-            <a href={"https://patents.google.com/patent/US9639330B2/en"}>
-              {"US9639330B2"}
+            Xiang Cao, <u>Jun Kato</u>, Sean McDirmid (Microsoft). Programming
+            interface.{" "}
+            <a href="https://patents.google.com/patent/US9639330B2/en">
+              US9639330B2
             </a>
-            {"."}
+            .
           </div>
         </div>
       </section>
@@ -939,73 +844,68 @@ function Education() {
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2>{"Education"}</h2>
+          <h2>Education</h2>
         </div>
       </div>
       <div className="row">
         <div className="year"></div>
         <div className="content">
-          <h3 className="first">{"The University of Tokyo, Tokyo, Japan"}</h3>
+          <h3 className="first">The University of Tokyo, Tokyo, Japan</h3>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"April 2011-"}
+          April 2011-
           <br />
-          {"March 2014"}
+          March 2014
         </div>
         <div className="content">
           <p>
-            {
-              "Doctor of Philosophy / Information Science and Technology (Computer Science), Thesis: "
-            }
-            <a href={"https://doi.org/10.15083/00007163"}>
+            Doctor of Philosophy / Information Science and Technology (Computer
+            Science), Thesis:{" "}
+            <a href="https://doi.org/10.15083/00007163">
               <i>
-                {
-                  "Integrated development environment with graphical representations for development of programs with real-world input and output"
-                }
+                Integrated development environment with graphical
+                representations for development of programs with real-world
+                input and output
               </i>
             </a>
-            {"."}
+            .
           </p>
           <p className="small">
-            {
-              "Supervisor: Takeo Igarashi; thesis committee: Masami Hagiya, Shigeru Chiba, Shinichi Honiden, Toshiyuki Masui"
-            }
+            Supervisor: Takeo Igarashi; thesis committee: Masami Hagiya, Shigeru
+            Chiba, Shinichi Honiden, Toshiyuki Masui
           </p>
         </div>
       </div>
       <div className="row">
         <div className="year">
-          {"April 2009-"}
+          April 2009-
           <br />
-          {"March 2011"}
+          March 2011
         </div>
         <div className="content">
           <p>
-            {
-              "Master of Science / Information Science and Technology (Computer Science), Thesis: "
-            }
-            <i>{"A Toolkit for Prototyping Interactive Robot Applications"}</i>
+            Master of Science / Information Science and Technology (Computer
+            Science), Thesis:{" "}
+            <i>A Toolkit for Prototyping Interactive Robot Applications</i>
           </p>
-          <p className="small">{"Supervisor: Takeo Igarashi"}</p>
+          <p className="small">Supervisor: Takeo Igarashi</p>
         </div>
       </div>
       <div className="row">
         {" "}
         <div className="year">
-          {"April 2005-"}
+          April 2005-
           <br />
-          {"March 2009"}
+          March 2009
         </div>
         <div className="content">
           <p>
-            {"Bachelor of Science / Information Science, Thesis: "}
-            <i>
-              {"Multi-touch Interface for Controlling Multiple Mobile Robots"}
-            </i>
+            Bachelor of Science / Information Science, Thesis:{" "}
+            <i>Multi-touch Interface for Controlling Multiple Mobile Robots</i>
           </p>
-          <p className="small">{"Supervisor: Takeo Igarashi"}</p>
+          <p className="small">Supervisor: Takeo Igarashi</p>
         </div>
       </div>
     </>
@@ -1018,100 +918,94 @@ function References() {
       <div className="row header">
         <div className="year"></div>
         <div className="content">
-          <h2>{"References"}</h2>
+          <h2>References</h2>
         </div>
       </div>
       <div className="row">
         <div className="year"></div>
         <div className="content column-host">
           <Grid.Column>
-            <h3>{"Dr. Masataka Goto"}</h3>
+            <h3>Dr. Masataka Goto</h3>
             <p className="small">
-              {"Relationship: research director and colleague "}
-              <span className="year">{"2014-"}</span>
-              {
-                "; National Institute of Advanced Industrial Science and Technology (AIST), Ibaraki, Japan"
-              }
+              Relationship: research director and colleague{" "}
+              <span className="year">2014-</span>
+              ; National Institute of Advanced Industrial Science and Technology
+              (AIST), Ibaraki, Japan
               <br />
               <a
                 className="link"
-                href={"https://staff.aist.go.jp/m.goto/index-e.html"}
+                href="https://staff.aist.go.jp/m.goto/index-e.html"
               >
-                {"https://staff.aist.go.jp/m.goto/index-e.html"}
+                https://staff.aist.go.jp/m.goto/index-e.html
               </a>
             </p>
           </Grid.Column>
           <Grid.Column>
-            <h3>{"Dr. Takeo Igarashi"}</h3>
+            <h3>Dr. Takeo Igarashi</h3>
             <p className="small">
-              {"Relationship: academic supervisor "}
-              <span className="year">{"2008-2014"}</span>
-              {"; The University of Tokyo, Tokyo, Japan"}
+              Relationship: academic supervisor{" "}
+              <span className="year">2008-2014</span>
+              ; The University of Tokyo, Tokyo, Japan
               <br />
               <a
                 className="link"
-                href={"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
+                href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo"
               >
-                {"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
+                https://www-ui.is.s.u-tokyo.ac.jp/~takeo
               </a>
             </p>
           </Grid.Column>
           <Grid.Column>
-            <h3>{"Dr. Jovan Popovic"}</h3>
+            <h3>Dr. Jovan Popovic</h3>
             <p className="small">
-              {"Relationship: research intern supervisor "}
-              <span className="year">{"2013"}</span>
-              {"; Adobe Research Seattle, WA, US"}
+              Relationship: research intern supervisor{" "}
+              <span className="year">2013</span>
+              ; Adobe Research Seattle, WA, US
               <br />
-              <a
-                className="link"
-                href={"https://www.linkedin.com/in/jovan-cmu/"}
-              >
-                {"https://www.linkedin.com/in/jovan-cmu/"}
+              <a className="link" href="https://www.linkedin.com/in/jovan-cmu/">
+                https://www.linkedin.com/in/jovan-cmu/
               </a>
             </p>
           </Grid.Column>
           <Grid.Column>
-            <h3>{"Dr. Sebastian Burckhardt"}</h3>
+            <h3>Dr. Sebastian Burckhardt</h3>
             <p className="small">
-              {"Relationship: research intern supervisor "}
-              <span className="year">{"2012"}</span>
-              {"; Microsoft Research Redmond, WA, US"}
+              Relationship: research intern supervisor{" "}
+              <span className="year">2012</span>
+              ; Microsoft Research Redmond, WA, US
               <br />
               <a
                 className="link"
-                href={
-                  "https://www.microsoft.com/en-us/research/people/sburckha/"
-                }
+                href="https://www.microsoft.com/en-us/research/people/sburckha/"
               >
-                {"https://www.microsoft.com/en-us/research/people/sburckha/"}
+                https://www.microsoft.com/en-us/research/people/sburckha/
               </a>
             </p>
           </Grid.Column>
           <Grid.Column>
-            <h3>{"Dr. Xiang Cao"}</h3>
+            <h3>Dr. Xiang Cao</h3>
             <p className="small">
-              {"Relationship: research intern supervisor "}
-              <span className="year">{"2012"}</span>
-              {"; Microsoft Research Asia, Beijing, China"}
+              Relationship: research intern supervisor{" "}
+              <span className="year">2012</span>
+              ; Microsoft Research Asia, Beijing, China
               <br />
-              <a className="link" href={"https://caoxiang.net"}>
-                {"https://caoxiang.net"}
+              <a className="link" href="https://caoxiang.net">
+                https://caoxiang.net
               </a>
             </p>
           </Grid.Column>
           <Grid.Column>
-            <h3>{"Dr. Sean McDirmid"}</h3>
+            <h3>Dr. Sean McDirmid</h3>
             <p className="small">
-              {"Relationship: research intern supervisor "}
-              <span className="year">{"2012"}</span>
-              {"; Microsoft Research Asia, Beijing, China"}
+              Relationship: research intern supervisor{" "}
+              <span className="year">2012</span>
+              ; Microsoft Research Asia, Beijing, China
               <br />
               <a
                 className="link"
-                href={"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
+                href="https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"
               >
-                {"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
+                https://www.linkedin.com/in/sean-mcdirmid-52b0aa90
               </a>
             </p>
           </Grid.Column>
@@ -1170,11 +1064,11 @@ function Honors({ awards }: { awards: SiteData["awards"] }) {
         <div className="year" />
         <div className="content">
           <p className="small">
-            {"*Domestic (Japanese) awards are unlisted and can be found at "}
+            *Domestic (Japanese) awards are unlisted and can be found at{" "}
             <SiteLink className="link" href="https://junkato.jp/publications">
               https://junkato.jp/publications
             </SiteLink>
-            {"."}
+            .
           </p>
         </div>
       </div>
@@ -1200,58 +1094,43 @@ function PublicationCitation({
       <HtmlContent html={entry.getAuthorsTags().join(", ")} />
       {entry.entryTags.editor && (
         <>
-          {" (Eds. "}
-          <HtmlContent html={entry.getEditorsTags().join(", ")} />
-          {")"}
+          {" "}
+          (Eds. <HtmlContent html={entry.getEditorsTags().join(", ")} />)
         </>
       )}
-      {". "}
-      {entry.entryTags.year}
+      . {entry.entryTags.year}
       {".\n"}
-      {entry.entryTags.title}
-      {". "}
-      {book.includes("Proceedings of") && "In "}
+      {entry.entryTags.title}. {book.includes("Proceedings of") && "In "}
       <i>{book}</i>
       {series && (
         <>
           {" "}
           <i>
-            {"("}
-            {series}
+            ({series}
             {memo && (
               <>
-                {"; "}
-                <span className="highlight">{memo}</span>
+                ; <span className="highlight">{memo}</span>
               </>
             )}
-            {")"}
+            )
           </i>
         </>
       )}
-      {pages ? (
-        <>
-          {", "}
-          {pages}
-          {"."}
-        </>
-      ) : (
-        "."
-      )}
+      {pages ? <>, {pages}.</> : "."}
       {entry.hasDOIUrl() && (
         <>
           {" "}
           <List.Item role="link" as={SiteLink} href={entry.getDOIUrl()}>
-            {"DOI: "}
-            {entry.entryTags.doi}
+            DOI: {entry.entryTags.doi}
           </List.Item>
-          {"."}
+          .
         </>
       )}
       {entry.entryTags.addition && (
         <>
           {" "}
           <strong className="addition">
-            {"🌟"}
+            🌟
             {entry.entryTags.addition}
           </strong>
         </>
@@ -1326,20 +1205,19 @@ function Publications({ data }: { data: SiteData }) {
           <div className="year" />
           <div className="content">
             <p className="small">
-              {
-                "*Non-archival publications and domestic (Japanese) publications are unlisted and can be found at "
-              }
+              *Non-archival publications and domestic (Japanese) publications
+              are unlisted and can be found at{" "}
               <SiteLink className="link" href="https://junkato.jp/publications">
                 https://junkato.jp/publications
-              </SiteLink>
-              {" and "}
+              </SiteLink>{" "}
+              and{" "}
               <SiteLink
                 className="link"
                 href="https://junkato.jp/ja/publications"
               >
                 /ja/publications
               </SiteLink>
-              {"."}
+              .
             </p>
           </div>
         </div>
@@ -1358,13 +1236,7 @@ function OrganizerTitle({ organizer }: { organizer: Organizer }) {
         <>{organizer.track.fullname || organizer.track.name} </>
       )}
       {organizer.title}
-      {organizer.subtitle && (
-        <>
-          {" ("}
-          {organizer.subtitle}
-          {")"}
-        </>
-      )}
+      {organizer.subtitle && <> ({organizer.subtitle})</>}
     </>
   );
 }
@@ -1398,7 +1270,7 @@ function OrganizerRows({ organizers }: { organizers: Organizer[] }) {
               )}
               {organizer.conference && (
                 <>
-                  {"; held as part of  "}
+                  ; held as part of{"  "}
                   <SiteLink href={organizer.conference.url}>
                     {organizer.conference.name}
                   </SiteLink>
@@ -1435,9 +1307,7 @@ function AcademicServices({ services }: { services: Services }) {
                       {role.title}
                       {"\n "}
                       <span className="year">
-                        {role.from}
-                        {"-"}
-                        {role.to}
+                        {role.from}-{role.to}
                       </span>
                       {index < member.role.length - 1 && ", "}
                     </Fragment>
@@ -1447,9 +1317,7 @@ function AcademicServices({ services }: { services: Services }) {
                 <p className="small">
                   <span className="year">
                     {" "}
-                    {member.from}
-                    {"-"}
-                    {member.to}
+                    {member.from}-{member.to}
                   </span>
                 </p>
               ) : null}
@@ -1488,11 +1356,11 @@ function AcademicServices({ services }: { services: Services }) {
           <div className="year" />
           <div className="content">
             <p className="small">
-              {"*Minor reviewing activities are omitted and can be found at "}
+              *Minor reviewing activities are omitted and can be found at{" "}
               <SiteLink className="link" href="https://junkato.jp/activities">
                 https://junkato.jp/activities
               </SiteLink>
-              {"."}
+              .
             </p>
           </div>
         </div>

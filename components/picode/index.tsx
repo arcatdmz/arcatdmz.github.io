@@ -64,54 +64,43 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"picode"} />
+        <ProjectHeader project="picode" />
         <Message>
           <LocalizedContent
             ja={
               <>
-                {"Picodeは"}
-                <a
-                  href={
-                    "https://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx"
-                  }
-                >
-                  {"Microsoft Research CORE 7 プログラム"}
+                Picodeは
+                <a href="https://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx">
+                  Microsoft Research CORE 7 プログラム
                 </a>
-                {"の支援を受けて始まり、"}
+                の支援を受けて始まり、
               </>
             }
           >
-            {"The project was implemented using the "}
+            The project was implemented using the{" "}
           </LocalizedContent>
-          <SiteLink href={href(`${basePath}phybots`)}>{"Phybots"}</SiteLink>
+          <SiteLink href={href(`${basePath}phybots`)}>Phybots</SiteLink>
           <LocalizedContent
             ja={
               <>
-                {"を利用して開発され、現在は"}
-                <a href={"https://github.com/arcatdmz/picode"}>{"GitHub"}</a>
-                {
-                  "でソースコードが公開されているオープンソースプロジェクトです。"
-                }
+                を利用して開発され、現在は
+                <a href="https://github.com/arcatdmz/picode">GitHub</a>
+                でソースコードが公開されているオープンソースプロジェクトです。
               </>
             }
           >
-            {
-              " library for creating robotic things and its source code is available on "
-            }
-            <a href={"https://github.com/arcatdmz/picode/"}>{"GitHub"}</a>
-            {"! The development was supported in part by "}
-            <a
-              href={
-                "https://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx"
-              }
-            >
-              {"Microsoft Research CORE 7 program (Japanese page)"}
+            {" "}
+            library for creating robotic things and its source code is available
+            on <a href="https://github.com/arcatdmz/picode/">GitHub</a>! The
+            development was supported in part by{" "}
+            <a href="https://web.archive.org/web/20160617171039/https://www.microsoft.com/ja-jp/ijarc/core/ifp_07_j_result.aspx">
+              Microsoft Research CORE 7 program (Japanese page)
             </a>
-            {"."}
+            .
           </LocalizedContent>
         </Message>
         <Divider hidden />
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">
             <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
@@ -120,51 +109,53 @@ export default function Page({ pageData }: PageDataProps) {
               ja={
                 <>
                   <p>
-                    {
-                      "プログラムのソースコードは、大抵の場合、文字や記号表現を用いて記述するものである。このような表現は、論理的な処理の精確な記述に適している一方で、画像や多関節ロボットの姿勢情報など、具体的なデータセットを分かりやすく見せることができない。この問題は、実世界の人やロボットの姿勢情報を扱うプログラミングで顕著である。"
-                    }
+                    プログラムのソースコードは、大抵の場合、文字や記号表現を用いて記述するものである。このような表現は、論理的な処理の精確な記述に適している一方で、画像や多関節ロボットの姿勢情報など、具体的なデータセットを分かりやすく見せることができない。この問題は、実世界の人やロボットの姿勢情報を扱うプログラミングで顕著である。
                   </p>
                   <p>
-                    {
-                      "そこで我々は、人やロボットの姿勢データを写真と紐づけ、ソースコード中に写真を貼り込める統合開発環境Picode (旧名Roboko)を試作した。まず、写真と紐づけられた姿勢データを第一級オブジェクトとして扱う拡張を既存の文字言語に施した。次に、姿勢データを引数に取るAPIライブラリを提供した。そして、エディタに写真を貼り付けられるような開発環境を実装した。"
-                    }
+                    そこで我々は、人やロボットの姿勢データを写真と紐づけ、ソースコード中に写真を貼り込める統合開発環境Picode
+                    (旧名Roboko)を試作した。まず、写真と紐づけられた姿勢データを第一級オブジェクトとして扱う拡張を既存の文字言語に施した。次に、姿勢データを引数に取るAPIライブラリを提供した。そして、エディタに写真を貼り付けられるような開発環境を実装した。
                   </p>
                 </>
               }
             >
               <p>
-                {
-                  "Current programming environments use textual or symbolic representations. While these representations are good at describing logical processes, they are not appropriate for representing human and robot posture data which is necessary for handing gesture input and controlling robots."
-                }
+                Current programming environments use textual or symbolic
+                representations. While these representations are good at
+                describing logical processes, they are not appropriate for
+                representing human and robot posture data which is necessary for
+                handing gesture input and controlling robots.
               </p>
               <p>
-                {
-                  "To address this issue, we propose a text-based development environment integrated with visual representations: photos of human and robots. With our development environment, the user first takes a photo to bind it to a posture data. Then, s/he drag-and-drops the photo to the code editor, where it is shown as an inline image."
-                }
+                To address this issue, we propose a text-based development
+                environment integrated with visual representations: photos of
+                human and robots. With our development environment, the user
+                first takes a photo to bind it to a posture data. Then, s/he
+                drag-and-drops the photo to the code editor, where it is shown
+                as an inline image.
               </p>
             </LocalizedContent>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"presentations"}>
+        <section id="presentations">
           <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
           <Segment basic>
             <Grid stackable columns={2}>
               <Grid.Column>
-                <Header as="h3">{"CHI 2013 Fast-forward"}</Header>
-                <EmbedYoutube src={"//www.youtube.com/embed/NCou4Q1STE8"} />
+                <Header as="h3">CHI 2013 Fast-forward</Header>
+                <EmbedYoutube src="//www.youtube.com/embed/NCou4Q1STE8" />
                 <div className="caption">
                   <List horizontal>
                     <List.Item>
-                      <a href={"//www.youtube.com/watch?v=NCou4Q1STE8"}>
+                      <a href="//www.youtube.com/watch?v=NCou4Q1STE8">
                         <Icon name="youtube" />
-                        {"Fast-forward"}
+                        Fast-forward
                       </a>
                     </List.Item>
                     <List.Item>
-                      <a href={"//www.youtube.com/watch?v=cQv0-4f8LEA"}>
+                      <a href="//www.youtube.com/watch?v=cQv0-4f8LEA">
                         <Icon name="youtube" />
-                        {"Full version"}
+                        Full version
                       </a>
                     </List.Item>
                   </List>
@@ -172,14 +163,13 @@ export default function Page({ pageData }: PageDataProps) {
               </Grid.Column>
               <Grid.Column>
                 <Header as="h3">
-                  {"CHI 2013 "}
-                  {en ? "Slides" : "発表スライド"}
+                  CHI 2013 {en ? "Slides" : "発表スライド"}
                 </Header>
 
                 <DeferredEmbed
                   url={publicationsTable[p.publication].entryTags.slides}
                   placeholder={`${rootPath}images/background-eee.png`}
-                  icon={"video play outline"}
+                  icon="video play outline"
                 ></DeferredEmbed>
 
                 <div className="caption">
@@ -200,14 +190,13 @@ export default function Page({ pageData }: PageDataProps) {
                 {!en ? (
                   <>
                     <p className="caption">
-                      {"日本語の発表スライドは"}
-                      <a href={"#publications"}>
+                      日本語の発表スライドは
+                      <a href="#publications">
                         <Icon name="book" />
-                        {"発表文献"}
+                        発表文献
                       </a>
-                      {"で日本語文献の "}
-                      <Icon fitted name="sidebar" />
-                      {" をクリックすると閲覧できます。"}
+                      で日本語文献の <Icon fitted name="sidebar" />{" "}
+                      をクリックすると閲覧できます。
                     </p>
                   </>
                 ) : null}
@@ -217,77 +206,78 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <section>
-          <Header as="h2">{"Picode IDE"}</Header>
+          <Header as="h2">Picode IDE</Header>
           <Segment basic>
             <LocalizedContent
               ja={
                 <>
                   <p>
-                    {
-                      '本研究では、姿勢情報を用いるプログラミングのワークフローを支援するため、写真を貼りこめるよう拡張したエディタを含む文字ベースの統合開発環境(IDE)に、姿勢情報と写真の記録および紐づけを自然に行える例示インタフェースと、記録した写真を閲覧できる"Pose library"を追加した。このIDEを用いたプログラミングは、人やロボットの姿勢情報を写真とともにキャプチャする例示から始まる。そして、写真をエディタにドラッグ＆ドロップしたり文字を入力したりすることでソースコードを書き上げ、プログラムを実行する。ソースコードはキャプチャした写真と姿勢情報のデータセットと共に再配布できる。'
-                    }
+                    本研究では、姿勢情報を用いるプログラミングのワークフローを支援するため、写真を貼りこめるよう拡張したエディタを含む文字ベースの統合開発環境(IDE)に、姿勢情報と写真の記録および紐づけを自然に行える例示インタフェースと、記録した写真を閲覧できる"Pose
+                    library"を追加した。このIDEを用いたプログラミングは、人やロボットの姿勢情報を写真とともにキャプチャする例示から始まる。そして、写真をエディタにドラッグ＆ドロップしたり文字を入力したりすることでソースコードを書き上げ、プログラムを実行する。ソースコードはキャプチャした写真と姿勢情報のデータセットと共に再配布できる。
                   </p>
                   <p>
-                    {
-                      "例えば、Picodeを用いると以下のようなプログラムを書ける。サポートされている主なAPIについては後述する。("
-                    }
+                    例えば、Picodeを用いると以下のようなプログラムを書ける。サポートされている主なAPIについては後述する。(
                     <SiteLink
                       href={href(
                         `${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`,
                       )}
                     >
-                      {"Javadoc"}
+                      Javadoc
                     </SiteLink>
-                    {")"}
+                    )
                   </p>
                   <dl>
                     <dt>
                       <SiteLink href={href(`${rootPath}picode/xylophone/`)}>
-                        {"鉄琴演奏ロボ"}
+                        鉄琴演奏ロボ
                       </SiteLink>
                     </dt>
-                    <dd>{"かえるの歌を演奏する。"}</dd>
+                    <dd>かえるの歌を演奏する。</dd>
                     <dt>
                       <SiteLink href={href(`${rootPath}picode/hello/`)}>
-                        {"挙手でスライド送り"}
+                        挙手でスライド送り
                       </SiteLink>
                     </dt>
                     <dd>
-                      {
-                        "右手を挙げるとスライドを次に送り、左手を挙げると一つ前に戻す。"
-                      }
+                      右手を挙げるとスライドを次に送り、左手を挙げると一つ前に戻す。
                     </dd>
                     <dt>
                       <SiteLink href={href(`${rootPath}picode/flag/`)}>
-                        {"旗揚げゲーム"}
+                        旗揚げゲーム
                       </SiteLink>
                     </dt>
                     <dd>
-                      {
-                        "画面に出てくるキャラクターと同じほうの手を素早く挙げると高得点。"
-                      }
+                      画面に出てくるキャラクターと同じほうの手を素早く挙げると高得点。
                     </dd>
                   </dl>
                 </>
               }
             >
               <p>
-                {
-                  "Our prototype implementation consists of three main components: the code editor, the pose library, and the preview window. First, the user takes a photo of a human or robot in the preview window. At the same time, posture data is captured and the dataset is stored in the pose library. Next, s/he drag-and-drops the photo from the pose library into the code editor, where the photo is shown inline. Then, s/he can run the application. S/he can also distribute the source code bundled with the referenced datasets so that others can run the same application on our development environment."
-                }
+                Our prototype implementation consists of three main components:
+                the code editor, the pose library, and the preview window.
+                First, the user takes a photo of a human or robot in the preview
+                window. At the same time, posture data is captured and the
+                dataset is stored in the pose library. Next, s/he drag-and-drops
+                the photo from the pose library into the code editor, where the
+                photo is shown inline. Then, s/he can run the application. S/he
+                can also distribute the source code bundled with the referenced
+                datasets so that others can run the same application on our
+                development environment.
               </p>
               <p>
-                {
-                  "During the coding phase, the programmer can benefit from a software library tightly coupled with the IDE. The library provides a set of API that enables easy control of robots. The main functions are shown below. Other APIs are listed in "
-                }
+                During the coding phase, the programmer can benefit from a
+                software library tightly coupled with the IDE. The library
+                provides a set of API that enables easy control of robots. The
+                main functions are shown below. Other APIs are listed in{" "}
                 <SiteLink
                   href={href(
                     `${rootPath}picode/docs/?com/phybots/picode/api/package-summary.html`,
                   )}
                 >
-                  {"Javadoc"}
+                  Javadoc
                 </SiteLink>
-                {"."}
+                .
               </p>
             </LocalizedContent>
           </Segment>
@@ -299,7 +289,7 @@ export default function Page({ pageData }: PageDataProps) {
               >
                 <SiteImage
                   src={`${rootPath}picode/picode-ide.jpg`}
-                  alt={"Overview"}
+                  alt="Overview"
                 />
               </LinkedImage>
               <div className="caption">
@@ -311,107 +301,87 @@ export default function Page({ pageData }: PageDataProps) {
                 ja={
                   <dl>
                     <dt>
-                      <strong>{"Pose"}</strong>
-                      {" Robot.getPose()"}
+                      <strong>Pose</strong> Robot.getPose()
                     </dt>
-                    <dd>{"現在の姿勢を返す"}</dd>
+                    <dd>現在の姿勢を返す</dd>
                     <dt>
-                      <strong>{"float"}</strong>
-                      {" Pose.distance(Pose pose)"}
+                      <strong>float</strong> Pose.distance(Pose pose)
                     </dt>
-                    <dd>{"二つの姿勢間の差異を返す [0.0-1.0]"}</dd>
+                    <dd>二つの姿勢間の差異を返す [0.0-1.0]</dd>
                     <dt>
-                      <strong>{"boolean"}</strong>
-                      {" Pose.eq(Pose pose, float threshold)"}
+                      <strong>boolean</strong> Pose.eq(Pose pose, float
+                      threshold)
                     </dt>
                     <dd>
-                      {
-                        "二つの姿勢が同じとみなせるかどうか返す (二つの姿勢間の差異がthresholdより小さいかどうか返す)"
-                      }
+                      二つの姿勢が同じとみなせるかどうか返す
+                      (二つの姿勢間の差異がthresholdより小さいかどうか返す)
                     </dd>
                     <dt>
-                      <strong>{"boolean"}</strong>
-                      {" Robot.setPose(Pose pose)"}
+                      <strong>boolean</strong> Robot.setPose(Pose pose)
                     </dt>
-                    <dd>{"ロボットの姿勢を指定する"}</dd>
+                    <dd>ロボットの姿勢を指定する</dd>
                     <dt>
-                      <strong>{"Action"}</strong>
-                      {" Robot.action()"}
+                      <strong>Action</strong> Robot.action()
+                    </dt>
+                    <dd>ロボットの姿勢の推移を表すActionオブジェクトを返す</dd>
+                    <dt>
+                      <strong>Action</strong> Action.pose(Pose pose)
+                    </dt>
+                    <dd>このActionの最後に指定した姿勢への推移を追加する</dd>
+                    <dt>
+                      <strong>Action</strong> Action.stay(int ms)
                     </dt>
                     <dd>
-                      {"ロボットの姿勢の推移を表すActionオブジェクトを返す"}
+                      このActionの最後に指定した時間のまま静止するようにする
                     </dd>
                     <dt>
-                      <strong>{"Action"}</strong>
-                      {" Action.pose(Pose pose)"}
+                      <strong>ActionResult</strong> Action.play()
                     </dt>
-                    <dd>
-                      {"このActionの最後に指定した姿勢への推移を追加する"}
-                    </dd>
-                    <dt>
-                      <strong>{"Action"}</strong>
-                      {" Action.stay(int ms)"}
-                    </dt>
-                    <dd>
-                      {"このActionの最後に指定した時間のまま静止するようにする"}
-                    </dd>
-                    <dt>
-                      <strong>{"ActionResult"}</strong>
-                      {" Action.play()"}
-                    </dt>
-                    <dd>{"Actionを再生する"}</dd>
+                    <dd>Actionを再生する</dd>
                   </dl>
                 }
               >
                 <dl>
                   <dt>
-                    <strong>{"Pose"}</strong>
-                    {" Robot.getPose()"}
+                    <strong>Pose</strong> Robot.getPose()
                   </dt>
-                  <dd>{"returns the current pose data."}</dd>
+                  <dd>returns the current pose data.</dd>
                   <dt>
-                    <strong>{"float"}</strong>
-                    {" Pose.distance(Pose pose)"}
+                    <strong>float</strong> Pose.distance(Pose pose)
                   </dt>
                   <dd>
-                    {"calculates the distance between the two poses. [0.0-1.0]"}
+                    calculates the distance between the two poses. [0.0-1.0]
                   </dd>
                   <dt>
-                    <strong>{"boolean"}</strong>
-                    {" Pose.eq(Pose pose, float threshold)"}
+                    <strong>boolean</strong> Pose.eq(Pose pose, float threshold)
                   </dt>
                   <dd>
-                    {
-                      "returns whether the two poses can be thought of as identical or not. (returns whether the distance between the two poses is less than the threshold or not.)"
-                    }
+                    returns whether the two poses can be thought of as identical
+                    or not. (returns whether the distance between the two poses
+                    is less than the threshold or not.)
                   </dd>
                   <dt>
-                    <strong>{"boolean"}</strong>
-                    {" Robot.setPose(Pose pose)"}
+                    <strong>boolean</strong> Robot.setPose(Pose pose)
                   </dt>
-                  <dd>{"set the current pose to the specified data."}</dd>
+                  <dd>set the current pose to the specified data.</dd>
                   <dt>
-                    <strong>{"Action"}</strong>
-                    {" Robot.action()"}
+                    <strong>Action</strong> Robot.action()
                   </dt>
-                  <dd>{"start building an action for the robot."}</dd>
+                  <dd>start building an action for the robot.</dd>
                   <dt>
-                    <strong>{"Action"}</strong>
-                    {" Action.pose(Pose pose)"}
+                    <strong>Action</strong> Action.pose(Pose pose)
                   </dt>
-                  <dd>{"add this pose to the end of this action."}</dd>
+                  <dd>add this pose to the end of this action.</dd>
                   <dt>
-                    <strong>{"Action"}</strong>
-                    {" Action.stay(int ms)"}
+                    <strong>Action</strong> Action.stay(int ms)
                   </dt>
                   <dd>
-                    {"wait for the specified time at the end of this action."}
+                    wait for the specified time at the end of this action.
                   </dd>
                   <dt>
-                    <strong>{"ActionResult"}</strong>
-                    {" Action.play()"}
+                    <strong>ActionResult</strong> Action.play()
                   </dt>
-                  <dd>{"play this action."}</dd>
+                  <dd>play this action.</dd>
                 </dl>
               </LocalizedContent>
             </Grid.Column>
@@ -420,58 +390,38 @@ export default function Page({ pageData }: PageDataProps) {
         {!en ? (
           <>
             <Divider hidden />
-            <section id={"vision"}>
-              <Header as="h2">{"未来ビジョン"}</Header>
+            <section id="vision">
+              <Header as="h2">未来ビジョン</Header>
               <Segment basic>
                 {en ? null : (
                   <>
                     <p>
-                      {
-                        '"Programmers are people, too." という言葉がある。この、プログラマだって人である、という言葉には、プログラマがいかに分かりづらい言語を理解し、使いづらい開発環境と格闘してきたか、プログラマと一般人の溝がいかに深いか、という現状認識が現れているように思われる。'
-                      }
+                      "Programmers are people, too."
+                      という言葉がある。この、プログラマだって人である、という言葉には、プログラマがいかに分かりづらい言語を理解し、使いづらい開発環境と格闘してきたか、プログラマと一般人の溝がいかに深いか、という現状認識が現れているように思われる。
                     </p>
                     <p>
-                      {
-                        "しかし私は、プログラマと一般人の溝が近年急速に埋まりつつあるように感じている。まず、開発環境を整えるのが簡単になった。以前なら必要なファイルを揃えてパスを通して、と大変な手間だったものが、今はブラウザを開くだけでよい。プログラミングの学習も"
-                      }
-                      <a
-                        href={
-                          "https://www.khanacademy.org/computing/computer-programming"
-                        }
-                      >
-                        {"Kahn Academy"}
+                      しかし私は、プログラマと一般人の溝が近年急速に埋まりつつあるように感じている。まず、開発環境を整えるのが簡単になった。以前なら必要なファイルを揃えてパスを通して、と大変な手間だったものが、今はブラウザを開くだけでよい。プログラミングの学習も
+                      <a href="https://www.khanacademy.org/computing/computer-programming">
+                        Kahn Academy
                       </a>
-                      {
-                        "などでインタラクティブに進められる。また、プログラミングできる対象が身近になってきた。"
-                      }
-                      <a
-                        href={
-                          "https://en.wikipedia.org/wiki/Lego_Mindstorms_NXT"
-                        }
-                      >
-                        {"LEGO Mindstorms NXT"}
+                      などでインタラクティブに進められる。また、プログラミングできる対象が身近になってきた。
+                      <a href="https://en.wikipedia.org/wiki/Lego_Mindstorms_NXT">
+                        LEGO Mindstorms NXT
                       </a>
-                      {
-                        "のように実世界で動くものはもちろん、例えばスマートフォン上でスマートフォン用のプログラムを書いたり("
-                      }
+                      のように実世界で動くものはもちろん、例えばスマートフォン上でスマートフォン用のプログラムを書いたり(
                       <SiteLink href={href(`${basePath}touchdevelop/`)}>
-                        {"TouchDevelop"}
+                        TouchDevelop
                       </SiteLink>
-                      {")、Webサービス同士をif-thenルールで連携させたり("}
-                      <a href={"https://ifttt.com"}>{"IFTTT"}</a>
-                      {
-                        ")できる。家電製品がネットワークに繋がるようになってきたから、これらを遠隔制御する実用的なプログラムも簡単に書けるようになるだろう。"
-                      }
+                      )、Webサービス同士をif-thenルールで連携させたり(
+                      <a href="https://ifttt.com">IFTTT</a>
+                      )できる。家電製品がネットワークに繋がるようになってきたから、これらを遠隔制御する実用的なプログラムも簡単に書けるようになるだろう。
                     </p>
                     <p>
-                      {
-                        "また、プログラミング言語の研究者コミュニティでは、言語だけでなく開発環境まで含めたプログラマの体験を重視する研究が増えてきている。我々のコミュニティで道具としてのUIから体験としてのHCIに研究の主流がシフトしたように、言語、ライブラリ、開発環境を個々に評価するのではなく、全体のワークフローを重視する流れが生まれている。"
-                      }
+                      また、プログラミング言語の研究者コミュニティでは、言語だけでなく開発環境まで含めたプログラマの体験を重視する研究が増えてきている。我々のコミュニティで道具としてのUIから体験としてのHCIに研究の主流がシフトしたように、言語、ライブラリ、開発環境を個々に評価するのではなく、全体のワークフローを重視する流れが生まれている。
                     </p>
                     <p>
-                      {
-                        '我々は、このような追い風を受けながら "People are programmers." の世界を実現していきたいと考えている。'
-                      }
+                      我々は、このような追い風を受けながら "People are
+                      programmers." の世界を実現していきたいと考えている。
                     </p>
                   </>
                 )}
@@ -481,8 +431,8 @@ export default function Page({ pageData }: PageDataProps) {
         ) : null}
         <Divider hidden />
         <ProjectPublications
-          project={"picode"}
-          majorPublication={"chi2013-kato-picode"}
+          project="picode"
+          majorPublication="chi2013-kato-picode"
         />
       </SiteLayout>
     </>

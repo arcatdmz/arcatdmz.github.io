@@ -689,18 +689,35 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
   flex: 0 0 auto;
   max-height: none;
 }
-.ui.site-modal-dimmer > .ui.modal:focus { outline: none; }
-[role="button"] { cursor: pointer; }
+.ui.site-modal-dimmer > .ui.modal:focus {
+  outline: none;
+}
+[role="button"] {
+  cursor: pointer;
+}
 .animating.ui.uncover.sidebar {
   visibility: visible;
   transform: translate3d(0, 0, 0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .ui.sidebar, .pushable > .pusher, .pushable > .fixed, .pushable > .pusher::after { transition: none !important; }
-  .transition, .site-attention { animation: none !important; }
+  .ui.sidebar,
+  .pushable > .pusher,
+  .pushable > .fixed,
+  .pushable > .pusher::after {
+    transition: none !important;
+  }
+  .transition,
+  .site-attention {
+    animation: none !important;
+  }
 }
 
 /* Live Tuning illustrations cross-fade with hover or keyboard focus. */
-.live-preview > img.hover { opacity: 0; transition: opacity 200ms; }
+.live-preview > img.hover {
+  opacity: 0;
+  transition: opacity 200ms;
+}
 .live-preview:hover > img.hover,
-.live-preview:focus > img.hover { opacity: 1; }
+.live-preview:focus > img.hover {
+  opacity: 1;
+}

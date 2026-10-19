@@ -35,8 +35,8 @@ export function EmbedYoutube({ src }: { src?: string }) {
       <Embed active icon={false}>
         <iframe
           src={src}
-          frameBorder={"0"}
-          allow={"autoplay; encrypted-media"}
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
           allowFullScreen={Boolean(true)}
         ></iframe>
       </Embed>
@@ -57,12 +57,10 @@ export function Translate({ path }: { path?: string }) {
             ".tsx",
           )}`,
         )}
-        data-content={
-          "翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります"
-        }
+        data-content="翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります"
         className="with-popup"
       >
-        {"翻訳が必要"}
+        翻訳が必要
       </Label>
     </>
   );
@@ -81,12 +79,10 @@ export function TranslateEn({ path }: { path?: string }) {
             ".tsx",
           )}`,
         )}
-        data-content={
-          "I would really appreciate if you could translate this content and send a pull request"
-        }
+        data-content="I would really appreciate if you could translate this content and send a pull request"
         className="with-popup"
       >
-        {"Translation required"}
+        Translation required
       </Label>
     </>
   );
@@ -110,25 +106,23 @@ export function Share() {
             }${domain}${rootPath}${me}`,
           )}
           data-hatena-bookmark-url={URI}
-          data-hatena-bookmark-layout={"standard-balloon"}
-          data-hatena-bookmark-lang={"ja"}
-          title={"このエントリーをはてなブックマークに追加"}
+          data-hatena-bookmark-layout="standard-balloon"
+          data-hatena-bookmark-lang="ja"
+          title="このエントリーをはてなブックマークに追加"
         >
           <SiteImage
-            src={
-              "https://b.st-hatena.com/images/entry-button/button-only@2x.png"
-            }
-            alt={"このエントリーをはてなブックマークに追加"}
-            width={"20"}
-            height={"20"}
+            src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+            alt="このエントリーをはてなブックマークに追加"
+            width="20"
+            height="20"
             style={{ border: "none" }}
           />
         </SiteLink>
 
         <DeferredScript
-          type={"text/javascript"}
-          src={"https://b.st-hatena.com/js/bookmark_button.js"}
-          charSet={"utf-8"}
+          type="text/javascript"
+          src="https://b.st-hatena.com/js/bookmark_button.js"
+          charSet="utf-8"
           async={Boolean("async")}
           dangerouslySetInnerHTML={{ __html: "" }}
         />
@@ -137,7 +131,7 @@ export function Share() {
           className="twitter-share-button"
           href={href(`https://twitter.com/intent/tweet?url=${encodedURI}`)}
           data-text={title}
-          data-count={"horizontal"}
+          data-count="horizontal"
           data-hashtag={hashtag}
           data-counturl={URI}
         >
@@ -155,10 +149,10 @@ export function Share() {
           className="fb-share-button"
           style={{ verticalAlign: "top" }}
           data-href={URI}
-          data-layout={"button_count"}
+          data-layout="button_count"
         ></div>
 
-        <div id={"fb-root"}></div>
+        <div id="fb-root"></div>
 
         <DeferredScript
           dangerouslySetInnerHTML={{
@@ -268,8 +262,7 @@ export function ProjectHeader({
         ))}
         {tags.length ? (
           <List.Item className="tags">
-            {en ? "Keywords" : "関連キーワード"}
-            {": "}
+            {en ? "Keywords" : "関連キーワード"}:{" "}
             <HtmlContent html={tags.join(", ")} />
           </List.Item>
         ) : null}
@@ -542,11 +535,9 @@ export function Publication({
 
                   {entry.entryTags.editor ? (
                     <>
-                      {" (Eds. "}
-
-                      <HtmlContent html={entry.getEditorsTags().join(", ")} />
-
-                      {")"}
+                      {" "}
+                      (Eds.{" "}
+                      <HtmlContent html={entry.getEditorsTags().join(", ")} />)
                     </>
                   ) : null}
                 </List.Content>
@@ -598,11 +589,8 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
 
             {entry.entryTags.editor ? (
               <>
-                {" (Eds. "}
-
-                <HtmlContent html={entry.getEditorsTags().join(", ")} />
-
-                {")"}
+                {" "}
+                (Eds. <HtmlContent html={entry.getEditorsTags().join(", ")} />)
               </>
             ) : null}
           </List.Content>
@@ -682,7 +670,7 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
       </List>
       <Form as="div">
         <Form.Field className="bibtex">
-          <label>{"BibTeX:"}</label>
+          <label>BibTeX:</label>
           <textarea readOnly defaultValue={entry.getBibTeX()} />
           <CopyButton
             lang={en ? "en" : "ja"}
@@ -917,11 +905,9 @@ export function MediaItem({
             <>
               {tags.length ? (
                 <>
-                  {" ("}
-                  {en ? "Keywords" : "関連キーワード"}
-                  {": "}
-                  <HtmlContent html={tags.join(", ")} />
-                  {") "}
+                  {" "}
+                  ({en ? "Keywords" : "関連キーワード"}:{" "}
+                  <HtmlContent html={tags.join(", ")} />){" "}
                 </>
               ) : null}
               {projects.map((p) => (

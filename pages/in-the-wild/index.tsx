@@ -75,7 +75,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         }
       >
-        <Header as="h2">{"Poster"}</Header>
+        <Header as="h2">Poster</Header>
         <Grid stackable>
           <Grid.Row>
             <Grid.Column width={4}>
@@ -93,152 +93,181 @@ export default function Page({ pageData }: PageDataProps) {
             </Grid.Column>
             <Grid.Column width={12}>
               <p>
-                {
-                  "Research on creativity support tools (CSTs) has long been conducted in the field of human-computer interaction (HCI), but there is growing criticism that applied computer science, including HCI, has typically been conducted and evaluated in a limited cultural context, such as the fast-paced academic community and the WEIRD (Western, educated, industrialized, rich, and developed) part of the world."
-                }
+                Research on creativity support tools (CSTs) has long been
+                conducted in the field of human-computer interaction (HCI), but
+                there is growing criticism that applied computer science,
+                including HCI, has typically been conducted and evaluated in a
+                limited cultural context, such as the fast-paced academic
+                community and the WEIRD (Western, educated, industrialized,
+                rich, and developed) part of the world.
               </p>
               <p>
-                {
-                  'This poster presents recent efforts in creativity support research "in the wild", taking a longitudinal and constructive approach with the help of creators outside the research community to build computational tools for creative activities.'
-                }
+                This poster presents recent efforts in creativity support
+                research "in the wild", taking a longitudinal and constructive
+                approach with the help of creators outside the research
+                community to build computational tools for creative activities.
               </p>
               <p>
-                {
-                  "Examples include TextAlive and its API for creating lyric-driven visual art [ACM CHI 2015, 2023] and Griffith for creating animation storyboards [ACM CHI 2024], both of which contribute to the discussion of how to develop human-centered AI that nurtures the creativity of people with diverse technical and cultural backgrounds."
-                }
+                Examples include TextAlive and its API for creating lyric-driven
+                visual art [ACM CHI 2015, 2023] and Griffith for creating
+                animation storyboards [ACM CHI 2024], both of which contribute
+                to the discussion of how to develop human-centered AI that
+                nurtures the creativity of people with diverse technical and
+                cultural backgrounds.
               </p>
               <p>
-                {"This poster was presented at the "}
-                <a href={"https://www.dwih-tokyo.org/en/event/ai4/"}>
-                  {"Trilateral AI Conference 2024"}
+                This poster was presented at the{" "}
+                <a href="https://www.dwih-tokyo.org/en/event/ai4/">
+                  Trilateral AI Conference 2024
                 </a>
-                {
-                  ", held at the Akasaka Intercity Conference Center in Tokyo, Japan, on November 12-13, 2024. The conference was organized by DWIH Tokyo, the Embassy of France in Japan, and the AI Japan R&D Network, reflecting its trilateral collaboration between Germany, France, and Japan."
-                }
+                , held at the Akasaka Intercity Conference Center in Tokyo,
+                Japan, on November 12-13, 2024. The conference was organized by
+                DWIH Tokyo, the Embassy of France in Japan, and the AI Japan
+                R&amp;D Network, reflecting its trilateral collaboration between
+                Germany, France, and Japan.
               </p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
         <Divider hidden />
-        <Header as="h2">{"References"}</Header>
+        <Header as="h2">References</Header>
         <ol>
           <li>
-            {
-              "Ben Shneiderman. 2007. Creativity support tools: accelerating discovery and innovation. Commun. ACM 50, 12 (December 2007), 20–32. "
-            }
-            <a href={"https://doi.org/10.1145/1323688.1323689"}>
-              {"https://doi.org/10.1145/1323688.1323689"}
+            Ben Shneiderman. 2007. Creativity support tools: accelerating
+            discovery and innovation. Commun. ACM 50, 12 (December 2007), 20–32.{" "}
+            <a href="https://doi.org/10.1145/1323688.1323689">
+              https://doi.org/10.1145/1323688.1323689
             </a>
           </li>
           <li>
-            {
-              "Erin Cherry and Celine Latulipe. 2014. Quantifying the Creativity Support of Digital Tools through the Creativity Support Index. ACM Trans. Comput.-Hum. Interact. 21, 4, Article 21 (August 2014), 25 pages. "
-            }
-            <a href={"https://doi.org/10.1145/2617588"}>
-              {"https://doi.org/10.1145/2617588"}
+            Erin Cherry and Celine Latulipe. 2014. Quantifying the Creativity
+            Support of Digital Tools through the Creativity Support Index. ACM
+            Trans. Comput.-Hum. Interact. 21, 4, Article 21 (August 2014), 25
+            pages.{" "}
+            <a href="https://doi.org/10.1145/2617588">
+              https://doi.org/10.1145/2617588
             </a>
           </li>
           <li>
-            {
-              "Andruid Kerne, Andrew M. Webb, Celine Latulipe, Erin Carroll, Steven M. Drucker, Linda Candy, and Kristina Höök. 2013. Evaluation methods for creativity support environments. In CHI '13 Extended Abstracts on Human Factors in Computing Systems (CHI EA '13). Association for Computing Machinery, New York, NY, USA, 3295–3298. "
-            }
-            <a href={"https://doi.org/10.1145/2468356.2479670"}>
-              {"https://doi.org/10.1145/2468356.2479670"}
+            Andruid Kerne, Andrew M. Webb, Celine Latulipe, Erin Carroll, Steven
+            M. Drucker, Linda Candy, and Kristina Höök. 2013. Evaluation methods
+            for creativity support environments. In CHI '13 Extended Abstracts
+            on Human Factors in Computing Systems (CHI EA '13). Association for
+            Computing Machinery, New York, NY, USA, 3295–3298.{" "}
+            <a href="https://doi.org/10.1145/2468356.2479670">
+              https://doi.org/10.1145/2468356.2479670
             </a>
           </li>
           <li>
-            {
-              "Jingyi Li, Eric Rawn, Jacob Ritchie, Jasper Tran O'Leary, and Sean Follmer. 2023. Beyond the Artifact: Power as a Lens for Creativity Support Tools. In Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology (UIST '23). Association for Computing Machinery, New York, NY, USA, Article 47, 1–15. "
-            }
-            <a href={"https://doi.org/10.1145/3586183.3606831"}>
-              {"https://doi.org/10.1145/3586183.3606831"}
+            Jingyi Li, Eric Rawn, Jacob Ritchie, Jasper Tran O'Leary, and Sean
+            Follmer. 2023. Beyond the Artifact: Power as a Lens for Creativity
+            Support Tools. In Proceedings of the 36th Annual ACM Symposium on
+            User Interface Software and Technology (UIST '23). Association for
+            Computing Machinery, New York, NY, USA, Article 47, 1–15.{" "}
+            <a href="https://doi.org/10.1145/3586183.3606831">
+              https://doi.org/10.1145/3586183.3606831
             </a>
           </li>
           <li>
-            {
-              "Sebastian Linxen, Christian Sturm, Florian Brühlmann, Vincent Cassau, Klaus Opwis, and Katharina Reinecke. 2021. How WEIRD is CHI? In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems (CHI '21). Association for Computing Machinery, New York, NY, USA, Article 143, 1–14. "
-            }
-            <a href={"https://doi.org/10.1145/3411764.3445488"}>
-              {"https://doi.org/10.1145/3411764.3445488"}
+            Sebastian Linxen, Christian Sturm, Florian Brühlmann, Vincent
+            Cassau, Klaus Opwis, and Katharina Reinecke. 2021. How WEIRD is CHI?
+            In Proceedings of the 2021 CHI Conference on Human Factors in
+            Computing Systems (CHI '21). Association for Computing Machinery,
+            New York, NY, USA, Article 143, 1–14.{" "}
+            <a href="https://doi.org/10.1145/3411764.3445488">
+              https://doi.org/10.1145/3411764.3445488
             </a>
           </li>
           <li>
-            {
-              "Paul Dourish and Scott D. Mainwaring. 2012. Ubicomp's colonial impulse. In Proceedings of the 2012 ACM Conference on Ubiquitous Computing (UbiComp '12). Association for Computing Machinery, New York, NY, USA, 133–142. "
-            }
-            <a href={"https://doi.org/10.1145/2370216.2370238"}>
-              {"https://doi.org/10.1145/2370216.2370238"}
+            Paul Dourish and Scott D. Mainwaring. 2012. Ubicomp's colonial
+            impulse. In Proceedings of the 2012 ACM Conference on Ubiquitous
+            Computing (UbiComp '12). Association for Computing Machinery, New
+            York, NY, USA, 133–142.{" "}
+            <a href="https://doi.org/10.1145/2370216.2370238">
+              https://doi.org/10.1145/2370216.2370238
             </a>
           </li>
           <li>
-            {
-              "Jun Kato, Kenta Hara, and Nao Hirasawa. 2024. Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals. In Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems (CHI '24). Association for Computing Machinery, New York, NY, USA, Article 233, 1–14. "
-            }
-            <a href={"https://doi.org/10.1145/3613904.3642121"}>
-              {"https://doi.org/10.1145/3613904.3642121"}
+            Jun Kato, Kenta Hara, and Nao Hirasawa. 2024. Griffith: A
+            Storyboarding Tool Designed with Japanese Animation Professionals.
+            In Proceedings of the 2024 CHI Conference on Human Factors in
+            Computing Systems (CHI '24). Association for Computing Machinery,
+            New York, NY, USA, Article 233, 1–14.{" "}
+            <a href="https://doi.org/10.1145/3613904.3642121">
+              https://doi.org/10.1145/3613904.3642121
             </a>
           </li>
           <li>
-            {
-              "Jingyi Li, Sonia Hashim, and Jennifer Jacobs. 2021. What We Can Learn From Visual Artists About Software Development. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems (CHI '21). Association for Computing Machinery, New York, NY, USA, Article 314, 1–14. "
-            }
-            <a href={"https://doi.org/10.1145/3411764.3445682"}>
-              {"https://doi.org/10.1145/3411764.3445682"}
+            Jingyi Li, Sonia Hashim, and Jennifer Jacobs. 2021. What We Can
+            Learn From Visual Artists About Software Development. In Proceedings
+            of the 2021 CHI Conference on Human Factors in Computing Systems
+            (CHI '21). Association for Computing Machinery, New York, NY, USA,
+            Article 314, 1–14.{" "}
+            <a href="https://doi.org/10.1145/3411764.3445682">
+              https://doi.org/10.1145/3411764.3445682
             </a>
           </li>
           <li>
-            {
-              "Jun Kato. 2023. On the Relationship between HCI Researchers and Creators---Or How I Became a Toolsmith. XRDS 29, 4 (Summer 2023), 26–31. "
-            }
-            <a href={"https://doi.org/10.1145/3596927"}>
-              {"https://doi.org/10.1145/3596927"}
+            Jun Kato. 2023. On the Relationship between HCI Researchers and
+            Creators---Or How I Became a Toolsmith. XRDS 29, 4 (Summer 2023),
+            26–31.{" "}
+            <a href="https://doi.org/10.1145/3596927">
+              https://doi.org/10.1145/3596927
             </a>
           </li>
           <li>
-            {
-              "Wendy Mackay. 2000. Responding to cognitive overload : Co-adaptation between users and technology. Intellectica 30, 1 (2000), 177–193. "
-            }
-            <a href={"https://doi.org/10.3406/intel.2000.1597"}>
-              {"https://doi.org/10.3406/intel.2000.1597"}
+            Wendy Mackay. 2000. Responding to cognitive overload : Co-adaptation
+            between users and technology. Intellectica 30, 1 (2000), 177–193.{" "}
+            <a href="https://doi.org/10.3406/intel.2000.1597">
+              https://doi.org/10.3406/intel.2000.1597
             </a>
           </li>
           <li>
-            {
-              "Jun Kato, Tomoyasu Nakano, and Masataka Goto. 2015. TextAlive: Integrated Design Environment for Kinetic Typography. In Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems (CHI '15). Association for Computing Machinery, New York, NY, USA, 3403–3412. "
-            }
-            <a href={"https://doi.org/10.1145/2702123.2702140"}>
-              {"https://doi.org/10.1145/2702123.2702140"}
+            Jun Kato, Tomoyasu Nakano, and Masataka Goto. 2015. TextAlive:
+            Integrated Design Environment for Kinetic Typography. In Proceedings
+            of the 33rd Annual ACM Conference on Human Factors in Computing
+            Systems (CHI '15). Association for Computing Machinery, New York,
+            NY, USA, 3403–3412.{" "}
+            <a href="https://doi.org/10.1145/2702123.2702140">
+              https://doi.org/10.1145/2702123.2702140
             </a>
           </li>
           <li>
-            {
-              "Michel Beaudouin-Lafon. 2000. Instrumental interaction: an interaction model for designing post-WIMP user interfaces. In Proceedings of the SIGCHI conference on Human Factors in Computing Systems (CHI '00). Association for Computing Machinery, New York, NY, USA, 446–453. "
-            }
-            <a href={"https://doi.org/10.1145/332040.332473"}>
-              {"https://doi.org/10.1145/332040.332473"}
+            Michel Beaudouin-Lafon. 2000. Instrumental interaction: an
+            interaction model for designing post-WIMP user interfaces. In
+            Proceedings of the SIGCHI conference on Human Factors in Computing
+            Systems (CHI '00). Association for Computing Machinery, New York,
+            NY, USA, 446–453.{" "}
+            <a href="https://doi.org/10.1145/332040.332473">
+              https://doi.org/10.1145/332040.332473
             </a>
           </li>
           <li>
-            {
-              "Glaveanu, V.P., Hanchett Hanson, M., Baer, J., Barbot, B., Clapp, E.P., Corazza, G.E., Hennessey, B., Kaufman, J.C., Lebuda, I., Lubart, T., Montuori, A., Ness, I.J., Plucker, J., Reiter-Palmon, R., Sierra, Z., Simonton, D.K., Neves-Pereira, M.S. and Sternberg, R.J. (2020), Advancing Creativity Theory and Research: A Socio-cultural Manifesto. J Creat Behav, 54: 741-745. "
-            }
-            <a href={"https://doi.org/10.1002/jocb.395"}>
-              {"https://doi.org/10.1002/jocb.395"}
+            Glaveanu, V.P., Hanchett Hanson, M., Baer, J., Barbot, B., Clapp,
+            E.P., Corazza, G.E., Hennessey, B., Kaufman, J.C., Lebuda, I.,
+            Lubart, T., Montuori, A., Ness, I.J., Plucker, J., Reiter-Palmon,
+            R., Sierra, Z., Simonton, D.K., Neves-Pereira, M.S. and Sternberg,
+            R.J. (2020), Advancing Creativity Theory and Research: A
+            Socio-cultural Manifesto. J Creat Behav, 54: 741-745.{" "}
+            <a href="https://doi.org/10.1002/jocb.395">
+              https://doi.org/10.1002/jocb.395
             </a>
           </li>
           <li>
-            {
-              "Jun Kato and Masataka Goto. 2023. Lyric App Framework: A Web-based Framework for Developing Interactive Lyric-driven Musical Applications. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23). Association for Computing Machinery, New York, NY, USA, Article 124, 1–18. "
-            }
-            <a href={"https://doi.org/10.1145/3544548.3580931"}>
-              {"https://doi.org/10.1145/3544548.3580931"}
+            Jun Kato and Masataka Goto. 2023. Lyric App Framework: A Web-based
+            Framework for Developing Interactive Lyric-driven Musical
+            Applications. In Proceedings of the 2023 CHI Conference on Human
+            Factors in Computing Systems (CHI '23). Association for Computing
+            Machinery, New York, NY, USA, Article 124, 1–18.{" "}
+            <a href="https://doi.org/10.1145/3544548.3580931">
+              https://doi.org/10.1145/3544548.3580931
             </a>
           </li>
         </ol>
         <Divider hidden />
         <Header as="h2">
           <Icon name="lab" />
-          <Header.Content>{"Projects"}</Header.Content>
+          <Header.Content>Projects</Header.Content>
         </Header>
         <Segment>
           <Item.Group divided className="projects">
