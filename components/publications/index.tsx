@@ -65,19 +65,19 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <List divided>
-          <List.Item role="link" as="a" href={"#awards"}>
+          <List.Item role="link" as="a" href="#awards">
             <Icon name="trophy" />
             <List.Content>{en ? "Awards" : "受賞歴"}</List.Content>
           </List.Item>
-          <List.Item role="link" as="a" href={"#talks"}>
+          <List.Item role="link" as="a" href="#talks">
             <Icon name="talk" />
             <List.Content>{en ? "Invited Talks" : "招待講演"}</List.Content>
           </List.Item>
-          <List.Item role="link" as="a" href={"#lectures"}>
+          <List.Item role="link" as="a" href="#lectures">
             <Icon name="graduation cap" />
             <List.Content>{en ? "Lectures" : "講義"}</List.Content>
           </List.Item>
-          <List.Item role="link" as="a" href={"#academic-publications"}>
+          <List.Item role="link" as="a" href="#academic-publications">
             <Icon name="book" />
             <List.Content>{en ? "Publications" : "発表文献"}</List.Content>
           </List.Item>
@@ -89,46 +89,42 @@ export default function Page({ pageData }: PageDataProps) {
                     <List.Item
                       role="link"
                       as="a"
-                      href={"#international-publications"}
+                      href="#international-publications"
                     >
                       <Icon name="triangle right" />
-                      <List.Content>{"国際"}</List.Content>
+                      <List.Content>国際</List.Content>
                     </List.Item>
-                    <List.Item
-                      role="link"
-                      as="a"
-                      href={"#domestic-publications"}
-                    >
+                    <List.Item role="link" as="a" href="#domestic-publications">
                       <Icon name="triangle right" />
-                      <List.Content>{"国内"}</List.Content>
+                      <List.Content>国内</List.Content>
                     </List.Item>
-                    <List.Item role="link" as="a" href={"#dissertation"}>
+                    <List.Item role="link" as="a" href="#dissertation">
                       <Icon name="triangle right" />
-                      <List.Content>{"学位論文"}</List.Content>
+                      <List.Content>学位論文</List.Content>
                     </List.Item>
                   </>
                 }
               >
-                <List.Item role="link" as="a" href={"#selected-publications"}>
+                <List.Item role="link" as="a" href="#selected-publications">
                   <Icon name="triangle right" />
-                  <List.Content>{"Selected"}</List.Content>
+                  <List.Content>Selected</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#reviewed-publications"}>
+                <List.Item role="link" as="a" href="#reviewed-publications">
                   <Icon name="triangle right" />
-                  <List.Content>{"Reviewed"}</List.Content>
+                  <List.Content>Reviewed</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#other-publications"}>
+                <List.Item role="link" as="a" href="#other-publications">
                   <Icon name="triangle right" />
-                  <List.Content>{"Others"}</List.Content>
+                  <List.Content>Others</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#dissertation"}>
+                <List.Item role="link" as="a" href="#dissertation">
                   <Icon name="triangle right" />
-                  <List.Content>{"Dissertation"}</List.Content>
+                  <List.Content>Dissertation</List.Content>
                 </List.Item>
               </LocalizedContent>
             </List>
           </List.Item>
-          <List.Item role="link" as="a" href={"#media"}>
+          <List.Item role="link" as="a" href="#media">
             <Icon className="broadcast tower" />
             <List.Content>{en ? "Media" : "メディア"}</List.Content>
           </List.Item>
@@ -165,16 +161,14 @@ export default function Page({ pageData }: PageDataProps) {
               <LocalizedContent
                 ja={
                   <p>
-                    {"これまでに "}
-                    <strong>{filteredAwards.length}</strong>
-                    {" 件の受賞に繋がる成果を創出してきました。"}
+                    これまでに <strong>{filteredAwards.length}</strong>{" "}
+                    件の受賞に繋がる成果を創出してきました。
                   </p>
                 }
               >
                 <p>
-                  {"I have received "}
-                  <strong>{filteredAwards.length}</strong>
-                  {" awards."}
+                  I have received <strong>{filteredAwards.length}</strong>{" "}
+                  awards.
                 </p>
               </LocalizedContent>
             </>,
@@ -315,11 +309,11 @@ export default function Page({ pageData }: PageDataProps) {
                 <List horizontal>
                   <List.Item>
                     <Icon name="circle" />
-                    <List.Content>{"国内"}</List.Content>
+                    <List.Content>国内</List.Content>
                   </List.Item>
                   <List.Item>
                     <Icon name="world" />
-                    <List.Content>{"国際"}</List.Content>
+                    <List.Content>国際</List.Content>
                   </List.Item>
                 </List>
               </Segment>
@@ -397,11 +391,11 @@ export default function Page({ pageData }: PageDataProps) {
                 <List horizontal>
                   <List.Item>
                     <Icon name="circle" />
-                    <List.Content>{"国内"}</List.Content>
+                    <List.Content>国内</List.Content>
                   </List.Item>
                   <List.Item>
                     <Icon name="world" />
-                    <List.Content>{"国際"}</List.Content>
+                    <List.Content>国際</List.Content>
                   </List.Item>
                 </List>
               </Segment>
@@ -444,18 +438,18 @@ export default function Page({ pageData }: PageDataProps) {
           ja={
             <>
               <p>
-                {"以下の発表文献リストは"}
-                <SiteLink href={"/junkato.bib"}>{"BibTeX ファイル"}</SiteLink>
-                {"から自動生成されています。"}
+                以下の発表文献リストは
+                <SiteLink href="/junkato.bib">BibTeX ファイル</SiteLink>
+                から自動生成されています。
                 {"\n"}
-                {"主務の産業技術総合研究所での成果に関しては"}
-                <a href={"https://staff.aist.go.jp/jun.kato/"}>
-                  {"研究所の個人ページ"}
+                主務の産業技術総合研究所での成果に関しては
+                <a href="https://staff.aist.go.jp/jun.kato/">
+                  研究所の個人ページ
                 </a>
-                {"にも掲載しています。"}
+                にも掲載しています。
               </p>
-              <Header as="h2" id={"international-publications"}>
-                {"国際会議・ジャーナル"}
+              <Header as="h2" id="international-publications">
+                国際会議・ジャーナル
               </Header>
               <List divided>
                 {(() => {
@@ -476,8 +470,8 @@ export default function Page({ pageData }: PageDataProps) {
                   return keyed(children);
                 })()}
               </List>
-              <Header as="h2" id={"domestic-publications"}>
-                {"国内会議・ジャーナル・商業誌"}
+              <Header as="h2" id="domestic-publications">
+                国内会議・ジャーナル・商業誌
               </Header>
               <List divided>
                 {(() => {
@@ -498,19 +492,18 @@ export default function Page({ pageData }: PageDataProps) {
                   return keyed(children);
                 })()}
               </List>
-              <Header as="h2" id={"dissertation"}>
-                {"学位論文"}
+              <Header as="h2" id="dissertation">
+                学位論文
               </Header>
             </>
           }
         >
           <p>
-            {"The following publications list is automatically generated from "}
-            <SiteLink href={"/junkato.bib"}>{"the BibTeX file"}</SiteLink>
-            {"."}
+            The following publications list is automatically generated from{" "}
+            <SiteLink href="/junkato.bib">the BibTeX file</SiteLink>.
           </p>
-          <Header as="h2" id={"selected-publications"}>
-            {"Selected peer-reviewed publications"}
+          <Header as="h2" id="selected-publications">
+            Selected peer-reviewed publications
           </Header>
           <List divided>
             {selectedPublications.map((entry, itemIndex) => (
@@ -520,13 +513,13 @@ export default function Page({ pageData }: PageDataProps) {
             ))}
           </List>
           <Divider hidden />
-          <Header as="h2" id={"reviewed-publications"}>
-            {"Journal/conference/workshop publications"}
+          <Header as="h2" id="reviewed-publications">
+            Journal/conference/workshop publications
           </Header>
           <p>
-            {
-              "All of these publications, except those explicitly marked as the invited articles, underwent a review process; most of these publications are considered either archival or semi-archival."
-            }
+            All of these publications, except those explicitly marked as the
+            invited articles, underwent a review process; most of these
+            publications are considered either archival or semi-archival.
           </p>
           <List divided>
             {(() => {
@@ -547,13 +540,12 @@ export default function Page({ pageData }: PageDataProps) {
             })()}
           </List>
           <Divider hidden />
-          <Header as="h2" id={"other-publications"}>
-            {"Other publications"}
+          <Header as="h2" id="other-publications">
+            Other publications
           </Header>
           <p>
-            {
-              "The following publications are either invited articles or non-archival demo/poster papers."
-            }
+            The following publications are either invited articles or
+            non-archival demo/poster papers.
           </p>
           <List divided>
             {(() => {
@@ -573,8 +565,8 @@ export default function Page({ pageData }: PageDataProps) {
             })()}
           </List>
           <Divider hidden />
-          <Header as="h2" id={"dissertation"}>
-            {"Dissertation"}
+          <Header as="h2" id="dissertation">
+            Dissertation
           </Header>
         </LocalizedContent>
         <List divided>
@@ -613,32 +605,27 @@ export default function Page({ pageData }: PageDataProps) {
               <LocalizedContent
                 ja={
                   <p>
-                    {"これまでの研究活動は、さまざまなメディアで "}
+                    これまでの研究活動は、さまざまなメディアで{" "}
                     <strong>
                       {numInternationalMediaCoverage + numDomesticMediaCoverage}
-                    </strong>
-                    {" 件（うち"}
+                    </strong>{" "}
+                    件（うち
                     <SiteLink href={href(`${rootPath}publications/#media`)}>
-                      {"国際 "}
-                      <strong>{numInternationalMediaCoverage}</strong>
-                      {" 件"}
+                      国際 <strong>{numInternationalMediaCoverage}</strong> 件
                     </SiteLink>
-                    {"）紹介されてきました。"}
+                    ）紹介されてきました。
                   </p>
                 }
               >
                 <p>
-                  {
-                    "Media coverage includes both my work and personal interviews, featured in "
-                  }
-                  <strong>{numInternationalMediaCoverage}</strong>
-                  {" international and "}
+                  Media coverage includes both my work and personal interviews,
+                  featured in <strong>{numInternationalMediaCoverage}</strong>{" "}
+                  international and{" "}
                   <SiteLink href={href(`${rootPath}ja/publications/#media`)}>
                     {""}
-                    <strong>{numDomesticMediaCoverage}</strong>
-                    {" domestic"}
-                  </SiteLink>
-                  {" media outlets."}
+                    <strong>{numDomesticMediaCoverage}</strong> domestic
+                  </SiteLink>{" "}
+                  media outlets.
                 </p>
               </LocalizedContent>
             </>,
@@ -694,8 +681,8 @@ export default function Page({ pageData }: PageDataProps) {
         }
       >
         <div className="left-rail">{renderPublicationsMenu()}</div>
-        <div className="right-content" id={"publications"}>
-          <section id={"awards"}>
+        <div className="right-content" id="publications">
+          <section id="awards">
             <Header as="h1">
               <Icon name="trophy" />
               <Header.Content>
@@ -705,7 +692,7 @@ export default function Page({ pageData }: PageDataProps) {
             {renderAwards()}
           </section>
           <Divider hidden />
-          <section id={"talks"}>
+          <section id="talks">
             <Header as="h1">
               <Icon name="talk" />
               <Header.Content>
@@ -715,7 +702,7 @@ export default function Page({ pageData }: PageDataProps) {
             {renderTalks()}
           </section>
           <Divider hidden />
-          <section id={"lectures"}>
+          <section id="lectures">
             <Header as="h1">
               <Icon name="graduation cap" />
               <Header.Content>{en ? "Lectures" : "講義"}</Header.Content>
@@ -723,7 +710,7 @@ export default function Page({ pageData }: PageDataProps) {
             {renderLectures()}
           </section>
           <Divider hidden />
-          <section id={"academic-publications"}>
+          <section id="academic-publications">
             <Header as="h1">
               <Icon name="book" />
               <Header.Content>
@@ -733,7 +720,7 @@ export default function Page({ pageData }: PageDataProps) {
             {renderPublications()}
           </section>
           <Divider hidden />
-          <section id={"media"}>
+          <section id="media">
             <Header as="h1">
               {" "}
               <Icon className="broadcast tower" />

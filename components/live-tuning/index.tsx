@@ -86,57 +86,63 @@ export default function Page({ pageData }: PageDataProps) {
                 )}
               >
                 <Icon name="book" />
-                {"Paper"}
+                Paper
               </Button>
             </div>
           </Image>
         </div>
-        <ProjectHeader project={"live-tuning"} />
+        <ProjectHeader project="live-tuning" />
         <Message>
           <p>
-            {
-              "This page provides summary and some graphical materials of the workshop paper that was presented at "
-            }
-            <a href={"https://2016.ecoop.org/track/LIVE-2016"}>
-              {"ECOOP 2016 LIVE"}
-            </a>
-            {"."}
+            This page provides summary and some graphical materials of the
+            workshop paper that was presented at{" "}
+            <a href="https://2016.ecoop.org/track/LIVE-2016">ECOOP 2016 LIVE</a>
+            .
           </p>
 
           {!en ? (
             <>
               <p>
-                <Translate path={"live-tuning/index.pug"} />
+                <Translate path="live-tuning/index.pug" />
               </p>
             </>
           ) : null}
         </Message>
         <Divider hidden />
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">
             <Header.Content>{en ? "Abstract" : "概要"}</Header.Content>
           </Header>
           <Segment basic>
             <p>
-              {
-                "Live Programming allows programmers to gain information about the program continuously during its development. While it has been implemented in various integrated development environments (IDEs) for programmers, its interaction techniques such as slider widgets for continuous parameter tuning are comprehensible for people without any prior knowledge of programming and have been widely used for a long time."
-              }
+              Live Programming allows programmers to gain information about the
+              program continuously during its development. While it has been
+              implemented in various integrated development environments (IDEs)
+              for programmers, its interaction techniques such as slider widgets
+              for continuous parameter tuning are comprehensible for people
+              without any prior knowledge of programming and have been widely
+              used for a long time.
             </p>
             <p>
-              {
-                'In this paper, we aim to introduce prior work on Live Programming research from the interaction point of view and relate it to Human-Computer Interaction research. We then name the subset of Live Programming interaction that only involves changes in constant values "Live Tuning." Our example IDEs that implement both Live Programming and Live Tuning interactions are showcased, followed by the discussion on the possible future direction of programming experience (PX) research.'
-              }
+              In this paper, we aim to introduce prior work on Live Programming
+              research from the interaction point of view and relate it to
+              Human-Computer Interaction research. We then name the subset of
+              Live Programming interaction that only involves changes in
+              constant values "Live Tuning." Our example IDEs that implement
+              both Live Programming and Live Tuning interactions are showcased,
+              followed by the discussion on the possible future direction of
+              programming experience (PX) research.
             </p>
           </Segment>
         </section>
-        <section id={"live-tuning-comparison"}>
+        <section id="live-tuning-comparison">
           <Segment basic>
             <Grid stackable columns={2}>
               <Grid.Column>
-                <Header as="h2">{"Live Programming"}</Header>
+                <Header as="h2">Live Programming</Header>
                 <p style={{ position: "relative" }}>
                   <a
-                    id={"live-programming"}
+                    id="live-programming"
                     className="live-preview"
                     tabIndex={0}
                   >
@@ -160,23 +166,21 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
                 <ul>
                   <li>
-                    {"Interaction design for "}
-                    <strong>{"programmers"}</strong>
-                    {", typically built in development environments"}
+                    Interaction design for <strong>programmers</strong>,
+                    typically built in development environments
                   </li>
-                  <li>{"Prior knowledge of programming is required."}</li>
-                  <li>{"The entire programs are always live and editable."}</li>
+                  <li>Prior knowledge of programming is required.</li>
+                  <li>The entire programs are always live and editable.</li>
                   <li>
-                    {
-                      "The programmer has full control and is responsible for every aspect of program details."
-                    }
+                    The programmer has full control and is responsible for every
+                    aspect of program details.
                   </li>
                 </ul>
               </Grid.Column>
               <Grid.Column>
-                <Header as="h2">{"Live Tuning"}</Header>
+                <Header as="h2">Live Tuning</Header>
                 <p style={{ position: "relative" }}>
-                  <a id={"live-tuning"} className="live-preview" tabIndex={0}>
+                  <a id="live-tuning" className="live-preview" tabIndex={0}>
                     <SiteImage
                       ui
                       fluid
@@ -197,20 +201,17 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
                 <ul>
                   <li>
-                    {"Interaction design for "}
-                    <strong>{"end-users"}</strong>
-                    {", built in ordinary runtime environments"}
+                    Interaction design for <strong>end-users</strong>, built in
+                    ordinary runtime environments
                   </li>
                   <li>
-                    {"Prior knowledge of programming is "}
-                    <strong>{"not"}</strong>
-                    {" required."}
+                    Prior knowledge of programming is <strong>not</strong>{" "}
+                    required.
                   </li>
-                  <li>{"Only a certain number of variables are editable."}</li>
+                  <li>Only a certain number of variables are editable.</li>
                   <li>
-                    {
-                      "The programmer and end-user are separating their roles of specifying program details."
-                    }
+                    The programmer and end-user are separating their roles of
+                    specifying program details.
                   </li>
                 </ul>
               </Grid.Column>
@@ -218,46 +219,44 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"motivation"}>
-          <Header as="h2">{"Motivation"}</Header>
+        <section id="motivation">
+          <Header as="h2">Motivation</Header>
           <Segment basic>
             <Grid stackable columns={2}>
               <Grid.Column>
-                <Header as="h3">{"Because programmers are tired"}</Header>
+                <Header as="h3">Because programmers are tired</Header>
                 <ul>
                   <li>
-                    {"There are more and more "}
+                    There are more and more{" "}
                     <SiteLink
                       href={href(`${rootPath}programming-with-examples`)}
-                      title={
-                        "Programming with Examples to Develop Data-Intensive User Interfaces"
-                      }
+                      title="Programming with Examples to Develop Data-Intensive User Interfaces"
                     >
-                      {"data-intensive programs"}
-                    </SiteLink>
-                    {" such as animation design, "}
-                    <abbr title={"Internet of Things"}>{"IoT"}</abbr>
-                    {" application development, machine learning, etc."}
+                      data-intensive programs
+                    </SiteLink>{" "}
+                    such as animation design,{" "}
+                    <abbr title="Internet of Things">IoT</abbr> application
+                    development, machine learning, etc.
                   </li>
                   <li>
-                    {
-                      "The amount and variations of data far surpass what programmers alone can manage and edit. Intensive parameter tunings might be needed per user."
-                    }
+                    The amount and variations of data far surpass what
+                    programmers alone can manage and edit. Intensive parameter
+                    tunings might be needed per user.
                   </li>
                 </ul>
               </Grid.Column>
               <Grid.Column>
-                <h3>{"Because users are demanding"}</h3>
+                <h3>Because users are demanding</h3>
                 <ul>
                   <li>
-                    {
-                      "Live Programming (changing program behaviors without losing context) can benefit end-users. In particular, they can comprehend parameter tuning interfaces and customize programs to match their needs."
-                    }
+                    Live Programming (changing program behaviors without losing
+                    context) can benefit end-users. In particular, they can
+                    comprehend parameter tuning interfaces and customize
+                    programs to match their needs.
                   </li>
                   <li>
-                    {
-                      "They typically do not have access to development environments since they lack prior knowledge of programming."
-                    }
+                    They typically do not have access to development
+                    environments since they lack prior knowledge of programming.
                   </li>
                 </ul>
               </Grid.Column>
@@ -265,20 +264,19 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"example-ides"}>
+        <section id="example-ides">
           <Header as="h2">
-            {'Example "Live Tuning" '}
-            <abbr title={"Integrated Development Environments"}>{"IDEs"}</abbr>
+            Example "Live Tuning"{" "}
+            <abbr title="Integrated Development Environments">IDEs</abbr>
           </Header>
           <Segment basic>
-            <Header as="h3">{"TextAlive"}</Header>
+            <Header as="h3">TextAlive</Header>
             <p>
               <SiteLink href={href(`${basePath}textalive/`)}>
-                <strong>{"TextAlive"}</strong>
-              </SiteLink>
-              {
-                " is an Integrated Design Environment for authoring Kinetic Typography videos."
-              }
+                <strong>TextAlive</strong>
+              </SiteLink>{" "}
+              is an Integrated Design Environment for authoring Kinetic
+              Typography videos.
             </p>
             <Grid stackable columns={2}>
               <Grid.Column>
@@ -289,10 +287,12 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}live-tuning/textalive-code.png`}
                 />
                 <p className="caption">
-                  <strong>{"For programmers:"}</strong>
-                  {
-                    " it allows development of algorithms to animate lyrics text in synchrony with music. The timing information of the lyrics text is automatically estimated and can be interactively corrected in the timeline interface. Changes to the animation algorithms update the resulting video in real time."
-                  }
+                  <strong>For programmers:</strong> it allows development of
+                  algorithms to animate lyrics text in synchrony with music. The
+                  timing information of the lyrics text is automatically
+                  estimated and can be interactively corrected in the timeline
+                  interface. Changes to the animation algorithms update the
+                  resulting video in real time.
                 </p>
               </Grid.Column>
               <Grid.Column>
@@ -303,22 +303,21 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}live-tuning/textalive-tuning.png`}
                 />
                 <p className="caption">
-                  <strong>{"For end-users:"}</strong>
-                  {
-                    " it allows authoring Kinetic Typography videos just as other general video authoring tools. Each phrase, word, and character can be assigned an animation template with appropriate parameter values such as animation speed and font size."
-                  }
+                  <strong>For end-users:</strong> it allows authoring Kinetic
+                  Typography videos just as other general video authoring tools.
+                  Each phrase, word, and character can be assigned an animation
+                  template with appropriate parameter values such as animation
+                  speed and font size.
                 </p>
               </Grid.Column>
             </Grid>
-            <Header as="h3">{"f3.js: Form Follows Function()"}</Header>
+            <Header as="h3">f3.js: Form Follows Function()</Header>
             <p>
               <SiteLink href={href(`${basePath}f3js`)}>
-                <strong>{"f3.js"}</strong>
-              </SiteLink>
-
-              {" is an Integrated Development Environment for developing "}
-              <abbr title={"Internet of Things"}>{"IoT"}</abbr>
-              {" applications."}
+                <strong>f3.js</strong>
+              </SiteLink>{" "}
+              is an Integrated Development Environment for developing{" "}
+              <abbr title="Internet of Things">IoT</abbr> applications.
             </p>
             <Grid stackable columns={2}>
               <Grid.Column>
@@ -329,10 +328,12 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}live-tuning/f3js-code.png`}
                 />
                 <p className="caption">
-                  <strong>{"For programmers:"}</strong>
-                  {
-                    " It allows to write a single JavaScript codebase that defines not only the behavior of microcontrollers, sensors, and actuators but also the layout of their enclosures. The layout preview is updated in response to every edit in the source code, enabling live programming experience."
-                  }
+                  <strong>For programmers:</strong> It allows to write a single
+                  JavaScript codebase that defines not only the behavior of
+                  microcontrollers, sensors, and actuators but also the layout
+                  of their enclosures. The layout preview is updated in response
+                  to every edit in the source code, enabling live programming
+                  experience.
                 </p>
               </Grid.Column>
               <Grid.Column>
@@ -343,84 +344,73 @@ export default function Page({ pageData }: PageDataProps) {
                   src={`${rootPath}live-tuning/f3js-tuning.png`}
                 />
                 <p className="caption">
-                  <strong>{"For end-users:"}</strong>
-                  {
-                    " it allows customizing and creating IoT applications without prior knowledge of programming nor soldering. Each IoT application has parameters to customize its behavior and layout, such as whether to add the countdown feature to a camera."
-                  }
+                  <strong>For end-users:</strong> it allows customizing and
+                  creating IoT applications without prior knowledge of
+                  programming nor soldering. Each IoT application has parameters
+                  to customize its behavior and layout, such as whether to add
+                  the countdown feature to a camera.
                 </p>
               </Grid.Column>
             </Grid>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"examples"}>
-          <Header as="h2">{"Discussion"}</Header>
+        <section id="examples">
+          <Header as="h2">Discussion</Header>
           <Segment basic>
             <p>
-              {"Please refer to "}
+              Please refer to{" "}
               <SiteLink
                 href={href(
                   `${rootPath}publications/live2016-kato-livetuning.pdf#page=4`,
                 )}
               >
-                {"the paper (p.4-6)"}
-              </SiteLink>
-              {" for the detailed discussion. "}
-              <u>{"Underlined"}</u>
-              {
-                " options are those we consider the most interesting and promising."
-              }
+                the paper (p.4-6)
+              </SiteLink>{" "}
+              for the detailed discussion. <u>Underlined</u> options are those
+              we consider the most interesting and promising.
             </p>
             <ul>
               <li>
                 <strong>
-                  {
-                    "Programming environments (for programmers) are getting close to runtime environments (for end-users)."
-                  }
-                </strong>
-                {
-                  " Live Tuning is such a proposal to connect them through the tuning interfaces."
-                }
+                  Programming environments (for programmers) are getting close
+                  to runtime environments (for end-users).
+                </strong>{" "}
+                Live Tuning is such a proposal to connect them through the
+                tuning interfaces.
               </li>
               <li>
                 <strong>
-                  {
-                    "Multiple levels of user interfaces allow varied flexibility to edit programs."
-                  }
-                </strong>
-                {
-                  " Live Programming aims at the maximum flexibility and Live Tuning is somewhat in the middle between no and maximum flexibility."
-                }
+                  Multiple levels of user interfaces allow varied flexibility to
+                  edit programs.
+                </strong>{" "}
+                Live Programming aims at the maximum flexibility and Live Tuning
+                is somewhat in the middle between no and maximum flexibility.
               </li>
               <li>
                 <strong>
-                  {
-                    "How can we resolve or avoid conflicts between edits by multiple users? "
-                  }
+                  How can we resolve or avoid conflicts between edits by
+                  multiple users?{" "}
                 </strong>
-                {
-                  "1) seriously implement conflict resolution mechanisms 2) discard old edits as typical Live Programming systems do 3) separate namespaces and resulting application instances "
-                }
-                <u>{"4) aggregate parameter values from different users"}</u>
-                {"."}
+                1) seriously implement conflict resolution mechanisms 2) discard
+                old edits as typical Live Programming systems do 3) separate
+                namespaces and resulting application instances{" "}
+                <u>4) aggregate parameter values from different users</u>.
               </li>
               <li>
                 <strong>
-                  {
-                    "How can we achieve liveness when it takes time to apply edits? "
-                  }
+                  How can we achieve liveness when it takes time to apply edits?{" "}
                 </strong>
-                {
-                  "For instance, updating the 3D models is an instant process, but printing them takes time. 1) significantly progress the research of programmable matter "
-                }
-                <u>{"2) hack humans' feeling of liveness"}</u>
-                {"."}
+                For instance, updating the 3D models is an instant process, but
+                printing them takes time. 1) significantly progress the research
+                of programmable matter{" "}
+                <u>2) hack humans' feeling of liveness</u>.
               </li>
             </ul>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"revision"}>
+        <section id="revision">
           <h2>
             <Icon name="announcement" />
             {en ? "Revision history" : "更新履歴"}
@@ -429,8 +419,8 @@ export default function Page({ pageData }: PageDataProps) {
             <Feed className="divided">
               <Feed.Event>
                 <Feed.Content>
-                  <Feed.Date>{"7/16/2016"}</Feed.Date>
-                  <Feed.Summary>{"Upload the initial revision."}</Feed.Summary>
+                  <Feed.Date>7/16/2016</Feed.Date>
+                  <Feed.Summary>Upload the initial revision.</Feed.Summary>
                 </Feed.Content>
               </Feed.Event>
             </Feed>
@@ -438,8 +428,8 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         <Divider hidden />
         <ProjectPublications
-          project={"live-tuning"}
-          majorPublication={"live2016-kato-livetuning"}
+          project="live-tuning"
+          majorPublication="live2016-kato-livetuning"
         />
       </SiteLayout>
     </>

@@ -44,7 +44,7 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"intelliviewer"} />
+        <ProjectHeader project="intelliviewer" />
         <Divider hidden />
         <Header as="h2">{en ? "Abstract" : "概要"}</Header>
         <Segment basic>
@@ -79,19 +79,15 @@ export default function Page({ pageData }: PageDataProps) {
             {en
               ? "This work was done in collaboration with lab colleagues and presented at UIST 2010 "
               : "研究室の有志による共同プロジェクトで、UIST 2010の"}
-            <a href={"https://www.acm.org/uist/uist2010/Student_Contest.html"}>
-              {"Student Innovation Contest"}
+            <a href="https://www.acm.org/uist/uist2010/Student_Contest.html">
+              Student Innovation Contest
             </a>
             {en ? "." : "に参加しました。"}
           </p>
           <p>
-            <a
-              href={
-                "https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST"
-              }
-            >
+            <a href="https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST">
               <Icon name="video" />
-              {"Microsoft Channel9 (UIST '10 interview, 5:55-)"}
+              Microsoft Channel9 (UIST '10 interview, 5:55-)
             </a>
           </p>
         </Segment>

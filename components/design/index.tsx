@@ -102,18 +102,12 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Skillset" : "スキルセット"}
         </Header>
         <p>
-          <LocalizedContent
-            ja={
-              "以下のリストは職域に必要となる要素技術にフォーカスしたリストです。プロトタイピング手法やユーザ調査手法といったスキルについては掲載していません。"
-            }
-          >
-            {
-              "The following list focuses on concrete technical tools appearing in common job descriptions. High-level skills such as methods for rapid prototyping and user studies are omitted. See "
-            }
-            <SiteLink href={href(`${rootPath}resume.html`)}>
-              {"my resume"}
-            </SiteLink>
-            {" for more general information."}
+          <LocalizedContent ja="以下のリストは職域に必要となる要素技術にフォーカスしたリストです。プロトタイピング手法やユーザ調査手法といったスキルについては掲載していません。">
+            The following list focuses on concrete technical tools appearing in
+            common job descriptions. High-level skills such as methods for rapid
+            prototyping and user studies are omitted. See{" "}
+            <SiteLink href={href(`${rootPath}resume.html`)}>my resume</SiteLink>{" "}
+            for more general information.
           </LocalizedContent>
         </p>
         <Divider hidden />
@@ -140,14 +134,14 @@ export default function Page({ pageData }: PageDataProps) {
         <List.Item>
           <Icon size="large" className="devicon-photoshop-plain colored" />
           <List.Content>
-            <List.Header>{"Photoshop"}</List.Header>
+            <List.Header>Photoshop</List.Header>
             <List.Description>{data.durations["2002,9,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-illustrator-plain colored" />
           <List.Content>
-            <List.Header>{"Illustrator"}</List.Header>
+            <List.Header>Illustrator</List.Header>
             <List.Description>{data.durations["2002,9,1"]}</List.Description>
           </List.Content>
         </List.Item>
@@ -156,22 +150,20 @@ export default function Page({ pageData }: PageDataProps) {
           <List.Content>
             {en ? (
               <>
-                <List.Header>{"Other Adobe products"}</List.Header>
+                <List.Header>Other Adobe products</List.Header>
 
                 <List.Description>
-                  {"Premier for producing demo videos and InDesign for basic "}
-                  <abbr title={"Desktop Publishing"}>{"DTP"}</abbr>
-                  {" tasks"}
+                  Premier for producing demo videos and InDesign for basic{" "}
+                  <abbr title="Desktop Publishing">DTP</abbr> tasks
                 </List.Description>
               </>
             ) : (
               <>
-                <List.Header>{"その他のAdobe製品"}</List.Header>
+                <List.Header>その他のAdobe製品</List.Header>
 
                 <List.Description>
-                  {"Premier (デモ動画制作), InDesign ("}
-                  <abbr title={"Desktop Publishing"}>{"DTP"}</abbr>
-                  {")"}
+                  Premier (デモ動画制作), InDesign (
+                  <abbr title="Desktop Publishing">DTP</abbr>)
                 </List.Description>
               </>
             )}
@@ -180,63 +172,63 @@ export default function Page({ pageData }: PageDataProps) {
         <List.Item>
           <Icon size="large" className="devicon-html5-plain colored" />
           <List.Content>
-            <List.Header>{"HTML"}</List.Header>
+            <List.Header>HTML</List.Header>
             <List.Description>{data.durations["2000,10,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
           <List.Content>
-            <List.Header>{"Pug (Jade)"}</List.Header>
+            <List.Header>Pug (Jade)</List.Header>
             <List.Description>{data.durations["2015,0,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-css3-plain colored" />
           <List.Content>
-            <List.Header>{"CSS"}</List.Header>
+            <List.Header>CSS</List.Header>
             <List.Description>{data.durations["2000,10,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-less-plain-wordmark colored" />
           <List.Content>
-            <List.Header>{"Stylus and LESS"}</List.Header>
+            <List.Header>Stylus and LESS</List.Header>
             <List.Description>{data.durations["2015,0,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-bootstrap-plain colored" />
           <List.Content>
-            <List.Header>{"Bootstrap (< 4)"}</List.Header>
+            <List.Header>Bootstrap (&lt; 4)</List.Header>
             <List.Description>{data.durations["2012,2,19"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
           <List.Content>
-            <List.Header>{"Semantic UI"}</List.Header>
+            <List.Header>Semantic UI</List.Header>
             <List.Description>{data.durations["2016,1,22"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-grunt-line colored" />
           <List.Content>
-            <List.Header>{"Grunt"}</List.Header>
+            <List.Header>Grunt</List.Header>
             <List.Description>{data.durations["2015,0,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-gulp-plain colored" />
           <List.Content>
-            <List.Header>{"Gulp"}</List.Header>
+            <List.Header>Gulp</List.Header>
             <List.Description>{data.durations["2017,11,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-vim-plain colored" />
           <List.Content>
-            <List.Header>{"Vim"}</List.Header>
+            <List.Header>Vim</List.Header>
             <List.Description>{data.durations["2005,5,1"]}</List.Description>
           </List.Content>
         </List.Item>
@@ -249,22 +241,18 @@ export default function Page({ pageData }: PageDataProps) {
         <List.Item>
           <Icon size="large" className="devicon-javascript-plain colored" />
           <List.Content>
-            <List.Header>{"JavaScript"}</List.Header>
+            <List.Header>JavaScript</List.Header>
             <List.Description>{data.durations["2000,10,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-typescript-plain colored" />
           <List.Content>
-            <List.Header>{"TypeScript"}</List.Header>
+            <List.Header>TypeScript</List.Header>
             <List.Description>
-              {"since it was called "}
-              <a
-                href={
-                  "https://www.zdnet.com/article/who-built-microsoft-typescript-and-why/"
-                }
-              >
-                {'"Strada"'}
+              since it was called{" "}
+              <a href="https://www.zdnet.com/article/who-built-microsoft-typescript-and-why/">
+                "Strada"
               </a>
             </List.Description>
           </List.Content>
@@ -272,115 +260,111 @@ export default function Page({ pageData }: PageDataProps) {
         <List.Item>
           <Icon size="large" className="devicon-jquery-plain colored" />
           <List.Content>
-            <List.Header>{"jQuery"}</List.Header>
+            <List.Header>jQuery</List.Header>
             <List.Description>{data.durations["2012,2,19"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-d3js-plain colored" />
           <List.Content>
-            <List.Header>{"D3.js"}</List.Header>
+            <List.Header>D3.js</List.Header>
             <List.Description>{data.durations["2017,11,7"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-webpack-plain colored" />
           <List.Content>
-            <List.Header>{"Webpack"}</List.Header>
+            <List.Header>Webpack</List.Header>
             <List.Description>{data.durations["2017,11,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-babel-plain colored" />
           <List.Content>
-            <List.Header>{"Babel"}</List.Header>
+            <List.Header>Babel</List.Header>
             <List.Description>{data.durations["2017,11,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-nodejs-plain colored" />
           <List.Content>
-            <List.Header>{"Node.js"}</List.Header>
+            <List.Header>Node.js</List.Header>
             <List.Description>{data.durations["2015,0,5"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-php-plain colored" />
           <List.Content>
-            <List.Header>{"PHP (< 7)"}</List.Header>
+            <List.Header>PHP (&lt; 7)</List.Header>
             <List.Description>{data.durations["2005,5,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-wordpress-plain colored" />
           <List.Content>
-            <List.Header>{"WordPress"}</List.Header>
+            <List.Header>WordPress</List.Header>
             <List.Description>{data.durations["2005,5,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-csharp-plain colored" />
           <List.Content>
-            <List.Header>{"C#"}</List.Header>
+            <List.Header>C#</List.Header>
             <List.Description>
-              {"for desktop apps and ASP.NET apps"}
+              for desktop apps and ASP.NET apps
             </List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-java-plain colored" />
           <List.Content>
-            <List.Header>{"Java (< 8)"}</List.Header>
+            <List.Header>Java (&lt; 8)</List.Header>
             <List.Description>
-              {data.durations["2008,5,1"]}
-              {", for robot and desktop apps and browser applets"}
+              {data.durations["2008,5,1"]}, for robot and desktop apps and
+              browser applets
             </List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-java-plain colored" />
           <List.Content>
-            <List.Header>{"Processing"}</List.Header>
+            <List.Header>Processing</List.Header>
             <List.Description>
-              {data.durations["2008,5,1"]}
-              {", mostly for robot apps using "}
-              <SiteLink href={href(`${rootPath}phybots`)}>{"Phybots"}</SiteLink>
-              {" and "}
-              <SiteLink href={href(`${rootPath}picode`)}>{"Picode"}</SiteLink>
+              {data.durations["2008,5,1"]}, mostly for robot apps using{" "}
+              <SiteLink href={href(`${rootPath}phybots`)}>Phybots</SiteLink> and{" "}
+              <SiteLink href={href(`${rootPath}picode`)}>Picode</SiteLink>
             </List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-visualstudio-plain colored" />
           <List.Content>
-            <List.Header>{"Visual Studio, Visual Studio Code"}</List.Header>
+            <List.Header>Visual Studio, Visual Studio Code</List.Header>
             <List.Description>
-              {data.durations["2008,5,1"]}
-              {" and since it was born, respectively"}
+              {data.durations["2008,5,1"]} and since it was born, respectively
             </List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-mysql-plain colored" />
           <List.Content>
-            <List.Header>{"MySQL"}</List.Header>
+            <List.Header>MySQL</List.Header>
             <List.Description>{data.durations["2005,9,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" name="ellipsis horizontal" />
           <List.Content>
-            <List.Header>{"Eclipse"}</List.Header>
+            <List.Header>Eclipse</List.Header>
             <List.Description>{data.durations["2008,5,1"]}</List.Description>
           </List.Content>
         </List.Item>
         <List.Item>
           <Icon size="large" className="devicon-github-plain colored" />
           <List.Content>
-            <List.Header>{"GitHub"}</List.Header>
+            <List.Header>GitHub</List.Header>
             <List.Description>
-              {"see "}
-              <a href={"https://github.com/arcatdmz"}>{"my repos"}</a>
+              see <a href="https://github.com/arcatdmz">my repos</a>
             </List.Description>
           </List.Content>
         </List.Item>
@@ -482,22 +466,21 @@ export default function Page({ pageData }: PageDataProps) {
         header={
           <>
             <Menu text fixed="top">
-              <Menu.Menu id={"research-menu"}>
+              <Menu.Menu id="research-menu">
                 <Menu.Item as={SiteLink} href={href(basePath)}>
                   <Icon name="lab" />
 
                   {en ? (
-                    <>{"Back to research"}</>
+                    <>Back to research</>
                   ) : (
                     <>
-                      {"研究"}
-
-                      <span className="mobile hidden">{"に戻る"}</span>
+                      研究
+                      <span className="mobile hidden">に戻る</span>
                     </>
                   )}
                 </Menu.Item>
               </Menu.Menu>
-              <Menu.Menu position="right" id={"design-menu"}>
+              <Menu.Menu position="right" id="design-menu">
                 <SiteRightHeaderMenu context={context} />
               </Menu.Menu>
             </Menu>
@@ -535,17 +518,17 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <List.Item role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href="#body">
                   <Icon name="chevron circle up" />
                   <List.Content>{en ? "Top" : "トップ"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#portfolio"}>
+                <List.Item role="link" as="a" href="#portfolio">
                   <Icon name="history" />
                   <List.Content>
                     {en ? "Portfolio" : "ポートフォリオ"}
                   </List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#skillset"}>
+                <List.Item role="link" as="a" href="#skillset">
                   <Icon name="user" />
                   <List.Content>
                     {en ? "Skillset" : "スキルセット"}
@@ -554,7 +537,7 @@ export default function Page({ pageData }: PageDataProps) {
               </List>
             </SitePopup>
             <SiteModal size="large">
-              <Modal.Header>{"Header"}</Modal.Header>
+              <Modal.Header>Header</Modal.Header>
               <Modal.Content image>
                 <SiteImage className="image" />
               </Modal.Content>
@@ -562,9 +545,9 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         }
       >
-        <section id={"portfolio"}>{renderPortfolio()}</section>
+        <section id="portfolio">{renderPortfolio()}</section>
         <Divider hidden />
-        <section id={"skillset"}>{renderSkillset()}</section>
+        <section id="skillset">{renderSkillset()}</section>
       </SiteLayout>
     </>
   );

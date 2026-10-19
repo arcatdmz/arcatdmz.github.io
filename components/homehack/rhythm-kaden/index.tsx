@@ -28,114 +28,92 @@ function Content() {
         </Grid.Column>
         <Grid.Column width={12}>
           <p>
-            {
-              "ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム"
-            }
-            <a href={"https://peraichi.com/landing_pages/view/otoge"}>
-              {"otoge.net"}
+            ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム
+            <a href="https://peraichi.com/landing_pages/view/otoge">
+              otoge.net
             </a>
-            {
-              "）の進行を家電製品が盛り上げてくれるアプリケーションを、お茶の水女子大学 西村、神奈川工科大学 藤崎とともに提案、開発した。"
-            }
+            ）の進行を家電製品が盛り上げてくれるアプリケーションを、お茶の水女子大学
+            西村、神奈川工科大学 藤崎とともに提案、開発した。
           </p>
           <p>
-            {
-              "本アプリケーションは、Sony CSLとお茶の水女子大学の共催ワークショップ「Home Hacker’s Workshop」の半日のセッションで制作された。また、Sony CSL、大和ハウス、ヤフーの共催イベント「"
-            }
-            <a
-              href={
-                "https://www.daiwahouse.co.jp/lab/HousingAPI/symposium/index.html"
-              }
-            >
-              {"住宅をカスタマイズするためのシンポジウム"}
+            本アプリケーションは、Sony
+            CSLとお茶の水女子大学の共催ワークショップ「Home Hacker’s
+            Workshop」の半日のセッションで制作された。また、Sony
+            CSL、大和ハウス、ヤフーの共催イベント「
+            <a href="https://www.daiwahouse.co.jp/lab/HousingAPI/symposium/index.html">
+              住宅をカスタマイズするためのシンポジウム
             </a>
-            {"」で発表され、学生賞を受賞した。"}
+            」で発表され、学生賞を受賞した。
           </p>
         </Grid.Column>
       </Grid>
       <Grid stackable columns={2}>
         <Grid.Column>
-          <Header as="h3">{"開発環境"}</Header>
+          <Header as="h3">開発環境</Header>
           <ul>
-            <li>{"Java (プロキシサーバ), JavaScript (Webサービスの改造)"}</li>
+            <li>Java (プロキシサーバ), JavaScript (Webサービスの改造)</li>
             <li>
-              <a href={"https://www.sonycsl.co.jp/tokyo/347/"}>
-                {"Kadecot Server"}
-              </a>
-              {" Web API + PC or Mac"}
+              <a href="https://www.sonycsl.co.jp/tokyo/347/">Kadecot Server</a>{" "}
+              Web API + PC or Mac
             </li>
           </ul>
-          <Header as="h3">{"資料"}</Header>
+          <Header as="h3">資料</Header>
           <ul>
             <li>
-              {"紹介記事: "}
-              <a
-                href={
-                  "https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1185/"
-                }
-              >
-                {"Home Hacker's Workshop"}
+              紹介記事:{" "}
+              <a href="https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1185/">
+                Home Hacker's Workshop
               </a>
-              {", "}
-              <a
-                href={
-                  "https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1189/"
-                }
-              >
-                {"Customize YOUR House! シンポジウム"}
+              ,{" "}
+              <a href="https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1189/">
+                Customize YOUR House! シンポジウム
               </a>
             </li>
             <li>
-              {"資料: "}
+              資料:{" "}
               <SiteLink
                 href={href(`${rootPath}homehack/rhythmkaden-poster.pdf`)}
               >
                 <Icon name="file"></Icon>
-                {"ポスター"}
+                ポスター
               </SiteLink>
               <SiteLink
                 href={href(`${rootPath}homehack/rhythmkaden-slides.pdf`)}
               >
                 <Icon name="play circle"></Icon>
-                {"スライド"}
+                スライド
               </SiteLink>
             </li>
             <li>
-              {"ソースコード: "}
-              <a href={"https://github.com/arcatdmz/rhythmkaden-proxy"}>
+              ソースコード:{" "}
+              <a href="https://github.com/arcatdmz/rhythmkaden-proxy">
                 <Icon name="download"></Icon>
-                {"GitHub"}
+                GitHub
               </a>
             </li>
           </ul>
-          <Header as="h3">{"学生賞 選出コメント"}</Header>
+          <Header as="h3">学生賞 選出コメント</Header>
           <p>
-            {
-              "私が選出したので受賞理由を説明しますと、このシステムの真意は音ゲーで遊ばないと動作しない家電、というアプリのアイデアではなく、既存のWebアプリを特殊なプロキシサーバを介して書き換えることにより、いかなるWebアプリにも家電機能を追加できるという「家電マッシュアップ」の方式を提案したことにあります。"
-            }
+            私が選出したので受賞理由を説明しますと、このシステムの真意は音ゲーで遊ばないと動作しない家電、というアプリのアイデアではなく、既存のWebアプリを特殊なプロキシサーバを介して書き換えることにより、いかなるWebアプリにも家電機能を追加できるという「家電マッシュアップ」の方式を提案したことにあります。
           </p>
           <p>
-            {
-              "家電を、温度や照明などの環境を変化させる演出機器だと捉えると、それは様々な(既存の)ゲームやエンタテインメントの臨場感や演出効果を高めるのに即座に応用できるでしょうし、またそういった応用は、さしたる追加の実装や新しいアイデアを必要とすることなくハイクオリティなエンタテインメントを生み出してくれることでしょう。そのような家電利用法への道を開く具体的な方法を示してくれたという点で、私はこの作品を評価しました。"
-            }
+            家電を、温度や照明などの環境を変化させる演出機器だと捉えると、それは様々な(既存の)ゲームやエンタテインメントの臨場感や演出効果を高めるのに即座に応用できるでしょうし、またそういった応用は、さしたる追加の実装や新しいアイデアを必要とすることなくハイクオリティなエンタテインメントを生み出してくれることでしょう。そのような家電利用法への道を開く具体的な方法を示してくれたという点で、私はこの作品を評価しました。
           </p>
           <p>
             <a
-              href={
-                "https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1189/"
-              }
-              title={"Kadecot > Customize YOUR House! シンポジウム"}
+              href="https://web.archive.org/web/20170625152327/http://kadecot.net/blog/1189/"
+              title="Kadecot &gt; Customize YOUR House! シンポジウム"
               style={{ display: "inline" }}
             >
-              {"Kadecotブログ"}
+              Kadecotブログ
             </a>
-            {"より"}
+            より
           </p>
         </Grid.Column>
         <Grid.Column>
-          <EmbedYoutube src={"//www.youtube.com/embed/Wu3OLxEmeww"} />
+          <EmbedYoutube src="//www.youtube.com/embed/Wu3OLxEmeww" />
           <p className="caption">
-            {"「既存Webアプリと家電のマッシュアップ」プレゼンテーション動画"}
+            「既存Webアプリと家電のマッシュアップ」プレゼンテーション動画
           </p>
         </Grid.Column>
       </Grid>

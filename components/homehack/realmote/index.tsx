@@ -24,57 +24,49 @@ function Content() {
 
   return (
     <>
-      <Header as="h3">{"概要"}</Header>
+      <Header as="h3">概要</Header>
       <Grid stackable columns={2}>
         <Grid.Column>
           <p>
-            {
-              "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
-            }
+            スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。
           </p>
-          <Header as="h3">{"開発環境"}</Header>
+          <Header as="h3">開発環境</Header>
           <ul>
             <li>
-              {"Java + "}
-              <SiteLink href={href(`${rootPath}ja/phybots/`)}>
-                {"Phybots"}
-              </SiteLink>
-              {" on Mac OS X"}
+              Java +{" "}
+              <SiteLink href={href(`${rootPath}ja/phybots/`)}>Phybots</SiteLink>{" "}
+              on Mac OS X
             </li>
             <li>
-              <a href={"https://www.buffalo.jp/product/detail/pc-op-rs1.html"}>
-                {"パソコン用学習リモコン PC-OP-RS1"}
+              <a href="https://www.buffalo.jp/product/detail/pc-op-rs1.html">
+                パソコン用学習リモコン PC-OP-RS1
               </a>
             </li>
             <li>
-              <a href={"https://www.sparkfun.com/products/684"}>
-                {"ルンバ用Bluetoothインタフェース RooTooth"}
+              <a href="https://www.sparkfun.com/products/684">
+                ルンバ用Bluetoothインタフェース RooTooth
               </a>
             </li>
           </ul>
-          <Header as="h3">{"資料"}</Header>
+          <Header as="h3">資料</Header>
           <ul>
             <li>
-              {"ブログ記事: "}
-              <a
-                href={
-                  "https://blog.junkato.jp/ja/posts/2012-12-24-realmote-remote-control/"
-                }
-              >
-                {"Realmoteで家のリモコンを一つにまとめる"}
+              ブログ記事:{" "}
+              <a href="https://blog.junkato.jp/ja/posts/2012-12-24-realmote-remote-control/">
+                Realmoteで家のリモコンを一つにまとめる
               </a>
             </li>
             <li>
-              {"ソースコード: "}
-              <a href={"https://github.com/arcatdmz/realmote"}>
+              ソースコード:{" "}
+              <a href="https://github.com/arcatdmz/realmote">
                 <Icon name="download"></Icon>
-                {"GitHub"}
+                GitHub
               </a>
             </li>
           </ul>
         </Grid.Column>
         <Grid.Column>
-          <EmbedYoutube src={"//www.youtube.com/embed/bhbW39zoxyg"} />
+          <EmbedYoutube src="//www.youtube.com/embed/bhbW39zoxyg" />
         </Grid.Column>
         <Grid.Column>
           <LinkedImage

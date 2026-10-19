@@ -3,9 +3,8 @@ export default function Page() {
   const url = "/ja/user-interface-design";
   return (
     <RedirectPage url={url}>
-      {
-        "This content is currently only available in Japanese at /ja/user-interface-design."
-      }
+      This content is currently only available in Japanese at
+      /ja/user-interface-design.
     </RedirectPage>
   );
 }

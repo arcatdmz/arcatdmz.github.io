@@ -287,7 +287,7 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         mainHero={
           <>
-            <ProjectHero project={"animare"} />
+            <ProjectHero project="animare" />
           </>
         }
         postFooter={
@@ -309,27 +309,27 @@ export default function Page({ pageData }: PageDataProps) {
               }
             >
               <List divided>
-                <List.Item role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href="#body">
                   <Icon name="chevron circle up" />
                   <List.Content>{en ? "Top" : "トップ"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#abstract"}>
+                <List.Item role="link" as="a" href="#abstract">
                   <Icon name="triangle right" />
                   <List.Content>{en ? "Abstract" : "概要"}</List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#further-readings"}>
+                <List.Item role="link" as="a" href="#further-readings">
                   <Icon name="gift" />
                   <List.Content>
                     {en ? "Relevant projects" : "関連プロジェクト"}
                   </List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#publications"}>
+                <List.Item role="link" as="a" href="#publications">
                   <Icon name="book" />
                   <List.Content>
                     {en ? "Publications" : "発表文献"}
                   </List.Content>
                 </List.Item>
-                <List.Item role="link" as="a" href={"#media"}>
+                <List.Item role="link" as="a" href="#media">
                   <Icon className="broadcast tower" />
                   <List.Content>
                     {en ? "Media coverage" : "メディア掲載"}
@@ -340,7 +340,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         }
       >
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">
             <Header.Content>{en ? "Summary" : "概要"}</Header.Content>
           </Header>
@@ -393,7 +393,7 @@ export default function Page({ pageData }: PageDataProps) {
               primary
               size="huge"
               as="a"
-              href={"https://anime.pj.aist.go.jp"}
+              href="https://anime.pj.aist.go.jp"
             >
               {en ? "CRONOS project website" : "CRONOS プロジェクトページ"}
               <Icon name="chevron circle right" />
@@ -401,13 +401,13 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"further-readings"}>{renderFurtherReadings()}</section>
+        <section id="further-readings">{renderFurtherReadings()}</section>
         <Divider hidden />
-        <section id={"publications"}>{renderPublications()}</section>
+        <section id="publications">{renderPublications()}</section>
         <Divider hidden />
-        <section id={"media"}>{renderMedia()}</section>
+        <section id="media">{renderMedia()}</section>
         <Divider hidden />
-        <section id={"revision"}>{renderRevision()}</section>
+        <section id="revision">{renderRevision()}</section>
       </SiteLayout>
     </>
   );

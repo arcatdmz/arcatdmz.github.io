@@ -80,7 +80,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <List.Item>
                     <Icon name="map pin" />
                     <List.Content>
-                      {"Room 324 (Floor Level 3), Hawaii Convention Center"}
+                      Room 324 (Floor Level 3), Hawaii Convention Center
                     </List.Content>
                   </List.Item>
                 </List>
@@ -92,26 +92,21 @@ export default function Page({ pageData }: PageDataProps) {
                 <List>
                   <List.Item>
                     <Icon name="clock" />
-                    <List.Content>{"Mon, May 13 | 14:00 - 14:15"}</List.Content>
+                    <List.Content>Mon, May 13 | 14:00 - 14:15</List.Content>
                   </List.Item>
                 </List>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell width={3}>{"CHI '24 Program"}</Table.Cell>
+              <Table.Cell width={3}>CHI '24 Program</Table.Cell>
               <Table.Cell width={13}>
                 <List>
                   <List.Item>
                     <Icon name="book" />
                     <List.Content>
-                      <a
-                        href={
-                          "https://programs.sigchi.org/chi/2024/program/content/147403"
-                        }
-                      >
-                        {
-                          "Griffith: A Storyboarding Tool Designed with Japanese Animation Professionals - CHI '24"
-                        }
+                      <a href="https://programs.sigchi.org/chi/2024/program/content/147403">
+                        Griffith: A Storyboarding Tool Designed with Japanese
+                        Animation Professionals - CHI '24
                       </a>
                     </List.Content>
                   </List.Item>
@@ -121,7 +116,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Table.Body>
         </Table>
         <Segment basic>
-          <EmbedYoutube src={"//www.youtube.com/embed/rlJ1Fe53Lw8"} />
+          <EmbedYoutube src="//www.youtube.com/embed/rlJ1Fe53Lw8" />
           <p className="caption">
             {en
               ? "CHI 2024 Video Preview (30s)"
@@ -129,10 +124,8 @@ export default function Page({ pageData }: PageDataProps) {
           </p>
         </Segment>
         <Segment basic>
-          <EmbedYoutube src={"//www.youtube.com/embed/RWdw9rDRf7A"} />
-          <p className="caption">
-            {"CHI 2024 Pre-recorded Presentation Video"}
-          </p>
+          <EmbedYoutube src="//www.youtube.com/embed/RWdw9rDRf7A" />
+          <p className="caption">CHI 2024 Pre-recorded Presentation Video</p>
         </Segment>
       </>
     );
@@ -149,14 +142,14 @@ export default function Page({ pageData }: PageDataProps) {
         <Segment basic>
           <Card.Group stackable itemsPerRow={2} className="projects">
             <Card>
-              <LinkedImage ui={false} href={"https://gsw.archinc.jp"}>
+              <LinkedImage ui={false} href="https://gsw.archinc.jp">
                 <SiteImage
                   src={`${rootPath}griffith/griffith-stopwatch-thumbnail.png`}
                 />
               </LinkedImage>
               <Card.Content>
-                <Card.Header as="a" href={"https://gsw.archinc.jp"}>
-                  {"Griffith Stopwatch"}
+                <Card.Header as="a" href="https://gsw.archinc.jp">
+                  Griffith Stopwatch
                 </Card.Header>
                 <Card.Description as="p">
                   {en
@@ -167,7 +160,7 @@ export default function Page({ pageData }: PageDataProps) {
               <Card.Content extra>
                 <span className="right floated">
                   <Icon name="calendar" />
-                  {"2024-"}
+                  2024-
                 </span>
               </Card.Content>
             </Card>
@@ -193,7 +186,7 @@ export default function Page({ pageData }: PageDataProps) {
                       : "https://research.archinc.jp/griffith/sketch",
                   )}
                 >
-                  {"Griffith Sketch"}
+                  Griffith Sketch
                 </Card.Header>
                 <Card.Description as="p">
                   {en
@@ -204,7 +197,7 @@ export default function Page({ pageData }: PageDataProps) {
               <Card.Content extra>
                 <span className="right floated">
                   <Icon name="calendar" />
-                  {"2020"}
+                  2020
                 </span>
               </Card.Content>
             </Card>
@@ -231,7 +224,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Feed className="divided">
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date>{"12/30/2025"}</Feed.Date>
+                <Feed.Date>12/30/2025</Feed.Date>
                 <Feed.Summary>
                   {en ? "Added a link to Animāre" : "Animāreへのリンクを追加"}
                 </Feed.Summary>
@@ -239,7 +232,7 @@ export default function Page({ pageData }: PageDataProps) {
             </Feed.Event>
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date>{"09/13/2024"}</Feed.Date>
+                <Feed.Date>09/13/2024</Feed.Date>
                 <Feed.Summary>
                   {en ? "Added a project page" : "プロジェクトページを仮公開"}
                 </Feed.Summary>
@@ -256,11 +249,11 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         mainHero={
           <>
-            <ProjectHero project={"griffith"} />
+            <ProjectHero project="griffith" />
           </>
         }
       >
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">
             <Header.Content>{en ? "Project summary" : "概要"}</Header.Content>
           </Header>
@@ -268,16 +261,18 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <p>
-                  {
-                    "Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。2018年にアニメプロデュース会社アーチでプロトタイプ開発に着手して以来、現場の監督などから幅広い協力を得て、実用に耐えるツールとして研究開発を継続してきました。"
-                  }
+                  Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。2018年にアニメプロデュース会社アーチでプロトタイプ開発に着手して以来、現場の監督などから幅広い協力を得て、実用に耐えるツールとして研究開発を継続してきました。
                 </p>
               }
             >
               <p>
-                {
-                  'The "E-conte," storyboard in English, is commonly referred to as the "blueprint" in Japanese animation (anime) production, serving as a communication medium with a prominent role in anime production. Griffith is a web-based E-conte authoring tool designed with Japanese animation professionals, as part of our long-term effort to intertwine artistic practice and scientific research.'
-                }
+                The "E-conte," storyboard in English, is commonly referred to as
+                the "blueprint" in Japanese animation (anime) production,
+                serving as a communication medium with a prominent role in anime
+                production. Griffith is a web-based E-conte authoring tool
+                designed with Japanese animation professionals, as part of our
+                long-term effort to intertwine artistic practice and scientific
+                research.
               </p>
             </LocalizedContent>
           </Segment>
@@ -301,8 +296,7 @@ export default function Page({ pageData }: PageDataProps) {
                   : "https://research.archinc.jp/griffith/",
               )}
             >
-              {"Arch Research "}
-              {en ? "project page" : "プロジェクトページ"}
+              Arch Research {en ? "project page" : "プロジェクトページ"}
               <Icon name="chevron circle right" />
             </Button>
           </Segment>
@@ -311,23 +305,21 @@ export default function Page({ pageData }: PageDataProps) {
         <Grid stackable columns={2}>
           <Grid.Row>
             <Grid.Column>
-              <section id={"presentations"}>{renderPresentations()}</section>
+              <section id="presentations">{renderPresentations()}</section>
               <Divider hidden />
             </Grid.Column>
             <Grid.Column>
-              <section id={"further-readings"}>
-                {renderFurtherReadings()}
-              </section>
+              <section id="further-readings">{renderFurtherReadings()}</section>
               <Divider hidden />
             </Grid.Column>
           </Grid.Row>
         </Grid>
         <ProjectPublications
           project={p.project}
-          majorPublication={"chi2024-kato-griffith"}
+          majorPublication="chi2024-kato-griffith"
         />
         <Divider hidden />
-        <section id={"revisions"}>{renderRevisions()}</section>
+        <section id="revisions">{renderRevisions()}</section>
       </SiteLayout>
     </>
   );

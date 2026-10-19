@@ -74,59 +74,51 @@ export default function Page({ pageData }: PageDataProps) {
             ja={
               <>
                 <p>
-                  {
-                    "コンピュータが人々の生活にも仕事にも溶け込み、プログラミングはこれまで以上に身近で、複雑な事象を扱うようになった。そこで、"
-                  }
+                  コンピュータが人々の生活にも仕事にも溶け込み、プログラミングはこれまで以上に身近で、複雑な事象を扱うようになった。そこで、
                   <SiteLink href={href(`${basePath}programming-with-examples`)}>
-                    {"プログラミングの方法を根本的に改善する"}
+                    プログラミングの方法を根本的に改善する
                   </SiteLink>
-                  {
-                    "必要がある。既存研究は多くの場合、特定の技術的背景を持った人々（"
-                  }
+                  必要がある。既存研究は多くの場合、特定の技術的背景を持った人々（
                   <SiteLink href={href(`${basePath}live-programming`)}>
-                    {"プログラマ"}
+                    プログラマ
                   </SiteLink>
-                  {
-                    ", エンドユーザ, データサイエンティストなど）にとってのプログラミング体験を向上することで問題の解決を図ってきた。"
-                  }
+                  , エンドユーザ,
+                  データサイエンティストなど）にとってのプログラミング体験を向上することで問題の解決を図ってきた。
                 </p>
                 <p>
-                  {
-                    "一方、本研究はプログラミングを、多様な技術的背景を持った人々を伴った、よりインクルーシブで協調的な行為にすることを目指す。「プログラミング環境」は必ずしも「プログラマ」のためだけの環境である必要はない。本研究はそうした環境を、多様な人々を受け止められるように設計することを目指す。"
-                  }
+                  一方、本研究はプログラミングを、多様な技術的背景を持った人々を伴った、よりインクルーシブで協調的な行為にすることを目指す。「プログラミング環境」は必ずしも「プログラマ」のためだけの環境である必要はない。本研究はそうした環境を、多様な人々を受け止められるように設計することを目指す。
                 </p>
                 <p>
-                  {
-                    "そうしたインクルーシブな環境において、人々はプログラミングを通してコミュニケーションを取り、全ての人々がプログラミングの便益を享受でき、ひいてはエンパワーメントを高められると考えている。"
-                  }
+                  そうしたインクルーシブな環境において、人々はプログラミングを通してコミュニケーションを取り、全ての人々がプログラミングの便益を享受でき、ひいてはエンパワーメントを高められると考えている。
                 </p>
               </>
             }
           >
             <p>
-              {
-                "Computers have become ubiquitous in our life and work, and the way they are programmed needs "
-              }
+              Computers have become ubiquitous in our life and work, and the way
+              they are programmed needs{" "}
               <SiteLink href={href(`${basePath}programming-with-examples`)}>
-                {"fundamental improvements"}
+                fundamental improvements
               </SiteLink>
-              {
-                ". The prior effort often aims at improving programming experience for people with specific technical backgrounds (e.g., "
-              }
+              . The prior effort often aims at improving programming experience
+              for people with specific technical backgrounds (e.g.,{" "}
               <SiteLink href={href(`${basePath}live-programming`)}>
-                {"programmers"}
+                programmers
               </SiteLink>
-              {", end-users, data scientists), respectively."}
+              , end-users, data scientists), respectively.
             </p>
             <p>
-              {
-                'In contrast, throughout this work, we investigate how to make programming activities more inclusive and collaborative, involving people with diverse technical backgrounds. "A programming environment" does not need to be only for programmers. We consider that it should instead be designed for users with diverse technical backgrounds.'
-              }
+              In contrast, throughout this work, we investigate how to make
+              programming activities more inclusive and collaborative, involving
+              people with diverse technical backgrounds. "A programming
+              environment" does not need to be only for programmers. We consider
+              that it should instead be designed for users with diverse
+              technical backgrounds.
             </p>
             <p>
-              {
-                "Such inclusive design enables the users to communicate with each other through programming-related activities, delivers benefits of programming to all of them, and would give empowerment to them."
-              }
+              Such inclusive design enables the users to communicate with each
+              other through programming-related activities, delivers benefits of
+              programming to all of them, and would give empowerment to them.
             </p>
           </LocalizedContent>
         </Segment>
@@ -141,30 +133,22 @@ export default function Page({ pageData }: PageDataProps) {
           <Grid stackable columns={2}>
             <Grid.Column>
               <Header as="h3">
-                <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
+                <abbr title="Convivial Computing Salon 2020">CCS</abbr>{" "}
                 {en ? "talk" : "講演動画"}
               </Header>
-              <EmbedYoutube
-                src={
-                  "//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&cc_load_policy=1"
-                }
-              />
+              <EmbedYoutube src="//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&amp;cc_load_policy=1" />
               <div className="caption">
                 <List horizontal>
                   <List.Item>
-                    <a
-                      href={
-                        "//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1"
-                      }
-                    >
+                    <a href="//www.youtube.com/watch?v=qR2MAfRFBIM&amp;cc_lang_pref=en&amp;cc_load_policy=1">
                       <Icon name="youtube" />
-                      {"YouTube"}
+                      YouTube
                     </a>
                   </List.Item>
                   <List.Item>
-                    <a href={"//vimeo.com/416361135"}>
+                    <a href="//vimeo.com/416361135">
                       <Icon name="vimeo" />
-                      {"Vimeo"}
+                      Vimeo
                     </a>
                   </List.Item>
                 </List>
@@ -172,13 +156,13 @@ export default function Page({ pageData }: PageDataProps) {
             </Grid.Column>
             <Grid.Column>
               <Header as="h3">
-                <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
+                <abbr title="Convivial Computing Salon 2020">CCS</abbr>{" "}
                 {en ? "slides" : "発表スライド"}
               </Header>
               <DeferredEmbed
                 url={publicationsTable[p.publication].entryTags.slides}
                 placeholder={`${rootPath}programming-as-communication/ccs2020/ccs2020-kato-slides00.jpg`}
-                icon={"video play outline"}
+                icon="video play outline"
               ></DeferredEmbed>
               <div className="caption">
                 <List horizontal>
@@ -202,7 +186,7 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? "YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by "
                 : "YouTube版は音量が調整され、字幕もついています。Vimeo版は加藤の発表に続いて"}
-              <a href={"https://tcher.tech/"}>{"Philip Tchernavskij"}</a>
+              <a href="https://tcher.tech/">Philip Tchernavskij</a>
               {en
                 ? " and Q&A session."
                 : "氏によるクリティークとQ&Aセッションの録画がついています。"}
@@ -211,16 +195,14 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? "For more details on the salon, please refer to "
                 : "Convivial Computing Salon 2020については"}
-              <a
-                href={"https://2020.programming-conference.org/home/salon-2020"}
-              >
+              <a href="https://2020.programming-conference.org/home/salon-2020">
                 {en ? "its website" : "サロンの公式サイト"}
               </a>
               {en ? "." : "をご覧ください。"}
             </List.Item>
             <List.Item>
               {en ? "The paper can be downloaded in the " : "論文はページ下部"}
-              <a href={"#publications"}>{en ? "Publications" : "発表文献"}</a>
+              <a href="#publications">{en ? "Publications" : "発表文献"}</a>
               {en
                 ? " section at the bottom of this page."
                 : "からダウンロードできます。"}
@@ -250,25 +232,24 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <p>
-                  {
-                    "以下のプロジェクトは多様な人々の協調を支援するインタラクションデザインの設計を通して「Programming as Communication」を実現した例です。"
-                  }
+                  以下のプロジェクトは多様な人々の協調を支援するインタラクションデザインの設計を通して「Programming
+                  as Communication」を実現した例です。
                 </p>
               }
             >
               <p>
-                {
-                  "We can design a runtime environment that is the same as the programming environment except for its dedicated graphical user interfaces for people who might not have prior knowledge of programming."
-                }
+                We can design a runtime environment that is the same as the
+                programming environment except for its dedicated graphical user
+                interfaces for people who might not have prior knowledge of
+                programming.
               </p>
               <p>
-                {
-                  'The following projects are concrete examples of such technical programming environment-design that realize "Programming as Communication." To see them in action, '
-                }
-                <SiteLink href={href(`${basePath}f3js`)}>{"f3.js"}</SiteLink>
-                {" implements both of them and is available at "}
-                <a href={"https://f3js.org"}>{"https://f3js.org"}</a>
-                {"."}
+                The following projects are concrete examples of such technical
+                programming environment-design that realize "Programming as
+                Communication." To see them in action,{" "}
+                <SiteLink href={href(`${basePath}f3js`)}>f3.js</SiteLink>{" "}
+                implements both of them and is available at{" "}
+                <a href="https://f3js.org">https://f3js.org</a>.
               </p>
             </LocalizedContent>
           </div>
@@ -327,46 +308,29 @@ export default function Page({ pageData }: PageDataProps) {
               <>
                 <div className="caption">
                   <p>
-                    <a href={"https://otonglass.jp/"}>{"OTON GLASS"}</a>
-
-                    {
-                      "プロジェクトでは、プログラミング環境を、ハードウェア部品とソフトウェア"
-                    }
-                    <abbr title={"Application Programming Interfaces"}>
-                      {"API"}
-                    </abbr>
-                    {
-                      "からなるツールキットのような人工物だけでなく、ツールキットの利用を手助けしてくれる有機的存在──エヴァンジェリストの存在を前提に設計しています。"
-                    }
+                    <a href="https://otonglass.jp/">OTON GLASS</a>
+                    プロジェクトでは、プログラミング環境を、ハードウェア部品とソフトウェア
+                    <abbr title="Application Programming Interfaces">API</abbr>
+                    からなるツールキットのような人工物だけでなく、ツールキットの利用を手助けしてくれる有機的存在──エヴァンジェリストの存在を前提に設計しています。
                   </p>
                 </div>
-                <Header as="h3">{"関連リンク"}</Header>
+                <Header as="h3">関連リンク</Header>
                 <List divided size="small">
                   <List.Item>
                     <Icon name="triangle right" />
                     <List.Content>
-                      <a
-                        href={
-                          "https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"
-                        }
-                      >
-                        {
-                          "産業技術総合研究所との共同研究を開始しました - OTON GLASS／FabBiotope"
-                        }
+                      <a href="https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">
+                        産業技術総合研究所との共同研究を開始しました - OTON
+                        GLASS／FabBiotope
                       </a>
                     </List.Content>
                   </List.Item>
                   <List.Item>
                     <Icon name="triangle right" />
                     <List.Content>
-                      <a
-                        href={
-                          "https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar"
-                        }
-                      >
-                        {
-                          'Rethinking Programming "Environment" (Convivial Computing Salon 2020) - ‹Programming› 2020'
-                        }
+                      <a href="https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar">
+                        Rethinking Programming "Environment" (Convivial
+                        Computing Salon 2020) - ‹Programming› 2020
                       </a>
                     </List.Content>
                   </List.Item>
@@ -376,29 +340,22 @@ export default function Page({ pageData }: PageDataProps) {
           >
             <div className="caption">
               <p>
-                {
-                  "We can design a programming environment consisting of an evangelist and computational artifacts."
-                }
+                We can design a programming environment consisting of an
+                evangelist and computational artifacts.
               </p>
               <p>
-                {"In the ongoing "}
-                <a
-                  href={
-                    "https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/"
-                  }
-                >
-                  {"OTON GLASS"}
-                </a>
-
-                {
-                  ' project, we have been implementing a programming environment centered on a visually impaired person, or a "maker," who wants to build customized smart glasses. The programming environment consists of not only computational artifacts (a toolkit consisting of hardware components and software '
-                }
-                <abbr title={"Application Programming Interfaces"}>
-                  {"APIs"}
-                </abbr>
-                {
-                  ") but also an evangelist who serves as an organic aid to utilize the toolkit."
-                }
+                In the ongoing{" "}
+                <a href="https://www.jamesdysonaward.org/en-GB/2016/project/oton-glass/">
+                  OTON GLASS
+                </a>{" "}
+                project, we have been implementing a programming environment
+                centered on a visually impaired person, or a "maker," who wants
+                to build customized smart glasses. The programming environment
+                consists of not only computational artifacts (a toolkit
+                consisting of hardware components and software{" "}
+                <abbr title="Application Programming Interfaces">APIs</abbr>)
+                but also an evangelist who serves as an organic aid to utilize
+                the toolkit.
               </p>
             </div>
           </LocalizedContent>
@@ -417,7 +374,7 @@ export default function Page({ pageData }: PageDataProps) {
           <Feed className="divided">
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date>{"5/15/2020"}</Feed.Date>
+                <Feed.Date>5/15/2020</Feed.Date>
                 <Feed.Summary>
                   {en
                     ? "Add preprint of the paper."
@@ -427,7 +384,7 @@ export default function Page({ pageData }: PageDataProps) {
             </Feed.Event>
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date>{"5/9/2020"}</Feed.Date>
+                <Feed.Date>5/9/2020</Feed.Date>
                 <Feed.Summary>
                   {en
                     ? "Add presentation recording and slides."
@@ -437,7 +394,7 @@ export default function Page({ pageData }: PageDataProps) {
             </Feed.Event>
             <Feed.Event>
               <Feed.Content>
-                <Feed.Date>{"4/1/2020"}</Feed.Date>
+                <Feed.Date>4/1/2020</Feed.Date>
                 <Feed.Summary>
                   {en
                     ? "Upload the initial revision."
@@ -453,22 +410,22 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"programming-as-communication"} />
+        <ProjectHeader project="programming-as-communication" />
         <Divider hidden />
-        <section id={"abstract"}>{renderAbstract()}</section>
+        <section id="abstract">{renderAbstract()}</section>
         <Divider hidden />
-        <section id={"presentation"}>{renderPresentation()}</section>
+        <section id="presentation">{renderPresentation()}</section>
         <Divider hidden />
-        <section id={"technical-effort"}>{renderTechnicalEffort()}</section>
+        <section id="technical-effort">{renderTechnicalEffort()}</section>
         <Divider hidden />
-        <section id={"social-effort"}>{renderSocialEffort()}</section>
+        <section id="social-effort">{renderSocialEffort()}</section>
         <Divider hidden />
         <ProjectPublications
           project={p.project}
           majorPublication={p.publication}
         />
         <Divider hidden />
-        <section id={"revision"}>{renderRevision()}</section>
+        <section id="revision">{renderRevision()}</section>
       </SiteLayout>
     </>
   );

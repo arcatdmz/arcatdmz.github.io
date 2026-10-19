@@ -365,7 +365,7 @@ export default function Page({ pageData }: PageDataProps) {
             const children: ReactNode[] = [];
             children.push(
               <>
-                <List.Item role="link" as="a" href={"#body"}>
+                <List.Item role="link" as="a" href="#body">
                   <Icon name="chevron circle up" />
                   <List.Content>{title}</List.Content>
                 </List.Item>
@@ -438,21 +438,21 @@ export default function Page({ pageData }: PageDataProps) {
                   {en ? (
                     <>
                       <p>
-                        {"To view only the activities in this year, click "}
+                        To view only the activities in this year, click{" "}
                         <SiteLink href={href(`${basePath}timeline/${y}/`)}>
-                          {"here"}
+                          here
                         </SiteLink>
-                        {"."}
+                        .
                       </p>
                     </>
                   ) : (
                     <>
                       <p>
-                        {"この年の活動だけを表示するには"}
+                        この年の活動だけを表示するには
                         <SiteLink href={href(`${basePath}timeline/${y}/`)}>
-                          {"こちら"}
+                          こちら
                         </SiteLink>
-                        {"をクリックしてください。"}
+                        をクリックしてください。
                       </p>
                     </>
                   )}

@@ -53,48 +53,44 @@ export default function Page({ pageData }: PageDataProps) {
   function renderBody(): ReactNode {
     return (
       <>
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">{en ? "Abstract" : "概要"}</Header>
           <Segment basic>
             <p>
-              <LocalizedContent
-                ja={
-                  "我々は、テキストが表す精確な情報に打鍵力というファジィな情報を加えることによって新しいインタラクションを実現できると考え、統合開発環境“Pressing”を開発した。Pressingは、物理シミュレーションによる視覚的フィードバックがあり、打鍵の強さが出力に影響を与えるインタプリタを内蔵した統合開発環境である。"
-                }
-              >
-                {
-                  "Pressing is a pressure-sensitive programming environment with visual feedbacks of the built-in 2D physical simulator. It runs on a PC with "
-                }
-                <a href={"https://www.youtube.com/watch?v=1zo0kJ_wi80"}>
-                  {"a practical pressure-sensitive keyboard"}
+              <LocalizedContent ja="我々は、テキストが表す精確な情報に打鍵力というファジィな情報を加えることによって新しいインタラクションを実現できると考え、統合開発環境“Pressing”を開発した。Pressingは、物理シミュレーションによる視覚的フィードバックがあり、打鍵の強さが出力に影響を与えるインタプリタを内蔵した統合開発環境である。">
+                Pressing is a pressure-sensitive programming environment with
+                visual feedbacks of the built-in 2D physical simulator. It runs
+                on a PC with{" "}
+                <a href="https://www.youtube.com/watch?v=1zo0kJ_wi80">
+                  a practical pressure-sensitive keyboard
+                </a>{" "}
+                developed by{" "}
+                <a href="https://www.microsoft.com/applied-sciences/">
+                  Microsoft Applied Science Group
                 </a>
-                {" developed by "}
-                <a href={"https://www.microsoft.com/applied-sciences/"}>
-                  {"Microsoft Applied Science Group"}
-                </a>
-                {"."}
+                .
               </LocalizedContent>
             </p>
             <p>
               <LocalizedContent
                 ja={
                   <>
-                    {"本研究は"}
-                    <a href={"https://www.microsoft.com/applied-sciences/"}>
-                      {"Microsoft Applied Science Group"}
+                    本研究は
+                    <a href="https://www.microsoft.com/applied-sciences/">
+                      Microsoft Applied Science Group
                     </a>
-                    {"の"}
-                    <a href={"https://www.youtube.com/watch?v=1zo0kJ_wi80"}>
-                      {"打鍵圧を検出できるキーボードのプロトタイプ"}
+                    の
+                    <a href="https://www.youtube.com/watch?v=1zo0kJ_wi80">
+                      打鍵圧を検出できるキーボードのプロトタイプ
                     </a>
-                    {"を用いて開発された。UIST 2009 "}
+                    を用いて開発された。UIST 2009{" "}
                   </>
                 }
               >
-                {"This work was presented at UIST 2009 "}
+                This work was presented at UIST 2009{" "}
               </LocalizedContent>
-              <a href={"https://www.acm.org/uist/uist2009/call/contest.html"}>
-                {"Student Innovation Contest"}
+              <a href="https://www.acm.org/uist/uist2009/call/contest.html">
+                Student Innovation Contest
               </a>
               {en ? " with " : "で"}
               <SiteLink
@@ -109,11 +105,7 @@ export default function Page({ pageData }: PageDataProps) {
             </p>
             <Divider hidden />
             <Image fluid as="div">
-              <SiteImage
-                src={
-                  "https://digitalmuseum.jp/en/software/pressing/images/usage.png"
-                }
-              />
+              <SiteImage src="https://digitalmuseum.jp/en/software/pressing/images/usage.png" />
             </Image>
             <div className="caption">
               {en
@@ -123,7 +115,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"px"}>
+        <section id="px">
           <Header as="h2">
             {en ? "Programming Experience" : "プログラミング体験"}
           </Header>
@@ -135,11 +127,11 @@ export default function Page({ pageData }: PageDataProps) {
             </p>
             <p>
               {en ? "For example, when he types " : "例えば "}
-              <code>{"new Ball()"}</code>
+              <code>new Ball()</code>
               {en
                 ? " and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name "
                 : " と打ち込んでEnterキーを押すと、スクリーン上に円が現れる。このとき "}
-              <Icon>{"Ball"}</Icon>
+              <Icon>Ball</Icon>
               {en
                 ? " is typed."
                 : " の打鍵が強ければ大きな円が、弱ければ小さな物体が現れる。"}
@@ -148,11 +140,11 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? "There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable "
                 : "他にもいくつか面白いプリセットクラスが用意されている。例えば、次の2文は円インスタンスを変数 "}
-              <Icon>{"b"}</Icon>
+              <Icon>b</Icon>
               {en
                 ? " and its track will be painted with a red brush. The brush width is defined by how strong "
                 : " に代入し、円が通った軌跡が赤いブラシで塗られる。ブラシの幅は "}
-              <Icon>{"Brush"}</Icon>
+              <Icon>Brush</Icon>
               {en
                 ? " is typed."
                 : " がどれだけ強く打鍵されたかによって決まる。"}
@@ -172,44 +164,39 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"implementation"}>
+        <section id="implementation">
           <Header as="h2">{en ? "Implementation" : "実装"}</Header>
           <Segment basic>
             <LocalizedContent
               ja={
                 <>
                   <p>
-                    {"Hakoniwaは"}
-                    <a href={"https://github.com/erincatto/box2d"}>{"Box2D"}</a>
-                    {
-                      "ベースの物理シミュレータであり、以下の図に示すようなインタラクションを可能にしている。"
-                    }
+                    Hakoniwaは
+                    <a href="https://github.com/erincatto/box2d">Box2D</a>
+                    ベースの物理シミュレータであり、以下の図に示すようなインタラクションを可能にしている。
                   </p>
                   <p>
-                    {
-                      "Kotosakaは、JavaScriptに影響を受けた簡易言語を解釈する。この言語には、クラス（メソッド、フィールド）、関数、変数といったオブジェクト指向の基本的な概念が備わっている。変数は宣言不要で動的な型付けができ、プリミティブ型（真偽値、数値と文字列）の値、クラスのインスタンスと関数を代入できる。"
-                    }
+                    Kotosakaは、JavaScriptに影響を受けた簡易言語を解釈する。この言語には、クラス（メソッド、フィールド）、関数、変数といったオブジェクト指向の基本的な概念が備わっている。変数は宣言不要で動的な型付けができ、プリミティブ型（真偽値、数値と文字列）の値、クラスのインスタンスと関数を代入できる。
                   </p>
                 </>
               }
             >
               <p>
-                {
-                  "This integrated development environment (IDE) has its original interpreter named "
-                }
-                <Icon>{"Kotosaka"}</Icon>
-                {
-                  " which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects."
-                }
+                This integrated development environment (IDE) has its original
+                interpreter named <Icon>Kotosaka</Icon> which interprets a
+                JavaScript-like language. The language shares basic ideas of
+                object-oriented programming such as classes (methods and
+                fields), functions and variables. Variables can be used without
+                declaration and are dynamically typed, capable of storing
+                primitive values (boolean, integer and string,) class instances,
+                and function objects.
               </p>
               <p>
-                {
-                  "The IDE contains a two-dimensional virtual world equipped with a "
-                }
-                <a href={"https://github.com/erincatto/box2d"}>{"Box2D"}</a>
-                {
-                  "-based physics simulator and provides interesting APIs to interact with the virtual world. Examples are shown below in the figure."
-                }
+                The IDE contains a two-dimensional virtual world equipped with a{" "}
+                <a href="https://github.com/erincatto/box2d">Box2D</a>
+                -based physics simulator and provides interesting APIs to
+                interact with the virtual world. Examples are shown below in the
+                figure.
               </p>
             </LocalizedContent>
           </Segment>
@@ -231,7 +218,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <LinkedImage
           fluid
-          href={"https://www.flickr.com/photos/zhiquan/3989241000/"}
+          href="https://www.flickr.com/photos/zhiquan/3989241000/"
         >
           <SiteImage src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
         </LinkedImage>
@@ -245,14 +232,14 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <ProjectHeader project={"pressing"} />
+        <ProjectHeader project="pressing" />
         <Divider hidden />
         <Grid stackable>
           <Grid.Column width={10}>{renderBody()}</Grid.Column>
           <Grid.Column width={6}>{renderImages()}</Grid.Column>
         </Grid>
         <Divider hidden />
-        <ProjectPublications project={"pressing"} />
+        <ProjectPublications project="pressing" />
       </SiteLayout>
     </>
   );

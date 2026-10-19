@@ -345,7 +345,7 @@ export function SiteFooter({ context }: SiteComponentProps) {
         <Divider />
         <List divided horizontal>
           <List.Item>
-            {"© "}
+            ©{" "}
             <SiteLink href={`${basePath}#contact`}>
               {en ? "Jun Kato" : "加藤 淳"}
             </SiteLink>

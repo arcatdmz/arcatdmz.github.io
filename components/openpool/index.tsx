@@ -50,7 +50,7 @@ export default function Page({ pageData }: PageDataProps) {
   var additionalLabels = [
     <Label as="span" size="tiny" color="green" basic>
       <Icon name="student" />
-      {"SxSW '13 Gaming Expo, Trade Show"}
+      SxSW '13 Gaming Expo, Trade Show
     </Label>,
   ];
   const context: SiteData & SiteContext = {
@@ -69,44 +69,49 @@ export default function Page({ pageData }: PageDataProps) {
   function renderBody(): ReactNode {
     return (
       <>
-        <section id={"abstract"}>
+        <section id="abstract">
           <Header as="h2">{en ? "Abstract" : "概要"}</Header>
           <Segment basic>
             <p>
-              {
-                "People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus"
-              }
-              <a href={"#ppp"}>{"[1]"}</a>
-              {
-                ", a novel way of augmenting ping pong table with a set of microphone array in 1999. The project later became an open-source project in 2011"
-              }
-              <a href={"#pppp"}>{"[2]"}</a>
-              {
-                ", which needed some soldering to be deployed. We walk the same line with PingPongPlus, but with a billiard table and off-the-shelf hardware products."
-              }
+              People love playing games. Games have been a good way to build
+              social relations with others. Therefore, studying the impact of
+              digital augmentation on such experience has been an interesting
+              research topic in the field of Human-Computer Interaction. Ishii
+              et al. proposed PingPongPlus
+              <a href="#ppp">[1]</a>, a novel way of augmenting ping pong table
+              with a set of microphone array in 1999. The project later became
+              an open-source project in 2011
+              <a href="#pppp">[2]</a>, which needed some soldering to be
+              deployed. We walk the same line with PingPongPlus, but with a
+              billiard table and off-the-shelf hardware products.
             </p>
             <p>
-              {
-                'In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.'
-              }
+              In this page, we introduce OpenPool, an open-source project that
+              augments a standard billiard table with the cutting-edge computing
+              technologies to provide the "super-billiard" experience.
             </p>
           </Segment>
         </section>
         <Divider hidden />
-        <section id={"implementation"}>
+        <section id="implementation">
           <Header as="h2">{en ? "Implementation" : "実装"}</Header>
           <Segment basic>
             <p>
-              {
-                "OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac."
-              }
+              OpenPool is an open-source project that aims to be installed at as
+              many places as possible so that more people can enjoy the
+              super-billiard experience. Its hardware is easy to be deployed at
+              any billiard tables and its software is easy to be installed on
+              personal computers running Windows or Mac.
             </p>
             <p>
-              {
-                "Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail."
-              }
+              Furthermore, the basic features of the software such as ball
+              detection and pocket detection are exposed as simple APIs of
+              Processing libraries. Therefore, the programmer can easily design
+              his/her own super-billiard experience. There are currently two
+              libraries: base library and pocket detection library. In the
+              following subsections, we describe these libraries in detail.
             </p>
-            <Header as="h3">{"OpenPool core library"}</Header>
+            <Header as="h3">OpenPool core library</Header>
             <pre className="prettyprint linenums">
               {"OpenPool op = new OpenPool(this);"}
               {"\n"}
@@ -129,16 +134,20 @@ export default function Page({ pageData }: PageDataProps) {
               {"}"}
             </pre>
             <p>
-              {
-                'Minimum hardware setup of OpenPool consists of off-the-shelf products: two depth cameras ("Kinect" by Microsoft), a projector and a personal computer. Given the hardware setup, OpenPool base library computes ball positions and provide the information through simple APIs.'
-              }
+              Minimum hardware setup of OpenPool consists of off-the-shelf
+              products: two depth cameras ("Kinect" by Microsoft), a projector
+              and a personal computer. Given the hardware setup, OpenPool base
+              library computes ball positions and provide the information
+              through simple APIs.
             </p>
             <p>
-              {
-                "The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection."
-              }
+              The computation is a simple image processing pipeline. First, with
+              some callibrations of the camera positions, two depth images from
+              the cameras form one depth map on the billiard table. Then, the
+              ball positions on the table are estimated from the depth map by
+              background substraction and blob detection.
             </p>
-            <Header as="h3">{"OpenPool pocket detection library"}</Header>
+            <Header as="h3">OpenPool pocket detection library</Header>
             <pre className="prettyprint linenums">
               {'OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");'}
               {"\n"}
@@ -163,14 +172,18 @@ export default function Page({ pageData }: PageDataProps) {
               {"}"}
             </pre>
             <p>
-              {
-                "With the base library, the programmer can design a basic effect that responds to the ball positions. Though, the ball detection is not always stable due to environmental noise. This stability issue makes it difficult to design effect that fires when a ball falls into a pocket."
-              }
+              With the base library, the programmer can design a basic effect
+              that responds to the ball positions. Though, the ball detection is
+              not always stable due to environmental noise. This stability issue
+              makes it difficult to design effect that fires when a ball falls
+              into a pocket.
             </p>
             <p>
-              {
-                'To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.'
-              }
+              To address the issue, we provide a set of additional hardware and
+              software named "boost kit." The hardware is implemented with mbed
+              and some basic sensors, whose circuit design is published as an
+              open-hardware project. Future work includes devleopment of more
+              boost kits for various purposes such as collision detection.
             </p>
           </Segment>
         </section>
@@ -180,48 +193,40 @@ export default function Page({ pageData }: PageDataProps) {
   function renderVideos(): ReactNode {
     return (
       <>
-        <section id={"videos"}>
+        <section id="videos">
           <Embed active icon={false}>
             <iframe
-              src={
-                "https://www.facebook.com/video/embed?video_id=608850275796418"
-              }
-              frameBorder={"0"}
+              src="https://www.facebook.com/video/embed?video_id=608850275796418"
+              frameBorder="0"
               allowFullScreen={true}
             ></iframe>
           </Embed>
-          <div className="caption">{"Playing 8 ball pool with OpenPool"}</div>
+          <div className="caption">Playing 8 ball pool with OpenPool</div>
           <Divider hidden />
           <Embed active icon={false}>
             <iframe
-              src={
-                "https://www.facebook.com/video/embed?video_id=614971478517631"
-              }
-              frameBorder={"0"}
+              src="https://www.facebook.com/video/embed?video_id=614971478517631"
+              frameBorder="0"
               allowFullScreen={true}
             ></iframe>
           </Embed>
           <div className="caption">
-            {"Collision detection between balls and virtual objects"}
+            Collision detection between balls and virtual objects
           </div>
           <Divider hidden />
           <Embed active icon={false}>
             <iframe
-              src={
-                "https://www.facebook.com/video/embed?video_id=615808058433973"
-              }
-              frameBorder={"0"}
+              src="https://www.facebook.com/video/embed?video_id=615808058433973"
+              frameBorder="0"
               allowFullScreen={true}
             ></iframe>
           </Embed>
           <div className="caption">
-            {
-              "Animation effect triggered by an OpenPool pocket detection sensor"
-            }
+            Animation effect triggered by an OpenPool pocket detection sensor
           </div>
         </section>
         <Divider />
-        <section id={"press"}></section>
+        <section id="press"></section>
         <Header as="h2">{en ? "Media Coverage" : "メディア掲載"}</Header>
         <Segment basic style={{ marginBottom: "-0.5em" }}>
           <Grid stackable>
@@ -259,21 +264,17 @@ export default function Page({ pageData }: PageDataProps) {
           </Grid>
         </Segment>
         <Divider />
-        <section id={"related-work"}>
+        <section id="related-work">
           <Header as="h2">{en ? "Related Work" : "関連研究"}</Header>
           <ol>
-            <li id={"ppp"}>
-              <a href={"https://tangible.media.mit.edu/project/pingpongplus/"}>
-                {"PingPongPlus"}
+            <li id="ppp">
+              <a href="https://tangible.media.mit.edu/project/pingpongplus/">
+                PingPongPlus
               </a>
             </li>
-            <li id={"pppp"}>
-              <a
-                href={
-                  "https://tangible.media.mit.edu/project/pingpongplusplus/"
-                }
-              >
-                {"PingPong++"}
+            <li id="pppp">
+              <a href="https://tangible.media.mit.edu/project/pingpongplusplus/">
+                PingPong++
               </a>
             </li>
           </ol>
@@ -284,11 +285,9 @@ export default function Page({ pageData }: PageDataProps) {
   function renderMessage() {
     return (
       <>
-        {"OpenPool is a collaborative open-source project developed at "}
-        <a href="https://github.com/openpool/openpool-core">GitHub</a>
-        {". The official site is "}
-        <a href="http://www.openpool.cc/">openpool.cc</a>
-        {"."}
+        OpenPool is a collaborative open-source project developed at{" "}
+        <a href="https://github.com/openpool/openpool-core">GitHub</a>. The
+        official site is <a href="http://www.openpool.cc/">openpool.cc</a>.
       </>
     );
   }
@@ -303,7 +302,7 @@ export default function Page({ pageData }: PageDataProps) {
                 ...additionalLabels,
                 <Label as="span" size="tiny" color="red" basic>
                   <Icon name="trophy" />
-                  {"'13 グッドデザイン賞"}
+                  '13 グッドデザイン賞
                 </Label>,
               ]
         }
