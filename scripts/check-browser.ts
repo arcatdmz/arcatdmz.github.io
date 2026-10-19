@@ -109,9 +109,10 @@ async function main() {
           "/user-generated-variables",
           "/user-interface-design",
           "/ja/user-generated-variables",
-          "/ja/talks/as-a-code",
-          "/ja/talks/people-are-programmers",
-        ].includes(normalizedRoute)
+        ].includes(normalizedRoute) ||
+        /^\/ja\/talks\/(?:as-a-code|people-are-programmers)\/p1\.html$/.test(
+          normalizedRoute,
+        )
       ) {
         redirects.push(route);
         continue;
@@ -231,6 +232,21 @@ async function main() {
             await page.waitForFunction(
               () => !document.documentElement.classList.contains("wf-loading"),
             );
+            // Full-page screenshots do not reliably activate images below the
+            // viewport. Decode local images before comparing rendered pixels.
+            await page.evaluate(async () => {
+              await Promise.all(
+                Array.from(document.images).map(async (image) => {
+                  if (
+                    !image.src ||
+                    new URL(image.src).origin !== location.origin
+                  )
+                    return;
+                  image.loading = "eager";
+                  await image.decode().catch(() => undefined);
+                }),
+              );
+            });
             const buffer = await page.screenshot({
               fullPage: true,
               animations: "disabled",

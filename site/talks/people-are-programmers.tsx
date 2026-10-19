@@ -1,15 +1,27 @@
+import {
+  Button,
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Image,
+  Message,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 // Restored from the original 2015 PHP lecture; edit this JSX directly.
 import { SiteLink } from "@/site/components/SiteLink";
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
-import { CodePlayground } from "./CodePlayground";
+
 export function Chapter1({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"intro"} className={"ui header"}>
+        <Header as="h2" id={"intro"}>
           {"自己紹介・はじめに"}
-        </h2>
+        </Header>
         <p>
           {
             "講演タイトルの「ぼくらのプログラミング」は過去の話、「みんなのプログラミング」はこれからの話です。"
@@ -44,8 +56,9 @@ export function Chapter1({ active }: { active: boolean }) {
         </p>
         <p>
           <SiteImage
+            ui
+            fluid
             src={"/ja/talks/people-are-programmers.old/P9206331-trim.jpg"}
-            className={"ui fluid image"}
             alt={"情報科学若手の会での講演"}
             sizes={
               "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 933px, 1127px"
@@ -62,93 +75,86 @@ export function Chapter1({ active }: { active: boolean }) {
             "※詳細は略しますが、どのスライド画像も関連するウェブサイトへのリンクになっています。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column "}>
-            <SiteLink
-              className={"ui bordered fluid image"}
-              href={"http://digitalmuseum.jp"}
-            >
+        <Grid stackable>
+          <GridColumn width={4}>
+            <LinkedImage bordered fluid href={"http://digitalmuseum.jp"}>
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-01.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"digitalmuseum 電網美術館"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </SiteLink>
-          </div>
-          <div className={"four wide column "}>
-            <SiteLink
-              className={"ui bordered fluid image"}
-              href={"http://sci.digitalmuseum.jp"}
-            >
+            </LinkedImage>
+          </GridColumn>
+          <GridColumn width={4}>
+            <LinkedImage bordered fluid href={"http://sci.digitalmuseum.jp"}>
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-02.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"立花隆ゼミ（SCI/サイ）"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </SiteLink>
-          </div>
-          <div className={"four wide column "}>
-            <SiteLink
-              className={"ui bordered fluid image"}
-              href={"/ja/homehack"}
-            >
+            </LinkedImage>
+          </GridColumn>
+          <GridColumn width={4}>
+            <LinkedImage bordered fluid href={"/ja/homehack"}>
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-03.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"おうちハック"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </SiteLink>
-          </div>
-          <div className={"four wide column "}>
-            <SiteLink
-              className={"ui bordered fluid image"}
-              href={"/ja/openpool"}
-            >
+            </LinkedImage>
+          </GridColumn>
+          <GridColumn width={4}>
+            <LinkedImage bordered fluid href={"/ja/openpool"}>
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-04.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"OpenPool"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </SiteLink>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </LinkedImage>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-05.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 05"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {"今は何をやっているかというと、"}
               <SiteLink href={"http://www.aist.go.jp/"}>
@@ -217,39 +223,41 @@ export function Chapter1({ active }: { active: boolean }) {
               </SiteLink>
               {"も参考になると思います。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column "}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={4}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-06.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 06"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"four wide column "}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={4}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-07.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 07"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {"突然ですが、僕"}
               <b>{"仕組み"}</b>
@@ -262,39 +270,41 @@ export function Chapter1({ active }: { active: boolean }) {
                 "一度作ったらずっと機能するのって、素敵じゃないですか。とくに、美しい仕組みを見ると本当に胸が震えます。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={4}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-08.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 08"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"four wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={4}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-09.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 09"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {"これまでやってきたことの共通点を考えてみると、僕はずっと、"}
               <b>{"仕組み"}</b>
@@ -316,8 +326,8 @@ export function Chapter1({ active }: { active: boolean }) {
               <SiteLink href={"/ja"}>{"トップページ"}</SiteLink>
               {"にあります。"}
             </p>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </section>
     </>
   );
@@ -327,97 +337,102 @@ export function Chapter2({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"for-us"} className={"ui header"}>
+        <Header as="h2" id={"for-us"}>
           {"ぼくらのプログラミング"}
-        </h2>
+        </Header>
         <p>
           {
             "まず、プログラミングのための環境（統合開発環境）の歴史を簡単に振り返ってみます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-11.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 11"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-12.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 12"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+            </Image>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "プログラミング行為がコンピュータの中で閉じてインタラクティブにできるようになったのが1960年代のことです。それ以来50年が経ちましたが、インタフェースの大部分が文字列ベースという点は変わっていません。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-13.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 13"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-14.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 14"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-15.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 15"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "統合開発環境が文字ベースのインタフェース主体のままである一方、開発されるアプリケーションの種類はだいぶ変わって、増えてきました。"
@@ -428,9 +443,9 @@ export function Chapter2({ active }: { active: boolean }) {
                 "最近だと、実世界のデータを利用するプログラムが増えてきています。カメラからの入力を受け取ったり、ロボットに出力を返したりするものです。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "こういうプログラムを開発するとき、従来のGraphical User Interface（GUI）を利用するプログラムと違うのは、実行環境がコンピュータの外にあるということです。"
@@ -441,37 +456,39 @@ export function Chapter2({ active }: { active: boolean }) {
             "GUIのプログラムではマウス入力やキーボード入力は断続的で、値もだいたい定数で表せるので、文字ベースのインタフェースでも情報の提示が容易にできます。一方、実世界のデータはもっと連続的で、値は時系列に変化します。ブレークポイントでプログラムを止めたりすると、データの流れが途切れます。このように、文字ベースのインタフェースをそのまま使っていては、デバッグが非常に難しいという問題があります。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-16.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 16"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-17.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 17"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+            </Image>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "実世界データを伴うプログラム開発の難しさを解決するためには、いろいろな方法が考えられます。なかでも、僕が提案してきた画像表現を統合する3つの方法（Integrated Graphical Representations, 博士論文の内容）を簡単に紹介します。"
@@ -500,7 +517,7 @@ export function Chapter2({ active }: { active: boolean }) {
           </SiteLink>
           {"で閲覧できます。"}
         </p>
-        <hr className={"ui section divider"} />
+        <Divider section as="hr" />
         <p>
           {"一つ目が、名前のつけられない情報を文字列の代わりに"}
           <b>{"写真"}</b>
@@ -511,22 +528,23 @@ export function Chapter2({ active }: { active: boolean }) {
             "統合開発環境Picodeでは、人やロボットの姿勢情報を表すのに写真を使います。写真をソースコードの中にドラッグ＆ドロップできて、それをそのままコンパイル＆実行できます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-18.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 18"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/cQv0-4f8LEA"} />
             <p className={"talk-note"}>
               {"※詳細は"}
@@ -535,9 +553,9 @@ export function Chapter2({ active }: { active: boolean }) {
                 "の紹介ページを見てみてください。写真入りのサンプルコードも掲載されています。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {"二つ目が、プログラムが実行された時系列の内容を"}
           <b>{"動画"}</b>
@@ -553,31 +571,32 @@ export function Chapter2({ active }: { active: boolean }) {
             "録画内容は、好きな速度で再生することができます。また、プログラムの内容を変えて録画入力を流し込むことで、一度カメラの前で行った動作をテストケースとして何度も活用できます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-19.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 19"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/k5USoB7ZPPk"} />
             <p className={"talk-note"}>
               {"※詳細は"}
               <SiteLink href={"/ja/dejavu"}>{"DejaVu"}</SiteLink>
               {"の紹介ページを見てみてください。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {"三つめは、"}
           <b>{"プログラムを書く前に入力データを用意"}</b>
@@ -595,47 +614,49 @@ export function Chapter2({ active }: { active: boolean }) {
             "ユーザは、まず動画ファイルやカメラ入力などの入力ソースを選択します。そして、入力ソースの動画像に対して矩形や円を描いてアノテーションを行い、画像処理のメソッドをその範囲に対して適用できるものに絞り込むことができます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-20.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 20"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/I6FTOVygHxc"} />
             <p className={"talk-note"}>
               {"※詳細は"}
               <SiteLink href={"/ja/visionsketch"}>{"VisionSketch"}</SiteLink>
               {"の紹介ページを見てみてください。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-21.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 21"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "これまで見てきたように、最近のプログラムはさまざまな種類のデータを取り扱う必要があります。そのようなプログラムを開発するためには、ロジックだけを文字で開発するような統合開発環境では不十分です。"
@@ -656,25 +677,26 @@ export function Chapter2({ active }: { active: boolean }) {
                 "「開発」には、プログラム開発だけでなくデータの「制作」も必須となり、プログラム開発のプロセスの中でその間の境界が消失する時代がくると思います。そんな時代の開発環境では、プログラムを開発する機能と同等、あるいはそれ以上に、データを編集、制作できる機能が重要視されるでしょう。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-22.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 22"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "これからの開発環境は、プログラムで利用されるデータを直感的に扱えるようなインタフェースが必要になります。その際は、データを制作・編集できるツールの知見を活かせるはずです。（例えば写真を使うなら写真編集ツール、動画を使うなら動画編集ツールのインタフェースを援用できるでしょう。）"
@@ -695,8 +717,8 @@ export function Chapter2({ active }: { active: boolean }) {
                 "お気づきの方もいらっしゃるかと思いますが、そんな統合デザイン環境を実際に作ってみました、というのがこれからお話しする「みんなのプログラミング」です。"
               }
             </p>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </section>
     </>
   );
@@ -706,30 +728,31 @@ export function Chapter3({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"for-all"} className={"ui header"}>
+        <Header as="h2" id={"for-all"}>
           {"みんなのプログラミング"}
-        </h2>
+        </Header>
         <p>
           {
             "先ほどまでお話ししていた実世界系のプログラム開発から離れて、歌詞アニメーションについて少し紹介します。歌詞アニメーションは、歌詞の発声に合わせて文字が動いたりいろいろな演出があって楽しめる動画表現です。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-25.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 25"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube
               src={
                 "https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvxmoCh_KNaBzu1-RyCeHeW"
@@ -742,9 +765,9 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"を見てみてください。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {"このように楽しい歌詞アニメーションを容易に作成できるのが、"}
           <SiteLink href={"https://textalive.jp"}>{"TextAlive"}</SiteLink>
@@ -752,22 +775,23 @@ export function Chapter3({ active }: { active: boolean }) {
             "というウェブサービスです。楽曲と歌詞のURLを指定するだけで、産総研の謎技術が歌詞の発声タイミングを自動推定し、ブラウザ上で動画を自動的に合成してくれます。1クリックで動画全体の演出を切り替えられます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-26.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 26"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/LFA9eLvuHxo"} />
             <p className={"talk-note"}>
               {
@@ -784,30 +808,31 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"しました。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "さらに、内容を詳しく自分好みに編集するための直感的なインタフェースも備えています。歌詞アニメーションを自動的に合成する機能はあくまで最初の一歩で、その先の高度な編集までサポートする制作支援ツールです。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-27.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 27"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/n88NsJvkLBM"} />
             <p className={"talk-note"}>
               {"※講演ではTextAliveのウェブサイトを表示してデモしました。"}
@@ -822,71 +847,75 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"しました。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column"}></div>
-          <div className={"eight wide column"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={4} />
+          <GridColumn width={8}>
             <p>
               {
                 "…ちょっと待てよ、と。この講演、タイトルに「プログラミング」って入ってます。単なる歌詞アニメーション制作ツールの紹介をして何なんだろう、とお思いの方もいるかもしれません。どこが「プログラミング」なのかと。"
               }
             </p>
-            <div className={"ui bordered fluid image"}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-28.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 28"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"four wide column"}></div>
-        </div>
-        <hr className={"ui section divider"} />
+            </Image>
+          </GridColumn>
+          <GridColumn width={4} />
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "TextAliveは、制作ツールの皮をかぶった統合開発環境になっています。通常の動画共有サービスでは、ラスタ画像で表されるフレームを高速に切り替えて動画を表示していますが、TextAliveの動画はすべて時間の関数で定義されています。動画＝時刻tを与えるとフレームの内容を描画して返す関数です。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-29.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 29"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
-            <div className="ui message">
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
+            <Message>
               <p>この講演のTextAlive APIデモは移行準備中です。</p>
-              <SiteLink
-                className="ui primary button"
+              <Button
+                role="link"
+                primary
+                as={SiteLink}
                 href="https://textalive.jp/"
               >
                 TextAliveで歌詞アニメーションを見る
-              </SiteLink>
-            </div>
+              </Button>
+            </Message>
             <p className={"talk-note"}>
               {
                 "※講演当時のデモでは、時刻tを指定して、その時刻の文字アニメーションを描画できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "通常の動画制作ツールでは演出の種類を増やそうと思ったら、別途開発環境を用意する必要などがあって、何かと手間がかかるものです。しかし、TextAliveは開発環境がビルトインされているので、時刻tを与えるとその時刻における動画演出を返す関数を直接開発できます。このように、明示的にプログラムを終了させたり起動させ直す必要がなく、プログラミングした結果がすぐに見えるインタラクションは"
@@ -894,22 +923,23 @@ export function Chapter3({ active }: { active: boolean }) {
           <b>{"ライブプログラミング"}</b>
           {"と呼ばれています。"}
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-30.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 30"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <EmbedYoutube src={"https://www.youtube.com/embed/5XdhGCTJEXA"} />
             <p className={"talk-note"}>
               {"※講演ではTextAliveのウェブサイトを表示してデモしました。"}
@@ -920,33 +950,34 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"をお見せしました。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column"}></div>
-          <div className={"eight wide column"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={4} />
+          <GridColumn width={8}>
             <p>
               {
                 "また重大な疑問が浮かんできますね。この講演、タイトルに「みんなの」って入ってます。今のままでは、プログラミングが初めからできる人しか嬉しくなくて、「みんなの」プログラミングではありません。"
               }
             </p>
-            <div className={"ui bordered fluid image"}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-31.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 31"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"four wide column"}></div>
-        </div>
-        <hr className={"ui section divider"} />
+            </Image>
+          </GridColumn>
+          <GridColumn width={4} />
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "実は、先ほどプログラミングして新しく作った演出は、コミットすればみんなが使えるようになります。さらに、ソースコード中に特別なコメントを書き入れれば、みんなが好きに調節できるようになります。"
@@ -957,22 +988,23 @@ export function Chapter3({ active }: { active: boolean }) {
           <b>{"誰かがプログラミングするとみんなが幸せになる"}</b>
           {"のがTextAliveです。"}
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-32.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 32"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <pre className={"talk-code"}>
               {"// "}
               <b>{"@ui"}</b>
@@ -980,39 +1012,42 @@ export function Chapter3({ active }: { active: boolean }) {
               <b>{"@title"}</b>
               {" 花びらの枚数\nthis.leaves = 5;"}
             </pre>
-            <div className="ui message">
+            <Message>
               <p>この講演のTextAlive APIデモは移行準備中です。</p>
-              <SiteLink
-                className="ui primary button"
+              <Button
+                role="link"
+                primary
+                as={SiteLink}
                 href="https://textalive.jp/"
               >
                 TextAliveで歌詞アニメーションを見る
-              </SiteLink>
-            </div>
+              </Button>
+            </Message>
             <p className={"talk-note"}>
               {
                 "※講演当時のデモでは、スライダーで花びらの枚数を3〜30枚に変更できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-33.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 33"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {"TextAliveには、プログラマが普段から利用しているさまざまな"}
               <b>{"仕組み"}</b>
@@ -1036,9 +1071,9 @@ export function Chapter3({ active }: { active: boolean }) {
                 "このように、動画制作支援サービスでありながら、随所にプログラマ的思想が反映されているのが、TextAliveです。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
         <p>
           {
             "さらに、TextAliveでは動画が関数で表されているので、フレームレートや画面解像度はパラメタを調整するだけでいくらでも細かくできます。"
@@ -1049,42 +1084,45 @@ export function Chapter3({ active }: { active: boolean }) {
             "例えばDVD画質のアニメをBlu-ray画質にするには大変な手間がかかりますが、TextAliveでは計算資源さえあれば動画をどんな解像度にもできます。"
           }
         </p>
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-34.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 34"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
-            <div className="ui message">
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
+            <Message>
               <p>この講演のTextAlive APIデモは移行準備中です。</p>
-              <SiteLink
-                className="ui primary button"
+              <Button
+                role="link"
+                primary
+                as={SiteLink}
                 href="https://textalive.jp/"
               >
                 TextAliveで歌詞アニメーションを見る
-              </SiteLink>
-            </div>
+              </Button>
+            </Message>
             <p className={"talk-note"}>
               {
                 "※講演当時のデモでは、スライダーで動画を100倍まで拡大できました。APIを使った実演の復元は今後行います。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"four wide column"}></div>
-          <div className={"eight wide column"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={4} />
+          <GridColumn width={8}>
             <p>
               {"そんなTextAliveですが、先日"}
               <SiteLink
@@ -1096,40 +1134,42 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"を行い、一般公開されています。"}
             </p>
-            <div className={"ui bordered fluid image"}>
+            <Image bordered fluid as="div">
               <SiteLink href={"https://textalive.jp"}>
                 <SiteImage
+                  ui
+                  fluid
                   src={
                     "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-35.jpg"
                   }
-                  className={"ui fluid image"}
                   alt={"講演スライド 35"}
                   sizes={
                     "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                   }
                 />
               </SiteLink>
-            </div>
-          </div>
-          <div className={"four wide column"}></div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={4} />
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-36.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 36"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "ここで、講演前半「ぼくらのプログラミング」の最後にお見せしたスライドを再掲します。"
@@ -1154,25 +1194,26 @@ export function Chapter3({ active }: { active: boolean }) {
                 "を紹介しました。どのあたりが未来なのか、改めてその特徴を振り返ってみましょう。"
               }
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-37.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 37"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "統合デザイン環境は、データの編集機能が非常に直感的なためプログラマ以外でも利用できます。しかしながら、基本的には統合開発環境の延長上にあり、当然ですがプログラミングできなくてはいけません。それも、環境そのものをユーザがプログラミングして強化していけることが必要だと、僕は考えています。そうして機能を強化・拡張した結果は、みんなで活用できるべきです。"
@@ -1217,25 +1258,26 @@ export function Chapter3({ active }: { active: boolean }) {
               </SiteLink>
               {"までご連絡ください。"}
             </p>
-          </div>
-        </div>
-        <hr className={"ui section divider"} />
-        <div className={"ui stackable grid"}>
-          <div className={"eight wide column"}>
-            <div className={"ui bordered fluid image"}>
+          </GridColumn>
+        </Grid>
+        <Divider section as="hr" />
+        <Grid stackable>
+          <GridColumn width={8}>
+            <Image bordered fluid as="div">
               <SiteImage
+                ui
+                fluid
                 src={
                   "/ja/talks/people-are-programmers.old/slides/wakate2015-kato-slides-38.jpg"
                 }
-                className={"ui fluid image"}
                 alt={"講演スライド 38"}
                 sizes={
                   "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 450px, 550px"
                 }
               />
-            </div>
-          </div>
-          <div className={"eight wide column"}>
+            </Image>
+          </GridColumn>
+          <GridColumn width={8}>
             <p>
               {
                 "以上、駆け足でしたが、プログラミングの過去を振り返り、未来について考えてきました。"
@@ -1255,8 +1297,8 @@ export function Chapter3({ active }: { active: boolean }) {
                 "改めて講演冒頭のスライドを再掲しました。いかがだったでしょうか？ご清聴ありがとうございました！"
               }
             </p>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </section>
     </>
   );

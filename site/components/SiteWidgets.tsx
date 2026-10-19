@@ -1,3 +1,20 @@
+import { HtmlContent } from "./RichText";
+import {
+  Button,
+  DropdownMenu,
+  Image,
+  Menu,
+  MenuItem,
+  type MenuItemProps,
+  ModalContent,
+  ModalHeader,
+  Sidebar as FomanticSidebar,
+  type SidebarProps,
+  SidebarPusher,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "./LinkedImage";
+
 import {
   Children,
   cloneElement,
@@ -12,7 +29,6 @@ import {
   type AnchorHTMLAttributes,
   type CSSProperties,
   type HTMLAttributes,
-  type ImgHTMLAttributes,
   type ReactElement,
   type ReactNode,
   type Dispatch,
@@ -99,38 +115,34 @@ export function SiteWidgets({ children }: { children: ReactNode }) {
   );
 }
 
-export function Sidebar({
-  children,
-  className = "",
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+export function SiteSidebarPanel({ children, ...props }: SidebarProps) {
   const widgets = useWidgets();
-  const motion = useTransition(!!widgets?.sidebar, "", 500);
   return (
-    <div
+    <FomanticSidebar
       {...props}
+      as={Menu}
+      animation="uncover"
+      direction="right"
+      visible={!!widgets?.sidebar}
       id="site-sidebar"
-      className={`${className} uncover${widgets?.sidebar ? " visible" : ""}${
-        motion.animating ? " animating" : ""
-      }`}
       inert={!widgets?.sidebar}
       aria-label="Site navigation"
-      onClick={(event) => {
+      onHide={() => widgets?.setSidebar(false)}
+      onClick={(event: React.MouseEvent<HTMLElement>) => {
         if ((event.target as Element).closest("a[href]"))
           widgets?.setSidebar(false);
       }}
     >
       {children}
-    </div>
+    </FomanticSidebar>
   );
 }
-export function SidebarButton({
-  children,
-  ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+
+export function SidebarButton({ children, ...props }: MenuItemProps) {
   const widgets = useWidgets();
   return (
-    <a
+    <MenuItem
+      as="a"
       {...props}
       role="button"
       aria-controls="site-sidebar"
@@ -147,27 +159,19 @@ export function SidebarButton({
       }}
     >
       {children}
-    </a>
+    </MenuItem>
   );
 }
-export function SitePusher({
-  className = "",
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+export function SitePusher(props: HTMLAttributes<HTMLDivElement>) {
   const widgets = useWidgets();
-  return (
-    <div
-      {...props}
-      className={`${className}${widgets?.sidebar ? " dimmed" : ""}`}
-    />
-  );
+  return <SidebarPusher {...props} dimmed={!!widgets?.sidebar} />;
 }
 
-export function Dropdown({
+export function NavigationDropdown({
   children,
   className = "",
   ...props
-}: HTMLAttributes<HTMLDivElement>) {
+}: MenuItemProps) {
   const widgets = useWidgets();
   const id = useId();
   const open = widgets?.popup === id;
@@ -191,10 +195,12 @@ export function Dropdown({
       root.current?.querySelectorAll<HTMLAnchorElement>(".menu a[href]") || [],
     );
   return (
-    <div
+    <MenuItem
+      as="div"
       {...props}
       ref={root}
-      className={`${className}${open ? " active visible" : ""}`}
+      active={open}
+      className={`ui dropdown ${className}${open ? " visible" : ""}`}
       role="button"
       tabIndex={0}
       aria-haspopup="menu"
@@ -256,9 +262,9 @@ export function Dropdown({
     >
       {Children.map(children, (child) =>
         isValidElement<HTMLAttributes<HTMLDivElement>>(child) &&
-        child.props.className === "menu"
+        (child.type === DropdownMenu || child.props.className === "menu")
           ? cloneElement(child, {
-              className: `menu ${motion.className}`,
+              className: motion.className,
               style: { ...child.props.style, ...motion.style },
               onAnimationEnd: motion.onAnimationEnd,
               inert: !open,
@@ -266,7 +272,7 @@ export function Dropdown({
             })
           : child,
       )}
-    </div>
+    </MenuItem>
   );
 }
 
@@ -301,10 +307,10 @@ function popupPosition(
 }
 
 /** Keep the existing inline markup and CSS; only its visibility is React state. */
-export function Popup({
+export function SitePopup({
   trigger,
   children,
-  className = "ui popup",
+  className = "",
   position = "top right",
   hover = true,
   onOpen,
@@ -347,7 +353,11 @@ export function Popup({
   useEffect(() => () => clearTimeout(timer.current), []);
   useEffect(() => {
     const classes = trigger.props.className?.split(/\s+/) || [];
-    if (!classes.includes("popup-menu") || !classes.includes("button")) return;
+    if (
+      !classes.includes("popup-menu") ||
+      !(trigger.type === Button || classes.includes("button"))
+    )
+      return;
     const element = document.querySelector<HTMLElement>(
       `[data-site-popup-trigger="${CSS.escape(id)}"]`,
     );
@@ -373,9 +383,10 @@ export function Popup({
       ref={popup}
       id={id}
       data-site-popup={id}
-      className={`${className.replace(/\bhidden\b/g, "")} ${position} ${
-        motion.className
-      }`}
+      className={`ui popup ${className.replace(
+        /\bhidden\b/g,
+        "",
+      )} ${position} ${motion.className}`}
       style={motion.present ? { ...style, ...motion.style } : undefined}
       onAnimationEnd={motion.onAnimationEnd}
       aria-hidden={!open}
@@ -441,9 +452,12 @@ export function Popup({
 
 export function SiteModal({
   children,
-  className = "ui large modal",
+  size = "large",
+  className = "",
   ...props
-}: HTMLAttributes<HTMLDivElement>) {
+}: HTMLAttributes<HTMLDivElement> & {
+  size?: "mini" | "tiny" | "small" | "large" | "fullscreen";
+}) {
   const widgets = useWidgets();
   const modal = widgets?.modal;
   const motion = useTransition(!!modal, "scale", 500);
@@ -465,21 +479,23 @@ export function SiteModal({
   }, [motion.present, displayedModal]);
   const content = displayedModal?.src ? (
     <>
-      <div
-        className="header"
-        id={titleId}
-        dangerouslySetInnerHTML={{ __html: displayedModal.title || "" }}
-      />
-      <div className="image content">
-        <img className="image" src={displayedModal.src} alt="" />
-      </div>
+      <ModalHeader id={titleId}>
+        <HtmlContent html={displayedModal.title || ""} />
+      </ModalHeader>
+      <ModalContent image>
+        <Image ui={false} src={displayedModal.src} alt="" />
+      </ModalContent>
     </>
   ) : (
     children
   );
   if (!motion.present)
     return (
-      <div {...props} className={className} aria-hidden="true">
+      <div
+        {...props}
+        className={`ui ${size} modal ${className}`}
+        aria-hidden="true"
+      >
         {children}
       </div>
     );
@@ -497,7 +513,7 @@ export function SiteModal({
       <div
         {...props}
         ref={element}
-        className={`${className} active ${motion.className}`}
+        className={`ui ${size} modal ${className} active ${motion.className}`}
         style={{ ...props.style, ...motion.style }}
         onAnimationEnd={motion.onAnimationEnd}
         role="dialog"
@@ -547,7 +563,7 @@ export function ModalImage({
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const widgets = useWidgets();
   return (
-    <a
+    <LinkedImage
       {...props}
       role="button"
       tabIndex={0}
@@ -570,13 +586,13 @@ export function ModalImage({
       }}
     >
       {children}
-    </a>
+    </LinkedImage>
   );
 }
 export function Avatar({
   src,
   ...props
-}: ImgHTMLAttributes<HTMLImageElement> & { "data-alt-src"?: string }) {
+}: React.ComponentProps<typeof SiteImage> & { "data-alt-src"?: string }) {
   const widgets = useWidgets();
   const [alternate, setAlternate] = useState(false);
   useEffect(() => setAlternate(Math.random() > 0.5), []);
@@ -595,63 +611,5 @@ export function Avatar({
         }
       }}
     />
-  );
-}
-
-export function Embed({
-  children,
-  className = "ui embed",
-  ...props
-}: HTMLAttributes<HTMLDivElement> & {
-  "data-url"?: string;
-  "data-placeholder"?: string;
-  "data-icon"?: string;
-  "data-alt"?: string;
-}) {
-  const [active, setActive] = useState(false);
-  const url = props["data-url"];
-  if (!url)
-    return (
-      <div {...props} className={className}>
-        {children}
-      </div>
-    );
-  return (
-    <div
-      {...props}
-      className={`${className}${active ? " active" : ""}`}
-      role={active ? undefined : "button"}
-      tabIndex={active ? undefined : 0}
-      aria-label={active ? undefined : "Open embedded content"}
-      onClick={() => setActive(true)}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          setActive(true);
-        }
-      }}
-    >
-      {props["data-icon"] !== "" && (
-        <i className={`${props["data-icon"] || "video play"} icon`} />
-      )}
-      {props["data-placeholder"] && (
-        <SiteImage
-          className="placeholder"
-          src={props["data-placeholder"]}
-          alt={props["data-alt"] || ""}
-        />
-      )}
-      {active && (
-        <div className="embed">
-          <iframe
-            src={url}
-            title="Embedded content"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            frameBorder="0"
-          />
-        </div>
-      )}
-    </div>
   );
 }

@@ -1,4 +1,22 @@
-import { Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import {
   MediaItem,
   ProjectItem,
@@ -63,27 +81,27 @@ export default function Page({ pageData }: PageDataProps) {
   function renderUpdate(entry: any = undefined): ReactNode {
     return (
       <>
-        <div className="event">
-          <div className="content">
+        <FeedEvent>
+          <FeedContent>
             {entry ? (
               <>
-                <div className="date">{entry.getDateString(lang, true)}</div>
+                <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
 
-                <div className="summary">
+                <FeedSummary>
                   <HtmlContent html={entry.text} />
-                </div>
+                </FeedSummary>
               </>
             ) : (
               <>
-                <div className="summary">
+                <FeedSummary>
                   {en
                     ? "No updates found in this year."
                     : "この年の更新内容はありません。"}
-                </div>
+                </FeedSummary>
               </>
             )}
-          </div>
-        </div>
+          </FeedContent>
+        </FeedEvent>
       </>
     );
   }
@@ -161,34 +179,32 @@ export default function Page({ pageData }: PageDataProps) {
     let entry: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-awards`)}>
-          <i className="trophy icon"></i>
+        <Header as="h3" id={attribute(`${y}-awards`)}>
+          <Icon name="trophy" />
           {en ? "Awards" : "受賞"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided feed">
+        </Header>
+        <Segment>
+          <Feed className="divided">
             {(() => {
               const children: ReactNode[] = [];
               for (entry of as) {
                 children.push(
                   <>
-                    <div className="event">
-                      <div className="content">
-                        <div className="date">
-                          {entry.getDateString(lang, true)}
-                        </div>
-                        <div className="summary">
+                    <FeedEvent>
+                      <FeedContent>
+                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
+                        <FeedSummary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </div>
-                      </div>
-                    </div>
+                        </FeedSummary>
+                      </FeedContent>
+                    </FeedEvent>
                   </>,
                 );
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -196,34 +212,32 @@ export default function Page({ pageData }: PageDataProps) {
     let entry: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-talks`)}>
-          <i className="talk icon"></i>
+        <Header as="h3" id={attribute(`${y}-talks`)}>
+          <Icon name="talk" />
           {en ? "Invited Talks" : "招待講演"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided feed">
+        </Header>
+        <Segment>
+          <Feed className="divided">
             {(() => {
               const children: ReactNode[] = [];
               for (entry of ts) {
                 children.push(
                   <>
-                    <div className="event">
-                      <div className="content">
-                        <div className="date">
-                          {entry.getDateString(lang, true)}
-                        </div>
-                        <div className="summary">
+                    <FeedEvent>
+                      <FeedContent>
+                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
+                        <FeedSummary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </div>
-                      </div>
-                    </div>
+                        </FeedSummary>
+                      </FeedContent>
+                    </FeedEvent>
                   </>,
                 );
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -235,37 +249,37 @@ export default function Page({ pageData }: PageDataProps) {
     let entry: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-lectures`)}>
-          <i className="graduation cap icon"></i>
+        <Header as="h3" id={attribute(`${y}-lectures`)}>
+          <Icon name="graduation cap" />
           {en ? "Lectures" : "講義"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided feed">
+        </Header>
+        <Segment>
+          <Feed className="divided">
             {(() => {
               const children: ReactNode[] = [];
               for (entry of ls) {
                 children.push(
                   <>
-                    <div className="event">
-                      <div className="content">
-                        <div className="date">
+                    <FeedEvent>
+                      <FeedContent>
+                        <FeedDate>
                           {entry.dateObjs
                             .filter((o) => f(o.date.getFullYear()))
                             .map((o) => o.getDateString(lang, true))
                             .join(", ")}
-                        </div>
-                        <div className="summary">
+                        </FeedDate>
+                        <FeedSummary>
                           <HtmlContent html={entry.getText(lang)} />
-                        </div>
-                      </div>
-                    </div>
+                        </FeedSummary>
+                      </FeedContent>
+                    </FeedEvent>
                   </>,
                 );
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -273,12 +287,12 @@ export default function Page({ pageData }: PageDataProps) {
     let p: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-projects`)}>
-          <i className="gift icon"></i>
+        <Header as="h3" id={attribute(`${y}-projects`)}>
+          <Icon name="gift" />
           {en ? "New Projects" : "開始したプロジェクト"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided items projects">
+        </Header>
+        <Segment>
+          <ItemGroup divided className="projects">
             {(() => {
               const children: ReactNode[] = [];
               for (p of prs) {
@@ -290,8 +304,8 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </ItemGroup>
+        </Segment>
       </>
     );
   }
@@ -299,12 +313,12 @@ export default function Page({ pageData }: PageDataProps) {
     let entry: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-media`)}>
-          <i className="broadcast tower icon"></i>
+        <Header as="h3" id={attribute(`${y}-media`)}>
+          <Icon className="broadcast tower" />
           {en ? "Media Coverage" : "メディア掲載"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided list media">
+        </Header>
+        <Segment>
+          <List divided className="media">
             {(() => {
               const children: ReactNode[] = [];
               for (entry of ms) {
@@ -316,8 +330,8 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </List>
+        </Segment>
       </>
     );
   }
@@ -328,12 +342,12 @@ export default function Page({ pageData }: PageDataProps) {
     let entry: any;
     return (
       <>
-        <h3 className="ui header" id={attribute(`${y}-publications`)}>
-          <i className="book icon"></i>
+        <Header as="h3" id={attribute(`${y}-publications`)}>
+          <Icon name="book" />
           {en ? "Publications" : "発表文献"}
-        </h3>
-        <div className="ui segment">
-          <div className="ui divided list">
+        </Header>
+        <Segment>
+          <List divided>
             {(() => {
               const children: ReactNode[] = [];
               for (entry of ps) {
@@ -345,39 +359,39 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </List>
+        </Segment>
       </>
     );
   }
   function renderTimelineMenu(): ReactNode {
     return (
       <>
-        <div className="ui divided list">
+        <List divided>
           {(() => {
             const children: ReactNode[] = [];
             children.push(
               <>
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{title}</div>
-                </a>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{title}</ListContent>
+                </ListItem>
               </>,
             );
             const oldestYear = en ? 2011 : 2010;
             for (var year = buildYear; year >= oldestYear; year--) {
               children.push(
                 <>
-                  <SiteLink className="item" href={href(`#${year}`)}>
-                    <i className="right triangle icon"></i>
-                    <div className="content">{year}</div>
-                  </SiteLink>
+                  <ListItem role="link" as={SiteLink} href={href(`#${year}`)}>
+                    <Icon name="triangle right" />
+                    <ListContent>{year}</ListContent>
+                  </ListItem>
                 </>,
               );
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
@@ -389,10 +403,10 @@ export default function Page({ pageData }: PageDataProps) {
           children.push(
             <>
               <section>
-                <h1 className="ui header">
-                  <i className="history icon"></i>
-                  <div className="content">{title}</div>
-                </h1>
+                <Header as="h1">
+                  <Icon name="history" />
+                  <HeaderContent>{title}</HeaderContent>
+                </Header>
                 <p>
                   {en
                     ? "This page shows updates to the website as well as "
@@ -404,7 +418,7 @@ export default function Page({ pageData }: PageDataProps) {
                         : href(`${rootPath}ja/publications`)
                     }
                   >
-                    <i className="book icon"></i>
+                    <Icon name="book" />
                     {en ? "publication records" : "発表文献"}
                   </SiteLink>
                   {en
@@ -420,13 +434,13 @@ export default function Page({ pageData }: PageDataProps) {
             const y = year;
             children.push(
               <>
-                <div className="ui hidden divider"></div>
+                <Divider hidden />
               </>,
             );
             children.push(
               <>
                 <section id={attribute(y)}>
-                  <h2 className="ui header">{en ? y : `${y}年`}</h2>
+                  <Header as="h2">{en ? y : `${y}年`}</Header>
 
                   {en ? (
                     <>
@@ -450,13 +464,13 @@ export default function Page({ pageData }: PageDataProps) {
                     </>
                   )}
 
-                  <h3 className="ui header" id={attribute(`${y}-updates`)}>
-                    <i className="announcement icon"></i>
+                  <Header as="h3" id={attribute(`${y}-updates`)}>
+                    <Icon name="announcement" />
                     {en ? "Updates" : "更新情報"}
-                  </h3>
+                  </Header>
 
-                  <div className="ui segment">
-                    <div className="ui divided feed">
+                  <Segment>
+                    <Feed className="divided">
                       {(() => {
                         const children: ReactNode[] = [];
                         var i_ = i;
@@ -474,8 +488,8 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                         return keyed(children);
                       })()}
-                    </div>
-                  </div>
+                    </Feed>
+                  </Segment>
 
                   {renderAll(function (year) {
                     return y === year;
@@ -487,15 +501,15 @@ export default function Page({ pageData }: PageDataProps) {
           const y = --year;
           children.push(
             <>
-              <div className="ui hidden divider"></div>
+              <Divider hidden />
             </>,
           );
           children.push(
             <>
               <section id={attribute(y)}>
-                <h2 className="ui header">
+                <Header as="h2">
                   {en ? `${y} and before` : `${y}年とそれ以前`}
-                </h2>
+                </Header>
                 {renderAll(function (year) {
                   return y >= year;
                 }, y)}
@@ -513,17 +527,24 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden mobile-only button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden mobile-only"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
               {renderTimelineMenu()}
-            </Popup>
+            </SitePopup>
           </>
         }
       >

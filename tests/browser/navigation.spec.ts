@@ -658,12 +658,17 @@ test("modal dismissal restores focus and embeds activate only on demand", async 
   await expect(page.locator(".site-modal-dimmer")).toHaveCount(0);
   await page.evaluate(() => (window as any).next.router.push("/visionsketch/"));
   await waitForWidgets(page);
-  const embed = page.locator(".ui.embed[data-url]").first();
+  const embed = page
+    .locator(".ui.embed")
+    .filter({ has: page.locator("img.placeholder") })
+    .first();
   await expect(embed.locator("iframe")).toHaveCount(0);
-  await embed.click();
+  await expect(embed.locator("img")).toHaveAttribute("data-original-src", /.+/);
+  await embed.focus();
+  await page.keyboard.press("Enter");
   await expect(embed.locator("iframe")).toHaveAttribute(
     "src",
-    (await embed.getAttribute("data-url"))!,
+    /gi2014-kato-visionsketch-slides.pdf/,
   );
 });
 

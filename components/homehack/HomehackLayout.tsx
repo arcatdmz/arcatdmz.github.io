@@ -1,9 +1,11 @@
+import { Icon, Label, Menu, MenuItem } from "react-fomantic-ui";
+
 import type { ReactNode } from "react";
 import { hydratePageData, type PageDataProps } from "@/site/page-data";
 import { ProjectHeader } from "@/site/components/ContentComponents";
 import { SiteLayout } from "@/site/components/SiteLayout";
 import { SiteLink } from "@/site/components/SiteLink";
-import { classNames, href } from "@/site/rendering";
+import { href } from "@/site/rendering";
 
 const projects = [
   {
@@ -44,30 +46,29 @@ export function HomehackLayout({
   return (
     <SiteLayout context={context}>
       <ProjectHeader project="homehack" />
-      <div className="ui secondary pointing menu">
-        <SiteLink
-          className={classNames("item", !active ? "active" : undefined)}
+      <Menu pointing secondary>
+        <MenuItem
+          as={SiteLink}
+          active={!active}
           href={href(`${basePath}homehack/`)}
         >
           {en ? "Overview" : "概要"}
-        </SiteLink>
+        </MenuItem>
         {projects.map((project) => (
-          <SiteLink
+          <MenuItem
+            as={SiteLink}
             key={project.slug}
-            className={classNames(
-              "item",
-              active === project.slug ? "active" : undefined,
-            )}
+            active={active === project.slug}
             href={href(`${basePath}homehack/${project.slug}/`)}
           >
             {project[lang]}
-            <div className="ui horizontal label">
-              <i className="calendar icon"></i>
+            <Label horizontal>
+              <Icon name="calendar" />
               {project.year}
-            </div>
-          </SiteLink>
+            </Label>
+          </MenuItem>
         ))}
-      </div>
+      </Menu>
       {children}
     </SiteLayout>
   );

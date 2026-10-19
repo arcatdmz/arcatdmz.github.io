@@ -1,19 +1,20 @@
+import { Divider, Header, Icon } from "react-fomantic-ui";
+
 // Restored from the original 2015 PHP lecture; edit this JSX directly.
 import { SiteLink } from "@/site/components/SiteLink";
-import { SiteImage } from "@/site/components/SiteImage";
-import { EmbedYoutube } from "@/site/components/ContentComponents";
+
 import { CodePlayground } from "./CodePlayground";
 export function Chapter1({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"intro"} className={"ui header"}>
+        <Header as="h2" id={"intro"}>
           {"はじめに"}
-        </h2>
+        </Header>
         <p>
           {"講義に使うスライドは "}
           <SiteLink href={"/publications/151209-ce-slides.pdf"}>
-            <i className={"file pdf icon"}></i>
+            <Icon name="file pdf" />
             {" 151209-ce-slides.pdf"}
           </SiteLink>
           {" です。この講義の目標は次の3点です。"}
@@ -24,11 +25,11 @@ export function Chapter1({ active }: { active: boolean }) {
           <li>{"プログラミングでプログラミング環境を作ってみる"}</li>
         </ul>
       </section>
-      <hr className={"ui section divider"} />
+      <Divider section as="hr" />
       <section>
-        <h2 id={"programming"} className={"ui header"}>
+        <Header as="h2" id={"programming"}>
           {"プログラミングって何だっけ？"}
-        </h2>
+        </Header>
         <p>{"ブラウザのコンソールに入力してみよう:"}</p>
         <pre className="talk-code">
           <code>{"1+1;"}</code>
@@ -45,7 +46,7 @@ export function Chapter1({ active }: { active: boolean }) {
             }
           </code>
         </pre>
-        <hr className={"ui section divider"} />
+        <Divider section as="hr" />
         <p className={"talk-note"}>
           {"※プログラミング環境の歴史について詳しく知りたい場合は"}
           <SiteLink
@@ -70,9 +71,9 @@ export function Chapter2({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"static-image"} className={"ui header"}>
+        <Header as="h2" id={"static-image"}>
           {"静止画を作る"}
-        </h2>
+        </Header>
         <CodePlayground
           active={active}
           drawing
@@ -97,11 +98,11 @@ export function Chapter2({ active }: { active: boolean }) {
           </li>
         </ul>
       </section>
-      <hr className={"ui section divider"} />
+      <Divider section as="hr" />
       <section>
-        <h2 id={"video"} className={"ui header"}>
+        <Header as="h2" id={"video"}>
           {"動画を作る"}
-        </h2>
+        </Header>
         <ul>
           <li>
             <SiteLink href={"https://textalive.jp/"}>{"TextAlive"}</SiteLink>
@@ -112,11 +113,11 @@ export function Chapter2({ active }: { active: boolean }) {
           </li>
         </ul>
       </section>
-      <hr className={"ui section divider"} />
+      <Divider section as="hr" />
       <section>
-        <h2 id={"physical-objects"} className={"ui header"}>
+        <Header as="h2" id={"physical-objects"}>
           {"実物体を作る"}
-        </h2>
+        </Header>
         <ul>
           <li>
             <SiteLink href={"http://www.openscad.org/"}>{"OpenSCAD"}</SiteLink>
@@ -142,9 +143,9 @@ export function Chapter3({ active }: { active: boolean }) {
   return (
     <>
       <section>
-        <h2 id={"intro"} className={"ui header"}>
+        <Header as="h2" id={"intro"}>
           {"プログラミング環境を作る"}
-        </h2>
+        </Header>
         <CodePlayground active={active} storageKey="as-a-code-ide" />
         <ul>
           <li>

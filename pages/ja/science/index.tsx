@@ -1,4 +1,27 @@
-import { Embed, Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  Label,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
@@ -56,20 +79,20 @@ export default function Page({ pageData }: PageDataProps) {
   function renderScienceFuture(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             {"科学と未来"}
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2018-2019"}
-            </span>
-          </div>
-        </h2>
+            </Label>
+          </HeaderContent>
+        </Header>
         <p>{"科学技術が切り拓く未来についての論考などを書いています。"}</p>
-        <div className="ui basic segment" id={"canna"}>
-          <h3 className="ui header">
-            <div className="content">{"カンナたちの研究"}</div>
-          </h3>
+        <Segment basic id={"canna"}>
+          <Header as="h3">
+            <HeaderContent>{"カンナたちの研究"}</HeaderContent>
+          </Header>
           <p>
             {
               "情報処理学会学会誌「情報処理」2020年1月号の特集「『AIの遺電子』に学ぶ未来構想術」に短編小説「カンナたちの研究」を寄稿しました。"
@@ -90,16 +113,16 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
           </blockquote>
-          <div className="ui segment">
-            <div className="ui divided list">
+          <Segment>
+            <List divided>
               <Publication entry={publicationsTable["ipsj-v61n1-kato-canna"]} />
-            </div>
-          </div>
-        </div>
-        <div className="ui basic segment" id={"cs-in-100years"}>
-          <h3 className="ui header">
-            <div className="content">{"100年後のコンピュータ科学"}</div>
-          </h3>
+            </List>
+          </Segment>
+        </Segment>
+        <Segment basic id={"cs-in-100years"}>
+          <Header as="h3">
+            <HeaderContent>{"100年後のコンピュータ科学"}</HeaderContent>
+          </Header>
           <p>
             {
               "情報処理学会学会誌「情報処理」2019年1月号のコーナー「先生、質問です！」に回答を寄稿しました。本号の質問は以下のとおりです。"
@@ -120,36 +143,38 @@ export default function Page({ pageData }: PageDataProps) {
               "自分の回答は「仮想」をキーワードに未来を読み解きました。詳細は以下の補足ブログ記事をご参照ください。"
             }
           </p>
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={
               "https://blog.junkato.jp/ja/posts/2018-12-22-computer-science-in-the-future/"
             }
           >
             {"補足記事"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderNonAcademic(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             {"非アカデミア駆動型研究"}
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2019"}
-            </span>
-          </div>
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+            </Label>
+          </HeaderContent>
+        </Header>
+        <Segment basic>
+          <Grid stackable columns={2}>
+            <GridColumn>
               <p>
                 {"2019年5月27日、Japan Open Science Summitのパネルセッション「"}
                 <a
@@ -166,18 +191,18 @@ export default function Page({ pageData }: PageDataProps) {
                   "私がこれまでに関わってきた非アカデミア駆動型研究を以下の2類型として紹介しました。"
                 }
               </p>
-              <ul className="ui list">
-                <li className="item">
+              <List as="ul">
+                <ListItem as="li">
                   {"在野の人々による自発的活動（"}
                   <a href={"#tsemi"}>{"立花隆ゼミ"}</a>
                   {"）"}
-                </li>
-                <li className="item">
+                </ListItem>
+                <ListItem as="li">
                   {"企業における放課後R&D（"}
                   <a href={"https://research.archinc.jp/"}>{"Arch Research"}</a>
                   {"）"}
-                </li>
-              </ul>
+                </ListItem>
+              </List>
               <p>
                 {
                   "なお、この内容に関連する私自身の発表としては、2016年「第 2 回つくば横の会」で登壇した際の「分野/職種/国境を超える科学技術のために」があります。"
@@ -194,40 +219,39 @@ export default function Page({ pageData }: PageDataProps) {
                 </a>
                 {"をご覧ください。"}
               </p>
-            </div>
-            <div className="column">
-              <Embed
-                className="ui embed"
-                data-url={publicationsTable["joss2019-kato"].entryTags.slides}
-                data-placeholder={`${rootPath}science/joss2019-kato.png`}
-                data-icon={"video play outline"}
-              ></Embed>
-            </div>
-          </div>
-          <div className="ui segment">
-            <div className="ui divided list">
+            </GridColumn>
+            <GridColumn>
+              <DeferredEmbed
+                url={publicationsTable["joss2019-kato"].entryTags.slides}
+                placeholder={`${rootPath}science/joss2019-kato.png`}
+                icon={"video play outline"}
+              ></DeferredEmbed>
+            </GridColumn>
+          </Grid>
+          <Segment>
+            <List divided>
               <Publication entry={publicationsTable["joss2019-kato"]} />
-            </div>
-          </div>
-        </div>
+            </List>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderReproducibility(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             <abbr title={"Human-Computer Interaction"}>{"HCI"}</abbr>
             {"と研究再現性問題"}
 
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2018"}
-            </span>
-          </div>
-        </h2>
-        <div className="ui basic segment">
+            </Label>
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             <a
               href={
@@ -349,37 +373,39 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
           </blockquote>
-          <div className="ui segment">
-            <div className="ui divided list">
+          <Segment>
+            <List divided>
               <Publication
                 entry={publicationsTable["hi20-kato-reproducibility"]}
               />
-            </div>
-          </div>
-        </div>
-        <div className="ui basic right aligned segment">
-          <SiteLink
-            className="ui primary button"
+            </List>
+          </Segment>
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as={SiteLink}
             href={"/publications/hi20-kato-reproducibility.pdf"}
           >
             {"論文PDF"}
-            <i className="chevron circle right icon"></i>
-          </SiteLink>
-        </div>
-        <div className="ui basic segment">
-          <h3 className="ui header">
-            <div className="content">{"特集号掲載論文"}</div>
-          </h3>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
+        <Segment basic>
+          <Header as="h3">
+            <HeaderContent>{"特集号掲載論文"}</HeaderContent>
+          </Header>
           <p>
             {
               "本特集には他に以下の記事が掲載されており、すべてWeb上で閲覧できます。"
             }
           </p>
-          <table className="ui striped small table">
-            <tbody>
-              <tr>
-                <td className="four wide">{"松田 昌史"}</td>
-                <td className="twelve wide">
+          <Table striped size="small">
+            <TableBody>
+              <TableRow>
+                <TableCell width={4}>{"松田 昌史"}</TableCell>
+                <TableCell width={12}>
                   <a
                     href={
                       "https://www.dropbox.com/s/0sme5as2cqupiyq/Matsuda2018HI.pdf?dl=0"
@@ -387,11 +413,11 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"特集によせて: 心理学界を他山の石とする"}
                   </a>
-                </td>
-              </tr>
-              <tr>
-                <td>{"三浦 麻子"}</td>
-                <td>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>{"三浦 麻子"}</TableCell>
+                <TableCell>
                   <a
                     href={
                       "https://www.dropbox.com/s/dzliec1cr9usyds/Miura2018HI.pdf?dl=0"
@@ -399,64 +425,64 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"人を対象とした行動学研究における再現性問題"}
                   </a>
-                </td>
-              </tr>
-              <tr>
-                <td>{"樋口 匡貴・藤島 喜嗣"}</td>
-                <td>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>{"樋口 匡貴・藤島 喜嗣"}</TableCell>
+                <TableCell>
                   <a href={"https://osf.io/zua7d/"}>
                     {"アスタリスク～真実の意思を求め(すぎ)て"}
                   </a>
-                </td>
-              </tr>
-              <tr>
-                <td>{"山田 祐樹"}</td>
-                <td>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>{"山田 祐樹"}</TableCell>
+                <TableCell>
                   <a href={"https://osf.io/w9u6d"}>
                     {
                       "再現可能性問題をハックする―是非に及ばぬ研究コミュニティからの包囲網―"
                     }
                   </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="ui basic segment">
-          <h3 className="ui header">
-            <div className="content">{"著者Webページ"}</div>
-          </h3>
-          <div className="ui divided small list">
-            <div className="item">
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Segment>
+        <Segment basic>
+          <Header as="h3">
+            <HeaderContent>{"著者Webページ"}</HeaderContent>
+          </Header>
+          <List divided size="small">
+            <ListItem>
               <a href={"http://team1mile.com/asarinlab/2018/02/26/his2018/"}>
                 {"論文が公刊されました – 関西学院大学文学部社会心理学研究室"}
               </a>
               {" (三浦 麻子)"}
-            </div>
-            <div className="item">
+            </ListItem>
+            <ListItem>
               <a href={"https://note.mu/momentumyy/n/n3b1ee3bcf81a"}>
                 {"心理学の再現可能性問題は心理学的問題"}
               </a>
               {" (山田 祐樹)"}
-            </div>
-          </div>
-        </div>
+            </ListItem>
+          </List>
+        </Segment>
       </>
     );
   }
   function renderMitnse(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             {"MIT原子力理工学部による原子力発電の解説（翻訳）"}
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2011"}
-            </span>
-          </div>
-        </h2>
-        <div className="ui basic segment">
+            </Label>
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {
               "2011年3月11日の東北地方太平洋沖地震以降、東日本大震災の一部として福島第一原子力発電所事故が起きました。原子力発電の仕組みをある程度知っておかないと解釈に悩むニュースが流れ、分かりやすく基礎知識を得られる情報源に対する需要が高まりました。"
@@ -502,36 +528,38 @@ export default function Page({ pageData }: PageDataProps) {
               "」は、下記の立花隆ゼミで目指していた「Q&Aサイトとリンク集」となっています。Web技術の進歩により共同作業が容易になったことを実感した出来事でした。"
             }
           </p>
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"https://digitalmuseum.jp/sci/mitnse-ja/"}
           >
             {"翻訳記事の一覧"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderTsemi(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             {"立花隆ゼミ"}
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2005-2007"}
-            </span>
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            </Label>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2021"}
-            </span>
-          </div>
-        </h2>
-        <div className="ui basic segment">
+            </Label>
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {
               "ジャーナリストの立花隆氏が開講していた東京大学教養学部 全学自由研究ゼミナール「先端研究現場へ行こう」で幹事などを務めました。このゼミの目的は、"
@@ -580,28 +608,30 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"しました。"}
           </p>
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"https://sci.digitalmuseum.jp"}
           >
             {"SCI(サイ) アーカイブ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-          <a className="ui primary button" href={"https://tachibana.rip"}>
+            <Icon name="chevron circle right" />
+          </Button>
+          <Button role="link" primary as="a" href={"https://tachibana.rip"}>
             {"立花隆公式サイト"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
-        <div className="ui basic segment">
-          <h3 className="ui header" id={"tsemi-cms"}>
-            <div className="content">
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
+        <Segment basic>
+          <Header as="h3" id={"tsemi-cms"}>
+            <HeaderContent>
               {"コンテンツ管理システム（"}
               <abbr title={"Contents Management System"}>{"CMS"}</abbr>
               {"）開発"}
-            </div>
-          </h3>
+            </HeaderContent>
+          </Header>
           <p>
             {
               "必ずしもコンピュータが得意でないメンバーもいるなかでWebメディアを作るという挑戦は、WordPressなどのコンテンツ管理システム（"
@@ -624,16 +654,16 @@ export default function Page({ pageData }: PageDataProps) {
               "（記事のHTML書き起こしとWeb掲載を行った人）を全ページに記名することとし、そのための個人認証の仕組みも実装しました。この個人認証のしくみは、NHKスペシャルなどと連動した掲示板コンテンツでも利用されました。"
             }
           </p>
-          <div className="ui segment">
-            <div className="ui divided items">
+          <Segment>
+            <ItemGroup divided>
               <ProjectItem p={chippie} />
-            </div>
-          </div>
-        </div>
-        <div className="ui basic segment">
-          <h3 className="ui header" id={"tsemi-projects"}>
-            <div className="content">{"企画立案・冊子刊行"}</div>
-          </h3>
+            </ItemGroup>
+          </Segment>
+        </Segment>
+        <Segment basic>
+          <Header as="h3" id={"tsemi-projects"}>
+            <HeaderContent>{"企画立案・冊子刊行"}</HeaderContent>
+          </Header>
           <p>
             {
               "科学技術に関する最先端のニュースを分かりやすく伝えることは、容易ではありません。そこで、SF作品のビジュアルが持つ魅力を借りながら科学技術について論じられないかと考え、「"
@@ -645,39 +675,39 @@ export default function Page({ pageData }: PageDataProps) {
               "」を立案しました。また、学園祭などでイベントを行うにあたり、現地での頒布物として、ゼミのそれまでの活動の一部をまとめた冊子を刊行しました。"
             }
           </p>
-          <div className="ui stackable three columns grid">
-            <div className="column">
-              <a
-                className="ui fluid image"
+          <Grid stackable columns={3}>
+            <GridColumn>
+              <LinkedImage
+                fluid
                 href={"https://sci.digitalmuseum.jp/project/gis/"}
               >
                 <SiteImage
                   src={`${rootPath}science/science-innocence.jpg`}
                   alt={"イノセンスに見る最先端科学"}
                 />
-              </a>
+              </LinkedImage>
               <div className="caption">{"イノセンスに見る最先端科学"}</div>
-            </div>
-            <div className="column">
-              <a className="ui fluid image" href={"https://bit.ly/scinote-dl"}>
+            </GridColumn>
+            <GridColumn>
+              <LinkedImage fluid href={"https://bit.ly/scinote-dl"}>
                 <SiteImage
                   src={`${rootPath}science/060526-scinote.png`}
                   alt={"SCInote"}
                 />
-              </a>
+              </LinkedImage>
               <div className="caption">{"SCInote [PDF]"}</div>
-            </div>
-            <div className="column">
-              <a className="ui fluid image" href={"https://bit.ly/scinote2-dl"}>
+            </GridColumn>
+            <GridColumn>
+              <LinkedImage fluid href={"https://bit.ly/scinote2-dl"}>
                 <SiteImage
                   src={`${rootPath}science/070518-scinote2.png`}
                   alt={"SCInote2"}
                 />
-              </a>
+              </LinkedImage>
               <div className="caption">{"SCInote2 [PDF]"}</div>
-            </div>
-          </div>
-        </div>
+            </GridColumn>
+          </Grid>
+        </Segment>
       </>
     );
   }
@@ -687,52 +717,59 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#science-future"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"科学と未来"}</div>
-                </a>
-                <a className="item" href={"#non-academic"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"非アカデミア駆動型研究"}</div>
-                </a>
-                <a className="item" href={"#reproducibility"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"HCIと研究再現性問題"}</div>
-                </a>
-                <a className="item" href={"#mitnse"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"原子力発電の解説翻訳"}</div>
-                </a>
-                <a className="item" href={"#tsemi"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"立花隆ゼミ"}</div>
-                </a>
-              </div>
-            </Popup>
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#science-future"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"科学と未来"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#non-academic"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"非アカデミア駆動型研究"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#reproducibility"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"HCIと研究再現性問題"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#mitnse"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"原子力発電の解説翻訳"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#tsemi"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"立花隆ゼミ"}</ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <ProjectHeader project={"science"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <HtmlContent html={p.getDescription(lang)} />
             <p>
               {"また、ブログでも関連する話題を扱ってきました。記事は "}
@@ -741,17 +778,17 @@ export default function Page({ pageData }: PageDataProps) {
               </a>
               {" タグで辿ることができます。"}
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"science-future"}>{renderScienceFuture()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"non-academic"}>{renderNonAcademic()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"reproducibility"}>{renderReproducibility()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"mitnse"}>{renderMitnse()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"tsemi"}>{renderTsemi()}</section>
       </SiteLayout>
     </>

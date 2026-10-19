@@ -1,5 +1,28 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
-import { Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  Item,
+  ItemContent,
+  ItemExtra,
+  ItemGroup,
+  ItemHeader,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { SiteLink } from "@/site/components/SiteLink";
 import { Fragment, type ReactNode } from "react";
@@ -60,58 +83,58 @@ export default function Page({ pageData }: PageDataProps) {
   function renderFurtherReadings(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="gift icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="gift" />
+          <HeaderContent>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
+          <Segment>
+            <ItemGroup divided className="projects">
               <ProjectItem p={projectsTable["anime-sig"]} />
               <ProjectItem p={projectsTable["griffith"]} />
-            </div>
-          </div>
-        </div>
-        <div className="ui basic segment">
+            </ItemGroup>
+          </Segment>
+        </Segment>
+        <Segment basic>
           <p>
             {en
               ? "I have also organized and hosted related events."
               : "他にも関連イベントを主催・開催してきました。"}
           </p>
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          <Segment>
+            <ItemGroup divided className="projects">
               {misc.miscellaneous["past-anime-events"].map((e, itemIndex) => (
                 <Fragment key={itemIndex}>
-                  <SiteLink className="item" href={href(e.url)}>
-                    <div className="content">
-                      <div className="header">{e.title}</div>
-                      <div className="extra">
+                  <Item as={SiteLink} href={href(e.url)}>
+                    <ItemContent>
+                      <ItemHeader>{e.title}</ItemHeader>
+                      <ItemExtra>
                         <span className="right floated">
-                          <i className="calendar icon"></i>
+                          <Icon name="calendar" />
                           {en ? e.dates : (e.ja && e.ja.dates) || e.dates}
                         </span>
-                      </div>
-                    </div>
-                  </SiteLink>
+                      </ItemExtra>
+                    </ItemContent>
+                  </Item>
                 </Fragment>
               ))}
-            </div>
-          </div>
-        </div>
+            </ItemGroup>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderPublications(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="book icon"></i>
-          <div className="content">{en ? "Publications" : "発表文献"}</div>
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided list">
+        <Header as="h2">
+          <Icon name="book" />
+          <HeaderContent>{en ? "Publications" : "発表文献"}</HeaderContent>
+        </Header>
+        <Segment basic>
+          <List divided>
             {(() => {
               const children: ReactNode[] = [];
               for (const entry of publications) {
@@ -125,15 +148,15 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-          <div className="ui divider"></div>
+          </List>
+          <Divider />
           <p>
             {en
               ? "The following is a full list of past publications (including non-archival ones)."
               : "過去の発表文献のうち内容面で本プロジェクトに関係するものは以下のとおりです。"}
           </p>
-          <div className="ui divider"></div>
-          <div className="ui divided list">
+          <Divider />
+          <List divided>
             {(() => {
               const children: ReactNode[] = [];
               for (const pubId of [
@@ -162,8 +185,8 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </List>
+        </Segment>
       </>
     );
   }
@@ -181,26 +204,26 @@ export default function Page({ pageData }: PageDataProps) {
           );
           children.push(
             <>
-              <h2 className="ui header">
+              <Header as="h2">
                 {" "}
-                <i className="broadcast tower icon"></i>
-                <div className="content">
+                <Icon className="broadcast tower" />
+                <HeaderContent>
                   {en ? "Media coverage" : "メディア掲載"}
-                </div>
-              </h2>
+                </HeaderContent>
+              </Header>
             </>,
           );
           children.push(
             <>
-              <div className="ui basic segment">
-                <div className="ui divided relaxed list media">
+              <Segment basic>
+                <List divided relaxed className="media">
                   {filteredMediaList.map((entry, itemIndex) => (
                     <Fragment key={itemIndex}>
                       <MediaItem m={entry} withLabel={false} />
                     </Fragment>
                   ))}
-                </div>
-              </div>
+                </List>
+              </Segment>
             </>,
           );
           return keyed(children);
@@ -211,16 +234,16 @@ export default function Page({ pageData }: PageDataProps) {
   function renderRevision(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
+        <Header as="h2">
+          <Icon name="announcement" />
           {en ? "Revision history" : "更新履歴"}
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided feed">
-            <div className="event">
-              <div className="content">
-                <div className="date">{en ? "3/29/2026" : "2026/3/29"}</div>
-                <div className="summary">
+        </Header>
+        <Segment basic>
+          <Feed className="divided">
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{en ? "3/29/2026" : "2026/3/29"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Add publications funded by the project (e.g., "
                     : "プロジェクト関連の発表文献を追加（例: "}
@@ -234,39 +257,39 @@ export default function Page({ pageData }: PageDataProps) {
                     {en ? "a talk" : "UndoneCS '26 講演スライド"}
                   </SiteLink>
                   {en ? " at UndoneCS '26)." : "）"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{en ? "12/30/2025" : "2025/12/30"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{en ? "12/30/2025" : "2025/12/30"}</FeedDate>
+                <FeedSummary>
                   {en ? "Update Animare visuals." : "Animareのビジュアルを更新"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{en ? "12/19/2025" : "2025/12/19"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{en ? "12/19/2025" : "2025/12/19"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Add link to the project website."
                     : "公式ページへのリンクを追加"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{en ? "9/14/2025" : "2025/9/14"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{en ? "9/14/2025" : "2025/9/14"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Upload the initial revision."
                     : "プロジェクトページを仮公開"}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -281,52 +304,57 @@ export default function Page({ pageData }: PageDataProps) {
         }
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden mobile-only button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden mobile-only"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#abstract"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{en ? "Abstract" : "概要"}</div>
-                </a>
-                <a className="item" href={"#further-readings"}>
-                  <i className="gift icon"></i>
-                  <div className="content">
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#abstract"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#further-readings"}>
+                  <Icon name="gift" />
+                  <ListContent>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </div>
-                </a>
-                <a className="item" href={"#publications"}>
-                  <i className="book icon"></i>
-                  <div className="content">
-                    {en ? "Publications" : "発表文献"}
-                  </div>
-                </a>
-                <a className="item" href={"#media"}>
-                  <i className="broadcast tower icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#publications"}>
+                  <Icon name="book" />
+                  <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#media"}>
+                  <Icon className="broadcast tower" />
+                  <ListContent>
                     {en ? "Media coverage" : "メディア掲載"}
-                  </div>
-                </a>
-              </div>
-            </Popup>
+                  </ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Summary" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Summary" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <p>
               <HtmlContent html={p.getDescription(lang)} />
             </p>
@@ -339,11 +367,12 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               />
             </p>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             <Grid stackable columns={2}>
               <GridColumn>
                 <SiteImage
-                  className="ui fluid image"
+                  ui
+                  fluid
                   src={`${basePath}animare/animare-workflow.jpg`}
                 />
                 <p className="caption">
@@ -354,7 +383,8 @@ export default function Page({ pageData }: PageDataProps) {
               </GridColumn>
               <GridColumn>
                 <SiteImage
-                  className="ui fluid image"
+                  ui
+                  fluid
                   src={`${rootPath}images/panels/${
                     en ? "animare" : "animare-ja"
                   }.png`}
@@ -366,24 +396,27 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </GridColumn>
             </Grid>
-          </div>
-          <div className="ui basic center aligned segment">
-            <a
-              className="ui primary huge button"
+          </Segment>
+          <Segment basic textAlign="center">
+            <Button
+              role="link"
+              primary
+              size="huge"
+              as="a"
               href={"https://anime.pj.aist.go.jp"}
             >
               {en ? "CRONOS project website" : "CRONOS プロジェクトページ"}
-              <i className="chevron circle right icon"></i>
-            </a>
-          </div>
+              <Icon name="chevron circle right" />
+            </Button>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"further-readings"}>{renderFurtherReadings()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"publications"}>{renderPublications()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"media"}>{renderMedia()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"revision"}>{renderRevision()}</section>
       </SiteLayout>
     </>

@@ -1,5 +1,16 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
-import { Embed } from "@/site/components/SiteWidgets";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -53,13 +64,13 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Abstract" : "概要"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
               <p>
                 <SiteImage
-                  className="ui image"
+                  ui
                   src={"/deployground/vlhcc2018-kato-deployground-fig1.png"}
                 />
               </p>
@@ -100,77 +111,74 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          {en ? "Presentation materials" : "発表内容"}
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Demo Video" : "デモ動画"}
-              </h3>
+              </Header>
               <EmbedYoutube src={"//www.youtube.com/embed/dE6mCZVWIms"} />
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <a href={"//www.youtube.com/watch?v=dE6mCZVWIms"}>
-                      <i className="youtube icon"></i>
+                      <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Slides" : "発表スライド"}
-              </h3>
-              <Embed
-                className="ui embed"
-                data-url={slideUrl}
-                data-placeholder={slideImagePath}
-                data-icon={"video play outline"}
-              ></Embed>
+              </Header>
+              <DeferredEmbed
+                url={slideUrl}
+                placeholder={slideImagePath}
+                icon={"video play outline"}
+              ></DeferredEmbed>
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <SiteLink href={href(slideUrl)}>
-                      <i className="download icon"></i>
+                      <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
   function renderRelatedWork(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{"Related Work"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{"Related Work"}</Header>
+        <Segment basic>
           <p>
             {
               "Due to the page limit, we needed to omit some interesting prior work from the Related Work section in the paper. The following text provides a more complete introduction to the related work."
             }
           </p>
-        </div>
-        <h3 className="ui header">{"A. Coding Tutorials on the Web"}</h3>
-        <div className="ui basic segment">
+        </Segment>
+        <Header as="h3">{"A. Coding Tutorials on the Web"}</Header>
+        <Segment basic>
           <p>
             {"In the era when "}
             <a
@@ -251,30 +259,21 @@ export default function Page({ pageData }: PageDataProps) {
               "] and motivate novice programmers through the gamification of learning. These are designed to enable learners to learn the basics of programming but are not directly connected to the development of actual applications. Other web-based interactive tutorials provide code editors with which programmers can run and edit example code. In terms of the implementation, they can be roughly divided into three categories."
             }
           </p>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <Grid stackable columns={3}>
             <GridColumn>
               <p>
-                <SiteImage
-                  className="ui fluid image"
-                  src={"/deployground/fig-1.jpg"}
-                />
+                <SiteImage ui fluid src={"/deployground/fig-1.jpg"} />
               </p>
             </GridColumn>
             <GridColumn>
               <p>
-                <SiteImage
-                  className="ui fluid image"
-                  src={"/deployground/fig-2.jpg"}
-                />
+                <SiteImage ui fluid src={"/deployground/fig-2.jpg"} />
               </p>
             </GridColumn>
             <GridColumn>
               <p>
-                <SiteImage
-                  className="ui fluid image"
-                  src={"/deployground/fig-3.jpg"}
-                />
+                <SiteImage ui fluid src={"/deployground/fig-3.jpg"} />
               </p>
             </GridColumn>
           </Grid>
@@ -284,7 +283,7 @@ export default function Page({ pageData }: PageDataProps) {
               " Three implementation-based categories of interactive coding tutorials"
             }
           </p>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <p>
             {
               "The first category (Figure (1)) is for learning client-side web technologies such as HTML/JavaScript/CSS and utilizes the JavaScript eval() function and/or HTML5 sandboxed inline frames (Iframe). For instance, "
@@ -320,9 +319,9 @@ export default function Page({ pageData }: PageDataProps) {
               "Our work and many live programming environments on the web (introduced later in detail) fall in the third category (Figure (3)), in which the user code gets executed in an interpreter. The interpreter is implemented in JavaScript and runs on a web browser. This approach is slightly slower than the Iframe method because of the interpreter overhead but significantly faster than the VM-based method because everything runs on the client computer and there is no network or VM overhead. Because the user code is always executed under the supervision of the host interpreter, malicious code can be detected in a practical manner, and it is much safer than the eval() and Iframe method. The execution is often more controllable than that in the VM method because there is no black box in the code execution process. Our work takes this approach and implements a pseudo-runtime environment that emulates the behavior of a server machine or a microcontroller with a thin interpreter layer and wrapped APIs of a fixed set of libraries."
             }
           </p>
-        </div>
-        <h3 className="ui header">{"B. Executable Documents"}</h3>
-        <div className="ui basic segment">
+        </Segment>
+        <Header as="h3">{"B. Executable Documents"}</Header>
+        <Segment basic>
           <p>
             {
               "The usability of API documentation has been extensively studied ["
@@ -386,9 +385,9 @@ export default function Page({ pageData }: PageDataProps) {
               "] share the philosophy with us, which is about making the development process more visible and sharable as well as the implementation of creating a meta-browser layer within a web browser. While these works provide both runtime and development environments and the applications need to reside within the environments, our framework is designed for tutorials and emulates existing runtime environments so that the applications can run out of the framework."
             }
           </p>
-        </div>
-        <h3 className="ui header">{"C. Live Programming on the Web"}</h3>
-        <div className="ui basic segment">
+        </Segment>
+        <Header as="h3">{"C. Live Programming on the Web"}</Header>
+        <Segment basic>
           <p>
             {
               "Live Programming is an emerging field in the intersection of HCI and programming language research with a focus on the fluid programming experience. It aims at eliminating the mental gap between writing code and executing the program to see the results. Because the way to eliminate the mental gap is heavily domain-specific, live programming systems are typically designed to serve specific purposes rather than general programming. For instance, there have been proposed web-based live programming systems for rendering graphics in a massive open online programming training course (such as in Khan Academy’s computer programming course), generating data visualization from tabular data extracted from existing web pages (DS.js ["
@@ -417,8 +416,8 @@ export default function Page({ pageData }: PageDataProps) {
               "Given the domain-specific nature of live programming systems, many of them share the pain of transition from managed to wild environments. For example, TextAlive and DS.js are both JavaScript-based live programming environments and applications developed in these sandboxed environments cannot be directly exported as standalone JavaScript projects. This difficulty is a side effect of being domainspecific— these systems provide convenient APIs by default, eliminate the need to write boilerplate code, and sometimes replace part of the coding tasks with GUI interactions such as sliders for parameter tuning. This work aims to retain such benefits and furthermore to provide a feature, named an adaptive boilerplate, to export the projects. The feature transforms the succinct user code into a generic JavaScript project containing boilerplate code."
             }
           </p>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
@@ -426,7 +425,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"deployground"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"abstract"}>{renderAbstract()}</section>
         <section id={"presentations"}>{renderPresentations()}</section>
         <section id={"related-work"}>{renderRelatedWork()}</section>

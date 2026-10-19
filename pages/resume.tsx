@@ -1,7 +1,13 @@
+import { GridColumn, ListItem } from "react-fomantic-ui";
+
 import { SiteLink, SitePathContext } from "@/site/components/SiteLink";
 import Head from "next/head";
 import { Fragment, type ReactNode } from "react";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { HtmlContent } from "@/site/components/RichText";
@@ -1018,7 +1024,7 @@ function References() {
       <div className="row">
         <div className="year"></div>
         <div className="content column-host">
-          <div className="column">
+          <GridColumn>
             <h3>{"Dr. Masataka Goto"}</h3>
             <p className="small">
               {"Relationship: research director and colleague "}
@@ -1034,8 +1040,8 @@ function References() {
                 {"https://staff.aist.go.jp/m.goto/index-e.html"}
               </a>
             </p>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3>{"Dr. Takeo Igarashi"}</h3>
             <p className="small">
               {"Relationship: academic supervisor "}
@@ -1049,8 +1055,8 @@ function References() {
                 {"https://www-ui.is.s.u-tokyo.ac.jp/~takeo"}
               </a>
             </p>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3>{"Dr. Jovan Popovic"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1064,8 +1070,8 @@ function References() {
                 {"https://www.linkedin.com/in/jovan-cmu/"}
               </a>
             </p>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3>{"Dr. Sebastian Burckhardt"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1081,8 +1087,8 @@ function References() {
                 {"https://www.microsoft.com/en-us/research/people/sburckha/"}
               </a>
             </p>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3>{"Dr. Xiang Cao"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1093,8 +1099,8 @@ function References() {
                 {"https://caoxiang.net"}
               </a>
             </p>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3>{"Dr. Sean McDirmid"}</h3>
             <p className="small">
               {"Relationship: research intern supervisor "}
@@ -1108,7 +1114,7 @@ function References() {
                 {"https://www.linkedin.com/in/sean-mcdirmid-52b0aa90"}
               </a>
             </p>
-          </div>
+          </GridColumn>
         </div>
       </div>
     </>
@@ -1234,10 +1240,10 @@ function PublicationCitation({
       {entry.hasDOIUrl() && (
         <>
           {" "}
-          <SiteLink className="item" href={entry.getDOIUrl()}>
+          <ListItem role="link" as={SiteLink} href={entry.getDOIUrl()}>
             {"DOI: "}
             {entry.entryTags.doi}
-          </SiteLink>
+          </ListItem>
           {"."}
         </>
       )}
@@ -1550,5 +1556,15 @@ export default function ResumePage({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(ResumePage, { pageData: getPageData("/resume/", {"projects": ["griffith", "textalive", "touchdevelop"]}) }, "/resume/") };
+  return {
+    props: withPageImages(
+      ResumePage,
+      {
+        pageData: getPageData("/resume/", {
+          projects: ["griffith", "textalive", "touchdevelop"],
+        }),
+      },
+      "/resume/",
+    ),
+  };
 }

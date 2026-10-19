@@ -1,7 +1,38 @@
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardMeta,
+  Container,
+  Embed,
+  Form,
+  FormField,
+  Header,
+  HeaderContent,
+  HeaderSubheader,
+  Icon,
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemExtra,
+  ItemHeader,
+  ItemImage,
+  ItemMeta,
+  Label,
+  List,
+  ListContent,
+  ListDescription,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
 import { SiteImage } from "./SiteImage";
 import { CopyButton } from "@/site/components/InteractiveLinks";
-import { Embed, Popup } from "@/site/components/SiteWidgets";
-import { Fragment } from "react";
+import { SitePopup } from "@/site/components/SiteWidgets";
+import { Fragment, type ReactNode } from "react";
 import { SiteLink } from "@/site/components/SiteLink";
 import { buildYear } from "@/site/clock";
 import { DeferredScript } from "@/site/components/DeferredScript";
@@ -17,7 +48,7 @@ type MediaEntry = SiteData["mediaList"][number];
 export function EmbedYoutube({ src }: { src?: string }) {
   return (
     <>
-      <Embed className="ui embed">
+      <Embed active icon={false}>
         <iframe
           src={src}
           frameBorder={"0"}
@@ -32,8 +63,10 @@ export function EmbedYoutube({ src }: { src?: string }) {
 export function Translate({ path }: { path?: string }) {
   return (
     <>
-      <SiteLink
-        className="ui red tag with-popup label"
+      <Label
+        tag
+        color="red"
+        as={SiteLink}
         href={href(
           `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/components/${path.replace(
             /\.pug$/,
@@ -43,9 +76,10 @@ export function Translate({ path }: { path?: string }) {
         data-content={
           "翻訳した内容をリンク先のファイルに反映してPull requestを送っていただけると大変助かります"
         }
+        className="with-popup"
       >
         {"翻訳が必要"}
-      </SiteLink>
+      </Label>
     </>
   );
 }
@@ -53,8 +87,10 @@ export function Translate({ path }: { path?: string }) {
 export function TranslateEn({ path }: { path?: string }) {
   return (
     <>
-      <SiteLink
-        className="ui red tag with-popup label"
+      <Label
+        tag
+        color="red"
+        as={SiteLink}
         href={href(
           `https://github.com/arcatdmz/arcatdmz.github.io/blob/main/components/${path.replace(
             /\.pug$/,
@@ -64,9 +100,10 @@ export function TranslateEn({ path }: { path?: string }) {
         data-content={
           "I would really appreciate if you could translate this content and send a pull request"
         }
+        className="with-popup"
       >
         {"Translation required"}
-      </SiteLink>
+      </Label>
     </>
   );
 }
@@ -156,7 +193,7 @@ export function ProjectHero({
   heroImage,
 }: {
   project: string;
-  additionalLabels?: string | string[];
+  additionalLabels?: ReactNode | ReactNode[];
   heroImage?: string;
 }) {
   const { projectsTable, rootPath } = useSiteContext();
@@ -172,12 +209,12 @@ export function ProjectHero({
             style={{ backgroundImage: `url(${backgroundImageUrl})` }}
           ></div>
         </div>
-        <div className="ui container">
+        <Container>
           <ProjectHeader
             project={project}
             additionalLabels={additionalLabels}
           />
-        </div>
+        </Container>
       </div>
     </>
   );
@@ -188,7 +225,7 @@ export function ProjectHeader({
   additionalLabels,
 }: {
   project: string;
-  additionalLabels?: string | string[];
+  additionalLabels?: ReactNode | ReactNode[];
 }) {
   const { projectsTable, publications, lang, en, title } = useSiteContext();
   const p = projectsTable[project];
@@ -199,61 +236,60 @@ export function ProjectHeader({
       ? tags.addition.split(/;\s*/g)
       : [],
   );
-  const labels =
-    typeof additionalLabels === "string"
-      ? [additionalLabels]
-      : additionalLabels || [];
+  const labels = Array.isArray(additionalLabels)
+    ? additionalLabels
+    : additionalLabels == null
+      ? []
+      : [additionalLabels];
   const tags = popupTags(p.getTags(lang));
   return (
     <section>
-      <h1 className="ui header">
+      <Header as="h1">
         <HtmlContent html={title} />
-        <div className="sub header">
+        <HeaderSubheader>
           <HtmlContent html={p.getSubtitle(lang)} />
-        </div>
-      </h1>
-      <div className="ui horizontal divided list project-meta-list">
+        </HeaderSubheader>
+      </Header>
+      <List divided horizontal className="project-meta-list">
         {p.hasMembers(lang)
           ? p.getMembers(lang).map((member, index) => (
-              <div key={`${member}-${index}`} className="item author">
+              <ListItem key={`${member}-${index}`} className="author">
                 {member}
-              </div>
+              </ListItem>
             ))
           : null}
-        <div className="item">
-          <span className="ui tiny basic label">
-            <i className="calendar icon" />
+        <ListItem>
+          <Label basic size="tiny" as="span">
+            <Icon name="calendar" />
             {p.getYearString(lang, buildYear)}
-          </span>
-        </div>
+          </Label>
+        </ListItem>
         {p.hasPublication(lang) ? (
-          <div className="item">
+          <ListItem>
             <ProjectPublicationLabel p={p} />
-          </div>
+          </ListItem>
         ) : null}
         {projectAwards.map((award, index) => (
-          <div key={`${award}-${index}`} className="item">
-            <span className="ui red tiny basic label">
-              {!award.includes("Invited") ? (
-                <i className="trophy icon" />
-              ) : null}
+          <ListItem key={`${award}-${index}`}>
+            <Label basic size="tiny" color="red" as="span">
+              {!award.includes("Invited") ? <Icon name="trophy" /> : null}
               {award}
-            </span>
-          </div>
+            </Label>
+          </ListItem>
         ))}
         {labels.map((label, index) => (
-          <div key={`${label}-${index}`} className="item">
-            <HtmlContent html={label} />
-          </div>
+          <ListItem key={index}>
+            {typeof label === "string" ? <HtmlContent html={label} /> : label}
+          </ListItem>
         ))}
         {tags.length ? (
-          <div className="tags item">
+          <ListItem className="tags">
             {en ? "Keywords" : "関連キーワード"}
             {": "}
             <HtmlContent html={tags.join(", ")} />
-          </div>
+          </ListItem>
         ) : null}
-      </div>
+      </List>
       <Share />
     </section>
   );
@@ -270,18 +306,18 @@ export function ProjectPublications({
   const entries = projectPublications(publications, project, en);
   return (
     <section id="publications">
-      <h2 className="ui header">
-        <i className="book icon" />
-        <div className="content">{en ? "Publications" : "発表文献"}</div>
-      </h2>
+      <Header as="h2">
+        <Icon name="book" />
+        <HeaderContent>{en ? "Publications" : "発表文献"}</HeaderContent>
+      </Header>
       {majorPublication ? (
         <ProjectPublicationsWithMajor
           project={project}
           majorPublication={majorPublication}
         />
       ) : (
-        <div className="ui segment">
-          <div className="ui divided list">
+        <Segment>
+          <List divided>
             {entries.map((entry) => (
               <Publication
                 key={entry.citationKey}
@@ -291,12 +327,10 @@ export function ProjectPublications({
               />
             ))}
             {!entries.length ? (
-              <div className="item">
-                No publication record found for this project.
-              </div>
+              <ListItem>No publication record found for this project.</ListItem>
             ) : null}
-          </div>
-        </div>
+          </List>
+        </Segment>
       )}
     </section>
   );
@@ -314,16 +348,16 @@ export function ProjectPublicationsWithMajor({
     (entry) => entry.citationKey !== majorPublication,
   );
   return (
-    <div className="ui basic segment">
-      <div className="ui raised segment major-publication">
-        <span className="ui red ribbon label">
+    <Segment basic>
+      <Segment raised className="major-publication">
+        <Label color="red" ribbon as="span">
           {en ? "Cite this!" : "引用するならコレ！"}
-        </span>
+        </Label>
         <MajorPublication entry={publicationsTable[majorPublication]} />
-      </div>
+      </Segment>
       {entries.length ? (
-        <div className="ui secondary segment">
-          <div className="ui divided list">
+        <Segment secondary>
+          <List divided>
             {entries.map((entry) => (
               <Publication
                 key={entry.citationKey}
@@ -332,10 +366,10 @@ export function ProjectPublicationsWithMajor({
                 withProjectLabel={false}
               />
             ))}
-          </div>
-        </div>
+          </List>
+        </Segment>
       ) : null}
-    </div>
+    </Segment>
   );
 }
 
@@ -354,110 +388,127 @@ export function Publication({
   const additions = entry.entryTags.addition?.split(/;\s*/g) || [];
   return (
     <>
-      <div
-        className={classNames("item", "publication", entry.entryType)}
+      <ListItem
+        className={classNames("publication", entry.entryType)}
         id={attribute(entry.citationKey)}
       >
-        <div className="right floated content">
-          <Popup
-            className="ui popup"
+        <ListContent floated="right">
+          <SitePopup
             position="top right"
             trigger={
-              <div className="ui circular icon tiny with-popup-menu button">
-                <i className="sidebar icon"></i>
-              </div>
+              <Button
+                circular
+                icon
+                size="tiny"
+                as="div"
+                className="with-popup-menu"
+              >
+                <Icon name="sidebar" />
+              </Button>
             }
           >
-            <div className="ui divided list">
+            <List divided>
               {entry.entryTags.pdf ? (
                 <>
-                  <SiteLink className="item" href={href(entry.entryTags.pdf)}>
-                    <i className="text file icon"></i>
+                  <ListItem
+                    role="link"
+                    as={SiteLink}
+                    href={href(entry.entryTags.pdf)}
+                  >
+                    <Icon name="file text" />
                     {en ? "Paper PDF" : "論文PDF"}
-                  </SiteLink>
+                  </ListItem>
                 </>
               ) : null}
               {entry.entryTags.poster ? (
                 <>
-                  <SiteLink
-                    className="item"
+                  <ListItem
+                    role="link"
+                    as={SiteLink}
                     href={href(entry.entryTags.poster)}
                   >
-                    <i className="image file icon"></i>
+                    <Icon name="file image" />
                     {en ? "Poster PDF" : "ポスターPDF"}
-                  </SiteLink>
+                  </ListItem>
                 </>
               ) : null}
               {entry.entryTags.slides ? (
                 <>
-                  <SiteLink
-                    className="item"
+                  <ListItem
+                    role="link"
+                    as={SiteLink}
                     href={href(entry.entryTags.slides)}
                   >
-                    <i className="powerpoint file outline icon"></i>
+                    <Icon name="file powerpoint outline" />
                     {en ? "Slides PDF" : "スライドPDF"}
-                  </SiteLink>
+                  </ListItem>
                 </>
               ) : null}
               {entry.hasDOIUrl() ? (
                 <>
-                  <SiteLink className="item" href={href(entry.getDOIUrl())}>
-                    <i className="barcode icon"></i>
+                  <ListItem
+                    role="link"
+                    as={SiteLink}
+                    href={href(entry.getDOIUrl())}
+                  >
+                    <Icon name="barcode" />
                     {en ? "Resolve DOI" : "DOIを照会"}
-                  </SiteLink>
+                  </ListItem>
                 </>
               ) : null}
               {!entry.hasDOIUrl() &&
               (entry.entryTags.projectsite || entry.entryTags.url) ? (
                 <>
-                  <SiteLink
-                    className="item"
+                  <ListItem
+                    role="link"
+                    as={SiteLink}
                     href={href(
                       entry.entryTags.projectsite || entry.entryTags.url,
                     )}
                   >
-                    <i className="barcode icon"></i>
+                    <Icon name="barcode" />
                     {en ? "Related link" : "関連リンク"}
-                  </SiteLink>
+                  </ListItem>
                 </>
               ) : null}
 
               <CopyButton
                 lang={en ? "en" : "ja"}
-                className="bibtex item"
+                as={ListItem}
+                className="bibtex"
                 data-clipboard-text={entry.getBibTeX()}
               >
-                <i className="book icon"></i>
+                <Icon name="book" />
                 {en ? "Copy BibTeX" : "BibTeXをコピー"}
               </CopyButton>
-            </div>
-          </Popup>
-        </div>
+            </List>
+          </SitePopup>
+        </ListContent>
 
         {withIcon ? (
           <>
-            <i className={classNames("icon", entry.getIconClass())}></i>
+            <Icon className={entry.getIconClass()}></Icon>
           </>
         ) : null}
 
-        <div className="content">
-          <h4 className="ui header">{entry.entryTags.title}</h4>
-          <div className="description">
-            <div className="ui list">
-              <div className="item labels">
-                <i className="right triangle icon"></i>
-                <div className="content">
+        <ListContent>
+          <Header as="h4">{entry.entryTags.title}</Header>
+          <ListDescription>
+            <List>
+              <ListItem className="labels">
+                <Icon name="triangle right" />
+                <ListContent>
                   {" "}
-                  <span className="ui tiny label">
-                    <i className="calendar icon"></i>
+                  <Label size="tiny" as="span">
+                    <Icon name="calendar" />
                     {entry.entryTags.year}
-                  </span>
+                  </Label>
                   {entry.entryTags.series ? (
                     <>
-                      <span className="ui tiny green label">
-                        <i className="student icon"></i>
+                      <Label size="tiny" color="green" as="span">
+                        <Icon name="student" />
                         {entry.entryTags.series}
-                      </span>
+                      </Label>
                     </>
                   ) : null}
                   {entry.entryTags.addition ? (
@@ -465,14 +516,14 @@ export function Publication({
                       {additions.map((a, itemIndex) => {
                         return (
                           <Fragment key={itemIndex}>
-                            <span className="ui tiny red label">
+                            <Label size="tiny" color="red" as="span">
                               {a.indexOf("Invited") < 0 ? (
                                 <>
-                                  <i className="trophy icon"></i>
+                                  <Icon name="trophy" />
                                 </>
                               ) : null}
                               {a}
-                            </span>
+                            </Label>
                           </Fragment>
                         );
                       })}
@@ -480,9 +531,9 @@ export function Publication({
                   ) : null}
                   {entry.entryTags.group ? (
                     <>
-                      <span className="ui tiny teal label">
+                      <Label size="tiny" color="teal" as="span">
                         {entry.entryTags.group}
-                      </span>
+                      </Label>
                     </>
                   ) : null}
                   {withProjectLabel ? (
@@ -495,12 +546,12 @@ export function Publication({
                       ) : null}
                     </>
                   ) : null}
-                </div>
-              </div>
+                </ListContent>
+              </ListItem>
 
-              <div className="item authors">
-                <i className="users icon"></i>
-                <div className="content">
+              <ListItem className="authors">
+                <Icon name="users" />
+                <ListContent>
                   <HtmlContent html={entry.getAuthorsTags().join(", ")} />
 
                   {entry.entryTags.editor ? (
@@ -512,21 +563,21 @@ export function Publication({
                       {")"}
                     </>
                   ) : null}
-                </div>
-              </div>
+                </ListContent>
+              </ListItem>
 
               {entry.getBook().length > 0 ? (
                 <>
-                  <div className="item book">
-                    <i className="book icon"></i>
-                    <div className="content">{entry.getBookWithPages()}</div>
-                  </div>
+                  <ListItem className="book">
+                    <Icon name="book" />
+                    <ListContent>{entry.getBookWithPages()}</ListContent>
+                  </ListItem>
                 </>
               ) : null}
-            </div>
-          </div>
-        </div>
-      </div>
+            </List>
+          </ListDescription>
+        </ListContent>
+      </ListItem>
     </>
   );
 }
@@ -538,25 +589,25 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
   return (
     <>
       <span className="labels">
-        <span className="ui label">
-          <i className="calendar icon"></i>
+        <Label as="span">
+          <Icon name="calendar" />
           {entry.entryTags.year}
-        </span>
+        </Label>
 
         {entry.entryTags.series ? (
           <>
-            <span className="ui green label">
-              <i className="student icon"></i>
+            <Label color="green" as="span">
+              <Icon name="student" />
               {entry.entryTags.series}
-            </span>
+            </Label>
           </>
         ) : null}
       </span>
-      <h4 className="ui header">{entry.entryTags.title}</h4>
-      <div className="ui list meta">
-        <div className="item authors">
-          <i className="users icon"></i>
-          <div className="content">
+      <Header as="h4">{entry.entryTags.title}</Header>
+      <List className="meta">
+        <ListItem className="authors">
+          <Icon name="users" />
+          <ListContent>
             <HtmlContent html={entry.getAuthorsTags().join(", ")} />
 
             {entry.entryTags.editor ? (
@@ -568,83 +619,97 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
                 {")"}
               </>
             ) : null}
-          </div>
-        </div>
+          </ListContent>
+        </ListItem>
 
-        <div className="item book">
-          <i className="book icon"></i>
-          <div className="content">{entry.getBookWithPages()}</div>
-        </div>
+        <ListItem className="book">
+          <Icon name="book" />
+          <ListContent>{entry.getBookWithPages()}</ListContent>
+        </ListItem>
         {entry.entryTags.addition ? (
           <>
             {additions.map((a, itemIndex) => {
               return (
                 <Fragment key={itemIndex}>
-                  <div className="item award">
+                  <ListItem className="award">
                     {a.indexOf("Invited") < 0 ? (
                       <>
-                        <i className="trophy icon"></i>
+                        <Icon name="trophy" />
                       </>
                     ) : null}
 
-                    <div className="content">
+                    <ListContent>
                       <strong>{a}</strong>
-                    </div>
-                  </div>
+                    </ListContent>
+                  </ListItem>
                 </Fragment>
               );
             })}
           </>
         ) : null}
-      </div>
-      <div className="ui horizontal divided list extra">
+      </List>
+      <List divided horizontal className="extra">
         {entry.entryTags.pdf ? (
           <>
-            <SiteLink className="item" href={href(entry.entryTags.pdf)}>
-              <i className="text file icon"></i>
+            <ListItem
+              role="link"
+              as={SiteLink}
+              href={href(entry.entryTags.pdf)}
+            >
+              <Icon name="file text" />
               {en ? "Paper PDF" : "論文PDF"}
-            </SiteLink>
+            </ListItem>
           </>
         ) : null}
         {entry.entryTags.poster ? (
           <>
-            <SiteLink className="item" href={href(entry.entryTags.poster)}>
-              <i className="image file icon"></i>
+            <ListItem
+              role="link"
+              as={SiteLink}
+              href={href(entry.entryTags.poster)}
+            >
+              <Icon name="file image" />
               {en ? "Poster PDF" : "ポスターPDF"}
-            </SiteLink>
+            </ListItem>
           </>
         ) : null}
         {entry.entryTags.slides ? (
           <>
-            <SiteLink className="item" href={href(entry.entryTags.slides)}>
-              <i className="powerpoint file outline icon"></i>
+            <ListItem
+              role="link"
+              as={SiteLink}
+              href={href(entry.entryTags.slides)}
+            >
+              <Icon name="file powerpoint outline" />
               {en ? "Slides PDF" : "スライドPDF"}
-            </SiteLink>
+            </ListItem>
           </>
         ) : null}
         {entry.hasDOIUrl() ? (
           <>
-            <SiteLink className="item" href={href(entry.getDOIUrl())}>
-              <i className="barcode icon"></i>
+            <ListItem role="link" as={SiteLink} href={href(entry.getDOIUrl())}>
+              <Icon name="barcode" />
               {en ? "Resolve DOI" : "DOIを照会"}
-            </SiteLink>
+            </ListItem>
           </>
         ) : null}
-      </div>
-      <div className="ui form">
-        <div className="field bibtex">
+      </List>
+      <Form as="div">
+        <FormField className="bibtex">
           <label>{"BibTeX:"}</label>
           <textarea readOnly defaultValue={entry.getBibTeX()} />
           <CopyButton
             lang={en ? "en" : "ja"}
-            className="ui bottom attached tiny bibtex button"
+            attached="bottom"
+            size="tiny"
+            className="bibtex"
             data-clipboard-text={entry.getBibTeX()}
           >
-            <i className="copy icon"></i>
+            <Icon name="copy" />
             {en ? "Copy to the clipboard" : "クリップボードにコピー"}
           </CopyButton>
-        </div>
-      </div>
+        </FormField>
+      </Form>
     </>
   );
 }
@@ -656,58 +721,58 @@ export function ProjectCard({ p }: { p: Project }) {
     ? publicationsTable[p.getPublication(lang)]
     : undefined;
   return (
-    <div
-      className="card"
+    <Card
       id={p.project ? `projects-${p.project}` : undefined}
       data-project={p.project}
     >
-      <SiteLink className="image" href={href(p.getLink(lang, basePath))}>
+      <LinkedImage ui={false} href={href(p.getLink(lang, basePath))}>
         <SiteImage
           sizes="(max-width:767px) calc(100vw - 2rem), (max-width:991px) 340px, (max-width:1199px) 450px, 540px"
           src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`}
         />
-      </SiteLink>
-      <div className="content">
-        <SiteLink className="header" href={href(p.getLink(lang, basePath))}>
+      </LinkedImage>
+      <CardContent>
+        <CardHeader as={SiteLink} href={href(p.getLink(lang, basePath))}>
           {p.icon ? (
             <SiteImage
-              className="ui avatar image"
+              ui
+              avatar
               sizes="40px"
               src={`${rootPath}images/icons/${p.icon}`}
             />
           ) : null}
           <HtmlContent html={p.getTitle(lang)} />
-        </SiteLink>
-        <div className="meta">
+        </CardHeader>
+        <CardMeta>
           <HtmlContent html={p.getTags(lang).join("")} />
-        </div>
+        </CardMeta>
         {description.startsWith("<p>") ? (
-          <div className="description">
+          <CardDescription>
             <HtmlContent html={description} />
-          </div>
+          </CardDescription>
         ) : (
-          <p className="description">
+          <CardDescription as="p">
             <HtmlContent html={description} />
-          </p>
+          </CardDescription>
         )}
-      </div>
-      <div className="extra content">
+      </CardContent>
+      <CardContent extra>
         <span className="right floated">
-          <i className="calendar icon" />
+          <Icon name="calendar" />
           {p.getYearString(lang, buildYear)}
         </span>
         {p.category !== "private" && p.category !== "committee" ? (
           p.hasPublication(lang) ? (
             <span>
-              <i className="student icon" />
+              <Icon name="student" />
               <HtmlContent html={pub ? pub.getSeriesTag() : "undefined"} />
             </span>
           ) : (
             <span>{en ? "(Work in progress)" : "(文献未発表)"}</span>
           )
         ) : null}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -725,69 +790,77 @@ export function ProjectItem({ p }: { p: Project }) {
     <>
       {p.icon ? (
         <SiteImage
-          className="ui avatar image mobile only"
+          ui
+          avatar
           src={`${rootPath}images/icons/${p.icon}`}
+          className="mobile only"
         />
       ) : null}
       <HtmlContent html={p.getTitle(lang)} />
     </>
   );
   return (
-    <div
-      className="item"
+    <Item
       id={p.project ? `projects-${p.project}` : undefined}
       data-project={p.project}
     >
       {link === false ? (
-        <div className="mobile hidden bordered image">{thumbnail}</div>
-      ) : (
-        <SiteLink className="mobile hidden bordered image" href={href(link)}>
+        <ItemImage bordered className="mobile hidden">
           {thumbnail}
-        </SiteLink>
+        </ItemImage>
+      ) : (
+        <LinkedImage
+          ui={false}
+          href={href(link)}
+          bordered
+          className="mobile hidden"
+        >
+          {thumbnail}
+        </LinkedImage>
       )}
-      <div className="content">
+      <ItemContent>
         {link === false ? (
-          <div className="header">{heading}</div>
+          <ItemHeader>{heading}</ItemHeader>
         ) : (
-          <SiteLink
-            className="header"
+          <ItemHeader
+            as={SiteLink}
             href={href(link)}
             title={p.subtitle ? p.getLongTitle(lang) : undefined}
           >
             {heading}
-          </SiteLink>
+          </ItemHeader>
         )}
         {description.startsWith("<p>") ? (
-          <div className="description">
+          <ItemDescription>
             <HtmlContent html={description} />
-          </div>
+          </ItemDescription>
         ) : (
-          <p className="description">
+          <ItemDescription as="p">
             <HtmlContent html={description} />
-          </p>
+          </ItemDescription>
         )}
         {p.category !== "concept" ? (
-          <div className="extra">
+          <ItemExtra>
             <span className="right floated">
-              <i className="calendar icon" />
+              <Icon name="calendar" />
               {p.getYearString(lang, buildYear)}
             </span>
             {p.category !== "private" && p.category !== "committee" ? (
               <ProjectPublicationLabel p={p} />
             ) : null}
             {p.category === "collaboration" ? (
-              <span className="ui tiny basic label">
-                <i className="handshake icon" />
+              <Label basic size="tiny" as="span">
+                <Icon name="handshake" />
                 {en ? "Co-authored" : "共著"}
-              </span>
+              </Label>
             ) : null}
-            <span className="meta">
+            <ItemMeta as="span">
               <HtmlContent html={p.getTags(lang).join(" ")} />
-            </span>
-          </div>
+            </ItemMeta>
+          </ItemExtra>
         ) : null}
-      </div>
-    </div>
+      </ItemContent>
+    </Item>
   );
 }
 
@@ -802,12 +875,12 @@ export function ProjectMedia({ project }: { project: string }) {
   );
   return (
     <section id="media">
-      <h2 className="ui header">
-        <i className="broadcast tower icon" />
-        <div className="content">{en ? "Media Coverage" : "メディア掲載"}</div>
-      </h2>
-      <div className="ui segment">
-        <div className="ui divided list media">
+      <Header as="h2">
+        <Icon className="broadcast tower" />
+        <HeaderContent>{en ? "Media Coverage" : "メディア掲載"}</HeaderContent>
+      </Header>
+      <Segment>
+        <List divided className="media">
           {entries.map((entry, index) => (
             <MediaItem
               key={`${entry.archive || entry.permalink || project}-${index}`}
@@ -816,12 +889,10 @@ export function ProjectMedia({ project }: { project: string }) {
             />
           ))}
           {!entries.length ? (
-            <div className="item">
-              No media coverage found for this project.
-            </div>
+            <ListItem>No media coverage found for this project.</ListItem>
           ) : null}
-        </div>
-      </div>
+        </List>
+      </Segment>
     </section>
   );
 }
@@ -842,17 +913,17 @@ export function MediaItem({
     .filter(Boolean);
   const tags = popupTags(m.getTags(lang) || []);
   return (
-    <div className="item">
-      <div className="content">
+    <Item>
+      <ItemContent>
         {url ? (
-          <SiteLink className="header" href={url}>
+          <ItemHeader as={SiteLink} href={url}>
             {media}
-          </SiteLink>
+          </ItemHeader>
         ) : (
-          <div className="header">{media}</div>
+          <ItemHeader>{media}</ItemHeader>
         )}
-        {text ? <div className="description">{text}</div> : null}
-        <div className="description date">
+        {text ? <ItemDescription>{text}</ItemDescription> : null}
+        <ItemDescription className="date">
           {m.getDateString(lang, true)}
           {withLabel ? (
             <>
@@ -870,9 +941,9 @@ export function MediaItem({
               ))}
             </>
           ) : null}
-        </div>
-      </div>
-    </div>
+        </ItemDescription>
+      </ItemContent>
+    </Item>
   );
 }
 
@@ -881,13 +952,16 @@ export function ProjectLabel({ p }: { p: Project }) {
 
   return (
     <>
-      <SiteLink
-        className="ui tiny basic red label"
+      <Label
+        basic
+        size="tiny"
+        color="red"
+        as={SiteLink}
         href={href(p.getLink(lang, basePath))}
       >
-        <i className="lab icon"></i>
+        <Icon name="lab" />
         <HtmlContent html={p.getTitle(lang)} />
-      </SiteLink>
+      </Label>
     </>
   );
 }
@@ -898,10 +972,10 @@ export function ProjectPublicationLabel({ p }: { p: Project }) {
     return <span>{en ? "(Work in progress)" : "(文献未発表)"}</span>;
   const pub = publicationsTable[p.getPublication(lang)];
   return pub?.getSeriesTag() ? (
-    <span className="ui green tiny basic label">
-      <i className="student icon" />
+    <Label basic size="tiny" color="green" as="span">
+      <Icon name="student" />
       <HtmlContent html={pub.getSeriesTag()} />
-    </span>
+    </Label>
   ) : null;
 }
 

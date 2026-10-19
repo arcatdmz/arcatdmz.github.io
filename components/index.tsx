@@ -1,4 +1,31 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Button,
+  CardGroup,
+  Divider,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  HeaderContent,
+  HeaderSubheader,
+  Icon,
+  List,
+  ListContent,
+  ListItem,
+  ModalContent,
+  ModalHeader,
+  PopupContent,
+  PopupHeader,
+  Segment,
+  SegmentGroup,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import {
   HomeHistory,
@@ -6,7 +33,7 @@ import {
   HistoryMore,
 } from "@/site/components/HomeHistory";
 import { SnsLink } from "@/site/components/InteractiveLinks";
-import { Popup, SiteModal, Avatar } from "@/site/components/SiteWidgets";
+import { SitePopup, SiteModal, Avatar } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
 import { ProjectCard } from "@/site/components/ContentComponents";
@@ -54,10 +81,10 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbout(): ReactNode {
     return (
       <>
-        <div className="ui basic segment" id={"about"}>
+        <Segment basic id={"about"}>
           <Grid stackable>
             <GridColumn width={8}>
-              <h5 className="ui header">{en ? "Research area" : "研究内容"}</h5>
+              <Header as="h5">{en ? "Research area" : "研究内容"}</Header>
               <p>
                 {en
                   ? "I am interested in the broad area of "
@@ -137,7 +164,7 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </GridColumn>
             <GridColumn width={8}>
-              <h5 className="ui header">{en ? "Bio" : "略歴"}</h5>
+              <Header as="h5">{en ? "Bio" : "略歴"}</Header>
               <p>
                 <LocalizedContent
                   ja={
@@ -257,17 +284,17 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </GridColumn>
           </Grid>
-          <div className="ui basic segment" id={"sns"}>
-            <div className="ui horizontal list">
-              <div className="item">
-                <i className="address card icon"></i>
-                <div className="content">
+          <Segment basic id={"sns"}>
+            <List horizontal>
+              <ListItem>
+                <Icon name="address card" />
+                <ListContent>
                   <a href={"#contact"}>{en ? "Contact" : "連絡先"}</a>
-                </div>
-              </div>
-              <div className="item">
-                <i className="file icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="file" />
+                <ListContent>
                   <SiteLink href={href(`${rootPath}resume.html`)}>
                     <HtmlContent
                       html={
@@ -277,11 +304,11 @@ export default function Page({ pageData }: PageDataProps) {
                       }
                     />
                   </SiteLink>
-                </div>
-              </div>
-              <div className="item">
-                <i className="google icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="google" />
+                <ListContent>
                   <SiteLink
                     href={href(
                       "https://scholar.google.co.jp/citations?user=U88aqc8AAAAJ&hl=" +
@@ -290,30 +317,30 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"Google Scholar"}
                   </SiteLink>
-                </div>
-              </div>
-              <div className="item">
-                <i className="linkedin icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="linkedin" />
+                <ListContent>
                   <a
                     href={"https://jp.linkedin.com/in/jkato"}
                     title={"LinkedIn"}
                   >
                     {"jkato"}
                   </a>
-                </div>
-              </div>
-              <div className="item">
-                <i className="facebook icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="facebook" />
+                <ListContent>
                   <a href={"https://facebook.com/jun.kato"} title={"Facebook"}>
                     {"jun.kato"}
                   </a>
-                </div>
-              </div>
-              <div className="item">
-                <i className="twitter icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="twitter" />
+                <ListContent>
                   <SiteLink
                     href={href(
                       "https://twitter.com/" + (en ? "junkato" : "arcatdmz"),
@@ -322,40 +349,40 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {en ? "junkato" : "arcatdmz"}
                   </SiteLink>
-                </div>
-              </div>
-              <div className="item">
-                <i className="mastodon icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon className="mastodon" />
+                <ListContent>
                   <a rel={"me"} href={"https://hci.social/@junkato"}>
                     {"@junkato@hci.social"}
                   </a>
-                </div>
-              </div>
-              <div className="item">
-                <i className="github icon"></i>
-                <div className="content">
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <Icon name="github" />
+                <ListContent>
                   <a href={"https://github.com/arcatdmz"} title={"GitHub"}>
                     {"arcatdmz"}
                   </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </ListContent>
+              </ListItem>
+            </List>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderHistory(): ReactNode {
     return (
       <HomeHistory lang={lang}>
-        <h2 className="ui header">
-          <i className="history icon"></i>
-          <div className="content">{en ? "Recent updates" : "近況"}</div>
-        </h2>
+        <Header as="h2">
+          <Icon name="history" />
+          <HeaderContent>{en ? "Recent updates" : "近況"}</HeaderContent>
+        </Header>
 
-        <div className="ui basic segment">
-          <HistoryFeed className="ui divided feed">
+        <Segment basic>
+          <HistoryFeed className="divided">
             {(() => {
               const children: ReactNode[] = [];
               var i = 0;
@@ -363,33 +390,32 @@ export default function Page({ pageData }: PageDataProps) {
                 if (++i > 5) break;
                 children.push(
                   <>
-                    <div className="event">
-                      <div className="content">
-                        <div className="date">
-                          {entry.getDateString(lang, true)}
-                        </div>
-                        <div className="summary">
+                    <FeedEvent>
+                      <FeedContent>
+                        <FeedDate>{entry.getDateString(lang, true)}</FeedDate>
+                        <FeedSummary>
                           <HtmlContent html={entry.text} />
-                        </div>
-                      </div>
-                    </div>
+                        </FeedSummary>
+                      </FeedContent>
+                    </FeedEvent>
                   </>,
                 );
               }
               return keyed(children);
             })()}
           </HistoryFeed>
-        </div>
+        </Segment>
 
         {data.historyCount > 5 ? (
           <>
-            <div className="ui right aligned basic segment">
-              <HistoryMore className="ui left attached more disabled button">
-                <i className="zoom icon"></i>
+            <Segment basic textAlign="right">
+              <HistoryMore attached="left" className="more">
+                <Icon name="zoom" />
                 {en ? "More" : "もっと見る"}
               </HistoryMore>
-              <SiteLink
-                className="ui right attached all with-popup button"
+              <Button
+                role="link"
+                as={SiteLink}
                 href={href(`${basePath}timeline/`)}
                 data-content={
                   en
@@ -397,11 +423,12 @@ export default function Page({ pageData }: PageDataProps) {
                     : "時系列で全ての更新履歴と発表文献を見ることができます"
                 }
                 data-position={"top right"}
+                className="right attached all with-popup"
               >
-                <i className="expand icon"></i>
+                <Icon name="expand" />
                 {en ? "Show all" : "全部見る"}
-              </SiteLink>
-            </div>
+              </Button>
+            </Segment>
           </>
         ) : null}
       </HomeHistory>
@@ -410,10 +437,10 @@ export default function Page({ pageData }: PageDataProps) {
   function renderProjects(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="gift icon"></i>
-          <div className="content">{en ? "Projects" : "プロジェクト"}</div>
-        </h2>
+        <Header as="h2">
+          <Icon name="gift" />
+          <HeaderContent>{en ? "Projects" : "プロジェクト"}</HeaderContent>
+        </Header>
         {renderProducts()}
         {renderTopics()}
       </>
@@ -422,11 +449,11 @@ export default function Page({ pageData }: PageDataProps) {
   function renderProducts(): ReactNode {
     return (
       <>
-        <h3 className="ui header" id={"products"}>
-          <i className="star icon"></i>
-          <div className="content">{en ? "Products" : "プロダクト"}</div>
-        </h3>
-        <div className="ui basic segment">
+        <Header as="h3" id={"products"}>
+          <Icon name="star" />
+          <HeaderContent>{en ? "Products" : "プロダクト"}</HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             <LocalizedContent
               ja={
@@ -446,28 +473,33 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </LocalizedContent>
           </p>
-          <div className="ui hidden divider"></div>
-          <div className="ui two stackable cards projects" id={"products-list"}>
+          <Divider hidden />
+          <CardGroup
+            stackable
+            itemsPerRow={2}
+            id="products-list"
+            className="projects"
+          >
             {products.map((p, itemIndex) => (
               <Fragment key={itemIndex}>
                 <ProjectCard p={p} />
               </Fragment>
             ))}
-          </div>
-        </div>
+          </CardGroup>
+        </Segment>
       </>
     );
   }
   function renderTopics(): ReactNode {
     return (
       <>
-        <h3 className="ui header" id={"topics"}>
-          <i className="lightbulb icon"></i>
-          <div className="content">
+        <Header as="h3" id={"topics"}>
+          <Icon name="lightbulb" />
+          <HeaderContent>
             {en ? "Research topics" : "研究トピック"}
-          </div>
-        </h3>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           {(() => {
             const children: ReactNode[] = [];
             for (const p of selectedProjects) {
@@ -481,8 +513,9 @@ export default function Page({ pageData }: PageDataProps) {
                     id={attribute(`topics-${p.project}`)}
                   >
                     <GridColumn width={5}>
-                      <SiteLink
-                        className="ui fluid bordered image"
+                      <LinkedImage
+                        bordered
+                        fluid
                         href={href(p.getLink(lang, basePath))}
                       >
                         <SiteImage
@@ -491,15 +524,15 @@ export default function Page({ pageData }: PageDataProps) {
                             lang,
                           )}`}
                         />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
                     <GridColumn width={11}>
-                      <SiteLink
-                        className="ui header"
+                      <Header
+                        as={SiteLink}
                         href={href(p.getLink(lang, basePath))}
                       >
                         <HtmlContent html={p.getTitle(lang)} />
-                      </SiteLink>
+                      </Header>
                       <div className="description">
                         <HtmlContent html={p.getDescription(lang)} />
                       </div>
@@ -509,7 +542,7 @@ export default function Page({ pageData }: PageDataProps) {
               );
               children.push(
                 <>
-                  <div className="ui divider"></div>
+                  <Divider />
                 </>,
               );
             }
@@ -520,7 +553,7 @@ export default function Page({ pageData }: PageDataProps) {
                     <p>
                       {"すべての研究プロジェクトを見るには「"}
                       <SiteLink href={href(`${rootPath}ja/projects`)}>
-                        <i className="gift icon"></i>
+                        <Icon name="gift" />
                         {"プロジェクト"}
                       </SiteLink>
                       {"」をご覧ください。"}
@@ -530,7 +563,7 @@ export default function Page({ pageData }: PageDataProps) {
                   <p>
                     {"For the exhaustive list of projects, see "}
                     <SiteLink href={href(`${rootPath}projects`)}>
-                      <i className="lab icon"></i>
+                      <Icon name="lab" />
                       {"Projects"}
                     </SiteLink>
                     {"."}
@@ -540,18 +573,18 @@ export default function Page({ pageData }: PageDataProps) {
             );
             return keyed(children);
           })()}
-        </div>
+        </Segment>
       </>
     );
   }
   function renderContact(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="address card icon"></i>
-          <div className="content">{en ? "Contact" : "連絡先"}</div>
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">
+          <Icon name="address card" />
+          <HeaderContent>{en ? "Contact" : "連絡先"}</HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {en
               ? "Please contact me via email or "
@@ -565,12 +598,12 @@ export default function Page({ pageData }: PageDataProps) {
               ? " rather than telephone if possible. I rarely check these conventional machines."
               : "経由でのご連絡をおすすめします。"}
           </p>
-          <div className="ui segments">
-            <div className="ui segment">
-              <div className="ui list">
-                <div className="item">
-                  <i className="building icon"></i>
-                  <div className="content">
+          <SegmentGroup>
+            <Segment>
+              <List>
+                <ListItem>
+                  <Icon name="building" />
+                  <ListContent>
                     {en ? (
                       <>
                         <a href={"https://unit.aist.go.jp/hiiri/meirg/"}>
@@ -628,22 +661,22 @@ export default function Page({ pageData }: PageDataProps) {
                         </a>
                       </>
                     )}
-                  </div>
-                </div>
-                <div className="item">
-                  <i className="marker icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem>
+                  <Icon name="marker" />
+                  <ListContent>
                     {en
                       ? "Central 2, 1-1-1 Umezono, Tsukuba, Ibaraki, 305-8568, Japan"
                       : "305-8568 茨城県つくば市梅園1-1-1 中央事業所2群"}
-                  </div>
-                </div>
-              </div>
-              <hr className="ui divider" />
-              <div className="ui list">
-                <div className="item">
-                  <i className="building icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+              </List>
+              <Divider as="hr" />
+              <List>
+                <ListItem>
+                  <Icon name="building" />
+                  <ListContent>
                     {en ? (
                       <>
                         <a href={"https://research.archinc.jp/en"}>
@@ -665,63 +698,67 @@ export default function Page({ pageData }: PageDataProps) {
                         </a>
                       </>
                     )}
-                  </div>
-                </div>
+                  </ListContent>
+                </ListItem>
 
                 {en ? (
                   <>
-                    <div className="item">
-                      <i className="marker icon"></i>
-                      <div className="content">{"Tokyo, Japan"}</div>
-                    </div>
+                    <ListItem>
+                      <Icon name="marker" />
+                      <ListContent>{"Tokyo, Japan"}</ListContent>
+                    </ListItem>
                   </>
                 ) : null}
-              </div>
-              <hr className="ui divider" />
-              <div className="ui horizontal list">
-                <div className="item">
-                  <i className="mail icon"></i>
-                  <div className="content">
+              </List>
+              <Divider as="hr" />
+              <List horizontal>
+                <ListItem>
+                  <Icon name="mail" />
+                  <ListContent>
                     <a href={"mailto:i@junkato.jp"}>{"i@junkato.jp"}</a>
-                  </div>
-                </div>
-                <div className="item">
-                  <i className="phone icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem>
+                  <Icon name="phone" />
+                  <ListContent>
                     {en ? "+81" : "0"}
                     {"50-3522-3432"}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="ui secondary right aligned segment">
-              <Popup
-                className="ui popup"
+                  </ListContent>
+                </ListItem>
+              </List>
+            </Segment>
+            <Segment secondary textAlign="right">
+              <SitePopup
                 position="top right"
                 trigger={
-                  <SiteLink
-                    className="ui primary large with-popup labeled icon button"
+                  <Button
+                    role="link"
+                    icon
+                    primary
+                    size="large"
+                    labelPosition="left"
+                    as={SiteLink}
                     href={href(`${basePath}collaborations`)}
                     data-position={"top right"}
+                    className="with-popup"
                   >
-                    <i className="handshake icon"></i>
+                    <Icon name="handshake" />
                     {en ? "Collaborations?" : "共同研究しませんか？"}
-                  </SiteLink>
+                  </Button>
                 }
               >
-                <div className="header">
-                  <i className="handshake icon"></i>{" "}
-                  {en ? "Collaborations" : "共同研究"}
-                </div>
-                <div className="content">
+                <PopupHeader>
+                  <Icon name="handshake" /> {en ? "Collaborations" : "共同研究"}
+                </PopupHeader>
+                <PopupContent>
                   {en
                     ? "I am actively seeking collaborators in both academia and industry. Click for more details."
                     : "学生の受け入れや技術提供などを行っています。クリックして詳細をご確認ください。"}
-                </div>
-              </Popup>
-            </div>
-          </div>
-        </div>
+                </PopupContent>
+              </SitePopup>
+            </Segment>
+          </SegmentGroup>
+        </Segment>
       </>
     );
   }
@@ -740,79 +777,94 @@ export default function Page({ pageData }: PageDataProps) {
         }
         projectsSidebarMenu={
           <>
-            <SiteLink className="item" href={href(`${basePath}projects`)}>
-              <i className="gift icon"></i>
+            <ListItem
+              role="link"
+              as={SiteLink}
+              href={href(`${basePath}projects`)}
+            >
+              <Icon name="gift" />
               {en ? "Projects" : "プロジェクト"}
-            </SiteLink>
+            </ListItem>
           </>
         }
         projectsHeaderMenu={
           <>
-            <SiteLink
-              className="ui print-hidden mobile hidden item"
+            <ListItem
+              role="link"
+              as={SiteLink}
               href={href(`${basePath}projects`)}
+              className="print-hidden mobile hidden"
             >
-              <i className="gift icon"></i>
+              <Icon name="gift" />
               <span className="tablet or lower hidden">
                 {en ? "Projects" : "プロジェクト"}
               </span>
-            </SiteLink>
+            </ListItem>
           </>
         }
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#history"}>
-                  <i className="history icon"></i>
-                  <div className="content">{en ? "Updates" : "近況"}</div>
-                </a>
-                <a className="item" href={"#products"}>
-                  <i className="gift icon"></i>
-                  <div className="content">
-                    {en ? "Products" : "プロダクト"}
-                  </div>
-                </a>
-                <a className="item" href={"#topics"}>
-                  <i className="lightbulb icon"></i>
-                  <div className="content">
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#history"}>
+                  <Icon name="history" />
+                  <ListContent>{en ? "Updates" : "近況"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#products"}>
+                  <Icon name="gift" />
+                  <ListContent>{en ? "Products" : "プロダクト"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#topics"}>
+                  <Icon name="lightbulb" />
+                  <ListContent>
                     {en ? "Research topics" : "研究トピック"}
-                  </div>
-                </a>
-                <a className="item" href={"#contact"}>
-                  <i className="address card icon"></i>
-                  <div className="content">{en ? "Contact" : "連絡先"}</div>
-                </a>
-              </div>
-            </Popup>
-            <SiteModal className="ui large modal">
-              <div className="header">{en ? "Profile photo" : "著者近影"}</div>
-              <div className="scrolling content">
-                <Grid stackable className="columns">
-                  <div className="five columns row">
+                  </ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#contact"}>
+                  <Icon name="address card" />
+                  <ListContent>{en ? "Contact" : "連絡先"}</ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
+            <SiteModal size="large">
+              <ModalHeader>{en ? "Profile photo" : "著者近影"}</ModalHeader>
+              <ModalContent scrolling>
+                <Grid stackable>
+                  <GridRow columns={5}>
                     <GridColumn>
-                      <SiteLink
-                        className="ui fluid circular bordered image"
+                      <LinkedImage
+                        bordered
+                        circular
+                        fluid
                         href={href(`${rootPath}images/junkato.highres.jpg`)}
                       >
                         <SiteImage src={`${rootPath}images/junkato.jpg`} />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
                     <GridColumn>
-                      <SiteLink
-                        className="ui fluid circular bordered image"
+                      <LinkedImage
+                        bordered
+                        circular
+                        fluid
                         href={href(
                           `${rootPath}images/junkato.comics.highres.png`,
                         )}
@@ -820,40 +872,46 @@ export default function Page({ pageData }: PageDataProps) {
                         <SiteImage
                           src={`${rootPath}images/junkato.comics.png`}
                         />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
                     <GridColumn>
-                      <SiteLink
-                        className="ui fluid circular bordered image"
+                      <LinkedImage
+                        bordered
+                        circular
+                        fluid
                         href={href(`${rootPath}images/junkato.alt.highres.jpg`)}
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt.jpg`} />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
                     <GridColumn>
-                      <SiteLink
-                        className="ui fluid circular bordered image"
+                      <LinkedImage
+                        bordered
+                        circular
+                        fluid
                         href={href(
                           `${rootPath}images/junkato.alt2.highres.jpg`,
                         )}
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt2.jpg`} />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
                     <GridColumn>
-                      <SiteLink
-                        className="ui fluid circular bordered image"
+                      <LinkedImage
+                        bordered
+                        circular
+                        fluid
                         href={href(
                           `${rootPath}images/junkato.alt3.highres.jpg`,
                         )}
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt3.jpg`} />
-                      </SiteLink>
+                      </LinkedImage>
                     </GridColumn>
-                  </div>
+                  </GridRow>
                 </Grid>
-              </div>
-              <div className="content">
+              </ModalContent>
+              <ModalContent>
                 {en ? (
                   <>
                     <ul>
@@ -891,36 +949,37 @@ export default function Page({ pageData }: PageDataProps) {
                     </ul>
                   </>
                 )}
-              </div>
+              </ModalContent>
             </SiteModal>
           </>
         }
       >
-        <h1 className="ui header">
+        <Header as="h1">
           <Avatar
-            className="ui circular image"
+            ui
+            circular
             id={"avatar"}
             loading="eager"
             fetchPriority="high"
             src={`${rootPath}images/junkato.jpg`}
             data-alt-src={`${rootPath}images/junkato.comics.png`}
           />
-          <div className="content">
+          <HeaderContent>
             {author}
-            <div className="sub header">
+            <HeaderSubheader>
               {en ? (
                 <>{"Human-Computer Interaction researcher, Ph.D."}</>
               ) : (
                 <>{"博士（情報理工学）"}</>
               )}
-            </div>
-          </div>
-        </h1>
+            </HeaderSubheader>
+          </HeaderContent>
+        </Header>
         {renderAbout()}
         <section id={"history"}>{renderHistory()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"projects"}>{renderProjects()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"contact"}>{renderContact()}</section>
       </SiteLayout>
     </>

@@ -1,6 +1,21 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -53,19 +68,19 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"visionsketch"} />
-        <div className="ui message">
+        <Message>
           {en ? "Source code is available on " : "ソースコードが"}
           <a href={"https://github.com/arcatdmz/visionsketch/"}>{"GitHub"}</a>
           {en
             ? "! It works on both Windows and Mac OS X."
             : "で公開されています。WindowsとMac両用です。"}
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -103,90 +118,87 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"GI 2014 "}
                   {en ? "Demo Video" : "デモ動画"}
-                </h3>
+                </Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/I6FTOVygHxc"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=I6FTOVygHxc"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"GI 2014 "}
                   {en ? "Slides" : "発表スライド"}
-                </h3>
-                <Embed
-                  className="ui embed"
-                  data-url={publicationsTable[p.publication].entryTags.slides}
-                  data-placeholder={`${rootPath}images/background-eee.png`}
-                  data-icon={"video play outline"}
-                ></Embed>
+                </Header>
+                <DeferredEmbed
+                  url={publicationsTable[p.publication].entryTags.slides}
+                  placeholder={`${rootPath}images/background-eee.png`}
+                  icon={"video play outline"}
+                ></DeferredEmbed>
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
-                        <i className="download icon"></i>
+                        <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section>
-          <h2 className="ui header">{"VisionSketch IDE"}</h2>
+          <Header as="h2">{"VisionSketch IDE"}</Header>
           <Grid stackable columns={2}>
             <GridColumn>
-              <SiteLink
-                className="ui fluid image"
+              <LinkedImage
+                fluid
                 href={href(`${rootPath}visionsketch/fig1-overview.jpg`)}
               >
                 <SiteImage
                   src={`${rootPath}visionsketch/fig1-overview.jpg`}
                   alt={"Overview"}
                 />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en
                   ? "Overview of the VisionSketch IDE (GI '14)"
                   : "VisionSketch IDEの概観"}
               </div>
-              <div className="ui hidden divider"></div>
-              <SiteLink
-                className="ui fluid image"
+              <Divider hidden />
+              <LinkedImage
+                fluid
                 href={href(`${rootPath}visionsketch/visionsketch-overview.jpg`)}
               >
                 <SiteImage
                   src={`${rootPath}visionsketch/visionsketch-overview.jpg`}
                   alt={"Overview (original version)"}
                 />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en
                   ? "Prototype of the VisionSketch IDE (PLDI '13)"
@@ -194,8 +206,8 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
             <GridColumn>
-              <SiteLink
-                className="ui fluid image"
+              <LinkedImage
+                fluid
                 href={href(`${rootPath}visionsketch/visionsketch-example.jpg`)}
               >
                 <SiteImage
@@ -203,7 +215,7 @@ export default function Page({ pageData }: PageDataProps) {
                   alt={"Example use case #1: counting grinds"}
                   width={"560"}
                 />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en
                   ? "An example image processing pipeline"
@@ -212,7 +224,7 @@ export default function Page({ pageData }: PageDataProps) {
             </GridColumn>
           </Grid>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"visionsketch"}
           majorPublication={"gi2014-kato-visionsketch"}

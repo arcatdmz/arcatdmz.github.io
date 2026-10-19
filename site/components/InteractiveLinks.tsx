@@ -1,3 +1,14 @@
+import { HtmlContent } from "./RichText";
+import {
+  Button,
+  type ButtonProps,
+  List,
+  ListItem,
+  Popup as FomanticPopup,
+  PopupContent,
+  PopupHeader,
+} from "react-fomantic-ui";
+
 import {
   useEffect,
   useRef,
@@ -5,8 +16,8 @@ import {
   type AnchorHTMLAttributes,
   type ReactElement,
 } from "react";
-import { createPortal } from "react-dom";
-import { Popup } from "./SiteWidgets";
+
+import { SitePopup } from "./SiteWidgets";
 import { useTransition, playAttention } from "./useTransition";
 
 interface TagData {
@@ -58,10 +69,10 @@ export function TagLink({
     ) || [];
   const title = tag?.title || key;
   return (
-    <Popup
+    <SitePopup
       trigger={trigger}
       portal
-      className="ui popup project tag"
+      className="project tag"
       hover={false}
       position={trigger.props["data-position"] || "top center"}
       onOpen={(anchor) => {
@@ -84,19 +95,15 @@ export function TagLink({
       {tag ? (
         <>
           {tag.href ? (
-            <a
-              className="header"
-              href={tag.href}
-              data-site-navigation
-              dangerouslySetInnerHTML={{ __html: title }}
-            />
+            <PopupHeader as="a" href={tag.href} data-site-navigation>
+              <HtmlContent html={title} />
+            </PopupHeader>
           ) : (
-            <div
-              className="header"
-              dangerouslySetInnerHTML={{ __html: title }}
-            />
+            <PopupHeader>
+              <HtmlContent html={title} />
+            </PopupHeader>
           )}
-          <div className="content">
+          <PopupContent>
             <p>
               {lang === "ja" ? (
                 <>
@@ -115,20 +122,22 @@ export function TagLink({
                 </>
               )}
             </p>
-            <div className="ui divided list">
+            <List divided>
               {projects.map((p) => (
-                <a
+                <ListItem
+                  role="link"
+                  as="a"
                   key={p.project}
-                  className="item"
                   href={`${lang === "ja" ? "/ja/" : "/"}projects/#projects-${
                     p.project
                   }`}
                   data-site-navigation
-                  dangerouslySetInnerHTML={{ __html: p.title }}
-                />
+                >
+                  <HtmlContent html={p.title} />
+                </ListItem>
               ))}
-            </div>
-          </div>
+            </List>
+          </PopupContent>
         </>
       ) : (
         <div role="status">
@@ -141,26 +150,27 @@ export function TagLink({
               : "Loading…"}
         </div>
       )}
-    </Popup>
+    </SitePopup>
   );
 }
 export function TooltipLink({ trigger }: { trigger: ReactElement<any> }) {
   return (
-    <Popup
+    <SitePopup
       portal
       trigger={trigger}
       position={trigger.props["data-position"] || "top center"}
     >
-      <div className="content">{trigger.props["data-content"]}</div>
-    </Popup>
+      <PopupContent>{trigger.props["data-content"]}</PopupContent>
+    </SitePopup>
   );
 }
 
 /** Clipboard feedback follows the real operation, including a selectable fallback. */
 export function CopyButton({
   children,
+  as: Element = Button,
   ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement> & {
+}: ButtonProps & {
   "data-clipboard-text"?: string;
   lang?: "en" | "ja";
 }) {
@@ -168,7 +178,6 @@ export function CopyButton({
   const motion = useTransition(!!status, "scale", 200);
   const lastStatus = useRef(status);
   if (status) lastStatus.current = status;
-  const [position, setPosition] = useState({ top: 0, left: 0 });
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const mounted = useRef(true);
   useEffect(() => {
@@ -203,11 +212,6 @@ export function CopyButton({
       anchor.focus();
     }
     if (!mounted.current) return;
-    const rect = anchor.getBoundingClientRect();
-    setPosition({
-      top: Math.max(8, rect.top - 8),
-      left: Math.max(8, rect.left - Math.min(320, window.innerWidth * 0.6) - 8),
-    });
     setStatus(copied ? "copied" : "failed");
     clearTimeout(timer.current);
     timer.current = setTimeout(() => setStatus(null), copied ? 1000 : 4000);
@@ -215,43 +219,44 @@ export function CopyButton({
   const { lang, ...anchorProps } = props;
   const ja = lang === "ja";
   return (
-    <>
-      <a
-        {...anchorProps}
-        role="button"
-        tabIndex={0}
-        onClick={(event) => {
-          event.preventDefault();
-          void copy(event.currentTarget);
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
+    <FomanticPopup
+      open={motion.present}
+      on={[]}
+      position="left center"
+      positionFixed
+      role="status"
+      className={motion.className}
+      style={motion.style}
+      onAnimationEnd={motion.onAnimationEnd}
+      trigger={
+        <Element
+          as="a"
+          {...anchorProps}
+          role="button"
+          tabIndex={0}
+          onClick={(event) => {
             event.preventDefault();
-            event.currentTarget.click();
-          }
-        }}
-      >
-        {children}
-      </a>
-      {motion.present &&
-        createPortal(
-          <div
-            role="status"
-            className={`ui popup left center ${motion.className}`}
-            style={{ position: "fixed", ...position, ...motion.style }}
-            onAnimationEnd={motion.onAnimationEnd}
-          >
-            {lastStatus.current === "copied"
-              ? ja
-                ? "BibTeXをクリップボードにコピーしました！"
-                : "Copied the BibTeX entry to your clipboard!"
-              : ja
-                ? "コピーできませんでした。BibTeXを選択してコピーしてください。"
-                : "Copy failed. Please select and copy the BibTeX text."}
-          </div>,
-          document.body,
-        )}
-    </>
+            void copy(event.currentTarget);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              event.currentTarget.click();
+            }
+          }}
+        >
+          {children}
+        </Element>
+      }
+    >
+      {lastStatus.current === "copied"
+        ? ja
+          ? "BibTeXをクリップボードにコピーしました！"
+          : "Copied the BibTeX entry to your clipboard!"
+        : ja
+          ? "コピーできませんでした。BibTeXを選択してコピーしてください。"
+          : "Copy failed. Please select and copy the BibTeX text."}
+    </FomanticPopup>
   );
 }
 export function SnsLink({

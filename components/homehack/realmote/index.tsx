@@ -1,4 +1,7 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import { Grid, GridColumn, Header, Icon } from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -21,7 +24,7 @@ function Content() {
 
   return (
     <>
-      <h3 className="ui header">{"概要"}</h3>
+      <Header as="h3">{"概要"}</Header>
       <Grid stackable columns={2}>
         <GridColumn>
           <p>
@@ -29,7 +32,7 @@ function Content() {
               "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
             }
           </p>
-          <h3 className="ui header">{"開発環境"}</h3>
+          <Header as="h3">{"開発環境"}</Header>
           <ul>
             <li>
               {"Java + "}
@@ -49,7 +52,7 @@ function Content() {
               </a>
             </li>
           </ul>
-          <h3 className="ui header">{"資料"}</h3>
+          <Header as="h3">{"資料"}</Header>
           <ul>
             <li>
               {"ブログ記事: "}
@@ -64,7 +67,7 @@ function Content() {
             <li>
               {"ソースコード: "}
               <a href={"https://github.com/arcatdmz/realmote"}>
-                <i className="icon-download"></i>
+                <Icon name="download"></Icon>
                 {"GitHub"}
               </a>
             </li>
@@ -74,22 +77,19 @@ function Content() {
           <EmbedYoutube src={"//www.youtube.com/embed/bhbW39zoxyg"} />
         </GridColumn>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
+          <LinkedImage
+            fluid
             href={href(`${rootPath}homehack/realmote-edit.jpg`)}
           >
             <SiteImage
               src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`}
             />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
-            href={href(`${rootPath}homehack/realmote.jpg`)}
-          >
+          <LinkedImage fluid href={href(`${rootPath}homehack/realmote.jpg`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
       </Grid>
     </>

@@ -1,10 +1,34 @@
-import { Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  HeaderContent,
+  Icon,
+  Image,
+  Label,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
   Publication,
 } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
+
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
@@ -54,16 +78,16 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAsj(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">
+        <Header as="h2">
+          <HeaderContent>
             {"日本音響学会「やさしい解説」"}
-            <span className="ui tiny basic label">
-              <i className="calendar icon"></i>
+            <Label basic size="tiny" as="span">
+              <Icon name="calendar" />
               {"2021"}
-            </span>
-          </div>
-        </h2>
-        <div className="ui basic segment">
+            </Label>
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {
               "このWebページは、日本音響学会 学会誌 77 巻 4 号（2021）に掲載されている「やさしい解説」の記事「インタフェース・デザインの勘所」の補足資料を兼ねています。本誌記事では、このページでカバーしているテーマの他に、"
@@ -84,39 +108,43 @@ export default function Page({ pageData }: PageDataProps) {
               "の観点でも非常に興味深い内容です。刊行から半年が経ち、無料で全文公開されました。ぜひ併せてご覧ください。"
             }
           </p>
-          <div className="ui top attached segment">
-            <div className="ui divided list">
+          <Segment attached="top">
+            <List divided>
               <Publication
                 entry={publicationsTable["asj-v77n4-kato-ui-design"]}
               />
-            </div>
-          </div>
-          <div className="ui basic right aligned bottom attached secondary segment">
-            <a
-              className="ui primary button"
+            </List>
+          </Segment>
+          <Segment basic secondary textAlign="right" attached="bottom">
+            <Button
+              role="link"
+              primary
+              as="a"
               href={"https://doi.org/10.20697/jasj.77.4_231"}
             >
               {"学会誌 記事を読む"}
-              <i className="chevron circle right icon"></i>
-            </a>
-          </div>
-        </div>
+              <Icon name="chevron circle right" />
+            </Button>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderTheory(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">{"インタフェース設計の理論"}</div>
-        </h2>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+        <Header as="h2">
+          <HeaderContent>{"インタフェース設計の理論"}</HeaderContent>
+        </Header>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"theory-introduction"}
+            className="divided rail-like"
           >
-            <div className="row">
-              <div className="eleven wide column">
+            <GridRow>
+              <GridColumn width={11}>
                 {" "}
                 <p>
                   {"ユーザインタフェース設計に有用な基礎理論の多くは、"}
@@ -125,8 +153,9 @@ export default function Page({ pageData }: PageDataProps) {
                     "が商業的に一般化する過程と並走するかたちで1980年代に確立されています。本節では、 HCI 研究をしていると必ずといってよいほど名前を聞く 3 名の研究者、 Stuart Card、 Ben Shneiderman、 Don Norman の成果を中心に紹介します。いずれも、ユーザとシステムの間のインタラクションをモデル化した成果です。"
                   }
                 </p>
-                <a
-                  className="ui left tiny floated image"
+                <LinkedImage
+                  size="tiny"
+                  floated="left"
                   href={
                     "https://www.amazon.co.jp/dp/4621304674?&linkCode=li2&tag=digitalmuseum-22&linkId=d6b76ffeb310e30945263f85e702914c&language=ja_JP&ref_=as_li_ss_il"
                   }
@@ -136,7 +165,7 @@ export default function Page({ pageData }: PageDataProps) {
                       "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4621304674&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
                     }
                   />
-                </a>
+                </LinkedImage>
                 <p>
                   {
                     "認知心理学に関する内容をさらに網羅的に知りたい場合、和書なら「"
@@ -146,8 +175,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </a>
                   {"」をおすすめします。"}
                 </p>
-              </div>
-              <div className="five wide column">
+              </GridColumn>
+              <GridColumn width={5}>
                 <p>
                   {
                     "Steve Jobs が Xerox Alto を見たのが 1979 年、 Macintosh が発売されたのが 1984 年です。（"
@@ -178,45 +207,49 @@ export default function Page({ pageData }: PageDataProps) {
                   </a>
                   {"）"}
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+              </GridColumn>
+            </GridRow>
+          </Grid>
+        </Segment>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"theory-cognitive-science"}
+            className="divided rail-like"
           >
-            <div className="row">{renderTheoryCognitiveScience()}</div>
-          </div>
-          <div
-            className="ui stackable two column divided rail-like grid"
+            <GridRow>{renderTheoryCognitiveScience()}</GridRow>
+          </Grid>
+          <Grid
+            stackable
+            columns={2}
             id={"theory-direct-manipulation"}
+            className="divided rail-like"
           >
-            <div className="row">{renderTheoryDirectManipulation()}</div>
-          </div>
-          <div
-            className="ui stackable two column divided rail-like grid"
+            <GridRow>{renderTheoryDirectManipulation()}</GridRow>
+          </Grid>
+          <Grid
+            stackable
+            columns={2}
             id={"theory-gulf-of-execution-and-evaluation"}
+            className="divided rail-like"
           >
-            <div className="row">
-              {renderTheoryGulfOfExecutionAndEvaluation()}
-            </div>
-          </div>
+            <GridRow>{renderTheoryGulfOfExecutionAndEvaluation()}</GridRow>
+          </Grid>
           {renderTheoryLimitation()}
-        </div>
+        </Segment>
       </>
     );
   }
   function renderTheoryCognitiveScience(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
-          <h3 className="ui header" id={"theory-model-human-processor"}>
-            <div className="content">
+        <GridColumn width={11}>
+          <Header as="h3" id={"theory-model-human-processor"}>
+            <HeaderContent>
               {"人間情報処理モデル（Model Human Processor; HMP）"}
-            </div>
-          </h3>
+            </HeaderContent>
+          </Header>
           <p>
             {"Card らは 1983 年の書籍「"}
             <a href={"https://dl.acm.org/doi/10.5555/578027"}>
@@ -271,9 +304,9 @@ export default function Page({ pageData }: PageDataProps) {
               "このモデルの利用者は、自ら設定したGoal、Operator、Selection ruleから最短Methodを求め、各Operatorの所要時間を足し合わせることでタスク全体の予測時間を得られます。 GOMS は手軽なうえ実際には文章編集に限定されない汎用的なモデルなため、派生モデル（KLM、NGOMSL、CPM-GOMSなど）も含め、今日にいたるまでインタフェース研究の評価実験にしばしば活用されています。ただし、これらのモデルはユーザがミスする可能性を考慮できないため、習熟ユーザの定型タスクに限り適用できるものです。"
             }
           </p>
-          <h3 className="ui header" id={"theory-fitts-law"}>
-            <div className="content">{"フィッツの法則（Fitts' law）"}</div>
-          </h3>
+          <Header as="h3" id={"theory-fitts-law"}>
+            <HeaderContent>{"フィッツの法則（Fitts' law）"}</HeaderContent>
+          </Header>
           <p>
             {"Card は、"}
             <strong>{"フィッツの法則（Fitts' law）"}</strong>
@@ -281,11 +314,11 @@ export default function Page({ pageData }: PageDataProps) {
               "が、マウス操作の効率を測るモデルとして適していることを明らかにしました。"
             }
           </p>
-          <a className="ui right floated medium stackable image">
+          <Image floated="right" as="a" className="medium stackable">
             <SiteImage
               src={`${rootPath}user-interface-design/uidesign-fig2-fits-law.png`}
             />
-          </a>
+          </Image>
           <p>
             {
               "この法則は、対象の領域に移動するためのおおよその所要時間（Movement Time; T）が、領域の中心までの距離（Distance; A）と対象物の大きさ（Width; W）の関数で次のとおりシンプルに表せるというものです。"
@@ -485,11 +518,11 @@ export default function Page({ pageData }: PageDataProps) {
               "なお、このモデルは階層型メニューのように経路が制限される場合には適用できません。階層型メニューでは、深い階層に辿り着くためにポインタを何度か真っ直ぐ動かす（ステアリングする）必要があります。"
             }
           </p>
-          <a className="ui right floated medium stackable image">
+          <Image floated="right" as="a" className="medium stackable">
             <SiteImage
               src={`${rootPath}user-interface-design/uidesign-fig2-steering.png`}
             />
-          </a>
+          </Image>
           <p>
             {"このように"}
             <a
@@ -630,8 +663,8 @@ export default function Page({ pageData }: PageDataProps) {
               "このようなモデルを活用することで、ユーザテストを何度も繰り返さなくても、作業効率の高いユーザインタフェース設計を行うことができます。"
             }
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <p>
             {
               "Stuart Card は認知心理学分野のさまざまな知見をコンピュータのユーザインタフェース設計に応用した人で、書籍刊行時は Xerox "
@@ -667,20 +700,20 @@ export default function Page({ pageData }: PageDataProps) {
               " が分かりやすいです。 Web サイト上での人の情報探索行動を説明するための理論として、今でも盛んに研究されています。"
             }
           </p>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderTheoryDirectManipulation(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
+        <GridColumn width={11}>
           {" "}
-          <h3 className="ui header">
-            <div className="content">
+          <Header as="h3">
+            <HeaderContent>
               {"ダイレクトマニピュレーション（Direct Manipulation; DM）"}
-            </div>
-          </h3>
+            </HeaderContent>
+          </Header>
           <p>
             {"Shneiderman は"}
             <a href={"https://doi.org/10.1109/MC.1983.1654471"}>
@@ -724,8 +757,8 @@ export default function Page({ pageData }: PageDataProps) {
               "DM の WIMP 以外の実装例として、スマートフォンのタッチインタフェースが挙げられます。これは、複数のウィンドウをディスプレイ上に置くことを諦め、ポインタをなくし、指で直接操作できるようにしたものです。また、近年 Virtual Reality（VR） 用の高性能なヘッドマウントディスプレイが安価に市販されています。これは、3Dで表現されたオブジェクトを直接操作できる新たな DM プラットフォームと言えます。"
             }
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <p>
             {
               "Ben Shneiderman は HCI 分野に特化した名門ラボでもっとも歴史が古いものの一つ "
@@ -736,8 +769,9 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {" を設立しました。"}
           </p>
-          <a
-            className="ui right floated tiny image"
+          <LinkedImage
+            size="tiny"
+            floated="right"
             href={
               "https://www.amazon.co.jp/Designing-User-Interface-Human-Computer-Interaction/dp/013438038X?&linkCode=li3&tag=digitalmuseum-22&linkId=74398046208ff478ab54959a153fe1de&language=ja_JP&ref_=as_li_ss_il"
             }
@@ -747,7 +781,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=013438038X&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
             />
-          </a>
+          </LinkedImage>
           <p>
             {
               "版を重ねるたびに最新事情にキャッチアップしてきた分野の定番教科書「"
@@ -759,20 +793,20 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"」を編纂している人でもあります。"}
           </p>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderTheoryGulfOfExecutionAndEvaluation(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
+        <GridColumn width={11}>
           {" "}
-          <h3 className="ui header">
-            <div className="content">
+          <Header as="h3">
+            <HeaderContent>
               {"実行の溝と評価の溝（Gulf of Execution and Evaluation）"}
-            </div>
-          </h3>
+            </HeaderContent>
+          </Header>
           <p>
             {"Norman は 1986 年に書籍「"}
             <a
@@ -839,8 +873,8 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"）"}
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <p>
             {"Don Norman は 1988 年の書籍「"}
             <a href={"https://www.shin-yo-sha.co.jp/book/b455574.html"}>
@@ -865,8 +899,9 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"）"}
           </p>
-          <SiteLink
-            className="ui fluid bordered image"
+          <LinkedImage
+            bordered
+            fluid
             href={href(
               `${rootPath}images/thumbnails/user-interface-design.png`,
             )}
@@ -874,20 +909,20 @@ export default function Page({ pageData }: PageDataProps) {
             <SiteImage
               src={`${rootPath}images/thumbnails/user-interface-design.png`}
             />
-          </SiteLink>
+          </LinkedImage>
           <div className="caption">
             <p>{"ユーザとシステムの間の実行・評価の溝"}</p>
           </div>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderTheoryLimitation(): ReactNode {
     return (
       <>
-        <h3 className="ui header">
-          <div className="content">{"モデル化手法の限界"}</div>
-        </h3>
+        <Header as="h3">
+          <HeaderContent>{"モデル化手法の限界"}</HeaderContent>
+        </Header>
         <p>
           {
             "ここまで、ユーザとシステムの間のインタラクションをモデル化した成果を紹介してきました。"
@@ -914,12 +949,13 @@ export default function Page({ pageData }: PageDataProps) {
   function renderUsability(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">{"ユーザビリティ"}</div>
-        </h2>
-        <div className="ui basic segment">
-          <a
-            className="ui right tiny floated image"
+        <Header as="h2">
+          <HeaderContent>{"ユーザビリティ"}</HeaderContent>
+        </Header>
+        <Segment basic>
+          <LinkedImage
+            size="tiny"
+            floated="right"
             href={
               "https://www.amazon.co.jp/Usability-Engineering-Interactive-Technologies-English-ebook/dp/B0029ZBK80?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=usability+engineering&qid=1624013132&s=digital-text&sr=1-1&linkCode=li2&tag=digitalmuseum-22&linkId=24dd480fbbec4c7a2314591233e29d3b&language=ja_JP&ref_=as_li_ss_il"
             }
@@ -929,7 +965,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0029ZBK80&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
             />
-          </a>
+          </LinkedImage>
           <p>
             {
               "Nielsenが1994年に記した書籍「Usability Engineering」では、インタフェースの使いやすさをユーザビリティという言葉で表し、次の5つの特性を示しました。"
@@ -952,49 +988,57 @@ export default function Page({ pageData }: PageDataProps) {
               "本節では、ユーザビリティを評価する方法を3種類紹介します。最後に、ユーザビリティも万能ではないことを、実例を挙げながら説明します。"
             }
           </p>
-        </div>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+        </Segment>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"usability-heuristics"}
+            className="divided rail-like"
           >
-            <div className="row">{renderUsabilityHeuristics()}</div>
-          </div>
-        </div>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+            <GridRow>{renderUsabilityHeuristics()}</GridRow>
+          </Grid>
+        </Segment>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"usability-qualitative-test"}
+            className="divided rail-like"
           >
-            <div className="row">{renderUsabilityQualitativeTest()}</div>
-          </div>
-        </div>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+            <GridRow>{renderUsabilityQualitativeTest()}</GridRow>
+          </Grid>
+        </Segment>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"usability-quantitative-test"}
+            className="divided rail-like"
           >
-            <div className="row">{renderUsabilityQuantitativeTest()}</div>
-          </div>
-        </div>
-        <div className="ui basic segment">
-          <div
-            className="ui stackable two column divided rail-like grid"
+            <GridRow>{renderUsabilityQuantitativeTest()}</GridRow>
+          </Grid>
+        </Segment>
+        <Segment basic>
+          <Grid
+            stackable
+            columns={2}
             id={"usability-test-limitations"}
+            className="divided rail-like"
           >
-            <div className="row">{renderUsabilityTestLimitations()}</div>
-          </div>
-        </div>
+            <GridRow>{renderUsabilityTestLimitations()}</GridRow>
+          </Grid>
+        </Segment>
       </>
     );
   }
   function renderUsabilityHeuristics(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
-          <h3 className="ui header">
-            <div className="content">{"ヒューリスティック評価"}</div>
-          </h3>
+        <GridColumn width={11}>
+          <Header as="h3">
+            <HeaderContent>{"ヒューリスティック評価"}</HeaderContent>
+          </Header>
           <p>
             {"ユーザビリティ評価の最も簡単な方法は、"}
             <strong>
@@ -1022,8 +1066,8 @@ export default function Page({ pageData }: PageDataProps) {
               "と呼ばれることがあり、とくに大規模な制作現場で開発されることが増えています。"
             }
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <dl>
             <dt>
               <a
@@ -1065,17 +1109,17 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderUsabilityQualitativeTest(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
-          <h3 className="ui header">
-            <div className="content">{"定性的ユーザビリティテスト"}</div>
-          </h3>
+        <GridColumn width={11}>
+          <Header as="h3">
+            <HeaderContent>{"定性的ユーザビリティテスト"}</HeaderContent>
+          </Header>
           <p>
             {
               "実際のターゲットユーザとなる人々にインタフェースを使ってもらい、その様子を観察できれば、ユーザビリティ上の問題を発見できます。こうした定性的テストは、開発の初期段階でまだインタフェースの要件が固まっていない場合にとくに有効です。頭に浮かんだことを随時声に出してもらう"
@@ -1094,8 +1138,8 @@ export default function Page({ pageData }: PageDataProps) {
             <strong>{"認知的ウォークスルー（Cognitive Walkthrough）"}</strong>
             {"と呼ばれています。"}
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <dl>
             <dt>
               <a href={"https://u-site.jp/alertbox/20000319/"}>
@@ -1126,17 +1170,17 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderUsabilityQuantitativeTest(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
-          <h3 className="ui header">
-            <div className="content">{"定量的ユーザビリティテスト"}</div>
-          </h3>
+        <GridColumn width={11}>
+          <Header as="h3">
+            <HeaderContent>{"定量的ユーザビリティテスト"}</HeaderContent>
+          </Header>
           <p>
             {
               "ユーザビリティを他の案と比較したり、開発過程でどれくらい向上しているか確認したりしたい場合は、定量的な調査のほうが適しています。例えば、同じタスクを行ってもらい、タスクの達成率やエラー数などを計測すれば、統計的にユーザビリティの優劣を判断できます。すでにユーザが多数いるシステムで比較したいインタフェースが A 案 B 案のように具体的なら、ユーザをランダムにグループ分けすれば両案の計測結果を容易に比較できます。これが "
@@ -1165,8 +1209,8 @@ export default function Page({ pageData }: PageDataProps) {
               " が有効です。これは「このシステムをどれだけ友人に勧めますか？」という質問に 0-10 の 11 段階のスケールで回答してもらうものです。Webサイトやスマートフォンのアプリケーションで、一度は目にしたことがあるのではないでしょうか。"
             }
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <dl>
             <dt>
               <a href={"https://uxmilk.jp/83709"}>
@@ -1189,17 +1233,17 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </dd>
           </dl>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderUsabilityTestLimitations(): ReactNode {
     return (
       <>
-        <div className="eleven wide column">
-          <h3 className="ui header">
-            <div className="content">{"ユーザビリティテストの限界"}</div>
-          </h3>
+        <GridColumn width={11}>
+          <Header as="h3">
+            <HeaderContent>{"ユーザビリティテストの限界"}</HeaderContent>
+          </Header>
           <p>
             {
               "本節では、インタフェースの使い勝手を評価するための指標としてユーザビリティを挙げ、 3 種類の評価手法を紹介してきました。こうした評価と改善を繰り返すプロトタイピングにより、使い勝手を向上できるでしょう。"
@@ -1223,8 +1267,8 @@ export default function Page({ pageData }: PageDataProps) {
               "このように、ユーザにとっての価値を高めるために考えることは多く、デザイン手法も様々です。もっと具体的な手法を知りたい場合は、 100 手法を紹介しているカタログ的書籍がありますので、ぜひ読んでみてください。"
             }
           </p>
-        </div>
-        <div className="five wide column">
+        </GridColumn>
+        <GridColumn width={5}>
           <p>
             {"「"}
             <a href={"https://www.billbuxton.com/usabilityHarmful.pdf"}>
@@ -1242,8 +1286,9 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"と一緒に読むと分かりやすいです。"}
           </p>
-          <a
-            className="ui right tiny floated image"
+          <LinkedImage
+            size="tiny"
+            floated="right"
             href={
               "https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&linkCode=li2&tag=digitalmuseum-22&linkId=e636a05eb62ab11181a5af2591c5dcc7&language=ja_JP&ref_=as_li_ss_il"
             }
@@ -1253,7 +1298,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4861008212&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=digitalmuseum-22&language=ja_JP"
               }
             />
-          </a>
+          </LinkedImage>
           <p>
             {"「"}
             <a
@@ -1267,47 +1312,47 @@ export default function Page({ pageData }: PageDataProps) {
               "」はデザインのためのリサーチ手法を 100 個、各々見開き 2 ページで簡潔に紹介したカタログ的な書籍です。"
             }
           </p>
-        </div>
+        </GridColumn>
       </>
     );
   }
   function renderVisualization(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">{"情報提示のデザイン"}</div>
-        </h2>
-        <h3 className="ui header">
-          <div className="content">{"色のデザイン"}</div>
-        </h3>
-        <h3 className="ui header">
-          <div className="content">{"動きのデザイン"}</div>
-        </h3>
+        <Header as="h2">
+          <HeaderContent>{"情報提示のデザイン"}</HeaderContent>
+        </Header>
+        <Header as="h3">
+          <HeaderContent>{"色のデザイン"}</HeaderContent>
+        </Header>
+        <Header as="h3">
+          <HeaderContent>{"動きのデザイン"}</HeaderContent>
+        </Header>
       </>
     );
   }
   function renderConclusion(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">{"おわりに"}</div>
-        </h2>
+        <Header as="h2">
+          <HeaderContent>{"おわりに"}</HeaderContent>
+        </Header>
       </>
     );
   }
   function renderRevision(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
+        <Header as="h2">
+          <Icon name="announcement" />
           {en ? "Revision history" : "更新履歴"}
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided feed">
-            <div className="event">
-              <div className="content">
-                <div className="date">{"10/6/2021"}</div>
-                <div className="summary">
+        </Header>
+        <Segment basic>
+          <Feed className="divided">
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"10/6/2021"}</FeedDate>
+                <FeedSummary>
                   {
                     "本文無償公開に伴い、日本音響学会 学会誌 77 巻 4 号（2021）記事「"
                   }
@@ -1315,39 +1360,37 @@ export default function Page({ pageData }: PageDataProps) {
                     {"インタフェース・デザインの勘所"}
                   </a>
                   {"」へのリンクを有効化"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"6/19/2021"}</div>
-                <div className="summary">
-                  {"ユーザビリティのセクションを追加"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"5/19/2021"}</div>
-                <div className="summary">{"執筆中の範囲への導入を追加"}</div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"4/12/2021"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"6/19/2021"}</FeedDate>
+                <FeedSummary>{"ユーザビリティのセクションを追加"}</FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"5/19/2021"}</FeedDate>
+                <FeedSummary>{"執筆中の範囲への導入を追加"}</FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"4/12/2021"}</FeedDate>
+                <FeedSummary>
                   {"フィッツの法則について加筆; 執筆中の範囲の目次を掲載"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"4/11/2021"}</div>
-                <div className="summary">{"初版を掲載"}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"4/11/2021"}</FeedDate>
+                <FeedSummary>{"初版を掲載"}</FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -1357,52 +1400,55 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#asj"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
-                    {"日本音響学会「やさしい解説」"}
-                  </div>
-                </a>
-                <a className="item" href={"#theory"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
-                    {"インタフェース設計の基礎理論"}
-                  </div>
-                </a>
-                <a className="item" href={"#usability"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"ユーザビリティ"}</div>
-                </a>
-                <a className="item" href={"#visualization"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"情報提示のデザイン"}</div>
-                </a>
-              </div>
-            </Popup>
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#asj"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"日本音響学会「やさしい解説」"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#theory"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"インタフェース設計の基礎理論"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#usability"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"ユーザビリティ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#visualization"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"情報提示のデザイン"}</ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <ProjectHeader project={"user-interface-design"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"introduction"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Introduction" : "はじめに"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Introduction" : "はじめに"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <p>
               <a href={"https://doi.org/10.1145/142750.142789"}>
                 {"Myersらの1992年の調査"}
@@ -1425,21 +1471,21 @@ export default function Page({ pageData }: PageDataProps) {
                 "このWebページでは、自分が研究者になるにあたって知っておきたかった基礎的なことを、参考文献を挙げながら紹介します。想定している読者層は HCI を専門にする学生や、ユーザインタフェース設計の実務にあたっている方々です。基礎理論、デザインの評価手法、デザインで気をつけるべきポイントまで幅広く扱います。"
               }
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"asj"}>{renderAsj()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"theory"}>{renderTheory()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"usability"}>{renderUsability()}</section>
-        <div className="ui hidden divider"></div>
-        <div className="ui horizontal divider">{"以降は執筆中"}</div>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
+        <Divider horizontal>{"以降は執筆中"}</Divider>
+        <Divider hidden />
         <section id={"visualization"}>{renderVisualization()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"conclusion"}>{renderConclusion()}</section>
-        <div className="ui divider"></div>
+        <Divider />
         <section id={"revision"}>{renderRevision()}</section>
         <SiteImage
           src={

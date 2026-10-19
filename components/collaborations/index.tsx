@@ -1,6 +1,29 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedEvent,
+  FeedLabel,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListContent,
+  ListHeader,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -52,10 +75,10 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <>
-                  <h2 className="ui header" id={"tech-transfer"}>
-                    <i className="gift icon"></i>
+                  <Header as="h2" id={"tech-transfer"}>
+                    <Icon name="gift" />
                     {"外部連携"}
-                  </h2>
+                  </Header>
                   <p>
                     {
                       "これまでに研究開発してきた創造性支援ツール・インタラクティブシステムは、大規模イベントでのライブやプログラミング・コンテスト、アニメ制作の現場、科学館のワークショップや大学院の講義などで活用されてきました。"
@@ -112,11 +135,11 @@ export default function Page({ pageData }: PageDataProps) {
                 </>
               }
             >
-              <h2 className="ui header" id={"tech-transfer"}>
-                <i className="gift icon"></i>
+              <Header as="h2" id={"tech-transfer"}>
+                <Icon name="gift" />
                 {"Tech transfer?"}
-              </h2>
-              <h3 className="ui header">{"Web services"}</h3>
+              </Header>
+              <Header as="h3">{"Web services"}</Header>
               <p>
                 {"My recent projects have been published as web services "}
                 <a href={"#services"}>{"as shown below"}</a>
@@ -124,19 +147,19 @@ export default function Page({ pageData }: PageDataProps) {
                   ". If you want to try using the technologies, please visit their websites, preferably with modern web browsers."
                 }
               </p>
-              <h3 className="ui header">{"Commercial use"}</h3>
+              <Header as="h3">{"Commercial use"}</Header>
               <p>
                 {
                   "My past projects of creativity support tools/environments have been used in university lectures and in commercial events. If you are interested in using them for commercial purpose, contact me."
                 }
               </p>
-              <h3 className="ui header">{"Open source projects"}</h3>
+              <Header as="h3">{"Open source projects"}</Header>
               <p>
                 {
                   "Some of my technologies have been published as open-source projects at "
                 }
                 <a href={"https://github.com/arcatdmz"}>
-                  <i className="github icon"></i>
+                  <Icon name="github" />
                   {"GitHub"}
                 </a>
                 {". Did you know that even this website is "}
@@ -152,10 +175,10 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <>
-                  <h2 className="ui header" id={"collaborators"}>
-                    <i className="users icon"></i>
+                  <Header as="h2" id={"collaborators"}>
+                    <Icon name="users" />
                     {"リサーチエンジニア・協力研究員"}
-                  </h2>
+                  </Header>
                   <p>
                     {
                       "2018年から技術顧問としてアニメの企画開発プロデュース会社である"
@@ -169,32 +192,32 @@ export default function Page({ pageData }: PageDataProps) {
                       "でも、協力研究員などのかたちで研究開発に関わってくださる方々を受け入れています。"
                     }
                   </p>
-                  <div className="ui list">
-                    <div className="item">
-                      <div className="header">
+                  <List>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://research.archinc.jp/members/"}>
                           {"Arch Research"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"2019/04- アーチ株式会社 研究開発部門"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://baku89.com"}>{"橋本 麦"}</a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"2023/02- "}
                         <abbr title={"産業技術総合研究所"}>{"産総研"}</abbr>
                         {" 協力研究員"}
                       </div>
-                    </div>
-                  </div>
-                  <h2 className="ui header" id={"students"}>
-                    <i className="student icon"></i>
+                    </ListItem>
+                  </List>
+                  <Header as="h2" id={"students"}>
+                    <Icon name="student" />
                     {"学生インターン"}
-                  </h2>
+                  </Header>
                   <p>
                     {"主務である"}
                     <abbr title={"産業技術総合研究所"}>{"産総研"}</abbr>
@@ -245,181 +268,181 @@ export default function Page({ pageData }: PageDataProps) {
                       "で受け入れ可能なこともあるかもしれません。アーチは代々木にオフィスがあります。"
                     }
                   </p>
-                  <h3 className="ui header">{"過去の技術研修生"}</h3>
+                  <Header as="h3">{"過去の技術研修生"}</Header>
                   <p>
                     {
                       "多くの場合、複数の研究員が共同でメンタリングします。加藤が主に担当した学生は名前の前に"
                     }
-                    <i className="check circle icon"></i>
+                    <Icon name="check circle" />
                     {"が付いています。"}
                   </p>
-                  <div className="ui list">
-                    <div className="item">
-                      <div className="header">{"山根 壮一、小林 和弘"}</div>
+                  <List>
+                    <ListItem>
+                      <ListHeader>{"山根 壮一、小林 和弘"}</ListHeader>
                       <div className="meta">
                         {"奈良先端科学技術大学院大学（2014/09-10）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://ryosuzuki.org/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"鈴木 遼"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"東京大学大学院 経済学研究科 （2015/02-03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         {"赤堀 渉、"}
                         <a href={"https://www.komazawa-u.ac.jp/~thirai/"}>
                           {"平井 辰典"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"早稲田大学 先進理工学部（2015/02-03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">{"吉館 要"}</div>
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>{"吉館 要"}</ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2015/02-03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://site.kkunihir.com/"}>{"加藤 邦拓"}</a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"明治大学大学院 理工学研究科 （2015/09-10）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
-                        <i className="check circle icon"></i>
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
+                        <Icon name="check circle" />
                         {"若林 裕太、"}
                         <a href={"https://github.com/FMS-Cat/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"小渕 豊"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"明治大学 総合数理学部（2015/09-10）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"http://pushl.net/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"今井 朝貴"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"東京工業大学大学院 情報理工学研究科（2015/09-10）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://scrapbox.io/mactkg-pub/mactkg"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"原 健太"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"明治大学 総合数理学部（2016/02-03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">{"若狭 健太"}</div>
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>{"若狭 健太"}</ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2016/08-2016/09）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://iis-lab.org/members/"}>
                           {"有賀 竣哉"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"東京大学 工学系研究科（2016/09-2016/09）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         {"吉館 要、"}
                         <a href={"https://hiromu.phd"}>{"矢倉 大夢"}</a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2015/04-2017/03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://www.0x0c.me/profile/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"松田 暁"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"東京大学大学院 学際情報学府（2017/02-2017/03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a
                           href={"https://sites.google.com/view/smygw72/home-jp"}
                         >
                           {"宮川 翔貴"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"早稲田大学 先進理工学部（2017/08-2017/09）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://73ch.work/"}>{"浪川 洪作"}</a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2019/10-2021/03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://atarapi.com/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"新 由衣"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2020/09-2022/09）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
                         <a href={"https://kamiwork.com/"}>
-                          <i className="check circle icon"></i>
+                          <Icon name="check circle" />
                           {"村上 貴人"}
                         </a>
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"筑波大学 情報学群（2021/05-2025/03）"}
                       </div>
-                    </div>
-                    <div className="item">
-                      <div className="header">
-                        <i className="check circle icon"></i>
+                    </ListItem>
+                    <ListItem>
+                      <ListHeader>
+                        <Icon name="check circle" />
                         {"上村 宙"}
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {"北海道情報大学 情報メディア学部（2025/08-2025/09）"}
                       </div>
-                    </div>
-                  </div>
-                  <h3 className="ui header">{"その他の学生向け情報"}</h3>
+                    </ListItem>
+                  </List>
+                  <Header as="h3">{"その他の学生向け情報"}</Header>
                   <p>
                     <a href={"https://blog.junkato.jp/ja/"}>{"ブログ"}</a>
                     {
@@ -429,10 +452,10 @@ export default function Page({ pageData }: PageDataProps) {
                 </>
               }
             >
-              <h2 className="ui header" id={"students"}>
-                <i className="student icon"></i>
+              <Header as="h2" id={"students"}>
+                <Icon name="student" />
                 {"Students?"}
-              </h2>
+              </Header>
               <p>
                 {"My primary affiliation ("}
                 <a href={"https://www.aist.go.jp/index_en.html"}>
@@ -462,9 +485,7 @@ export default function Page({ pageData }: PageDataProps) {
                   "Please contact me if you want to work with me with regards to the aforementioned topics. Keep in mind that, generally speaking, the first step toward working with professional researchers is often meeting them at academic conferences and get them know who you are and what you are doing."
                 }
               </p>
-              <h3 className="ui header">
-                {"Potential ways for collaborations"}
-              </h3>
+              <Header as="h3">{"Potential ways for collaborations"}</Header>
               <p>
                 {
                   "If you are living outside Japan, remote collaborations would be the easiest. If you have an appropriate visa, it would be possible for me to invite you to Tsukuba and work with you for a short term (e.g. regular internship programs for domestic students last for a month or so)."
@@ -517,42 +538,37 @@ export default function Page({ pageData }: PageDataProps) {
   function renderServices(): ReactNode {
     return (
       <>
-        <div className="ui divider" id={"services"}></div>
+        <Divider id={"services"} />
 
         {products.map((p, itemIndex) => (
           <Fragment key={itemIndex}>
-            <div
-              className="ui fluid card"
-              id={attribute(`projects-${p.project}`)}
-            >
-              <SiteLink
-                className="image"
-                href={href(p.getLink(lang, basePath))}
-              >
+            <Card fluid id={attribute(`projects-${p.project}`)}>
+              <LinkedImage ui={false} href={href(p.getLink(lang, basePath))}>
                 <SiteImage
                   src={`${rootPath}images/thumbnails/${p.getThumbnail(lang)}`}
                 />
-              </SiteLink>
-              <div className="content">
-                <SiteLink
-                  className="header"
+              </LinkedImage>
+              <CardContent>
+                <CardHeader
+                  as={SiteLink}
                   href={href(p.getLink(lang, basePath))}
                 >
                   {p.icon ? (
                     <>
                       <SiteImage
-                        className="ui avatar image"
+                        ui
+                        avatar
                         src={`${rootPath}images/icons/${p.icon}`}
                       />
                     </>
                   ) : null}
                   <HtmlContent html={p.getTitle(lang)} />
-                </SiteLink>
-                <div className="description">
+                </CardHeader>
+                <CardDescription>
                   <HtmlContent html={p.getDescription(lang)} />
-                </div>
-              </div>
-            </div>
+                </CardDescription>
+              </CardContent>
+            </Card>
           </Fragment>
         ))}
       </>
@@ -565,71 +581,85 @@ export default function Page({ pageData }: PageDataProps) {
         postFooter={
           en ? (
             <>
-              <Popup
-                className="ui hidden popup-menu popup"
+              <SitePopup
+                className="popup-menu"
                 position="top left"
                 trigger={
-                  <a className="ui circular icon popup-menu large grey hidden button">
-                    <i className="sidebar icon"></i>
-                  </a>
+                  <Button
+                    circular
+                    icon
+                    size="large"
+                    color="grey"
+                    as="a"
+                    className="popup-menu hidden"
+                  >
+                    <Icon name="sidebar" />
+                  </Button>
                 }
               >
-                <div className="ui divided list">
-                  <a className="item" href={"#tech-transfer"}>
-                    <i className="gift icon"></i>
-                    <div className="content">{"Tech transfer"}</div>
-                  </a>
-                  <a className="item" href={"#students"}>
-                    <i className="student icon"></i>
-                    <div className="content">{"Students"}</div>
-                  </a>
-                </div>
-              </Popup>
+                <List divided>
+                  <ListItem role="link" as="a" href={"#tech-transfer"}>
+                    <Icon name="gift" />
+                    <ListContent>{"Tech transfer"}</ListContent>
+                  </ListItem>
+                  <ListItem role="link" as="a" href={"#students"}>
+                    <Icon name="student" />
+                    <ListContent>{"Students"}</ListContent>
+                  </ListItem>
+                </List>
+              </SitePopup>
             </>
           ) : (
             <>
-              <Popup
-                className="ui hidden popup-menu popup"
+              <SitePopup
+                className="popup-menu"
                 position="top left"
                 trigger={
-                  <a className="ui circular icon popup-menu large grey hidden button">
-                    <i className="sidebar icon"></i>
-                  </a>
+                  <Button
+                    circular
+                    icon
+                    size="large"
+                    color="grey"
+                    as="a"
+                    className="popup-menu hidden"
+                  >
+                    <Icon name="sidebar" />
+                  </Button>
                 }
               >
-                <div className="ui divided list">
-                  <a className="item" href={"#tech-transfer"}>
-                    <i className="gift icon"></i>
-                    <div className="content">{"外部連携"}</div>
-                  </a>
-                  <a className="item" href={"#collaborators"}>
-                    <i className="users icon"></i>
-                    <div className="content">
+                <List divided>
+                  <ListItem role="link" as="a" href={"#tech-transfer"}>
+                    <Icon name="gift" />
+                    <ListContent>{"外部連携"}</ListContent>
+                  </ListItem>
+                  <ListItem role="link" as="a" href={"#collaborators"}>
+                    <Icon name="users" />
+                    <ListContent>
                       {"リサーチエンジニア・協力研究員"}
-                    </div>
-                  </a>
-                  <a className="item" href={"#students"}>
-                    <i className="student icon"></i>
-                    <div className="content">{"技術研修生"}</div>
-                  </a>
-                </div>
-              </Popup>
+                    </ListContent>
+                  </ListItem>
+                  <ListItem role="link" as="a" href={"#students"}>
+                    <Icon name="student" />
+                    <ListContent>{"技術研修生"}</ListContent>
+                  </ListItem>
+                </List>
+              </SitePopup>
             </>
           )
         }
       >
         <section id={"collaborations"}>
-          <h1 className="ui header">
-            <i className="handshake icon"></i>
-            <div className="content">{title}</div>
-          </h1>
-          <div className="ui segment">
-            <div className="ui feed">
-              <div className="event">
-                <div className="label">
+          <Header as="h1">
+            <Icon name="handshake" />
+            <HeaderContent>{title}</HeaderContent>
+          </Header>
+          <Segment>
+            <Feed>
+              <FeedEvent>
+                <FeedLabel>
                   <SiteImage src={`${rootPath}images/junkato.jpg`} />
-                </div>
-                <div className="content">
+                </FeedLabel>
+                <FeedContent>
                   {en
                     ? "Hi! I am open for collaborations with either academia or industry. Please do not hesitate to contact me via "
                     : "外部連携や技術研修生のお問合せは"}
@@ -645,11 +675,11 @@ export default function Page({ pageData }: PageDataProps) {
                       : "メールやソーシャルネットワークサービス"}
                   </SiteLink>
                   {en ? "." : "で受け付けています。"}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="ui hidden clearing divider"></div>
+                </FeedContent>
+              </FeedEvent>
+            </Feed>
+          </Segment>
+          <Divider clearing hidden />
           {renderCollaborations()}
         </section>
       </SiteLayout>

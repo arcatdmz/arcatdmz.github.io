@@ -1,6 +1,21 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -53,7 +68,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"picode"} />
-        <div className="ui message">
+        <Message>
           <LocalizedContent
             ja={
               <>
@@ -97,13 +112,13 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {"."}
           </LocalizedContent>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -131,61 +146,58 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">{"CHI 2013 Fast-forward"}</h3>
+                <Header as="h3">{"CHI 2013 Fast-forward"}</Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/NCou4Q1STE8"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=NCou4Q1STE8"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"Fast-forward"}
                       </a>
-                    </div>
-                    <div className="item">
+                    </ListItem>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=cQv0-4f8LEA"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"Full version"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"CHI 2013 "}
                   {en ? "Slides" : "発表スライド"}
-                </h3>
+                </Header>
 
-                <Embed
-                  className="ui embed"
-                  data-url={publicationsTable[p.publication].entryTags.slides}
-                  data-placeholder={`${rootPath}images/background-eee.png`}
-                  data-icon={"video play outline"}
-                ></Embed>
+                <DeferredEmbed
+                  url={publicationsTable[p.publication].entryTags.slides}
+                  placeholder={`${rootPath}images/background-eee.png`}
+                  icon={"video play outline"}
+                ></DeferredEmbed>
 
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
-                        <i className="download icon"></i>
+                        <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
 
                 {!en ? (
@@ -193,23 +205,23 @@ export default function Page({ pageData }: PageDataProps) {
                     <p className="caption">
                       {"日本語の発表スライドは"}
                       <a href={"#publications"}>
-                        <i className="book icon"></i>
+                        <Icon name="book" />
                         {"発表文献"}
                       </a>
                       {"で日本語文献の "}
-                      <i className="sidebar fitted icon"></i>
+                      <Icon fitted name="sidebar" />
                       {" をクリックすると閲覧できます。"}
                     </p>
                   </>
                 ) : null}
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section>
-          <h2 className="ui header">{"Picode IDE"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"Picode IDE"}</Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -281,18 +293,18 @@ export default function Page({ pageData }: PageDataProps) {
                 {"."}
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
           <Grid stackable columns={2}>
             <GridColumn>
-              <SiteLink
-                className="ui fluid image"
+              <LinkedImage
+                fluid
                 href={href(`${rootPath}picode/picode-ide.jpg`)}
               >
                 <SiteImage
                   src={`${rootPath}picode/picode-ide.jpg`}
                   alt={"Overview"}
                 />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? "Overview of the Picode IDE" : "Picode IDEの概観"}
               </div>
@@ -410,10 +422,10 @@ export default function Page({ pageData }: PageDataProps) {
         </section>
         {!en ? (
           <>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             <section id={"vision"}>
-              <h2 className="ui header">{"未来ビジョン"}</h2>
-              <div className="ui basic segment">
+              <Header as="h2">{"未来ビジョン"}</Header>
+              <Segment basic>
                 {en ? null : (
                   <>
                     <p>
@@ -466,11 +478,11 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 )}
-              </div>
+              </Segment>
             </section>
           </>
         ) : null}
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"picode"}
           majorPublication={"chi2013-kato-picode"}

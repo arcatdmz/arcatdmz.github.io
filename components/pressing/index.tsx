@@ -1,4 +1,15 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  Image,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -51,8 +62,8 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <section id={"abstract"}>
-          <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Abstract" : "概要"}</Header>
+          <Segment basic>
             <p>
               <LocalizedContent
                 ja={
@@ -99,32 +110,32 @@ export default function Page({ pageData }: PageDataProps) {
                   `${rootPath}publications/uist2009-kato-pressing-flyer.pdf`,
                 )}
               >
-                <i className={en ? "file icon" : "icon-file"}></i>
+                <Icon name="file"></Icon>
                 {en ? "a flyer" : "フライヤー"}
               </SiteLink>
               {en ? "." : "を配りながら発表したのが初出である。"}
             </p>
-            <div className="ui hidden divider"></div>
-            <div className="ui fluid image">
+            <Divider hidden />
+            <Image fluid as="div">
               <SiteImage
                 src={
                   "https://digitalmuseum.jp/en/software/pressing/images/usage.png"
                 }
               />
-            </div>
+            </Image>
             <div className="caption">
               {en
                 ? "Example code and its execution results"
                 : "サンプルコードとその実行結果"}
             </div>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"px"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {en ? "Programming Experience" : "プログラミング体験"}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <p>
               {en
                 ? "When the programmer runs the software, a vacant screen appears with a text box. He can start typing immediately and there is no program compilation; The programming experience is completely live and direct."
@@ -136,7 +147,7 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? " and hits the enter key, a ball apears on the screen. The size of the ball is defined according to how strong the class name "
                 : " と打ち込んでEnterキーを押すと、スクリーン上に円が現れる。このとき "}
-              <i>{"Ball"}</i>
+              <Icon>{"Ball"}</Icon>
               {en
                 ? " is typed."
                 : " の打鍵が強ければ大きな円が、弱ければ小さな物体が現れる。"}
@@ -145,11 +156,11 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? "There are several interesting predefined classes. For instance, these two sentences will bind the ball instance to a variable "
                 : "他にもいくつか面白いプリセットクラスが用意されている。例えば、次の2文は円インスタンスを変数 "}
-              <i>{"b"}</i>
+              <Icon>{"b"}</Icon>
               {en
                 ? " and its track will be painted with a red brush. The brush width is defined by how strong "
                 : " に代入し、円が通った軌跡が赤いブラシで塗られる。ブラシの幅は "}
-              <i>{"Brush"}</i>
+              <Icon>{"Brush"}</Icon>
               {en
                 ? " is typed."
                 : " がどれだけ強く打鍵されたかによって決まる。"}
@@ -166,12 +177,12 @@ export default function Page({ pageData }: PageDataProps) {
                 ? "but also by directly touching them using a mouse cursor. This environment is equipped with a two-dimensional physics simulator and thus provides natural interaction experience."
                 : "しかし、単にマウスカーソルでスクリーン上のオブジェクトに触るだけでもインタラクションできる。本環境は2次元物理シミュレーションのエンジンを内蔵しているため、インスタンス化された物体との自然なインタラクションが可能である。"}
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"implementation"}>
-          <h2 className="ui header">{en ? "Implementation" : "実装"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Implementation" : "実装"}</Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -194,7 +205,7 @@ export default function Page({ pageData }: PageDataProps) {
                 {
                   "This integrated development environment (IDE) has its original interpreter named "
                 }
-                <i>{"Kotosaka"}</i>
+                <Icon>{"Kotosaka"}</Icon>
                 {
                   " which interprets a JavaScript-like language. The language shares basic ideas of object-oriented programming such as classes (methods and fields), functions and variables. Variables can be used without declaration and are dynamically typed, capable of storing primitive values (boolean, integer and string,) class instances, and function objects."
                 }
@@ -209,7 +220,7 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
         </section>
       </>
     );
@@ -217,28 +228,25 @@ export default function Page({ pageData }: PageDataProps) {
   function renderImages(): ReactNode {
     return (
       <>
-        <SiteLink
-          className="ui fluid image"
-          href={href(`${rootPath}pressing/pressing.png`)}
-        >
+        <LinkedImage fluid href={href(`${rootPath}pressing/pressing.png`)}>
           <SiteImage src={`${rootPath}pressing/pressing.png`} />
-        </SiteLink>
+        </LinkedImage>
         <div className="caption">
           {en
             ? "Screenshot of the Pressing IDE"
             : "統合開発環境Pressingのスクリーンショット"}
         </div>
-        <div className="ui hidden divider"></div>
-        <a
-          className="ui fluid image"
+        <Divider hidden />
+        <LinkedImage
+          fluid
           href={"https://www.flickr.com/photos/zhiquan/3989241000/"}
         >
           <SiteImage src={`${rootPath}pressing/3989241000_35cb13136a_o.jpg`} />
-        </a>
+        </LinkedImage>
         <div className="caption">
           {en ? "Demonstration at UIST '09" : "UIST '09でのデモの様子"}
         </div>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
       </>
     );
   }
@@ -246,12 +254,12 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"pressing"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <Grid stackable>
           <GridColumn width={10}>{renderBody()}</GridColumn>
           <GridColumn width={6}>{renderImages()}</GridColumn>
         </Grid>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications project={"pressing"} />
       </SiteLayout>
     </>

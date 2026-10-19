@@ -1,6 +1,29 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  Label,
+  List,
+  ListContent,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed, Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import {
   EmbedYoutube,
   ProjectHero,
@@ -52,18 +75,18 @@ export default function Page({ pageData }: PageDataProps) {
   function renderNews(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
-          <div className="content">{en ? "News" : "ニュース"}</div>
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">
+          <Icon name="announcement" />
+          <HeaderContent>{en ? "News" : "ニュース"}</HeaderContent>
+        </Header>
+        <Segment basic>
           <LocalizedContent
             ja={
-              <div className="ui divided small feed">
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2021/-/-"}</div>
-                    <div className="summary">
+              <Feed size="small" className="divided">
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2021/-/-"}</FeedDate>
+                    <FeedSummary>
                       {"最新情報は"}
                       <a href={"https://textalive.jp/events"}>
                         {"TextAliveの活用事例を紹介したイベントページ"}
@@ -81,13 +104,13 @@ export default function Page({ pageData }: PageDataProps) {
                         {"Lyric App Framework"}
                       </SiteLink>
                       {"」をご覧ください。"}
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2020/9/18"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2020/9/18"}</FeedDate>
+                    <FeedSummary>
                       {
                         "TextAliveの機能を使って音楽に合わせてタイミングよく歌詞が動くWebアプリケーション（リリックアプリ）を開発できるJavaScript用のライブラリ「"
                       }
@@ -109,24 +132,24 @@ export default function Page({ pageData }: PageDataProps) {
                       {
                         "で、同APIを利用した、イベント史上初のプログラミング・コンテストの実施が発表されました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2019/11/13"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2019/11/13"}</FeedDate>
+                    <FeedSummary>
                       <a href={"https://www.morisawa.co.jp/about/news/4707"}>
                         {"モリサワ株式会社のInter BEE 2019出展ブース"}
                       </a>
                       {"で、TextAliveのデモ映像が展示されました。"}
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2019/9/6"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2019/9/6"}</FeedDate>
+                    <FeedSummary>
                       <a
                         href={
                           "https://prtimes.jp/main/html/rd/p/000000002.000045795.html"
@@ -139,26 +162,26 @@ export default function Page({ pageData }: PageDataProps) {
                       {
                         "で、アーティスト自身がTextAliveを活用して制作した歌詞アニメーションが紗幕に上映されました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2019/6/17"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2019/6/17"}</FeedDate>
+                    <FeedSummary>
                       <a href={"https://textalive.jp/events/magicalmirai2019"}>
                         {"初音ミク「マジカルミライ 2019」"}
                       </a>
                       {
                         "でTextAliveを活用して制作した歌詞アニメーションが使われ、TextAlive講座が開かれました。企画展ステージでもTextAlive制作映像が使われました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2019/2/8"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2019/2/8"}</FeedDate>
+                    <FeedSummary>
                       {
                         "SNOW MIKU LIVE! 2019でTextAliveを使って制作した歌詞アニメーションが使われました。これにあわせて"
                       }
@@ -168,65 +191,65 @@ export default function Page({ pageData }: PageDataProps) {
                       {
                         "をリリースし、「カラフルキャンバス」スタイルを追加しました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2018/8/20"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2018/8/20"}</FeedDate>
+                    <FeedSummary>
                       <a href={"https://docs.textalive.jp/magicalmirai2018"}>
                         {"初音ミク「マジカルミライ 2018」"}
                       </a>
                       {
                         "でTextAliveを使って制作した歌詞アニメーションが使われる他、TextAlive講座が開かれます。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2018/2/10"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2018/2/10"}</FeedDate>
+                    <FeedSummary>
                       <a href={"https://docs.textalive.jp/snowmiku2018"}>
                         {"SNOW MIKU LIVE! 2018"}
                       </a>
                       {
                         "でTextAliveを使って制作した歌詞アニメーションが使われました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2016/10/16"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2016/10/16"}</FeedDate>
+                    <FeedSummary>
                       <a href={"https://docs.textalive.jp/nomaps2016/"}>
                         {"No Maps 2016"}
                       </a>
                       {
                         "のIDOL DIVERSITYでTextAliveを使って制作した歌詞アニメーションが使われたほか、デモ展示を行い、piaproユーザ向けに動画のダウンロード機能をリリースしました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2016/2/5"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2016/2/5"}</FeedDate>
+                    <FeedSummary>
                       <a href={"http://textalive.jp/snowmiku2016"}>
                         {"SNOW MIKU 2016とのタイアップ企画"}
                       </a>
                       {
                         "でイラストと一緒に歌詞アニメーションを楽しめるようになりました。"
                       }
-                    </div>
-                  </div>
-                </div>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"2015/9/8"}</div>
-                    <div className="summary">
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"2015/9/8"}</FeedDate>
+                    <FeedSummary>
                       {"本研究は"}
                       <a
                         href={
@@ -240,17 +263,17 @@ export default function Page({ pageData }: PageDataProps) {
                         {"Webサービスとして一般公開"}
                       </a>
                       {"を始めました。ぜひお試しください。"}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
+              </Feed>
             }
           >
-            <div className="ui divided small feed">
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"2021/-/-"}</div>
-                  <div className="summary">
+            <Feed size="small" className="divided">
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"2021/-/-"}</FeedDate>
+                  <FeedSummary>
                     {"Latest information can be found on "}
                     <a href={"https://textalive.jp/events"}>
                       {"the TextAlive event page"}
@@ -267,13 +290,13 @@ export default function Page({ pageData }: PageDataProps) {
                     <SiteLink href={href(`${basePath}lyric-app-framework`)}>
                       {'"Lyric App Framework."'}
                     </SiteLink>
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"9/18/2020"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"9/18/2020"}</FeedDate>
+                  <FeedSummary>
                     <a href={"https://developer.textalive.jp/"}>
                       {"TextAlive App "}
                       <abbr title={"Application Programming Interface"}>
@@ -294,13 +317,13 @@ export default function Page({ pageData }: PageDataProps) {
                       {'Hatsune Miku "Magical Mirai 2020"'}
                     </a>
                     {" was also announced."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"9/6/2019"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"9/6/2019"}</FeedDate>
+                  <FeedSummary>
                     {"TextAlive was used to author "}
                     <a
                       href={
@@ -314,13 +337,13 @@ export default function Page({ pageData }: PageDataProps) {
                       {"Hatsune Miku"}
                     </a>
                     {"."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"8/20/2018"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"8/20/2018"}</FeedDate>
+                  <FeedSummary>
                     {"Once again, TextAlive was used to author "}
                     <a
                       href={
@@ -334,13 +357,13 @@ export default function Page({ pageData }: PageDataProps) {
                       {"Hatsune Miku"}
                     </a>
                     {"."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"2/10/2018"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"2/10/2018"}</FeedDate>
+                  <FeedSummary>
                     {
                       "TextAlive was used to author videos for a live performance by a renowned virtual singer, "
                     }
@@ -362,13 +385,13 @@ export default function Page({ pageData }: PageDataProps) {
                     {
                       ' for "Round off the Square Earth" are available on YouTube.'
                     }
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"10/16/2016"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"10/16/2016"}</FeedDate>
+                  <FeedSummary>
                     {
                       "TextAlive was used to author videos for a live performance by a Japanese idol group, "
                     }
@@ -398,13 +421,13 @@ export default function Page({ pageData }: PageDataProps) {
                       {"ROOM 24-7"}
                     </a>
                     {")."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"1/25/2016"}</div>
-                  <div className="summary">
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"1/25/2016"}</FeedDate>
+                  <FeedSummary>
                     <a href={"https://textalive.jp"}>
                       {"TextAlive has been publicly available as a web service"}
                     </a>
@@ -417,10 +440,10 @@ export default function Page({ pageData }: PageDataProps) {
                       {"the press release"}
                     </SiteLink>
                     {". Please have it a try!"}
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+            </Feed>
             <p>
               {"For more detailed news, please refer to "}
               <a href={"https://textalive.jp/events"}>
@@ -429,17 +452,17 @@ export default function Page({ pageData }: PageDataProps) {
               {"."}
             </p>
           </LocalizedContent>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <div className="content">{en ? "Abstract" : "概要"}</div>
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">
+          <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+        </Header>
+        <Segment basic>
           <LocalizedContent
             ja={
               <>
@@ -453,7 +476,7 @@ export default function Page({ pageData }: PageDataProps) {
                     "TextAliveは、ウェブ上に公開されている楽曲と歌詞の時間的対応付けを自動で推定し、Kinetic Typographyを用いた動画を自動生成する。したがって、事前にツールの使い方を学ばなくても、好みの楽曲のKinetic Typography動画を楽しむことができる。また、生成された動画をウェブ上のグラフィカルなインタフェースで編集でき、一から動画を作るより大幅に少ない手間で動画を制作できる。さらに、文字の動きを定めているアルゴリズムをその場でプログラミングでき、プリセットのテンプレートに縛られない自由な表現が可能である。"
                   }
                 </p>
-                <div className="ui message">
+                <Message>
                   {"本研究は、 2015/9/8 に"}
                   <a
                     href={
@@ -477,8 +500,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {"更新履歴のページ"}
                   </a>
                   {"をご覧ください。"}
-                </div>
-                <div className="ui message">
+                </Message>
+                <Message>
                   {"2020/9/18 には、開発者向けに「"}
                   <a href={"https://developer.textalive.jp"}>
                     {"TextAlive App "}
@@ -495,7 +518,7 @@ export default function Page({ pageData }: PageDataProps) {
                     {"Lyric App Framework"}
                   </SiteLink>
                   {"」の研究紹介をご覧ください。"}
-                </div>
+                </Message>
               </>
             }
           >
@@ -536,7 +559,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "A preliminary user study with designers, programmers, and casual users demonstrated its capability in authoring various kinetic typography videos."
               }
             </p>
-            <div className="ui message">
+            <Message>
               {"The system was made publicly available as "}
               <a href={"https://textalive.jp"}>{"TextAlive"}</a>
               {", a web service for authoring lyric videos, with "}
@@ -560,8 +583,8 @@ export default function Page({ pageData }: PageDataProps) {
                 {"its update history"}
               </a>
               {"."}
-            </div>
-            <div className="ui message">
+            </Message>
+            <Message>
               {"On 9/18/2020, "}
               <a href={"https://developer.textalive.jp"}>
                 {"TextAlive App "}
@@ -576,66 +599,63 @@ export default function Page({ pageData }: PageDataProps) {
                 {"Lyric App Framework"}
               </SiteLink>
               {"."}
-            </div>
+            </Message>
           </LocalizedContent>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          {en ? "Presentation materials" : "発表内容"}
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">{"CHI 2015 Fast-forward"}</h3>
+              <Header as="h3">{"CHI 2015 Fast-forward"}</Header>
               <EmbedYoutube src={"//www.youtube.com/embed/lOdt-pf5U8Q"} />
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <a href={"//www.youtube.com/watch?v=lOdt-pf5U8Q"}>
-                      <i className="youtube icon"></i>
+                      <Icon name="youtube" />
                       {"Fast-forward"}
                     </a>
-                  </div>
-                  <div className="item">
+                  </ListItem>
+                  <ListItem>
                     <a href={"//www.youtube.com/watch?v=ofczPQZaWMk"}>
-                      <i className="youtube icon"></i>
+                      <Icon name="youtube" />
                       {"Full version"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {"CHI 2015 "}
                 {en ? "Slides" : "発表スライド"}
-              </h3>
+              </Header>
 
-              <Embed
-                className="ui embed"
-                data-url={publicationsTable[p.publication].entryTags.slides}
-                data-placeholder={`${rootPath}images/background-eee.png`}
-                data-icon={"video play outline"}
-              ></Embed>
+              <DeferredEmbed
+                url={publicationsTable[p.publication].entryTags.slides}
+                placeholder={`${rootPath}images/background-eee.png`}
+                icon={"video play outline"}
+              ></DeferredEmbed>
 
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <SiteLink
                       href={href(
                         publicationsTable[p.publication].entryTags.slides,
                       )}
                     >
-                      <i className="download icon"></i>
+                      <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
 
               {!en ? (
@@ -643,35 +663,35 @@ export default function Page({ pageData }: PageDataProps) {
                   <p className="caption">
                     {"日本語の発表スライドは"}
                     <a href={"#publications"}>
-                      <i className="book icon"></i>
+                      <Icon name="book" />
                       {"発表文献"}
                     </a>
                     {"で日本語文献の "}
-                    <i className="sidebar fitted icon"></i>
+                    <Icon fitted name="sidebar" />
                     {" をクリックすると閲覧できます。"}
                   </p>
                 </>
               ) : null}
             </GridColumn>
           </Grid>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderExamples(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Example videos" : "作例"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Example videos" : "作例"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en ? "TextAlive Online" : "Web版"}
-                <div className="ui tiny label">
-                  <i className="calendar icon"></i>
+                <Label size="tiny">
+                  <Icon name="calendar" />
                   <span>{"2015-"}</span>
-                </div>
-              </h3>
+                </Label>
+              </Header>
 
               <EmbedYoutube
                 src={
@@ -692,13 +712,13 @@ export default function Page({ pageData }: PageDataProps) {
               ) : null}
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en ? "TextAlive Desktop" : "デスクトップ版"}
-                <div className="ui tiny label">
-                  <i className="calendar icon"></i>
+                <Label size="tiny">
+                  <Icon name="calendar" />
                   <span>{"2014-2015"}</span>
-                </div>
-              </h3>
+                </Label>
+              </Header>
 
               <EmbedYoutube src={"https://www.youtube.com/embed/ofczPQZaWMk"} />
 
@@ -713,29 +733,29 @@ export default function Page({ pageData }: PageDataProps) {
               ) : null}
             </GridColumn>
           </Grid>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderFurtherReadings(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="gift icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="gift" />
+          <HeaderContent>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
+          <Segment>
+            <ItemGroup divided className="projects">
               <ProjectItem p={projectsTable["lyric-app-framework"]} />
               <ProjectItem
                 p={projectsTable["creativity-support-environments"]}
               />
-            </div>
-          </div>
-        </div>
+            </ItemGroup>
+          </Segment>
+        </Segment>
       </>
     );
   }
@@ -750,50 +770,51 @@ export default function Page({ pageData }: PageDataProps) {
         }
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#abstract"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{en ? "Abstract" : "概要"}</div>
-                </a>
-                <a className="item" href={"#presentations"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
-                    {en ? "Presentations" : "発表内容"}
-                  </div>
-                </a>
-                <a className="item" href={"#examples"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
-                    {en ? "Example videos" : "作例"}
-                  </div>
-                </a>
-                <a className="item" href={"#publications"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
-                    {en ? "Publications" : "発表文献"}
-                  </div>
-                </a>
-                <a className="item" href={"#further-readings"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#abstract"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#presentations"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Presentations" : "発表内容"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#examples"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Example videos" : "作例"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#publications"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#further-readings"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </div>
-                </a>
-              </div>
-            </Popup>
+                  </ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
@@ -803,24 +824,24 @@ export default function Page({ pageData }: PageDataProps) {
           </div>
           <div className="left-content">
             <section id={"abstract"}>{renderAbstract()}</section>
-            <div className="ui basic right aligned segment">
-              <a className="ui primary button" href={"//textalive.jp"}>
-                <i className="external icon"></i>
+            <Segment basic textAlign="right">
+              <Button role="link" primary as="a" href={"//textalive.jp"}>
+                <Icon name="external" />
                 {en ? "Service Website" : "Webサイトへ"}
-              </a>
-            </div>
-            <div className="ui hidden divider"></div>
+              </Button>
+            </Segment>
+            <Divider hidden />
             <section id={"presentations"}>{renderPresentations()}</section>
           </div>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"examples"}>{renderExamples()}</section>
         </div>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"textalive"}
           majorPublication={"chi2015-kato-textalive"}
         />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"further-readings"}>{renderFurtherReadings()}</section>
       </SiteLayout>
     </>

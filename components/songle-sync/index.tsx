@@ -1,6 +1,22 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Button,
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  List,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -56,14 +72,14 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
+        <Header as="h2">{en ? "Abstract" : "概要"}</Header>
         <LocalizedContent
           ja={
             <>
-              <div className="ui basic segment">
+              <Segment basic>
                 <p>
                   <SiteImage
-                    className="ui image"
+                    ui
                     src={"/songle-sync/songlesync-platform-ja.png"}
                   />
                 </p>
@@ -91,20 +107,25 @@ export default function Page({ pageData }: PageDataProps) {
                     '体験を提供する音楽再生に連動するWebアプリケーションを開発した。さらに、開発キットを2日間のハッカソンで実用した。これらの実験から得られた教訓を報告し、 "The Internet of Musical Things (IoMT)" の未来について議論した。'
                   }
                 </p>
-              </div>
-              <div className="ui basic center aligned segment">
+              </Segment>
+              <Segment basic textAlign="center">
                 <p>
-                  <a
-                    className="ui labeled icon massive green button"
+                  <Button
+                    role="link"
+                    icon
+                    size="massive"
+                    color="green"
+                    labelPosition="left"
+                    as="a"
                     href={"https://tutorial.songle.jp/sync"}
                   >
-                    <i className="external icon"></i>
+                    <Icon name="external" />
                     {" Songle Syncを試す"}
-                  </a>
+                  </Button>
                 </p>
-              </div>
-              <div className="ui divider"></div>
-              <div className="ui basic segment">
+              </Segment>
+              <Divider />
+              <Segment basic>
                 <p>
                   {
                     "上記は ACM Multimedia 2018 向けの論文概要を翻訳したものです。その後、 "
@@ -125,31 +146,28 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   >
                     <SiteImage
-                      className="ui image"
+                      ui
                       src={"/songle-sync/songlesync-poster-extract.jpg"}
                     />
                   </a>
                 </p>
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"https://ongaaccel.jp/symposium2020/"}>
-                        <i className="pdf file icon"></i>
+                        <Icon name="file pdf" />
                         {"OngaACCELシンポジウム2020予稿集"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
-              </div>
+              </Segment>
             </>
           }
         >
-          <div className="ui basic segment">
+          <Segment basic>
             <p>
-              <SiteImage
-                className="ui image"
-                src={"/songle-sync/mm2018-songlesync-demo.jpg"}
-              />
+              <SiteImage ui src={"/songle-sync/mm2018-songlesync-demo.jpg"} />
             </p>
             <p>
               {
@@ -171,86 +189,88 @@ export default function Page({ pageData }: PageDataProps) {
                 "We report lessons learned from these studies and discuss the future of the Internet of Musical Things."
               }
             </p>
-          </div>
-          <div className="ui basic center aligned segment">
+          </Segment>
+          <Segment basic textAlign="center">
             <p>
-              <a
-                className="ui labeled icon massive green button"
+              <Button
+                role="link"
+                icon
+                size="massive"
+                color="green"
+                labelPosition="left"
+                as="a"
                 href={"https://tutorial.songle.jp/sync?lang=en"}
               >
-                <i className="external icon"></i>
+                <Icon name="external" />
                 {" Try out Songle Sync"}
-              </a>
+              </Button>
             </p>
-          </div>
+          </Segment>
         </LocalizedContent>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
       </>
     );
   }
   function renderPresentations(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          {en ? "Presentation materials" : "発表内容"}
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {"ACM Multimedia 2018 "}
                 {en ? "Demo Video" : "デモ動画"}
-              </h3>
+              </Header>
               <EmbedYoutube src={"//www.youtube.com/embed/dErV9oZw_uQ"} />
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <a href={"//www.youtube.com/watch?v=dErV9oZw_uQ"}>
-                      <i className="youtube icon"></i>
+                      <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {"ACM Multimedia 2018 "}
                 {en ? "Slides" : "発表スライド"}
-              </h3>
-              <Embed
-                className="ui embed"
-                data-url={slideUrl}
-                data-placeholder={slideImagePath}
-                data-icon={"video play outline"}
-              ></Embed>
+              </Header>
+              <DeferredEmbed
+                url={slideUrl}
+                placeholder={slideImagePath}
+                icon={"video play outline"}
+              ></DeferredEmbed>
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <SiteLink href={href(slideUrl)}>
-                      <i className="download icon"></i>
+                      <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
   function renderRelatedProjects(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="lab icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="lab" />
+          <HeaderContent>
             {en ? "Related projects" : "関連プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           {(() => {
             const children: ReactNode[] = [];
             children.push(
@@ -329,15 +349,15 @@ export default function Page({ pageData }: PageDataProps) {
             dg = projectsTable["deployground"];
             children.push(
               <>
-                <div className="ui divided items projects">
+                <ItemGroup divided className="projects">
                   <ProjectItem p={dg} />
-                </div>
+                </ItemGroup>
               </>,
             );
             return keyed(children);
           })()}
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
@@ -355,7 +375,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         }
       >
-        <div className="ui positive message">
+        <Message positive>
           <strong>{en ? "Collaborative project:" : "共同研究の成果:"}</strong>
           {en
             ? " While I am credited as the first author of the ACM Multimedia 2018 paper, this project is the result of the collaborative effort in "
@@ -372,8 +392,8 @@ export default function Page({ pageData }: PageDataProps) {
           {en
             ? " for the complete list of the contributors."
             : "に関係者のクレジットが掲載されています。"}
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>{renderAbstract()}</section>
         <section id={"presentations"}>{renderPresentations()}</section>
         <section id={"related-projects"}>{renderRelatedProjects()}</section>

@@ -1,3 +1,17 @@
+import {
+  Breadcrumb,
+  BreadcrumbSection,
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  Label,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
@@ -49,8 +63,8 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <section id={"details"}>
-          <h2 className="ui header">{"時と場所"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"時と場所"}</Header>
+          <Segment basic>
             <p>
               {"2016年2月13日 10時30分より、Wantedlyオフィスで開催されます。"}
             </p>
@@ -71,9 +85,9 @@ export default function Page({ pageData }: PageDataProps) {
               style={{ border: "0" }}
               allowFullScreen={true}
             ></iframe>
-          </div>
-          <h2 className="ui header">{"参加費"}</h2>
-          <div className="ui basic segment">
+          </Segment>
+          <Header as="h2">{"参加費"}</Header>
+          <Segment basic>
             <p>
               {"学生"}
               <strong>{"1000"}</strong>
@@ -83,9 +97,9 @@ export default function Page({ pageData }: PageDataProps) {
                 "円を予定しています。17時半までお菓子とお茶が出るほか、18-19時半まで夕飯とアルコールを含む飲み物が手配されています。"
               }
             </p>
-          </div>
-          <h2 className="ui header">{"その他"}</h2>
-          <div className="ui basic segment">
+          </Segment>
+          <Header as="h2">{"その他"}</Header>
+          <Segment basic>
             <p>
               {
                 "電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。"
@@ -96,7 +110,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。"
               }
             </p>
-          </div>
+          </Segment>
         </section>
       </>
     );
@@ -104,28 +118,28 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第5回 (2016)"}</div>
-        </div>
-        <div className="ui divider"></div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第5回 (2016)"}</BreadcrumbSection>
+        </Breadcrumb>
+        <Divider />
         <section>
-          <h1 className="ui header">{"第5回 名状しがたいお茶会"}</h1>
-          <div className="ui horizontal divided list">
-            <div className="item">
-              <span className="ui tiny basic label">
-                <i className="calendar icon"></i>
+          <Header as="h1">{"第5回 名状しがたいお茶会"}</Header>
+          <List divided horizontal>
+            <ListItem>
+              <Label basic size="tiny" as="span">
+                <Icon name="calendar" />
                 {"2016/2/13"}
-              </span>
-            </div>
-          </div>
+              </Label>
+            </ListItem>
+          </List>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"summary"}>
-          <div className="ui basic segment">
+          <Segment basic>
             <p>
               {
                 "名状しがたいお茶会へようこそ！一年に一度のお茶会も、早いものでもう5回目です。今年から複数名で運営タスクにあたっています。お茶会らしく温かい飲み物も出ます。会場は"
@@ -137,56 +151,57 @@ export default function Page({ pageData }: PageDataProps) {
                 "を使ってお茶会関連の議論を深める試みも始めました。濃ゆい一日をぜひ楽しんでいただければと思います。"
               }
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Divider hidden />
+        <Grid stackable columns={2}>
+          <GridColumn>
             <section id={"timetable"}>
-              <h2 className="ui header">{"タイムテーブル"}</h2>
-              <div className="ui basic segment">
+              <Header as="h2">{"タイムテーブル"}</Header>
+              <Segment basic>
                 <iframe
                   src={
                     "https://docs.google.com/spreadsheets/d/1We0tN3pxXJ1Wbh30mpEPgec5GD8fDA5WC-De8OsAsqU/pubhtml?gid=1669616252&single=true&widget=true&headers=false"
                   }
                   style={{ width: "100%", height: "640px" }}
                 ></iframe>
-              </div>
+              </Segment>
             </section>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             {renderDetails()}
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <section id={"photos"}>
-              <h2 className="ui header">{"当日の様子"}</h2>
-              <div className="ui basic segment">
-                <SiteImage className="ui fluid image" src={"DSC09983.jpg"} />
+              <Header as="h2">{"当日の様子"}</Header>
+              <Segment basic>
+                <SiteImage ui fluid src={"DSC09983.jpg"} />
                 <div className="caption">{"開場前"}</div>
-                <div className="ui hidden divider"></div>
-                <SiteImage className="ui fluid image" src={"DSC09990.jpg"} />
+                <Divider hidden />
+                <SiteImage ui fluid src={"DSC09990.jpg"} />
                 <div className="caption">{"質疑"}</div>
-                <div className="ui hidden divider"></div>
+                <Divider hidden />
                 <SiteImage
-                  className="ui fluid image"
+                  ui
+                  fluid
                   src={"73dfe990-b51f-4517-b0ef-78715e98b2fd.jpg"}
                 />
                 <div className="caption">{"名札"}</div>
-                <div className="ui hidden divider"></div>
-                <SiteImage className="ui fluid image" src={"DSC09993.jpg"} />
+                <Divider hidden />
+                <SiteImage ui fluid src={"DSC09993.jpg"} />
                 <div className="caption">{"突発ゲーム会"}</div>
-                <div className="ui hidden divider"></div>
-              </div>
+                <Divider hidden />
+              </Segment>
             </section>
-          </div>
-        </div>
-        <div className="ui divider"></div>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+          </GridColumn>
+        </Grid>
+        <Divider />
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第5回 (2016)"}</div>
-        </div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第5回 (2016)"}</BreadcrumbSection>
+        </Breadcrumb>
       </SiteLayout>
     </>
   );

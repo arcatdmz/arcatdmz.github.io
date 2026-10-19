@@ -1,3 +1,14 @@
+import {
+  Button,
+  Form,
+  FormField,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  Segment,
+} from "react-fomantic-ui";
+
 import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -108,10 +119,10 @@ export function CodePlayground({
   )}`;
   return (
     <div className="talk-playground">
-      <div className="ui stackable two column grid">
-        <div className="column">
-          <div className="ui form">
-            <div className="field">
+      <Grid stackable columns={2}>
+        <GridColumn>
+          <Form as="div">
+            <FormField>
               <label htmlFor={id}>JavaScript</label>
               <textarea
                 id={id}
@@ -120,37 +131,37 @@ export function CodePlayground({
                 onChange={(event) => setCode(event.target.value)}
                 rows={10}
               />
-            </div>
-          </div>
-          <div className="ui basic segment talk-actions">
-            <button
+            </FormField>
+          </Form>
+          <Segment basic className="talk-actions">
+            <Button
+              primary
               type="button"
-              className="ui primary button"
               onClick={() => setRevision((value) => value + 1)}
             >
-              <i className="play icon" aria-hidden="true" />
+              <Icon name="play" aria-hidden="true" />
               実行
-            </button>
+            </Button>
             {storageKey && (
-              <button type="button" className="ui button" onClick={save}>
-                <i className="save icon" aria-hidden="true" />
+              <Button type="button" onClick={save}>
+                <Icon name="save" aria-hidden="true" />
                 保存
-              </button>
+              </Button>
             )}
             {drawing && (
-              <a className="ui button" href={shareHref}>
+              <Button role="link" as="a" href={shareHref}>
                 コードを共有
-              </a>
+              </Button>
             )}
-          </div>
+          </Segment>
           <p className="talk-note">
             編集すると実行結果が更新されます。
             {drawing &&
               "color(r, g, b)、dot(x, y)、line(x, y, ex, ey)、print(text) が使えます。"}
           </p>
           <p role="status">{saved}</p>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           {drawing && (
             <canvas
               ref={canvas}
@@ -159,12 +170,12 @@ export function CodePlayground({
               aria-label="プログラムの描画結果"
             />
           )}
-          <h3 className="ui header">実行結果</h3>
+          <Header as="h3">実行結果</Header>
           <pre className="talk-code" role="status" aria-live="polite">
             {output}
           </pre>
-        </div>
-      </div>
+        </GridColumn>
+      </Grid>
     </div>
   );
 }

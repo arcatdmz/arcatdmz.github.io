@@ -1,3 +1,5 @@
+import { Header } from "react-fomantic-ui";
+
 import { CodePlayground } from "@/site/talks/CodePlayground";
 import { TalkPage } from "@/site/talks/TalkPage";
 import { type PageDataProps } from "@/site/page-data";
@@ -5,7 +7,7 @@ import { getPageData } from "@/site/page-data.server";
 function Content() {
   return (
     <>
-      <h2 className="ui header">My First IDE</h2>
+      <Header as="h2">My First IDE</Header>
       <CodePlayground storageKey="as-a-code-ide" />
     </>
   );

@@ -1,3 +1,17 @@
+import {
+  Button,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderSubheader,
+  Icon,
+  Label,
+  LabelGroup,
+  Menu,
+  MenuItem,
+  Message,
+} from "react-fomantic-ui";
+
 import { useEffect, type ComponentType } from "react";
 import { useRouter } from "next/router";
 import { hydratePageData, type PageDataProps } from "@/site/page-data";
@@ -91,33 +105,37 @@ export function TalkPage({
     <SiteLayout context={context}>
       <article className="talk-page">
         <header>
-          <h1 className="ui header">
+          <Header as="h1">
             {info.title}
-            <div className="sub header">{info.subtitle}</div>
-          </h1>
-          <div className="ui labels">
-            <span className="ui label">
-              <i className="calendar icon" />
+            <HeaderSubheader>{info.subtitle}</HeaderSubheader>
+          </Header>
+          <LabelGroup>
+            <Label as="span">
+              <Icon name="calendar" />
               <time dateTime={info.date}>{info.date}</time>
-            </span>
-            <span className="ui blue label">IDE</span>
-            <span className="ui red label">{info.event}</span>
-          </div>
+            </Label>
+            <Label color="blue" as="span">
+              IDE
+            </Label>
+            <Label color="red" as="span">
+              {info.event}
+            </Label>
+          </LabelGroup>
           <p className="talk-materials">
             <SiteLink href={`/publications/${info.pdf}`}>
-              <i className="file pdf icon" />
+              <Icon name="file pdf" />
               講演スライド（PDF）
             </SiteLink>
           </p>
           {slug === "people-are-programmers" && chapter === 1 && !ide && (
             <>
-              <h2 className="ui header">概要</h2>
+              <Header as="h2">概要</Header>
               <p>
                 プログラマは一番長くコンピュータと付き合ってきた人たちだ。だから、プログラマはコンピュータを使った創作活動の未来について知っている。プログラミングの方法論を他のコンテンツ制作に応用できれば、より自由で協力的な世界がやってくるだろう。
                 一方で、プログラマは過去を引きずっているとも言える。プログラミングを今より分かりやすくできれば、さらに多くの人が使える道具になるだろう。
                 本講演では、プログラミングのメリットをみんなが享受できる世界に向けた試みについて、過去・未来2つの観点から論じる。
               </p>
-              <div className="ui info message">
+              <Message info>
                 <p>
                   このページでは、
                   <SiteLink href="https://blog.junkato.jp/ja/posts/2015-09-24-ipsj-prosym-wakate-2015/">
@@ -129,66 +147,76 @@ export function TalkPage({
                   </SiteLink>
                   もあります。これまでの活動を手短にまとめるとてもいい機会になりました。ご招待くださった幹事団のみなさま、当日会場で活発に議論いただいたみなさまに、この場を借りて御礼申し上げます。
                 </p>
-              </div>
+              </Message>
             </>
           )}
-          <nav
-            className="ui three item stackable pointing secondary menu"
+          <Menu
+            pointing
+            secondary
+            stackable
+            as="nav"
             aria-label="講演の章"
+            widths={3}
           >
             {info.chapters.map((title, index) => (
-              <SiteLink
+              <MenuItem
+                as={SiteLink}
                 key={title}
-                className={`item ${
-                  !ide && chapter === index + 1 ? "active" : ""
-                }`}
+                active={!ide && chapter === index + 1}
                 aria-current={
                   !ide && chapter === index + 1 ? "page" : undefined
                 }
                 href={chapterHref(slug, index + 1)}
               >
                 {index + 1}. {title}
-              </SiteLink>
+              </MenuItem>
             ))}
-          </nav>
+          </Menu>
         </header>
         <div id="content">
           <Content active />
         </div>
         {!ide && (
-          <nav
-            className="ui two column grid talk-pagination"
+          <Grid
+            columns={2}
+            as="nav"
             aria-label="前後の章"
+            className="talk-pagination"
           >
-            <div className="column">
+            <GridColumn>
               {chapter > 1 ? (
-                <SiteLink
-                  className="ui fluid button"
+                <Button
+                  role="link"
+                  fluid
+                  as={SiteLink}
                   href={chapterHref(slug, chapter - 1)}
                 >
                   « 前の章
-                </SiteLink>
+                </Button>
               ) : (
-                <button className="ui fluid disabled button" disabled>
+                <Button disabled fluid>
                   « 前の章
-                </button>
+                </Button>
               )}
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               {chapter < 3 ? (
-                <SiteLink
-                  className="ui fluid primary button"
+                <Button
+                  role="link"
+                  fluid
+                  primary
+                  as={SiteLink}
                   href={chapterHref(slug, chapter + 1)}
                 >
                   次の章 »
-                </SiteLink>
+                </Button>
               ) : (
-                <button className="ui fluid disabled button" disabled>
+                <Button disabled fluid>
                   次の章 »
-                </button>
+                </Button>
               )}
-            </div>
-          </nav>
+            </GridColumn>
+          </Grid>
         )}
       </article>
     </SiteLayout>
