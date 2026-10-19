@@ -9,7 +9,7 @@
     "build": "npm run assets && next build --webpack && node --import tsx scripts/finalize-export.ts",
     "clean": "del-cli .next out dist build public site/generated",
     "dev": "node --import tsx scripts/dev.ts",
-    "prettify": "prettier --write \"pages/**/*.{ts,tsx}\" \"site/**/*.{ts,tsx}\" \"scripts/**/*.ts\" \"tests/**/*.{ts,mts}\" \"src/**/*.{json,less,ts}\" \"*.{js,json,ts}\"",
+    "prettify": "prettier --write \"pages/**/*.{ts,tsx}\" \"components/**/*.{ts,tsx}\" \"site/**/*.{ts,tsx}\" \"scripts/**/*.ts\" \"tests/**/*.{ts,mts}\" \"src/**/*.{json,less,ts}\" \"*.{js,json,ts}\"",
     "test": "npm run typecheck && npm run test:unit -- --runInBand && npm run test:verifier",
     "assets": "node --import tsx scripts/prepare-assets.ts",
     "typecheck": "node --import tsx scripts/prepare-assets.ts --ensure-data && tsc --noEmit",
