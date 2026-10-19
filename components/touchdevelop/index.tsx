@@ -105,7 +105,7 @@ export default function Page({ pageData }: PageDataProps) {
               projects such as{" "}
               <a href="https://makecode.com/about">Microsoft MakeCode</a> and
               have impacted programming experience design of various projects
-              such as <SiteLink href="/textalive">TextAlive</SiteLink>.{" "}
+              such as <SiteLink href="/textalive">TextAlive</SiteLink>.
             </p>
           </LocalizedContent>
         </Message>

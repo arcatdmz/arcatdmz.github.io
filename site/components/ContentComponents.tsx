@@ -477,7 +477,6 @@ export function Publication({
               <List.Item className="labels">
                 <Icon name="triangle right" />
                 <List.Content>
-                  {" "}
                   <Label size="tiny" as="span">
                     <Icon name="calendar" />
                     {entry.entryTags.year}

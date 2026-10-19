@@ -722,7 +722,6 @@ export default function Page({ pageData }: PageDataProps) {
           <Divider hidden />
           <section id="media">
             <Header as="h1">
-              {" "}
               <Icon className="broadcast tower" />
               <Header.Content>
                 {en ? "Media coverage" : "メディア掲載"}

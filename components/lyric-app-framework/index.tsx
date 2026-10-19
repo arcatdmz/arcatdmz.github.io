@@ -73,7 +73,6 @@ export default function Page({ pageData }: PageDataProps) {
           </Header.Content>
         </Header>
         <Segment basic>
-          {" "}
           {!en ? (
             <>
               <Header as="h3" id="interaction2024">
@@ -641,7 +640,6 @@ export default function Page({ pageData }: PageDataProps) {
                   </Header.Content>
                 </Header>
                 <Segment basic>
-                  {" "}
                   {en ? (
                     <>
                       <p>
@@ -659,7 +657,7 @@ export default function Page({ pageData }: PageDataProps) {
                           "Hatsune Miku Magical Mirai"
                         </a>{" "}
                         — a live show and exhibition, connecting with Hatsune
-                        Miku through creativity.{" "}
+                        Miku through creativity.
                       </p>
 
                       <List divided horizontal as="ul">

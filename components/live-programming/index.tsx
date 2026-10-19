@@ -104,7 +104,6 @@ export default function Page({ pageData }: PageDataProps) {
               ) : (
                 <>
                   <p>
-                    {" "}
                     <a href="https://jssst2023.wordpress.com/tutorial">
                       日本ソフトウェア科学会 第40回大会 チュートリアル
                     </a>

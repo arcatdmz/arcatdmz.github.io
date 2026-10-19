@@ -130,7 +130,6 @@ export default function Page({ pageData }: PageDataProps) {
           >
             <Grid.Row>
               <Grid.Column width={11}>
-                {" "}
                 <p>
                   ユーザインタフェース設計に有用な基礎理論の多くは、
                   <abbr title="Graphical User Interface">GUI</abbr>
@@ -582,7 +581,6 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Grid.Column width={11}>
-          {" "}
           <Header as="h3">
             <Header.Content>
               ダイレクトマニピュレーション（Direct Manipulation; DM）
@@ -656,7 +654,6 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <Grid.Column width={11}>
-          {" "}
           <Header as="h3">
             <Header.Content>
               実行の溝と評価の溝（Gulf of Execution and Evaluation）

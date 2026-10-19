@@ -351,7 +351,6 @@ function WorkExperience() {
       </section>
       <section id="work-interns">
         <div className="row">
-          {" "}
           <div className="year"></div>
           <div className="content">
             <h3>Research Internships </h3>
@@ -459,7 +458,7 @@ function WorkExperience() {
             <a href="https://microsoft.com/">Microsoft</a>
             <p className="small">
               Developed an online code reviewing tool to improve the team's
-              productivity.{"       "}
+              productivity.
             </p>
           </div>
         </div>
@@ -639,7 +638,6 @@ function ResearchGrants() {
         </div>
       </div>
       <div className="row">
-        {" "}
         <div className="year">
           April 2011-
           <br />
@@ -894,7 +892,6 @@ function Education() {
         </div>
       </div>
       <div className="row">
-        {" "}
         <div className="year">
           April 2005-
           <br />

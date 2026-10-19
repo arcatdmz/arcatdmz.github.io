@@ -193,7 +193,6 @@ export default function Page({ pageData }: PageDataProps) {
           children.push(
             <>
               <Header as="h2">
-                {" "}
                 <Icon className="broadcast tower" />
                 <Header.Content>
                   {en ? "Media coverage" : "メディア掲載"}
