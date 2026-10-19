@@ -1,5 +1,20 @@
+import {
+  Button,
+  Divider,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListContent,
+  ListDescription,
+  ListHeader,
+  ListItem,
+  Segment,
+  SegmentGroup,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { Fragment, type ReactNode } from "react";
 import { MediaItem, Publication } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -55,71 +70,83 @@ export default function Page({ pageData }: PageDataProps) {
   function renderPublicationsMenu(): ReactNode {
     return (
       <>
-        <div className="ui divided list">
-          <a className="item" href={"#awards"}>
-            <i className="trophy icon"></i>
-            <div className="content">{en ? "Awards" : "受賞歴"}</div>
-          </a>
-          <a className="item" href={"#talks"}>
-            <i className="talk icon"></i>
-            <div className="content">{en ? "Invited Talks" : "招待講演"}</div>
-          </a>
-          <a className="item" href={"#lectures"}>
-            <i className="graduation cap icon"></i>
-            <div className="content">{en ? "Lectures" : "講義"}</div>
-          </a>
-          <a className="item" href={"#academic-publications"}>
-            <i className="book icon"></i>
-            <div className="content">{en ? "Publications" : "発表文献"}</div>
-          </a>
-          <div className="item">
-            <div className="ui list">
+        <List divided>
+          <ListItem role="link" as="a" href={"#awards"}>
+            <Icon name="trophy" />
+            <ListContent>{en ? "Awards" : "受賞歴"}</ListContent>
+          </ListItem>
+          <ListItem role="link" as="a" href={"#talks"}>
+            <Icon name="talk" />
+            <ListContent>{en ? "Invited Talks" : "招待講演"}</ListContent>
+          </ListItem>
+          <ListItem role="link" as="a" href={"#lectures"}>
+            <Icon name="graduation cap" />
+            <ListContent>{en ? "Lectures" : "講義"}</ListContent>
+          </ListItem>
+          <ListItem role="link" as="a" href={"#academic-publications"}>
+            <Icon name="book" />
+            <ListContent>{en ? "Publications" : "発表文献"}</ListContent>
+          </ListItem>
+          <ListItem>
+            <List>
               <LocalizedContent
                 ja={
                   <>
-                    <a className="item" href={"#international-publications"}>
-                      <i className="right triangle icon"></i>
-                      <div className="content">{"国際"}</div>
-                    </a>
-                    <a className="item" href={"#domestic-publications"}>
-                      <i className="right triangle icon"></i>
-                      <div className="content">{"国内"}</div>
-                    </a>
-                    <a className="item" href={"#dissertation"}>
-                      <i className="right triangle icon"></i>
-                      <div className="content">{"学位論文"}</div>
-                    </a>
+                    <ListItem
+                      role="link"
+                      as="a"
+                      href={"#international-publications"}
+                    >
+                      <Icon name="triangle right" />
+                      <ListContent>{"国際"}</ListContent>
+                    </ListItem>
+                    <ListItem
+                      role="link"
+                      as="a"
+                      href={"#domestic-publications"}
+                    >
+                      <Icon name="triangle right" />
+                      <ListContent>{"国内"}</ListContent>
+                    </ListItem>
+                    <ListItem role="link" as="a" href={"#dissertation"}>
+                      <Icon name="triangle right" />
+                      <ListContent>{"学位論文"}</ListContent>
+                    </ListItem>
                   </>
                 }
               >
-                <a className="item" href={"#selected-publications"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Selected"}</div>
-                </a>
-                <a className="item" href={"#reviewed-publications"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Reviewed"}</div>
-                </a>
-                <a className="item" href={"#other-publications"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Others"}</div>
-                </a>
-                <a className="item" href={"#dissertation"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Dissertation"}</div>
-                </a>
+                <ListItem role="link" as="a" href={"#selected-publications"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Selected"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#reviewed-publications"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Reviewed"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#other-publications"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Others"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#dissertation"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Dissertation"}</ListContent>
+                </ListItem>
               </LocalizedContent>
-            </div>
-          </div>
-          <a className="item" href={"#media"}>
-            <i className="broadcast tower icon"></i>
-            <div className="content">{en ? "Media" : "メディア"}</div>
-          </a>
-          <SiteLink className="item" href={href(`${basePath}timeline/`)}>
-            <i className="history icon"></i>
-            <div className="content">{en ? "Timeline" : "活動履歴"}</div>
-          </SiteLink>
-        </div>
+            </List>
+          </ListItem>
+          <ListItem role="link" as="a" href={"#media"}>
+            <Icon className="broadcast tower" />
+            <ListContent>{en ? "Media" : "メディア"}</ListContent>
+          </ListItem>
+          <ListItem
+            role="link"
+            as={SiteLink}
+            href={href(`${basePath}timeline/`)}
+          >
+            <Icon name="history" />
+            <ListContent>{en ? "Timeline" : "活動履歴"}</ListContent>
+          </ListItem>
+        </List>
       </>
     );
   }
@@ -160,12 +187,12 @@ export default function Page({ pageData }: PageDataProps) {
           );
           children.push(
             <>
-              <div className="ui segments">
-                <div className="ui secondary segment">
-                  <div className="ui horizontal list">
-                    <div className="item">
-                      <i className="circle icon"></i>
-                      <div className="content">
+              <SegmentGroup>
+                <Segment secondary>
+                  <List horizontal>
+                    <ListItem>
+                      <Icon name="circle" />
+                      <ListContent>
                         <HtmlContent
                           html={
                             en
@@ -173,11 +200,11 @@ export default function Page({ pageData }: PageDataProps) {
                               : `国内 <strong>${numDomesticAwards}</strong> 件`
                           }
                         />
-                      </div>
-                    </div>
-                    <div className="item">
-                      <i className="world icon"></i>
-                      <div className="content">
+                      </ListContent>
+                    </ListItem>
+                    <ListItem>
+                      <Icon name="world" />
+                      <ListContent>
                         <HtmlContent
                           html={
                             en
@@ -185,38 +212,36 @@ export default function Page({ pageData }: PageDataProps) {
                               : `国際 <strong>${numInternationalAwards}</strong> 件`
                           }
                         />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="ui segment">
-                  <div className="ui divided list">
+                      </ListContent>
+                    </ListItem>
+                  </List>
+                </Segment>
+                <Segment>
+                  <List divided>
                     {filteredAwards.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <div className={classNames("item", entry.entryType)}>
-                          <i
-                            className={classNames("icon", entry.getIconClass())}
-                          ></i>
-                          <div className="content">
-                            <div className="header">
+                        <ListItem className={classNames(entry.entryType)}>
+                          <Icon className={entry.getIconClass()}></Icon>
+                          <ListContent>
+                            <ListHeader>
                               <HtmlContent html={entry.getText(lang)} />
-                            </div>
-                            <div className="description date">
+                            </ListHeader>
+                            <ListDescription className="date">
                               {entry.getDateString(lang, true)}
-                            </div>
-                          </div>
-                        </div>
+                            </ListDescription>
+                          </ListContent>
+                        </ListItem>
                       </Fragment>
                     ))}
-                  </div>
-                </div>
-              </div>
+                  </List>
+                </Segment>
+              </SegmentGroup>
             </>,
           );
           children.push(
             <>
-              <div className="ui segments">
-                <div className="ui secondary segment">
+              <SegmentGroup>
+                <Segment secondary>
                   <p>
                     <HtmlContent
                       html={
@@ -226,29 +251,27 @@ export default function Page({ pageData }: PageDataProps) {
                       }
                     />
                   </p>
-                </div>
-                <div className="ui segment">
-                  <div className="ui divided list">
+                </Segment>
+                <Segment>
+                  <List divided>
                     {honors.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <div className={classNames("item", entry.entryType)}>
-                          <i
-                            className={classNames("icon", entry.getIconClass())}
-                          ></i>
-                          <div className="content">
-                            <div className="header">
+                        <ListItem className={classNames(entry.entryType)}>
+                          <Icon className={entry.getIconClass()}></Icon>
+                          <ListContent>
+                            <ListHeader>
                               <HtmlContent html={entry.getText(lang)} />
-                            </div>
-                            <div className="description date">
+                            </ListHeader>
+                            <ListDescription className="date">
                               {entry.getDateString(lang, true)}
-                            </div>
-                          </div>
-                        </div>
+                            </ListDescription>
+                          </ListContent>
+                        </ListItem>
                       </Fragment>
                     ))}
-                  </div>
-                </div>
-              </div>
+                  </List>
+                </Segment>
+              </SegmentGroup>
             </>,
           );
           return keyed(children);
@@ -261,8 +284,8 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {en ? (
           <>
-            <div className="ui segment">
-              <div className="ui divided list">
+            <Segment>
+              <List divided>
                 {(() => {
                   const children: ReactNode[] = [];
                   for (const entry of talks) {
@@ -273,71 +296,66 @@ export default function Page({ pageData }: PageDataProps) {
                       continue;
                     children.push(
                       <>
-                        <div className={classNames("item", entry.entryType)}>
-                          <div className="content">
-                            <div className="header">
+                        <ListItem className={classNames(entry.entryType)}>
+                          <ListContent>
+                            <ListHeader>
                               <HtmlContent html={entry.getText(lang)} />
-                            </div>
-                            <div className="description date">
+                            </ListHeader>
+                            <ListDescription className="date">
                               {entry.getDateString(lang, true)}
-                            </div>
-                          </div>
-                        </div>
+                            </ListDescription>
+                          </ListContent>
+                        </ListItem>
                       </>,
                     );
                   }
                   return keyed(children);
                 })()}
-              </div>
-            </div>
+              </List>
+            </Segment>
           </>
         ) : (
           <>
-            <div className="ui segments">
-              <div className="ui secondary segment">
-                <div className="ui horizontal list">
-                  <div className="item">
-                    <i className="circle icon"></i>
-                    <div className="content">{"国内"}</div>
-                  </div>
-                  <div className="item">
-                    <i className="world icon"></i>
-                    <div className="content">{"国際"}</div>
-                  </div>
-                </div>
-              </div>
-              <div className="ui segment">
-                <div className="ui divided list">
+            <SegmentGroup>
+              <Segment secondary>
+                <List horizontal>
+                  <ListItem>
+                    <Icon name="circle" />
+                    <ListContent>{"国内"}</ListContent>
+                  </ListItem>
+                  <ListItem>
+                    <Icon name="world" />
+                    <ListContent>{"国際"}</ListContent>
+                  </ListItem>
+                </List>
+              </Segment>
+              <Segment>
+                <List divided>
                   {(() => {
                     const children: ReactNode[] = [];
                     for (const entry of talks) {
                       if (entry.entryType === "private") continue;
                       children.push(
                         <>
-                          <div className={classNames("item", entry.entryType)}>
-                            <i
-                              className={classNames(
-                                "icon",
-                                entry.getIconClass(),
-                              )}
-                            ></i>
-                            <div className="content">
-                              <div className="header">
+                          <ListItem className={classNames(entry.entryType)}>
+                            <Icon className={entry.getIconClass()}></Icon>
+                            <ListContent>
+                              <ListHeader>
                                 <HtmlContent html={entry.getText(lang)} />
-                              </div>
-                              <div className="description date">
+                              </ListHeader>
+                              <ListDescription className="date">
                                 {entry.getDateString(lang, true)}
-                              </div>
-                            </div>
-                          </div>
+                              </ListDescription>
+                            </ListContent>
+                          </ListItem>
                         </>,
                       );
                     }
                     return keyed(children);
                   })()}
-                </div>
-              </div>
-            </div>
+                </List>
+              </Segment>
+            </SegmentGroup>
           </>
         )}
       </>
@@ -348,8 +366,8 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {en ? (
           <>
-            <div className="ui segment">
-              <div className="ui divided list">
+            <Segment>
+              <List divided>
                 {(() => {
                   const children: ReactNode[] = [];
                   for (const entry of lectures) {
@@ -360,71 +378,66 @@ export default function Page({ pageData }: PageDataProps) {
                       continue;
                     children.push(
                       <>
-                        <div className={classNames("item", entry.entryType)}>
-                          <div className="content">
-                            <div className="header">
+                        <ListItem className={classNames(entry.entryType)}>
+                          <ListContent>
+                            <ListHeader>
                               <HtmlContent html={entry.getText(lang)} />
-                            </div>
-                            <div className="description date">
+                            </ListHeader>
+                            <ListDescription className="date">
                               {entry.getDatesString(lang).join(", ")}
-                            </div>
-                          </div>
-                        </div>
+                            </ListDescription>
+                          </ListContent>
+                        </ListItem>
                       </>,
                     );
                   }
                   return keyed(children);
                 })()}
-              </div>
-            </div>
+              </List>
+            </Segment>
           </>
         ) : (
           <>
-            <div className="ui segments">
-              <div className="ui secondary segment">
-                <div className="ui horizontal list">
-                  <div className="item">
-                    <i className="circle icon"></i>
-                    <div className="content">{"国内"}</div>
-                  </div>
-                  <div className="item">
-                    <i className="world icon"></i>
-                    <div className="content">{"国際"}</div>
-                  </div>
-                </div>
-              </div>
-              <div className="ui segment">
-                <div className="ui divided list">
+            <SegmentGroup>
+              <Segment secondary>
+                <List horizontal>
+                  <ListItem>
+                    <Icon name="circle" />
+                    <ListContent>{"国内"}</ListContent>
+                  </ListItem>
+                  <ListItem>
+                    <Icon name="world" />
+                    <ListContent>{"国際"}</ListContent>
+                  </ListItem>
+                </List>
+              </Segment>
+              <Segment>
+                <List divided>
                   {(() => {
                     const children: ReactNode[] = [];
                     for (const entry of lectures) {
                       if (entry.entryType === "private") continue;
                       children.push(
                         <>
-                          <div className={classNames("item", entry.entryType)}>
-                            <i
-                              className={classNames(
-                                "icon",
-                                entry.getIconClass(),
-                              )}
-                            ></i>
-                            <div className="content">
-                              <div className="header">
+                          <ListItem className={classNames(entry.entryType)}>
+                            <Icon className={entry.getIconClass()}></Icon>
+                            <ListContent>
+                              <ListHeader>
                                 <HtmlContent html={entry.getText(lang)} />
-                              </div>
-                              <div className="description date">
+                              </ListHeader>
+                              <ListDescription className="date">
                                 {entry.getDatesString(lang).join(", ")}
-                              </div>
-                            </div>
-                          </div>
+                              </ListDescription>
+                            </ListContent>
+                          </ListItem>
                         </>,
                       );
                     }
                     return keyed(children);
                   })()}
-                </div>
-              </div>
-            </div>
+                </List>
+              </Segment>
+            </SegmentGroup>
           </>
         )}
       </>
@@ -447,10 +460,10 @@ export default function Page({ pageData }: PageDataProps) {
                 </a>
                 {"にも掲載しています。"}
               </p>
-              <h2 className="ui header" id={"international-publications"}>
+              <Header as="h2" id={"international-publications"}>
                 {"国際会議・ジャーナル"}
-              </h2>
-              <div className="ui divided list">
+              </Header>
+              <List divided>
                 {(() => {
                   const children: ReactNode[] = [];
                   for (const entry of publications) {
@@ -468,11 +481,11 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                   return keyed(children);
                 })()}
-              </div>
-              <h2 className="ui header" id={"domestic-publications"}>
+              </List>
+              <Header as="h2" id={"domestic-publications"}>
                 {"国内会議・ジャーナル・商業誌"}
-              </h2>
-              <div className="ui divided list">
+              </Header>
+              <List divided>
                 {(() => {
                   const children: ReactNode[] = [];
                   for (const entry of publications) {
@@ -490,10 +503,10 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                   return keyed(children);
                 })()}
-              </div>
-              <h2 className="ui header" id={"dissertation"}>
+              </List>
+              <Header as="h2" id={"dissertation"}>
                 {"学位論文"}
-              </h2>
+              </Header>
             </>
           }
         >
@@ -502,26 +515,26 @@ export default function Page({ pageData }: PageDataProps) {
             <SiteLink href={"/junkato.bib"}>{"the BibTeX file"}</SiteLink>
             {"."}
           </p>
-          <h2 className="ui header" id={"selected-publications"}>
+          <Header as="h2" id={"selected-publications"}>
             {"Selected peer-reviewed publications"}
-          </h2>
-          <div className="ui divided list">
+          </Header>
+          <List divided>
             {selectedPublications.map((entry, itemIndex) => (
               <Fragment key={itemIndex}>
                 <Publication entry={entry} />
               </Fragment>
             ))}
-          </div>
-          <div className="ui hidden divider"></div>
-          <h2 className="ui header" id={"reviewed-publications"}>
+          </List>
+          <Divider hidden />
+          <Header as="h2" id={"reviewed-publications"}>
             {"Journal/conference/workshop publications"}
-          </h2>
+          </Header>
           <p>
             {
               "All of these publications, except those explicitly marked as the invited articles, underwent a review process; most of these publications are considered either archival or semi-archival."
             }
           </p>
-          <div className="ui divided list">
+          <List divided>
             {(() => {
               const children: ReactNode[] = [];
               for (const entry of publications) {
@@ -538,17 +551,17 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-          <div className="ui hidden divider"></div>
-          <h2 className="ui header" id={"other-publications"}>
+          </List>
+          <Divider hidden />
+          <Header as="h2" id={"other-publications"}>
             {"Other publications"}
-          </h2>
+          </Header>
           <p>
             {
               "The following publications are either invited articles or non-archival demo/poster papers."
             }
           </p>
-          <div className="ui divided list">
+          <List divided>
             {(() => {
               const children: ReactNode[] = [];
               for (const entry of publications) {
@@ -564,13 +577,13 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-          <div className="ui hidden divider"></div>
-          <h2 className="ui header" id={"dissertation"}>
+          </List>
+          <Divider hidden />
+          <Header as="h2" id={"dissertation"}>
             {"Dissertation"}
-          </h2>
+          </Header>
         </LocalizedContent>
-        <div className="ui divided list">
+        <List divided>
           {(() => {
             const children: ReactNode[] = [];
             for (const entry of publications) {
@@ -583,7 +596,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
@@ -638,7 +651,7 @@ export default function Page({ pageData }: PageDataProps) {
           );
           children.push(
             <>
-              <div className="ui divided relaxed list media">
+              <List divided relaxed className="media">
                 {(() => {
                   const children: ReactNode[] = [];
                   for (const entry of filteredMediaList) {
@@ -651,7 +664,7 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                   return keyed(children);
                 })()}
-              </div>
+              </List>
             </>,
           );
           return keyed(children);
@@ -665,64 +678,71 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden mobile-only button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden mobile-only"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
               {renderPublicationsMenu()}
-            </Popup>
+            </SitePopup>
           </>
         }
       >
         <div className="left-rail">{renderPublicationsMenu()}</div>
         <div className="right-content" id={"publications"}>
           <section id={"awards"}>
-            <h1 className="ui header">
-              <i className="trophy icon"></i>
-              <div className="content">
+            <Header as="h1">
+              <Icon name="trophy" />
+              <HeaderContent>
                 {en ? "Awards and Honors" : "受賞歴"}
-              </div>
-            </h1>
+              </HeaderContent>
+            </Header>
             {renderAwards()}
           </section>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"talks"}>
-            <h1 className="ui header">
-              <i className="talk icon"></i>
-              <div className="content">{en ? "Invited Talks" : "招待講演"}</div>
-            </h1>
+            <Header as="h1">
+              <Icon name="talk" />
+              <HeaderContent>{en ? "Invited Talks" : "招待講演"}</HeaderContent>
+            </Header>
             {renderTalks()}
           </section>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"lectures"}>
-            <h1 className="ui header">
-              <i className="graduation cap icon"></i>
-              <div className="content">{en ? "Lectures" : "講義"}</div>
-            </h1>
+            <Header as="h1">
+              <Icon name="graduation cap" />
+              <HeaderContent>{en ? "Lectures" : "講義"}</HeaderContent>
+            </Header>
             {renderLectures()}
           </section>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"academic-publications"}>
-            <h1 className="ui header">
-              <i className="book icon"></i>
-              <div className="content">{en ? "Publications" : "発表文献"}</div>
-            </h1>
+            <Header as="h1">
+              <Icon name="book" />
+              <HeaderContent>{en ? "Publications" : "発表文献"}</HeaderContent>
+            </Header>
             {renderPublications()}
           </section>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"media"}>
-            <h1 className="ui header">
+            <Header as="h1">
               {" "}
-              <i className="broadcast tower icon"></i>
-              <div className="content">
+              <Icon className="broadcast tower" />
+              <HeaderContent>
                 {en ? "Media coverage" : "メディア掲載"}
-              </div>
-            </h1>
+              </HeaderContent>
+            </Header>
             {renderMedia()}
           </section>
         </div>

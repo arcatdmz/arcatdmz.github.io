@@ -1,8 +1,21 @@
+import {
+  Container,
+  Divider,
+  DropdownMenu,
+  Icon,
+  List,
+  ListItem,
+  Menu,
+  MenuItem,
+  MenuMenu,
+  Segment,
+} from "react-fomantic-ui";
+
 import { SiteImage } from "./SiteImage";
 import {
-  Dropdown,
+  NavigationDropdown,
   SidebarButton,
-  Sidebar,
+  SiteSidebarPanel,
   SitePusher,
   SiteWidgets,
 } from "@/site/components/SiteWidgets";
@@ -11,7 +24,7 @@ import { PageContextProvider, type PageContext } from "./SiteContext";
 import { SitePathContext } from "./SiteLink";
 import { buildYear } from "@/site/clock";
 import type { ReactNode } from "react";
-import type { Project, SiteContext } from "../types";
+import type { Project } from "../types";
 import { HtmlContent } from "@/site/components/RichText";
 import { SiteHead } from "./SiteHead";
 import { alternateLanguageHref } from "../navigation";
@@ -42,33 +55,22 @@ export function getItemClass(me: string, path: string): string | undefined {
   return me && path.indexOf(me) === 0 ? "active" : undefined;
 }
 
-function itemClass(
-  context: SiteContext,
-  classes: string,
-  path: string,
-): string {
-  const active = getItemClass(context.me, path);
-  return active ? `${classes} ${active}` : classes;
-}
-
 function ProjectMenuItem({
   context,
   project,
 }: SiteComponentProps & { project: Project }) {
   const link = project.getLink(context.lang, context.basePath);
   return (
-    <SiteLink
-      className="item"
-      href={typeof link === "string" ? link : undefined}
-    >
+    <MenuItem as={SiteLink} href={typeof link === "string" ? link : undefined}>
       {project.icon && (
         <SiteImage
-          className="ui avatar image"
+          ui
+          avatar
           src={`${context.rootPath}images/icons/${project.icon}`}
         />
       )}
       <HtmlContent html={project.getTitle(context.lang)} />
-    </SiteLink>
+    </MenuItem>
   );
 }
 
@@ -81,35 +83,36 @@ export function SiteSidebar({
 
   return (
     <>
-      <SiteLink className={itemClass(context, "item", "")} href={basePath}>
-        <SiteImage
-          className="ui avatar image"
-          src={`${rootPath}images/junkato.jpg`}
-        />
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "")}
+        href={basePath}
+      >
+        <SiteImage ui avatar src={`${rootPath}images/junkato.jpg`} />
         {en ? "Top page" : "トップ"}
-      </SiteLink>
-      <SiteLink
-        className="item"
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
         href={`https://blog.junkato.jp/${en ? "" : "ja"}`}
       >
-        <i className="pencil icon" />
+        <Icon name="pencil" />
         {en ? "Blog" : "ブログ"}
-      </SiteLink>
-      <SiteLink className="item" href={`${basePath}#contact`}>
-        <i className="address card icon" />
+      </MenuItem>
+      <MenuItem as={SiteLink} href={`${basePath}#contact`}>
+        <Icon name="address card" />
         {en ? "Contact" : "連絡先"}
-      </SiteLink>
+      </MenuItem>
       {projectsSidebarMenu !== undefined ? (
         projectsSidebarMenu
       ) : (
-        <div className="ui item" {...{ href: `${basePath}projects` }}>
-          <i className="gift icon" />
+        <MenuItem as="div">
+          <Icon name="gift" />
           {en ? "Projects" : "プロジェクト"}
-          <div className="menu">
-            <SiteLink className="item" href={`${basePath}projects`}>
+          <MenuMenu>
+            <MenuItem as={SiteLink} href={`${basePath}projects`}>
               {en ? "List of projects" : "プロジェクト一覧"}
-            </SiteLink>
-            <div className="ui divider" />
+            </MenuItem>
+            <Divider />
             {products.map((project) => (
               <ProjectMenuItem
                 key={project.project}
@@ -117,61 +120,66 @@ export function SiteSidebar({
                 project={project}
               />
             ))}
-            <div className="ui divider" />
-            <SiteLink className="item" href={`${basePath}projects/#research`}>
+            <Divider />
+            <MenuItem as={SiteLink} href={`${basePath}projects/#research`}>
               {en ? "Research projects" : "研究プロジェクト"}
-            </SiteLink>
-            <SiteLink
-              className="item"
+            </MenuItem>
+            <MenuItem
+              as={SiteLink}
               href={`${basePath}projects/#design-and-engineering`}
             >
               {en
                 ? "Design and Engineering projects"
                 : "デザイン・開発プロジェクト"}
-            </SiteLink>
-          </div>
-        </div>
+            </MenuItem>
+          </MenuMenu>
+        </MenuItem>
       )}
-      <SiteLink
-        className={itemClass(context, "item", "publications/")}
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "publications/")}
         href={`${basePath}publications`}
       >
-        <i className="text file icon" />
+        <Icon name="file text" />
         {en ? "Publications" : "発表文献"}
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "item", "design/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "design/")}
         href={`${basePath}design`}
       >
-        <i className="paint brush icon" />
+        <Icon name="paint brush" />
         {en ? "Design" : "デザイン"}
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "item", "activities/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "activities/")}
         href={`${basePath}activities`}
       >
-        <i className="student icon" />
+        <Icon name="student" />
         {en ? "Activities" : "職務活動"}
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "item", "timeline/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "timeline/")}
         href={`${basePath}timeline`}
       >
-        <i className="history icon" />
+        <Icon name="history" />
         {en ? "Timeline" : "活動履歴"}
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "item", "collaborations/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "collaborations/")}
         href={`${basePath}collaborations`}
       >
-        <i className="handshake icon" />
+        <Icon name="handshake" />
         {en ? "Collaborations" : "共同研究"}
-      </SiteLink>
+      </MenuItem>
       {languageHref && (
-        <SiteLink className="item" href={languageHref}>
-          <i className="translate icon" />
+        <MenuItem as={SiteLink} href={languageHref}>
+          <Icon name="translate" />
           {en ? "日本語" : "English"}
-        </SiteLink>
+        </MenuItem>
       )}
     </>
   );
@@ -181,29 +189,33 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
   const { author, basePath, en, products, projects } = context;
 
   return (
-    <div className="ui top fixed menu" id="fixed-menu">
-      <SiteLink className={itemClass(context, "item", "")} href={basePath}>
+    <Menu fixed="top" id="fixed-menu">
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "")}
+        href={basePath}
+      >
         <span className="mobile hidden">{author}</span>
         <span className="print-hidden mobile only">
-          <i className="user icon" />
+          <Icon name="user" />
         </span>
-      </SiteLink>
+      </MenuItem>
       {projectsHeaderMenu !== undefined ? (
         projectsHeaderMenu
       ) : (
-        <Dropdown
-          className="ui dropdown mobile hidden item"
+        <NavigationDropdown
+          className="mobile hidden"
           {...{ href: `${basePath}projects` }}
         >
-          <i className="gift icon" />
+          <Icon name="gift" />
           <span className="print-hidden tablet or lower hidden">
             {en ? "Projects" : "プロジェクト"}
           </span>
-          <div className="menu">
-            <SiteLink className="item" href={`${basePath}projects`}>
+          <DropdownMenu>
+            <MenuItem as={SiteLink} href={`${basePath}projects`}>
               {en ? "List of projects" : "プロジェクト一覧"}
-            </SiteLink>
-            <div className="ui divider" />
+            </MenuItem>
+            <Divider />
             {(
               context.headerProducts ||
               projects.filter((project) => products.includes(project))
@@ -214,33 +226,37 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
                 project={project}
               />
             ))}
-            <div className="ui divider" />
-            <SiteLink className="item" href={`${basePath}projects/#research`}>
+            <Divider />
+            <MenuItem as={SiteLink} href={`${basePath}projects/#research`}>
               {en ? "Research" : "研究"}
-            </SiteLink>
-            <SiteLink
-              className="item"
+            </MenuItem>
+            <MenuItem
+              as={SiteLink}
               href={`${basePath}projects/#design-and-engineering`}
             >
               {en ? "Design and engineering" : "デザイン・開発"}
-            </SiteLink>
-          </div>
-        </Dropdown>
+            </MenuItem>
+          </DropdownMenu>
+        </NavigationDropdown>
       )}
-      <SiteLink
-        className={itemClass(context, "mobile hidden item", "publications/")}
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "publications/")}
+        className="mobile hidden"
         href={`${basePath}publications`}
       >
-        <i className="text file icon" />
+        <Icon name="file text" />
         <span className="print-hidden tablet or lower hidden">
           {en ? "Publications" : "発表文献"}
         </span>
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "mobile hidden item", "design/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "design/")}
+        className="mobile hidden"
         href={`${basePath}design`}
       >
-        <i className="paint brush icon" />
+        <Icon name="paint brush" />
         <span
           className={`print-hidden ${
             en ? "tablet" : "computer"
@@ -248,12 +264,14 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
         >
           {en ? "Design" : "デザイン"}
         </span>
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "mobile hidden item", "activities/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "activities/")}
+        className="mobile hidden"
         href={`${basePath}activities`}
       >
-        <i className="student icon" />
+        <Icon name="student" />
         <span
           className={`print-hidden ${
             en ? "tablet" : "computer"
@@ -261,29 +279,33 @@ export function SiteHeader({ context, projectsHeaderMenu }: SiteHeaderProps) {
         >
           {en ? "Activities" : "職務活動"}
         </span>
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "mobile hidden item", "timeline/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "timeline/")}
+        className="mobile hidden"
         href={`${basePath}timeline`}
       >
-        <i className="history icon" />
+        <Icon name="history" />
         <span className="print-hidden computer or lower hidden">
           {en ? "Timeline" : "活動履歴"}
         </span>
-      </SiteLink>
-      <SiteLink
-        className={itemClass(context, "mobile hidden item", "collaborations/")}
+      </MenuItem>
+      <MenuItem
+        as={SiteLink}
+        active={!!getItemClass(context.me, "collaborations/")}
+        className="mobile hidden"
         href={`${basePath}collaborations`}
       >
-        <i className="handshake icon" />
+        <Icon name="handshake" />
         <span className="print-hidden computer or lower hidden">
           {en ? "Collaborations" : "共同研究"}
         </span>
-      </SiteLink>
-      <div className="right menu">
+      </MenuItem>
+      <MenuMenu position="right">
         <SiteRightHeaderMenu context={context} />
-      </div>
-    </div>
+      </MenuMenu>
+    </Menu>
   );
 }
 
@@ -292,23 +314,23 @@ export function SiteRightHeaderMenu({ context }: SiteComponentProps) {
   const languageHref = alternateLanguageHref(context);
   return (
     <>
-      <SiteLink
-        className="item"
+      <MenuItem
+        as={SiteLink}
         href={`https://blog.junkato.jp/${en ? "" : "ja"}`}
       >
-        <i className="pencil icon" />
+        <Icon name="pencil" />
         <span className="print-hidden tablet or lower hidden">{` ${
           en ? "Blog" : "ブログ"
         }`}</span>
-      </SiteLink>
+      </MenuItem>
       {languageHref && (
-        <SiteLink className="item" href={languageHref}>
-          <i className="translate icon" />
+        <MenuItem as={SiteLink} href={languageHref}>
+          <Icon name="translate" />
           <span className="print-hidden">{en ? "日本語" : "English"}</span>
-        </SiteLink>
+        </MenuItem>
       )}
-      <SidebarButton className="item print-hidden sidebar-button" href="#">
-        <i className="sidebar icon" />
+      <SidebarButton className="print-hidden sidebar-button" href="#">
+        <Icon name="sidebar" />
         <span className="widescreen monitor only">
           {en ? "Menu" : "メニュー"}
         </span>
@@ -321,34 +343,34 @@ export function SiteFooter({ context }: SiteComponentProps) {
   const { basePath, en } = context;
   const languageHref = alternateLanguageHref(context);
   return (
-    <footer className="ui center aligned basic segment">
-      <div className="ui container">
-        <div className="ui divider" />
-        <div className="ui horizontal divided list">
-          <div className="item">
+    <Segment basic textAlign="center" as="footer">
+      <Container>
+        <Divider />
+        <List divided horizontal>
+          <ListItem>
             {"© "}
             <SiteLink href={`${basePath}#contact`}>
               {en ? "Jun Kato" : "加藤 淳"}
             </SiteLink>
-          </div>
-          <div className="item">{`2012-${buildYear}`}</div>
-          <div className="item">
+          </ListItem>
+          <ListItem>{`2012-${buildYear}`}</ListItem>
+          <ListItem>
             <SiteLink href={`${basePath}privacy`}>
-              <i className="envelope open outline icon" />
+              <Icon name="envelope open outline" />
               {` ${en ? "Privacy Policy" : "プライバシーポリシー"}`}
             </SiteLink>
-          </div>
+          </ListItem>
           {languageHref && (
-            <div className="item">
-              <SiteLink className="item" href={languageHref}>
-                <i className="translate icon" />
+            <ListItem>
+              <ListItem role="link" as={SiteLink} href={languageHref}>
+                <Icon name="translate" />
                 {en ? " 日本語" : "English"}
-              </SiteLink>
-            </div>
+              </ListItem>
+            </ListItem>
           )}
-        </div>
-      </div>
-    </footer>
+        </List>
+      </Container>
+    </Segment>
   );
 }
 
@@ -369,12 +391,12 @@ export function SiteLayout({
       <SitePathContext.Provider value={`${context.basePath}${context.me}`}>
         <SiteWidgets>
           <SiteHead context={context}>{head}</SiteHead>
-          <Sidebar className="ui right sidebar inverted vertical menu">
+          <SiteSidebarPanel inverted vertical>
             <SiteSidebar
               context={context}
               projectsSidebarMenu={projectsSidebarMenu}
             />
-          </Sidebar>
+          </SiteSidebarPanel>
           {header !== undefined ? (
             header
           ) : (
@@ -383,16 +405,14 @@ export function SiteLayout({
               projectsHeaderMenu={projectsHeaderMenu}
             />
           )}
-          <SitePusher id="pusher" className="pusher">
+          <SitePusher id="pusher">
             <div id="body">
               {mainContainer !== undefined ? (
                 mainContainer
               ) : (
                 <>
                   {mainHero}
-                  <div className="ui container" id="main">
-                    {children}
-                  </div>
+                  <Container id="main">{children}</Container>
                   <SiteFooter context={context} />
                 </>
               )}

@@ -1,5 +1,25 @@
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Header,
+  HeaderContent,
+  HeaderSubheader,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHeader,
@@ -55,17 +75,15 @@ export default function Page({ pageData }: PageDataProps) {
   function renderExamples(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          {en ? "Example projects" : "プロジェクト"}
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Example projects" : "プロジェクト"}</Header>
+        <Segment basic>
           <p>
             {en
               ? "I have worked on the following projects collaborating with creators and companies in the creative industries."
               : "私はこれまで、クリエータの方々やクリエイティブ産業の企業のみなさまの協力をいただきながら、以下のプロジェクトに取り組んできました。"}
           </p>
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          <Segment>
+            <ItemGroup divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 const exampleProjects = [
@@ -88,44 +106,46 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </div>
-          </div>
-        </div>
+            </ItemGroup>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderAnimesig(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {
             "Anime SIG: Researching Japanese Animation From Technical, Cultural, and Industrial Perspectives"
           }
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <p>
             {en
               ? "Organized by experts from industry and academia, this CHI 2025 Special Interest Group invited participants to the emerging area of anime research and aims to open up a new alley for human-computer interaction (HCI) research. Please refer to the event page for more details."
               : "ACM CHI 2025 でアニメに関する Special Interest Group （カジュアルな研究会合）を主催しました。詳細はイベントページをご覧ください。"}
           </p>
           {renderAnimesigAbstract()}
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"http://chci.pages.dev/chi2025anime"}
           >
             {en ? "Event page" : "イベントページ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderAnimesigAbstract(): ReactNode {
     return (
       <>
-        <div className="ui message">
+        <Message>
           <p>
             {
               'Japanese animation, or anime for short, has attracted global attention with its immense international growth. Despite its popularity, academic research has been limited to media studies, with grand questions like "what is anime," i.e., observational and analytical perspectives, and more recently in computer science from the perspective of "how to generate the anime look," focusing on representing visual characteristics with computer vision and machine learning methods.'
@@ -141,19 +161,19 @@ export default function Page({ pageData }: PageDataProps) {
               "Organized by experts from industry and academia, this SIG invites participants to the emerging area of anime research and aims to open up a new alley for human-computer interaction (HCI) research through collective discussion on potential directions and community fostering of anime-interested researchers."
             }
           </p>
-        </div>
+        </Message>
       </>
     );
   }
   function renderPostgrowth(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {
             "Power, Culture, and Sustainability in Creativity Support Tools: A Post-growth Perspective"
           }
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <p>
             <LocalizedContent
               ja={
@@ -176,18 +196,20 @@ export default function Page({ pageData }: PageDataProps) {
             </LocalizedContent>
           </p>
           {renderPostgrowthAbstract()}
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={
               "https://pointed-waterlily-f95.notion.site/Advancing-Post-growth-HCI-15dec6ab184b809b8692ec6a3d578089"
             }
           >
             {en ? "Event page" : "イベントページ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
@@ -196,12 +218,13 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <p>
           <SiteImage
-            className="ui bordered image"
+            ui
+            bordered
             sizes={contentImageSizes}
             src={`${rootPath}creativity-support-environments/postgrowth-cst.jpg`}
           />
         </p>
-        <div className="ui message">
+        <Message>
           {" "}
           <p>
             {
@@ -223,19 +246,19 @@ export default function Page({ pageData }: PageDataProps) {
               "As researchers with experience in the animation industry and a deep interest in cultural circulation, we reflect on these challenges from both academic and industry perspectives. Creativity-support tools must be designed with an awareness of the cultural and professional contexts in which they are used, going beyond the Western-centric, economic-growth-driven focus. As a vision for post-growth HCI, we argue that fostering slow but steady collaborations between academia and creative industries has the potential to ensure that technological development supports sustainable, culturally embedded, and community-driven futures."
             }
           </p>
-        </div>
+        </Message>
       </>
     );
   }
   function renderSigccc(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {
             "Special Interest Group on Creativity and Cultures in Computing (SIGCCC)"
           }
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <p>
             {en
               ? "With the help of the researchers working on creativity support whom I respect and admire, a Special Interest Group meeting was held at ACM CHI 2023. Please refer to the event page for more details."
@@ -255,23 +278,25 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
           )}
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"http://chci.pages.dev/chi2023"}
           >
             {en ? "Event page" : "イベントページ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderSigcccAbstract(): ReactNode {
     return (
       <>
-        <div className="ui message">
+        <Message>
           <p>
             {
               "Research on creativity support tools (CSTs) has a long history in Human-Computer Interaction (HCI); however, researchers often focus on developing novel CSTs and verifying them in a controlled lab setting, rather than on capturing the creative process in the wild."
@@ -287,18 +312,18 @@ export default function Page({ pageData }: PageDataProps) {
               "This Special Interest Group on Creativity and Cultures in Computing (SIGCCC) invites diverse researchers to provide a forum for CST discussions from a wide sociocultural lens. The participants will identify and discuss the state-of-the-art and conceptualize future directions for creativity support research."
             }
           </p>
-        </div>
+        </Message>
       </>
     );
   }
   function renderXrds(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {"On the Relationship between HCI Researchers and Creators"}
-          <div className="sub header">{"— or How I Became a Toolsmith"}</div>
-        </h2>
-        <div className="ui basic segment">
+          <HeaderSubheader>{"— or How I Became a Toolsmith"}</HeaderSubheader>
+        </Header>
+        <Segment basic>
           <p>
             <LocalizedContent
               ja={
@@ -311,32 +336,34 @@ export default function Page({ pageData }: PageDataProps) {
                 </>
               }
             >
-              <i>{"XRDS"}</i>
+              <Icon>{"XRDS"}</Icon>
               {
                 ' is the ACM\'s quarterly magazine for students. As part of its featured edition exploring the horizon of computation for creativity, I contributed an article that discusses the importance of helping creative activities "in the wild," reflecting my research experience.'
               }
             </LocalizedContent>
           </p>
           {renderXrdsAbstract()}
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={
               "https://xrds.acm.org/article.cfm?aid=3596927&doi=10.1145%2F3596927"
             }
           >
             {en ? "Online article" : "オンライン版の記事ページ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderXrdsAbstract(): ReactNode {
     return (
       <>
-        <div className="ui message">
+        <Message>
           <p>
             {
               "Research on creativity support tools in Human-Computer Interaction often focuses on novel interaction design, but that is just the tip of the iceberg."
@@ -357,26 +384,26 @@ export default function Page({ pageData }: PageDataProps) {
               "These examples emphasize the need for a slow-paced yet in-depth research process that blends technological innovation with a deep appreciation of the cultural contexts of the creative process. "
             }
           </p>
-        </div>
+        </Message>
       </>
     );
   }
   function renderRevision(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
+        <Header as="h2">
+          <Icon name="announcement" />
           {en ? "Revision history" : "更新履歴"}
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided feed">
+        </Header>
+        <Segment basic>
+          <Feed className="divided">
             <LocalizedContent
               ja={
                 <>
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">{"5/10/2025"}</div>
-                      <div className="summary">
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{"5/10/2025"}</FeedDate>
+                      <FeedSummary>
                         <a
                           href={
                             "https://programs.sigchi.org/chi/2025/program/content/189764"
@@ -390,30 +417,30 @@ export default function Page({ pageData }: PageDataProps) {
                         {
                           " と Post-growth HCI におけるポジションペーパーについて追記"
                         }
-                      </div>
-                    </div>
-                  </div>
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">{"9/16/2024"}</div>
-                      <div className="summary">{"プロジェクト一覧を追加"}</div>
-                    </div>
-                  </div>
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">{"6/20/2023"}</div>
-                      <div className="summary">
+                      </FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{"9/16/2024"}</FeedDate>
+                      <FeedSummary>{"プロジェクト一覧を追加"}</FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{"6/20/2023"}</FeedDate>
+                      <FeedSummary>
                         <a href={"https://doi.org/10.1145/3596927"}>
                           {"ACM XRDS"}
                         </a>
                         {" について追記"}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">{"3/31/2023"}</div>
-                      <div className="summary">
+                      </FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{"3/31/2023"}</FeedDate>
+                      <FeedSummary>
                         <a
                           href={
                             "https://programs.sigchi.org/chi/2023/program/session/99391"
@@ -429,49 +456,45 @@ export default function Page({ pageData }: PageDataProps) {
                           {"AIST Creative HCI Seminar"}
                         </a>
                         {" について追記"}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">{"10/23/2022"}</div>
-                      <div className="summary">
-                        {"プロジェクトページを仮公開"}
-                      </div>
-                    </div>
-                  </div>
+                      </FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{"10/23/2022"}</FeedDate>
+                      <FeedSummary>{"プロジェクトページを仮公開"}</FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
                 </>
               }
             >
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"5/10/2025"}</div>
-                  <div className="summary">
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"5/10/2025"}</FeedDate>
+                  <FeedSummary>
                     {
                       "Add information on the Anime SIG event and the post-growth "
                     }
                     <abbr title={"Creativity Support Tools"}>{"CST"}</abbr>
                     {" position paper at CHI 2025."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"9/16/2024"}</div>
-                  <div className="summary">{"Add a list of projects."}</div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"3/31/2023"}</div>
-                  <div className="summary">
-                    {"Upload the initial revision."}
-                  </div>
-                </div>
-              </div>
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"9/16/2024"}</FeedDate>
+                  <FeedSummary>{"Add a list of projects."}</FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"3/31/2023"}</FeedDate>
+                  <FeedSummary>{"Upload the initial revision."}</FeedSummary>
+                </FeedContent>
+              </FeedEvent>
             </LocalizedContent>
-          </div>
-        </div>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -481,74 +504,81 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#animesig"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Anime SIG"}</div>
-                </a>
-                <a className="item" href={"#postgrowth"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"Post-growth HCI"}</div>
-                </a>
-                <a className="item" href={"#sigccc"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"SIGCCC"}</div>
-                </a>
-                <a className="item" href={"#xrds"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{"ACM XRDS"}</div>
-                </a>
-              </div>
-            </Popup>
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#animesig"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Anime SIG"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#postgrowth"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"Post-growth HCI"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#sigccc"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"SIGCCC"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#xrds"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{"ACM XRDS"}</ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <ProjectHeader project={"creativity-support-environments"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Summary" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Summary" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <HtmlContent html={p.getDescription(lang)} />
             <p>
               <SiteImage
-                className="ui image"
+                ui
                 sizes={contentImageSizes}
                 src={`${basePath}creativity-support-environments/creativity-support-environments.png`}
               />
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"examples"}>{renderExamples()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"animesig"}>{renderAnimesig()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"postgrowth"}>{renderPostgrowth()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"sigccc"}>{renderSigccc()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"xrds"}>{renderXrds()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={p.project}
           majorPublication={"chi2023-kato-sigccc"}
         />
-        <div className="ui divider"></div>
+        <Divider />
         <section id={"revision"}>{renderRevision()}</section>
       </SiteLayout>
     </>

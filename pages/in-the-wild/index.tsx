@@ -1,6 +1,21 @@
+import {
+  Container,
+  Divider,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { ProjectItem } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
+
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href } from "@/site/rendering";
@@ -54,21 +69,22 @@ export default function Page({ pageData }: PageDataProps) {
         mainHero={
           <>
             <div className="hero-unit">
-              <div className="ui container">
-                <h1 className="ui header">
+              <Container>
+                <Header as="h1">
                   <HtmlContent html={title} />
-                </h1>
-              </div>
+                </Header>
+              </Container>
             </div>
           </>
         }
       >
-        <h2 className="ui header">{"Poster"}</h2>
-        <div className="ui stackable grid">
-          <div className="row">
-            <div className="four wide column">
-              <SiteLink
-                className="ui fluid bordered image"
+        <Header as="h2">{"Poster"}</Header>
+        <Grid stackable>
+          <GridRow>
+            <GridColumn width={4}>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(
                   `${rootPath}publications/trilateral-ai-conf-2024-kato-poster.pdf`,
                 )}
@@ -76,9 +92,9 @@ export default function Page({ pageData }: PageDataProps) {
                 <SiteImage
                   src={`${rootPath}in-the-wild/trilateral-ai-conf-2024-kato-poster-thumbnail.jpg`}
                 />
-              </SiteLink>
-            </div>
-            <div className="twelve wide column">
+              </LinkedImage>
+            </GridColumn>
+            <GridColumn width={12}>
               <p>
                 {
                   "Research on creativity support tools (CSTs) has long been conducted in the field of human-computer interaction (HCI), but there is growing criticism that applied computer science, including HCI, has typically been conducted and evaluated in a limited cultural context, such as the fast-paced academic community and the WEIRD (Western, educated, industrialized, rich, and developed) part of the world."
@@ -103,11 +119,11 @@ export default function Page({ pageData }: PageDataProps) {
                   ", held at the Akasaka Intercity Conference Center in Tokyo, Japan, on November 12-13, 2024. The conference was organized by DWIH Tokyo, the Embassy of France in Japan, and the AI Japan R&D Network, reflecting its trilateral collaboration between Germany, France, and Japan."
                 }
               </p>
-            </div>
-          </div>
-        </div>
-        <div className="ui hidden divider"></div>
-        <h2 className="ui header">{"References"}</h2>
+            </GridColumn>
+          </GridRow>
+        </Grid>
+        <Divider hidden />
+        <Header as="h2">{"References"}</Header>
         <ol>
           <li>
             {
@@ -222,13 +238,13 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
           </li>
         </ol>
-        <div className="ui hidden divider"></div>
-        <h2 className="ui header">
-          <i className="lab icon"></i>
-          <div className="content">{"Projects"}</div>
-        </h2>
-        <div className="ui segment">
-          <div className="ui divided items projects">
+        <Divider hidden />
+        <Header as="h2">
+          <Icon name="lab" />
+          <HeaderContent>{"Projects"}</HeaderContent>
+        </Header>
+        <Segment>
+          <ItemGroup divided className="projects">
             {(() => {
               const children89: ReactNode[] = [];
               const exampleProjects = [
@@ -245,8 +261,8 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children89);
             })()}
-          </div>
-        </div>
+          </ItemGroup>
+        </Segment>
       </SiteLayout>
     </>
   );

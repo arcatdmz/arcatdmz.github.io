@@ -1,5 +1,23 @@
+import {
+  Button,
+  ButtonGroup,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   ProjectHero,
@@ -56,40 +74,47 @@ export default function Page({ pageData }: PageDataProps) {
         }
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#abstract"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{en ? "Abstract" : "概要"}</div>
-                </a>
-                <a className="item" href={"#implementation"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#abstract"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Abstract" : "概要"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#implementation"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en ? "Reference implementation" : "リファレンス実装"}
-                  </div>
-                </a>
-              </div>
-            </Popup>
+                  </ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -124,15 +149,15 @@ export default function Page({ pageData }: PageDataProps) {
                     {
                       "そして、これらの原則に基づくリファレンス実装としてGUIウィジェット群 "
                     }
-                    <i>{"Tweeq"}</i>
+                    <Icon>{"Tweeq"}</Icon>
                     {" を開発した。 "}
-                    <i>{"Tweeq"}</i>
+                    <Icon>{"Tweeq"}</Icon>
                     {
                       " は第一著者によるアニメーション制作の実践と並行して実装され、少ないクリック回数でのパラメタ調整、オーバーレイ表示による継続的な視覚フィードバック、常時注視を必要としないジェスチャやキーボード入力のサポートといった特徴を備える。"
                     }
                   </p>
                   <p>
-                    <i>{"Tweeq"}</i>
+                    <Icon>{"Tweeq"}</Icon>
                     {
                       " を用いたサンプルアプリケーションを実装し、プロユーザによる簡易評価を行ったところ、おおむね好意的な反応が得られ、提案した3原則が制作ツールのためのGUI開発において有用であることが示唆された。"
                     }
@@ -171,35 +196,32 @@ export default function Page({ pageData }: PageDataProps) {
                 {
                   "We then provide reference implementations of GUI widgets that follow these guidelines, named "
                 }
-                <i>{"Tweeq"}</i>
+                <Icon>{"Tweeq"}</Icon>
                 {
                   ". Developed in parallel with the first author's animation projects, these widgets allow parameter tuning with fewer clicks, provide continuous visual feedback through overlays, and facilitate gestural and keyboard inputs that do not require constant visual attention."
                 }
               </p>
               <p>
                 {"To evaluate "}
-                <i>{"Tweeq"}</i>
+                <Icon>{"Tweeq"}</Icon>
                 {
                   ", we implemented example applications and conducted an informal expert user study, which revealed generally positive reactions and indicated that the proposed design principles may offer a useful direction for GUI development in creative software."
                 }
               </p>
             </LocalizedContent>
-          </div>
-          <div className="ui basic segment">
+          </Segment>
+          <Segment basic>
             <p>
-              <SiteImage
-                className="ui fluid image"
-                src={`${rootPath}tweeq/tweeq.png`}
-              />
+              <SiteImage ui fluid src={`${rootPath}tweeq/tweeq.png`} />
             </p>
             <p className="caption">
-              <i>{"Tweeq"}</i>
+              <Icon>{"Tweeq"}</Icon>
               {en
                 ? ", a set of GUI widgets proposed in this paper for creative software. "
                 : " は本論文で提案した制作ツール向けGUIウィジェット群である。"}
               <strong>{"(a)"}</strong>
               {en ? " Components of " : " "}
-              <i>{"Tweeq"}</i>
+              <Icon>{"Tweeq"}</Icon>
               {en ? ". " : " が提供するコンポーネントの一覧。"}
               <strong>{"(b)"}</strong>
               {en
@@ -219,15 +241,15 @@ export default function Page({ pageData }: PageDataProps) {
                 ? "*Note that Baku Hashimoto carried out this work partly in the capacity of a collaborative researcher at AIST, as reflected in the paper author's affiliation, and partly as an independent visual artist."
                 : "*第一著者の橋本は、産総研の協力研究員（論文メタデータの所属）としてだけでなく、独立したビジュアルアーティストとして本研究に取り組んだ。"}
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"implementation"}>
           <h2>
-            <i className="github icon"></i>
+            <Icon name="github" />
             {en ? "Reference implementation" : "リファレンス実装"}
           </h2>
-          <div className="ui basic segment">
+          <Segment basic>
             <LocalizedContent
               ja={
                 <p>
@@ -235,10 +257,10 @@ export default function Page({ pageData }: PageDataProps) {
                   {
                     "本論文におけるプロのクリエータ向けのウィジェット設計に関する3原則に基づくリファレンス実装 "
                   }
-                  <i>{"Tweeq"}</i>
+                  <Icon>{"Tweeq"}</Icon>
                   {" は Vue.js と TypeScript で開発され、 "}
                   <a href={"//github.com/baku89/tweeq"}>
-                    <i className="github icon"></i>
+                    <Icon name="github" />
                     {"GitHub"}
                   </a>
                   {" でオープンソース公開されている。"}
@@ -248,45 +270,47 @@ export default function Page({ pageData }: PageDataProps) {
               <p>
                 {" "}
                 {"The reference implementation of the design principles, "}
-                <i>{"Tweeq"}</i>
+                <Icon>{"Tweeq"}</Icon>
                 {
                   ", developed with Vue.js and TypeScript, is available as an open-source project on "
                 }
                 <a href={"//github.com/baku89/tweeq"}>
-                  <i className="github icon"></i>
+                  <Icon name="github" />
                   {"GitHub"}
                 </a>
                 {"."}
               </p>
             </LocalizedContent>
-          </div>
-          <div className="ui basic center aligned segment">
-            <div className="ui huge buttons">
-              <a
-                className="ui primary button"
+          </Segment>
+          <Segment basic textAlign="center">
+            <ButtonGroup size="huge">
+              <Button
+                role="link"
+                primary
+                as="a"
                 href={"//github.com/baku89/tweeq"}
               >
                 {en ? "Code" : "ソースコード"}
-              </a>
-              <div className="ui divider"></div>
-              <a className="ui button" href={"//baku89.github.io/tweeq"}>
+              </Button>
+              <Divider />
+              <Button role="link" as="a" href={"//baku89.github.io/tweeq"}>
                 {en ? "Documents" : "デモ"}
-              </a>
-            </div>
-          </div>
+              </Button>
+            </ButtonGroup>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"revision"}>
           <h2>
-            <i className="announcement icon"></i>
+            <Icon name="announcement" />
             {en ? "Revision history" : "更新履歴"}
           </h2>
-          <div className="ui basic segment">
-            <div className="ui divided feed">
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"8/1/2025"}</div>
-                  <div className="summary">
+          <Segment basic>
+            <Feed className="divided">
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"8/1/2025"}</FeedDate>
+                  <FeedSummary>
                     <LocalizedContent
                       ja={
                         <>
@@ -299,13 +323,13 @@ export default function Page({ pageData }: PageDataProps) {
                     >
                       {"Upload the initial revision."}
                     </LocalizedContent>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+            </Feed>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"tweeq"}
           majorPublication={"uist2025-hashimoto-tweeq"}

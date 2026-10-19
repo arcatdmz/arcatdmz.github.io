@@ -1,7 +1,10 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import { Grid, GridColumn, Header } from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
+
 import { href } from "@/site/rendering";
 import type { PageDataProps } from "@/site/page-data";
 
@@ -23,34 +26,34 @@ function Content() {
     <>
       <Grid stackable columns={3}>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
+          <LinkedImage
+            fluid
             href={href(`${rootPath}homehack/fungus-prototype.jpg`)}
           >
             <SiteImage
               src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`}
             />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
+          <LinkedImage
+            fluid
             href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}
           >
             <SiteImage
               src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`}
             />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
+          <LinkedImage
+            fluid
             href={href(`${rootPath}homehack/fungus-camera.jpg`)}
           >
             <SiteImage
               src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`}
             />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
       </Grid>
       <Grid stackable columns={2}>
@@ -65,12 +68,12 @@ function Content() {
               "ついでに、玄関の明かりのスイッチがドアから遠い問題（明かりをつけようとしている間にドアが閉まって真っ暗になる）を解決するため、このデバイスに近づくと明かりをONにして、遠ざかってしばらくするとOFFにする機能もつけた。"
             }
           </p>
-          <h3 className="ui header">{"開発環境"}</h3>
+          <Header as="h3">{"開発環境"}</Header>
           <ul>
             <li>{"Arduino, Bash script, Java"}</li>
             <li>{"Mac mini"}</li>
           </ul>
-          <h3 className="ui header">{"資料"}</h3>
+          <Header as="h3">{"資料"}</Header>
           <ul>
             <li>
               {"ブログ記事: "}
@@ -95,22 +98,19 @@ function Content() {
           </ul>
         </GridColumn>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
-            href={href(`${rootPath}homehack/fungus-box.jpg`)}
-          >
+          <LinkedImage fluid href={href(`${rootPath}homehack/fungus-box.jpg`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
       </Grid>
       <Grid stackable columns={2}>
         <GridColumn>
-          <SiteLink
-            className="ui fluid image"
+          <LinkedImage
+            fluid
             href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
           >
             <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
-          </SiteLink>
+          </LinkedImage>
         </GridColumn>
         <GridColumn>
           <EmbedYoutube src={"//www.youtube.com/embed/rFeTAwY_d_Y"} />

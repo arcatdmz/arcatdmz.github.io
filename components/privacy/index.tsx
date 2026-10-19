@@ -1,3 +1,5 @@
+import { Header, HeaderContent, Icon, Segment } from "react-fomantic-ui";
+
 import {
   hydratePageData,
   type PageDataProps,
@@ -41,12 +43,12 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <section>
-          <h1 className="ui header">
-            <i className="envelope open outline icon"></i>
-            <div className="content">{title}</div>
-          </h1>
-          <div className="ui basic segment">
-            <h2 className="ui header">{"Google Analytics"}</h2>
+          <Header as="h1">
+            <Icon name="envelope open outline" />
+            <HeaderContent>{title}</HeaderContent>
+          </Header>
+          <Segment basic>
+            <Header as="h2">{"Google Analytics"}</Header>
 
             {en ? (
               <>
@@ -117,7 +119,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </>
             )}
-          </div>
+          </Segment>
         </section>
       </SiteLayout>
     </>

@@ -1,6 +1,27 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  HeaderSubheader,
+  Icon,
+  Image,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -62,18 +83,16 @@ export default function Page({ pageData }: PageDataProps) {
         <div className="with-rail">
           <div className="right-rail">
             <section id={"news"}>
-              <h2 className="ui header">
-                <i className="announcement icon"></i>
-                <div className="content">{en ? "News" : "ニュース"}</div>
-              </h2>
-              <div className="ui basic segment">
-                <div className="ui divided small feed">
-                  <div className="event">
-                    <div className="content">
-                      <div className="date">
-                        {en ? "6/14/2017" : "2017/6/14"}
-                      </div>
-                      <div className="summary">
+              <Header as="h2">
+                <Icon name="announcement" />
+                <HeaderContent>{en ? "News" : "ニュース"}</HeaderContent>
+              </Header>
+              <Segment basic>
+                <Feed size="small" className="divided">
+                  <FeedEvent>
+                    <FeedContent>
+                      <FeedDate>{en ? "6/14/2017" : "2017/6/14"}</FeedDate>
+                      <FeedSummary>
                         {en
                           ? "f3.js was presented at ACM DIS 2017 and is available on the web at "
                           : "国際会議ACM DIS 2017でf3.jsに関する登壇発表を行いました。"}
@@ -81,20 +100,20 @@ export default function Page({ pageData }: PageDataProps) {
                         {en
                           ? ". Please try it out!"
                           : "で実際にIoTデバイス製作を試すことができます。"}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ui hidden divider"></div>
+                      </FeedSummary>
+                    </FeedContent>
+                  </FeedEvent>
+                </Feed>
+              </Segment>
+              <Divider hidden />
             </section>
           </div>
           <div className="left-content">
             <section id={"abstract"}>
-              <h2 className="ui header">
-                <div className="content">{en ? "Abstract" : "概要"}</div>
-              </h2>
-              <div className="ui basic segment">
+              <Header as="h2">
+                <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+              </Header>
+              <Segment basic>
                 <LocalizedContent
                   ja={
                     <>
@@ -132,60 +151,57 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </p>
                 </LocalizedContent>
-              </div>
-              <div className="ui hidden divider"></div>
+              </Segment>
+              <Divider hidden />
             </section>
           </div>
         </div>
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"DIS 2017 "}
                   {en ? "Demo Video" : "デモ動画"}
-                </h3>
+                </Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/BwPXXjfUUVw"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=BwPXXjfUUVw"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"DIS 2017 "}
                   {en ? "Slides" : "発表スライド"}
-                </h3>
+                </Header>
 
-                <Embed
-                  className="ui embed"
-                  data-url={publicationsTable[p.publication].entryTags.slides}
-                  data-placeholder={`${rootPath}images/background-eee.png`}
-                  data-icon={"video play outline"}
-                ></Embed>
+                <DeferredEmbed
+                  url={publicationsTable[p.publication].entryTags.slides}
+                  placeholder={`${rootPath}images/background-eee.png`}
+                  icon={"video play outline"}
+                ></DeferredEmbed>
 
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
-                        <i className="download icon"></i>
+                        <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
 
                 {!en ? (
@@ -193,48 +209,48 @@ export default function Page({ pageData }: PageDataProps) {
                     <p className="caption">
                       {"日本語の発表スライドは"}
                       <a href={"#publications"}>
-                        <i className="book icon"></i>
+                        <Icon name="book" />
                         {"発表文献"}
                       </a>
                       {"で日本語文献の "}
-                      <i className="sidebar fitted icon"></i>
+                      <Icon fitted name="sidebar" />
                       {" をクリックすると閲覧できます。"}
                     </p>
                   </>
                 ) : null}
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"concept"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {en
               ? "Core concept: parametric design of devices"
               : "核となるアイデア: IoTデバイスのパラメトリックデザイン"}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en ? (
                     <>{"Parametric Design for Interaction Designers"}</>
                   ) : (
                     <>
                       {"インタラクションデザイナ向けの特長"}
 
-                      <div className="sub header">
+                      <HeaderSubheader>
                         {"ハードとソフトの一体開発"}
-                      </div>
+                      </HeaderSubheader>
                     </>
                   )}
-                </h3>
-                <SiteLink
-                  className="ui fluid image"
+                </Header>
+                <LinkedImage
+                  fluid
                   href={href(`${rootPath}f3js/f3js-programmers.png`)}
                 >
                   <SiteImage src={`${rootPath}f3js/f3js-programmers.png`} />
-                </SiteLink>
+                </LinkedImage>
                 <div className="caption">
                   <LocalizedContent
                     ja={
@@ -340,11 +356,11 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </LocalizedContent>
                 </div>
-                <div className="ui hidden divider"></div>
+                <Divider hidden />
                 <Grid stackable columns={2}>
                   <GridColumn>
-                    <SiteLink
-                      className="ui fluid image"
+                    <LinkedImage
+                      fluid
                       href={href(
                         `${rootPath}f3js/extrusion-without-opposite-plane.jpg`,
                       )}
@@ -352,23 +368,23 @@ export default function Page({ pageData }: PageDataProps) {
                       <SiteImage
                         src={`${rootPath}f3js/extrusion-without-opposite-plane-resized.jpg`}
                       />
-                    </SiteLink>
+                    </LinkedImage>
                     <p className="caption">
                       {en
                         ? "Extruding a rectangle makes a box."
                         : "矩形を押し出すと箱型ができる。"}
                     </p>
-                    <div className="ui hidden divider"></div>
+                    <Divider hidden />
                   </GridColumn>
                   <GridColumn>
-                    <SiteLink
-                      className="ui fluid image"
+                    <LinkedImage
+                      fluid
                       href={href(`${rootPath}f3js/circle-layout.jpg`)}
                     >
                       <SiteImage
                         src={`${rootPath}f3js/circle-layout-resized.jpg`}
                       />
-                    </SiteLink>
+                    </LinkedImage>
 
                     {en ? (
                       <>
@@ -420,30 +436,30 @@ export default function Page({ pageData }: PageDataProps) {
                       </>
                     )}
 
-                    <div className="ui hidden divider"></div>
+                    <Divider hidden />
                   </GridColumn>
                 </Grid>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en ? (
                     <>{"Parametric Design for End-uesrs"}</>
                   ) : (
                     <>
                       {"エンドユーザ向けの特長"}
 
-                      <div className="sub header">
+                      <HeaderSubheader>
                         {"プラモデルのようなデバイス組み立て"}
-                      </div>
+                      </HeaderSubheader>
                     </>
                   )}
-                </h3>
-                <SiteLink
-                  className="ui fluid image"
+                </Header>
+                <LinkedImage
+                  fluid
                   href={href(`${rootPath}f3js/f3js-end-users.png`)}
                 >
                   <SiteImage src={`${rootPath}f3js/f3js-end-users.png`} />
-                </SiteLink>
+                </LinkedImage>
                 <div className="caption">
                   <LocalizedContent
                     ja={
@@ -458,7 +474,7 @@ export default function Page({ pageData }: PageDataProps) {
                             }
                           </strong>
                         </p>
-                        <div className="ui right floated small image">
+                        <Image size="small" floated="right" as="div">
                           <SiteLink
                             href={href(
                               `${rootPath}f3js/design-alternatives-shapes.jpg`,
@@ -473,7 +489,7 @@ export default function Page({ pageData }: PageDataProps) {
                               "f3.jsで自分好みにカスタマイズしたIoTデバイスを作るには、プログラミングなどの前提知識は要らない。スライダーを操作するだけでよい。"
                             }
                           </p>
-                        </div>
+                        </Image>
                         <p>
                           {
                             "ユーザはf3.js上でまず作ってみたいデバイスのプロジェクトを選ぶ。プロジェクトの詳細ページでは、デバイスの写真、デモ動画や機能紹介といった情報を見ることができる。さらに、軽量なGUIウィジェットを操作することで、デバイスの見た目がどう変化するかをインタラクティブに確認することができる。システムは、ウィジェットの操作結果に応じて、デバイスのデザイナが記述したソースコード中のパラメタ値を変更する。これにより、ユーザはソースコードを直接読んで理解しなくても、異なる仕様のデバイスを入手できる。"
@@ -498,10 +514,12 @@ export default function Page({ pageData }: PageDataProps) {
                       {
                         "The f3.js design tool enables customization, printing, and the use of devices without prior knowledge by providing lightweight GUI widgets for customization and detailed instructions on building of devices. Building physical prototypes that perfectly match the need is "
                       }
-                      <i>{'"as easy as assembling a plastic model kit"'}</i>
+                      <Icon>
+                        {'"as easy as assembling a plastic model kit"'}
+                      </Icon>
                       {" with f3.js (quoted from a user study)."}
                     </p>
-                    <div className="ui right floated small image">
+                    <Image size="small" floated="right" as="div">
                       <SiteLink
                         href={href(
                           `${rootPath}f3js/design-alternatives-shapes.jpg`,
@@ -516,7 +534,7 @@ export default function Page({ pageData }: PageDataProps) {
                           "Creating devices with alternative designs is as easy as tweaking sliders in f3.js."
                         }
                       </p>
-                    </div>
+                    </Image>
                     <p>
                       {
                         "Users first search for existing projects. Once an interesting project is found, a project page displays its details when it is accessed. The page provides lightweight GUI widgets that allow users to interactively explore device variations. Tweaking parameters with the widgets silently updates variable declarations in the codebase, and the print preview is consequently updated."
@@ -543,21 +561,21 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </LocalizedContent>
                 </div>
-                <div className="ui hidden divider"></div>
+                <Divider hidden />
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
         <section id={"examples"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {en ? "Example applications" : "アプリケーション例"}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en ? "Videos of 17 applications" : "17個の作例動画"}
-                </h3>
+                </Header>
                 <EmbedYoutube
                   src={
                     "https://www.youtube.com/embed/videoseries?list=PLb6OjFoBksmvYwbJqt8Z30LS72LkPrPJb"
@@ -592,13 +610,13 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </LocalizedContent>
                 </div>
-                <div className="ui hidden divider"></div>
+                <Divider hidden />
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en ? "Explanations on the first 5 apps" : "冒頭5例の紹介"}
-                </h3>
-                <div className="ui basic segment">
+                </Header>
+                <Segment basic>
                   <LocalizedContent
                     ja={
                       <>
@@ -680,13 +698,13 @@ export default function Page({ pageData }: PageDataProps) {
                       }
                     </p>
                   </LocalizedContent>
-                </div>
-                <div className="ui hidden divider"></div>
+                </Segment>
+                <Divider hidden />
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"f3js"}
           majorPublication={"dis2017-kato-f3js"}

@@ -1,4 +1,29 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderSubheader,
+  Icon,
+  Image,
+  Label,
+  List,
+  ListContent,
+  ListDescription,
+  ListHeader,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   MajorPublication,
@@ -55,44 +80,53 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <div className="mobile hidden">
-          <div
-            className="ui right floated small bordered image"
+          <Image
+            bordered
+            size="small"
+            floated="right"
+            as="div"
             style={{ zIndex: "100", marginRight: "1em" }}
           >
             <SiteImage
               src={`${rootPath}programming-with-examples/programming-with-examples.jpg`}
             />
             <div className="caption">
-              <a
-                className="ui fluid primary small labeled icon button"
+              <Button
+                role="link"
+                fluid
+                icon
+                primary
+                size="small"
+                labelPosition="left"
+                as="a"
                 href={"https://dx.doi.org/10.1109/MC.2016.217"}
               >
-                <i className="book icon"></i>
+                <Icon name="book" />
                 {"Paper"}
-              </a>
+              </Button>
             </div>
-          </div>
+          </Image>
         </div>
         <section>
-          <h1 className="ui header">
+          <Header as="h1">
             {title}
-            <div className="sub header">{subtitle}</div>
-          </h1>
-          <div className="ui horizontal divided list project-meta-list">
-            <div className="item">
-              <span className="ui tiny basic label">
-                <i className="calendar icon"></i>
+            <HeaderSubheader>{subtitle}</HeaderSubheader>
+          </Header>
+          <List divided horizontal className="project-meta-list">
+            <ListItem>
+              <Label basic size="tiny" as="span">
+                <Icon name="calendar" />
                 {"7/15/2016"}
-              </span>
-            </div>
-            <div className="item">
-              <span className="ui red tiny basic label">
+              </Label>
+            </ListItem>
+            <ListItem>
+              <Label basic size="tiny" color="red" as="span">
                 {"IEEE Computer Special Issue on 21st Century User Interfaces"}
-              </span>
-            </div>
-          </div>
+              </Label>
+            </ListItem>
+          </List>
           <Share />
-          <div className="ui message">
+          <Message>
             <p>
               {
                 "This page provides summary and additional information for the journal article that appeared in the IEEE Computer magazine, special issue on 21st Century User Interfaces."
@@ -106,31 +140,32 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </>
             ) : null}
-          </div>
+          </Message>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"paper"}>
-          <h2 className="ui header">{"Paper"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"Paper"}</Header>
+          <Segment basic>
             <p>
               {
                 "The programming-with-examples (PwE) workflow lets developers create interactive applications with the help of example data. It takes a general programming environment and adds dedicated user interfaces for visualizing and managing the data. This lets both programmers and users understand applications and configure them to meet their needs."
               }
             </p>
-            <div className="ui raised segment major-publication">
-              <span className="ui red ribbon label">
+            <Segment raised className="major-publication">
+              <Label color="red" ribbon as="span">
                 {en ? "Cite this!" : "引用するならコレ！"}
-              </span>
+              </Label>
               <MajorPublication
                 entry={publicationsTable["programming-with-examples"]}
               />
-            </div>
-          </div>
-          <div className="ui basic segment">
+            </Segment>
+          </Segment>
+          <Segment basic>
             <Grid columns={2}>
               <GridColumn tablet={16} computer={10}>
                 <SiteImage
-                  className="ui fluid image"
+                  ui
+                  fluid
                   src={`${rootPath}programming-with-examples/pwe-fig1.jpg`}
                   alt={"(Programming by Example vs Programming with Examples)"}
                 />
@@ -144,17 +179,17 @@ export default function Page({ pageData }: PageDataProps) {
                 </p>
               </GridColumn>
             </Grid>
-            <div className="ui hidden divider"></div>
-          </div>
+            <Divider hidden />
+          </Segment>
         </section>
         <section id={"terminology"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {'What is (and what is not) "Programming with Examples"?'}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">{"It is..."}</h3>
+                <Header as="h3">{"It is..."}</Header>
                 <ul>
                   <li>
                     {
@@ -185,7 +220,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </ul>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">{"It is NOT..."}</h3>
+                <Header as="h3">{"It is NOT..."}</Header>
                 <ul>
                   <li>
                     {"It is different from typical "}
@@ -227,16 +262,16 @@ export default function Page({ pageData }: PageDataProps) {
                 </ul>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"examples"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {"Which "}
             <abbr title={"Integrated Development Environments"}>{"IDEs"}</abbr>
             {' support "Programming with Examples"?'}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <p>
               {"We have designed "}
               <abbr title={"Integrated Development Environments"}>
@@ -258,94 +293,82 @@ export default function Page({ pageData }: PageDataProps) {
               <SiteLink href={href(`${basePath}f3js`)}>{"f3.js"}</SiteLink>
               {" projects for more details."}
             </p>
-            <div className="ui divided list">
-              <div className="item">
-                <SiteLink
-                  className="ui small image"
-                  href={href(`${basePath}picode`)}
-                >
+            <List divided>
+              <ListItem>
+                <LinkedImage size="small" href={href(`${basePath}picode`)}>
                   <SiteImage src={`${rootPath}images/thumbnails/picode.jpg`} />
-                </SiteLink>
-                <div className="content">
-                  <SiteLink className="header" href={href(`${basePath}picode`)}>
+                </LinkedImage>
+                <ListContent>
+                  <ListHeader as={SiteLink} href={href(`${basePath}picode`)}>
                     {"Picode [CHI '13]"}
-                  </SiteLink>
-                  <div className="description">
+                  </ListHeader>
+                  <ListDescription>
                     {
                       "It supports handling robot/human posture information with the code editor that shows inline photos representing the posture data."
                     }
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <SiteLink
-                  className="ui small image"
-                  href={href(`${basePath}dejavu`)}
-                >
+                  </ListDescription>
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <LinkedImage size="small" href={href(`${basePath}dejavu`)}>
                   <SiteImage src={`${rootPath}images/thumbnails/dejavu.png`} />
-                </SiteLink>
-                <div className="content">
-                  <SiteLink className="header" href={href(`${basePath}dejavu`)}>
+                </LinkedImage>
+                <ListContent>
+                  <ListHeader as={SiteLink} href={href(`${basePath}dejavu`)}>
                     {"DejaVu [UIST '12]"}
-                  </SiteLink>
-                  <div className="description">
+                  </ListHeader>
+                  <ListDescription>
                     {
                       "It supports creating interacitve camera-based apps with the timeline and canvas interfaces for built-in record-and-replay and re-evaluation feature."
                     }
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <SiteLink
-                  className="ui small image"
+                  </ListDescription>
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <LinkedImage
+                  size="small"
                   href={href(`${basePath}visionsketch`)}
                 >
                   <SiteImage
                     src={`${rootPath}images/thumbnails/visionsketch.jpg`}
                   />
-                </SiteLink>
-                <div className="content">
-                  <SiteLink
-                    className="header"
+                </LinkedImage>
+                <ListContent>
+                  <ListHeader
+                    as={SiteLink}
                     href={href(`${basePath}visionsketch`)}
                   >
                     {"VisionSketch [GI '13]"}
-                  </SiteLink>
-                  <div className="description">
+                  </ListHeader>
+                  <ListDescription>
                     {
                       "It implements graphical annotation-based code completion where methods are suggested based on sketched shapes on input images."
                     }
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <SiteLink
-                  className="ui small image"
-                  href={href(`${basePath}textalive`)}
-                >
+                  </ListDescription>
+                </ListContent>
+              </ListItem>
+              <ListItem>
+                <LinkedImage size="small" href={href(`${basePath}textalive`)}>
                   <SiteImage
                     src={`${rootPath}images/thumbnails/textalive.png`}
                   />
-                </SiteLink>
-                <div className="content">
-                  <SiteLink
-                    className="header"
-                    href={href(`${basePath}textalive`)}
-                  >
+                </LinkedImage>
+                <ListContent>
+                  <ListHeader as={SiteLink} href={href(`${basePath}textalive`)}>
                     {"TextAlive [CHI '15]"}
-                  </SiteLink>
-                  <div className="description">
+                  </ListHeader>
+                  <ListDescription>
                     {
                       "It supports authoring Kinetic Typography videos of lyrics text synchronized with songs equipped with "
                     }
-                  </div>
+                  </ListDescription>
                   <SiteLink href={href(`${basePath}live-tuning`)}>
                     {"Live Tuning"}
                   </SiteLink>
                   {" interfaces for end-users."}
-                </div>
-              </div>
-            </div>
+                </ListContent>
+              </ListItem>
+            </List>
             <p>
               {
                 "There are of course excellent prior work and other ongoing work that supports the "
@@ -353,13 +376,13 @@ export default function Page({ pageData }: PageDataProps) {
               <abbr title={"Programming with Examples"}>{"PwE"}</abbr>
               {" workflow, as shown below."}
             </p>
-            <div className="ui hidden divider"></div>
-            <h3 className="ui header" id={"conventional"}>
+            <Divider hidden />
+            <Header as="h3" id={"conventional"}>
               {"Programming with Examples in conventional "}
               <abbr title={"Integrated Development Environments"}>
                 {"IDEs"}
               </abbr>
-            </h3>
+            </Header>
             <p>
               {"Conventional "}
               <abbr title={"Character-based User Interface"}>{"CUI"}</abbr>
@@ -398,14 +421,14 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </li>
             </ul>
-            <div className="ui hidden divider"></div>
-            <h3 className="ui header" id={"data-intensive"}>
+            <Divider hidden />
+            <Header as="h3" id={"data-intensive"}>
               {"Programming with Examples in "}
               <abbr title={"Integrated Development Environments"}>
                 {"IDEs"}
               </abbr>
               {" for data-intensive applications"}
-            </h3>
+            </Header>
             <p>
               {"To develop data-intensive applications, more "}
               <strong>
@@ -460,21 +483,21 @@ export default function Page({ pageData }: PageDataProps) {
             <p>
               {"Please "}
               <a href={"mailto:jun.kato@aist.go.jp"}>
-                <i className="mail icon"></i>
+                <Icon name="mail" />
                 {"contact us"}
               </a>
               {" to add your project here."}
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"future"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {"What are the design implications for future "}
             <abbr title={"Integrated Development Environments"}>{"IDEs"}</abbr>
             {"?"}
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <p>
               {
                 "While we would strongly recommend you to read the article (p.40-41) for the detailed discussion, here are some lessons learned in case you are in a hurry."
@@ -514,34 +537,32 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </li>
             </ul>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"revision"}>
-          <h2 className="ui header">
-            <i className="announcement icon"></i>
+          <Header as="h2">
+            <Icon name="announcement" />
             {en ? "Revision history" : "更新履歴"}
-          </h2>
-          <div className="ui basic segment">
-            <div className="ui divided feed">
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"1/21/2018"}</div>
-                  <div className="summary">
+          </Header>
+          <Segment basic>
+            <Feed className="divided">
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"1/21/2018"}</FeedDate>
+                  <FeedSummary>
                     {"Check missing links and update style."}
-                  </div>
-                </div>
-              </div>
-              <div className="event">
-                <div className="content">
-                  <div className="date">{"7/15/2016"}</div>
-                  <div className="summary">
-                    {"Upload the initial revision."}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+              <FeedEvent>
+                <FeedContent>
+                  <FeedDate>{"7/15/2016"}</FeedDate>
+                  <FeedSummary>{"Upload the initial revision."}</FeedSummary>
+                </FeedContent>
+              </FeedEvent>
+            </Feed>
+          </Segment>
         </section>
       </SiteLayout>
     </>

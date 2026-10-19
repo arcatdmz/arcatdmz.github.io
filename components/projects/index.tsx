@@ -1,5 +1,18 @@
+import {
+  Button,
+  Divider,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Popup } from "@/site/components/SiteWidgets";
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import { type ReactNode } from "react";
@@ -46,25 +59,25 @@ export default function Page({ pageData }: PageDataProps) {
   function renderPublicationsMenu(): ReactNode {
     return (
       <>
-        <div className="ui divided list">
-          <a className="item" href={"#research"}>
-            <i className="lab icon"></i>
-            <div className="content">{en ? "Research" : "研究"}</div>
-          </a>
-          <a className="item" href={"#design-and-engineering"}>
-            <i className="paint brush icon"></i>
-            <div className="content">
+        <List divided>
+          <ListItem role="link" as="a" href={"#research"}>
+            <Icon name="lab" />
+            <ListContent>{en ? "Research" : "研究"}</ListContent>
+          </ListItem>
+          <ListItem role="link" as="a" href={"#design-and-engineering"}>
+            <Icon name="paint brush" />
+            <ListContent>
               {en ? "Design and Engineering" : "デザイン・開発"}
-            </div>
-          </a>
-        </div>
+            </ListContent>
+          </ListItem>
+        </List>
       </>
     );
   }
   function renderAbout(): ReactNode {
     return (
       <>
-        <div className="ui basic segment" id={"about"}>
+        <Segment basic id={"about"}>
           <LocalizedContent
             ja={
               <p>
@@ -72,7 +85,7 @@ export default function Page({ pageData }: PageDataProps) {
                   "このページでは加藤が関わってきた研究・開発・デザインに関するプロジェクトの一覧を見ることができます。グラフィックデザインとインタラクションデザインに絞った一覧は"
                 }
                 <SiteLink href={href(`${rootPath}ja/design`)}>
-                  <i className="paint brush icon"></i>
+                  <Icon name="paint brush" />
                   {"デザイン"}
                 </SiteLink>
                 {"のページでも確認できます。"}
@@ -82,32 +95,32 @@ export default function Page({ pageData }: PageDataProps) {
             <p>
               {"This page shows the list of research projects. See "}
               <SiteLink href={href(`${rootPath}design`)}>
-                <i className="paint brush icon"></i>
+                <Icon name="paint brush" />
                 {"Design"}
               </SiteLink>
               {" for the design-oriented list of my projects."}
             </p>
           </LocalizedContent>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderResearch(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="lab icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="lab" />
+          <HeaderContent>
             {en ? "Research projects" : "研究プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {en
               ? "The following research-oriented projects have been conducted under a certain scientific context and most of them have been published at archival venues."
               : "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。"}
           </p>
-          <div className="ui divided items projects" id={"other-projects-list"}>
+          <ItemGroup divided id={"other-projects-list"} className="projects">
             {(() => {
               const children: ReactNode[] = [];
               for (const p of projects) {
@@ -126,31 +139,32 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </ItemGroup>
+        </Segment>
       </>
     );
   }
   function renderDesignAndEngineering(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="paint brush icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="paint brush" />
+          <HeaderContent>
             {en
               ? "Design and/or engineering projects"
               : "デザイン・開発プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <p>
             {en
               ? "The following design and engineering projects have been conducted as part of my hobby or probono activities."
               : "デザインや開発に主眼が置かれたプロジェクトです。趣味またはプロボノ的活動として取り組んできました。"}
           </p>
-          <div
-            className="ui divided items projects"
+          <ItemGroup
+            divided
             id={"design-and-engineering-projects-list"}
+            className="projects"
           >
             {(() => {
               const children: ReactNode[] = [];
@@ -165,8 +179,8 @@ export default function Page({ pageData }: PageDataProps) {
               }
               return keyed(children);
             })()}
-          </div>
-        </div>
+          </ItemGroup>
+        </Segment>
       </>
     );
   }
@@ -176,30 +190,37 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden mobile-only button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden mobile-only"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
               {renderPublicationsMenu()}
-            </Popup>
+            </SitePopup>
           </>
         }
       >
         <div className="left-rail">{renderPublicationsMenu()}</div>
         <div className="right-content">
-          <h1 className="ui header">
-            <i className="gift icon"></i>
-            <div className="content">{en ? "Projects" : "プロジェクト"}</div>
-          </h1>
+          <Header as="h1">
+            <Icon name="gift" />
+            <HeaderContent>{en ? "Projects" : "プロジェクト"}</HeaderContent>
+          </Header>
           {renderAbout()}
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"research"}>{renderResearch()}</section>
-          <div className="ui hidden divider"></div>
+          <Divider hidden />
           <section id={"design-and-engineering"}>
             {renderDesignAndEngineering()}
           </section>

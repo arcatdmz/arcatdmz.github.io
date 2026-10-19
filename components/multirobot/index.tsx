@@ -1,4 +1,16 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -6,7 +18,7 @@ import {
   ProjectHeader,
   ProjectPublications,
 } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
+
 import { type ReactNode } from "react";
 import { href } from "@/site/rendering";
 import {
@@ -51,8 +63,8 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Abstract" : "概要"}</Header>
+        <Segment basic>
           <LocalizedContent
             ja={
               <>
@@ -94,20 +106,20 @@ export default function Page({ pageData }: PageDataProps) {
               {"."}
             </p>
           </LocalizedContent>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
   function renderInteraction(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {en
             ? "Multi-touch Vector Field Operation"
             : "ベクトル場を用いた複数ロボットの同時操作"}
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <LocalizedContent
             ja={
               <>
@@ -177,8 +189,8 @@ export default function Page({ pageData }: PageDataProps) {
               </dd>
             </dl>
           </LocalizedContent>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
@@ -187,26 +199,23 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <EmbedYoutube src={"//www.youtube.com/embed/zGioJvhsoIY"} />
         <div className="caption">
-          <div className="ui horizontal list">
-            <div className="item">
+          <List horizontal>
+            <ListItem>
               <a href={"//www.youtube.com/watch?v=QKtzsOU-sA8"}>
-                <i className="youtube icon"></i>
+                <Icon name="youtube" />
                 {"YouTube"}
               </a>
-            </div>
-          </div>
+            </ListItem>
+          </List>
         </div>
-        <div className="ui hidden divider"></div>
-        <SiteLink
-          className="ui fluid image"
-          href={href(`${rootPath}multirobot/operations.png`)}
-        >
+        <Divider hidden />
+        <LinkedImage fluid href={href(`${rootPath}multirobot/operations.png`)}>
           <SiteImage src={`${rootPath}multirobot/operations.png`} />
-        </SiteLink>
+        </LinkedImage>
         <div className="caption">
           {en ? "Three operation modes" : "3つの操作モード"}
         </div>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
       </>
     );
   }
@@ -214,7 +223,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"multirobot"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <Grid stackable columns={2}>
           <GridColumn>
             <section id={"abstract"}>{renderAbstract()}</section>

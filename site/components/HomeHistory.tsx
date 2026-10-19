@@ -1,10 +1,18 @@
 import {
+  Button,
+  type ButtonProps,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+} from "react-fomantic-ui";
+
+import {
   createContext,
   useContext,
   useEffect,
   useRef,
   useState,
-  type AnchorHTMLAttributes,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
@@ -87,42 +95,43 @@ export function HistoryFeed({
 }: HTMLAttributes<HTMLDivElement>) {
   const history = useContext(HistoryContext);
   return (
-    <div {...props}>
+    <Feed {...props}>
       {children}
       {history?.entries.map((entry, index) => (
         <AddedHistoryEntry key={index} entry={entry} />
       ))}
-    </div>
+    </Feed>
   );
 }
 function AddedHistoryEntry({ entry }: { entry: Entry }) {
   const element = useRef<HTMLDivElement>(null);
   useEffect(() => playAttention(element.current, "jiggle"), []);
   return (
-    <div ref={element} className="event">
-      <div className="content">
-        <div className="date">{entry.date}</div>
+    <FeedEvent ref={element}>
+      <FeedContent>
+        <FeedDate>{entry.date}</FeedDate>
         <div className="header">
           <HtmlContent html={entry.text} />
         </div>
-      </div>
-    </div>
+      </FeedContent>
+    </FeedEvent>
   );
 }
 export function HistoryMore({
   children,
   className = "",
   ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+}: ButtonProps) {
   const history = useContext(HistoryContext);
   const disabled = !history?.ready || history.loading || history.exhausted;
   return (
     <>
-      <a
+      <Button
+        as="a"
         {...props}
-        className={`${className.replace(/\bdisabled\b/g, "")}${
-          disabled ? " disabled" : ""
-        }${history?.loading ? " loading" : ""}`}
+        className={className.replace(/\bdisabled\b/g, "")}
+        disabled={disabled}
+        loading={history?.loading}
         role="button"
         tabIndex={disabled ? -1 : 0}
         aria-disabled={disabled}
@@ -137,7 +146,7 @@ export function HistoryMore({
         }}
       >
         {children}
-      </a>
+      </Button>
       {history?.error && (
         <span role="status">
           {document.documentElement.lang === "ja"

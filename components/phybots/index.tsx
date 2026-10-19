@@ -1,6 +1,26 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  List,
+  ListItem,
+  Message,
+  Segment,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -54,7 +74,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"phybots"} />
-        <div className="ui message">
+        <Message>
           {en ? "Phybots is open-source at " : "Phybotsは"}
           <a href={"https://github.com/arcatdmz/phybots/"}>{"GitHub"}</a>
           {en
@@ -64,13 +84,13 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "https://phybots.com" : "https://phybots.com/ja"}
           </a>
           {en ? "." : " から行うことができます。"}
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>
-          <div className="ui basic segment">
+          <Segment basic>
             <Grid stackable>
               <GridColumn width={10}>
-                <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
+                <Header as="h2">{en ? "Abstract" : "概要"}</Header>
                 <LocalizedContent
                   ja={
                     <>
@@ -105,74 +125,71 @@ export default function Page({ pageData }: PageDataProps) {
                 </LocalizedContent>
               </GridColumn>
               <GridColumn width={6}>
-                <SiteLink
-                  className="ui fluid image"
+                <LinkedImage
+                  fluid
                   href={href(`${rootPath}phybots/fig1-overview.jpg`)}
                 >
                   <SiteImage
                     src={`${rootPath}phybots/fig1-overview.jpg`}
                     alt={"Overview of hardware setup for Phybots"}
                   />
-                </SiteLink>
+                </LinkedImage>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">{"Example applications"}</h3>
+                <Header as="h3">{"Example applications"}</Header>
                 <EmbedYoutube
                   src={
                     "https://www.youtube.com/embed/videoseries?list=PL5EC9CECDDBEA183A"
                   }
                 />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a
                         href={
                           "//www.youtube.com/playlist?list=PL5EC9CECDDBEA183A"
                         }
                       >
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"DIS 2012 "}
                   {en ? "Slides" : "発表スライド"}
-                </h3>
+                </Header>
 
-                <Embed
-                  className="ui embed"
-                  data-url={publicationsTable[p.publication].entryTags.slides}
-                  data-placeholder={`${rootPath}images/background-eee.png`}
-                  data-icon={"video play outline"}
-                ></Embed>
+                <DeferredEmbed
+                  url={publicationsTable[p.publication].entryTags.slides}
+                  placeholder={`${rootPath}images/background-eee.png`}
+                  icon={"video play outline"}
+                ></DeferredEmbed>
 
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
-                        <i className="download icon"></i>
+                        <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
 
                 {!en ? (
@@ -180,89 +197,93 @@ export default function Page({ pageData }: PageDataProps) {
                     <p className="caption">
                       {"日本語の発表スライドは"}
                       <a href={"#publications"}>
-                        <i className="book icon"></i>
+                        <Icon name="book" />
                         {"発表文献"}
                       </a>
                       {"で日本語文献の "}
-                      <i className="sidebar fitted icon"></i>
+                      <Icon fitted name="sidebar" />
                       {" をクリックすると閲覧できます。"}
                     </p>
                   </>
                 ) : null}
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"toolkit"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {en ? "Phybots Toolkit" : "Phybots ツールキット"}
-          </h2>
-          <div className="ui basic segment">
-            <table className="ui fluid table">
-              <thead>
-                <tr>
-                  <th>{en ? "Toolkits for:" : "目的:"}</th>
-                  <th>
+          </Header>
+          <Segment basic>
+            <Table className="fluid">
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>
+                    {en ? "Toolkits for:" : "目的:"}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
                     {en ? "Physical UIs" : "フィジカルコンピューティング"}
-                  </th>
-                  <th className="center aligned">{"Phybots"}</th>
-                  <th className="right aligned">
+                  </TableHeaderCell>
+                  <TableHeaderCell textAlign="center">
+                    {"Phybots"}
+                  </TableHeaderCell>
+                  <TableHeaderCell textAlign="right">
                     {en ? "Robots" : "ロボット"}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+                  </TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
                     <strong>
                       {en ? "Target users:" : "ターゲット ユーザー:"}
                     </strong>
-                  </td>
-                  <td className="positive" colSpan={Number("2")}>
+                  </TableCell>
+                  <TableCell positive colSpan={Number("2")}>
                     {en
                       ? "HCI researchers & interaction designers"
                       : "HCI研究者 & インタラクション デザイナー"}
-                  </td>
-                  <td className="negative right aligned">
+                  </TableCell>
+                  <TableCell negative textAlign="right">
                     {en ? "Robotics people" : "ロボット工学の研究者"}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
                     <strong>{en ? "Focus:" : "重視すること:"}</strong>
-                  </td>
-                  <td className="positive" colSpan={Number("2")}>
+                  </TableCell>
+                  <TableCell positive colSpan={Number("2")}>
                     {en ? "Prototyping" : "プロトタイピング"}
-                  </td>
-                  <td className="negative right aligned">
+                  </TableCell>
+                  <TableCell negative textAlign="right">
                     {en ? "Reliability" : "信頼性"}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
                     <strong>
                       {en ? "Software APIs:" : "ソフトウェアAPI:"}
                     </strong>
-                  </td>
-                  <td className="negative">
+                  </TableCell>
+                  <TableCell negative>
                     {en ? "Low-level and static" : "低レベルで拡張性に乏しい"}
-                  </td>
-                  <td className="positive right aligned" colSpan={Number("2")}>
+                  </TableCell>
+                  <TableCell positive textAlign="right" colSpan={Number("2")}>
                     {en
                       ? "High-level and extensible"
                       : "高レベルで拡張性に富む"}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
                     <strong>
                       {en
                         ? "Hardware size & cost:"
                         : "ハードウェアの大きさ & 価格:"}
                     </strong>
-                  </td>
-                  <td className="positive" colSpan={Number("2")}>
+                  </TableCell>
+                  <TableCell positive colSpan={Number("2")}>
                     {en
                       ? "Small & cheap (Phidget Kit $200, "
                       : "小さい & 安い (Phidget Kit $200, "}
@@ -274,26 +295,26 @@ export default function Page({ pageData }: PageDataProps) {
                       {"Ikimo Robot"}
                     </a>
                     {" $160)"}
-                  </td>
-                  <td className="negative right aligned">
+                  </TableCell>
+                  <TableCell negative textAlign="right">
                     {en
                       ? "Medium to large & expensive ($700-)"
                       : "大きい & 高価 ($700-)"}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
             <div className="caption">
               {en ? "Comparison between toolkits" : "ツールキットの比較"}
             </div>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             <Grid stackable columns={3}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en
                     ? "APIs for 2D Locomotion"
                     : "平面上での移動指示のためのAPI"}
-                </h3>
+                </Header>
 
                 <p>
                   {
@@ -316,11 +337,11 @@ export default function Page({ pageData }: PageDataProps) {
                 ) : null}
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en
                     ? "Centralized and Extensible Architecture"
                     : "中央集権・拡張容易なアーキテクチャ"}
-                </h3>
+                </Header>
 
                 <p>
                   {
@@ -332,15 +353,15 @@ export default function Page({ pageData }: PageDataProps) {
                   {
                     "The programmer has direct access to these objects including cameras, robotic things, and entities with visual markers as instances of the "
                   }
-                  <i>{"Camera"}</i>
+                  <Icon>{"Camera"}</Icon>
                   {", "}
-                  <i>{"Robot"}</i>
+                  <Icon>{"Robot"}</Icon>
                   {" and "}
-                  <i>{"Entity"}</i>
+                  <Icon>{"Entity"}</Icon>
                   {
                     " interfaces, respectively. Time-consuming tasks including locomotion APIs are represented by "
                   }
-                  <i>{"Task"}</i>
+                  <Icon>{"Task"}</Icon>
                   {" interface."}
                 </p>
 
@@ -348,11 +369,11 @@ export default function Page({ pageData }: PageDataProps) {
                   {
                     "The toolkit can be easily extended on top of these software stacks to support other types of sensors, roobts, and tasks. In addition, a "
                   }
-                  <i>{"Workflow"}</i>
+                  <Icon>{"Workflow"}</Icon>
                   {" class represents a directed graph consisting of a set of "}
-                  <i>{"Robot"}</i>
+                  <Icon>{"Robot"}</Icon>
                   {" and "}
-                  <i>{"Task"}</i>
+                  <Icon>{"Task"}</Icon>
                   {
                     " instances, and enables higher-level task management such as handling multiple tasks by one robot in serial or by two robots in parallel."
                   }
@@ -367,13 +388,13 @@ export default function Page({ pageData }: PageDataProps) {
                 ) : null}
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {en ? "Runtime Debug Tool" : "ランタイムデバッグツール"}
-                </h3>
+                </Header>
 
                 <p>
                   {"Phybots provides a "}
-                  <i>{"runtime debug tool"}</i>
+                  <Icon>{"runtime debug tool"}</Icon>
                   {
                     " that supports a test phase, beyond the programming phase, as an essential part of the prototyping process."
                   }
@@ -387,7 +408,7 @@ export default function Page({ pageData }: PageDataProps) {
 
                 <p>
                   {"To support this workflow, a graphical "}
-                  <i>{"runtime debug tool"}</i>
+                  <Icon>{"runtime debug tool"}</Icon>
                   {
                     " enables API parameter reconfiguration, restart, pause, or resume of the interaction at run-time. For example, when the robotic thing fails to move to a desired destination, the programmer can change the threshold of the marker detection algorithm by dragging a slider and then give the robot another try."
                   }
@@ -402,31 +423,31 @@ export default function Page({ pageData }: PageDataProps) {
                 ) : null}
               </GridColumn>
             </Grid>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             <p>
-              <SiteLink
-                className="ui fluid image"
+              <LinkedImage
+                fluid
                 href={href(`${rootPath}phybots/debug-tools.png`)}
               >
                 <SiteImage src={`${rootPath}phybots/debug-tools.png`} />
-              </SiteLink>
+              </LinkedImage>
             </p>
             <div className="caption">
               {en
                 ? "Overview of the Phybots runtime debug tool"
                 : "ランタイムデバッグツールの概観"}
             </div>
-          </div>
+          </Segment>
         </section>
         {!en ? (
           <>
-            <div className="ui hidden divider"></div>
+            <Divider hidden />
             <section id={"vision"}>
-              <h2 className="ui header">{"未来ビジョン"}</h2>
-              <div className="ui basic segment">
+              <Header as="h2">{"未来ビジョン"}</Header>
+              <Segment basic>
                 {en ? null : (
                   <>
-                    <div className="ui message">
+                    <Message>
                       {"本研究には以下の原稿とは別に"}
                       <strong>{"裏"}</strong>
                       {"の未来ビジョンが存在する。詳細は"}
@@ -443,7 +464,7 @@ export default function Page({ pageData }: PageDataProps) {
                         {"Sharedo"}
                       </SiteLink>
                       {"に繋がっている。"}
-                    </div>
+                    </Message>
                     <p>
                       {
                         "我々はロボットが何であるかを知らない。自分たちで作った言葉であるにも拘らず、言葉が独り歩きし、各々が勝手なイメージを持っている。日本においては、とくに大型で人型の印象が強いようである。しかしながら、既存のロボット研究において一般的に用いられてきた大型のロボットは、ロバストに動作させるためにハードウェアおよび制御用ソフトウェアに高度な作りこみが求められ、かつ高価なため、そもそも多くのソフトウェアプログラマが満足にアプリケーション開発できるだけの環境を用意するのが困難である。また、空間知能化などのキーワードを考えたとき、大型ロボットは動作空間を用意すること自体に手間がかかる。"
@@ -461,11 +482,11 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 )}
-              </div>
+              </Segment>
             </section>
           </>
         ) : null}
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"phybots"}
           majorPublication={"dis2012-kato-phybots"}

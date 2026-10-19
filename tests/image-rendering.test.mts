@@ -129,3 +129,30 @@ test("unknown, external, animated, and empty modal sources retain their original
   );
   assert.ok(html.includes('width="800" height="600"'));
 });
+
+test("styled and linked Fomantic images retain responsive sources and navigation targets", async () => {
+  const { LinkedImage } = await import("../site/components/LinkedImage");
+  const html = renderToStaticMarkup(
+    createElement(
+      SiteImagesContext.Provider,
+      { value: manifest },
+      createElement(
+        LinkedImage,
+        { href: "/design/", bordered: true, fluid: true },
+        createElement(SiteImage, {
+          src: "/images/photo.jpg",
+          alt: "Design project",
+          ui: true,
+          avatar: true,
+        }),
+      ),
+    ),
+  );
+  assert.match(html, /<a[^>]*href="\/design\/?"/);
+  assert.match(html, /class="[^"]*bordered[^"]*fluid[^"]*image/);
+  assert.match(html, /<img[^>]*class="ui avatar image"/);
+  assert.match(html, /srcSet="[^"]*photo-320.webp 320w/);
+  assert.match(html, /sizes="32px"/);
+  assert.match(html, /width="1200" height="800"/);
+  assert.match(html, /alt="Design project"/);
+});

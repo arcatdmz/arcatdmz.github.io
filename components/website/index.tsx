@@ -1,4 +1,17 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  List,
+  ListContent,
+  ListDescription,
+  ListHeader,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { ProjectHeader } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -46,20 +59,20 @@ export default function Page({ pageData }: PageDataProps) {
   function renderDesign(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Design" : "デザイン"}</h2>
+        <Header as="h2">{en ? "Design" : "デザイン"}</Header>
         <p>
           {en
             ? "This website is built for usability, maintainability, and speed in mind."
             : "このWebサイトは、ユーザビリティ、メンテナンス性、そして速度を念頭に設計されています。"}
         </p>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <Grid stackable columns={3}>
           <GridColumn>
-            <h3 className="ui header">
-              <i className="user icon"></i>
+            <Header as="h3">
+              <Icon name="user" />
               {en ? "Usability" : "ユーザビリティ"}
-            </h3>
-            <div className="ui basic segment">
+            </Header>
+            <Segment basic>
               <LocalizedContent
                 ja={
                   <>
@@ -89,14 +102,14 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                 </p>
               </LocalizedContent>
-            </div>
+            </Segment>
           </GridColumn>
           <GridColumn>
-            <h3 className="ui header">
-              <i className="configure icon"></i>
+            <Header as="h3">
+              <Icon name="configure" />
               {en ? "Maintainability" : "メンテナンス性"}
-            </h3>
-            <div className="ui basic segment">
+            </Header>
+            <Segment basic>
               <LocalizedContent
                 ja={
                   <>
@@ -127,14 +140,14 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                 </p>
               </LocalizedContent>
-            </div>
+            </Segment>
           </GridColumn>
           <GridColumn>
-            <h3 className="ui header">
-              <i className="plane icon"></i>
+            <Header as="h3">
+              <Icon name="plane" />
               {en ? "Speed" : "速度"}
-            </h3>
-            <div className="ui basic segment">
+            </Header>
+            <Segment basic>
               <LocalizedContent
                 ja={
                   <>
@@ -172,7 +185,7 @@ export default function Page({ pageData }: PageDataProps) {
                   }
                 </p>
               </LocalizedContent>
-            </div>
+            </Segment>
           </GridColumn>
         </Grid>
       </>
@@ -181,14 +194,14 @@ export default function Page({ pageData }: PageDataProps) {
   function renderCode(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Code and data" : "コードとデータ"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Code and data" : "コードとデータ"}</Header>
+        <Segment basic>
           <p>
             {en
               ? "This website is a collection of static HTML/CSS/JavaScript files. It is built from code and data every time something is pushed to the master branch of the "
               : "このWebサイトはほとんどが静的なHTML/CSS/JavaScriptファイルの塊です。そうしたファイルは、"}
             <a href={"https://github.com/arcatdmz/arcatdmz.github.io"}>
-              <i className={"github icon"}></i>
+              <Icon name="github" />
               {"GitHub"}
             </a>
             {en
@@ -207,101 +220,101 @@ export default function Page({ pageData }: PageDataProps) {
               ? "During the build process, the following files are used as data source. Feel free to steal the data structure for making your own portfolio website or making HTTP requests to these data files in your application (but ... for what?)"
               : "ビルド中は、以下のファイルの内容が何度も参照されています。もし似たようなWebサイトを作ってみたい場合、データ構造を参考にしてみてください。また、このポートフォリオ上の情報を機械的に処理したい場合にも使えるかもしれません。"}
           </p>
-          <div className="ui divided list">
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+          <List divided>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/histories.json`)}
                 >
                   {"histories.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {'All of the "Recent updates" entries'}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/publications.json`)}
                 >
                   {"publications.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {"Publication history (generated from "}
                   <SiteLink href={href(`${rootPath}junkato.bib`)}>
                     {"junkato.bib"}
                   </SiteLink>
                   {")"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/awards.json`)}
                 >
                   {"awards.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {"All of the received awards information"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/talks.json`)}
                 >
                   {"talks.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {"All of the invited talks information"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/lectures.json`)}
                 >
                   {"lectures.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {"All of the lectures information"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="content">
-                <SiteLink
-                  className="header"
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <ListContent>
+                <ListHeader
+                  as={SiteLink}
                   href={href(`${rootPath}data/projects.json`)}
                 >
                   {"projects.json"}
-                </SiteLink>
-                <div className="description">
+                </ListHeader>
+                <ListDescription>
                   {
                     "All of the projects information as well as the project tags information"
                   }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+          </List>
+        </Segment>
       </>
     );
   }
   function renderAcknowledgement(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Acknowledgement" : "謝辞"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Acknowledgement" : "謝辞"}</Header>
+        <Segment basic>
           <p>
             {en
               ? "This website is made possible with help of various "
@@ -325,59 +338,62 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             {en ? "." : "をご覧ください。"}
           </p>
-          <div className="ui divided list">
-            <div className="item">
-              <i className="large devicon-gulp-plain colored icon"></i>
-              <div className="content">
-                <div className="header">{"Gulp v4"}</div>
-                <div className="description">
+          <List divided>
+            <ListItem>
+              <Icon size="large" className="devicon-gulp-plain colored" />
+              <ListContent>
+                <ListHeader>{"Gulp v4"}</ListHeader>
+                <ListDescription>
                   {"for managing build pipelines"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="large devicon-webpack-plain colored icon"></i>
-              <div className="content">
-                <div className="header">{"Webpack v4"}</div>
-                <div className="description">
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <Icon size="large" className="devicon-webpack-plain colored" />
+              <ListContent>
+                <ListHeader>{"Webpack v4"}</ListHeader>
+                <ListDescription>
                   {"for packing JavaScript code"}
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="large devicon-babel-plain colored icon"></i>
-              <div className="content">
-                <div className="header">{"Babel v7.9"}</div>
-                <div className="description">
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <Icon size="large" className="devicon-babel-plain colored" />
+              <ListContent>
+                <ListHeader>{"Babel v7.9"}</ListHeader>
+                <ListDescription>
                   {
                     "for transpiling JS code to be compatible with outdated browsers"
                   }
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="large ellipsis horizontal icon"></i>
-              <div className="content">
-                <div className="header">{"Pug v2"}</div>
-                <div className="description">{"for easier HTML coding"}</div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="large devicon-less-plain-wordmark colored icon"></i>
-              <div className="content">
-                <div className="header">{"LESS"}</div>
-                <div className="description">{"for easier CSS coding"}</div>
-              </div>
-            </div>
-            <div className="item">
-              <i className="large devicon-typescript-plain colored icon"></i>
-              <div className="content">
-                <div className="header">{"TypeScript v5.3"}</div>
-                <div className="description">{"for easier JS coding"}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <Icon size="large" name="ellipsis horizontal" />
+              <ListContent>
+                <ListHeader>{"Pug v2"}</ListHeader>
+                <ListDescription>{"for easier HTML coding"}</ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <Icon
+                size="large"
+                className="devicon-less-plain-wordmark colored"
+              />
+              <ListContent>
+                <ListHeader>{"LESS"}</ListHeader>
+                <ListDescription>{"for easier CSS coding"}</ListDescription>
+              </ListContent>
+            </ListItem>
+            <ListItem>
+              <Icon size="large" className="devicon-typescript-plain colored" />
+              <ListContent>
+                <ListHeader>{"TypeScript v5.3"}</ListHeader>
+                <ListDescription>{"for easier JS coding"}</ListDescription>
+              </ListContent>
+            </ListItem>
+          </List>
+        </Segment>
       </>
     );
   }
@@ -385,20 +401,20 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"website"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"design"}>{renderDesign()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <Grid stackable columns={2}>
           <GridColumn>
             <section id={"code"}>
               {renderCode()}
-              <div className="ui hidden divider"></div>
+              <Divider hidden />
             </section>
           </GridColumn>
           <GridColumn>
             <section id={"acknowledgement"}>
               {renderAcknowledgement()}
-              <div className="ui hidden divider"></div>
+              <Divider hidden />
             </section>
           </GridColumn>
         </Grid>

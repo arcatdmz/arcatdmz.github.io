@@ -1,5 +1,23 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
-import { Embed } from "@/site/components/SiteWidgets";
+import {
+  Divider,
+  Embed,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderSubheader,
+  Icon,
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemExtra,
+  ItemGroup,
+  ItemHeader,
+  Label,
+  Segment,
+} from "react-fomantic-ui";
+
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { TranslateEn } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -23,21 +41,21 @@ function Content() {
   function renderProjects(): ReactNode {
     return (
       <>
-        <div className="item">
-          <SiteLink
-            className="image"
+        <Item>
+          <LinkedImage
+            ui={false}
             href={href(`${basePath}homehack/fungus-camera/`)}
           >
             <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
-          </SiteLink>
-          <div className="content">
-            <SiteLink
-              className="header"
+          </LinkedImage>
+          <ItemContent>
+            <ItemHeader
+              as={SiteLink}
               href={href(`${basePath}homehack/fungus-camera/`)}
             >
               {en ? "Fungus Camera" : "なめこカメラ"}
-            </SiteLink>
-            <div className="description">
+            </ItemHeader>
+            <ItemDescription>
               <p>
                 {
                   "なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。"
@@ -57,31 +75,31 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </div>
-            <div className="extra">
-              <div className="ui horizontal label">
-                <i className="calendar icon"></i>
+            </ItemDescription>
+            <ItemExtra>
+              <Label horizontal>
+                <Icon name="calendar" />
                 {"'12-13"}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ui hidden divider"></div>
-        <div className="item">
-          <SiteLink
-            className="image"
+              </Label>
+            </ItemExtra>
+          </ItemContent>
+        </Item>
+        <Divider hidden />
+        <Item>
+          <LinkedImage
+            ui={false}
             href={href(`${basePath}homehack/rhythm-kaden/`)}
           >
             <SiteImage src={`${rootPath}homehack/rhythmkaden.jpg`} />
-          </SiteLink>
-          <div className="content">
-            <SiteLink
-              className="header"
+          </LinkedImage>
+          <ItemContent>
+            <ItemHeader
+              as={SiteLink}
               href={href(`${basePath}homehack/rhythm-kaden/`)}
             >
               {en ? "Rhythm-Kaden" : "リズム家電"}
-            </SiteLink>
-            <div className="description">
+            </ItemHeader>
+            <ItemDescription>
               <p>
                 {
                   "ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム"
@@ -115,31 +133,28 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </div>
-            <div className="extra">
-              <div className="ui horizontal label">
-                <i className="calendar icon"></i>
+            </ItemDescription>
+            <ItemExtra>
+              <Label horizontal>
+                <Icon name="calendar" />
                 {"'12"}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ui hidden divider"></div>
-        <div className="item">
-          <SiteLink
-            className="image"
-            href={href(`${basePath}homehack/realmote/`)}
-          >
+              </Label>
+            </ItemExtra>
+          </ItemContent>
+        </Item>
+        <Divider hidden />
+        <Item>
+          <LinkedImage ui={false} href={href(`${basePath}homehack/realmote/`)}>
             <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
-          </SiteLink>
-          <div className="content">
-            <SiteLink
-              className="header"
+          </LinkedImage>
+          <ItemContent>
+            <ItemHeader
+              as={SiteLink}
               href={href(`${basePath}homehack/realmote/`)}
             >
               {"Realmote"}
-            </SiteLink>
-            <div className="description">
+            </ItemHeader>
+            <ItemDescription>
               <p>
                 {
                   "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
@@ -153,37 +168,37 @@ function Content() {
                   </p>
                 </>
               ) : null}
-            </div>
-            <div className="extra">
-              <div className="ui horizontal label">
-                <i className="calendar icon"></i>
+            </ItemDescription>
+            <ItemExtra>
+              <Label horizontal>
+                <Icon name="calendar" />
                 {"'11-12"}
-              </div>
-            </div>
-          </div>
-        </div>
+              </Label>
+            </ItemExtra>
+          </ItemContent>
+        </Item>
       </>
     );
   }
   return (
     <>
-      <h2 className="ui header">
+      <Header as="h2">
         {en ? (
           <>
             {"Keynote speech at Home Hack Workshop"}
 
-            <div className="sub header">
+            <HeaderSubheader>
               {"Japanese presentation at the domestic workshop"}
-            </div>
+            </HeaderSubheader>
           </>
         ) : (
           <>{"おうちハック発表会キーノートスピーチ"}</>
         )}
-      </h2>
-      <div className="ui basic segment">
+      </Header>
+      <Segment basic>
         <Grid stackable>
           <GridColumn width={6}>
-            <Embed className="ui embed">
+            <Embed active icon={false}>
               <iframe
                 src={"//www.slideshare.net/slideshow/embed_code/38527331"}
                 frameBorder={"0"}
@@ -236,11 +251,11 @@ function Content() {
             ) : null}
           </GridColumn>
         </Grid>
-      </div>
-      <h2 className="ui header">{en ? "Past projects" : "プロジェクト一覧"}</h2>
-      <div className="ui basic segment">
-        <div className="ui items">{renderProjects()}</div>
-      </div>
+      </Segment>
+      <Header as="h2">{en ? "Past projects" : "プロジェクト一覧"}</Header>
+      <Segment basic>
+        <ItemGroup>{renderProjects()}</ItemGroup>
+      </Segment>
     </>
   );
 }

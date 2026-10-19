@@ -1,6 +1,26 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -56,8 +76,8 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Summary" : "概要"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Summary" : "概要"}</Header>
+        <Segment basic>
           <LocalizedContent
             ja={
               <>
@@ -117,79 +137,76 @@ export default function Page({ pageData }: PageDataProps) {
               }
             </p>
           </LocalizedContent>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderPresentation(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          {en ? "Presentation materials" : "発表資料"}
-        </h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Presentation materials" : "発表資料"}</Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "talk" : "講演動画"}
-              </h3>
+              </Header>
               <EmbedYoutube
                 src={
                   "//www.youtube.com/embed/qR2MAfRFBIM?cc_lang_pref=en&cc_load_policy=1"
                 }
               />
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <a
                       href={
                         "//www.youtube.com/watch?v=qR2MAfRFBIM&cc_lang_pref=en&cc_load_policy=1"
                       }
                     >
-                      <i className="youtube icon"></i>
+                      <Icon name="youtube" />
                       {"YouTube"}
                     </a>
-                  </div>
-                  <div className="item">
+                  </ListItem>
+                  <ListItem>
                     <a href={"//vimeo.com/416361135"}>
-                      <i className="vimeo icon"></i>
+                      <Icon name="vimeo" />
                       {"Vimeo"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "slides" : "発表スライド"}
-              </h3>
-              <Embed
-                className="ui embed"
-                data-url={publicationsTable[p.publication].entryTags.slides}
-                data-placeholder={`${rootPath}programming-as-communication/ccs2020/ccs2020-kato-slides00.jpg`}
-                data-icon={"video play outline"}
-              ></Embed>
+              </Header>
+              <DeferredEmbed
+                url={publicationsTable[p.publication].entryTags.slides}
+                placeholder={`${rootPath}programming-as-communication/ccs2020/ccs2020-kato-slides00.jpg`}
+                icon={"video play outline"}
+              ></DeferredEmbed>
               <div className="caption">
-                <div className="ui horizontal list">
-                  <div className="item">
+                <List horizontal>
+                  <ListItem>
                     <SiteLink
                       href={href(
                         publicationsTable[p.publication].entryTags.slides,
                       )}
                     >
-                      <i className="download icon"></i>
+                      <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
           </Grid>
-          <div className="ui divider"></div>
-          <div className="ui list">
-            <div className="item">
+          <Divider />
+          <List>
+            <ListItem>
               {en
                 ? "YouTube version has calibrated volume and subtitles while the Vimeo version is more extended and has a critique by "
                 : "YouTube版は音量が調整され、字幕もついています。Vimeo版は加藤の発表に続いて"}
@@ -197,8 +214,8 @@ export default function Page({ pageData }: PageDataProps) {
               {en
                 ? " and Q&A session."
                 : "氏によるクリティークとQ&Aセッションの録画がついています。"}
-            </div>
-            <div className="item">
+            </ListItem>
+            <ListItem>
               {en
                 ? "For more details on the salon, please refer to "
                 : "Convivial Computing Salon 2020については"}
@@ -208,31 +225,33 @@ export default function Page({ pageData }: PageDataProps) {
                 {en ? "its website" : "サロンの公式サイト"}
               </a>
               {en ? "." : "をご覧ください。"}
-            </div>
-            <div className="item">
+            </ListItem>
+            <ListItem>
               {en ? "The paper can be downloaded in the " : "論文はページ下部"}
               <a href={"#publications"}>{en ? "Publications" : "発表文献"}</a>
               {en
                 ? " section at the bottom of this page."
                 : "からダウンロードできます。"}
-            </div>
-          </div>
-        </div>
+            </ListItem>
+          </List>
+        </Segment>
       </>
     );
   }
   function renderTechnicalEffort(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="laptop code icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon className="laptop code" />
+          <HeaderContent>
             {en ? "Technical environment design" : "技術的環境設計"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <SiteImage
-            className="ui fluid bordered image"
+            ui
+            bordered
+            fluid
             src={`${rootPath}programming-as-communication/runtime-env-as-programming-env.png`}
           />
           <div className="caption">
@@ -261,8 +280,8 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </LocalizedContent>
           </div>
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          <Segment>
+            <ItemGroup divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 let technicalProjects = [
@@ -289,24 +308,26 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </div>
-          </div>
-        </div>
+            </ItemGroup>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderSocialEffort(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="user friends icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon className="user friends" />
+          <HeaderContent>
             {en ? "Social environment design" : "社会的環境設計"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           <SiteImage
-            className="ui fluid bordered image"
+            ui
+            bordered
+            fluid
             src={`${rootPath}programming-as-communication/evangelist-in-env.png`}
           />
           <LocalizedContent
@@ -327,11 +348,11 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </p>
                 </div>
-                <h3 className="ui header">{"関連リンク"}</h3>
-                <div className="ui divided small list">
-                  <div className="item">
-                    <i className="right triangle icon"></i>
-                    <div className="content">
+                <Header as="h3">{"関連リンク"}</Header>
+                <List divided size="small">
+                  <ListItem>
+                    <Icon name="triangle right" />
+                    <ListContent>
                       <a
                         href={
                           "https://scrapbox.io/otonglass-fabbiotope/%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E7%B7%8F%E5%90%88%E7%A0%94%E7%A9%B6%E6%89%80%E3%81%A8%E3%81%AE%E5%85%B1%E5%90%8C%E7%A0%94%E7%A9%B6%E3%82%92%E9%96%8B%E5%A7%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"
@@ -341,11 +362,11 @@ export default function Page({ pageData }: PageDataProps) {
                           "産業技術総合研究所との共同研究を開始しました - OTON GLASS／FabBiotope"
                         }
                       </a>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <i className="right triangle icon"></i>
-                    <div className="content">
+                    </ListContent>
+                  </ListItem>
+                  <ListItem>
+                    <Icon name="triangle right" />
+                    <ListContent>
                       <a
                         href={
                           "https://2020.programming-conference.org/details/salon-2020-papers/6/Rethinking-Programming-Environment-Technical-and-Social-Environment-Design-towar"
@@ -355,9 +376,9 @@ export default function Page({ pageData }: PageDataProps) {
                           'Rethinking Programming "Environment" (Convivial Computing Salon 2020) - ‹Programming› 2020'
                         }
                       </a>
-                    </div>
-                  </div>
-                </div>
+                    </ListContent>
+                  </ListItem>
+                </List>
               </>
             }
           >
@@ -389,51 +410,51 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </div>
           </LocalizedContent>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderRevision(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
+        <Header as="h2">
+          <Icon name="announcement" />
           {en ? "Revision history" : "更新履歴"}
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided feed">
-            <div className="event">
-              <div className="content">
-                <div className="date">{"5/15/2020"}</div>
-                <div className="summary">
+        </Header>
+        <Segment basic>
+          <Feed className="divided">
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"5/15/2020"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Add preprint of the paper."
                     : "論文のプレプリントを追加しました。"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"5/9/2020"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"5/9/2020"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Add presentation recording and slides."
                     : "プレゼンテーションの録画とスライド資料を追加しました。"}
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="content">
-                <div className="date">{"4/1/2020"}</div>
-                <div className="summary">
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"4/1/2020"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? "Upload the initial revision."
                     : "初版をアップロードしました。"}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -441,20 +462,20 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"programming-as-communication"} />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"abstract"}>{renderAbstract()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentation"}>{renderPresentation()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"technical-effort"}>{renderTechnicalEffort()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"social-effort"}>{renderSocialEffort()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={p.project}
           majorPublication={p.publication}
         />
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"revision"}>{renderRevision()}</section>
       </SiteLayout>
     </>

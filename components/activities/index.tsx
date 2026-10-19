@@ -1,5 +1,23 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
-import { Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedEvent,
+  FeedLabel,
+  Grid,
+  GridColumn,
+  Header,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListHeader,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
 import { ProjectItem } from "@/site/components/ContentComponents";
@@ -89,10 +107,10 @@ export default function Page({ pageData }: PageDataProps) {
   function renderMeetups(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="users icon"></i>
+        <Header as="h2">
+          <Icon name="users" />
           {en ? "Meetups" : "勉強会"}
-        </h2>
+        </Header>
 
         {en ? (
           <>
@@ -110,7 +128,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         )}
 
-        <div className="ui divided items projects" id={"meetups-list"}>
+        <ItemGroup divided id={"meetups-list"} className="projects">
           {(() => {
             const children: ReactNode[] = [];
             for (const p of projects) {
@@ -123,22 +141,20 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </ItemGroup>
       </>
     );
   }
   function renderServices(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="lab icon"></i>
+        <Header as="h2">
+          <Icon name="lab" />
           {en ? "Academic services" : "学会活動"}
-        </h2>
+        </Header>
 
         <section id={"oc"}>
-          <h3 className="ui header">
-            {en ? "Organizing committee" : "運営委員"}
-          </h3>
+          <Header as="h3">{en ? "Organizing committee" : "運営委員"}</Header>
 
           {en ? (
             <>
@@ -164,12 +180,10 @@ export default function Page({ pageData }: PageDataProps) {
           </Grid>
         </section>
 
-        <div className="ui divider"></div>
+        <Divider />
 
         <section id={"pc"}>
-          <h3 className="ui header">
-            {en ? "Program committee" : "プログラム委員"}
-          </h3>
+          <Header as="h3">{en ? "Program committee" : "プログラム委員"}</Header>
 
           {en ? (
             <>
@@ -201,9 +215,9 @@ export default function Page({ pageData }: PageDataProps) {
           </Grid>
         </section>
 
-        <div className="ui divider"></div>
+        <Divider />
 
-        <h3 className="ui header">{en ? "Reviewer" : "査読"}</h3>
+        <Header as="h3">{en ? "Reviewer" : "査読"}</Header>
 
         {en ? (
           <>
@@ -223,11 +237,11 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         )}
 
-        <div className="ui horizontal divided list reviewers-list">
+        <List divided horizontal className="reviewers-list">
           {renderServicesReviewers()}
-        </div>
+        </List>
 
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
 
         <section id={"miscellaneous"}>{renderServicesMiscellaneous()}</section>
       </>
@@ -236,15 +250,15 @@ export default function Page({ pageData }: PageDataProps) {
   function renderPrintServiceOrganizer(organizer: any = undefined): ReactNode {
     return (
       <>
-        <div className="ui item">
-          <div className="header">
+        <ListItem>
+          <ListHeader>
             <SiteLink
               href={href(organizer.event.url || organizer.url)}
               title={organizer.event.fullname}
             >
               {organizer.event.name}
             </SiteLink>
-          </div>
+          </ListHeader>
           <div className="meta">
             {organizer.track ? (
               <>{organizer.track.fullname || organizer.track.name} </>
@@ -258,15 +272,15 @@ export default function Page({ pageData }: PageDataProps) {
               </>
             ) : null}
           </div>
-        </div>
+        </ListItem>
       </>
     );
   }
   function renderServicesPcHci(): ReactNode {
     return (
       <>
-        <h4 className="ui header">{"Human-Computer Interaction"}</h4>
-        <div className="ui list">
+        <Header as="h4">{"Human-Computer Interaction"}</Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -277,14 +291,14 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
   function renderServicesPcPx(): ReactNode {
     return (
       <>
-        <h4 className="ui header">
+        <Header as="h4">
           <HtmlContent
             html={
               en
@@ -292,8 +306,8 @@ export default function Page({ pageData }: PageDataProps) {
                 : 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'
             }
           />
-        </h4>
-        <div className="ui list">
+        </Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -304,19 +318,19 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
   function renderServicesPcMisc(): ReactNode {
     return (
       <>
-        <h4 className="ui header">
+        <Header as="h4">
           {en
             ? "Computer Graphics, Human-Robot Interaction, etc."
             : "Computer Graphics, Human-Robot Interaction など"}
-        </h4>
-        <div className="ui list">
+        </Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -327,7 +341,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
@@ -336,24 +350,24 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {!en ? (
           <>
-            <h4 className="ui header">{"国内会議"}</h4>
+            <Header as="h4">{"国内会議"}</Header>
 
-            <div className="ui list">
-              <div className="ui item">
-                <div className="header">
+            <List>
+              <ListItem>
+                <ListHeader>
                   {"情報処理学会シンポジウム "}
                   <a href={"https://www.interaction-ipsj.org"}>
                     {"インタラクション"}
                   </a>
-                </div>
+                </ListHeader>
                 <div className="meta">
                   {"プログラム委員 (2017-"}
                   {buildYear}
                   {")"}
                 </div>
-              </div>
-              <div className="ui item">
-                <div className="header">
+              </ListItem>
+              <ListItem>
+                <ListHeader>
                   {"日本ソフトウェア科学会 "}
                   <a
                     href={"https://wiss.org/"}
@@ -363,10 +377,10 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"WISS"}
                   </a>
-                </div>
+                </ListHeader>
                 <div className="meta">{"プログラム委員 (2015-2019, 2025)"}</div>
-              </div>
-            </div>
+              </ListItem>
+            </List>
           </>
         ) : null}
       </>
@@ -375,8 +389,8 @@ export default function Page({ pageData }: PageDataProps) {
   function renderServicesOcHci(): ReactNode {
     return (
       <>
-        <h4 className="ui header">{"Human-Computer Interaction"}</h4>
-        <div className="ui list">
+        <Header as="h4">{"Human-Computer Interaction"}</Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -387,14 +401,14 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
   function renderServicesOcPx(): ReactNode {
     return (
       <>
-        <h4 className="ui header">
+        <Header as="h4">
           <HtmlContent
             html={
               en
@@ -402,8 +416,8 @@ export default function Page({ pageData }: PageDataProps) {
                 : 'プログラミング体験 (<abbr title="Programming Experience">PX</abbr>)'
             }
           />
-        </h4>
-        <div className="ui list">
+        </Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -414,19 +428,19 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
   function renderServicesOcMisc(): ReactNode {
     return (
       <>
-        <h4 className="ui header">
+        <Header as="h4">
           {en
             ? "Computer Graphics, Human-Robot Interaction, etc."
             : "Computer Graphics, Human-Robot Interaction など"}
-        </h4>
-        <div className="ui list">
+        </Header>
+        <List>
           {(() => {
             const children: ReactNode[] = [];
             for (let organizer of misc.services.organizers) {
@@ -437,7 +451,7 @@ export default function Page({ pageData }: PageDataProps) {
             }
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
@@ -446,11 +460,11 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {!en ? (
           <>
-            <h4 className="ui header">{"国内会議"}</h4>
+            <Header as="h4">{"国内会議"}</Header>
 
-            <div className="ui list">
-              <div className="ui item">
-                <div className="header">
+            <List>
+              <ListItem>
+                <ListHeader>
                   {"日本ソフトウェア科学会 "}
                   <a
                     href={"https://wiss.org/"}
@@ -460,18 +474,18 @@ export default function Page({ pageData }: PageDataProps) {
                   >
                     {"WISS"}
                   </a>
-                </div>
+                </ListHeader>
                 <div className="meta">
                   {
                     "Web/投票/ローカルサーバ担当 運営委員 (2015-2019), Web担当 運営委員 (2025)"
                   }
                 </div>
-              </div>
-              <div className="ui item">
-                <div className="header">
+              </ListItem>
+              <ListItem>
+                <ListHeader>
                   {"情報処理学会 "}
                   <a href={"https://ipsj-one.org/"}>{"IPSJ-ONE"}</a>
-                </div>
+                </ListHeader>
                 <div className="meta">
                   {"Web担当 運営委員 ("}
                   <a href={"https://ipsj-one.org/2015/"}>{"2015"}</a>
@@ -479,8 +493,8 @@ export default function Page({ pageData }: PageDataProps) {
                   <a href={"https://ipsj-one.org/2017/"}>{"2017"}</a>
                   {")"}
                 </div>
-              </div>
-            </div>
+              </ListItem>
+            </List>
           </>
         ) : null}
       </>
@@ -491,12 +505,12 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         {misc.services.reviewers.map((reviewer, itemIndex) => (
           <Fragment key={itemIndex}>
-            <div className="item">
-              <div className="header">
+            <ListItem>
+              <ListHeader>
                 <abbr title={reviewer.title}>{reviewer.venue}</abbr>
-              </div>
+              </ListHeader>
               <div className="meta">{formatYears(reviewer.years)}</div>
-            </div>
+            </ListItem>
           </Fragment>
         ))}
       </>
@@ -505,11 +519,11 @@ export default function Page({ pageData }: PageDataProps) {
   function renderServicesMiscellaneous(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="book icon"></i>
+        <Header as="h2">
+          <Icon name="book" />
           {en ? "Miscellaneous" : "その他の活動"}
-        </h2>
-        <div className="ui divided list miscellaneous-list">
+        </Header>
+        <List divided className="miscellaneous-list">
           {(() => {
             const children: ReactNode[] = [];
             for (let activity of misc.services.miscellaneous) {
@@ -531,9 +545,9 @@ export default function Page({ pageData }: PageDataProps) {
                 : description;
               children.push(
                 <>
-                  <div className="item">
-                    <div className="content">
-                      <div className="header">
+                  <ListItem>
+                    <ListContent>
+                      <ListHeader>
                         <HtmlContent
                           html={
                             en || !(activity.ja && activity.ja.title)
@@ -541,7 +555,7 @@ export default function Page({ pageData }: PageDataProps) {
                               : activity.ja.title
                           }
                         />
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         <HtmlContent
                           html={[date, linkOrDescription]
@@ -549,21 +563,21 @@ export default function Page({ pageData }: PageDataProps) {
                             .join(", ")}
                         />
                       </div>
-                    </div>
-                  </div>
+                    </ListContent>
+                  </ListItem>
                 </>,
               );
             }
             children.push(
               <>
-                <div className="item">
-                  <i className="paint brush icon"></i>
-                  <div className="content">
-                    <div className="header">
+                <ListItem>
+                  <Icon name="paint brush" />
+                  <ListContent>
+                    <ListHeader>
                       {en
                         ? "Graphic & Interaction Design"
                         : "グラフィック & インタラクションデザイン"}
-                    </div>
+                    </ListHeader>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -573,18 +587,16 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </div>
-                </div>
+                  </ListContent>
+                </ListItem>
               </>,
             );
             children.push(
               <>
-                <div className="item">
-                  <i className="talk icon"></i>
-                  <div className="content">
-                    <div className="header">
-                      {en ? "Invited talks" : "招待講演"}
-                    </div>
+                <ListItem>
+                  <Icon name="talk" />
+                  <ListContent>
+                    <ListHeader>{en ? "Invited talks" : "招待講演"}</ListHeader>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -594,16 +606,16 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </div>
-                </div>
+                  </ListContent>
+                </ListItem>
               </>,
             );
             children.push(
               <>
-                <div className="item">
-                  <i className="graduation cap icon"></i>
-                  <div className="content">
-                    <div className="header">{en ? "Lectures" : "講義"}</div>
+                <ListItem>
+                  <Icon name="graduation cap" />
+                  <ListContent>
+                    <ListHeader>{en ? "Lectures" : "講義"}</ListHeader>
                     <div className="meta">
                       <HtmlContent
                         html={
@@ -613,23 +625,23 @@ export default function Page({ pageData }: PageDataProps) {
                         }
                       />
                     </div>
-                  </div>
-                </div>
+                  </ListContent>
+                </ListItem>
               </>,
             );
             return keyed(children);
           })()}
-        </div>
+        </List>
       </>
     );
   }
   function renderPlaces(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="world icon"></i>
+        <Header as="h2">
+          <Icon name="world" />
           {en ? "Visited places" : "訪問先"}
-        </h2>
+        </Header>
         <Grid stackable columns={2}>
           <GridColumn>
             <iframe
@@ -642,7 +654,7 @@ export default function Page({ pageData }: PageDataProps) {
             ></iframe>
           </GridColumn>
           <GridColumn>
-            <div className="ui divided list">
+            <List divided>
               {(() => {
                 const children: ReactNode[] = [];
                 misc.services.attendances
@@ -650,12 +662,12 @@ export default function Page({ pageData }: PageDataProps) {
                   .forEach((conference) => {
                     children.push(
                       <>
-                        <div className="item">
-                          <div className="header">
+                        <ListItem>
+                          <ListHeader>
                             <abbr title={conference.title}>
                               {conference.name}
                             </abbr>
-                          </div>
+                          </ListHeader>
                           <div className="meta">
                             {(() => {
                               const children: ReactNode[] = [];
@@ -681,16 +693,16 @@ export default function Page({ pageData }: PageDataProps) {
                               return keyed(children);
                             })()}
                           </div>
-                        </div>
+                        </ListItem>
                       </>,
                     );
                   });
                 children.push(
                   <>
-                    <div className="item">
-                      <div className="header">
+                    <ListItem>
+                      <ListHeader>
                         {en ? "Other attended conferences" : "その他の国際会議"}
-                      </div>
+                      </ListHeader>
                       <div className="meta">
                         {(() => {
                           const children: ReactNode[] = [];
@@ -725,12 +737,12 @@ export default function Page({ pageData }: PageDataProps) {
                           return keyed(children);
                         })()}
                       </div>
-                    </div>
+                    </ListItem>
                   </>,
                 );
                 return keyed(children);
               })()}
-            </div>
+            </List>
           </GridColumn>
         </Grid>
       </>
@@ -742,69 +754,74 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#meetups"}>
-                  <i className="users icon"></i>
-                  <div className="content">{en ? "Meetups" : "勉強会"}</div>
-                </a>
-                <a className="item" href={"#services"}>
-                  <i className="lab icon"></i>
-                  <div className="content">{en ? "Academic" : "学会活動"}</div>
-                </a>
-                <a className="item" href={"#miscellaneous"}>
-                  <i className="book icon"></i>
-                  <div className="content">{en ? "Others" : "その他"}</div>
-                </a>
-                <a className="item" href={"#places"}>
-                  <i className="world icon"></i>
-                  <div className="content">
-                    {en ? "Visited places" : "訪問先"}
-                  </div>
-                </a>
-              </div>
-            </Popup>
+              <List divided>
+                <ListItem role="link" as="a" href={"#meetups"}>
+                  <Icon name="users" />
+                  <ListContent>{en ? "Meetups" : "勉強会"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#services"}>
+                  <Icon name="lab" />
+                  <ListContent>{en ? "Academic" : "学会活動"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#miscellaneous"}>
+                  <Icon name="book" />
+                  <ListContent>{en ? "Others" : "その他"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#places"}>
+                  <Icon name="world" />
+                  <ListContent>{en ? "Visited places" : "訪問先"}</ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <section>
-          <h1 className="ui header">
-            <i className="student icon"></i>
+          <Header as="h1">
+            <Icon name="student" />
             {title}
-          </h1>
-          <div className="ui segment">
-            <div className="ui feed">
-              <div className="event">
-                <div className="label">
+          </Header>
+          <Segment>
+            <Feed>
+              <FeedEvent>
+                <FeedLabel>
                   <SiteImage src={`${rootPath}images/junkato.jpg`} />
-                </div>
-                <div className="content">
+                </FeedLabel>
+                <FeedContent>
                   {en
                     ? "Hi! I am open for collaborations. Please see "
                     : "共同研究の相談やお仕事の依頼については "}
                   <SiteLink href={href(`${basePath}collaborations/`)}>
-                    <i className="handshake icon"></i>
+                    <Icon name="handshake" />
                     {en ? "Collaborations" : "共同研究"}
                   </SiteLink>
                   {en ? " for more details." : " のページを見てみてください。"}
-                </div>
-              </div>
-            </div>
-          </div>
+                </FeedContent>
+              </FeedEvent>
+            </Feed>
+          </Segment>
         </section>
-        <div className="ui hidden clearing divider"></div>
+        <Divider clearing hidden />
         <section id={"meetups"}>{renderMeetups()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"services"}>{renderServices()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"places"}>{renderPlaces()}</section>
       </SiteLayout>
     </>

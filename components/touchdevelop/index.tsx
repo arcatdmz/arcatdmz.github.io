@@ -1,4 +1,16 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import {
   EmbedYoutube,
@@ -51,7 +63,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"touchdevelop"} />
-        <div className="ui message">
+        <Message>
           <LocalizedContent
             ja={
               <>
@@ -107,13 +119,13 @@ export default function Page({ pageData }: PageDataProps) {
               {". "}
             </p>
           </LocalizedContent>
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -203,34 +215,32 @@ export default function Page({ pageData }: PageDataProps) {
                 {"."}
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"PLDI 2013 "}
                   {en ? "Demo Video" : "デモ動画"}
-                </h3>
+                </Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/GaVbYx-NN0o"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=GaVbYx-NN0o"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   <HtmlContent
                     html={
                       en
@@ -238,34 +248,34 @@ export default function Page({ pageData }: PageDataProps) {
                         : "β版実装"
                     }
                   />
-                </h3>
+                </Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/D1UB73y4GGo"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=D1UB73y4GGo"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         {en ? null : (
           <>
-            <h2 className="ui header" id={"demo"}>
+            <Header as="h2" id={"demo"}>
               <del>{"技術デモ"}</del>
-            </h2>
-            <div className="ui basic segment">
-              <div className="ui warning message">
+            </Header>
+            <Segment basic>
+              <Message warning>
                 {
                   "TouchDevelopのサービス終了に伴いこのセクションのデモも動作しません。ご了承ください。"
                 }
-              </div>
+              </Message>
               <p>
                 {
                   "本研究で扱っている技術によるLive Programmingを体験してみたい方は"
@@ -290,7 +300,7 @@ export default function Page({ pageData }: PageDataProps) {
                 <code>{"page"}</code>
                 {"はその後継として、互換性を捨てて定義されています。"}
               </p>
-              <div className="ui segment">
+              <Segment>
                 <ol>
                   <li>
                     <a href={"https://touchdevelop.com"}>{"TouchDevelop"}</a>
@@ -335,7 +345,7 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ol>
-                <div className="ui divider"></div>
+                <Divider />
                 <ul>
                   <li>
                     {"コードエディタの左隣には画面の縮小表示「"}
@@ -359,7 +369,7 @@ export default function Page({ pageData }: PageDataProps) {
                     }
                   </li>
                 </ul>
-                <div className="ui divider"></div>
+                <Divider />
                 <ol start={Number("7")}>
                   <li>
                     {"コード編集に満足したら「"}
@@ -367,9 +377,9 @@ export default function Page({ pageData }: PageDataProps) {
                     {"」ボタンをクリックするとプログラムが再開される。"}
                   </li>
                 </ol>
-              </div>
-            </div>
-            <div className="ui hidden divider"></div>
+              </Segment>
+            </Segment>
+            <Divider hidden />
           </>
         )}
         <ProjectPublications

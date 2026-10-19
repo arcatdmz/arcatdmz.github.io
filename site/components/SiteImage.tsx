@@ -1,4 +1,7 @@
+import { Image, type ImageProps } from "react-fomantic-ui";
+
 import { createContext, useContext, type ImgHTMLAttributes } from "react";
+
 import type { ImageManifest } from "../image-types";
 import { SitePathContext } from "./SiteLink";
 
@@ -29,10 +32,38 @@ export function SiteImage({
   width,
   height,
   displayHeight,
+  ui,
+  avatar,
+  bordered,
+  circular,
+  centered,
+  fluid,
+  inline,
+  rounded,
+  floated,
+  size,
+  spaced,
+  verticalAlign,
   loading = "lazy",
   decoding = "async",
   ...props
-}: ImgHTMLAttributes<HTMLImageElement> & { displayHeight?: number }) {
+}: ImgHTMLAttributes<HTMLImageElement> & {
+  displayHeight?: number;
+} & Pick<
+    ImageProps,
+    | "ui"
+    | "avatar"
+    | "bordered"
+    | "circular"
+    | "centered"
+    | "fluid"
+    | "inline"
+    | "rounded"
+    | "floated"
+    | "size"
+    | "spaced"
+    | "verticalAlign"
+  >) {
   const images = useContext(SiteImagesContext);
   const route = useContext(SitePathContext);
   const key = imagePath(src, route);
@@ -56,7 +87,7 @@ export function SiteImage({
     (displayHeight && asset
       ? `${Math.ceil((displayHeight * asset.width) / asset.height)}px`
       : undefined) ||
-    (props.className?.includes("avatar")
+    (avatar || props.className?.includes("avatar")
       ? "32px"
       : props.id === "avatar"
         ? "96px"
@@ -81,7 +112,7 @@ export function SiteImage({
     (asset && explicitWidth !== undefined
       ? Math.round((explicitWidth * asset.height) / asset.width)
       : asset?.height);
-  return (
+  const image = (
     <img
       {...props}
       src={fallback?.src || src}
@@ -101,5 +132,37 @@ export function SiteImage({
       decoding={decoding}
       data-original-src={asset ? src : undefined}
     />
+  );
+  // Plain content images retain their native markup. Styled images delegate to
+  // Fomantic while this adapter continues to own responsive source selection.
+  return ui ||
+    avatar ||
+    bordered ||
+    circular ||
+    centered ||
+    fluid ||
+    inline ||
+    rounded ||
+    floated ||
+    size ||
+    spaced ||
+    verticalAlign ? (
+    <Image
+      as="img"
+      {...(image.props as ImageProps)}
+      avatar={avatar}
+      bordered={bordered}
+      circular={circular}
+      centered={centered}
+      fluid={fluid}
+      inline={inline}
+      rounded={rounded}
+      floated={floated}
+      size={size}
+      spaced={spaced}
+      verticalAlign={verticalAlign}
+    />
+  ) : (
+    image
   );
 }

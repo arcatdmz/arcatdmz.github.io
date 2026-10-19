@@ -1,5 +1,27 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
-import { Embed, Popup } from "@/site/components/SiteWidgets";
+import {
+  Button,
+  Divider,
+  Feed,
+  FeedContent,
+  FeedDate,
+  FeedEvent,
+  FeedSummary,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  ItemGroup,
+  List,
+  ListContent,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
+import { SitePopup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { ProjectHero, ProjectItem } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -55,8 +77,8 @@ export default function Page({ pageData }: PageDataProps) {
   function renderAbstract(): ReactNode {
     return (
       <>
-        <h2 className="ui header">{en ? "Summary" : "概要"}</h2>
-        <div className="ui basic segment">
+        <Header as="h2">{en ? "Summary" : "概要"}</Header>
+        <Segment basic>
           <p>{description}</p>
           <Grid stackable columns={2}>
             <GridColumn>
@@ -149,14 +171,14 @@ export default function Page({ pageData }: PageDataProps) {
               )}
             </GridColumn>
           </Grid>
-        </div>
+        </Segment>
       </>
     );
   }
   function renderPresentationJssst2023(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {en ? (
             <>
               {"The 40th "}
@@ -170,57 +192,57 @@ export default function Page({ pageData }: PageDataProps) {
           ) : (
             <>{"日本ソフトウェア科学会 第40回大会 チュートリアル"}</>
           )}
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en ? "Presentation Slides (Japanese)" : "発表スライド"}
-              </h3>
-              <Embed
-                className="ui embed"
-                data-url={
+              </Header>
+              <DeferredEmbed
+                url={
                   "https://docs.google.com/presentation/d/e/2PACX-1vSFvd9_lLppM-CnW9Qr2TXxPCETq9WAedQPIvgTebXe328vTvSP3-SUIJNGtimZR7ygSSb4LOHheLYq/embed"
                 }
-                data-placeholder={`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial.jpg`}
-                data-icon={"video play outline"}
-              ></Embed>
+                placeholder={`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial.jpg`}
+                icon={"video play outline"}
+              ></DeferredEmbed>
               <div className="caption">
-                <h4 className="ui header">
+                <Header as="h4">
                   {en
                     ? "Introduction to Live Programming: Try It, Make It, Know It"
                     : "試して作って知る Live Programming入門"}
-                </h4>
-                <div className="ui horizontal divided list">
-                  <div className="item">
+                </Header>
+                <List divided horizontal>
+                  <ListItem>
                     <a
                       href={
                         "https://docs.google.com/presentation/d/1MIDPeccko-oce83eaWLKuEctzjt2NF_R9b-ouhc_yCI/edit?usp=sharing"
                       }
                     >
-                      <i className="external icon"></i>
+                      <Icon name="external" />
                       {"Google Slides"}
                     </a>
-                  </div>
-                  <div className="item">
+                  </ListItem>
+                  <ListItem>
                     <a href={"https://jssst2023.wordpress.com/tutorial"}>
-                      <i className="external icon"></i>
+                      <Icon name="external" />
                       {en
                         ? "Tutorial official page (Japanese)"
                         : "大会公式ページ"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en
                   ? "What is Live Programming?"
                   : "ライブプログラミングとは？"}
-              </h3>
-              <SiteLink
-                className="ui fluid bordered image"
+              </Header>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(
                   `${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`,
                 )}
@@ -228,7 +250,7 @@ export default function Page({ pageData }: PageDataProps) {
                 <SiteImage
                   src={`${rootPath}live-programming/jssst2023/jssst-live-programming-tutorial-16.jpg`}
                 />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? (
                   <>
@@ -260,8 +282,8 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui basic segment">
+        </Segment>
+        <Segment basic>
           {en ? (
             <>
               <p>
@@ -407,76 +429,78 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </>
           )}
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"https://jssst2023.wordpress.com/tutorial"}
           >
             {en ? "Tutorial official page (Japanese)" : "大会公式ページ"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
-        <div className="ui hidden divider"></div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
+        <Divider hidden />
       </>
     );
   }
   function renderPresentationLive2017(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
+        <Header as="h2">
           {en ? "LIVE 2017 Keynote" : "LIVE 2017 基調講演"}
-        </h2>
-        <div className="ui basic segment">
+        </Header>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en ? "Presentation Slides" : "発表スライド"}
-              </h3>
-              <Embed
-                className="ui embed"
-                data-url={slideUrl}
-                data-placeholder={`${slideImagePath}00.jpg`}
-                data-icon={"video play outline"}
-              ></Embed>
+              </Header>
+              <DeferredEmbed
+                url={slideUrl}
+                placeholder={`${slideImagePath}00.jpg`}
+                icon={"video play outline"}
+              ></DeferredEmbed>
               <div className="caption">
-                <h4 className="ui header">
+                <Header as="h4">
                   {en
                     ? "User Interfaces for Live Programming"
                     : "ライブプログラミングのためのユーザインタフェース"}
-                </h4>
-                <div className="ui horizontal divided list">
-                  <div className="item">
+                </Header>
+                <List divided horizontal>
+                  <ListItem>
                     <SiteLink href={href(slideUrl)}>
-                      <i className="download icon"></i>
+                      <Icon name="download" />
                       {en ? "Download" : "ダウンロード"}
                     </SiteLink>
-                  </div>
-                  <div className="item">
+                  </ListItem>
+                  <ListItem>
                     <a
                       href={
                         "https://2017.splashcon.org/event/live-2017-keynote-a"
                       }
                     >
-                      <i className="external icon"></i>
+                      <Icon name="external" />
                       {en ? "LIVE 2017 Website" : "LIVE 2017 Webサイト"}
                     </a>
-                  </div>
-                </div>
+                  </ListItem>
+                </List>
               </div>
             </GridColumn>
             <GridColumn>
-              <h3 className="ui header">
+              <Header as="h3">
                 {en
                   ? "What is Live Programming?"
                   : "ライブプログラミングとは？"}
-              </h3>
-              <SiteLink
-                className="ui fluid bordered image"
+              </Header>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(`${slideImagePath}05.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}05.jpg`} />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? (
                   <>
@@ -506,8 +530,8 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui basic segment">
+        </Segment>
+        <Segment basic>
           {en ? (
             <>
               <p>
@@ -537,16 +561,17 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </>
           )}
-        </div>
-        <div className="ui basic segment">
+        </Segment>
+        <Segment basic>
           <Grid stackable columns={2}>
             <GridColumn>
-              <SiteLink
-                className="ui fluid bordered image"
+              <LinkedImage
+                bordered
+                fluid
                 href={href(`${slideImagePath}13.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}13.jpg`} />
-              </SiteLink>
+              </LinkedImage>
             </GridColumn>
             <GridColumn>
               <div className="caption">
@@ -582,8 +607,8 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui basic segment">
+        </Segment>
+        <Segment basic>
           {en ? (
             <>
               <p>
@@ -604,17 +629,18 @@ export default function Page({ pageData }: PageDataProps) {
 
           <Grid stackable columns={3}>
             <GridColumn>
-              <h4 className="ui header">
+              <Header as="h4">
                 {en
                   ? "Programming with End-users"
                   : "エンドユーザとプログラミングする"}
-              </h4>
-              <SiteLink
-                className="ui fluid bordered image"
+              </Header>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(`${slideImagePath}18.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}18.jpg`} />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? (
                   <>
@@ -692,17 +718,18 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
             <GridColumn>
-              <h4 className="ui header">
+              <Header as="h4">
                 {en
                   ? "Programming this Material World"
                   : "実世界をプログラミングする"}
-              </h4>
-              <SiteLink
-                className="ui fluid bordered image"
+              </Header>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(`${slideImagePath}27.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}27.jpg`} />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? (
                   <>
@@ -748,17 +775,18 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
             <GridColumn>
-              <h4 className="ui header">
+              <Header as="h4">
                 {en
                   ? "Programming with Time Travel"
                   : "時間旅行しながらプログラミングする"}
-              </h4>
-              <SiteLink
-                className="ui fluid bordered image"
+              </Header>
+              <LinkedImage
+                bordered
+                fluid
                 href={href(`${slideImagePath}39.jpg`)}
               >
                 <SiteImage src={`${slideImagePath}39.jpg`} />
-              </SiteLink>
+              </LinkedImage>
               <div className="caption">
                 {en ? (
                   <>
@@ -792,14 +820,11 @@ export default function Page({ pageData }: PageDataProps) {
               </div>
             </GridColumn>
           </Grid>
-        </div>
-        <div className="ui basic segment">
-          <SiteLink
-            className="ui fluid bordered image"
-            href={href(`${slideImagePath}47.jpg`)}
-          >
+        </Segment>
+        <Segment basic>
+          <LinkedImage bordered fluid href={href(`${slideImagePath}47.jpg`)}>
             <SiteImage src={`${slideImagePath}47.jpg`} />
-          </SiteLink>
+          </LinkedImage>
           <div className="caption">
             {en ? (
               <>
@@ -845,29 +870,31 @@ export default function Page({ pageData }: PageDataProps) {
               </>
             )}
           </div>
-        </div>
-        <div className="ui basic right aligned segment">
-          <a
-            className="ui primary button"
+        </Segment>
+        <Segment basic textAlign="right">
+          <Button
+            role="link"
+            primary
+            as="a"
             href={"https://2017.splashcon.org/event/live-2017-keynote-a"}
           >
             {en ? "LIVE 2017 Website" : "LIVE 2017 Webサイト"}
-            <i className="chevron circle right icon"></i>
-          </a>
-        </div>
+            <Icon name="chevron circle right" />
+          </Button>
+        </Segment>
       </>
     );
   }
   function renderFurtherReadings(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="lab icon"></i>
-          <div className="content">
+        <Header as="h2">
+          <Icon name="lab" />
+          <HeaderContent>
             {en ? "Relevant projects" : "関連プロジェクト"}
-          </div>
-        </h2>
-        <div className="ui basic segment">
+          </HeaderContent>
+        </Header>
+        <Segment basic>
           {en ? (
             <>
               <p>
@@ -886,8 +913,8 @@ export default function Page({ pageData }: PageDataProps) {
             </>
           )}
 
-          <div className="ui segment">
-            <div className="ui divided items projects">
+          <Segment>
+            <ItemGroup divided className="projects">
               {(() => {
                 const children: ReactNode[] = [];
                 for (const p of projects) {
@@ -910,49 +937,47 @@ export default function Page({ pageData }: PageDataProps) {
                 }
                 return keyed(children);
               })()}
-            </div>
-          </div>
-        </div>
+            </ItemGroup>
+          </Segment>
+        </Segment>
       </>
     );
   }
   function renderRevisions(): ReactNode {
     return (
       <>
-        <h2 className="ui header">
-          <i className="announcement icon"></i>
+        <Header as="h2">
+          <Icon name="announcement" />
           {en ? "Revision history" : "更新履歴"}
-        </h2>
-        <div className="ui basic segment">
-          <div className="ui divided feed">
+        </Header>
+        <Segment basic>
+          <Feed className="divided">
             {!en ? (
               <>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"9/28/2023"}</div>
-                    <div className="summary">
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"9/28/2023"}</FeedDate>
+                    <FeedSummary>
                       {
                         "日本ソフトウェア科学会 第40回大会 チュートリアルの概要を追加"
                       }
-                    </div>
-                  </div>
-                </div>
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
 
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"9/27/2023"}</div>
-                    <div className="summary">
-                      {"LIVE 2017基調講演の内容を和訳"}
-                    </div>
-                  </div>
-                </div>
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"9/27/2023"}</FeedDate>
+                    <FeedSummary>{"LIVE 2017基調講演の内容を和訳"}</FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
               </>
             ) : (
               <>
-                <div className="event">
-                  <div className="content">
-                    <div className="date">{"9/28/2023"}</div>
-                    <div className="summary">
+                <FeedEvent>
+                  <FeedContent>
+                    <FeedDate>{"9/28/2023"}</FeedDate>
+                    <FeedSummary>
                       {
                         "Add introduction to the tutorial course held as part of "
                       }
@@ -968,33 +993,33 @@ export default function Page({ pageData }: PageDataProps) {
                         {" Annual Conference"}
                       </a>
                       {" (content in Japanese)."}
-                    </div>
-                  </div>
-                </div>
+                    </FeedSummary>
+                  </FeedContent>
+                </FeedEvent>
               </>
             )}
 
-            <div className="event">
-              <div className="content">
-                <div className="date">{"2/15/2018"}</div>
-                <div className="summary">
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"2/15/2018"}</FeedDate>
+                <FeedSummary>
                   {en
                     ? 'Replace "Further reading" with the list of relevant projects. Please visit each project page for further readings.'
                     : "関連プロジェクトの一覧を公開"}
-                </div>
-              </div>
-            </div>
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
 
-            <div className="event">
-              <div className="content">
-                <div className="date">{"1/21/2018"}</div>
-                <div className="summary">
+            <FeedEvent>
+              <FeedContent>
+                <FeedDate>{"1/21/2018"}</FeedDate>
+                <FeedSummary>
                   {en ? "Upload the initial prototype version." : "初版を公開"}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </FeedSummary>
+              </FeedContent>
+            </FeedEvent>
+          </Feed>
+        </Segment>
       </>
     );
   }
@@ -1027,66 +1052,73 @@ export default function Page({ pageData }: PageDataProps) {
         }
         postFooter={
           <>
-            <Popup
-              className="ui hidden popup-menu popup"
+            <SitePopup
+              className="popup-menu"
               position="top left"
               trigger={
-                <a className="ui circular icon popup-menu large grey hidden button">
-                  <i className="sidebar icon"></i>
-                </a>
+                <Button
+                  circular
+                  icon
+                  size="large"
+                  color="grey"
+                  as="a"
+                  className="popup-menu hidden"
+                >
+                  <Icon name="sidebar" />
+                </Button>
               }
             >
-              <div className="ui divided list">
-                <a className="item" href={"#body"}>
-                  <i className="chevron circle up icon"></i>
-                  <div className="content">{en ? "Top" : "トップ"}</div>
-                </a>
-                <a className="item" href={"#abstract"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">{en ? "Summary" : "概要"}</div>
-                </a>
-                <a className="item" href={"#presentation-jssst2023"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+              <List divided>
+                <ListItem role="link" as="a" href={"#body"}>
+                  <Icon name="chevron circle up" />
+                  <ListContent>{en ? "Top" : "トップ"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#abstract"}>
+                  <Icon name="triangle right" />
+                  <ListContent>{en ? "Summary" : "概要"}</ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#presentation-jssst2023"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en
                       ? "JSSST 2023 Tutorial"
                       : "日本ソフトウェア科学会 第40回大会 チュートリアル"}
-                  </div>
-                </a>
-                <a className="item" href={"#presentation-live2017"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#presentation-live2017"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en ? "LIVE 2017 Keynote" : "LIVE 2017 基調講演"}
-                  </div>
-                </a>
-                <a className="item" href={"#further-readings"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#further-readings"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en ? "Relevant projects" : "関連プロジェクト"}
-                  </div>
-                </a>
-                <a className="item" href={"#revisions"}>
-                  <i className="right triangle icon"></i>
-                  <div className="content">
+                  </ListContent>
+                </ListItem>
+                <ListItem role="link" as="a" href={"#revisions"}>
+                  <Icon name="triangle right" />
+                  <ListContent>
                     {en ? "Revision history" : "更新履歴"}
-                  </div>
-                </a>
-              </div>
-            </Popup>
+                  </ListContent>
+                </ListItem>
+              </List>
+            </SitePopup>
           </>
         }
       >
         <section id={"abstract"}>{renderAbstract()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentation-jssst2023"}>
           {renderPresentationJssst2023()}
         </section>
         <section id={"presentation-live2017"}>
           {renderPresentationLive2017()}
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"further-readings"}>{renderFurtherReadings()}</section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"revisions"}>{renderRevisions()}</section>
       </SiteLayout>
     </>

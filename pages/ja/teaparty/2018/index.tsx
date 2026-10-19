@@ -1,3 +1,15 @@
+import {
+  Breadcrumb,
+  BreadcrumbSection,
+  Divider,
+  Header,
+  Icon,
+  Label,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { SiteLink } from "@/site/components/SiteLink";
 
 import { href } from "@/site/rendering";
@@ -47,29 +59,29 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第7回 (2018)"}</div>
-        </div>
-        <div className="ui divider"></div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第7回 (2018)"}</BreadcrumbSection>
+        </Breadcrumb>
+        <Divider />
         <section>
-          <h1 className="ui header">{"第7回 名状しがたいお茶会"}</h1>
-          <div className="ui horizontal divided list">
-            <div className="item">
-              <span className="ui tiny basic label">
-                <i className="calendar icon"></i>
+          <Header as="h1">{"第7回 名状しがたいお茶会"}</Header>
+          <List divided horizontal>
+            <ListItem>
+              <Label basic size="tiny" as="span">
+                <Icon name="calendar" />
                 {"2018/1/28"}
-              </span>
-            </div>
-          </div>
+              </Label>
+            </ListItem>
+          </List>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"summary"}>
-          <h2 className="ui header">{"概要"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"概要"}</Header>
+          <Segment basic>
             <p>
               {
                 "32名が参加し、「科学」「技術」そして「語る」「奏でる」「動かす」「描く」のセッションで発表しました。おやつのマカロンが好評だったようです。懇親会の時間を長く取ることができました。発表のバックチャネルとしてSlackチャットを活用しました。"
@@ -82,28 +94,28 @@ export default function Page({ pageData }: PageDataProps) {
               </SiteLink>
               {"からご覧ください。"}
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"timetable"}>
-          <h2 className="ui header">{"タイムテーブル"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"タイムテーブル"}</Header>
+          <Segment basic>
             <iframe
               src={
                 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmYZaNWiUzNorraA1ZsFgUT3hDZyZQZmwrfLdoRwRXJfN4Lur1zaWsCu2lRXrDtStn25x-3gQ6eclr/pubhtml?gid=318679183&amp;single=true&amp;widget=true&amp;headers=false"
               }
               style={{ width: "100%", height: "640px" }}
             ></iframe>
-          </div>
+          </Segment>
         </section>
-        <div className="ui divider"></div>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+        <Divider />
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第7回 (2018)"}</div>
-        </div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第7回 (2018)"}</BreadcrumbSection>
+        </Breadcrumb>
       </SiteLayout>
     </>
   );

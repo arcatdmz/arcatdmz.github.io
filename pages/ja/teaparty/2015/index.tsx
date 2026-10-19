@@ -1,3 +1,15 @@
+import {
+  Breadcrumb,
+  BreadcrumbSection,
+  Divider,
+  Header,
+  Icon,
+  Label,
+  List,
+  ListItem,
+  Segment,
+} from "react-fomantic-ui";
+
 import { SiteLink } from "@/site/components/SiteLink";
 import { DeferredScript } from "@/site/components/DeferredScript";
 
@@ -48,28 +60,28 @@ export default function Page({ pageData }: PageDataProps) {
   return (
     <>
       <SiteLayout context={context}>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第4回 (2015)"}</div>
-        </div>
-        <div className="ui divider"></div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第4回 (2015)"}</BreadcrumbSection>
+        </Breadcrumb>
+        <Divider />
         <section>
-          <h1 className="ui header">{"第4回 名状しがたいお茶会"}</h1>
-          <div className="ui horizontal divided list">
-            <div className="item">
-              <span className="ui tiny basic label">
-                <i className="calendar icon"></i>
+          <Header as="h1">{"第4回 名状しがたいお茶会"}</Header>
+          <List divided horizontal>
+            <ListItem>
+              <Label basic size="tiny" as="span">
+                <Icon name="calendar" />
                 {"2015/1/24"}
-              </span>
-            </div>
-          </div>
+              </Label>
+            </ListItem>
+          </List>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"summary"}>
-          <div className="ui basic segment">
+          <Segment basic>
             <p>
               {
                 "アニメ、ゲーム、絵、音楽、小説など、面白いコンテンツを作る・作れる・作りたい人たちと、その活動を応援したい人たちの集まりです。お茶を飲みながらざっくばらんに語ります。カジュアルな勉強会のようなものとお考えください。2012年から、毎年一回程度のペースで開催しています。"
@@ -90,33 +102,33 @@ export default function Page({ pageData }: PageDataProps) {
                 "今年の開催内容について、詳しくはFacebookのイベントページをご覧ください。"
               }
             </p>
-            <div className="ui horizontal list">
-              <div className="item">
+            <List horizontal>
+              <ListItem>
                 <a
                   href={"https://www.facebook.com/events/873913542653717/"}
                   title={"Facebook イベントページ"}
                 >
-                  <i className="facebook icon"></i>
+                  <Icon name="facebook" />
                   {"Facebook"}
                 </a>
-              </div>
-              <div className="item">
+              </ListItem>
+              <ListItem>
                 <a
                   href={
                     "https://docs.google.com/forms/d/1xUDrcGYtj45wCRggYmnZGlljlsemq7DMZbj6oHJdZq8/viewform"
                   }
                 >
-                  <i className="google icon"></i>
+                  <Icon name="google" />
                   {"事後アンケート"}
                 </a>
-              </div>
-            </div>
-          </div>
+              </ListItem>
+            </List>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"timetable"}>
-          <h2 className="ui header">{"タイムテーブル"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"タイムテーブル"}</Header>
+          <Segment basic>
             <p>
               {
                 "例年になく人数が増えたため、話題ごとにセッションとしてまとまりを作りました。クリエータの方々の作品紹介「"
@@ -153,12 +165,12 @@ export default function Page({ pageData }: PageDataProps) {
               }
               style={{ width: "100%", height: "400px" }}
             ></iframe>
-            <div className="ui hidden divider"></div>
-          </div>
+            <Divider hidden />
+          </Segment>
         </section>
         <section id={"details"}>
-          <h2 className="ui header">{"時と場所"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"時と場所"}</Header>
+          <Segment basic>
             <p>
               {"2015年1月24日 13時より、DMM.make AKIBA BASEで開催されます。"}
             </p>
@@ -171,10 +183,10 @@ export default function Page({ pageData }: PageDataProps) {
                 "または #teaparty2015 でツイートするなどして中の人にご連絡ください。"
               }
             </p>
-          </div>
+          </Segment>
           <div id={"map-canvas"}></div>
-          <h2 className="ui header">{"設備"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{"設備"}</Header>
+          <Segment basic>
             <p>
               {
                 "電源、電源タップ、Wi-Fiがあります。ただ、Wi-Fiは多人数で同時接続すると不安定になることがあるため、インターネット接続が必須の方はご自身で用意していただくようおお願いします。"
@@ -185,9 +197,9 @@ export default function Page({ pageData }: PageDataProps) {
                 "プロジェクタは解像度1280x720ピクセル(16:9)で、HDMI、mini DisplayPort、VGA接続が可能です。"
               }
             </p>
-          </div>
-          <h2 className="ui header">{"参加費"}</h2>
-          <div className="ui basic segment">
+          </Segment>
+          <Header as="h2">{"参加費"}</Header>
+          <Segment basic>
             <p>
               {"学生"}
               <b>{"1000"}</b>
@@ -197,10 +209,10 @@ export default function Page({ pageData }: PageDataProps) {
                 "円を予定しています。13-18時までお菓子とお茶が出るほか、18-20時まで夕飯とドリンクのケータリングが手配されています。"
               }
             </p>
-          </div>
-          <h2 className="ui header">
+          </Segment>
+          <Header as="h2">
             {"Togetter"}
-            <div className="ui basic segment togetter">
+            <Segment basic className="togetter">
               <DeferredScript
                 src={"//togetter.com/js/parts.js"}
                 dangerouslySetInnerHTML={{ __html: "" }}
@@ -211,17 +223,17 @@ export default function Page({ pageData }: PageDataProps) {
                     "if (typeof tgtr !== 'undefined') tgtr.ExtendWidget({id:'774222',url:'https://togetter.com/'});",
                 }}
               />
-            </div>
-          </h2>
+            </Segment>
+          </Header>
         </section>
-        <div className="ui divider"></div>
-        <div className="ui breadcrumb">
-          <SiteLink className="section" href={href(basePath + me)}>
+        <Divider />
+        <Breadcrumb>
+          <BreadcrumbSection as={SiteLink} href={href(basePath + me)}>
             {"名状しがたいお茶会"}
-          </SiteLink>
-          <i className="right angle icon divider"></i>
-          <div className="active section">{"第4回 (2015)"}</div>
-        </div>
+          </BreadcrumbSection>
+          <Icon name="angle right" className="divider" />
+          <BreadcrumbSection active>{"第4回 (2015)"}</BreadcrumbSection>
+        </Breadcrumb>
       </SiteLayout>
       <DeferredScript
         type={"text/javascript"}

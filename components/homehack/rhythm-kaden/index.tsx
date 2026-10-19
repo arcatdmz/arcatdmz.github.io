@@ -1,4 +1,5 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import { Grid, GridColumn, Header, Icon } from "react-fomantic-ui";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -23,10 +24,7 @@ function Content() {
     <>
       <Grid stackable>
         <GridColumn width={4}>
-          <SiteImage
-            className="ui fluid image"
-            src={`${rootPath}homehack/rhythmkaden.jpg`}
-          />
+          <SiteImage ui fluid src={`${rootPath}homehack/rhythmkaden.jpg`} />
         </GridColumn>
         <GridColumn width={12}>
           <p>
@@ -57,7 +55,7 @@ function Content() {
       </Grid>
       <Grid stackable columns={2}>
         <GridColumn>
-          <h3 className="ui header">{"開発環境"}</h3>
+          <Header as="h3">{"開発環境"}</Header>
           <ul>
             <li>{"Java (プロキシサーバ), JavaScript (Webサービスの改造)"}</li>
             <li>
@@ -67,7 +65,7 @@ function Content() {
               {" Web API + PC or Mac"}
             </li>
           </ul>
-          <h3 className="ui header">{"資料"}</h3>
+          <Header as="h3">{"資料"}</Header>
           <ul>
             <li>
               {"紹介記事: "}
@@ -92,25 +90,25 @@ function Content() {
               <SiteLink
                 href={href(`${rootPath}homehack/rhythmkaden-poster.pdf`)}
               >
-                <i className="icon-file"></i>
+                <Icon name="file"></Icon>
                 {"ポスター"}
               </SiteLink>
               <SiteLink
                 href={href(`${rootPath}homehack/rhythmkaden-slides.pdf`)}
               >
-                <i className="icon-play-circle"></i>
+                <Icon name="play circle"></Icon>
                 {"スライド"}
               </SiteLink>
             </li>
             <li>
               {"ソースコード: "}
               <a href={"https://github.com/arcatdmz/rhythmkaden-proxy"}>
-                <i className="icon-download"></i>
+                <Icon name="download"></Icon>
                 {"GitHub"}
               </a>
             </li>
           </ul>
-          <h3 className="ui header">{"学生賞 選出コメント"}</h3>
+          <Header as="h3">{"学生賞 選出コメント"}</Header>
           <p>
             {
               "私が選出したので受賞理由を説明しますと、このシステムの真意は音ゲーで遊ばないと動作しない家電、というアプリのアイデアではなく、既存のWebアプリを特殊なプロキシサーバを介して書き換えることにより、いかなるWebアプリにも家電機能を追加できるという「家電マッシュアップ」の方式を提案したことにあります。"

@@ -1,6 +1,21 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Grid,
+  GridColumn,
+  Header,
+  HeaderContent,
+  Icon,
+  List,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
+import { DeferredEmbed } from "@/site/components/DeferredEmbed";
+import { LinkedImage } from "@/site/components/LinkedImage";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   EmbedYoutube,
@@ -53,7 +68,7 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"dejavu"} />
-        <div className="ui message">
+        <Message>
           <LocalizedContent
             ja={
               "本研究の成果物である統合開発環境は、現在のところ公開される予定はありません。ただ、Kinectデータの録画再生など類似の機能は、統合開発環境とは独立したツール"
@@ -70,13 +85,13 @@ export default function Page({ pageData }: PageDataProps) {
           {en
             ? " that partially provides similar features (recording and replaying data stream) though without tight integration with the IDE."
             : "として提供されています。ぜひご利用ください。"}
-        </div>
-        <div className="ui hidden divider"></div>
+        </Message>
+        <Divider hidden />
         <section id={"abstract"}>
-          <h2 className="ui header">
-            <div className="content">{en ? "Abstract" : "概要"}</div>
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">
+            <HeaderContent>{en ? "Abstract" : "概要"}</HeaderContent>
+          </Header>
+          <Segment basic>
             <LocalizedContent
               ja={
                 <>
@@ -150,68 +165,65 @@ export default function Page({ pageData }: PageDataProps) {
                 {"."}
               </p>
             </LocalizedContent>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"presentations"}>
-          <h2 className="ui header">
-            {en ? "Presentation materials" : "発表内容"}
-          </h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Presentation materials" : "発表内容"}</Header>
+          <Segment basic>
             <Grid stackable columns={2}>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"UIST 2012 "}
                   {en ? "Demo Video" : "デモ動画"}
-                </h3>
+                </Header>
                 <EmbedYoutube src={"//www.youtube.com/embed/k5USoB7ZPPk"} />
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <a href={"//www.youtube.com/watch?v=k5USoB7ZPPk"}>
-                        <i className="youtube icon"></i>
+                        <Icon name="youtube" />
                         {"YouTube"}
                       </a>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
               <GridColumn>
-                <h3 className="ui header">
+                <Header as="h3">
                   {"UIST 2012 "}
                   {en ? "Slides" : "発表スライド"}
-                </h3>
-                <Embed
-                  className="ui embed"
-                  data-url={publicationsTable[p.publication].entryTags.slides}
-                  data-placeholder={`${rootPath}images/background-eee.png`}
-                  data-icon={"video play outline"}
-                ></Embed>
+                </Header>
+                <DeferredEmbed
+                  url={publicationsTable[p.publication].entryTags.slides}
+                  placeholder={`${rootPath}images/background-eee.png`}
+                  icon={"video play outline"}
+                ></DeferredEmbed>
                 <div className="caption">
-                  <div className="ui horizontal list">
-                    <div className="item">
+                  <List horizontal>
+                    <ListItem>
                       <SiteLink
                         href={href(
                           publicationsTable[p.publication].entryTags.slides,
                         )}
                       >
-                        <i className="download icon"></i>
+                        <Icon name="download" />
                         {en ? "Download" : "ダウンロード"}
                       </SiteLink>
-                    </div>
-                  </div>
+                    </ListItem>
+                  </List>
                 </div>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"overview"}>
-          <h2 className="ui header">
+          <Header as="h2">
             {"DejaVu "}
             <abbr title={"Integrated Development Environment"}>{"IDE"}</abbr>
-          </h2>
-          <div className="ui basic segment">
+          </Header>
+          <Segment basic>
             <p>
               <LocalizedContent
                 ja={
@@ -236,8 +248,8 @@ export default function Page({ pageData }: PageDataProps) {
             <Grid stackable columns={2}>
               <GridColumn width={6}>
                 <p>
-                  <SiteLink
-                    className="ui fluid image"
+                  <LinkedImage
+                    fluid
                     href={href(`${rootPath}dejavu/fig4-canvas.png`)}
                   >
                     <SiteImage
@@ -245,11 +257,11 @@ export default function Page({ pageData }: PageDataProps) {
                       alt={"Canvas"}
                       width={"570"}
                     />
-                  </SiteLink>
+                  </LinkedImage>
                 </p>
                 <p>
-                  <SiteLink
-                    className="ui fluid image"
+                  <LinkedImage
+                    fluid
                     href={href(`${rootPath}dejavu/fig6-timeline.png`)}
                   >
                     <SiteImage
@@ -257,11 +269,11 @@ export default function Page({ pageData }: PageDataProps) {
                       alt={"Timeline"}
                       width={"570"}
                     />
-                  </SiteLink>
+                  </LinkedImage>
                 </p>
               </GridColumn>
               <GridColumn width={10}>
-                <h3 className="ui header">{"Canvas"}</h3>
+                <Header as="h3">{"Canvas"}</Header>
                 <ul>
                   <li>
                     {en
@@ -279,7 +291,7 @@ export default function Page({ pageData }: PageDataProps) {
                       : "スケッチによるアノテーション"}
                   </li>
                 </ul>
-                <h3 className="ui header">{"Timeline"}</h3>
+                <Header as="h3">{"Timeline"}</Header>
                 <ul>
                   <LocalizedContent
                     ja={
@@ -312,9 +324,9 @@ export default function Page({ pageData }: PageDataProps) {
                 </ul>
               </GridColumn>
             </Grid>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <ProjectPublications
           project={"dejavu"}
           majorPublication={"uist2012-kato-dejavu"}

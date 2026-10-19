@@ -1,3 +1,5 @@
+import { Divider, Header, Icon, Segment } from "react-fomantic-ui";
+
 import { ProjectHeader } from "@/site/components/ContentComponents";
 import {
   hydratePageData,
@@ -43,9 +45,9 @@ export default function Page({ pageData }: PageDataProps) {
     <>
       <SiteLayout context={context}>
         <ProjectHeader project={"intelliviewer"} />
-        <div className="ui hidden divider"></div>
-        <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
-        <div className="ui basic segment">
+        <Divider hidden />
+        <Header as="h2">{en ? "Abstract" : "概要"}</Header>
+        <Segment basic>
           <p>
             {en
               ? "This is a user interface for helping navigation of source code in the integrated development environment. For each row of the keyboard, available namespaces, classes, member variables and methods are shown on the keytops. The user interface works on the prototype "
@@ -88,11 +90,11 @@ export default function Page({ pageData }: PageDataProps) {
                 "https://channel9.msdn.com/posts/Microsofts-Adaptive-Keyboard-at-UIST"
               }
             >
-              <i className="video icon"></i>
+              <Icon name="video" />
               {"Microsoft Channel9 (UIST '10 interview, 5:55-)"}
             </a>
           </p>
-        </div>
+        </Segment>
       </SiteLayout>
     </>
   );

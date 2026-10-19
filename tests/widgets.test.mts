@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Embed, SiteModal } from "../site/components/SiteWidgets";
+import { Embed } from "react-fomantic-ui";
+import { DeferredEmbed } from "../site/components/DeferredEmbed";
+import { SiteModal } from "../site/components/SiteWidgets";
 import { SiteLink } from "../site/components/SiteLink";
 import {
   HomeHistory,
@@ -13,10 +15,10 @@ import { readFileSync } from "node:fs";
 
 test("embeds keep a static placeholder and do not request the iframe before activation", () => {
   const html = renderToStaticMarkup(
-    createElement(Embed, {
-      "data-url": "/paper/slides.pdf",
-      "data-placeholder": "/images/background-eee.png",
-      "data-icon": "video play outline",
+    createElement(DeferredEmbed, {
+      url: "/paper/slides.pdf",
+      placeholder: "/images/background-eee.png",
+      icon: "video play outline",
     }),
   );
   assert.match(html, /role="button"/);
@@ -28,7 +30,7 @@ test("existing direct iframe embeds stay available in the static document", () =
   const html = renderToStaticMarkup(
     createElement(
       Embed,
-      {},
+      { active: true, icon: false },
       createElement("iframe", { src: "https://www.youtube.com/embed/example" }),
     ),
   );
@@ -73,11 +75,7 @@ test("home history keeps its first entries in HTML and disables the unhydrated c
           { key: "feed" },
           createElement("div", { className: "event" }, "Recent update"),
         ),
-        createElement(
-          HistoryMore,
-          { key: "more", className: "ui more disabled button" },
-          "More",
-        ),
+        createElement(HistoryMore, { key: "more", className: "more" }, "More"),
       ],
     }),
   );
@@ -115,7 +113,7 @@ test("authored sibling popups are handled explicitly and never replaced by empty
   );
   assert.match(
     source,
-    /<Popup[\s\S]*?trigger=\{[\s\S]*?className="ui primary large with-popup labeled icon button"/,
+    /<SitePopup[\s\S]*?trigger=\{[\s\S]*?<Button[\s\S]*?className="with-popup"/,
   );
   assert.match(
     source,

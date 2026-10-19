@@ -1,6 +1,19 @@
-import { Grid, GridColumn } from "react-fomantic-ui";
+import {
+  Divider,
+  Embed,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  Icon,
+  Label,
+  ListItem,
+  Message,
+  Segment,
+} from "react-fomantic-ui";
+
 import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { Embed } from "@/site/components/SiteWidgets";
+
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
 import {
@@ -37,7 +50,10 @@ export default function Page({ pageData }: PageDataProps) {
   title = p.getTitle(lang);
   me = p.project + "/";
   var additionalLabels = [
-    '<span class="ui tiny green basic label"><i class="student icon"></i>SxSW \'13 Gaming Expo, Trade Show</span>',
+    <Label as="span" size="tiny" color="green" basic>
+      <Icon name="student" />
+      {"SxSW '13 Gaming Expo, Trade Show"}
+    </Label>,
   ];
   const context: SiteData & SiteContext = {
     ...data,
@@ -56,8 +72,8 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <section id={"abstract"}>
-          <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Abstract" : "概要"}</Header>
+          <Segment basic>
             <p>
               {
                 "People love playing games. Games have been a good way to build social relations with others. Therefore, studying the impact of digital augmentation on such experience has been an interesting research topic in the field of Human-Computer Interaction. Ishii et al. proposed PingPongPlus"
@@ -76,12 +92,12 @@ export default function Page({ pageData }: PageDataProps) {
                 'In this page, we introduce OpenPool, an open-source project that augments a standard billiard table with the cutting-edge computing technologies to provide the "super-billiard" experience.'
               }
             </p>
-          </div>
+          </Segment>
         </section>
-        <div className="ui hidden divider"></div>
+        <Divider hidden />
         <section id={"implementation"}>
-          <h2 className="ui header">{en ? "Implementation" : "実装"}</h2>
-          <div className="ui basic segment">
+          <Header as="h2">{en ? "Implementation" : "実装"}</Header>
+          <Segment basic>
             <p>
               {
                 "OpenPool is an open-source project that aims to be installed at as many places as possible so that more people can enjoy the super-billiard experience. Its hardware is easy to be deployed at any billiard tables and its software is easy to be installed on personal computers running Windows or Mac."
@@ -92,7 +108,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "Furthermore, the basic features of the software such as ball detection and pocket detection are exposed as simple APIs of Processing libraries. Therefore, the programmer can easily design his/her own super-billiard experience. There are currently two libraries: base library and pocket detection library. In the following subsections, we describe these libraries in detail."
               }
             </p>
-            <h3 className="ui header">{"OpenPool core library"}</h3>
+            <Header as="h3">{"OpenPool core library"}</Header>
             <pre className="prettyprint linenums">
               {"OpenPool op = new OpenPool(this);"}
               {"\n"}
@@ -124,7 +140,7 @@ export default function Page({ pageData }: PageDataProps) {
                 "The computation is a simple image processing pipeline. First, with some callibrations of the camera positions, two depth images from the cameras form one depth map on the billiard table. Then, the ball positions on the table are estimated from the depth map by background substraction and blob detection."
               }
             </p>
-            <h3 className="ui header">{"OpenPool pocket detection library"}</h3>
+            <Header as="h3">{"OpenPool pocket detection library"}</Header>
             <pre className="prettyprint linenums">
               {'OpenpoolBoostPocket p = new OpenpoolBoostPocket(this, "COM4");'}
               {"\n"}
@@ -158,7 +174,7 @@ export default function Page({ pageData }: PageDataProps) {
                 'To address the issue, we provide a set of additional hardware and software named "boost kit." The hardware is implemented with mbed and some basic sensors, whose circuit design is published as an open-hardware project. Future work includes devleopment of more boost kits for various purposes such as collision detection.'
               }
             </p>
-          </div>
+          </Segment>
         </section>
       </>
     );
@@ -167,7 +183,7 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <section id={"videos"}>
-          <Embed className="ui embed">
+          <Embed active icon={false}>
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=608850275796418"
@@ -177,8 +193,8 @@ export default function Page({ pageData }: PageDataProps) {
             ></iframe>
           </Embed>
           <div className="caption">{"Playing 8 ball pool with OpenPool"}</div>
-          <div className="ui hidden divider"></div>
-          <Embed className="ui embed">
+          <Divider hidden />
+          <Embed active icon={false}>
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=614971478517631"
@@ -190,8 +206,8 @@ export default function Page({ pageData }: PageDataProps) {
           <div className="caption">
             {"Collision detection between balls and virtual objects"}
           </div>
-          <div className="ui hidden divider"></div>
-          <Embed className="ui embed">
+          <Divider hidden />
+          <Embed active icon={false}>
             <iframe
               src={
                 "https://www.facebook.com/video/embed?video_id=615808058433973"
@@ -206,12 +222,12 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </div>
         </section>
-        <div className="ui divider"></div>
+        <Divider />
         <section id={"press"}></section>
-        <h2 className="ui header">{en ? "Media Coverage" : "メディア掲載"}</h2>
-        <div className="ui basic segment" style={{ marginBottom: "-0.5em" }}>
+        <Header as="h2">{en ? "Media Coverage" : "メディア掲載"}</Header>
+        <Segment basic style={{ marginBottom: "-0.5em" }}>
           <Grid stackable>
-            <div className="three columns row">
+            <GridRow columns={3}>
               {mediaList
                 .filter(
                   (e) =>
@@ -222,29 +238,31 @@ export default function Page({ pageData }: PageDataProps) {
                 .map((e, itemIndex) => (
                   <Fragment key={itemIndex}>
                     <GridColumn style={{ marginBottom: "0.5em" }}>
-                      <SiteLink
-                        className="item"
+                      <ListItem
+                        role="link"
+                        as={SiteLink}
                         href={href(e.archive || e.permalink)}
                         title={e.text.en}
                       >
                         <SiteImage
-                          className="ui fluid image"
+                          ui
+                          fluid
                           src={`${rootPath}openpool/${e.media.en
                             .split(/[\s.()]+/g)
                             .join("")
                             .toLowerCase()}.png`}
                           alt={e.media.en}
                         />
-                      </SiteLink>
+                      </ListItem>
                     </GridColumn>
                   </Fragment>
                 ))}
-            </div>
+            </GridRow>
           </Grid>
-        </div>
-        <div className="ui divider"></div>
+        </Segment>
+        <Divider />
         <section id={"related-work"}>
-          <h2 className="ui header">{en ? "Related Work" : "関連研究"}</h2>
+          <Header as="h2">{en ? "Related Work" : "関連研究"}</Header>
           <ol>
             <li id={"ppp"}>
               <a href={"https://tangible.media.mit.edu/project/pingpongplus/"}>
@@ -285,11 +303,14 @@ export default function Page({ pageData }: PageDataProps) {
             ? additionalLabels
             : [
                 ...additionalLabels,
-                '<span class="ui tiny red basic label"><i class="trophy icon"></i>\'13 グッドデザイン賞</span>',
+                <Label as="span" size="tiny" color="red" basic>
+                  <Icon name="trophy" />
+                  {"'13 グッドデザイン賞"}
+                </Label>,
               ]
         }
       />
-      <div className="ui message">
+      <Message>
         <LocalizedContent
           ja={
             <>
@@ -302,13 +323,13 @@ export default function Page({ pageData }: PageDataProps) {
         >
           {renderMessage()}
         </LocalizedContent>
-      </div>
-      <div className="ui hidden divider"></div>
+      </Message>
+      <Divider hidden />
       <Grid stackable columns={2}>
         <GridColumn>{renderBody()}</GridColumn>
         <GridColumn>{renderVideos()}</GridColumn>
       </Grid>
-      <div className="ui hidden divider"></div>
+      <Divider hidden />
       <ProjectPublications
         project="openpool"
         majorPublication="gcce2013-kato-openpool"
