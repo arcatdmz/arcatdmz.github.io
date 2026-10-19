@@ -1,21 +1,10 @@
 import Page from "@/components/tweeq/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/tweeq/", {
-          projects: ["tweeq"],
-          publications: ["uist2025-hashimoto-tweeq"],
-          publicationProjects: ["tweeq"],
-        }),
-      },
-      "/tweeq/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/tweeq/", {
+  projects: ["tweeq"],
+  publications: ["uist2025-hashimoto-tweeq"],
+  publicationProjects: ["tweeq"],
+});

@@ -844,7 +844,7 @@ interface RenderedRoute {
 }
 async function renderedRoutes(root: string): Promise<RenderedRoute[]> {
   const routes: Route[] = JSON.parse(
-    await fs.readFile(path.join(root, "site/routes.json"), "utf8"),
+    await fs.readFile(path.join(root, "site/generated/routes.json"), "utf8"),
   );
   const result: RenderedRoute[] = [];
   for (const route of routes) {
@@ -884,7 +884,7 @@ async function renderedRoutes(root: string): Promise<RenderedRoute[]> {
       !source.endsWith(".tsx") ||
       path.basename(source).startsWith("_") ||
       source.includes("[") ||
-      knownSources.has(source)
+      knownSources.has(source.replace(/\.localized\.tsx$/, ".tsx"))
     )
       continue;
     result.push({

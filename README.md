@@ -11,7 +11,7 @@ The site uses Next.js 16.4, React 19.3, and TypeScript. The Pages Router renders
 static HTML with `output: "export"` and `trailingSlash: true`. No Node.js server is
 needed in production.
 
-- `pages/`: routes and their build-time data selection, including English and Japanese
+- `pages/`: authored routes and generated `*.localized.tsx` counterparts
 - `components/`: shared page content, mirroring the route paths
 - `site/`: shared React components, layouts, route metadata, and data adapters
 - `src/`: original images, downloads, JSON data, `junkato.bib`, LESS stylesheets,
@@ -39,7 +39,8 @@ The User-Generated Variables presentation is served locally at
 `/ugv/` and `/ja/user-generated-variables/` point to that presentation.
 Trusted HTML fragments in the existing data go through `HtmlContent`; fixed page
 content is ordinary JSX. Shared content uses typed components and page context.
-English/Japanese route pairs import one page template from `components/`.
+Author one route with `localizedPageProps` and one template in `components/`;
+the other language entry is generated automatically.
 Default content is defined once, with optional localized rich sections and short
 inline labels. This preserves the original Pug inheritance, including Japanese
 prose used on English pages and English sections used on Japanese pages.

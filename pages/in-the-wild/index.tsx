@@ -4,7 +4,11 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href } from "@/site/rendering";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -249,5 +253,15 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/in-the-wild/", {"projects": ["griffith", "lyric-app-framework", "textalive"]}) }, "/in-the-wild/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/in-the-wild/", {
+          projects: ["griffith", "lyric-app-framework", "textalive"],
+        }),
+      },
+      "/in-the-wild/",
+    ),
+  };
 }

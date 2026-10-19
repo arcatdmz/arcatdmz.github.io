@@ -1,21 +1,10 @@
 import Page from "@/components/picode/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/picode/", {
-          projects: ["picode"],
-          publications: ["chi2013-kato-picode"],
-          publicationProjects: ["picode"],
-        }),
-      },
-      "/picode/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/picode/", {
+  projects: ["picode"],
+  publications: ["chi2013-kato-picode"],
+  publicationProjects: ["picode"],
+});

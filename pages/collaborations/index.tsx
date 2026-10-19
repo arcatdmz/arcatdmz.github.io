@@ -1,15 +1,6 @@
 import Page from "@/components/collaborations/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      { pageData: getPageData("/collaborations/") },
-      "/collaborations/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/collaborations/", {});

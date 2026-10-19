@@ -1,20 +1,9 @@
 import Page from "@/components/homehack/realmote/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/homehack/realmote/", {
-          projects: ["homehack"],
-          publicationProjects: ["homehack"],
-        }),
-      },
-      "/homehack/realmote/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/homehack/realmote/", {
+  projects: ["homehack"],
+  publicationProjects: ["homehack"],
+});

@@ -1,21 +1,10 @@
 import Page from "@/components/surfboard/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/surfboard/", {
-          projects: ["surfboard"],
-          publications: ["uist2010-kato-surfboard"],
-          publicationProjects: ["surfboard"],
-        }),
-      },
-      "/surfboard/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/surfboard/", {
+  projects: ["surfboard"],
+  publications: ["uist2010-kato-surfboard"],
+  publicationProjects: ["surfboard"],
+});

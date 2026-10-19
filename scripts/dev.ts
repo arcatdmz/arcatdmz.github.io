@@ -161,11 +161,17 @@ try {
   // Watch only source inputs. Watching public/, build/, or site/generated/
   // would turn each asset build into an endless rebuild loop.
   watchSource("src", true);
+  watchSource(
+    "pages",
+    true,
+    (name) => name.endsWith(".tsx") && !name.endsWith(".localized.tsx"),
+  );
   watchSource("semantic", true);
   watchSource("site", true, (name) => !/^generated(?:[/\\]|$)/.test(name));
   watchSource("scripts", false, (name) =>
     [
       "prepare-assets.ts",
+      "prepare-routes.ts",
       "image-derivatives.ts",
       "prepare-page-data.ts",
       "blog-redirections.json",

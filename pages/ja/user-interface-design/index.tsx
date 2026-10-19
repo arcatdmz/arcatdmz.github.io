@@ -8,7 +8,11 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 
 import { href } from "@/site/rendering";
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -18,13 +22,7 @@ import type { SiteContext } from "@/site/types";
 /** React page migrated from ja/user-interface-design/index.pug; edit this TSX source directly. */
 export default function Page({ pageData }: PageDataProps) {
   const data = hydratePageData(pageData);
-  const {
-    projectsTable,
-    publicationsTable,
-    rootPath,
-    protocol,
-    domain,
-  } = data;
+  const { projectsTable, publicationsTable, rootPath, protocol, domain } = data;
   const lang: "en" | "ja" = "ja";
   const en: boolean = false;
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -1359,9 +1357,15 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
-              <i className="sidebar icon"></i>
-            </a>}>
+            <Popup
+              className="ui hidden popup-menu popup"
+              position="top left"
+              trigger={
+                <a className="ui circular icon popup-menu large grey hidden button">
+                  <i className="sidebar icon"></i>
+                </a>
+              }
+            >
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -1459,5 +1463,17 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/ja/user-interface-design/", {"projects": ["user-interface-design"], "publications": ["asj-v77n4-kato-ui-design"], "publicationProjects": ["user-interface-design"]}) }, "/ja/user-interface-design/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/ja/user-interface-design/", {
+          projects: ["user-interface-design"],
+          publications: ["asj-v77n4-kato-ui-design"],
+          publicationProjects: ["user-interface-design"],
+        }),
+      },
+      "/ja/user-interface-design/",
+    ),
+  };
 }

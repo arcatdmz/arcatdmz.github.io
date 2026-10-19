@@ -1,25 +1,14 @@
 import Page from "@/components/textalive/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      {
-        pageData: getPageData("/textalive/", {
-          projects: [
-            "creativity-support-environments",
-            "lyric-app-framework",
-            "textalive",
-          ],
-          publications: ["chi2015-kato-textalive"],
-          publicationProjects: ["textalive"],
-        }),
-      },
-      "/textalive/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/textalive/", {
+  projects: [
+    "creativity-support-environments",
+    "lyric-app-framework",
+    "textalive",
+  ],
+  publications: ["chi2015-kato-textalive"],
+  publicationProjects: ["textalive"],
+});

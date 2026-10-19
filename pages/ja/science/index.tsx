@@ -9,7 +9,11 @@ import { SiteLink } from "@/site/components/SiteLink";
 import type { ReactNode } from "react";
 import { HtmlContent } from "@/site/components/RichText";
 
-import { hydratePageData, type PageDataProps, type SiteData } from "@/site/page-data";
+import {
+  hydratePageData,
+  type PageDataProps,
+  type SiteData,
+} from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
 import { SiteLayout } from "@/site/components/SiteLayout";
@@ -683,9 +687,15 @@ export default function Page({ pageData }: PageDataProps) {
         context={context}
         postFooter={
           <>
-            <Popup className="ui hidden popup-menu popup" position="top left" trigger={<a className="ui circular icon popup-menu large grey hidden button">
-              <i className="sidebar icon"></i>
-            </a>}>
+            <Popup
+              className="ui hidden popup-menu popup"
+              position="top left"
+              trigger={
+                <a className="ui circular icon popup-menu large grey hidden button">
+                  <i className="sidebar icon"></i>
+                </a>
+              }
+            >
               <div className="ui divided list">
                 <a className="item" href={"#body"}>
                   <i className="chevron circle up icon"></i>
@@ -749,5 +759,21 @@ export default function Page({ pageData }: PageDataProps) {
 }
 
 export function getStaticProps() {
-  return { props: withPageImages(Page, { pageData: getPageData("/ja/science/", {"projects": ["science"], "publications": ["hi20-kato-reproducibility", "ipsj-v61n1-kato-canna", "joss2019-kato"], "publicationProjects": ["science"]}) }, "/ja/science/") };
+  return {
+    props: withPageImages(
+      Page,
+      {
+        pageData: getPageData("/ja/science/", {
+          projects: ["science"],
+          publications: [
+            "hi20-kato-reproducibility",
+            "ipsj-v61n1-kato-canna",
+            "joss2019-kato",
+          ],
+          publicationProjects: ["science"],
+        }),
+      },
+      "/ja/science/",
+    ),
+  };
 }

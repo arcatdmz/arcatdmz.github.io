@@ -1,4 +1,4 @@
-import routes from "./routes.json";
+import routes from "./generated/routes.json";
 import website from "../website.json";
 import { buildYear } from "./clock";
 import type { SiteContext } from "./types";

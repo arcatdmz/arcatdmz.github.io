@@ -1,15 +1,8 @@
 import Page from "@/components/design/index";
-import { getPageData } from "@/site/page-data.server";
-import { withPageImages } from "@/site/page-images.server";
+import { localizedPageProps } from "@/site/page-props.server";
 
 export default Page;
 
-export function getStaticProps() {
-  return {
-    props: withPageImages(
-      Page,
-      { pageData: getPageData("/design/", { projects: ["design"] }) },
-      "/design/",
-    ),
-  };
-}
+export const getStaticProps = localizedPageProps(Page, "/design/", {
+  projects: ["design"],
+});
