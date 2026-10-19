@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Popup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -339,8 +340,8 @@ export default function Page({ pageData }: PageDataProps) {
               />
             </p>
             <div className="ui hidden divider"></div>
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid image"
                   src={`${basePath}animare/animare-workflow.jpg`}
@@ -350,8 +351,8 @@ export default function Page({ pageData }: PageDataProps) {
                     ? "A representative anime production workflow and the strengths of each group"
                     : "代表的なアニメ制作のワークフローと各グループの担当範囲"}
                 </p>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <SiteImage
                   className="ui fluid image"
                   src={`${rootPath}images/panels/${
@@ -363,8 +364,8 @@ export default function Page({ pageData }: PageDataProps) {
                     ? "A mutually beneficial platform for anime production to be built in the project"
                     : "プロジェクトで構築を目指す互恵的プラットフォーム"}
                 </p>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
           <div className="ui basic center aligned segment">
             <a

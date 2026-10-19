@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -246,10 +247,10 @@ export default function Page({ pageData }: PageDataProps) {
       <SiteLayout context={context}>
         <ProjectHeader project={"pressing"} />
         <div className="ui hidden divider"></div>
-        <div className="ui stackable grid">
-          <div className="ten wide column">{renderBody()}</div>
-          <div className="six wide column">{renderImages()}</div>
-        </div>
+        <Grid stackable>
+          <GridColumn width={10}>{renderBody()}</GridColumn>
+          <GridColumn width={6}>{renderImages()}</GridColumn>
+        </Grid>
         <div className="ui hidden divider"></div>
         <ProjectPublications project={"pressing"} />
       </SiteLayout>

@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { ModalImage, Popup, SiteModal } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -96,20 +97,20 @@ export default function Page({ pageData }: PageDataProps) {
           </LocalizedContent>
         </p>
         <div className="ui hidden divider"></div>
-        <div className="ui stackable two columns grid">
-          <div className="column">
+        <Grid stackable columns={2}>
+          <GridColumn>
             <h3 className="ui header">
               {en ? "As a graphic designer" : "グラフィックデザイン"}
             </h3>
             <div className="ui divided list">{renderSkillsetGraphic()}</div>
-          </div>
-          <div className="column">
+          </GridColumn>
+          <GridColumn>
             <h3 className="ui header">
               {en ? "As an interaction designer" : "インタラクションデザイン"}
             </h3>
             <div className="ui divided list">{renderSkillsetIxd()}</div>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </>
     );
   }

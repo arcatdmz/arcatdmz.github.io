@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Popup } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -46,8 +47,8 @@ export default function Page({ pageData }: PageDataProps) {
   function renderCollaborations(): ReactNode {
     return (
       <>
-        <div className="ui stackable grid">
-          <div className="eight wide column">
+        <Grid stackable>
+          <GridColumn width={8}>
             <LocalizedContent
               ja={
                 <>
@@ -146,8 +147,8 @@ export default function Page({ pageData }: PageDataProps) {
               </p>
             </LocalizedContent>
             {renderServices()}
-          </div>
-          <div className="eight wide column">
+          </GridColumn>
+          <GridColumn width={8}>
             <LocalizedContent
               ja={
                 <>
@@ -508,8 +509,8 @@ export default function Page({ pageData }: PageDataProps) {
                 {"."}
               </p>
             </LocalizedContent>
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </>
     );
   }

@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { TranslateEn } from "@/site/components/ContentComponents";
@@ -180,8 +181,8 @@ function Content() {
         )}
       </h2>
       <div className="ui basic segment">
-        <div className="ui stackable grid">
-          <div className="six wide column">
+        <Grid stackable>
+          <GridColumn width={6}>
             <Embed className="ui embed">
               <iframe
                 src={"//www.slideshare.net/slideshow/embed_code/38527331"}
@@ -192,8 +193,8 @@ function Content() {
                 allowFullScreen={Boolean(true)}
               ></iframe>
             </Embed>
-          </div>
-          <div className="ten wide column">
+          </GridColumn>
+          <GridColumn width={10}>
             <p>
               {"Sony CSL大和田さんとPhysVis湯村さん主催のイベント「"}
               <a
@@ -233,8 +234,8 @@ function Content() {
                 </p>
               </>
             ) : null}
-          </div>
-        </div>
+          </GridColumn>
+        </Grid>
       </div>
       <h2 className="ui header">{en ? "Past projects" : "プロジェクト一覧"}</h2>
       <div className="ui basic segment">

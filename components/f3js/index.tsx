@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -141,8 +142,8 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "Presentation materials" : "発表内容"}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">
                   {"DIS 2017 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -158,8 +159,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">
                   {"DIS 2017 "}
                   {en ? "Slides" : "発表スライド"}
@@ -201,8 +202,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </p>
                   </>
                 ) : null}
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
@@ -213,8 +214,8 @@ export default function Page({ pageData }: PageDataProps) {
               : "核となるアイデア: IoTデバイスのパラメトリックデザイン"}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">
                   {en ? (
                     <>{"Parametric Design for Interaction Designers"}</>
@@ -340,8 +341,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <div className="ui hidden divider"></div>
-                <div className="ui stackable two columns grid">
-                  <div className="column">
+                <Grid stackable columns={2}>
+                  <GridColumn>
                     <SiteLink
                       className="ui fluid image"
                       href={href(
@@ -358,8 +359,8 @@ export default function Page({ pageData }: PageDataProps) {
                         : "矩形を押し出すと箱型ができる。"}
                     </p>
                     <div className="ui hidden divider"></div>
-                  </div>
-                  <div className="column">
+                  </GridColumn>
+                  <GridColumn>
                     <SiteLink
                       className="ui fluid image"
                       href={href(`${rootPath}f3js/circle-layout.jpg`)}
@@ -420,10 +421,10 @@ export default function Page({ pageData }: PageDataProps) {
                     )}
 
                     <div className="ui hidden divider"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="column">
+                  </GridColumn>
+                </Grid>
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">
                   {en ? (
                     <>{"Parametric Design for End-uesrs"}</>
@@ -543,8 +544,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <div className="ui hidden divider"></div>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <section id={"examples"}>
@@ -552,8 +553,8 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "Example applications" : "アプリケーション例"}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">
                   {en ? "Videos of 17 applications" : "17個の作例動画"}
                 </h3>
@@ -592,8 +593,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <div className="ui hidden divider"></div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">
                   {en ? "Explanations on the first 5 apps" : "冒頭5例の紹介"}
                 </h3>
@@ -681,8 +682,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </LocalizedContent>
                 </div>
                 <div className="ui hidden divider"></div>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>

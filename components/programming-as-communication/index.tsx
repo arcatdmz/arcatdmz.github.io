@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -127,8 +128,8 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Presentation materials" : "発表資料"}
         </h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "talk" : "講演動画"}
@@ -158,8 +159,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 <abbr title={"Convivial Computing Salon 2020"}>{"CCS"}</abbr>{" "}
                 {en ? "slides" : "発表スライド"}
@@ -184,8 +185,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
           <div className="ui divider"></div>
           <div className="ui list">
             <div className="item">

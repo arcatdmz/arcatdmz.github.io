@@ -76,6 +76,7 @@
     "jquery": "3.2.1",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-fomantic-ui": "3.0.2"
   }
 }

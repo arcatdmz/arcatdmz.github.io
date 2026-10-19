@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
@@ -54,16 +55,16 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <h2 className="ui header">{en ? "Abstract" : "概要"}</h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <p>
                 <SiteImage
                   className="ui image"
                   src={"/deployground/vlhcc2018-kato-deployground-fig1.png"}
                 />
               </p>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <p>
                 {
                   "Interactive web pages for learning programming languages and application programming interfaces (APIs), called "
@@ -97,8 +98,8 @@ export default function Page({ pageData }: PageDataProps) {
                   "As a case study, we created a web-based tutorial for browser-based and Node.js-based JavaScript APIs. A preliminary user study found appreciation of the streamlined and social workflow of the DeployGround framework."
                 }
               </p>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui hidden divider"></div>
       </>
@@ -111,8 +112,8 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Presentation materials" : "発表内容"}
         </h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Demo Video" : "デモ動画"}
@@ -128,8 +129,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 {"IEEE VL/HCC 2018 "}
                 {en ? "Slides" : "発表スライド"}
@@ -150,8 +151,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
         <div className="ui hidden divider"></div>
       </>
@@ -251,32 +252,32 @@ export default function Page({ pageData }: PageDataProps) {
             }
           </p>
           <div className="ui hidden divider"></div>
-          <div className="ui stackable three columns grid">
-            <div className="column">
+          <Grid stackable columns={3}>
+            <GridColumn>
               <p>
                 <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-1.jpg"}
                 />
               </p>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <p>
                 <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-2.jpg"}
                 />
               </p>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <p>
                 <SiteImage
                   className="ui fluid image"
                   src={"/deployground/fig-3.jpg"}
                 />
               </p>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
           <p className="caption">
             <strong>{"Figure."}</strong>
             {

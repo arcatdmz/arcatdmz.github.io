@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -20,8 +21,8 @@ function Content() {
 
   return (
     <>
-      <div className="ui stackable three columns grid">
-        <div className="column">
+      <Grid stackable columns={3}>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/fungus-prototype.jpg`)}
@@ -30,8 +31,8 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-prototype.jpg`}
             />
           </SiteLink>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/fungus-prototype-2.jpg`)}
@@ -40,8 +41,8 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-prototype-2.jpg`}
             />
           </SiteLink>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/fungus-camera.jpg`)}
@@ -50,10 +51,10 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/fungus-camera.jpg`}
             />
           </SiteLink>
-        </div>
-      </div>
-      <div className="ui stackable two columns grid">
-        <div className="column">
+        </GridColumn>
+      </Grid>
+      <Grid stackable columns={2}>
+        <GridColumn>
           <p>
             {
               "なめこの生育を観察する定点カメラを開発した。冷暗所（玄関）での観察を可能にするため、明かりのON→撮影→OFFを自動で行ってくれるようなデバイスを作成した。"
@@ -92,29 +93,29 @@ function Content() {
               <a href={"//www.youtube.com/watch?v=ggH3Y_goGtM"}>{"YouTube"}</a>
             </li>
           </ul>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/fungus-box.jpg`)}
           >
             <SiteImage src={`${rootPath}homehack/thumbnails/fungus-box.jpg`} />
           </SiteLink>
-        </div>
-      </div>
-      <div className="ui stackable two columns grid">
-        <div className="column">
+        </GridColumn>
+      </Grid>
+      <Grid stackable columns={2}>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/fungus-camera-image.jpg`)}
           >
             <SiteImage src={`${rootPath}homehack/fungus-camera-image.jpg`} />
           </SiteLink>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <EmbedYoutube src={"//www.youtube.com/embed/rFeTAwY_d_Y"} />
-        </div>
-      </div>
+        </GridColumn>
+      </Grid>
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -110,8 +111,8 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "Presentation materials" : "発表内容"}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">
                   {"GI 2014 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -127,8 +128,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">
                   {"GI 2014 "}
                   {en ? "Slides" : "発表スライド"}
@@ -153,15 +154,15 @@ export default function Page({ pageData }: PageDataProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
         <section>
           <h2 className="ui header">{"VisionSketch IDE"}</h2>
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <SiteLink
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/fig1-overview.jpg`)}
@@ -191,8 +192,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ? "Prototype of the VisionSketch IDE (PLDI '13)"
                   : "PLDI '13発表時の初版の概観"}
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <SiteLink
                 className="ui fluid image"
                 href={href(`${rootPath}visionsketch/visionsketch-example.jpg`)}
@@ -208,8 +209,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ? "An example image processing pipeline"
                   : "構築した画像処理パイプラインの例"}
               </div>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </section>
         <div className="ui hidden divider"></div>
         <ProjectPublications

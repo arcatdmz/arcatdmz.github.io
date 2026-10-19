@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { SiteImage } from "@/site/components/SiteImage";
 import {
   MajorPublication,
@@ -126,23 +127,23 @@ export default function Page({ pageData }: PageDataProps) {
             </div>
           </div>
           <div className="ui basic segment">
-            <div className="ui two columns grid">
-              <div className="sixteen wide tablet ten wide computer column">
+            <Grid columns={2}>
+              <GridColumn tablet={16} computer={10}>
                 <SiteImage
                   className="ui fluid image"
                   src={`${rootPath}programming-with-examples/pwe-fig1.jpg`}
                   alt={"(Programming by Example vs Programming with Examples)"}
                 />
-              </div>
-              <div className="sixteen wide tablet six wide computer column">
+              </GridColumn>
+              <GridColumn tablet={16} computer={6}>
                 <p className="caption">
                   <strong>{"Figure 1."}</strong>
                   {
                     " Two workflows for developing data-intensive interactive systems. (a) Programming by example (PbE). (b) Programming with examples (PwE). Unlike PbE systems, PwE systems allow the representation of example data and enable explicit programming. IDE: integrated development environment."
                   }
                 </p>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
             <div className="ui hidden divider"></div>
           </div>
         </section>
@@ -151,8 +152,8 @@ export default function Page({ pageData }: PageDataProps) {
             {'What is (and what is not) "Programming with Examples"?'}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">{"It is..."}</h3>
                 <ul>
                   <li>
@@ -182,8 +183,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {" to provide fluid programming experience."}
                   </li>
                 </ul>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">{"It is NOT..."}</h3>
                 <ul>
                   <li>
@@ -224,8 +225,8 @@ export default function Page({ pageData }: PageDataProps) {
                     {" denote data used in the programs."}
                   </li>
                 </ul>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>

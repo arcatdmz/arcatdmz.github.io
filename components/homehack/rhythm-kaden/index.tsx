@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -20,14 +21,14 @@ function Content() {
 
   return (
     <>
-      <div className="ui stackable grid">
-        <div className="four wide column">
+      <Grid stackable>
+        <GridColumn width={4}>
           <SiteImage
             className="ui fluid image"
             src={`${rootPath}homehack/rhythmkaden.jpg`}
           />
-        </div>
-        <div className="twelve wide column">
+        </GridColumn>
+        <GridColumn width={12}>
           <p>
             {
               "ブラウザゲーム（音楽に合わせて上から降りてくるマーカーのタイミングに合わせてキーを押して得点を稼ぐ音楽ゲーム"
@@ -52,10 +53,10 @@ function Content() {
             </a>
             {"」で発表され、学生賞を受賞した。"}
           </p>
-        </div>
-      </div>
-      <div className="ui stackable two columns grid">
-        <div className="column">
+        </GridColumn>
+      </Grid>
+      <Grid stackable columns={2}>
+        <GridColumn>
           <h3 className="ui header">{"開発環境"}</h3>
           <ul>
             <li>{"Java (プロキシサーバ), JavaScript (Webサービスの改造)"}</li>
@@ -132,14 +133,14 @@ function Content() {
             </a>
             {"より"}
           </p>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <EmbedYoutube src={"//www.youtube.com/embed/Wu3OLxEmeww"} />
           <p className="caption">
             {"「既存Webアプリと家電のマッシュアップ」プレゼンテーション動画"}
           </p>
-        </div>
-      </div>
+        </GridColumn>
+      </Grid>
     </>
   );
 }

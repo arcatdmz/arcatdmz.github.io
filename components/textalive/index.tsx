@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed, Popup } from "@/site/components/SiteWidgets";
 import {
@@ -588,8 +589,8 @@ export default function Page({ pageData }: PageDataProps) {
           {en ? "Presentation materials" : "発表内容"}
         </h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">{"CHI 2015 Fast-forward"}</h3>
               <EmbedYoutube src={"//www.youtube.com/embed/lOdt-pf5U8Q"} />
               <div className="caption">
@@ -608,8 +609,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 {"CHI 2015 "}
                 {en ? "Slides" : "発表スライド"}
@@ -651,8 +652,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               ) : null}
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
       </>
     );
@@ -662,8 +663,8 @@ export default function Page({ pageData }: PageDataProps) {
       <>
         <h2 className="ui header">{en ? "Example videos" : "作例"}</h2>
         <div className="ui basic segment">
-          <div className="ui stackable two columns grid">
-            <div className="column">
+          <Grid stackable columns={2}>
+            <GridColumn>
               <h3 className="ui header">
                 {en ? "TextAlive Online" : "Web版"}
                 <div className="ui tiny label">
@@ -689,8 +690,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               ) : null}
-            </div>
-            <div className="column">
+            </GridColumn>
+            <GridColumn>
               <h3 className="ui header">
                 {en ? "TextAlive Desktop" : "デスクトップ版"}
                 <div className="ui tiny label">
@@ -710,8 +711,8 @@ export default function Page({ pageData }: PageDataProps) {
                   </p>
                 </>
               ) : null}
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
         </div>
       </>
     );

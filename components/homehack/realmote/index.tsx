@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { SiteImage } from "@/site/components/SiteImage";
 import { EmbedYoutube } from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
@@ -21,8 +22,8 @@ function Content() {
   return (
     <>
       <h3 className="ui header">{"概要"}</h3>
-      <div className="ui stackable two columns grid">
-        <div className="column">
+      <Grid stackable columns={2}>
+        <GridColumn>
           <p>
             {
               "スマートフォンやタブレット端末のWebブラウザから、電灯やエアコン、自動掃除機ルンバなどの家電製品を遠隔操作できるようにした。"
@@ -68,11 +69,11 @@ function Content() {
               </a>
             </li>
           </ul>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <EmbedYoutube src={"//www.youtube.com/embed/bhbW39zoxyg"} />
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/realmote-edit.jpg`)}
@@ -81,16 +82,16 @@ function Content() {
               src={`${rootPath}homehack/thumbnails/realmote-edit.jpg`}
             />
           </SiteLink>
-        </div>
-        <div className="column">
+        </GridColumn>
+        <GridColumn>
           <SiteLink
             className="ui fluid image"
             href={href(`${rootPath}homehack/realmote.jpg`)}
           >
             <SiteImage src={`${rootPath}homehack/thumbnails/realmote.jpg`} />
           </SiteLink>
-        </div>
-      </div>
+        </GridColumn>
+      </Grid>
     </>
   );
 }

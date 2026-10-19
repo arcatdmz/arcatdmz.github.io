@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { Embed } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
@@ -157,8 +158,8 @@ export default function Page({ pageData }: PageDataProps) {
             {en ? "Presentation materials" : "発表内容"}
           </h2>
           <div className="ui basic segment">
-            <div className="ui stackable two columns grid">
-              <div className="column">
+            <Grid stackable columns={2}>
+              <GridColumn>
                 <h3 className="ui header">
                   {"UIST 2012 "}
                   {en ? "Demo Video" : "デモ動画"}
@@ -174,8 +175,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="column">
+              </GridColumn>
+              <GridColumn>
                 <h3 className="ui header">
                   {"UIST 2012 "}
                   {en ? "Slides" : "発表スライド"}
@@ -200,8 +201,8 @@ export default function Page({ pageData }: PageDataProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>
@@ -232,8 +233,8 @@ export default function Page({ pageData }: PageDataProps) {
                 }
               </LocalizedContent>
             </p>
-            <div className="ui stackable two columns grid">
-              <div className="six wide column">
+            <Grid stackable columns={2}>
+              <GridColumn width={6}>
                 <p>
                   <SiteLink
                     className="ui fluid image"
@@ -258,8 +259,8 @@ export default function Page({ pageData }: PageDataProps) {
                     />
                   </SiteLink>
                 </p>
-              </div>
-              <div className="ten wide column">
+              </GridColumn>
+              <GridColumn width={10}>
                 <h3 className="ui header">{"Canvas"}</h3>
                 <ul>
                   <li>
@@ -309,8 +310,8 @@ export default function Page({ pageData }: PageDataProps) {
                     <li>{"Contents synchronized with canvas"}</li>
                   </LocalizedContent>
                 </ul>
-              </div>
-            </div>
+              </GridColumn>
+            </Grid>
           </div>
         </section>
         <div className="ui hidden divider"></div>

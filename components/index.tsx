@@ -1,3 +1,4 @@
+import { Grid, GridColumn } from "react-fomantic-ui";
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import {
   HomeHistory,
@@ -54,8 +55,8 @@ export default function Page({ pageData }: PageDataProps) {
     return (
       <>
         <div className="ui basic segment" id={"about"}>
-          <div className="ui stackable grid">
-            <div className="eight wide column">
+          <Grid stackable>
+            <GridColumn width={8}>
               <h5 className="ui header">{en ? "Research area" : "研究内容"}</h5>
               <p>
                 {en
@@ -134,8 +135,8 @@ export default function Page({ pageData }: PageDataProps) {
                   ? " is an important sub-goal to support the creativity of people with diverse technical backgrounds."
                   : "を支援する研究など、人々が創造性を発揮できる環境づくりに取り組んできました。"}
               </p>
-            </div>
-            <div className="eight wide column">
+            </GridColumn>
+            <GridColumn width={8}>
               <h5 className="ui header">{en ? "Bio" : "略歴"}</h5>
               <p>
                 <LocalizedContent
@@ -254,8 +255,8 @@ export default function Page({ pageData }: PageDataProps) {
                   {" (2021)."}
                 </LocalizedContent>
               </p>
-            </div>
-          </div>
+            </GridColumn>
+          </Grid>
           <div className="ui basic segment" id={"sns"}>
             <div className="ui horizontal list">
               <div className="item">
@@ -474,11 +475,12 @@ export default function Page({ pageData }: PageDataProps) {
               if (!p.getLink(lang, basePath)) continue;
               children.push(
                 <>
-                  <div
-                    className="ui stackable two columns grid"
+                  <Grid
+                    stackable
+                    columns={2}
                     id={attribute(`topics-${p.project}`)}
                   >
-                    <div className="five wide column">
+                    <GridColumn width={5}>
                       <SiteLink
                         className="ui fluid bordered image"
                         href={href(p.getLink(lang, basePath))}
@@ -490,8 +492,8 @@ export default function Page({ pageData }: PageDataProps) {
                           )}`}
                         />
                       </SiteLink>
-                    </div>
-                    <div className="eleven wide column">
+                    </GridColumn>
+                    <GridColumn width={11}>
                       <SiteLink
                         className="ui header"
                         href={href(p.getLink(lang, basePath))}
@@ -501,8 +503,8 @@ export default function Page({ pageData }: PageDataProps) {
                       <div className="description">
                         <HtmlContent html={p.getDescription(lang)} />
                       </div>
-                    </div>
-                  </div>
+                    </GridColumn>
+                  </Grid>
                 </>,
               );
               children.push(
@@ -798,17 +800,17 @@ export default function Page({ pageData }: PageDataProps) {
             <SiteModal className="ui large modal">
               <div className="header">{en ? "Profile photo" : "著者近影"}</div>
               <div className="scrolling content">
-                <div className="ui stackable columns grid">
+                <Grid stackable className="columns">
                   <div className="five columns row">
-                    <div className="column">
+                    <GridColumn>
                       <SiteLink
                         className="ui fluid circular bordered image"
                         href={href(`${rootPath}images/junkato.highres.jpg`)}
                       >
                         <SiteImage src={`${rootPath}images/junkato.jpg`} />
                       </SiteLink>
-                    </div>
-                    <div className="column">
+                    </GridColumn>
+                    <GridColumn>
                       <SiteLink
                         className="ui fluid circular bordered image"
                         href={href(
@@ -819,16 +821,16 @@ export default function Page({ pageData }: PageDataProps) {
                           src={`${rootPath}images/junkato.comics.png`}
                         />
                       </SiteLink>
-                    </div>
-                    <div className="column">
+                    </GridColumn>
+                    <GridColumn>
                       <SiteLink
                         className="ui fluid circular bordered image"
                         href={href(`${rootPath}images/junkato.alt.highres.jpg`)}
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt.jpg`} />
                       </SiteLink>
-                    </div>
-                    <div className="column">
+                    </GridColumn>
+                    <GridColumn>
                       <SiteLink
                         className="ui fluid circular bordered image"
                         href={href(
@@ -837,8 +839,8 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt2.jpg`} />
                       </SiteLink>
-                    </div>
-                    <div className="column">
+                    </GridColumn>
+                    <GridColumn>
                       <SiteLink
                         className="ui fluid circular bordered image"
                         href={href(
@@ -847,9 +849,9 @@ export default function Page({ pageData }: PageDataProps) {
                       >
                         <SiteImage src={`${rootPath}images/junkato.alt3.jpg`} />
                       </SiteLink>
-                    </div>
+                    </GridColumn>
                   </div>
-                </div>
+                </Grid>
               </div>
               <div className="content">
                 {en ? (
