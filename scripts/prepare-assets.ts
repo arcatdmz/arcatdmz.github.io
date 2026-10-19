@@ -16,6 +16,7 @@ import {
 } from "./image-derivatives";
 import { preparePageData } from "./prepare-page-data";
 import { prepareRoutes } from "./prepare-routes";
+import { prepareLegacyRedirects } from "./legacy-redirects";
 
 const root = process.cwd();
 const require = createRequire(path.join(root, "package.json"));
@@ -492,6 +493,7 @@ async function main(): Promise<void> {
     bundleLegacyInteractions(),
     prepareFeeds(),
     prepareRedirections(),
+    prepareLegacyRedirects(publicDirectory),
   ]);
   await write(path.join(publicDirectory, ".nojekyll"), "");
   await write(path.join(publicDirectory, "CNAME"), `${website.domain}\n`);

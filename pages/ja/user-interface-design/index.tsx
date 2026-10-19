@@ -138,16 +138,9 @@ export default function Page({ pageData }: PageDataProps) {
                   名の研究者、 Stuart Card、 Ben Shneiderman、 Don Norman
                   の成果を中心に紹介します。いずれも、ユーザとシステムの間のインタラクションをモデル化した成果です。
                 </p>
-                <LinkedImage
-                  size="tiny"
-                  floated="left"
-                  href="https://www.amazon.co.jp/dp/4621304674?&amp;linkCode=li2&amp;tag=digitalmuseum-22&amp;linkId=d6b76ffeb310e30945263f85e702914c&amp;language=ja_JP&amp;ref_=as_li_ss_il"
-                >
-                  <SiteImage src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4621304674&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=digitalmuseum-22&amp;language=ja_JP" />
-                </LinkedImage>
                 <p>
                   認知心理学に関する内容をさらに網羅的に知りたい場合、和書なら「
-                  <a href="https://amzn.to/3lfrH8S">
+                  <a href="https://www.amazon.co.jp/dp/4621304674">
                     インタフェースデザインの教科書
                   </a>
                   」をおすすめします。
@@ -631,13 +624,6 @@ export default function Page({ pageData }: PageDataProps) {
             </a>{" "}
             を設立しました。
           </p>
-          <LinkedImage
-            size="tiny"
-            floated="right"
-            href="https://www.amazon.co.jp/Designing-User-Interface-Human-Computer-Interaction/dp/013438038X?&amp;linkCode=li3&amp;tag=digitalmuseum-22&amp;linkId=74398046208ff478ab54959a153fe1de&amp;language=ja_JP&amp;ref_=as_li_ss_il"
-          >
-            <SiteImage src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=013438038X&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=digitalmuseum-22&amp;language=ja_JP" />
-          </LinkedImage>
           <p>
             版を重ねるたびに最新事情にキャッチアップしてきた分野の定番教科書「
             <a href="http://www.cs.umd.edu/hcil/DTUI6/">
@@ -645,6 +631,9 @@ export default function Page({ pageData }: PageDataProps) {
               Human-Computer Interaction
             </a>
             」を編纂している人でもあります。
+            <a href="https://www.amazon.co.jp/dp/013438038X">
+              書籍情報（Amazon）
+            </a>
           </p>
         </Grid.Column>
       </>
@@ -771,16 +760,12 @@ export default function Page({ pageData }: PageDataProps) {
           <Header.Content>ユーザビリティ</Header.Content>
         </Header>
         <Segment basic>
-          <LinkedImage
-            size="tiny"
-            floated="right"
-            href="https://www.amazon.co.jp/Usability-Engineering-Interactive-Technologies-English-ebook/dp/B0029ZBK80?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;dchild=1&amp;keywords=usability+engineering&amp;qid=1624013132&amp;s=digital-text&amp;sr=1-1&amp;linkCode=li2&amp;tag=digitalmuseum-22&amp;linkId=24dd480fbbec4c7a2314591233e29d3b&amp;language=ja_JP&amp;ref_=as_li_ss_il"
-          >
-            <SiteImage src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B0029ZBK80&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=digitalmuseum-22&amp;language=ja_JP" />
-          </LinkedImage>
           <p>
-            Nielsenが1994年に記した書籍「Usability
-            Engineering」では、インタフェースの使いやすさをユーザビリティという言葉で表し、次の5つの特性を示しました。
+            Nielsenが1994年に記した書籍「
+            <a href="https://www.amazon.co.jp/dp/B0029ZBK80">
+              Usability Engineering
+            </a>
+            」では、インタフェースの使いやすさをユーザビリティという言葉で表し、次の5つの特性を示しました。
           </p>
           <ol>
             <li>学習しやすいこと</li>
@@ -1052,16 +1037,9 @@ export default function Page({ pageData }: PageDataProps) {
             </a>
             と一緒に読むと分かりやすいです。
           </p>
-          <LinkedImage
-            size="tiny"
-            floated="right"
-            href="https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&amp;linkCode=li2&amp;tag=digitalmuseum-22&amp;linkId=e636a05eb62ab11181a5af2591c5dcc7&amp;language=ja_JP&amp;ref_=as_li_ss_il"
-          >
-            <SiteImage src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4861008212&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=digitalmuseum-22&amp;language=ja_JP" />
-          </LinkedImage>
           <p>
             「
-            <a href="https://www.amazon.co.jp/Research-Design-Method-Index-%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%81%E6%96%B0%E3%83%BB100%E3%81%AE%E6%B3%95%E5%89%87/dp/4861008212?&amp;linkCode=li2&amp;tag=digitalmuseum-22&amp;linkId=e636a05eb62ab11181a5af2591c5dcc7&amp;language=ja_JP&amp;ref_=as_li_ss_il">
+            <a href="https://www.amazon.co.jp/dp/4861008212">
               Research &amp; Design Method Index リサーチデザイン 新・100の法則
             </a>
             」はデザインのためのリサーチ手法を 100 個、各々見開き 2
@@ -1237,18 +1215,6 @@ export default function Page({ pageData }: PageDataProps) {
         <section id="conclusion">{renderConclusion()}</section>
         <Divider />
         <section id="revision">{renderRevision()}</section>
-        <SiteImage
-          src="https://ir-jp.amazon-adsystem.com/e/ir?t=digitalmuseum-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B0844T1CKC"
-          width="1"
-          height="1"
-          {...{ border: "0" }}
-        />
-        <SiteImage
-          src="https://ir-jp.amazon-adsystem.com/e/ir?t=digitalmuseum-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=013438038X"
-          width="1"
-          height="1"
-          {...{ border: "0" }}
-        />
       </SiteLayout>
     </>
   );
