@@ -129,7 +129,8 @@
       "hero": "animare.jpg",
       "tags": ["anime", "creativity"],
       "year": {
-        "from": 2025
+        "from": 2025,
+        "to": 2031
       },
       "publication": "undonecs2026-kato-anime-rnd",
       "title": "Animāre",
@@ -215,10 +216,10 @@
       "icon": true,
       "thumbnail": "griffith.jpg",
       "hero": "griffith.jpg",
-      "description": "Griffith is a web-based authoring tool for Japanese animation (anime) storyboards.",
+      "description": "Griffith explores web-based tools for Japanese animation (anime) storyboarding, designed with professionals to support progressive authoring of incomplete ideas and expressions beyond standard formats.",
       "ja": {
         "subtitle": "Webベースのアニメ用絵コンテ制作支援ツール",
-        "description": "Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。"
+        "description": "Griffithは、日本のアニメ制作における絵コンテのためのWebベースの制作支援ツールを、現場のプロとともに研究開発するプロジェクトです。未確定のアイデアや定型に収まらない表現を扱い、絵コンテを段階的に作り込むためのインタフェースを探究しています。"
       }
     },
     {
@@ -240,7 +241,7 @@
       "project": "lyric-app-framework",
       "title": "Lyric App Framework",
       "subtitle": "A Web-based Framework for Developing Interactive Lyric-driven Musical Applications",
-      "description": "We propose a &quot;lyric app,&quot; a novel media format of interactive lyric-driven visual art. We developed a framework to support its development, collected 52 examples in the wild, and gained insights into the future of creative culture and the intersection of music and programming.",
+      "description": "We propose a &quot;lyric app,&quot; a novel media format of interactive lyric-driven visual art. We developed a framework to support its development, analyzed 52 contest submissions created in the wild in 2020–2021, and gained insights into the future of creative culture and the intersection of music and programming.",
       "year": {
         "from": 2020
       },
@@ -254,7 +255,7 @@
       "publication": "chi2023-kato-lyric-app-framework",
       "ja": {
         "subtitle": "インタラクティブな歌詞駆動型視覚表現の開発用フレームワーク",
-        "description": "歌詞が魅力的にアニメーションするインタラクティブなビジュアルアートとして新たなメディア様式「リリックアプリ」を提案しました。その開発を支援するフレームワークを実装し、プログラミング・コンテストを開催し、応募された52作品を分析することで、創作文化の未来および音楽とプログラミングの関わりについて洞察を得ました。"
+        "description": "歌詞が魅力的にアニメーションするインタラクティブなビジュアルアートとして新たなメディア様式「リリックアプリ」を提案しました。その開発を支援するフレームワークを実装し、プログラミング・コンテストを開催し、2020-2021年に応募された52作品を分析することで、創作文化の未来および音楽とプログラミングの関わりについて洞察を得ました。"
       }
     },
     {
@@ -262,7 +263,8 @@
       "title": "Creativity Support Environments",
       "description": "<p>To realize a creative society in which people want to create content with the help of AI technologies, a sustainable ecosystem in which content inspires the next creation serves a critical role.</p><p>I shed light on the creative culture in such an ecosystem, build a &quot;creativity support environment (CSE)&quot; that supports the content creation and distribution process, and aim to establish Human-Computer Interaction (HCI) technologies that engineer, nurture, and maintain the creative culture.</p>",
       "year": {
-        "from": 2022
+        "from": 2022,
+        "to": 2026
       },
       "tags": ["creativity"],
       "icon": true,

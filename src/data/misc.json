@@ -1107,6 +1107,15 @@
   "miscellaneous": {
     "past-anime-events": [
       {
+        "title": "The 1st Animāre Seminar on Creativity Support Tools",
+        "dates": "February 10, 2026",
+        "url": "https://anime.pj.aist.go.jp/en/events/2026-02-10-1st-seminar",
+        "ja": {
+          "dates": "2026/2/10",
+          "url": "https://anime.pj.aist.go.jp/events/2026-02-10-1st-seminar"
+        }
+      },
+      {
         "title": "A Workshop on Creativity support for Hand-drawn Art Practices",
         "shorthand": "CHAP2025 Paris",
         "dates": "February 10-12, 2025",

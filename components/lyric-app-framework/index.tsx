@@ -382,6 +382,16 @@ export default function Page({ pageData }: PageDataProps) {
               <>
                 <Feed.Event>
                   <Feed.Content>
+                    <Feed.Date>11/13/2026</Feed.Date>
+                    <Feed.Summary>
+                      Updated links to "Hatsune Miku Magical Mirai" programming
+                      contest websites.
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
+
+                <Feed.Event>
+                  <Feed.Content>
                     <Feed.Date>04/20/2026</Feed.Date>
                     <Feed.Summary>
                       Added project hero image and updated project text and 2026
@@ -412,6 +422,15 @@ export default function Page({ pageData }: PageDataProps) {
               </>
             ) : (
               <>
+                <Feed.Event>
+                  <Feed.Content>
+                    <Feed.Date>11/13/2026</Feed.Date>
+                    <Feed.Summary>
+                      「初音ミク『マジカルミライ』」プログラミング・コンテスト関連のリンクを更新
+                    </Feed.Summary>
+                  </Feed.Content>
+                </Feed.Event>
+
                 <Feed.Event>
                   <Feed.Content>
                     <Feed.Date>04/20/2026</Feed.Date>
@@ -613,16 +632,17 @@ export default function Page({ pageData }: PageDataProps) {
                   {en ? (
                     <>
                       <p>
-                        The programming contests continue to be held even after
-                        the paper was published, with a 2025 Japanese journal
-                        paper reporting analysis results from four years, and
-                        the 2026 contest is ongoing.
+                        The programming contests have continued since the paper
+                        was published. A 2025 Japanese journal paper reported an
+                        analysis of four years of submissions. In 2026, the
+                        number of submissions increased substantially compared
+                        with the previous year.
                       </p>
                     </>
                   ) : (
                     <>
                       <p>
-                        論文執筆後もプログラミング・コンテストは継続して開催されており、2025年のジャーナル論文では4年分の分析結果を報告した他、2026年のコンテストが開催中です。
+                        論文執筆後もプログラミング・コンテストは継続して開催されています。2025年のジャーナル論文では4年分の分析結果を報告しました。2026年は前年から大幅に応募作品が増加しました。
                       </p>
                     </>
                   )}
@@ -648,8 +668,8 @@ export default function Page({ pageData }: PageDataProps) {
                       </p>
 
                       <p>
-                        We made the framework publicly available in 2020 and has
-                        been conducting an annual programming contest in{" "}
+                        We made the framework publicly available in 2020 and
+                        have been conducting an annual programming contest in{" "}
                         <a href="https://magicalmirai.com">
                           "Hatsune Miku Magical Mirai"
                         </a>{" "}
@@ -725,7 +745,7 @@ export default function Page({ pageData }: PageDataProps) {
                         <a href="https://magicalmirai.com">
                           初音ミク『マジカルミライ』
                         </a>
-                        」で開催されています。詳しくは各年のコンテスト公式サイトをご覧ください。2020-2021年の応募作品については論文でも報告されています。
+                        」で開催されています。詳しくは各年のコンテスト公式サイトをご覧ください。
                       </p>
 
                       <List divided horizontal as="ul">
@@ -780,54 +800,62 @@ export default function Page({ pageData }: PageDataProps) {
                           2026
                         </List.Item>
                       </List>
-
-                      <List divided horizontal as="ul">
-                        <List.Item as="strong">入選作品一覧</List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/2020/procon/entry.html"
-                        >
-                          2020
-                        </List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/2021/procon/entry.html"
-                        >
-                          2021
-                        </List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/10th/procon/entry.html"
-                        >
-                          2022 (10th Anniversary)
-                        </List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/2023/procon/entry.html"
-                        >
-                          2023
-                        </List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/2024/procon/entry.html"
-                        >
-                          2024
-                        </List.Item>
-                        <List.Item
-                          role="link"
-                          as="a"
-                          href="https://magicalmirai.com/2025/procon/entry.html"
-                        >
-                          2025
-                        </List.Item>
-                      </List>
                     </>
                   )}
+                  <List divided horizontal as="ul">
+                    <List.Item as="strong">
+                      {en ? "Selected entries" : "入選作品一覧"}
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2020/procon/entry.html"
+                    >
+                      2020
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2021/procon/entry.html"
+                    >
+                      2021
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/10th/procon/entry.html"
+                    >
+                      2022 (10th Anniversary)
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2023/procon/entry.html"
+                    >
+                      2023
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2024/procon/entry.html"
+                    >
+                      2024
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2025/procon/entry.html"
+                    >
+                      2025
+                    </List.Item>
+                    <List.Item
+                      role="link"
+                      as="a"
+                      href="https://magicalmirai.com/2026/procon/entry.html"
+                    >
+                      2026
+                    </List.Item>
+                  </List>
                 </Segment>
               </section>
             </Grid.Column>

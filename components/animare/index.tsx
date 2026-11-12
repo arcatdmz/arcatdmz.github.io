@@ -78,8 +78,8 @@ export default function Page({ pageData }: PageDataProps) {
         <Segment basic>
           <Segment>
             <Item.Group divided className="projects">
-              <ProjectItem p={projectsTable["anime-sig"]} />
               <ProjectItem p={projectsTable["griffith"]} />
+              <ProjectItem p={projectsTable["anime-sig"]} />
             </Item.Group>
           </Segment>
         </Segment>
@@ -225,6 +225,16 @@ export default function Page({ pageData }: PageDataProps) {
         </Header>
         <Segment basic>
           <Feed className="divided">
+            <Feed.Event>
+              <Feed.Content>
+                <Feed.Date>{en ? "11/13/2026" : "2026/11/13"}</Feed.Date>
+                <Feed.Summary>
+                  {en
+                    ? "Updated project information and past events."
+                    : "プロジェクト情報と過去のイベントを更新"}
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
             <Feed.Event>
               <Feed.Content>
                 <Feed.Date>{en ? "3/29/2026" : "2026/3/29"}</Feed.Date>
@@ -392,7 +402,7 @@ export default function Page({ pageData }: PageDataProps) {
               as="a"
               href="https://anime.pj.aist.go.jp"
             >
-              {en ? "CRONOS project website" : "CRONOS プロジェクトページ"}
+              {en ? "Animāre project website" : "Animāre プロジェクト"}
               <Icon name="chevron circle right" />
             </Button>
           </Segment>

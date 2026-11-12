@@ -131,3 +131,24 @@ test("OpenPool's Japanese award label does not leak into the English page", asyn
   assert.doesNotMatch(await renderPage("openpool/"), /グッドデザイン賞/);
   assert.match(await renderPage("ja/openpool/"), /グッドデザイン賞/);
 });
+
+test("Lyric App Framework localizes the completed 2026 contest update and shares selected-entry links", async () => {
+  const english = await renderPage("lyric-app-framework/");
+  const japanese = await renderPage("ja/lyric-app-framework/");
+  assert.match(
+    english,
+    /52 contest submissions created in the wild in 2020–2021/,
+  );
+  assert.match(english, /submissions increased substantially/);
+  assert.doesNotMatch(english, /2026 contest is ongoing/);
+  assert.match(english, /Selected entries/);
+  assert.match(japanese, /2020-2021年に応募された52作品/);
+  assert.match(japanese, /2026年は前年から大幅に応募作品が増加/);
+  for (const html of [english, japanese]) {
+    assert.match(
+      html,
+      /https:\/\/magicalmirai\.com\/2026\/procon\/entry\.html/,
+    );
+    assert.match(html, /11\/13\/2026/);
+  }
+});

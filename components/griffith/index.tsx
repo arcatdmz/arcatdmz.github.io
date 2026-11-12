@@ -33,7 +33,8 @@ import { type SiteContext } from "@/site/types";
 /** Shared page template. Japanese overrides: abstract. */
 export default function Page({ pageData }: PageDataProps) {
   const data = hydratePageData(pageData);
-  const { projectsTable, rootPath } = data;
+  const { projectsTable, publicationsTable, rootPath } = data;
+  const uist = publicationsTable["uist2026-kato-proconte"].entryTags;
   const lang = pageData.language;
   const en = lang === "en";
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -61,12 +62,12 @@ export default function Page({ pageData }: PageDataProps) {
     imageUrl,
     bodyClass,
   };
-  function renderPresentations(): ReactNode {
+  function renderChiPresentation(): ReactNode {
     return (
       <>
         <Header as="h2">
           <Header.Content>
-            {en ? "Presentation materials" : "発表内容"}
+            {en ? "Presentation materials (CHI ’24)" : "発表内容（CHI ’24）"}
           </Header.Content>
         </Header>
         <Table striped basic="very">
@@ -108,6 +109,10 @@ export default function Page({ pageData }: PageDataProps) {
                       </a>
                     </List.Content>
                   </List.Item>
+                  <List.Item>
+                    <Icon name="comments" />
+                    <List.Content>Design Tools B</List.Content>
+                  </List.Item>
                 </List>
               </Table.Cell>
             </Table.Row>
@@ -124,6 +129,89 @@ export default function Page({ pageData }: PageDataProps) {
         <Segment basic>
           <EmbedYoutube src="//www.youtube.com/embed/RWdw9rDRf7A" />
           <p className="caption">CHI 2024 Pre-recorded Presentation Video</p>
+        </Segment>
+      </>
+    );
+  }
+  function renderUistPresentation(): ReactNode {
+    return (
+      <>
+        <Header as="h2">
+          <Header.Content>
+            {en ? "Presentation materials (UIST ’26)" : "発表内容（UIST ’26）"}
+          </Header.Content>
+        </Header>
+        <Table striped basic="very">
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell width={3}>{en ? "Where?" : "会場"}</Table.Cell>
+              <Table.Cell width={13}>
+                <List>
+                  <List.Item>
+                    <Icon name="map pin" />
+                    <List.Content>
+                      Cabot (Floor Level 4), Detroit Marriott at the Renaissance
+                      Center
+                    </List.Content>
+                  </List.Item>
+                </List>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={3}>{en ? "When?" : "日時"}</Table.Cell>
+              <Table.Cell width={13}>
+                <List>
+                  <List.Item>
+                    <Icon name="clock" />
+                    <List.Content>Thu, Nov 5 | 10:00 - 10:09</List.Content>
+                  </List.Item>
+                </List>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell width={3}>UIST '26 Program</Table.Cell>
+              <Table.Cell width={13}>
+                <List>
+                  <List.Item>
+                    <Icon name="book" />
+                    <List.Content>
+                      <SiteLink href="https://programs.sigchi.org/uist/2026/program/content/262800">
+                        {uist.title} - UIST '26
+                      </SiteLink>
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
+                    <Icon name="comments" />
+                    <List.Content>
+                      Creative Authoring: Stories, Style, and Sound
+                    </List.Content>
+                  </List.Item>
+                </List>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+        <Segment basic>
+          <EmbedYoutube src="https://www.youtube.com/embed/B7w5rrQnpIM" />
+          <p className="caption">
+            {en
+              ? "UIST 2026 Video Preview (30s)"
+              : "UIST 2026 Video Preview（30秒）"}
+          </p>
+        </Segment>
+        <Segment basic>
+          <List horizontal>
+            <List.Item>
+              <Icon name="file pdf" />
+              <SiteLink href={uist.pdf}>{en ? "Paper" : "論文"}</SiteLink>
+            </List.Item>
+            <List.Item>
+              <Icon name="file powerpoint" />
+              <SiteLink href={uist.slides}>
+                {en ? "Presentation slides" : "発表スライド"}
+              </SiteLink>
+            </List.Item>
+          </List>
         </Segment>
       </>
     );
@@ -222,6 +310,16 @@ export default function Page({ pageData }: PageDataProps) {
           <Feed className="divided">
             <Feed.Event>
               <Feed.Content>
+                <Feed.Date>11/13/2026</Feed.Date>
+                <Feed.Summary>
+                  {en
+                    ? "Added UIST 2026 presentation materials and updated the project summary"
+                    : "UIST 2026の発表資料を追加し、プロジェクト概要を更新"}
+                </Feed.Summary>
+              </Feed.Content>
+            </Feed.Event>
+            <Feed.Event>
+              <Feed.Content>
                 <Feed.Date>12/30/2025</Feed.Date>
                 <Feed.Summary>
                   {en ? "Added a link to Animāre" : "Animāreへのリンクを追加"}
@@ -259,7 +357,7 @@ export default function Page({ pageData }: PageDataProps) {
             <LocalizedContent
               ja={
                 <p>
-                  Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。2018年にアニメプロデュース会社アーチでプロトタイプ開発に着手して以来、現場の監督などから幅広い協力を得て、実用に耐えるツールとして研究開発を継続してきました。
+                  Griffithは、日本のアニメ制作において設計図とも言うべき絵コンテのための、Webベースの制作支援ツールです。2018年にアニメプロデュース会社アーチでプロトタイプ開発に着手して以来、現場の監督などから幅広い協力を得て、実用に耐えるツールとして研究開発を継続してきました。近年は、未確定のアイデアや定型に収まらない表現を扱いながら、絵コンテを段階的に作り込めるインタフェースへと研究を発展させています。
                 </p>
               }
             >
@@ -270,7 +368,9 @@ export default function Page({ pageData }: PageDataProps) {
                 production. Griffith is a web-based E-conte authoring tool
                 designed with Japanese animation professionals, as part of our
                 long-term effort to intertwine artistic practice and scientific
-                research.
+                research. Our recent work explores interfaces that support
+                progressive authoring, allowing incomplete ideas and expressions
+                beyond standard formats to develop into finished storyboards.
               </p>
             </LocalizedContent>
           </Segment>
@@ -300,18 +400,25 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <Grid stackable columns={2}>
-          <Grid.Row>
-            <Grid.Column>
-              <section id="presentations">{renderPresentations()}</section>
-              <Divider hidden />
-            </Grid.Column>
-            <Grid.Column>
-              <section id="further-readings">{renderFurtherReadings()}</section>
-              <Divider hidden />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <section id="presentations">
+          <Grid stackable columns={2}>
+            <Grid.Row>
+              <Grid.Column>
+                <section id="presentations-uist2026">
+                  {renderUistPresentation()}
+                </section>
+              </Grid.Column>
+              <Grid.Column>
+                <section id="presentations-chi2024">
+                  {renderChiPresentation()}
+                </section>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </section>
+        <Divider hidden />
+        <section id="further-readings">{renderFurtherReadings()}</section>
+        <Divider hidden />
         <ProjectPublications project={p.project} />
         <Divider hidden />
         <section id="revisions">{renderRevisions()}</section>
