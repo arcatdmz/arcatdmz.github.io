@@ -222,10 +222,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Grid>
         </section>
         <Divider hidden />
-        <ProjectPublications
-          project="visionsketch"
-          majorPublication="gi2014-kato-visionsketch"
-        />
+        <ProjectPublications project="visionsketch" />
       </SiteLayout>
     </>
   );

@@ -68,7 +68,8 @@ export default function Page({ pageData }: PageDataProps) {
         <Message>
           <LocalizedContent ja="本研究の成果物である統合開発環境は、現在のところ公開される予定はありません。ただ、Kinectデータの録画再生など類似の機能は、統合開発環境とは独立したツール">
             <strong>For those interested in this IDE:</strong> Unfortunately,
-            there's no short term plan for the distribution. You can still use{" "}
+            there's no short term plan for the distribution. You can still
+            use{" "}
           </LocalizedContent>
           <a href="https://msdn.microsoft.com/en-us/library/hh855389.aspx">
             Kinect Studio
@@ -282,10 +283,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <ProjectPublications
-          project="dejavu"
-          majorPublication="uist2012-kato-dejavu"
-        />
+        <ProjectPublications project="dejavu" />
       </SiteLayout>
     </>
   );

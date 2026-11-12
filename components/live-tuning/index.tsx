@@ -399,7 +399,8 @@ export default function Page({ pageData }: PageDataProps) {
               </li>
               <li>
                 <strong>
-                  How can we achieve liveness when it takes time to apply edits?{" "}
+                  How can we achieve liveness when it takes time to apply
+                  edits?{" "}
                 </strong>
                 For instance, updating the 3D models is an instant process, but
                 printing them takes time. 1) significantly progress the research
@@ -427,10 +428,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <ProjectPublications
-          project="live-tuning"
-          majorPublication="live2016-kato-livetuning"
-        />
+        <ProjectPublications project="live-tuning" />
       </SiteLayout>
     </>
   );

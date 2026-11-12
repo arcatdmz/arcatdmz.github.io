@@ -845,10 +845,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id="presentations">{renderPresentations()}</section>
         <Divider hidden />
-        <ProjectPublications
-          project={p.project}
-          majorPublication="chi2023-kato-lyric-app-framework"
-        />
+        <ProjectPublications project={p.project} />
         <Divider hidden />
         <section id="revisions">{renderRevisions()}</section>
         <Divider hidden />

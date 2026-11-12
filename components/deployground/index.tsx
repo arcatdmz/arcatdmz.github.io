@@ -458,10 +458,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section id="abstract">{renderAbstract()}</section>
         <section id="presentations">{renderPresentations()}</section>
         <section id="related-work">{renderRelatedWork()}</section>
-        <ProjectPublications
-          project="deployground"
-          majorPublication="vlhcc2018-kato-deployground"
-        />
+        <ProjectPublications project="deployground" />
       </SiteLayout>
     </>
   );

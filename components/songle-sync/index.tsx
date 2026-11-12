@@ -373,10 +373,7 @@ export default function Page({ pageData }: PageDataProps) {
         <section id="abstract">{renderAbstract()}</section>
         <section id="presentations">{renderPresentations()}</section>
         <section id="related-projects">{renderRelatedProjects()}</section>
-        <ProjectPublications
-          project="songle-sync"
-          majorPublication="mm2018-kato-songlesync"
-        />
+        <ProjectPublications project="songle-sync" />
       </SiteLayout>
     </>
   );

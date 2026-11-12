@@ -1,3 +1,4 @@
+import type { PublicationProjectLink } from "./publication-links";
 /** Locale-specific, route-scoped data sent by getStaticProps. No source datasets
  * or date-formatting libraries belong in this browser module. */
 import website from "../website.json";
@@ -17,6 +18,9 @@ export interface ProjectView {
   images?: string[];
   thumbnail: string;
   publication?: string;
+  publications: string[];
+  publicationLinks: Record<string, PublicationProjectLink>;
+  awardPublicationKeys: string[];
   localizedTitle: string;
   subtitle?: string;
   description: string;
@@ -41,6 +45,8 @@ export interface EntryView {
   text: string;
   entryType?: string;
   funding?: string;
+  id?: string;
+  publications?: string[];
   isAward: boolean;
 }
 export interface HistoryView extends DateView {
@@ -61,6 +67,15 @@ export interface MediaView {
   draft?: boolean;
   private?: boolean;
   related?: MediaView[];
+}
+export interface AwardView {
+  kind?: "award" | "honor";
+  id: string;
+  publications: string[];
+  text: string;
+  label: string;
+  year: number;
+  entryType?: string;
 }
 export interface PublicationView {
   citationKey: string;
@@ -86,6 +101,7 @@ export interface PageDataSnapshot {
   mediaCount: number;
   misc: Record<string, any>;
   durations: Record<string, string>;
+  linkedAwards?: AwardView[];
   images?: ImageManifest;
 }
 export interface PageDataProps {
@@ -109,7 +125,8 @@ function hydrateProject(view: ProjectView) {
     getDesignTags: (_lang?: Language) => view.designTagLabels,
     hasMembers: (_lang?: Language) => view.members.length > 0,
     getMembers: (_lang?: Language) => view.members,
-    hasPublication: (_lang?: Language) => Boolean(view.publication),
+    getPublications: (_lang?: Language) => view.publications,
+    hasPublication: (_lang?: Language) => view.publications.length > 0,
     getPublication: (_lang?: Language) => view.publication,
     isPrivateProject: (_lang?: Language) => view.private,
     isDesignProject: () => view.designProject,
@@ -136,6 +153,7 @@ function hydrateEntry(view: EntryView) {
     ...dateObjs[0],
     text: view.text,
     entryType: view.entryType,
+    id: view.id,
     isAward: view.isAward,
     data: { funding: view.funding },
     dateObjs,
@@ -202,6 +220,7 @@ export function hydratePageData(snapshot: PageDataSnapshot) {
     ),
     histories,
     historyCount: snapshot.historyCount,
+    linkedAwards: snapshot.linkedAwards || [],
     awards: snapshot.awards.map(hydrateEntry),
     talks: snapshot.talks.map(hydrateEntry),
     lectures: snapshot.lectures.map(hydrateEntry),

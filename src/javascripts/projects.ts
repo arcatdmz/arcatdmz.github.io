@@ -42,7 +42,7 @@ interface RawEntry {
     to?: number;
   };
   category?: "collaboration" | "committee" | "private" | "concept";
-  publication?: string;
+  publication?: string | string[];
   title: string;
   "title-design"?: string;
   subtitle?: string;
@@ -54,7 +54,7 @@ interface RawEntry {
   ja: {
     private?: boolean;
     thumbnail?: string;
-    publication?: string;
+    publication?: string | string[];
     title?: string;
     "title-design"?: string;
     subtitle?: string;
@@ -106,7 +106,7 @@ class Entry {
     return this.data.category;
   }
   get publication() {
-    return this.data.publication;
+    return this.getPublications()[0] ?? null;
   }
   get title() {
     return this.data.title;
@@ -189,20 +189,22 @@ class Entry {
     }
     return results;
   }
+  getPublications(lang?: "en" | "ja"): string[] {
+    const value =
+      lang === "ja" && this.data.ja?.publication !== undefined
+        ? this.data.ja.publication
+        : this.data.publication;
+    return [
+      ...new Set(
+        value === undefined ? [] : Array.isArray(value) ? value : [value],
+      ),
+    ];
+  }
   hasPublication(lang?: "en" | "ja") {
-    return (
-      this.data.publication ||
-      (lang === "ja" && this.data.ja && this.data.ja.publication)
-    );
+    return this.getPublications(lang).length > 0;
   }
   getPublication(lang?: "en" | "ja") {
-    if (lang === "ja" && this.data.ja && this.data.ja.publication) {
-      return this.data.ja.publication;
-    }
-    if (this.data.publication) {
-      return this.data.publication;
-    }
-    return null;
+    return this.getPublications(lang)[0] ?? null;
   }
   getTitle(lang?: "en" | "ja") {
     if (lang === "ja" && this.data.ja && this.data.ja.title) {

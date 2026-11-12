@@ -215,10 +215,7 @@ export default function Page({ pageData }: PageDataProps) {
             <section id="videos">{renderVideos()}</section>
           </Grid.Column>
         </Grid>
-        <ProjectPublications
-          project="multirobot"
-          majorPublication="chi2009-kato-multirobot"
-        />
+        <ProjectPublications project="multirobot" />
       </SiteLayout>
     </>
   );

@@ -12,6 +12,11 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
+import {
+  awardsForPublications,
+  awardHref,
+  awardSummary,
+} from "../publication-awards";
 import { LinkedImage } from "@/site/components/LinkedImage";
 import { SiteImage } from "./SiteImage";
 import { CopyButton } from "@/site/components/InteractiveLinks";
@@ -207,18 +212,20 @@ export function ProjectHeader({
 }) {
   const { projectsTable, publications, lang, en, title } = useSiteContext();
   const p = projectsTable[project];
-  const projectAwards = publications.flatMap(({ entryTags: tags }) =>
-    tags?.project?.includes(project) &&
-    tags.addition &&
-    (!tags.language || (!en && tags.language === "japanese"))
-      ? tags.addition.split(/;\s*/g)
-      : [],
-  );
   const labels = Array.isArray(additionalLabels)
     ? additionalLabels
     : additionalLabels == null
       ? []
       : [additionalLabels];
+  const annotations = publications
+    .filter(
+      (e) =>
+        e.entryTags &&
+        (e.entryTags.project?.includes(project) ||
+          p.getPublications(lang).includes(e.citationKey)) &&
+        (!en || e.entryTags.language !== "japanese"),
+    )
+    .flatMap((e) => e.entryTags.addition?.split(/;\s*/g) || []);
   const tags = popupTags(p.getTags(lang));
   return (
     <section>
@@ -247,11 +254,11 @@ export function ProjectHeader({
             <ProjectPublicationLabel p={p} />
           </List.Item>
         ) : null}
-        {projectAwards.map((award, index) => (
-          <List.Item key={`${award}-${index}`}>
-            <Label basic size="tiny" color="red" as="span">
-              {!award.includes("Invited") ? <Icon name="trophy" /> : null}
-              {award}
+        <ProjectAwards project={project} />
+        {[...new Set(annotations)].map((note) => (
+          <List.Item key={note}>
+            <Label basic size="tiny" as="span">
+              {note}
             </Label>
           </List.Item>
         ))}
@@ -277,78 +284,134 @@ export function ProjectPublications({
   majorPublication,
 }: {
   project: string;
-  majorPublication?: string;
+  majorPublication?: string | string[];
 }) {
-  const { publications, en } = useSiteContext();
-  const entries = projectPublications(publications, project, en);
+  const { projectsTable, publicationsTable, publications, en, lang } =
+    useSiteContext();
+  const majorKeys = [
+    ...new Set(
+      majorPublication === undefined
+        ? projectsTable[project].getPublications(lang)
+        : Array.isArray(majorPublication)
+          ? majorPublication
+          : [majorPublication],
+    ),
+  ];
+  for (const key of majorKeys) {
+    if (!publicationsTable[key])
+      throw new Error(
+        `Unknown highlighted publication ${key} in project ${project}`,
+      );
+  }
+  const entries = projectPublications(publications, project, en).filter(
+    (e) => !majorKeys.includes(e.citationKey),
+  );
   return (
     <section id="publications">
       <Header as="h2">
         <Icon name="book" />
         <Header.Content>{en ? "Publications" : "発表文献"}</Header.Content>
       </Header>
-      {majorPublication ? (
-        <ProjectPublicationsWithMajor
-          project={project}
-          majorPublication={majorPublication}
-        />
-      ) : (
-        <Segment>
-          <List divided>
-            {entries.map((entry) => (
-              <Publication
-                key={entry.citationKey}
-                entry={entry}
-                withIcon={false}
-                withProjectLabel={false}
-              />
-            ))}
-            {!entries.length ? (
-              <List.Item>
-                No publication record found for this project.
-              </List.Item>
-            ) : null}
-          </List>
-        </Segment>
-      )}
+      <Segment basic>
+        {majorKeys.map((key) => (
+          <Segment raised className="major-publication" key={key} id={key}>
+            <Label color="red" ribbon as="span">
+              {en ? "Cite this!" : "引用するならコレ！"}
+            </Label>
+            <MajorPublication entry={publicationsTable[key]} />
+          </Segment>
+        ))}
+        {entries.length > 0 && (
+          <Segment secondary>
+            <List divided>
+              {entries.map((entry) => (
+                <Publication
+                  key={entry.citationKey}
+                  entry={entry}
+                  withIcon={false}
+                  withProjectLabel={false}
+                />
+              ))}
+            </List>
+          </Segment>
+        )}
+      </Segment>
     </section>
   );
 }
 
-export function ProjectPublicationsWithMajor({
-  project,
-  majorPublication,
-}: {
-  project: string;
-  majorPublication: string;
-}) {
-  const { publications, publicationsTable, en } = useSiteContext();
-  const entries = projectPublications(publications, project, en).filter(
-    (entry) => entry.citationKey !== majorPublication,
-  );
+export function PublicationAwards({ entry }: { entry: PublicationEntry }) {
+  const { linkedAwards, lang } = useSiteContext();
   return (
-    <Segment basic>
-      <Segment raised className="major-publication">
-        <Label color="red" ribbon as="span">
-          {en ? "Cite this!" : "引用するならコレ！"}
+    <>
+      {awardsForPublications(linkedAwards, [entry.citationKey]).map((a) => (
+        <Label
+          key={a.id}
+          size="tiny"
+          color="red"
+          as={SiteLink}
+          href={awardHref(a.id, lang)}
+        >
+          <Icon name="trophy" />
+          <HtmlContent html={a.label} />
         </Label>
-        <MajorPublication entry={publicationsTable[majorPublication]} />
-      </Segment>
-      {entries.length ? (
-        <Segment secondary>
-          <List divided>
-            {entries.map((entry) => (
-              <Publication
-                key={entry.citationKey}
-                entry={entry}
-                withIcon={false}
-                withProjectLabel={false}
-              />
-            ))}
-          </List>
-        </Segment>
-      ) : null}
-    </Segment>
+      ))}
+    </>
+  );
+}
+export function ProjectAwards({ project }: { project: string }) {
+  const { linkedAwards, projectsTable, lang } = useSiteContext();
+  const keys = projectsTable[project].awardPublicationKeys;
+  const awards = awardsForPublications(linkedAwards, keys);
+  if (!awards.length) return null;
+  if (awards.length <= 5)
+    return (
+      <>
+        {awards.map((a) => (
+          <List.Item key={a.id}>
+            <Label
+              basic
+              size="tiny"
+              color="red"
+              as={SiteLink}
+              href={awardHref(a.id, lang)}
+            >
+              <Icon name="trophy" />
+              <HtmlContent html={a.label} />
+            </Label>
+          </List.Item>
+        ))}
+      </>
+    );
+  return (
+    <List.Item>
+      <SitePopup
+        className="project-awards-popup"
+        position="bottom center"
+        portal
+        trigger={
+          <Label
+            as="button"
+            type="button"
+            basic
+            color="red"
+            size="tiny"
+            className="project-awards-summary"
+          >
+            <Icon name="trophy" />
+            {awardSummary(awards, lang)}
+          </Label>
+        }
+      >
+        <List divided>
+          {awards.map((a) => (
+            <List.Item key={a.id} as={SiteLink} href={awardHref(a.id, lang)}>
+              <HtmlContent html={a.text.replace(/<[^>]*>/g, "")} />
+            </List.Item>
+          ))}
+        </List>
+      </SitePopup>
+    </List.Item>
   );
 }
 
@@ -489,6 +552,7 @@ export function Publication({
                       </Label>
                     </>
                   ) : null}
+                  <PublicationAwards entry={entry} />
                   {entry.entryTags.addition ? (
                     <>
                       {additions.map((a, itemIndex) => {
@@ -599,6 +663,7 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
           <Icon name="book" />
           <List.Content>{entry.getBookWithPages()}</List.Content>
         </List.Item>
+        <PublicationAwards entry={entry} />
         {entry.entryTags.addition ? (
           <>
             {additions.map((a, itemIndex) => {
@@ -690,9 +755,6 @@ export function MajorPublication({ entry }: { entry: PublicationEntry }) {
 export function ProjectCard({ p }: { p: Project }) {
   const { publicationsTable, rootPath, lang, en, basePath } = useSiteContext();
   const description = p.getDescription(lang);
-  const pub = p.hasPublication(lang)
-    ? publicationsTable[p.getPublication(lang)]
-    : undefined;
   return (
     <Card
       id={p.project ? `projects-${p.project}` : undefined}
@@ -736,10 +798,7 @@ export function ProjectCard({ p }: { p: Project }) {
         </span>
         {p.category !== "private" && p.category !== "committee" ? (
           p.hasPublication(lang) ? (
-            <span>
-              <Icon name="student" />
-              <HtmlContent html={pub ? pub.getSeriesTag() : "undefined"} />
-            </span>
+            <ProjectPublicationLabel p={p} compact />
           ) : (
             <span>{en ? "(Work in progress)" : "(文献未発表)"}</span>
           )
@@ -939,17 +998,71 @@ export function ProjectLabel({ p }: { p: Project }) {
   );
 }
 
-export function ProjectPublicationLabel({ p }: { p: Project }) {
+export function ProjectPublicationLabel({
+  p,
+  compact = false,
+}: {
+  p: Project;
+  compact?: boolean;
+}) {
   const { publicationsTable, lang, en } = useSiteContext();
   if (!p.hasPublication(lang))
     return <span>{en ? "(Work in progress)" : "(文献未発表)"}</span>;
-  const pub = publicationsTable[p.getPublication(lang)];
-  return pub?.getSeriesTag() ? (
-    <Label basic size="tiny" color="green" as="span">
-      <Icon name="student" />
-      <HtmlContent html={pub.getSeriesTag()} />
-    </Label>
-  ) : null;
+  const series = [
+    ...new Map(
+      p.getPublications(lang).flatMap((key) => {
+        const tag = publicationsTable[key]?.getSeriesTag();
+        if (!tag) return [];
+        const link = p.publicationLinks[key];
+        return [[`${tag}:${link?.href || ""}`, { tag, link }] as const];
+      }),
+    ).values(),
+  ];
+  if (compact)
+    return (
+      <span className="project-publication-series">
+        <Icon name="student" />
+        {series.map(({ tag, link }, index) => (
+          <Fragment key={`${tag}:${link?.href || ""}`}>
+            {index > 0 ? "/" : null}
+            {link ? (
+              <SiteLink
+                href={link.href}
+                title={link.title}
+                aria-label={`${tag}: ${link.title}`}
+              >
+                <HtmlContent html={tag} />
+              </SiteLink>
+            ) : (
+              <HtmlContent html={tag} />
+            )}
+          </Fragment>
+        ))}
+      </span>
+    );
+  return (
+    <span className="project-publication-labels">
+      {series.map(({ tag, link }) => (
+        <Label
+          key={`${tag}:${link?.href || ""}`}
+          basic
+          size="tiny"
+          color="green"
+          as={link ? SiteLink : "span"}
+          {...(link
+            ? {
+                href: link.href,
+                title: link.title,
+                "aria-label": `${tag}: ${link.title}`,
+              }
+            : {})}
+        >
+          <Icon name="student" />
+          <HtmlContent html={tag} />
+        </Label>
+      ))}
+    </span>
+  );
 }
 
 function popupTags(tags: string[]) {

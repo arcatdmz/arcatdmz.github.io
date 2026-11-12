@@ -184,10 +184,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Grid.Column>
         </Grid>
         <Divider hidden />
-        <ProjectPublications
-          project="surfboard"
-          majorPublication="uist2010-kato-surfboard"
-        />
+        <ProjectPublications project="surfboard" />
       </SiteLayout>
     </>
   );

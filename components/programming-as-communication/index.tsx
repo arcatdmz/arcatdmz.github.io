@@ -420,10 +420,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id="social-effort">{renderSocialEffort()}</section>
         <Divider hidden />
-        <ProjectPublications
-          project={p.project}
-          majorPublication={p.publication}
-        />
+        <ProjectPublications project={p.project} />
         <Divider hidden />
         <section id="revision">{renderRevision()}</section>
       </SiteLayout>

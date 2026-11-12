@@ -337,10 +337,7 @@ export default function Page({ pageData }: PageDataProps) {
             <Divider hidden />
           </>
         )}
-        <ProjectPublications
-          project="touchdevelop"
-          majorPublication="pldi2013-kato-alive"
-        />
+        <ProjectPublications project="touchdevelop" />
       </SiteLayout>
     </>
   );

@@ -100,7 +100,8 @@ for (const lang of ["en", "ja"] as const) {
           );
         assert.equal(
           entry.isAward,
-          /受賞|選定/.test(original.getText("ja") || ""),
+          Boolean(original.data?.publications?.length) ||
+            /受賞|選定/.test(original.getText("ja") || ""),
         );
       }
     }
@@ -152,7 +153,11 @@ for (const lang of ["en", "ja"] as const) {
     assert.ok(home.publications.length < 15);
     assert.equal(
       home.projects.length,
-      new Set([...source.products, ...source.selectedProjects]).size,
+      new Set([
+        ...source.products,
+        ...source.selectedProjects,
+        source.projectsTable["lyric-app-framework"],
+      ]).size,
     );
     assert.equal("moment" in home, false);
     assert.ok(

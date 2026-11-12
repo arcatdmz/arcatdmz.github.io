@@ -664,7 +664,9 @@ function ResearchGrants() {
         </div>
         <div className="content">
           <a href="https://www.ipa.go.jp/index-e.html">
-            <abbr title="Information-technology Promotion Agency">IPA</abbr>{" "}
+            <abbr title="Information-technology Promotion Agency">
+              IPA
+            </abbr>{" "}
           </a>
           <a
             href="https://www.ipa.go.jp/english/humandev/third.html"
@@ -1078,9 +1080,11 @@ type Publication = SiteData["publications"][number];
 function PublicationCitation({
   entry,
   notes,
+  awards,
 }: {
   entry: Publication;
   notes: SiteData["misc"]["publications"];
+  awards: SiteData["linkedAwards"];
 }) {
   const book = entry.getBook();
   const series = entry.getSeries();
@@ -1123,6 +1127,14 @@ function PublicationCitation({
           .
         </>
       )}
+      {awards
+        .filter((a) => a.publications.includes(entry.citationKey))
+        .map((a) => (
+          <strong key={a.id} className="addition">
+            {" "}
+            🌟 <HtmlContent html={a.label} />
+          </strong>
+        ))}
       {entry.entryTags.addition && (
         <>
           {" "}
@@ -1166,6 +1178,7 @@ function Publications({ data }: { data: SiteData }) {
               <PublicationCitation
                 entry={entry}
                 notes={data.misc.publications}
+                awards={data.linkedAwards}
               />
             </div>
           </div>
@@ -1194,6 +1207,7 @@ function Publications({ data }: { data: SiteData }) {
               <PublicationCitation
                 entry={entry}
                 notes={data.misc.publications}
+                awards={data.linkedAwards}
               />
             </div>
           </div>

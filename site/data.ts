@@ -1,3 +1,4 @@
+import { validatePublicationData } from "./publication-awards";
 import moment from "moment";
 import "moment/locale/ja";
 import { buildTimestamp } from "./clock";
@@ -40,6 +41,11 @@ function replaceRootPath(
 
 const publications = parsePublications(
   rawPublications as Parameters<typeof parsePublications>[0],
+);
+validatePublicationData(
+  projects,
+  awards,
+  new Set(publications.map((p) => p.citationKey)),
 );
 const misc: Record<string, any> = structuredClone(rawMisc);
 replaceRootPath({ histories, awards, talks, lectures, projects, media, misc });

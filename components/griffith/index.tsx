@@ -314,10 +314,7 @@ export default function Page({ pageData }: PageDataProps) {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <ProjectPublications
-          project={p.project}
-          majorPublication="chi2024-kato-griffith"
-        />
+        <ProjectPublications project={p.project} />
         <Divider hidden />
         <section id="revisions">{renderRevisions()}</section>
       </SiteLayout>

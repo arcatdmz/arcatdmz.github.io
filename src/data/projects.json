@@ -205,7 +205,7 @@
     },
     {
       "project": "griffith",
-      "publication": "chi2024-kato-griffith",
+      "publication": ["chi2024-kato-griffith", "uist2026-kato-proconte"],
       "title": "Griffith",
       "subtitle": "A Web-based Tool for Authoring Anime Storyboards",
       "year": {
@@ -651,7 +651,10 @@
       "year": {
         "from": 2014
       },
-      "publication": "chi2015-kato-textalive",
+      "publication": [
+        "chi2015-kato-textalive",
+        "chi2023-kato-lyric-app-framework"
+      ],
       "title": "TextAlive",
       "title-design": "TextAlive brand design",
       "subtitle": "An Integrated Design Environment for kinetic typography",

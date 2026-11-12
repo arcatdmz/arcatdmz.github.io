@@ -721,3 +721,22 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
 .live-preview:focus > img.hover {
   opacity: 1;
 }
+
+.project-publication-labels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  max-width: 100%;
+}
+.ui.label.project-awards-summary {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.ui.popup.project-awards-popup {
+  max-width: min(90vw, 36rem);
+  > .ui.list {
+    max-height: min(70vh, 32rem);
+    overflow-y: auto;
+  }
+}

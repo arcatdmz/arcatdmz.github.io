@@ -217,10 +217,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         ) : null}
         <Divider hidden />
-        <ProjectPublications
-          project="sharedo"
-          majorPublication="hai2014-kato-sharedo"
-        />
+        <ProjectPublications project="sharedo" />
       </SiteLayout>
     </>
   );

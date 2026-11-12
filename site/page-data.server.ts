@@ -1,3 +1,5 @@
+import { publicationProjectLinks } from "./publication-links";
+import { awardLabel } from "./publication-awards";
 /** Build-only page viewmodels. Import only from getStaticProps: Next removes
  * this module (and the original datasets/Moment) from browser entry points. */
 import { getSiteData, type SiteData as SourceData } from "./data";
@@ -53,7 +55,11 @@ function entryView(
     text: entry.getText(lang),
     entryType: entry.entryType,
     funding: entry.data?.funding,
-    isAward: japanese.includes("受賞") || japanese.includes("選定"),
+    id: entry.data?.id,
+    publications: entry.data?.publications,
+    isAward: entry.data?.kind
+      ? entry.data.kind === "award"
+      : japanese.includes("受賞") || japanese.includes("選定"),
   };
 }
 function projectView(
@@ -73,6 +79,17 @@ function projectView(
     images: entry.images,
     thumbnail: entry.getThumbnail(lang),
     publication: entry.getPublication(lang),
+    publications: entry.getPublications(lang),
+    publicationLinks: publicationProjectLinks(
+      entry,
+      getSiteData().projects,
+      getSiteData().publicationsTable,
+      lang,
+      getSiteData().rootPath + (lang === "ja" ? "ja/" : ""),
+    ),
+    awardPublicationKeys: getSiteData()
+      .publications.filter((p) => p.entryTags?.project?.includes(entry.project))
+      .map((p) => p.citationKey),
     localizedTitle: entry.getTitle(lang),
     subtitle: entry.getSubtitle(lang),
     description: entry.getDescription(lang),
@@ -177,7 +194,6 @@ export function getPageData(
     return false;
   });
   projectList.forEach((entry) => projectSet.add(entry));
-
   const publicationSet = new Set<SourceData["publications"][number]>();
   const addPublication = (key: string) => {
     const publication = source.publicationsTable[key];
@@ -206,8 +222,8 @@ export function getPageData(
       return true;
     return (
       Boolean(
-        references.publicationProjects?.some(
-          (key) => entry.entryTags.project?.includes(key),
+        references.publicationProjects?.some((key) =>
+          entry.entryTags.project?.includes(key),
         ),
       ) &&
       (lang === "ja" || entry.entryTags.language !== "japanese")
@@ -221,7 +237,9 @@ export function getPageData(
   selectedPublications.forEach((entry) => publicationSet.add(entry));
   // Cards/header labels need their primary citation, but navigation projects do
   // not cause all of their publications to be serialized into unrelated pages.
-  projectSet.forEach((entry) => addPublication(entry.getPublication(lang)));
+  projectSet.forEach((entry) =>
+    entry.getPublications(lang).forEach(addPublication),
+  );
   publicationSet.forEach((entry) => addProject(entry.entryTags?.project));
 
   const mediaCount = source.mediaList.length;
@@ -235,8 +253,8 @@ export function getPageData(
       );
     if (publicationPage) return lang === "ja" || entry.media?.en;
     if (section === "animare") return entry.tags?.includes("anime");
-    return references.mediaProjects?.some(
-      (key) => entry.projects?.includes(key),
+    return references.mediaProjects?.some((key) =>
+      entry.projects?.includes(key),
     );
   });
   mediaList.forEach((entry) => entry.projects?.forEach(addProject));
@@ -296,6 +314,32 @@ export function getPageData(
     }
   }
   const snapshot: PageDataSnapshot = {
+    linkedAwards: (home ? [] : source.awards)
+      .filter((entry) =>
+        entry.data.publications?.some(
+          (key) =>
+            publicationSet.has(source.publicationsTable[key]) ||
+            references.publicationProjects?.some((project) =>
+              source.publicationsTable[key].entryTags.project?.includes(
+                project,
+              ),
+            ),
+        ),
+      )
+      .map((entry) => ({
+        kind: entry.data.kind,
+        id: entry.data.id,
+        publications: entry.data.publications,
+        text: entry.getText(lang),
+        label: awardLabel(entry.data.label, lang, entry.getText(lang)),
+        year: entry.date.getFullYear(),
+        entryType: entry.entryType,
+      }))
+      .sort((a, b) => {
+        const first = source.awards.find((e) => e.data.id === a.id)!;
+        const second = source.awards.find((e) => e.data.id === b.id)!;
+        return second.date.getTime() - first.date.getTime();
+      }),
     language: lang,
     projects: [...projectSet].map((entry) =>
       projectView(entry, lang, projectKey(entry)),

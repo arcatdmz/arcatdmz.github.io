@@ -430,10 +430,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         ) : null}
         <Divider hidden />
-        <ProjectPublications
-          project="picode"
-          majorPublication="chi2013-kato-picode"
-        />
+        <ProjectPublications project="picode" />
       </SiteLayout>
     </>
   );

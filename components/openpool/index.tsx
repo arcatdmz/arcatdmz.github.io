@@ -327,10 +327,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Grid.Column>{renderVideos()}</Grid.Column>
       </Grid>
       <Divider hidden />
-      <ProjectPublications
-        project="openpool"
-        majorPublication="gcce2013-kato-openpool"
-      />
+      <ProjectPublications project="openpool" />
     </SiteLayout>
   );
 }

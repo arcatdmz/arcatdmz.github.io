@@ -208,7 +208,10 @@ export default function Page({ pageData }: PageDataProps) {
                   <List divided>
                     {filteredAwards.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <List.Item className={classNames(entry.entryType)}>
+                        <List.Item
+                          id={`award-${entry.id}`}
+                          className={classNames(entry.entryType)}
+                        >
                           <Icon className={entry.getIconClass()}></Icon>
                           <List.Content>
                             <List.Header>
@@ -244,7 +247,10 @@ export default function Page({ pageData }: PageDataProps) {
                   <List divided>
                     {honors.map((entry, itemIndex) => (
                       <Fragment key={itemIndex}>
-                        <List.Item className={classNames(entry.entryType)}>
+                        <List.Item
+                          id={`award-${entry.id}`}
+                          className={classNames(entry.entryType)}
+                        >
                           <Icon className={entry.getIconClass()}></Icon>
                           <List.Content>
                             <List.Header>

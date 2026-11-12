@@ -122,6 +122,10 @@ export class Entry {
 }
 
 export interface RawEntry {
+  kind?: "award" | "honor";
+  id?: string;
+  publications?: string[];
+  label?: Partial<I18nText>;
   date: string;
   text: string | I18nText;
   entryType?: string;

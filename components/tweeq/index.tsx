@@ -298,10 +298,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <ProjectPublications
-          project="tweeq"
-          majorPublication="uist2025-hashimoto-tweeq"
-        />
+        <ProjectPublications project="tweeq" />
       </SiteLayout>
     </>
   );

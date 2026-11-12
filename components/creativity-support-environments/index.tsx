@@ -593,10 +593,7 @@ export default function Page({ pageData }: PageDataProps) {
         <Divider hidden />
         <section id="xrds">{renderXrds()}</section>
         <Divider hidden />
-        <ProjectPublications
-          project={p.project}
-          majorPublication="chi2023-kato-sigccc"
-        />
+        <ProjectPublications project={p.project} />
         <Divider />
         <section id="revision">{renderRevision()}</section>
       </SiteLayout>

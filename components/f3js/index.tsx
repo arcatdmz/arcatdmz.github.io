@@ -658,10 +658,7 @@ export default function Page({ pageData }: PageDataProps) {
           </Segment>
         </section>
         <Divider hidden />
-        <ProjectPublications
-          project="f3js"
-          majorPublication="dis2017-kato-f3js"
-        />
+        <ProjectPublications project="f3js" />
       </SiteLayout>
     </>
   );

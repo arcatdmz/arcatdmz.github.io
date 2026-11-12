@@ -71,7 +71,7 @@ export function TagLink({
       portal
       className="project tag"
       hover={false}
-      position={trigger.props["data-position"] || "top center"}
+      position="bottom center"
       onOpen={(anchor) => {
         setCurrentProject(
           anchor.closest<HTMLElement>("[data-project]")?.dataset.project || "",

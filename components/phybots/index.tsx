@@ -460,10 +460,7 @@ export default function Page({ pageData }: PageDataProps) {
           </>
         ) : null}
         <Divider hidden />
-        <ProjectPublications
-          project="phybots"
-          majorPublication="dis2012-kato-phybots"
-        />
+        <ProjectPublications project="phybots" />
       </SiteLayout>
     </>
   );
