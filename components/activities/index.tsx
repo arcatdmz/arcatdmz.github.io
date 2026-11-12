@@ -11,7 +11,6 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { buildYear } from "@/site/clock";
 import { HtmlContent } from "@/site/components/content/HtmlContent";
 import { SiteLayout } from "@/site/components/layout/SiteLayout";
 import { SiteLink } from "@/site/components/links/SiteLink";
@@ -337,10 +336,7 @@ export default function Page({ pageData }: PageDataProps) {
                     インタラクション
                   </a>
                 </List.Header>
-                <div className="meta">
-                  プログラム委員 (2017-
-                  {buildYear})
-                </div>
+                <div className="meta">プログラム委員 (2017-2027)</div>
               </List.Item>
               <List.Item>
                 <List.Header>
@@ -352,7 +348,9 @@ export default function Page({ pageData }: PageDataProps) {
                     WISS
                   </a>
                 </List.Header>
-                <div className="meta">プログラム委員 (2015-2019, 2025)</div>
+                <div className="meta">
+                  プログラム委員 (2015-2019, 2025-2026)
+                </div>
               </List.Item>
             </List>
           </>
@@ -449,7 +447,7 @@ export default function Page({ pageData }: PageDataProps) {
                 </List.Header>
                 <div className="meta">
                   Web/投票/ローカルサーバ担当 運営委員 (2015-2019), Web担当
-                  運営委員 (2025)
+                  運営委員 (2025-2026)
                 </div>
               </List.Item>
               <List.Item>

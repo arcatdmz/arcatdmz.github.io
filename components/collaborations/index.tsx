@@ -153,14 +153,14 @@ export default function Page({ pageData }: PageDataProps) {
                 <>
                   <Header as="h2" id="collaborators">
                     <Icon name="users" />
-                    リサーチエンジニア・協力研究員
+                    研究チーム
                   </Header>
                   <p>
                     2018年から技術顧問としてアニメの企画開発プロデュース会社である
                     <a href="https://archinc.jp">アーチ株式会社</a>
                     の技術顧問を務めており、小規模ながら研究開発チームがあります。また、主務である
                     <abbr title="産業技術総合研究所">産総研</abbr>
-                    でも、協力研究員などのかたちで研究開発に関わってくださる方々を受け入れています。
+                    でも、ポスドクや協力研究員などのかたちで研究開発に関わってくださる方々を受け入れています。
                   </p>
                   <List>
                     <List.Item>
@@ -180,6 +180,17 @@ export default function Page({ pageData }: PageDataProps) {
                       <div className="meta">
                         2023/02- <abbr title="産業技術総合研究所">産総研</abbr>{" "}
                         協力研究員
+                      </div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
+                        <a href="https://nmgcapucine.github.io/">
+                          Capucine Nghiem
+                        </a>
+                      </List.Header>
+                      <div className="meta">
+                        2026/04- <abbr title="産業技術総合研究所">産総研</abbr>{" "}
+                        ポスドク（特別研究員）
                       </div>
                     </List.Item>
                   </List>
@@ -390,6 +401,37 @@ export default function Page({ pageData }: PageDataProps) {
                         北海道情報大学 情報メディア学部（2025/08-2025/09）
                       </div>
                     </List.Item>
+                    <List.Item>
+                      <List.Header>
+                        <Icon name="check circle" />
+                        安田 隆哉
+                      </List.Header>
+                      <div className="meta">
+                        名古屋工業大学（2026/08-2026/09）
+                      </div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
+                        <a href="https://hci-lab.jp/about/">
+                          <Icon name="check circle" />
+                          佐藤 龍平
+                        </a>
+                      </List.Header>
+                      <div className="meta">
+                        北海道大学大学院 情報科学院（2026/08-2026/09）
+                      </div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Header>
+                        <a href="https://toremolo72.github.io/toremolo72/about">
+                          <Icon name="check circle" />
+                          小澤 知夏
+                        </a>
+                      </List.Header>
+                      <div className="meta">
+                        筑波大学大学院 人間総合科学学術院（2026/08-2026/09）
+                      </div>
+                    </List.Item>
                   </List>
                   <Header as="h3">その他の学生向け情報</Header>
                   <p>
@@ -445,12 +487,8 @@ export default function Page({ pageData }: PageDataProps) {
                 My primary affiliation currently has a funding from the{" "}
                 <a href="https://www.jst.go.jp/kisoken/cronos/en/overview/index.html">
                   JST CRONOS
-                </a>
-                /
-                <a href="https://www.jst.go.jp/kisoken/crest/en/about/index.html">
-                  CREST
                 </a>{" "}
-                programs and there are also public funding support such as{"  "}
+                program and there are also public funding support such as{"  "}
                 <a href="https://www.jsps.go.jp/english/e-fellow/e-ippan/index.html">
                   <abbr title="Japan Society for the Promotion of Science">
                     JSPS
