@@ -183,3 +183,7 @@ npm run preview
 `site/components/` は機能別フォルダに分け、内部部品も含め1コンポーネント1ファイルとします。ファイル名はコンポーネント名に合わせ、各ファイルから直接importしてください。集約用の `index.ts` は作成しません。共有Context・型・補助関数は機能内の `.ts` ファイルに置きます。
 
 フックは `site/hooks/` に置き、Contextの定義と分けて管理します。
+
+## import の順序
+
+パッケージのimport（`react`・`react-fomantic-ui`・`node:` など）を先に置き、空行を一つ挟んでローカルのimport（`@/`・相対パス）をまとめます。型のみのimportも同じ分類です。各グループ内では既存の順序を保ち、CSSなどの副作用importの読み込み順を維持します。`npm run prettify` で自動整形し、`npm test` でルール違反を検出します。
