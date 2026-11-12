@@ -1,6 +1,10 @@
 {
   "en": [
     {
+      "date": "2026/11/5",
+      "text": "Presented ProConte, our research on supporting progressive authoring of anime storyboards building on <a href=\"${rootPath}griffith/\">Griffith</a>, at <a href=\"https://uist.acm.org/2026/\">ACM UIST 2026</a> in Detroit. The talk took place on Thursday, November 5, at 10:00 AM EST in the &quot;<a href=\"https://programs.sigchi.org/uist/2026/program/content/262800\">Creative Authoring: Stories, Style, and Sound</a>&quot; session. The <a href=\"${rootPath}publications/uist2026-kato-proconte.pdf\">paper</a> and <a href=\"${rootPath}publications/uist2026-kato-proconte-slides.pdf\">presentation slides</a> are available."
+    },
+    {
       "date": "2026/7/16",
       "text": "The <a href=\"https://anime.pj.aist.go.jp/en/events/2026-09-07-1st-workshop\">1st Animāre Interdisciplinary Workshop</a> will be held at Hokkaido University from 13:00 to 18:00 on Monday, September 7. Through case studies of research and development supporting anime production (anime R&amp;D), we will explore what makes technology &quot;good&quot; across technology, practice, and society. We warmly welcome anyone interested in anime production!"
     },
@@ -438,6 +442,10 @@
     }
   ],
   "ja": [
+    {
+      "date": "2026/11/5",
+      "text": "国際会議<a href=\"https://uist.acm.org/2026/\">ACM UIST 2026</a>の「<a href=\"https://programs.sigchi.org/uist/2026/program/content/262800\">Creative Authoring: Stories, Style, and Sound</a>」セッションで「<a href=\"${rootPath}ja/griffith/\">ProConte: Supporting Progressive Authoring of Anime Storyboards through Partial and Exceptional Representations</a>」（10:00 Thu, Nov 5）を登壇発表しました。<a href=\"${rootPath}publications/uist2026-kato-proconte.pdf\">論文</a>と<a href=\"${rootPath}publications/uist2026-kato-proconte-slides.pdf\">発表スライド</a>を公開しています。"
+    },
     {
       "date": "2026/7/16",
       "text": "9月7日（月）13:00-18:00に北海道大学で「<a href=\"https://anime.pj.aist.go.jp/events/2026-09-07-1st-workshop\">アニマーレ 第1回学際ワークショップ</a>」を開催します。アニメづくりを支える研究開発（アニメR&amp;D）の事例紹介を通じて、技術・実践・社会を横断しながら「よい」技術とは何かを問い直します。アニメに関する研究について興味のある幅広い方々のご参加をお待ちしています！"
