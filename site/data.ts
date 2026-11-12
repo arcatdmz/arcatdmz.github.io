@@ -10,7 +10,7 @@ import histories from "../src/javascripts/histories";
 import awards from "../src/javascripts/awards";
 import talks from "../src/javascripts/talks";
 import lectures from "../src/javascripts/lectures";
-import projects from "../src/javascripts/projects";
+import projects, { tags as projectTags } from "../src/javascripts/projects";
 import { parse as parsePublications } from "../src/javascripts/publications";
 import media from "../src/javascripts/media";
 import rawMisc from "../src/data/misc.json";
@@ -86,6 +86,7 @@ const siteData = {
   lectures,
   projects,
   projectsTable,
+  projectTags,
   products: website.products.map((key) => projectsTable[key]),
   selectedProjects: website.selectedProjects.map((key) => projectsTable[key]),
   publications,

@@ -9,6 +9,7 @@ export interface SiteContext {
   en: boolean;
   rootPath: string;
   basePath: string;
+  languageSearch?: string;
   author: string;
   me: string;
   title: string;

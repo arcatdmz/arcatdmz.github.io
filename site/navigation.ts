@@ -58,9 +58,12 @@ export function getDocumentMetadata(pathname: string) {
 
 /** Offer language switching only when the corresponding content route exists. */
 export function alternateLanguageHref(
-  context: Pick<SiteContext, "rootPath" | "en"> & { me?: string },
+  context: Pick<SiteContext, "rootPath" | "en"> & {
+    me?: string;
+    languageSearch?: string;
+  },
 ): string | undefined {
   if (typeof context.me !== "string") return undefined;
-  const href = `${context.rootPath}${context.en ? "ja/" : ""}${context.me}`;
+  const href = `${context.rootPath}${context.en ? "ja/" : ""}${context.me}${context.languageSearch || ""}`;
   return resolveReactHref(href);
 }

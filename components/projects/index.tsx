@@ -5,14 +5,28 @@ import {
   Icon,
   Item,
   List,
+  Message,
   Segment,
 } from "react-fomantic-ui";
 
 import { LocalizedContent } from "@/site/components/LocalizedContent";
 import { SitePopup } from "@/site/components/SiteWidgets";
-import { ProjectItem } from "@/site/components/ContentComponents";
+import {
+  ProjectItem,
+  ResearchTopic,
+} from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useLayoutEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { HtmlContent } from "@/site/components/RichText";
+import {
+  isResearchProject,
+  partitionProjectFilter,
+  projectFilterTag,
+  projectFilterHref,
+  type ProjectFilterTag,
+} from "@/site/project-filter";
 import { keyed, href } from "@/site/rendering";
 import {
   hydratePageData,
@@ -22,10 +36,41 @@ import {
 import { SiteLayout } from "@/site/components/SiteLayout";
 import { type SiteContext } from "@/site/types";
 
+const useBrowserLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 /** Shared page template. Japanese overrides: projects, research, design-and-engineering. */
 export default function Page({ pageData }: PageDataProps) {
   const data = hydratePageData(pageData);
   const { projects, rootPath } = data;
+  const router = useRouter();
+  const [initialPath, setInitialPath] = useState<string | null>(null);
+  useBrowserLayoutEffect(() => {
+    setInitialPath(
+      window.location.pathname + window.location.search + window.location.hash,
+    );
+  }, []);
+  const hydrated = initialPath !== null;
+  const currentPath = hydrated && !router.isReady ? initialPath : router.asPath;
+  const filterTags: ProjectFilterTag[] = data.misc.projectFilterTags || [];
+  const activeTag = hydrated ? projectFilterTag(currentPath, filterTags) : "";
+  useBrowserLayoutEffect(() => {
+    if (hydrated)
+      document.documentElement.removeAttribute("data-project-filter-pending");
+  }, [hydrated, activeTag]);
+  const research = projects.filter(isResearchProject);
+  const topic = data.projectsTable[activeTag];
+  const eligibleTopic = topic?.getLink(
+    pageData.language,
+    rootPath + (pageData.language === "ja" ? "ja/" : ""),
+  )
+    ? topic
+    : undefined;
+  const { featured: featuredResearch, projects: visibleResearch } =
+    partitionProjectFilter(research, activeTag, eligibleTopic);
+  const filteredCount = visibleResearch.length + (featuredResearch ? 1 : 0);
+  const selectedTag = filterTags.find((t) => t.key === activeTag);
+  const filterHref = (tag: string) => projectFilterHref(currentPath, tag);
   const lang = pageData.language;
   const en = lang === "en";
   const basePath = en ? rootPath : rootPath + "ja/";
@@ -47,6 +92,9 @@ export default function Page({ pageData }: PageDataProps) {
     basePath,
     author,
     me,
+    languageSearch: hydrated
+      ? new URL(currentPath, "https://site.invalid").search
+      : "",
     p,
     title,
     description,
@@ -56,10 +104,49 @@ export default function Page({ pageData }: PageDataProps) {
   function renderPublicationsMenu(): ReactNode {
     return (
       <>
-        <List divided>
+        <List divided className="project-navigation">
           <List.Item role="link" as="a" href="#research">
             <Icon name="lab" />
             <List.Content>{en ? "Research" : "研究"}</List.Content>
+          </List.Item>
+          <List.Item>
+            <List.List
+              className="project-tag-filters"
+              aria-label={
+                en
+                  ? "Filter research projects by tag"
+                  : "研究プロジェクトをタグで絞り込み"
+              }
+            >
+              {[
+                {
+                  key: "",
+                  label: en ? "All" : "すべて",
+                  title: en
+                    ? "All research projects"
+                    : "すべての研究プロジェクト",
+                  count: research.length,
+                },
+                ...filterTags,
+              ].map((tag) => (
+                <List.Item
+                  as={Link}
+                  href={filterHref(tag.key)}
+                  shallow
+                  scroll={false}
+                  prefetch={false}
+                  key={tag.key}
+                  active={activeTag === tag.key}
+                  aria-current={activeTag === tag.key ? "true" : undefined}
+                  data-project-filter={tag.key}
+                  title={tag.title}
+                >
+                  <List.Content>
+                    <HtmlContent html={tag.label} />
+                  </List.Content>
+                </List.Item>
+              ))}
+            </List.List>
           </List.Item>
           <List.Item role="link" as="a" href="#design-and-engineering">
             <Icon name="paint brush" />
@@ -115,26 +202,47 @@ export default function Page({ pageData }: PageDataProps) {
               ? "The following research-oriented projects have been conducted under a certain scientific context and most of them have been published at archival venues."
               : "研究者として、所属先の東京大学、Microsoft Research、産業技術総合研究所、アーチで取り組んできた研究プロジェクトの一覧です。"}
           </p>
-          <Item.Group divided id="other-projects-list" className="projects">
-            {(() => {
-              const children: ReactNode[] = [];
-              for (const p of projects) {
-                if (
-                  p.isPrivateProject(lang) ||
-                  p.category === "concept" ||
-                  p.category === "committee" ||
-                  p.category === "private"
-                )
-                  continue;
-                children.push(
-                  <>
-                    <ProjectItem p={p} />
-                  </>,
-                );
-              }
-              return keyed(children);
-            })()}
-          </Item.Group>
+          <p className="project-filter-pending" role="status">
+            {en ? "Loading…" : "読み込み中…"}
+          </p>
+          <div className="project-filter-results">
+            {selectedTag ? (
+              <Message
+                onDismiss={() => {
+                  void router.push(filterHref(""), undefined, {
+                    shallow: true,
+                    scroll: false,
+                  });
+                }}
+                role="status"
+                aria-live="polite"
+                data-research-filter-status
+              >
+                <HtmlContent html={selectedTag.title} />：{" "}
+                {en
+                  ? `${filteredCount} of ${research.length} projects`
+                  : `${filteredCount}件 / 全${research.length}件`}
+              </Message>
+            ) : null}
+            <noscript>
+              {en
+                ? "Enable JavaScript to filter research projects by tag."
+                : "タグで絞り込むにはJavaScriptを有効にしてください。"}
+            </noscript>
+            {featuredResearch ? (
+              <>
+                <Segment basic data-featured-tag-project={activeTag}>
+                  <ResearchTopic p={featuredResearch} />
+                </Segment>
+                <Divider />
+              </>
+            ) : null}
+            <Item.Group divided id="other-projects-list" className="projects">
+              {visibleResearch.map((p) => (
+                <ProjectItem key={p.project} p={p} />
+              ))}
+            </Item.Group>
+          </div>
         </Segment>
       </>
     );

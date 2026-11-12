@@ -24,7 +24,10 @@ import { SnsLink } from "@/site/components/InteractiveLinks";
 import { SitePopup, SiteModal, Avatar } from "@/site/components/SiteWidgets";
 import { SiteImage } from "@/site/components/SiteImage";
 import { Fragment, type ReactNode } from "react";
-import { ProjectCard } from "@/site/components/ContentComponents";
+import {
+  ProjectCard,
+  ResearchTopic,
+} from "@/site/components/ContentComponents";
 import { SiteLink } from "@/site/components/SiteLink";
 import { HtmlContent } from "@/site/components/RichText";
 import { keyed, href, attribute } from "@/site/rendering";
@@ -447,37 +450,7 @@ export default function Page({ pageData }: PageDataProps) {
               if (!p.getLink(lang, basePath)) continue;
               children.push(
                 <>
-                  <Grid
-                    stackable
-                    columns={2}
-                    id={attribute(`topics-${p.project}`)}
-                  >
-                    <Grid.Column width={5}>
-                      <LinkedImage
-                        bordered
-                        fluid
-                        href={href(p.getLink(lang, basePath))}
-                      >
-                        <SiteImage
-                          sizes="(max-width: 767px) calc(100vw - 2rem), 340px"
-                          src={`${rootPath}images/panels/${p.getThumbnail(
-                            lang,
-                          )}`}
-                        />
-                      </LinkedImage>
-                    </Grid.Column>
-                    <Grid.Column width={11}>
-                      <Header
-                        as={SiteLink}
-                        href={href(p.getLink(lang, basePath))}
-                      >
-                        <HtmlContent html={p.getTitle(lang)} />
-                      </Header>
-                      <div className="description">
-                        <HtmlContent html={p.getDescription(lang)} />
-                      </div>
-                    </Grid.Column>
-                  </Grid>
+                  <ResearchTopic p={p} />
                 </>,
               );
               children.push(

@@ -6,10 +6,13 @@ import "nprogress/nprogress.css";
 import "@/site/styles/nprogress.css";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const pageKey = /^\/(?:ja\/)?projects\/?$/.test(router.pathname)
+    ? router.pathname
+    : router.asPath.split("#")[0];
   return (
     <>
       <SiteImagesContext.Provider value={pageProps.pageData?.images || {}}>
-        <Component key={router.asPath.split("#")[0]} {...pageProps} />
+        <Component key={pageKey} {...pageProps} />
       </SiteImagesContext.Provider>
       <SiteRuntime />
     </>

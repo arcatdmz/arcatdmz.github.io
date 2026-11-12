@@ -1,3 +1,7 @@
+import {
+  projectFilterBootstrap,
+  type ProjectFilterTag,
+} from "@/site/project-filter";
 import Document, {
   Html,
   Head,
@@ -44,9 +48,19 @@ export default class SiteDocument extends Document<SiteDocumentProps> {
     };
   }
   render() {
+    const filterTags = this.props.__NEXT_DATA__.props?.pageProps?.pageData?.misc
+      ?.projectFilterTags as ProjectFilterTag[] | undefined;
     return (
       <Html lang={this.props.language}>
         <Head>
+          {filterTags?.length ? (
+            <script
+              id="project-filter-bootstrap"
+              dangerouslySetInnerHTML={{
+                __html: projectFilterBootstrap(filterTags.map((t) => t.key)),
+              }}
+            />
+          ) : null}
           {this.props.sharedStyles && (
             <>
               <link rel="stylesheet" href={`${rootPath}stylesheets/main.css`} />

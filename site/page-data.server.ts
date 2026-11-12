@@ -194,6 +194,18 @@ export function getPageData(
     return false;
   });
   projectList.forEach((entry) => projectSet.add(entry));
+  if (section === "projects") {
+    for (const key of Object.keys(source.projectTags)) {
+      const overview = source.projectsTable[key];
+      if (
+        overview &&
+        !overview.isPrivateProject(lang) &&
+        !["private", "committee"].includes(overview.category || "")
+      )
+        projectSet.add(overview);
+    }
+  }
+
   const publicationSet = new Set<SourceData["publications"][number]>();
   const addPublication = (key: string) => {
     const publication = source.publicationsTable[key];
@@ -296,6 +308,24 @@ export function getPageData(
         lang,
       ),
     };
+  if (section === "projects") {
+    const research = projectList.filter(
+      (p) =>
+        !p.isPrivateProject(lang) &&
+        !["concept", "committee", "private"].includes(p.category || ""),
+    );
+    misc.projectFilterTags = Object.entries(source.projectTags).flatMap(
+      ([key, tag]) => {
+        const count = research.filter((p) => p.tags?.includes(key)).length;
+        if (!count) return [];
+        const title =
+          (lang === "ja" ? tag.ja?.title : undefined) ||
+          tag.title ||
+          tag.label.replace(/<[^>]*>/g, "");
+        return [{ key, label: tag.label, title, count }];
+      },
+    );
+  }
   const durations: Record<string, string> = {};
   if (section === "design") {
     for (const date of [
@@ -340,6 +370,16 @@ export function getPageData(
         const second = source.awards.find((e) => e.data.id === b.id)!;
         return second.date.getTime() - first.date.getTime();
       }),
+    clientImageSources:
+      section === "projects"
+        ? [...projectSet]
+            .filter(
+              (p) => source.projectTags[p.project] && !p.isPrivateProject(lang),
+            )
+            .map(
+              (p) => `${source.rootPath}images/panels/${p.getThumbnail(lang)}`,
+            )
+        : undefined,
     language: lang,
     projects: [...projectSet].map((entry) =>
       projectView(entry, lang, projectKey(entry)),

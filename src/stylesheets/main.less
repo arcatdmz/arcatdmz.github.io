@@ -740,3 +740,70 @@ body.with-rail #main > .left-rail .ui.list > a.item > .content {
     overflow-y: auto;
   }
 }
+
+.ui.list .project-tag-filters > a.item,
+.ui.list .project-tag-filters > a.item:hover,
+.ui.list .project-tag-filters > a.item:focus {
+  color: inherit;
+  > .content {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+.popup-menu.popup .ui.list .project-tag-filters > a.item,
+body.with-rail #main > .left-rail .ui.list .project-tag-filters > a.item {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  text-decoration: none;
+  > .content {
+    text-decoration: none;
+  }
+}
+.project-tag-filters abbr[title] {
+  border-bottom: 0;
+  text-decoration: none;
+  cursor: inherit;
+}
+.project-tag-filters > a.item.active {
+  font-weight: bold;
+}
+.project-tag-filters {
+  @import (reference)
+    "../../semantic/src/themes/default/collections/table.variables";
+  @import (reference) "../../semantic/src/site/collections/table.variables";
+
+  > a.item:nth-child(2n) {
+    background-color: @stripedBackground;
+  }
+}
+.project-navigation .content,
+.project-navigation abbr {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.with-rail #main > .left-rail > .project-navigation {
+  max-height: calc(100vh - 8rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 0.6em;
+}
+.popup-menu.popup .project-navigation {
+  max-height: min(70vh, 36rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.project-filter-pending {
+  display: none;
+}
+html[data-project-filter-pending] {
+  .project-filter-pending {
+    display: block;
+  }
+  .project-filter-results {
+    display: none;
+  }
+  .project-tag-filters > a.item.active {
+    font-weight: normal;
+  }
+}

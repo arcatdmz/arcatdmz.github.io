@@ -10,8 +10,7 @@ import type { ImageManifest } from "./image-types";
 import { imagePath } from "./components/SiteImage";
 
 let cached:
-  | { filename: string; mtime: number; images: ImageManifest }
-  | undefined;
+  { filename: string; mtime: number; images: ImageManifest } | undefined;
 
 function readManifest(): ImageManifest {
   const filename = path.join(process.cwd(), "site/generated/images.json");
@@ -30,6 +29,7 @@ export function selectPageImages(
   html: string,
   route: string,
   manifest: ImageManifest,
+  extraSources: string[] = [],
 ): ImageManifest {
   const used = new Set<string>();
   const visit = (node: DefaultTreeAdapterMap["node"]): void => {
@@ -43,6 +43,10 @@ export function selectPageImages(
     if ("childNodes" in node) node.childNodes.forEach(visit);
   };
   visit(parse(html));
+  for (const src of extraSources) {
+    const key = imagePath(src, route);
+    if (key && manifest[key]) used.add(key);
+  }
   return Object.fromEntries(
     [...used].sort().map((key) => [key, manifest[key]]),
   );
@@ -50,7 +54,13 @@ export function selectPageImages(
 
 /** The first render contains originals; the actual export/hydration gets derivatives. */
 export function withPageImages<
-  P extends { pageData: { images?: ImageManifest; route?: string } },
+  P extends {
+    pageData: {
+      images?: ImageManifest;
+      route?: string;
+      clientImageSources?: string[];
+    };
+  },
 >(Page: ComponentType<P>, props: P, route = props.pageData.route || "/"): P {
   // Widget hooks can read the route while rendering. No effects, navigation,
   // browser globals, or event handlers run during this build-only pass.
@@ -84,7 +94,12 @@ export function withPageImages<
     ...props,
     pageData: {
       ...props.pageData,
-      images: selectPageImages(html, route, readManifest()),
+      images: selectPageImages(
+        html,
+        route,
+        readManifest(),
+        props.pageData.clientImageSources,
+      ),
     },
   };
 }

@@ -102,6 +102,7 @@ export interface PageDataSnapshot {
   misc: Record<string, any>;
   durations: Record<string, string>;
   linkedAwards?: AwardView[];
+  clientImageSources?: string[];
   images?: ImageManifest;
 }
 export interface PageDataProps {
