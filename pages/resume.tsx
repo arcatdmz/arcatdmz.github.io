@@ -110,7 +110,7 @@ span.grey { color: #999; }
   */
   .row { break-inside: avoid; }
 }`;
-const updated = "4/1/2026";
+const updated = "11/13/2026";
 
 function ResumeMenu() {
   return (
@@ -722,8 +722,8 @@ function Innovations() {
               development. To design the tool appropriately, it was necessary to
               deeply explore the historical and cultural aspects of the
               animation production process, which we reported at the Society for
-              Animation Studies annual conferences and published as an ACM CHI
-              '14 paper.
+              Animation Studies annual conferences and published at ACM CHI
+              '24 and UIST '26.
             </p>
           </div>
         </div>
