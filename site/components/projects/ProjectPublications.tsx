@@ -29,6 +29,12 @@ export function ProjectPublications({
         `Unknown highlighted publication ${key} in project ${project}`,
       );
   }
+  // Citation order is independent of the authored order used by project labels.
+  majorKeys.sort(
+    (a, b) =>
+      Number(publicationsTable[b].entryTags.year || 0) -
+      Number(publicationsTable[a].entryTags.year || 0),
+  );
   const entries = projectPublications(publications, project, en).filter(
     (e) => !majorKeys.includes(e.citationKey),
   );

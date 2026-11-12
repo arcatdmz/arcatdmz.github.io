@@ -199,6 +199,7 @@ export function getPageData(
       const overview = source.projectsTable[key];
       if (
         overview &&
+        overview.project !== "design" &&
         !overview.isPrivateProject(lang) &&
         !["private", "committee"].includes(overview.category || "")
       )

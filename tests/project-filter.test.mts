@@ -111,3 +111,26 @@ test("pre-paint bootstrap masks only supported query filters, leaving the defaul
     assert.equal(attributes.has("data-project-filter-pending"), pending);
   }
 });
+
+test("the design portfolio overview is excluded from project filters", () => {
+  for (const prefix of ["/", "/ja/"]) {
+    const data = getPageData(`${prefix}projects/`);
+    assert.ok(!data.projectList.includes("design"));
+    assert.ok(!data.projects.some((p) => p.project === "design"));
+    const research = data.projects.filter(isResearchProject);
+    const filtered = partitionProjectFilter(research, "design", {
+      project: "design",
+      category: "concept",
+    });
+    assert.equal(filtered.featured, undefined);
+    assert.deepEqual(
+      filtered.projects,
+      research.filter((p) => p.tags?.includes("design")),
+    );
+    assert.ok(
+      getPageData(`${prefix}design/`, { projects: ["design"] }).projects.some(
+        (p) => p.project === "design",
+      ),
+    );
+  }
+});

@@ -1,6 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 
+import {
+  PageContextProvider,
+  type PageContext,
+} from "../site/components/layout/SiteContext";
+import { ProjectPublications } from "../site/components/projects/ProjectPublications";
 import projects from "../src/javascripts/projects";
 import { getPageData } from "../site/page-data.server";
 import { hydratePageData } from "../site/page-data";
@@ -227,4 +234,36 @@ test("structured award descriptions preserve outcome wording independently of na
     () => awardText({ ...record, en: { label: "Missing URL" } }, "en"),
     /Missing award name\/link/,
   );
+});
+
+test("project citations show newest papers first without changing label order", () => {
+  for (const lang of ["en", "ja"] as const) {
+    const data = hydratePageData(
+      getPageData(`${lang === "ja" ? "/ja" : ""}/griffith/`, {
+        projects: ["griffith"],
+        publicationProjects: ["griffith"],
+      }),
+    );
+    const context = {
+      ...data,
+      lang,
+      en: lang === "en",
+      basePath: lang === "ja" ? "/ja/" : "/",
+    } as PageContext;
+    const html = renderToStaticMarkup(
+      createElement(
+        PageContextProvider,
+        { value: context },
+        createElement(ProjectPublications, { project: "griffith" }),
+      ),
+    );
+    assert.ok(
+      html.indexOf('id="uist2026-kato-proconte"') <
+        html.indexOf('id="chi2024-kato-griffith"'),
+    );
+    assert.deepEqual(data.projectsTable.griffith.getPublications(lang), [
+      "chi2024-kato-griffith",
+      "uist2026-kato-proconte",
+    ]);
+  }
 });

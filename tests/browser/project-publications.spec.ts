@@ -15,8 +15,8 @@ test("representative citations and project ownership remain distinct in both lan
     await page.goto(`${prefix}griffith/`);
     const featured = page.locator("#publications .major-publication");
     await expect(featured).toHaveCount(2);
-    await expect(featured.nth(0)).toContainText("Griffith:");
-    await expect(featured.nth(1)).toContainText("ProConte:");
+    await expect(featured.nth(0)).toContainText("ProConte:");
+    await expect(featured.nth(1)).toContainText("Griffith:");
     await page.goto(`${prefix}textalive/`);
     await expect(page.locator("#publications .major-publication")).toHaveCount(
       1,

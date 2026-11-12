@@ -40,6 +40,8 @@ export function partitionProjectFilter<
   const featured =
     tag &&
     matchingProject?.project === tag &&
+    // The design overview belongs to its dedicated portfolio page.
+    matchingProject.project !== "design" &&
     !matchingProject.private &&
     !["private", "committee"].includes(matchingProject.category || "")
       ? matchingProject
