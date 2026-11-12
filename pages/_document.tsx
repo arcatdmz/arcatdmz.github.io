@@ -1,7 +1,3 @@
-import {
-  projectFilterBootstrap,
-  type ProjectFilterTag,
-} from "@/site/project-filter";
 import Document, {
   Html,
   Head,
@@ -10,6 +6,10 @@ import Document, {
   type DocumentContext,
 } from "next/document";
 
+import {
+  projectFilterBootstrap,
+  type ProjectFilterTag,
+} from "@/site/project-filter";
 import { getDocumentMetadata } from "@/site/navigation";
 import website from "@/website.json";
 

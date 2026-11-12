@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import {
   Button,
   Card,
@@ -9,21 +10,20 @@ import {
   List,
   Segment,
 } from "react-fomantic-ui";
-import { LinkedImage } from "@/site/components/LinkedImage";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import { Fragment, type ReactNode } from "react";
-import { SiteLink } from "@/site/components/SiteLink";
-import { HtmlContent } from "@/site/components/RichText";
-import { href, attribute } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { attribute, href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: message, popup-menu, collaborations. */

@@ -1,22 +1,18 @@
 import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
-import { DeferredEmbed } from "@/site/components/DeferredEmbed";
-
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-
-import {
-  EmbedYoutube,
-  ProjectHeader,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { href } from "@/site/rendering";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredEmbed } from "@/site/components/media/DeferredEmbed";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: abstract, vision. */

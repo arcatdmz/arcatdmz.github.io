@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -7,19 +8,19 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { Fragment, type ReactNode } from "react";
-import { MediaItem, Publication } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { HtmlContent } from "@/site/components/RichText";
-import { classNames, keyed, href } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { MediaItem } from "@/site/components/media/MediaItem";
+import { Publication } from "@/site/components/publications/Publication";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { classNames, href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: left-rail-list, awards, publications, media. */

@@ -1,15 +1,12 @@
 import { Grid, Header } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import { EmbedYoutube } from "@/site/components/ContentComponents";
-
-import { href } from "@/site/rendering";
-import type { PageDataProps } from "@/site/page-data";
-
 import { HomehackLayout } from "@/components/homehack/HomehackLayout";
-import { useSiteContext } from "@/site/components/SiteContext";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { useSiteContext } from "@/site/hooks/useSiteContext";
+import type { PageDataProps } from "@/site/page-data";
+import { href } from "@/site/rendering";
 
 export default function Page({ pageData }: PageDataProps) {
   return (

@@ -1,12 +1,12 @@
 import { Divider, Header, Icon, Segment } from "react-fomantic-ui";
 
-import { ProjectHeader } from "@/site/components/ContentComponents";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: abstract. */

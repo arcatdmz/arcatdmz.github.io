@@ -1,19 +1,20 @@
-import test from "node:test";
-import { createElement } from "react";
-import { ProjectPage } from "../site/components/ProjectPage";
-import type { PageDataProps } from "../site/page-data";
 import assert from "node:assert/strict";
 import {
-  mkdtemp,
-  mkdir,
-  readFile,
-  writeFile,
-  rm,
   access,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import test from "node:test";
+import { createElement } from "react";
+
 import { prepareRoutes } from "../scripts/prepare-routes";
+import { ProjectPage } from "../site/components/projects/ProjectPage";
+import type { PageDataProps } from "../site/page-data";
 import { localizedPageProps } from "../site/page-props.server";
 
 const routeSource = (route: string) => `

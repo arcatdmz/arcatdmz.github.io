@@ -1,5 +1,4 @@
 import { Button, Form, Grid, Header, Icon, Segment } from "react-fomantic-ui";
-
 import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/router";
 

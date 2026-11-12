@@ -1,10 +1,8 @@
-import { validatePublicationData } from "./publication-awards";
 import moment from "moment";
 import "moment/locale/ja";
-import { buildTimestamp } from "./clock";
 
-// Preserve static durations instead of changing them during client hydration.
-moment.now = () => buildTimestamp;
+import { validatePublicationData } from "./publication-awards";
+import { buildTimestamp } from "./clock";
 import website from "../website.json";
 import histories from "../src/javascripts/histories";
 import awards from "../src/javascripts/awards";
@@ -15,6 +13,9 @@ import { parse as parsePublications } from "../src/javascripts/publications";
 import media from "../src/javascripts/media";
 import rawMisc from "../src/data/misc.json";
 import rawPublications from "./generated/publications.json";
+
+// Preserve static durations instead of changing them during client hydration.
+moment.now = () => buildTimestamp;
 
 /**
  * Preserve the existing data models, including their formatting methods and Date

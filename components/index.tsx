@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import {
   Button,
   Card,
@@ -12,31 +13,27 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import {
-  HomeHistory,
-  HistoryFeed,
-  HistoryMore,
-} from "@/site/components/HomeHistory";
-import { SnsLink } from "@/site/components/InteractiveLinks";
-import { SitePopup, SiteModal, Avatar } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import { Fragment, type ReactNode } from "react";
-import {
-  ProjectCard,
-  ResearchTopic,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { HtmlContent } from "@/site/components/RichText";
-import { keyed, href, attribute } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { HistoryFeed } from "@/site/components/history/HistoryFeed";
+import { HistoryMore } from "@/site/components/history/HistoryMore";
+import { HomeHistory } from "@/site/components/history/HomeHistory";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { SnsLink } from "@/site/components/links/SnsLink";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectCard } from "@/site/components/projects/ProjectCard";
+import { ResearchTopic } from "@/site/components/projects/ResearchTopic";
+import { Avatar } from "@/site/components/widgets/Avatar";
+import { SiteModal } from "@/site/components/widgets/SiteModal";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: about, products, projects, contact. */

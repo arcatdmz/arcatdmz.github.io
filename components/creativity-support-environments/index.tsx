@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -10,25 +11,22 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  ProjectHeader,
-  ProjectItem,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-import { type ReactNode } from "react";
-import { HtmlContent } from "@/site/components/RichText";
-import { keyed } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
-import { SiteLink } from "@/site/components/SiteLink";
 
 const contentImageSizes =
   "(max-width: 767px) calc(100vw - 4rem), (max-width: 991px) 691px, (max-width: 1199px) 900px, 1093px";

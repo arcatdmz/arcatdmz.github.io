@@ -1,17 +1,16 @@
-import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Embed } from "react-fomantic-ui";
-import { DeferredEmbed } from "../site/components/DeferredEmbed";
-import { SiteModal } from "../site/components/SiteWidgets";
-import { SiteLink } from "../site/components/SiteLink";
-import {
-  HomeHistory,
-  HistoryFeed,
-  HistoryMore,
-} from "../site/components/HomeHistory";
-import { readFileSync } from "node:fs";
+
+import { HistoryFeed } from "../site/components/history/HistoryFeed";
+import { HistoryMore } from "../site/components/history/HistoryMore";
+import { HomeHistory } from "../site/components/history/HomeHistory";
+import { SiteLink } from "../site/components/links/SiteLink";
+import { DeferredEmbed } from "../site/components/media/DeferredEmbed";
+import { SiteModal } from "../site/components/widgets/SiteModal";
 
 test("embeds keep a static placeholder and do not request the iframe before activation", () => {
   const html = renderToStaticMarkup(
@@ -85,12 +84,12 @@ test("home history keeps its first entries in HTML and disables the unhydrated c
 
 test("the React document runtime does not import or request legacy widget bundles", () => {
   const runtime = readFileSync(
-    new URL("../site/components/SiteRuntime.tsx", import.meta.url),
+    new URL("../site/components/runtime/SiteRuntime.tsx", import.meta.url),
     "utf8",
   );
   assert.doesNotMatch(runtime, /jquery|jQuery|views\/runtime|siteInteractions/);
   const widgets = readFileSync(
-    new URL("../site/components/SiteWidgets.tsx", import.meta.url),
+    new URL("../site/components/widgets/SiteWidgets.tsx", import.meta.url),
     "utf8",
   );
   assert.match(widgets, /beforeHistoryChange/);

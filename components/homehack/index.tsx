@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Divider,
   Embed,
@@ -9,17 +10,14 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import { TranslateEn } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode } from "react";
-import { href } from "@/site/rendering";
-import type { PageDataProps } from "@/site/page-data";
-
 import { HomehackLayout } from "@/components/homehack/HomehackLayout";
-import { useSiteContext } from "@/site/components/SiteContext";
+import { TranslateEn } from "@/site/components/content/TranslateEn";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { useSiteContext } from "@/site/hooks/useSiteContext";
+import type { PageDataProps } from "@/site/page-data";
+import { href } from "@/site/rendering";
 
 export default function Page({ pageData }: PageDataProps) {
   return (

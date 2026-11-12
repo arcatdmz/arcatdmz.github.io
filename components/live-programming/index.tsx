@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -10,21 +11,20 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { DeferredEmbed } from "@/site/components/DeferredEmbed";
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import { ProjectHero, ProjectItem } from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode } from "react";
-import { keyed, href } from "@/site/rendering";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredEmbed } from "@/site/components/media/DeferredEmbed";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHero } from "@/site/components/projects/ProjectHero";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Both locales inherit the default content. */

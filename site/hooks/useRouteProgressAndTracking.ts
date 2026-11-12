@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
+import { useEffect, useRef } from "react";
+
 import { createPageTracker, measurementId } from "@/site/analytics";
 import { loadScript } from "@/site/load-script";
 

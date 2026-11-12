@@ -1,15 +1,16 @@
-import test from "node:test";
-import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
-import { createElement, type ReactNode } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import { RouterContext } from "next/dist/shared/lib/router-context.shared-runtime";
 import type { NextRouter } from "next/router";
-import { LocalizedContent } from "../site/components/LocalizedContent";
+import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import test from "node:test";
+import { createElement, type ReactNode } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+
+import { LocalizedContent } from "../site/components/content/LocalizedContent";
 import {
   PageContextProvider,
   type PageContext,
-} from "../site/components/SiteContext";
+} from "../site/components/layout/SiteContext";
 import type { Language } from "../site/types";
 
 function renderBlock(

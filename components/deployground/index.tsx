@@ -1,22 +1,19 @@
+import { type ReactNode } from "react";
 import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
-import { DeferredEmbed } from "@/site/components/DeferredEmbed";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  EmbedYoutube,
-  ProjectHeader,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode } from "react";
-import { href } from "@/site/rendering";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredEmbed } from "@/site/components/media/DeferredEmbed";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Both locales inherit the default content. */

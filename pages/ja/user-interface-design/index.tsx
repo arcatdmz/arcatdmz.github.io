@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -11,18 +12,12 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  ProjectHeader,
-  Publication,
-} from "@/site/components/ContentComponents";
-
-import type { ReactNode } from "react";
-
-import { href } from "@/site/rendering";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { Publication } from "@/site/components/publications/Publication";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
@@ -30,8 +25,7 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { SiteLayout } from "@/site/components/SiteLayout";
-
+import { href } from "@/site/rendering";
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/user-interface-design/index.pug; edit this TSX source directly. */

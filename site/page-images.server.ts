@@ -6,8 +6,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { RouterContext } from "next/dist/shared/lib/router-context.shared-runtime";
 import type { NextRouter } from "next/router";
 import { parse, type DefaultTreeAdapterMap } from "parse5";
+
 import type { ImageManifest } from "./image-types";
-import { imagePath } from "./components/SiteImage";
+import { imagePath } from "./components/media/imagePath";
 
 let cached:
   { filename: string; mtime: number; images: ImageManifest } | undefined;

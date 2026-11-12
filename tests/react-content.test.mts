@@ -1,6 +1,7 @@
-import test from "node:test";
 import assert from "node:assert/strict";
-import { decodeTitle } from "../site/components/SiteHead";
+import test from "node:test";
+
+import { decodeTitle } from "../site/components/layout/SiteHead";
 
 test("page titles retain their text and decode entities without React string coercion", () => {
   assert.equal(decodeTitle("VisionSketch"), "VisionSketch");

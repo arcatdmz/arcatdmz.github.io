@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+import { useEffect, type ComponentType } from "react";
 import {
   Button,
   Grid,
@@ -8,12 +10,10 @@ import {
   Message,
 } from "react-fomantic-ui";
 
-import { useEffect, type ComponentType } from "react";
-import { useRouter } from "next/router";
+import { type PageContext } from "@/site/components/layout/SiteContext";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
 import { hydratePageData, type PageDataProps } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
-import { SiteLink } from "@/site/components/SiteLink";
-import type { PageContext } from "@/site/components/SiteContext";
 
 export type TalkSlug = "as-a-code" | "people-are-programmers";
 export const talkInfo = {

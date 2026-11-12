@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -11,20 +12,16 @@ import {
   Table,
 } from "react-fomantic-ui";
 
-import { DeferredEmbed } from "@/site/components/DeferredEmbed";
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  ProjectHeader,
-  ProjectItem,
-  Publication,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import type { ReactNode } from "react";
-import { HtmlContent } from "@/site/components/RichText";
-
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredEmbed } from "@/site/components/media/DeferredEmbed";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { Publication } from "@/site/components/publications/Publication";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
@@ -32,8 +29,6 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { SiteLayout } from "@/site/components/SiteLayout";
-
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/science/index.pug; edit this TSX source directly. */

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { gzipSync } from "node:zlib";
+
 import { getSiteData } from "../site/data";
 import { getPageData } from "../site/page-data.server";
 import { hydratePageData } from "../site/page-data";

@@ -1,8 +1,10 @@
-import { Grid, List } from "react-fomantic-ui";
-
-import { SiteLink, SitePathContext } from "@/site/components/SiteLink";
 import Head from "next/head";
 import { Fragment, type ReactNode } from "react";
+import { Grid, List } from "react-fomantic-ui";
+
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { SitePathContext } from "@/site/components/links/SitePathContext";
 import {
   hydratePageData,
   type PageDataProps,
@@ -10,7 +12,6 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { HtmlContent } from "@/site/components/RichText";
 
 /** The résumé retains its independent print layout and original inline stylesheet. */
 const resumeStyles = `@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic&amp;subset=latin,latin-ext);

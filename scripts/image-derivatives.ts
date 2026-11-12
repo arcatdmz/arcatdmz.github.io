@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import * as fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
+
 import type { ImageAsset, ImageManifest } from "../site/image-types";
 
 export const IMAGE_CACHE_VERSION = 1;
@@ -91,7 +92,7 @@ function isAnimatedPng(bytes: Buffer): boolean {
     return false;
   // Some libvips PNG loaders expose only the first APNG frame in metadata.
   // The animation control chunk must precede IDAT; preserve it without encoding.
-  for (let offset = 8; offset + 12 <= bytes.length; ) {
+  for (let offset = 8; offset + 12 <= bytes.length;) {
     const length = bytes.readUInt32BE(offset);
     if (offset + length + 12 > bytes.length) return false;
     const type = bytes.toString("ascii", offset + 4, offset + 8);

@@ -2,6 +2,7 @@
 /// <reference path='./clipboard.d.ts' />
 
 import Clipboard from "clipboard";
+
 import "../../../dist/semantic/semantic.min";
 import { type PageScope } from "./scope";
 let lang: "en" | "ja";

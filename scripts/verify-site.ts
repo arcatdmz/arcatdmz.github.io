@@ -11,13 +11,14 @@
  * strict. --optimized validates narrowly documented image/widget changes before
  * comparing. --render is deprecated: use Next's supported export renderer.
  */
-import { resolveReactHref } from "../site/navigation";
 import * as fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import { parse } from "parse5";
 import postcss, { type ChildNode } from "postcss";
+
+import { resolveReactHref } from "../site/navigation";
 
 interface Element {
   type: "tag";

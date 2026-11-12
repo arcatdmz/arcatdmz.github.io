@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -10,24 +11,21 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { SitePopup } from "@/site/components/SiteWidgets";
-import { SiteImage } from "@/site/components/SiteImage";
-import { SiteLink } from "@/site/components/SiteLink";
-import { Fragment, type ReactNode } from "react";
-import {
-  MediaItem,
-  ProjectHero,
-  ProjectItem,
-  Publication,
-} from "@/site/components/ContentComponents";
-import { HtmlContent } from "@/site/components/RichText";
-import { keyed, href } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { MediaItem } from "@/site/components/media/MediaItem";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHero } from "@/site/components/projects/ProjectHero";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { Publication } from "@/site/components/publications/Publication";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: news. */

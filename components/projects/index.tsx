@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { type ReactNode, useState } from "react";
 import {
   Button,
   Divider,
@@ -9,35 +12,28 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { SitePopup } from "@/site/components/SiteWidgets";
-import {
-  ProjectItem,
-  ResearchTopic,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode, useEffect, useLayoutEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { HtmlContent } from "@/site/components/RichText";
-import {
-  isResearchProject,
-  partitionProjectFilter,
-  projectFilterTag,
-  projectFilterHref,
-  type ProjectFilterTag,
-} from "@/site/project-filter";
-import { keyed, href } from "@/site/rendering";
+import { useBrowserLayoutEffect } from "@/site/hooks/useBrowserLayoutEffect";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { ResearchTopic } from "@/site/components/projects/ResearchTopic";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import {
+  isResearchProject,
+  partitionProjectFilter,
+  projectFilterHref,
+  projectFilterTag,
+  type ProjectFilterTag,
+} from "@/site/project-filter";
+import { href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
-
-const useBrowserLayoutEffect =
-  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 /** Shared page template. Japanese overrides: projects, research, design-and-engineering. */
 export default function Page({ pageData }: PageDataProps) {

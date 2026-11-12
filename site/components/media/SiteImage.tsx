@@ -1,0 +1,149 @@
+import { useContext, type ImgHTMLAttributes } from "react";
+import { Image, type ImageProps } from "react-fomantic-ui";
+
+import { SitePathContext } from "@/site/components/links/SitePathContext";
+import { SiteImagesContext } from "@/site/components/media/SiteImagesContext";
+import { imagePath } from "@/site/components/media/imagePath";
+
+/** Preserve image markup/CSS and original download URLs; only display bytes change. */
+export function SiteImage({
+  src,
+  srcSet,
+  sizes,
+  width,
+  height,
+  displayHeight,
+  ui,
+  avatar,
+  bordered,
+  circular,
+  centered,
+  fluid,
+  inline,
+  rounded,
+  floated,
+  size,
+  spaced,
+  verticalAlign,
+  loading = "lazy",
+  decoding = "async",
+  ...props
+}: ImgHTMLAttributes<HTMLImageElement> & {
+  displayHeight?: number;
+} & Pick<
+    ImageProps,
+    | "ui"
+    | "avatar"
+    | "bordered"
+    | "circular"
+    | "centered"
+    | "fluid"
+    | "inline"
+    | "rounded"
+    | "floated"
+    | "size"
+    | "spaced"
+    | "verticalAlign"
+  >) {
+  const images = useContext(SiteImagesContext);
+  const route = useContext(SitePathContext);
+  const key = imagePath(src, route);
+  const asset = key ? images[key] : undefined;
+  const candidates = asset?.srcSet.length ? [...asset.srcSet] : [];
+  // Efficient originals can be smaller than a high-resolution WebP. Keep their
+  // intrinsic-width candidate so wider/retina displays never upscale a tiny
+  // surviving derivative. Full-resolution download links remain unchanged.
+  if (
+    asset &&
+    candidates.length &&
+    typeof src === "string" &&
+    candidates.at(-1)!.width < asset.width
+  ) {
+    candidates.push({ src, width: asset.width, height: asset.height });
+  }
+  // Sidebar avatars and large Design icons use the same original; their sizes
+  // are specified at the call site where the actual layout is known.
+  const displaySizes =
+    sizes ||
+    (displayHeight && asset
+      ? `${Math.ceil((displayHeight * asset.width) / asset.height)}px`
+      : undefined) ||
+    (avatar || props.className?.includes("avatar")
+      ? "32px"
+      : props.id === "avatar"
+        ? "96px"
+        : "(max-width: 767px) calc(100vw - 2rem), (max-width: 1199px) 933px, 1127px");
+  const fallback =
+    candidates.find((candidate) => candidate.width >= 640) || candidates.at(-1);
+  const numericDimension = (value: number | string | undefined) =>
+    typeof value === "number"
+      ? value
+      : typeof value === "string" && /^\d+(?:\.\d+)?$/.test(value)
+        ? Number(value)
+        : undefined;
+  const explicitWidth = numericDimension(width);
+  const explicitHeight = numericDimension(height);
+  const intrinsicWidth =
+    width ??
+    (asset && explicitHeight !== undefined
+      ? Math.round((explicitHeight * asset.width) / asset.height)
+      : asset?.width);
+  const intrinsicHeight =
+    height ??
+    (asset && explicitWidth !== undefined
+      ? Math.round((explicitWidth * asset.height) / asset.width)
+      : asset?.height);
+  const image = (
+    <img
+      {...props}
+      src={fallback?.src || src}
+      srcSet={
+        srcSet ||
+        (candidates.length
+          ? candidates
+              .map((candidate) => `${candidate.src} ${candidate.width}w`)
+              .join(", ")
+          : undefined)
+      }
+      sizes={srcSet || candidates.length ? displaySizes : sizes}
+      width={intrinsicWidth}
+      height={intrinsicHeight}
+      data-site-responsive={asset && height === undefined ? "" : undefined}
+      loading={loading}
+      decoding={decoding}
+      data-original-src={asset ? src : undefined}
+    />
+  );
+  // Plain content images retain their native markup. Styled images delegate to
+  // Fomantic while this adapter continues to own responsive source selection.
+  return ui ||
+    avatar ||
+    bordered ||
+    circular ||
+    centered ||
+    fluid ||
+    inline ||
+    rounded ||
+    floated ||
+    size ||
+    spaced ||
+    verticalAlign ? (
+    <Image
+      as="img"
+      {...(image.props as ImageProps)}
+      avatar={avatar}
+      bordered={bordered}
+      circular={circular}
+      centered={centered}
+      fluid={fluid}
+      inline={inline}
+      rounded={rounded}
+      floated={floated}
+      size={size}
+      spaced={spaced}
+      verticalAlign={verticalAlign}
+    />
+  ) : (
+    image
+  );
+}

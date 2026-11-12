@@ -1,11 +1,11 @@
 import { Header, Icon, Segment } from "react-fomantic-ui";
 
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Both locales inherit the default content. */

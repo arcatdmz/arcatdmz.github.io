@@ -1,7 +1,7 @@
-import test from "node:test";
 import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import test from "node:test";
 import ts from "typescript";
 
 function sources(directory: string): string[] {
@@ -22,7 +22,13 @@ test("authored views use React primitives for standard Fomantic markup", () => {
     if (!filename.endsWith(".tsx") || filename.endsWith(".localized.tsx"))
       continue;
     // This domain adapter centralizes the few documented stateful exceptions.
-    if (filename === "site/components/SiteWidgets.tsx") continue;
+    if (
+      [
+        "site/components/widgets/SitePopup.tsx",
+        "site/components/widgets/SiteModal.tsx",
+      ].includes(filename)
+    )
+      continue;
     const source = ts.createSourceFile(
       filename,
       readFileSync(filename, "utf8"),

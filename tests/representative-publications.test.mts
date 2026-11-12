@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+
 import projects from "../src/javascripts/projects";
 import { getPageData } from "../site/page-data.server";
 import { hydratePageData } from "../site/page-data";

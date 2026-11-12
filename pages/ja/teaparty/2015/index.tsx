@@ -8,10 +8,9 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { SiteLink } from "@/site/components/SiteLink";
-import { DeferredScript } from "@/site/components/DeferredScript";
-
-import { href } from "@/site/rendering";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredScript } from "@/site/components/runtime/DeferredScript";
 import {
   hydratePageData,
   type PageDataProps,
@@ -19,8 +18,7 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { SiteLayout } from "@/site/components/SiteLayout";
-
+import { href } from "@/site/rendering";
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/teaparty/2015/index.pug; edit this TSX source directly. */

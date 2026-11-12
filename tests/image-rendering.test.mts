@@ -1,15 +1,14 @@
-import test from "node:test";
 import assert from "node:assert/strict";
+import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import {
-  SiteImage,
-  SiteImagesContext,
-  imagePath,
-} from "../site/components/SiteImage";
-import { SitePathContext } from "../site/components/SiteLink";
-import { selectPageImages } from "../site/page-images.server";
+
+import { SitePathContext } from "../site/components/links/SitePathContext";
+import { SiteImage } from "../site/components/media/SiteImage";
+import { SiteImagesContext } from "../site/components/media/SiteImagesContext";
+import { imagePath } from "../site/components/media/imagePath";
 import type { ImageManifest } from "../site/image-types";
+import { selectPageImages } from "../site/page-images.server";
 
 const manifest: ImageManifest = {
   "/images/photo.jpg": {
@@ -131,7 +130,7 @@ test("unknown, external, animated, and empty modal sources retain their original
 });
 
 test("styled and linked Fomantic images retain responsive sources and navigation targets", async () => {
-  const { LinkedImage } = await import("../site/components/LinkedImage");
+  const { LinkedImage } = await import("../site/components/media/LinkedImage");
   const html = renderToStaticMarkup(
     createElement(
       SiteImagesContext.Provider,

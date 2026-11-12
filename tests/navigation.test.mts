@@ -1,19 +1,18 @@
-import test from "node:test";
 import assert from "node:assert/strict";
-import {
-  resolveReactHref,
-  getDocumentMetadata,
-  alternateLanguageHref,
-} from "../site/navigation";
+import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import {
-  SiteSidebar,
-  SiteRightHeaderMenu,
-  SiteFooter,
-} from "../site/components/SiteLayout";
-import type { PageContext } from "../site/components/SiteContext";
+
 import { buildYear } from "../site/clock";
+import { type PageContext } from "../site/components/layout/SiteContext";
+import { SiteFooter } from "../site/components/layout/SiteFooter";
+import { SiteRightHeaderMenu } from "../site/components/layout/SiteRightHeaderMenu";
+import { SiteSidebar } from "../site/components/layout/SiteSidebar";
+import {
+  alternateLanguageHref,
+  getDocumentMetadata,
+  resolveReactHref,
+} from "../site/navigation";
 
 test("language switching requires a defined page identifier and an existing translation", () => {
   const context = { rootPath: "/", en: true };

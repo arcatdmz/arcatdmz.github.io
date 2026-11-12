@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+
 import {
   canonicalPage,
   compareCss,
@@ -723,9 +724,8 @@ test("optimized export verifies route JSON and never normalizes archival bytes",
 });
 
 test("new CSS cannot silently override retained selectors or approved widget rules", async () => {
-  const { optimizedCssDifferences, optimizedWidgetCss } = await import(
-    "../scripts/verify-site.ts"
-  );
+  const { optimizedCssDifferences, optimizedWidgetCss } =
+    await import("../scripts/verify-site.ts");
   assert.notDeepEqual(
     optimizedCssDifferences(
       ".old{color:red}" + optimizedWidgetCss + ".old{color:blue}",

@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import {
   Divider,
   Embed,
@@ -10,23 +11,19 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import { Fragment, type ReactNode } from "react";
-import {
-  ProjectHeader,
-  ProjectPublications,
-  Translate,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { href } from "@/site/rendering";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { Translate } from "@/site/components/content/Translate";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: message, project-header. */

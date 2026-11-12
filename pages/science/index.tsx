@@ -1,4 +1,4 @@
-import { RedirectPage } from "@/site/components/RedirectPage";
+import { RedirectPage } from "@/site/components/runtime/RedirectPage";
 export default function Page() {
   const url = "/ja/science";
   return (

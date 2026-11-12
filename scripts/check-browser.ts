@@ -1,13 +1,14 @@
 /** Audit the exported site, optionally against a previous export. */
 import { chromium, type Page } from "@playwright/test";
-import { createPreviewServer } from "./serve-static";
-import { filesIn } from "./verify-site";
-import routes from "../site/generated/routes.json";
-import { buildYear } from "../site/clock";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { PNG } from "pngjs";
 import pixelmatch from "pixelmatch";
+
+import { createPreviewServer } from "./serve-static";
+import { filesIn } from "./verify-site";
+import routes from "../site/generated/routes.json";
+import { buildYear } from "../site/clock";
 
 const baseline = process.env.SITE_BASELINE;
 const artifactDirectory = path.resolve("site-qa/navigation");

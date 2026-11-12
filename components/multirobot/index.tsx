@@ -1,23 +1,19 @@
+import { type ReactNode } from "react";
 import { Divider, Grid, Header, Icon, List, Segment } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  EmbedYoutube,
-  ProjectHeader,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-
-import { type ReactNode } from "react";
-import { href } from "@/site/rendering";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: abstract, interaction. */

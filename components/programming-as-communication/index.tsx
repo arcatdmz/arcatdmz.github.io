@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Divider,
   Feed,
@@ -9,26 +10,21 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { DeferredEmbed } from "@/site/components/DeferredEmbed";
-
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  EmbedYoutube,
-  ProjectHeader,
-  ProjectItem,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { type ReactNode } from "react";
-import { keyed, href } from "@/site/rendering";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { DeferredEmbed } from "@/site/components/media/DeferredEmbed";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: abstract, presentation-description, technical-effort, social-effort, news. */

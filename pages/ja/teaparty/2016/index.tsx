@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Breadcrumb,
   Divider,
@@ -9,11 +10,9 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { SiteImage } from "@/site/components/SiteImage";
-import { SiteLink } from "@/site/components/SiteLink";
-import type { ReactNode } from "react";
-
-import { href } from "@/site/rendering";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { SiteImage } from "@/site/components/media/SiteImage";
 import {
   hydratePageData,
   type PageDataProps,
@@ -21,8 +20,7 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { SiteLayout } from "@/site/components/SiteLayout";
-
+import { href } from "@/site/rendering";
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from ja/teaparty/2016/index.pug; edit this TSX source directly. */

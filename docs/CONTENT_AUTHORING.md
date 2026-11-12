@@ -34,8 +34,8 @@ export const getStaticProps = localizedPageProps(Page, "/example/", {
 ```tsx
 // components/example/index.tsx
 import { Header, Segment } from "react-fomantic-ui";
-import { ProjectPage } from "@/site/components/ProjectPage";
-import { LocalizedContent } from "@/site/components/LocalizedContent";
+import { ProjectPage } from "@/site/components/projects/ProjectPage";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
 import type { PageDataProps } from "@/site/page-data";
 
 export default function Page({ pageData }: PageDataProps) {
@@ -76,8 +76,8 @@ export default function Page({ pageData }: PageDataProps) {
 
 ```tsx
 import { Button } from "react-fomantic-ui";
-import { SiteLink } from "@/site/components/SiteLink";
-import { useSiteContext } from "@/site/components/SiteContext";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { useSiteContext } from "@/site/hooks/useSiteContext";
 
 function ProjectLink() {
   const { basePath, en } = useSiteContext();
@@ -112,19 +112,19 @@ import { Grid } from "react-fomantic-ui";
 
 ## 画像と埋め込み
 
-| 用途                             | 使う部品                                                                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| レスポンシブ画像                 | `site/components/SiteImage` の `SiteImage`。`alt` と、必要に応じて `fluid`・`bordered`・`sizes` を指定する                   |
-| リンク付き画像                   | `site/components/LinkedImage` の `LinkedImage` で `SiteImage` を囲む。`href` と外側の装飾は `LinkedImage` に指定する         |
-| クリック・キー操作で開く埋め込み | `site/components/DeferredEmbed` の `DeferredEmbed` にURLまたは動画情報とプレースホルダーを指定する                           |
-| 本文を持つポップアップ           | `site/components/SiteWidgets` の `SitePopup`。`trigger` に操作要素、childrenに内容を指定する                                 |
-| 拡大画像                         | `SiteWidgets` の `ModalImage` で `SiteImage` を囲み、ページ内に `SiteModal` を一つ置く。`components/design/index.tsx` を参照 |
-| ナビゲーションメニュー           | `SiteWidgets` の `NavigationDropdown`。使用例は `site/components/SiteLayout.tsx` を参照                                      |
-| コピー操作                       | `site/components/InteractiveLinks` の `CopyButton` に `data-clipboard-text` と `lang` を指定する                             |
+| 用途                             | 使う部品                                                                                                                            |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| レスポンシブ画像                 | `site/components/media/SiteImage` の `SiteImage`。`alt` と、必要に応じて `fluid`・`bordered`・`sizes` を指定する                    |
+| リンク付き画像                   | `site/components/media/LinkedImage` の `LinkedImage` で `SiteImage` を囲む。`href` と外側の装飾は `LinkedImage` に指定する          |
+| クリック・キー操作で開く埋め込み | `site/components/media/DeferredEmbed` の `DeferredEmbed` にURLまたは動画情報とプレースホルダーを指定する                            |
+| 本文を持つポップアップ           | `site/components/widgets/SitePopup`。`trigger` に操作要素、childrenに内容を指定する                                                 |
+| 拡大画像                         | `site/components/widgets/ModalImage` で `SiteImage` を囲み、ページ内に `SiteModal` を一つ置く。`components/design/index.tsx` を参照 |
+| ナビゲーションメニュー           | `site/components/widgets/NavigationDropdown`。使用例は `site/components/layout/SiteLayout.tsx` を参照                               |
+| コピー操作                       | `site/components/links/CopyButton` に `data-clipboard-text` と `lang` を指定する                                                    |
 
 ```tsx
-import { LinkedImage } from "@/site/components/LinkedImage";
-import { SiteImage } from "@/site/components/SiteImage";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
 
 <LinkedImage fluid href="/example/detail.jpg">
   <SiteImage src="/example/detail-thumbnail.jpg" alt="試作品の拡大写真" />
@@ -160,7 +160,10 @@ npm run preview
 
 ```json
 {
-  "en": { "label": "Example Best Paper Award", "url": "https://example.org/awards/" },
+  "en": {
+    "label": "Example Best Paper Award",
+    "url": "https://example.org/awards/"
+  },
   "ja": { "after": " 受賞" }
 }
 ```
@@ -174,3 +177,9 @@ npm run preview
 `/projects/?tag=music` や `/ja/projects/?tag=anime` のように、研究一覧のタグをクエリパラメータ `tag` で指定できます。サイドバーで一つ選択し、「すべて」または本文のフィルタ案内の閉じるアイコンで解除します。タグ候補と件数は公開されている研究プロジェクトの `tags` から生成されます。選択したタグと同じIDの公開プロジェクトがある場合はトップページの研究トピックと同じパネル画像・見出しリンク・説明文の特別枠に表示し、通常の研究一覧からは除いて重複を防ぎます。タグ自身が付いていない概念プロジェクトも特別枠の対象です。デザイン・開発一覧は絞り込みません。タグ切り替えは履歴に残り、再読み込みや言語切り替えでも復元できます。未知のタグは全件表示として扱います。
 
 静的HTMLには全件を含め、読み込み後にブラウザーで絞り込みます。クエリごとのページ生成やサーバー処理は不要です。JavaScriptが無効な場合も全件の閲覧は可能です。有効なタグを指定した直アクセス時だけ、Reactの初期化が終わるまで研究一覧を読み込み表示にし、全件状態のちらつきを抑えます。ページ内のタグ切り替えではページを再マウントしません。
+
+## 共通コンポーネントの配置
+
+`site/components/` は機能別フォルダに分け、内部部品も含め1コンポーネント1ファイルとします。ファイル名はコンポーネント名に合わせ、各ファイルから直接importしてください。集約用の `index.ts` は作成しません。共有Context・型・補助関数は機能内の `.ts` ファイルに置きます。
+
+フックは `site/hooks/` に置き、Contextの定義と分けて管理します。

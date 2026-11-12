@@ -8,20 +8,18 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LocalizedContent } from "@/site/components/LocalizedContent";
-import {
-  EmbedYoutube,
-  ProjectHeader,
-  ProjectPublications,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { HtmlContent } from "@/site/components/RichText";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { LocalizedContent } from "@/site/components/content/LocalizedContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
+import { ProjectPublications } from "@/site/components/projects/ProjectPublications";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: message, abstract, extra. */

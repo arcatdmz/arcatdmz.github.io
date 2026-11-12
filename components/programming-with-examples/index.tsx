@@ -12,22 +12,19 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import {
-  MajorPublication,
-  Share,
-  Translate,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
-import { href } from "@/site/rendering";
+import { Translate } from "@/site/components/content/Translate";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { Share } from "@/site/components/links/Share";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { MajorPublication } from "@/site/components/publications/MajorPublication";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { href } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Both locales inherit the default content. */

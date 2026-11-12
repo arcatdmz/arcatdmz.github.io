@@ -7,12 +7,11 @@ import {
   Message,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
+import { LinkedImage } from "@/site/components/media/LinkedImage";
 // Restored from the original 2015 PHP lecture; edit this JSX directly.
-import { SiteLink } from "@/site/components/SiteLink";
-import { SiteImage } from "@/site/components/SiteImage";
-import { EmbedYoutube } from "@/site/components/ContentComponents";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { EmbedYoutube } from "@/site/components/media/EmbedYoutube";
+import { SiteImage } from "@/site/components/media/SiteImage";
 
 export function Chapter1({ active }: { active: boolean }) {
   return (

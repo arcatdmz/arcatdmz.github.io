@@ -1,8 +1,7 @@
 import { Divider, Header, Icon } from "react-fomantic-ui";
 
 // Restored from the original 2015 PHP lecture; edit this JSX directly.
-import { SiteLink } from "@/site/components/SiteLink";
-
+import { SiteLink } from "@/site/components/links/SiteLink";
 import { CodePlayground } from "./CodePlayground";
 export function Chapter1({ active }: { active: boolean }) {
   return (

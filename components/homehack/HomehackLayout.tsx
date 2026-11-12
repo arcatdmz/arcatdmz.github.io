@@ -1,10 +1,10 @@
+import type { ReactNode } from "react";
 import { Icon, Label, Menu } from "react-fomantic-ui";
 
-import type { ReactNode } from "react";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { ProjectHeader } from "@/site/components/projects/ProjectHeader";
 import { hydratePageData, type PageDataProps } from "@/site/page-data";
-import { ProjectHeader } from "@/site/components/ContentComponents";
-import { SiteLayout } from "@/site/components/SiteLayout";
-import { SiteLink } from "@/site/components/SiteLink";
 import { href } from "@/site/rendering";
 
 const projects = [

@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import type { GetStaticPropsContext } from "next";
+
 import type { Language, PageDataProps } from "./page-data";
 import { getPageData, type PageReferences } from "./page-data.server";
 import { withPageImages } from "./page-images.server";

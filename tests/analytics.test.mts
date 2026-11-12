@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+
 import { createPageTracker, measurementId } from "../site/analytics";
 
 test("initialization disables the automatic initial view and queues an explicit view", () => {

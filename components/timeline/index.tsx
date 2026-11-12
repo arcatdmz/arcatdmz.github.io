@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import {
   Button,
   Divider,
@@ -9,23 +10,20 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { SitePopup } from "@/site/components/SiteWidgets";
-import {
-  MediaItem,
-  ProjectItem,
-  Publication,
-} from "@/site/components/ContentComponents";
-import { SiteLink } from "@/site/components/SiteLink";
 import { buildYear } from "@/site/clock";
-import { type ReactNode } from "react";
-import { HtmlContent } from "@/site/components/RichText";
-import { keyed, href, attribute } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { SiteLink } from "@/site/components/links/SiteLink";
+import { MediaItem } from "@/site/components/media/MediaItem";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
+import { Publication } from "@/site/components/publications/Publication";
+import { SitePopup } from "@/site/components/widgets/SitePopup";
 import {
   hydratePageData,
   type PageDataProps,
   type SiteData,
 } from "@/site/page-data";
-import { SiteLayout } from "@/site/components/SiteLayout";
+import { attribute, href, keyed } from "@/site/rendering";
 import { type SiteContext } from "@/site/types";
 
 /** Shared page template. Japanese overrides: description. */

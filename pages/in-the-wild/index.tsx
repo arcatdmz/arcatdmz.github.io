@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Container,
   Divider,
@@ -8,14 +9,11 @@ import {
   Segment,
 } from "react-fomantic-ui";
 
-import { LinkedImage } from "@/site/components/LinkedImage";
-
-import { SiteImage } from "@/site/components/SiteImage";
-import { ProjectItem } from "@/site/components/ContentComponents";
-
-import type { ReactNode } from "react";
-import { HtmlContent } from "@/site/components/RichText";
-import { keyed, href } from "@/site/rendering";
+import { HtmlContent } from "@/site/components/content/HtmlContent";
+import { SiteLayout } from "@/site/components/layout/SiteLayout";
+import { LinkedImage } from "@/site/components/media/LinkedImage";
+import { SiteImage } from "@/site/components/media/SiteImage";
+import { ProjectItem } from "@/site/components/projects/ProjectItem";
 import {
   hydratePageData,
   type PageDataProps,
@@ -23,8 +21,7 @@ import {
 } from "@/site/page-data";
 import { getPageData } from "@/site/page-data.server";
 import { withPageImages } from "@/site/page-images.server";
-import { SiteLayout } from "@/site/components/SiteLayout";
-
+import { href, keyed } from "@/site/rendering";
 import type { SiteContext } from "@/site/types";
 
 /** React page migrated from in-the-wild/index.pug; edit this TSX source directly. */
